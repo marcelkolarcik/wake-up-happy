@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang = "en" >
+<head >
+    <meta charset = "UTF-8" >
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge" >
+    <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel = "stylesheet"
+          integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin = "anonymous" >
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+          integrity = "sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin = "anonymous" />
+    <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity = "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin = "" />
+    <link rel = "stylesheet" href = "https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" >
+    <link rel = "stylesheet" href = "https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" >
+    <link rel = "stylesheet" href = "assets/css/app.css" >
+    <title >Wake up happy !</title >
+</head >
+<body >
+<header >
+</header >
+<section id = "hero" >
+    <div class = "container-fluid" >
+        <div class = "row" >
+            <div class = "col-md-12 text-center mb-5 bg-success text-light mt-2" ><h1 >wake up happy</h1 ></div >
+            <div class = "container" >
+                <div class = "row" >
+                    <div class = "col-md-6" >
+                        <h4 class = "mb-2 text-center" >Search or find on map.</h4 >
+                        <form id = "search" action = "search.html" method = "get" >
+                            <div class = "col-auto" >
+                                <label class = "sr-only" for = "city" >City</label >
+                                <div class = "input-group mb-2" >
+                                    <div class = "input-group-prepend" >
+                                        <div class = "input-group-text bg-transparent border_bottom_only" >
+                                            <i class = "fas fa-city" ></i >
+                                        </div >
+                                    </div >
+                                    <input type = "text" name = "city"
+                                           class = "form-control form-control-lg border_bottom_only"
+                                           id = "city" placeholder = "City" required >
+                                </div >
+                            </div >
+                            <div class = "col-auto" >
+                                <div class = "input-group mb-2" >
+                                    <div class = "input-group-prepend" >
+                                        <div class = "input-group-text bg-transparent border_bottom_only" >
+                                            <i class = "fas fa-bed" ></i >
+                                        </div >
+                                    </div >
+                                    <select title = "Room type" name = "room_type"
+                                            class = "room_type form-control form-control-lg border_bottom_only "
+                                            id = "room_type" required >
+                                        <option value = "" disabled selected >Room type</option >
+                                        <option value = "1" >Single ( En Suite )</option >
+                                        <option value = "2" >Double ( En Suite )</option >
+                                    </select >
+                                </div >
+                            </div >
+                            <div class = "col-auto" >
+                                <div class = "input-group mb-2" >
+                                    <div class = "input-group-prepend" >
+                                        <div class = "input-group-text bg-transparent border_bottom_only" >
+                                            <i class = "fas fa-utensils" ></i >
+                                        </div >
+                                    </div >
+                                    <select title = "Board type" name = "board_type"
+                                            class = "board_type form-control form-control-lg border_bottom_only "
+                                            id = "board_type" required >
+                                        <option value = "" disabled selected >Board type</option >
+                                        <option value = "1" >Room only</option >
+                                        <option value = "2" >Bed & Breakfast</option >
+                                        <option value = "3" >Breakfast & Dinner</option >
+                                        <option value = "4" >All inclusive</option >
+                                    </select >
+                                </div >
+                            </div >
+                            <div class = "text-right" >
+                                <button class = "btn  btn-lg btn-info"
+                                        title = "Search for your property" >
+                                    <span >Search</span >
+                                </button >
+                            </div >
+                        </form >
+                    </div >
+                    <div id = "api_open_maps" class = "col-md-6" >
+                        <!-- LEAFLET -->
+                        <div id = "map" class = "border border-info" ></div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</section >
+<section id = "content" >
+    <div class = "container" >
+        <div class = "row"  style="height: 600px;">
+        
+        </div >
+    </div >
+</section >
+<footer >
+    <ul class = "social-networks" >
+        <li ><a href = "https://facebook.com" target = "_blank" >
+            <i class = "fab fa-facebook" ></i >
+        </a ></li >
+        <li ><a href = "https://twitter.com" target = "_blank" >
+            <i class = "fab fa-twitter" ></i >
+        </a ></li >
+        <li ><a href = "https://instagram.com" target = "_blank" >
+            <i class = "fab fa-instagram" ></i >
+        </a ></li >
+        <li ><a href = "https://youtube.com" target = "_blank" >
+            <i class = "fab fa-youtube" ></i >
+        </a ></li >
+    </ul >
+</footer >
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<!-- leaflet maps -->
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"
+        integrity = "sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin = "anonymous" ></script >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet-src.js"
+        integrity = "sha256-wc8X54qvAHZGQY6nFv24TKlc3wtO0bgAfqj8AutTIu0=" crossorigin = "anonymous" ></script >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
+        integrity = "sha256-WL6HHfYfbFEkZOFdsJQeY7lJG/E5airjvqbznghUzRw=" crossorigin = "anonymous" ></script >
+<script src = "assets/js/open_maps/DB_data.js" ></script >
+<script src = "assets/js/open_maps/clusters.js" ></script >
+<!--end leaflet maps -->
+<script
+        src = "https://code.jquery.com/jquery-3.4.1.js"
+        integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin = "anonymous" ></script >
+<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin = "anonymous" ></script >
+</body >
+</html >

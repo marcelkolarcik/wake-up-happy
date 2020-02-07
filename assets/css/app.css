@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300|Oswald&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	}
+
+body {
+	font-family: "Lato", sans-serif;
+	color: #777777;
+	}
+
+h2 , h3 , h4{
+	font-family: Oswald, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: #635b4e;
+	}
+.vertically_aligned {
+	margin: auto 0;
+	}
+
+.horizontally_aligned {
+	margin: 0 auto;
+	}
+.no_border {
+	border: none;
+	}
+.border_bottom_only {
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	}
+
+form input:hover, form select:hover {
+	background-color: rgba(15, 190, 186, 0.2);
+	}
+/*map holder*/
+#map {
+	min-height: 360px;
+	}
+.social-networks {
+	text-align: center;
+	}
+
+.social-networks li {
+	display: inline;
+	}
+
+.social-networks i {
+	font-size: 160%;
+	color: #777777;
+	margin: 1%;
+	padding: 5%;
+	}
