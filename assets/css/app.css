@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300|Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,800|Oswald&display=swap');
 
 * {
 	margin: 0;
@@ -11,11 +11,59 @@ body {
 	color: #777777;
 	}
 
-h2 , h3 , h4{
+h2 , h3 , h4,.nav_link{
 	font-family: Oswald, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 4px;
 	color: #635b4e;
+	}
+.nav_link_property{
+	font-family: Oswald, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: #635b4e;
+	font-size: 0.8em;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 0;
+	}
+.logo{
+	font-family: "Lato", sans-serif;
+	letter-spacing: 4px;
+	color: #fafafa;
+	font-size: 2em;
+	font-weight: bold;
+	}
+.logo_small{
+	font-family: "Lato", sans-serif;
+	letter-spacing: 4px;
+	color: #fafafa;
+	font-size: 1.3em;
+	font-weight: bolder;
+	}
+.bg_green {
+	background-color: #0fbeba;
+	}
+.border_green{
+	border: 1px solid  #0fbeba;
+	}
+.border_green:hover{
+	background-color: rgba(0,195,209, 0.2);
+	}
+/*changing default blue active class color to match website colors*/
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+	z-index:2;
+	color:#ffffff;
+	background-color:#0fbeba;
+	border-color:#0fbeba;
+	border-radius: 0;
+	}
+.price{
+	font-family: Oswald, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: #635b4e;
+	font-size: 1.1em;
 	}
 .vertically_aligned {
 	margin: auto 0;
@@ -33,8 +81,8 @@ h2 , h3 , h4{
 	border-right: 0;
 	}
 
-form input:hover, form select:hover {
-	background-color: rgba(15, 190, 186, 0.2);
+ input:hover,  select:hover {
+	background-color: rgba(0,195,209, 0.2);
 	}
 /*map holder*/
 #map {
