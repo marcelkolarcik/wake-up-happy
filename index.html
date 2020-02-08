@@ -17,6 +17,17 @@
     <link rel = "stylesheet" href = "assets/css/app.css" >
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css" integrity="sha256-2bAj1LMT7CXUYUwuEnqqooPb1W0Sw0uKMsqNH0HwMa4=" crossorigin="anonymous" />
+   
+    <script type = "text/javascript"
+            src = "https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js" >
+    </script >
+    <script type = "text/javascript" >
+		( function () {
+			emailjs.init( "user_u9DHLEY5pqVNI1dVmPDg6" );
+		} )();
+    </script >
+    
+    
     <title >Wake up happy !</title >
 </head >
 <body >
@@ -43,13 +54,9 @@
                     Landlord ?
                 </span>
             </li>
-            <li class="nav-item pr-3">
-                <span class="form-inline my-2 my-md-0 text-light nav_link">
-                    Login
-                </span>
-            </li>
+           
             <li class="nav-item dropdown">
-                <a class="nav_link dropdown-toggle text-light" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                <a class="nav_link dropdown-toggle text-light" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src = "assets/images/en_flag.png"  style="width:40px;"  alt = "logo image" ></a></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown03">
                     <a class="dropdown-item" href="#">English</a>
                     <a class="dropdown-item" href="#">franse</a>
@@ -72,7 +79,7 @@
                         <h4 class = "mb-2 text-center" >Search or find on map.</h4 >
                         
                         <div class = "col-auto" >
-                            <label class = "sr-only" for = "city" >City</label >
+                            <label class = "sr-only" for = "city" > City</label >
                             <div class = "input-group mb-2" >
                                 <div class = "input-group-prepend" >
                                     <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -81,7 +88,7 @@
                                 </div >
                                 <input type = "text" name = "city"
                                        class = "form-control form-control-lg border_bottom_only"
-                                       id = "city" placeholder = "City" required >
+                                       id = "city" placeholder = "&nbsp;City" required >
                             </div >
                         </div >
                         <div class = "col-auto" >
@@ -112,7 +119,7 @@
                                 <select title = "Board type" name = "board_type"
                                         class = "board_type form-control form-control-lg border_bottom_only"
                                         id = "board_type" required >
-                                    <option value = "" disabled selected >Board type</option >
+                                    <option value = "" disabled selected >&nbsp;&nbsp;Board type</option >
                                     <option value = "0" >Any</option >
                                     <option value = "1" >Room only</option >
                                     <option value = "2" >Bed & Breakfast</option >
@@ -194,5 +201,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js" integrity="sha256-7OUNnq6tbF4510dkZHCRccvQfRlV3lPpBTJEljINxao=" crossorigin="anonymous"></script>
 <script src="assets/js/search.js"></script>
+<script src = "assets/js/mailjs.js" ></script >
 </body >
 </html >

@@ -102,3 +102,6 @@ h2 , h3 , h4,.nav_link{
 	margin: 1%;
 	padding: 5%;
 	}
+.btn{
+	border-radius: 0;
+	}
