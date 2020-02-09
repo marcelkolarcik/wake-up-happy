@@ -1,4 +1,4 @@
-function sendMail( contactForm ) {
+function sendMail( contactForm, p_id ) {
 	
 	
 	

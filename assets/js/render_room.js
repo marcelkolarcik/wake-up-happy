@@ -1,18 +1,25 @@
-/*clicking on more... link on the map in popup*/
-$( document ).on( "click", ".property_popup", function (  ) {
-	
+function render_room(p_id,image_id)
+{
 	var search_results = $( '#search_results' );
 	
+	counter = 0;
 	
-	search_results.html( '' );
 	
-	var p_id = $(this).attr('id');
-	var image_id = $(this).data('image_id');
-	var food_id = image_id % 3 +1;
+	let  room_types =[
+		'Single ( En Suite )',
+		'Double ( En Suite )',
+	];
+	
+	let board_types  =  [
+		'Room only',
+		'Bed & Breakfast',
+		'Breakfast & Dinner',
+		'All Inclusive'
+	];
+	
 	var property = properties[p_id];
 	
-	render_room(p_id,image_id);
-	/*search_results.append( `
+	search_results.append( `
 
 <div class = "card mb-3 mt-3" >
     <div class = "row no-gutters" >
@@ -61,7 +68,7 @@ $( document ).on( "click", ".property_popup", function (  ) {
                 <div class = "tab-pane" id = "amenities_${p_id}" role = "tabpanel" >...Amenities</div >
                 <div class = "tab-pane" id = "book_${p_id}" role = "tabpanel" >
                     <div class = "center-form" >
-                        <form onsubmit = "return sendMail(this);" >
+                        <form onsubmit = "return sendMail(this,${property.p_id});" >
                             
                             <div class = "col-auto" >
                                 <label class = "sr-only" for = "room_details" >Room</label >
@@ -79,7 +86,7 @@ $( document ).on( "click", ".property_popup", function (  ) {
                                 </div >
                             </div >
                              <div class = "col-auto" >
-                                <label class = "sr-only" for = "weeks" >Weeks</label >
+                                <label class = "sr-only" for = "weeks_${property.p_id}" >Weeks</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -88,14 +95,14 @@ $( document ).on( "click", ".property_popup", function (  ) {
                                     </div >
                                     <input type = "text" name = "weeks"
                                            class = "form-control  border_bottom_only bg_green_light"
-                                           id = "weeks" placeholder = "Week(s) booked"
+                                           id = "weeks_${property.p_id}" placeholder = "Week(s) booked"
                                            value = "Weeks booked : "
                                            required readonly >
                                 </div >
                             </div >
                             
                              <div class = "col-auto" >
-                                <label class = "sr-only" for = "total_price" >Total price</label >
+                                <label class = "sr-only" for = "total_price_${property.p_id}" >Total price</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -104,7 +111,7 @@ $( document ).on( "click", ".property_popup", function (  ) {
                                     </div >
                                     <input type = "text" name = "total_price"
                                            class = "form-control  border_bottom_only bg_green_light"
-                                           id = "total_price" placeholder = "Total price"
+                                           id = "total_price_${property.p_id}" placeholder = "Total price"
                                            value = ""
                                            required readonly >
                                 </div >
@@ -194,139 +201,5 @@ $( document ).on( "click", ".property_popup", function (  ) {
     </div >
 </div >
 				
-				` );*/
-	
-	render_gallery(property,food_id);
-	/*var gallery = $('#gallery_'+p_id);
-//		Bed & Breakfast
-	if(property.board_type === 1 )
-	{
-		gallery.append(`
-			<div class="d-flex justify-content-around mt-3">
-			  <div class="card" style="width: 10rem;">
-				  <img src="assets/images/views/${property.p_view}.jpg" class="card-img-top" alt="...">
-				  <div class="card-footer p-0 ">
-				    <p class="card-text text-center"><span class="text-capitalize">${property.p_view}</span> view</p>
-				  </div>
-				</div>
-				
-				<div class="card" style="width: 10rem;">
-				  <img src="assets/images/breakfast/br_${food_id}.jpg" class="card-img-top" alt="...">
-				  <div class="card-footer p-0 ">
-				    <p class="card-text text-center">Style of breakfast</p>
-				  </div>
-				</div>
-			</div>
-			`);
-	}
-	//		Breakfast & Dinner
-	else if (property.board_type === 2  ) {
-		gallery.append(`
-			
-			
-			<div class="d-flex justify-content-around mt-3">
-			<div class="card" style="width: 10rem;">
-				  <img src="assets/images/views/${property.p_view}.jpg" class="card-img-top" alt="...">
-				  <div class="card-footer p-0 ">
-				    <p class="card-text text-center"><span class="text-capitalize">${property.p_view}</span> view</p>
-				  </div>
-				</div>
-				
-			<div class="card" style="width: 10rem;">
-			  <img src="assets/images/breakfast/br_${food_id}.jpg" class="card-img-top" alt="...">
-			  <div class="card-footer p-0">
-			    <p class="card-text text-center">Style of breakfast</p>
-			  </div>
-			</div>
-			<div class="card" style="width: 10rem;">
-			  <img src="assets/images/lunch/l_${food_id}.jpg" class="card-img-top" alt="...">
-			  <div class="card-footer p-0">
-			    <p class="card-text text-center">Style of lunch</p>
-			  </div>
-			</div>
-			</div>
-			`);
-	}
-	//		All Inclusive
-	else if (property.board_type === 3  ) {
-		gallery.append(`
-
-			
-			
-			<div class="d-flex justify-content-around mt-3">
-			<div class="card" style="width: 10rem;">
-				  <img src="assets/images/views/${property.p_view}.jpg" class="card-img-top" alt="...">
-				  <div class="card-footer p-0 ">
-				    <p class="card-text text-center"><span class="text-capitalize">${property.p_view}</span> view</p>
-				  </div>
-				</div>
-			<div class="card" style="width: 10rem;">
-			  <img src="assets/images/breakfast/br_${food_id}.jpg" class="card-img-top" alt="...">
-			  <div class="card-footer p-0">
-			    <p class="card-text text-center">Style of breakfast</p>
-			  </div>
-			</div>
-			<div class="card" style="width: 10rem;">
-			  <img src="assets/images/lunch/l_${food_id}.jpg" class="card-img-top" alt="...">
-			  <div class="card-footer p-0">
-			    <p class="card-text text-center">Style of lunch</p>
-			  </div>
-			</div>
-			<div class="card" style="width: 10rem;">
-			  <img src="assets/images/dinner/d_${food_id}.jpg" class="card-img-top" alt="...">
-			  <div class="card-footer p-0">
-			    <p class="card-text text-center ">Style of dinner</p>
-			  </div>
-			</div>
-			</div>
-			`);
-	}
-//	room only
-	else
-	{
-		gallery.append(`
-			<div class="d-flex justify-content-around align-items-start">
-				<div class="card" style="width: 10rem;">
-				  <img src="assets/images/views/${property.p_view}.jpg" class="card-img-top" alt="...">
-				  <div class="card-footer p-0 ">
-				    <p class="card-text text-center">Style of view</p>
-				  </div>
-				</div>
-				<div class="card" style="width: 10rem;">
-				   <img src="assets/images/bedrooms/b${image_id}.jpg" class="card-img" alt="property image">
-				  <div class="card-footer p-0 ">
-				    <p class="card-text text-center">Room only rate</p>
-				  </div>
-				</div>
-			</div>
-			`);
-	}*/
-	
-	render_booking_calendar(property);
-	/*var current_week = current_date.getWeek();
-	
-	var bookings = $('#bookings_'+p_id);
-	while ( current_week < 54 )
-	{
-		
-//			booked out weeks
-		if(property.bookings.indexOf(current_week) !== -1)
-		{
-			bookings.append(`
-				<div class="col img-thumbnail  bg_orange " title="booked already !"> <span> ${current_week}</span></div>
-			`);
-		}
-//			   available weeks
-		else
-		{
-			bookings.append(`
-				<div class="col img-thumbnail week bg_green " title="week: ${current_week} - available !"  data-week="${current_week}" data-price="${property.p_price_per_w}"> <span> ${current_week}</span></div>
-			`);
-		}
-		
-		current_week++;
-	}*/
-	
-	
-});
-
+				` );
+}
