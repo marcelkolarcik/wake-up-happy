@@ -27,6 +27,14 @@ h2 , h3 , h4,.nav_link{
 	padding-bottom: 5px;
 	border-radius: 0;
 	}
+span.nav_link_property{
+	text-transform: none;
+	font-size:0.9em;
+	}
+.availability.nav_link_property{
+	font-size:1.2em;
+	text-transform: uppercase;
+	}
 .logo{
 	font-family: "Lato", sans-serif;
 	letter-spacing: 4px;
@@ -44,11 +52,20 @@ h2 , h3 , h4,.nav_link{
 .bg_green {
 	background-color: #0fbeba;
 	}
+.bg_green_light{
+	background-color: rgba(0,195,209, 0.2);
+	}
 .border_green{
 	border: 1px solid  #0fbeba;
 	}
 .border_green:hover{
 	background-color: rgba(0,195,209, 0.2);
+	}
+.bg_orange {
+	background-color: #ffdd00;
+	}
+.border_orange{
+	border: 1px solid  #ffdd00;
 	}
 /*changing default blue active class color to match website colors*/
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
@@ -104,4 +121,12 @@ h2 , h3 , h4,.nav_link{
 	}
 .btn{
 	border-radius: 0;
+	}
+.week{
+	cursor: pointer;
+	color: #fafafa;
+	}
+.week:hover{
+	background-color: #adff02;  /*light green*/
+	color: #777777;
 	}

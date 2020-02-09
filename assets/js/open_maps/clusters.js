@@ -37,7 +37,7 @@
 	 <br>room: ${room_types[property.room_type]}
 	 <br>view: ${property.p_view}
 	 <br> <h6 class="bg_green text-light p-2 mt-2">${property.p_price_per_w}&nbsp;EUR <small>per week</small></h6><br>
-	 <a class="property_pop" id="${property.p_id}" data-image_id="${image_id}" href="#" >more...</a>
+	 <a class="property_popup btn btn-sm bg_green text-light" title="See more information about the room." id="${property.p_id}" data-image_id="${image_id}" href="#" >more...</a>
 
 
 ` );
