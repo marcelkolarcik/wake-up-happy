@@ -1,23 +1,22 @@
-function render_room(p_id,image_id)
-{
-	var search_results = $( '#search_results' );
+function render_room( p_id, image_id, where ) {
+	var where_div = '#' + where;
+	var search_results = $( where_div );
 	
 	counter = 0;
 	
-	
-	let  room_types =[
+	let room_types = [
 		'Single ( En Suite )',
-		'Double ( En Suite )',
+		'Double ( En Suite )'
 	];
 	
-	let board_types  =  [
+	let board_types = [
 		'Room only',
 		'Bed & Breakfast',
 		'Breakfast & Dinner',
 		'All Inclusive'
 	];
 	
-	var property = properties[p_id];
+	var property = properties[ p_id ];
 	
 	search_results.append( `
 
@@ -47,8 +46,8 @@ function render_room(p_id,image_id)
                 <div class = "tab-pane active" id = "about_${p_id}" role = "tabpanel" >
                     <div class = "card-body" >
                         <h4 class = "" >
-                            <span class = "text-capitalize" >${property.city} | ${room_types[property.room_type]} |
-                                                             ${board_types[property.board_type]}
+                            <span class = "text-capitalize" >${property.city} | ${room_types[ property.room_type ]} |
+                                                             ${board_types[ property.board_type ]}
                             </span >
                         </h4 >
                         <p class = "card-text" >${property.p_description}</p >
@@ -68,7 +67,7 @@ function render_room(p_id,image_id)
                 <div class = "tab-pane" id = "amenities_${p_id}" role = "tabpanel" >...Amenities</div >
                 <div class = "tab-pane" id = "book_${p_id}" role = "tabpanel" >
                     <div class = "center-form" >
-                        <form onsubmit = "return sendMail(this,${property.p_id});" >
+                        <form onsubmit = "return sendMail(this,${image_id});" >
                             
                             <div class = "col-auto" >
                                 <label class = "sr-only" for = "room_details" >Room</label >
@@ -81,12 +80,12 @@ function render_room(p_id,image_id)
                                     <input type = "text" name = "room_details"
                                            class = "form-control  border_bottom_only bg_green_light"
                                            id = "room_details" placeholder = "Room"
-                                           value = "property id : ${property.p_id}  |${property.city}  | ${room_types[property.room_type]} | ${board_types[property.board_type]}| ${property.p_price_per_w} EUR"
+                                           value = "property id : ${property.p_id}  |${property.city}  | ${room_types[ property.room_type ]} | ${board_types[ property.board_type ]}| ${property.p_price_per_w} EUR"
                                            required readonly >
                                 </div >
                             </div >
                              <div class = "col-auto" >
-                                <label class = "sr-only" for = "weeks_${property.p_id}" >Weeks</label >
+                                <label class = "" for = "weeks_${property.p_id}" >Week(s) booked</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -95,14 +94,14 @@ function render_room(p_id,image_id)
                                     </div >
                                     <input type = "text" name = "weeks"
                                            class = "form-control  border_bottom_only bg_green_light"
-                                           id = "weeks_${property.p_id}" placeholder = "Week(s) booked"
-                                           value = "Weeks booked : "
+                                           id = "weeks_${property.p_id}" placeholder = ""
+                                           value = ""
                                            required readonly >
                                 </div >
                             </div >
                             
                              <div class = "col-auto" >
-                                <label class = "sr-only" for = "total_price_${property.p_id}" >Total price</label >
+                                <label class = "" for = "total_price_${property.p_id}" >Total price</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -111,7 +110,7 @@ function render_room(p_id,image_id)
                                     </div >
                                     <input type = "text" name = "total_price"
                                            class = "form-control  border_bottom_only bg_green_light"
-                                           id = "total_price_${property.p_id}" placeholder = "Total price"
+                                           id = "total_price_${property.p_id}" placeholder = ""
                                            value = ""
                                            required readonly >
                                 </div >
@@ -185,10 +184,11 @@ function render_room(p_id,image_id)
                                     <textarea rows = "2" name = "request_of_property"
                                               class = "form-control form-control-lg border_bottom_only mb-2"
                                               id = "request_of_property"
-                                              placeholder = "Any Requests..." required ></textarea >
+                                              placeholder = "Any Requests..."  ></textarea >
                                 </div >
                             </div >
                             <div class = "col-auto text-center" >
+                            <div id="loader_holder"></div>
                                 <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
                                    Submit & Pay
                                 </button >
