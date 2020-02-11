@@ -107,6 +107,10 @@ span.nav_link_property {
 .bg_green_light_g {
 	background-color: rgba(157, 192, 46, 0.5);
 	}
+
+.bg_grey_light {
+	background-color:rgba(118, 136, 148, 0.5);
+	}
 /*changing default blue active class color to match website colors*/
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
 	z-index: 2;
@@ -246,4 +250,36 @@ input:hover, select:hover {
 	margin-left: -20px;
 	overflow: hidden;
 	pointer-events: none;
+	}
+
+/*AUTO COMPLETE CSS*/
+.autocomplete-items {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 13%; /* was 0 changed to 8% to allow for the icon*/
+	right: 0;
+	}
+
+.autocomplete-items div {
+	padding: 10px;
+	cursor: pointer;
+	background-color:#b0edeb;
+	border-bottom: 1px solid #d4d4d4;
+	}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+	background-color:rgba(0, 195, 209, 1);
+	color:#fafafa;
+	}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+	background-color: DodgerBlue !important;
+	color: #ffffff;
 	}

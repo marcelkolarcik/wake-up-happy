@@ -68,8 +68,13 @@ function render_room( p_id, image_id, where ) {
                 <div class = "tab-pane" id = "book_${p_id}" role = "tabpanel" >
                     <div class = "center-form" >
                         <form onsubmit = "return sendMail(this,${image_id});" >
-                            
-                            <div class = "col-auto" >
+                            <div class="row">
+	                            <div class="col-md-6">
+	                            <div class="bg_green text-light text-center  mt-1">
+	                            	Room details
+								</div>
+	                             <div class = "col-auto" >
+	                             
                                 <label class = "sr-only" for = "room_details" >Room</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
@@ -78,9 +83,9 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "room_details"
-                                           class = "form-control  border_bottom_only bg_green_light"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "room_details" placeholder = "Room"
-                                           value = "property id : ${property.p_id}  |${property.city}  | ${room_types[ property.room_type ]} | ${board_types[ property.board_type ]}| ${property.p_price_per_w} EUR"
+                                           value = "${property.city} | ${room_types[ property.room_type ]} | ${board_types[ property.board_type ]}"
                                            required readonly >
                                 </div >
                             </div >
@@ -93,7 +98,7 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "weeks"
-                                           class = "form-control  border_bottom_only bg_green_light"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "weeks_${property.p_id}" placeholder = ""
                                            value = ""
                                            required readonly >
@@ -109,7 +114,7 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "total_price"
-                                           class = "form-control  border_bottom_only bg_green_light"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "total_price_${property.p_id}" placeholder = ""
                                            value = ""
                                            required readonly >
@@ -124,7 +129,7 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "name"
-                                           class = "form-control  border_bottom_only"
+                                           class = "form-control form-control-sm border_bottom_only"
                                            id = "fullname" placeholder = "Full Name" required >
                                 </div >
                             </div >
@@ -137,11 +142,16 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "email_of_user"
-                                           class = "form-control  border_bottom_only"
+                                           class = "form-control form-control-sm  border_bottom_only"
                                            id = "email_of_user" placeholder = "Email" required >
                                 </div >
                             </div >
-                            <div class = "col-auto " >
+								</div>
+								<div class="col-md-6">
+								 <div class="bg_green text-light text-center mt-1">
+	                            	Payment details
+								</div>
+                             <div class = "col-auto " >
                         <label class = "sr-only" for = "card_holder_name" >Card Holder Name:</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
@@ -149,7 +159,7 @@ function render_room( p_id, image_id, where ) {
                                     <i class = "far fa-user" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control
+                            <input type = "text" class = "form-control form-control-sm
 							        			border_bottom_only" id = "card_holder_name" name = "card_holder_name"
                                    placeholder = "Card Holder Name" required >
                         </div >
@@ -162,7 +172,7 @@ function render_room( p_id, image_id, where ) {
                                     <i class = "far fa-credit-card" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control  border_bottom_only"
+                            <input type = "text" class = "form-control form-control-sm  border_bottom_only"
                                    id = "card_numder" placeholder = "Card Number" name = "card_number" required >
                         </div >
                     </div >
@@ -174,7 +184,7 @@ function render_room( p_id, image_id, where ) {
                                     <i class = "fas fa-credit-card" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control  border_bottom_only"
+                            <input type = "text" class = "form-control form-control-sm  border_bottom_only"
                                    id = "cvv" placeholder = "CVV" required name = "cvv" >
                         </div >
                     </div >
@@ -182,7 +192,7 @@ function render_room( p_id, image_id, where ) {
                                 <label class = "sr-only" for = "request_of_property" >Property Request</label >
                                 <div class = "input-group mb-2" >
                                     <textarea rows = "2" name = "request_of_property"
-                                              class = "form-control form-control-lg border_bottom_only mb-2"
+                                              class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2"
                                               id = "request_of_property"
                                               placeholder = "Any Requests..."  ></textarea >
                                 </div >
@@ -193,6 +203,11 @@ function render_room( p_id, image_id, where ) {
                                    Submit & Pay
                                 </button >
                             </div >
+								</div>
+        
+							</div>
+                        
+                        
                         </form >
                     </div >
                 </div >

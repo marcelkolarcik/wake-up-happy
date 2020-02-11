@@ -1,5 +1,8 @@
 
-$(function() {
+function featured_rooms()
+{
+	
+	$('#form_search_results').append(` <div class = "img-thumbnail mt-3" >Featured properties</div >`);
 	let e =0;
 	let randoms = [];
 	while( e < 3)
@@ -21,4 +24,7 @@ $(function() {
 			e++;
 		}
 	}
-});
+}
+/// because when we load index.html we want to show user some feature rooms on document ready
+$(function() { featured_rooms() });
+
