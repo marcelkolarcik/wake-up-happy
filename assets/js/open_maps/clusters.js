@@ -31,6 +31,7 @@
 		var property = properties[ room ];
 		var image_id = (property.p_id % 16) + 1;
 		var marker = L.marker( new L.LatLng( property.lat, property.lng ), { title: property.city } );
+		
 		marker.bindPopup( `<img src="assets/images/bedrooms/b${image_id }_s.jpg"   alt = "property image"
 	 style="width:140px;height:70px;">
 	 <br><b><span class="text-capitalize">${property.city}</span></b>
@@ -38,7 +39,11 @@
 	 <br>room: ${room_types[property.room_type]}
 	 <br>view: ${property.p_view}
 	 <br> <h6 class="bg_green text-light p-2 mt-2">${property.p_price_per_w}&nbsp;EUR <small>per week</small></h6><br>
-	 <a class="property_popup btn btn-sm bg_green_light " title="See more information about the room." id="${property.p_id}" data-image_id="${image_id}" href="#" >more...</a>
+	 <a class="property_popup btn btn-sm bg_green_light "
+	  title="See more information about the room."
+	  id="${property.p_id}"
+	  data-image_id="${image_id}"
+	  href="#" >more...</a>
 
 
 ` );
