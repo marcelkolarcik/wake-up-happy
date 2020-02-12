@@ -1,4 +1,4 @@
-function render_gallery(property,food_id)
+function render_gallery(property,food_id,image_id)
 {
 	
 	var gallery = $('#gallery_'+property.p_id);

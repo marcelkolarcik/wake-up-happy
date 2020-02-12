@@ -186,7 +186,7 @@ if ( localStorage.getItem( 'DB' ) ) {
 //	IF  DB IS IN LOCAL STORAGE ALREADY, WE WILL GET IT FROM THERE, NO RE-CREATING DB
 	// because local storage is storing strings we need to stringify our object on the way in and parse it on the way out
 	DB = JSON.parse( localStorage.getItem( 'DB' ) );
-	console.log( ' in localStorage' )
+	
 }
 else {
 	//	IF  IT IS FIRST REQUEST, DB NOT IN LOCAL STORAGE, WE WILL CREATE IT AND STORE IN LOCAL STORAGE FOR FUTURE USE
@@ -215,10 +215,11 @@ else {
 	if ( storageAvailable( 'localStorage' ) ) {
 		// because local storage is storing strings we need to stringify our object on the way in and parse it on the way out
 		localStorage.setItem( 'DB', JSON.stringify( DB ) );
-		console.log( 'pushed in localStorage' )
+	
 	}
 	else {
-		console.log( 'not in localStorage' )
+		
+		console.log( 'Your browser doesn\'t have local storage. You won\'t be able to experience the website fully.' )
 	}
 	
 }

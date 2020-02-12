@@ -4,7 +4,7 @@ function render( property, image_id, where ) {
 	// ( breakfast style, lunch style, dinner style)and i have only 3 images per style ...
 	
 	render_room( property, image_id, where );
-	render_gallery( property, food_id );
+	render_gallery( property, food_id,image_id );
 	render_amenities( property );
 	render_booking_calendar( property );
 }

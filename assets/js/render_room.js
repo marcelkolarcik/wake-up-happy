@@ -59,13 +59,16 @@ function render_room( property, image_id, where ) {
             <div class = "tab-content" >
                 <div class = "tab-pane active" id = "about_${property.p_id}" role = "tabpanel" >
                     <div class = "card-body " >
-                        <span class="pl-2 d-none d-md-block text-capitalize" >
+                        	<span class="pl-2 d-none d-md-block text-capitalize" >
 											<h4 class="nav_link_property">			${property.city} | ${room_types[ property.room_type ]} |
                                                              ${board_types[ property.board_type ]}
                                              </h4>
-             </span >
+             				</span >
                         <p class = "card-text" >${property.p_description}</p >
                     </div >
+                    <span class="btn btn-sm bg_green text-light float-right mr-3"
+						title="Show room on the map..."
+						 onclick=show_on_map(${property.lat},${property.lng},${property.p_id});>show on map</span>
                 </div >
                 <div class = "tab-pane" id = "gallery_${property.p_id}" role = "tabpanel" ></div>
                 <div class = "tab-pane" id = "availability_${property.p_id}" role = "tabpanel" >
@@ -236,4 +239,13 @@ function render_room( property, image_id, where ) {
 
 function show_tabs( p_id ) {
 	$('#tabs_'+p_id).toggleClass('d-none d-md-block');
+}
+function show_on_map(lat,lng ,p_id) {
+	
+	
+	create_map([lat,lng],8,p_id);
+	
+	$('html, body').animate({
+		                        scrollTop: $("#hero").offset().top
+	                        }, 11);
 }
