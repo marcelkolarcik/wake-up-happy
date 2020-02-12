@@ -21,12 +21,28 @@ function render_room( property, image_id, where ) {
 <div class = "card mb-3 mt-3" >
     <div class = "row no-gutters" >
         <div class = "col-md-4 vertically_aligned img-thumbnail" >
-            <img src = "assets/images/bedrooms/b${image_id}.jpg" class = "card-img" alt = "property image" >
+            <img src = "assets/images/bedrooms/b${image_id}.jpg" class = "card-img property_img" alt = "property image" >
             <h6 class = "bg_green text-light p-2 mt-2 text-center" > ${property.p_price_per_w}&nbsp;EUR
                 <small >per week</small >
             </h6 >
+             <span class=" d-md-none  text-capitalize"  >
+					<h4 class="ml-2 nav_link_property">${property.city} | ${room_types[ property.room_type ]} |
+                                                             ${board_types[ property.board_type ]}
+                                                             </h4>
+             </span >
+             <span class="d-md-none ml-2">
+             <!--to keep two spans on one line ...-->
+              ${    property.p_description.substring(0, 30)   }...
+              </span>
+              <span class="display_tabs btn btn-sm bg_green text-light d-md-none float-right mr-3"
+			title="Display more info..."
+			 onclick=show_tabs(${property.p_id});>more...</span>
+			
+			
+			
+             
         </div >
-        <div class = "col-md-8" style = "position:relative" >
+        <div class = "col-md-8 d-none d-md-block " id="tabs_${property.p_id}" style = "position:relative" >
             <div class = "list-group list-group-mine list-group-horizontal-lg" id = "myList" role = "tablist" >
                 <a class = "list-group-item list-group-item-action active nav_link_property "
                    data-toggle = "list" href = "#about_${property.p_id}" role = "tab" title = "Informations about room" >About</a >
@@ -42,12 +58,12 @@ function render_room( property, image_id, where ) {
             </div >
             <div class = "tab-content" >
                 <div class = "tab-pane active" id = "about_${property.p_id}" role = "tabpanel" >
-                    <div class = "card-body" >
-                        <h4 class = "" >
-                            <span class = "text-capitalize" >${property.city} | ${room_types[ property.room_type ]} |
+                    <div class = "card-body " >
+                        <span class="pl-2 d-none d-md-block text-capitalize" >
+											<h4 class="nav_link_property">			${property.city} | ${room_types[ property.room_type ]} |
                                                              ${board_types[ property.board_type ]}
-                            </span >
-                        </h4 >
+                                             </h4>
+             </span >
                         <p class = "card-text" >${property.p_description}</p >
                     </div >
                 </div >
@@ -216,4 +232,8 @@ function render_room( property, image_id, where ) {
 </div >
 				
 				` );
+}
+
+function show_tabs( p_id ) {
+	$('#tabs_'+p_id).toggleClass('d-none d-md-block');
 }

@@ -78,6 +78,9 @@ span.nav_link_property {
 	padding: 0;
 	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
 	}
+.propderty_img{
+	width:10rem;
+	}
 .bg_green {
 	background-color: #0fbeba;
 	}
