@@ -1,8 +1,43 @@
+/*https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API*/
+
+/*Browsers that support localStorage will have a property on the window object named localStorage.
+ However, just asserting that that property exists may throw exceptions.
+ If localStorage does exist, there is still no guarantee that localStorage is actually available,
+ as various browsers offer settings that disable localStorage. So a browser may support localStorage,
+ but not make it available to the scripts on the page.*/
+
+/*Here is a function that detects whether localStorage is both supported and available:*/
+
+function storageAvailable( type ) {
+	var storage;
+	try {
+		storage = window[ type ];
+		var x = '__storage_test__';
+		storage.setItem( x, x );
+		storage.removeItem( x );
+		return true;
+	}
+	catch ( e ) {
+		return e instanceof DOMException && (
+				// everything except Firefox
+			e.code === 22 ||
+			// Firefox
+			e.code === 1014 ||
+			// test name field too, because code might not be present
+			// everything except Firefox
+			e.name === 'QuotaExceededError' ||
+			// Firefox
+			e.name === 'NS_ERROR_DOM_QUOTA_REACHED' ) &&
+			// acknowledge QuotaExceededError only if there's something already stored
+			( storage && storage.length !== 0 );
+	}
+}
+
 /*https://gist.github.com/kerimdzhanov/7529623
  * getting random range from range to get random price and random types of boards and rooms
  *
  * I have updated the function to include case when i need an array of times integers for random booked weeks in this case
-  * and array of times random items from array */
+ * and array of times random items from array */
 
 function getRandom( min, max, times = null, array = null ) {
 	var random_array = [];
@@ -32,23 +67,21 @@ function getRandom( min, max, times = null, array = null ) {
 }
 
 var cities_coordinates = [
-	[24.487149,-77.969971,'Central Andros'],
-	[25.621716,-80.288086,'Miami-Dade County'],
-	[26.698999,-80.093079,'West Palm Beach'],
+	[ 24.487149, -77.969971, 'Central Andros' ],
+	[ 25.621716, -80.288086, 'miami-dade county' ],
+	[ 26.698999, -80.093079, 'west palm beach' ],
 	
-	
-	[28.860799,-13.841014,'yaiza'],
-	[28.863693,-13.828869,'yaiza'],
-	[28.865459,-13.834491,'yaiza'],
-	[28.865459,-13.835491,'yaiza'],
-	[28.845459,-13.836491,'yaiza'],
-	[28.365459,-13.854491,'yaiza'],
-	[28.86159,-13.854491,'yaiza'],
-	[28.865439,-13.86491,'yaiza'],
-	[28.865359,-13.836491,'yaiza'],
-	[28.864459,-13.83391,'yaiza'],
-	[28.865359,-13.85491,'yaiza'],
-	
+	[ 28.860799, -13.841014, 'yaiza' ],
+	[ 28.863693, -13.828869, 'yaiza' ],
+	[ 28.865459, -13.834491, 'yaiza' ],
+	[ 28.865459, -13.835491, 'yaiza' ],
+	[ 28.845459, -13.836491, 'yaiza' ],
+	[ 28.365459, -13.854491, 'yaiza' ],
+	[ 28.86159, -13.854491, 'yaiza' ],
+	[ 28.865439, -13.86491, 'yaiza' ],
+	[ 28.865359, -13.836491, 'yaiza' ],
+	[ 28.864459, -13.83391, 'yaiza' ],
+	[ 28.865359, -13.85491, 'yaiza' ],
 	
 	[ 51.802614, -8.54399, "cork" ],
 	[ 51.90314, -8.464399, "cork" ],
@@ -149,23 +182,45 @@ var amenities = [
 	'pop corn delivery', 'complementary smart phone', 'complementary BMW SUV'
 ];
 
-var DB = [];
+if ( localStorage.getItem( 'DB' ) ) {
+//	IF  DB IS IN LOCAL STORAGE ALREADY, WE WILL GET IT FROM THERE, NO RE-CREATING DB
+	// because local storage is storing strings we need to stringify our object on the way in and parse it on the way out
+	DB = JSON.parse( localStorage.getItem( 'DB' ) );
+	console.log( ' in localStorage' )
+}
+else {
+	//	IF  IT IS FIRST REQUEST, DB NOT IN LOCAL STORAGE, WE WILL CREATE IT AND STORE IN LOCAL STORAGE FOR FUTURE USE
+	
+	var DB = [];
+	
+	$.each( cities_coordinates, function ( index, city_coordinates ) {
+		
+		DB.push( {
+			         'p_id'         : index,
+			         'p_address'    : '',
+			         'p_price_per_w': getRandom( 150, 300 ),
+			         'p_description': 'Beautiful room with ' + views[ index % 10 ] + ' view to make you smile in the morning....',
+			         'p_view'       : views[ index % 10 ],
+			         'lat'          : city_coordinates[ 0 ],
+			         'lng'          : city_coordinates[ 1 ],
+			         'board_type'   : getRandom( 0, 3 ),
+			         'room_type'    : getRandom( 0, 1 ),
+			         'city'         : city_coordinates[ 2 ],
+			         'bookings'     : getRandom( current_date.getWeek(), 53, num_of_booked_weeks ),
+			         'amenities'    : getRandom( 1, amenities.length - 1, 15, amenities )
+		         } );
+		
+	} );
+	
+	if ( storageAvailable( 'localStorage' ) ) {
+		// because local storage is storing strings we need to stringify our object on the way in and parse it on the way out
+		localStorage.setItem( 'DB', JSON.stringify( DB ) );
+		console.log( 'pushed in localStorage' )
+	}
+	else {
+		console.log( 'not in localStorage' )
+	}
+	
+}
 
-$.each( cities_coordinates, function ( index, city_coordinates ) {
-	
-	DB.push( {
-		         'p_id'         : index ,
-		         'p_address'    : '',
-		         'p_price_per_w': getRandom( 150, 300 ),
-		         'p_description': 'Beautiful room with ' + views[ index % 10 ] + ' view to make you smile in the morning....',
-		         'p_view'       : views[ index % 10 ],
-		         'lat'          : city_coordinates[ 0 ],
-		         'lng'          : city_coordinates[ 1 ],
-		         'board_type'   : getRandom( 0, 3 ),
-		         'room_type'    : getRandom( 0, 1 ),
-		         'city'         : city_coordinates[ 2 ],
-		         'bookings'     : getRandom( current_date.getWeek(), 53, num_of_booked_weeks ),
-		         'amenities'    : getRandom( 1, amenities.length - 1, 15, amenities )
-	         } );
-	
-} );
+//localStorage.clear();

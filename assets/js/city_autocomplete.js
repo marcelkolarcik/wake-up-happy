@@ -95,6 +95,6 @@ function autocomplete(inp, arr) {
 	});
 }
 
-var cities =['Cork','dublin','limerick']; //// TO DO to get cities from DB object
+var cities =['cork','dublin','limerick','yaiza','miami-dade county','west palm beach']; //// TO DO to get cities from DB object
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("city"), cities);
