@@ -1,4 +1,4 @@
-function render_room( p_id, image_id, where ) {
+function render_room( property, image_id, where ) {
 	var where_div = '#' + where;
 	var search_results = $( where_div );
 	
@@ -16,46 +16,63 @@ function render_room( p_id, image_id, where ) {
 		'All Inclusive'
 	];
 	
-	var property = properties[ p_id ];
-	
 	search_results.append( `
 
 <div class = "card mb-3 mt-3" >
     <div class = "row no-gutters" >
         <div class = "col-md-4 vertically_aligned img-thumbnail" >
-            <img src = "assets/images/bedrooms/b${image_id}.jpg" class = "card-img" alt = "property image" >
+            <img src = "assets/images/bedrooms/b${image_id}.jpg" class = "card-img property_img" alt = "property image" >
             <h6 class = "bg_green text-light p-2 mt-2 text-center" > ${property.p_price_per_w}&nbsp;EUR
                 <small >per week</small >
             </h6 >
+             <span class=" d-md-none  text-capitalize"  >
+					<h4 class="ml-2 nav_link_property">${property.city} | ${room_types[ property.room_type ]} |
+                                                             ${board_types[ property.board_type ]}
+                                                             </h4>
+             </span >
+             <span class="d-md-none ml-2">
+             <!--to keep two spans on one line ...-->
+              ${    property.p_description.substring(0, 30)   }...
+              </span>
+              <span class="display_tabs btn btn-sm bg_green text-light d-md-none float-right mr-3"
+			title="Display more info..."
+			 onclick=show_tabs(${property.p_id});>more...</span>
+			
+			
+			
+             
         </div >
-        <div class = "col-md-8" style = "position:relative" >
-            <div class = "list-group list-group-mine list-group-horizontal-sm" id = "myList" role = "tablist" >
+        <div class = "col-md-8 d-none d-md-block " id="tabs_${property.p_id}" style = "position:relative" >
+            <div class = "list-group list-group-mine list-group-horizontal-lg" id = "myList" role = "tablist" >
                 <a class = "list-group-item list-group-item-action active nav_link_property "
-                   data-toggle = "list" href = "#about_${p_id}" role = "tab" title = "Informations about room" >About</a >
+                   data-toggle = "list" href = "#about_${property.p_id}" role = "tab" title = "Informations about room" >About</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#gallery_${p_id}" role = "tab"
+                   data-toggle = "list" href = "#gallery_${property.p_id}" role = "tab"
                    title = "Preview images of the property" >Gallery</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#amenities_${p_id}" role = "tab" title = "See the amenities" >Amenities</a >
+                   data-toggle = "list" href = "#amenities_${property.p_id}" role = "tab" title = "See the amenities" >Amenities</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#availability_${p_id}" role = "tab" title = "Preview the availability" >Availability</a >
+                   data-toggle = "list" href = "#availability_${property.p_id}" role = "tab" title = "Preview the availability" >Availability</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#book_${p_id}" role = "tab" title = "Book your room !" >Book</a >
+                   data-toggle = "list" href = "#book_${property.p_id}" role = "tab" title = "Book your room !" >Book</a >
             </div >
             <div class = "tab-content" >
-                <div class = "tab-pane active" id = "about_${p_id}" role = "tabpanel" >
-                    <div class = "card-body" >
-                        <h4 class = "" >
-                            <span class = "text-capitalize" >${property.city} | ${room_types[ property.room_type ]} |
+                <div class = "tab-pane active" id = "about_${property.p_id}" role = "tabpanel" >
+                    <div class = "card-body " >
+                        	<span class="pl-2 d-none d-md-block text-capitalize" >
+											<h4 class="nav_link_property">			${property.city} | ${room_types[ property.room_type ]} |
                                                              ${board_types[ property.board_type ]}
-                            </span >
-                        </h4 >
+                                             </h4>
+             				</span >
                         <p class = "card-text" >${property.p_description}</p >
                     </div >
+                    <span class="btn btn-sm bg_green text-light float-right mr-3"
+						title="Show room on the map..."
+						 onclick=show_on_map(${property.lat},${property.lng},${property.p_id});>show on map</span>
                 </div >
-                <div class = "tab-pane" id = "gallery_${p_id}" role = "tabpanel" ></div>
-                <div class = "tab-pane" id = "availability_${p_id}" role = "tabpanel" >
-                    <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${p_id}" >
+                <div class = "tab-pane" id = "gallery_${property.p_id}" role = "tabpanel" ></div>
+                <div class = "tab-pane" id = "availability_${property.p_id}" role = "tabpanel" >
+                    <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${property.p_id}" >
                     </div >
                     <div class = "col-md-12 text-center" >
                         <span class = "nav_link_property" >Pick the week(s) you wat to book
@@ -64,12 +81,18 @@ function render_room( p_id, image_id, where ) {
                         </span >
                     </div >
                 </div >
-                <div class = "tab-pane" id = "amenities_${p_id}" role = "tabpanel" >...Amenities</div >
-                <div class = "tab-pane" id = "book_${p_id}" role = "tabpanel" >
+                <div class = "tab-pane" id = "amenities_${property.p_id}" role = "tabpanel" >
+				</div >
+                <div class = "tab-pane" id = "book_${property.p_id}" role = "tabpanel" >
                     <div class = "center-form" >
                         <form onsubmit = "return sendMail(this,${image_id});" >
-                            
-                            <div class = "col-auto" >
+                            <div class="row">
+	                            <div class="col-md-6">
+	                            <div class="bg_green text-light text-center  mt-1">
+	                            	Room details
+								</div>
+	                             <div class = "col-auto" >
+	                             
                                 <label class = "sr-only" for = "room_details" >Room</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
@@ -78,9 +101,9 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "room_details"
-                                           class = "form-control  border_bottom_only bg_green_light"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "room_details" placeholder = "Room"
-                                           value = "property id : ${property.p_id}  |${property.city}  | ${room_types[ property.room_type ]} | ${board_types[ property.board_type ]}| ${property.p_price_per_w} EUR"
+                                           value = "${property.city} | ${room_types[ property.room_type ]} | ${board_types[ property.board_type ]}"
                                            required readonly >
                                 </div >
                             </div >
@@ -93,7 +116,7 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "weeks"
-                                           class = "form-control  border_bottom_only bg_green_light"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "weeks_${property.p_id}" placeholder = ""
                                            value = ""
                                            required readonly >
@@ -109,7 +132,7 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "total_price"
-                                           class = "form-control  border_bottom_only bg_green_light"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "total_price_${property.p_id}" placeholder = ""
                                            value = ""
                                            required readonly >
@@ -124,7 +147,7 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "name"
-                                           class = "form-control  border_bottom_only"
+                                           class = "form-control form-control-sm border_bottom_only"
                                            id = "fullname" placeholder = "Full Name" required >
                                 </div >
                             </div >
@@ -137,11 +160,16 @@ function render_room( p_id, image_id, where ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "email_of_user"
-                                           class = "form-control  border_bottom_only"
+                                           class = "form-control form-control-sm  border_bottom_only"
                                            id = "email_of_user" placeholder = "Email" required >
                                 </div >
                             </div >
-                            <div class = "col-auto " >
+								</div>
+								<div class="col-md-6">
+								 <div class="bg_green text-light text-center mt-1">
+	                            	Payment details
+								</div>
+                             <div class = "col-auto " >
                         <label class = "sr-only" for = "card_holder_name" >Card Holder Name:</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
@@ -149,7 +177,7 @@ function render_room( p_id, image_id, where ) {
                                     <i class = "far fa-user" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control
+                            <input type = "text" class = "form-control form-control-sm
 							        			border_bottom_only" id = "card_holder_name" name = "card_holder_name"
                                    placeholder = "Card Holder Name" required >
                         </div >
@@ -162,7 +190,7 @@ function render_room( p_id, image_id, where ) {
                                     <i class = "far fa-credit-card" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control  border_bottom_only"
+                            <input type = "text" class = "form-control form-control-sm  border_bottom_only"
                                    id = "card_numder" placeholder = "Card Number" name = "card_number" required >
                         </div >
                     </div >
@@ -174,7 +202,7 @@ function render_room( p_id, image_id, where ) {
                                     <i class = "fas fa-credit-card" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control  border_bottom_only"
+                            <input type = "text" class = "form-control form-control-sm  border_bottom_only"
                                    id = "cvv" placeholder = "CVV" required name = "cvv" >
                         </div >
                     </div >
@@ -182,7 +210,7 @@ function render_room( p_id, image_id, where ) {
                                 <label class = "sr-only" for = "request_of_property" >Property Request</label >
                                 <div class = "input-group mb-2" >
                                     <textarea rows = "2" name = "request_of_property"
-                                              class = "form-control form-control-lg border_bottom_only mb-2"
+                                              class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2"
                                               id = "request_of_property"
                                               placeholder = "Any Requests..."  ></textarea >
                                 </div >
@@ -193,6 +221,11 @@ function render_room( p_id, image_id, where ) {
                                    Submit & Pay
                                 </button >
                             </div >
+								</div>
+        
+							</div>
+                        
+                        
                         </form >
                     </div >
                 </div >
@@ -202,4 +235,17 @@ function render_room( p_id, image_id, where ) {
 </div >
 				
 				` );
+}
+
+function show_tabs( p_id ) {
+	$('#tabs_'+p_id).toggleClass('d-none d-md-block');
+}
+function show_on_map(lat,lng ,p_id) {
+	
+	
+	create_map([lat,lng],8,p_id);
+	
+	$('html, body').animate({
+		                        scrollTop: $("#hero").offset().top
+	                        }, 11);
 }

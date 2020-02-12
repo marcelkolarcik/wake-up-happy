@@ -22,6 +22,12 @@ Date.prototype.getWeekYear = function() {
 	return date.getFullYear();
 };
 var current_date = new Date();
+var weeks_till_end_of_year = [];
+var current_week = current_date.getWeek();
+while (current_week < 53) {
+	weeks_till_end_of_year.push( current_week + 1 );
+	current_week++;
+}
 
 
 
