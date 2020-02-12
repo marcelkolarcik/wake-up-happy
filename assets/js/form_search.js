@@ -46,12 +46,17 @@ $( document ).on( "click", "#search_btn", function ( e ) {
 	
 	//// because these divs could have content from previous search
 	var form_search_results = $( '#form_search_results' );
+	
 	form_search_results.html( '' );
 	$( '#map_search_result' ).html( '' );
+	
+	
 	
 	//// to make city search case insensitive, same will apply when landlord is adding room into th map, we will store
 	// it .toLowerCase();
 	var city = $( '#city' ).val().toLowerCase();
+	
+	form_search_results.append(` <div class = "img-thumbnail mt-3 border_green pl-3" >Search results:</div >`);
 
 //	because at least city must be selected
 	if ( city === '' ) {
@@ -59,21 +64,16 @@ $( document ).on( "click", "#search_btn", function ( e ) {
 	}
 	
 	var results = 0;
-	for ( var room in properties ) {
+	for ( var room in DB ) {
 		
-		var property = properties[ room ];
-		var image_id = ( property.p_id % 16 ) + 1; ///// because , this is process how we apply random image to
-		                                           // property, to be consistent across the site, TO DO  : extract to
-		                                           // function
-		var food_id = image_id % 3 + 1;///// because , this is process how we apply random food_image to property, to
-		                               // be consistent across the site, TO DO  : extract to function
+		var property = DB[ room ];
+		
+		var image_id = getImageId(property.p_id);
 		
 		if(is_available(property,city))
 		{
-			render_room( property.p_id, image_id, 'form_search_results' );
-			render_gallery( property, food_id );
-			render_booking_calendar( property );
 			
+			render( property, image_id, 'form_search_results' );
 			results++;
 		}
 		
@@ -83,10 +83,11 @@ $( document ).on( "click", "#search_btn", function ( e ) {
 		
 		//// because if results are empty , we will display info to the user, about 0 results, and display "featured
 		// properties" instead...
-		form_search_results.append(' <div class = "img-thumbnail mt-3 bg_orange " >Your search returned 0 results, try different search parameters or have a look at ' +
+		form_search_results.append(' <div class = "img-thumbnail mt-3 bg_orange " >' +
+			                           'Your search returned 0 results, try different search parameters or have a look at ' +
 			                                 'featured properties bellow.</div >');
 		featured_rooms();
-		console.log('no properties found');
+		
 		
 	}
 	

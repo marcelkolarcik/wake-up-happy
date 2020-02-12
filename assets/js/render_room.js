@@ -1,4 +1,4 @@
-function render_room( p_id, image_id, where ) {
+function render_room( property, image_id, where ) {
 	var where_div = '#' + where;
 	var search_results = $( where_div );
 	
@@ -16,8 +16,6 @@ function render_room( p_id, image_id, where ) {
 		'All Inclusive'
 	];
 	
-	var property = properties[ p_id ];
-	
 	search_results.append( `
 
 <div class = "card mb-3 mt-3" >
@@ -29,21 +27,21 @@ function render_room( p_id, image_id, where ) {
             </h6 >
         </div >
         <div class = "col-md-8" style = "position:relative" >
-            <div class = "list-group list-group-mine list-group-horizontal-sm" id = "myList" role = "tablist" >
+            <div class = "list-group list-group-mine list-group-horizontal-lg" id = "myList" role = "tablist" >
                 <a class = "list-group-item list-group-item-action active nav_link_property "
-                   data-toggle = "list" href = "#about_${p_id}" role = "tab" title = "Informations about room" >About</a >
+                   data-toggle = "list" href = "#about_${property.p_id}" role = "tab" title = "Informations about room" >About</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#gallery_${p_id}" role = "tab"
+                   data-toggle = "list" href = "#gallery_${property.p_id}" role = "tab"
                    title = "Preview images of the property" >Gallery</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#amenities_${p_id}" role = "tab" title = "See the amenities" >Amenities</a >
+                   data-toggle = "list" href = "#amenities_${property.p_id}" role = "tab" title = "See the amenities" >Amenities</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#availability_${p_id}" role = "tab" title = "Preview the availability" >Availability</a >
+                   data-toggle = "list" href = "#availability_${property.p_id}" role = "tab" title = "Preview the availability" >Availability</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#book_${p_id}" role = "tab" title = "Book your room !" >Book</a >
+                   data-toggle = "list" href = "#book_${property.p_id}" role = "tab" title = "Book your room !" >Book</a >
             </div >
             <div class = "tab-content" >
-                <div class = "tab-pane active" id = "about_${p_id}" role = "tabpanel" >
+                <div class = "tab-pane active" id = "about_${property.p_id}" role = "tabpanel" >
                     <div class = "card-body" >
                         <h4 class = "" >
                             <span class = "text-capitalize" >${property.city} | ${room_types[ property.room_type ]} |
@@ -53,9 +51,9 @@ function render_room( p_id, image_id, where ) {
                         <p class = "card-text" >${property.p_description}</p >
                     </div >
                 </div >
-                <div class = "tab-pane" id = "gallery_${p_id}" role = "tabpanel" ></div>
-                <div class = "tab-pane" id = "availability_${p_id}" role = "tabpanel" >
-                    <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${p_id}" >
+                <div class = "tab-pane" id = "gallery_${property.p_id}" role = "tabpanel" ></div>
+                <div class = "tab-pane" id = "availability_${property.p_id}" role = "tabpanel" >
+                    <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${property.p_id}" >
                     </div >
                     <div class = "col-md-12 text-center" >
                         <span class = "nav_link_property" >Pick the week(s) you wat to book
@@ -64,8 +62,9 @@ function render_room( p_id, image_id, where ) {
                         </span >
                     </div >
                 </div >
-                <div class = "tab-pane" id = "amenities_${p_id}" role = "tabpanel" >...Amenities</div >
-                <div class = "tab-pane" id = "book_${p_id}" role = "tabpanel" >
+                <div class = "tab-pane" id = "amenities_${property.p_id}" role = "tabpanel" >
+				</div >
+                <div class = "tab-pane" id = "book_${property.p_id}" role = "tabpanel" >
                     <div class = "center-form" >
                         <form onsubmit = "return sendMail(this,${image_id});" >
                             <div class="row">

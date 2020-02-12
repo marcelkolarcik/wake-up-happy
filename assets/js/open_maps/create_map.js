@@ -4,8 +4,8 @@
 	} );
 	
 	var map = L.map( 'map', {
-		center: L.latLng( 52.9214, -8.4714399 ),
-		zoom  : 6,
+		center: L.latLng(  39.095963,-48.515625 ),
+		zoom  : 3,
 		layers: [ tiles ]
 	} );
 	
@@ -26,9 +26,9 @@
 		'Breakfast & Dinner',
 		'All Inclusive'
 	];
-	for ( var room in properties ) {
+	for ( var room in DB ) {
 		
-		var property = properties[ room ];
+		var property = DB[ room ];
 		var image_id = (property.p_id % 16) + 1;
 		var marker = L.marker( new L.LatLng( property.lat, property.lng ), { title: property.city } );
 		
