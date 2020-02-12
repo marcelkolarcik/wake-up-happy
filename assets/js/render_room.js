@@ -218,7 +218,7 @@ function render_room( property, image_id, where ) {
                             <div class = "col-auto text-center" >
                             <div id="loader_holder"></div>
                                 <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
-                                   Submit & Pay
+                                    Pay
                                 </button >
                             </div >
 								</div>
