@@ -286,3 +286,9 @@ input:hover, select:hover {
 	background-color: DodgerBlue !important;
 	color: #ffffff;
 	}
+.form_imeage{
+	width: 150px;
+	}
+.form_image_cont{
+	width: 310px;
+	}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
 <head >
-    <title >Quick Start - Leaflet</title >
+    <title >Add your room</title >
     <meta charset = "utf-8" />
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
     <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel = "stylesheet"
@@ -21,140 +21,194 @@
 <section id = "header" >
 </section >
 <section id = "content" >
+    <!--<div class = "container" >-->
+    <!--<div class = "row" >-->
+    <!--<div class="col-md-12 text-center bg_green">-->
+    <!--<h4 class=" text-light"> Add your property</h4>-->
+    <!--</div>-->
+    <!---->
+    <!--<div class = "col-md-8 col-sm-12 img-thumbnail" >-->
+    <!---->
+    <!--</div >-->
+    <!--<div class = "col-md-4 col-sm-12 img-thumbnail " >-->
+    <!--<div id="location_default" class="d-flex justify-content-center align-items-center">-->
+    <!--<h4>Your <br > location  <br >details  <br >will <br > display <br > here !</h4>-->
+    <!--</div>-->
+    <!---->
+    <!---->
+    <!--<form action = "#"  id = "location" >-->
+    <!---->
+    <!--</form >-->
+    <!---->
+    <!---->
+    <!--</div >-->
+    <!--</div >-->
+    <!---->
+    <!--</div >-->
+</section >
+<section id = "content2" >
     <div class = "container" >
-        <div class = "row" >
-            <div class="col-md-12 text-center bg_green">
-                <h4 class=" text-light"> Add your property</h4>
-            </div>
-            <div class = "col-md-8 col-sm-12 img-thumbnail" >
-                <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
+        <div class = "col-md-12 img-thumbnail" id = "step_description" >
+            description of each step
+        </div >
+        <div class = "row no-gutters" >
+            <!-- List group -->
+            <div class = "list-group col-md-1 d-none d-md-block" id = "add_room_tabs" role = "tablist" >
+                <a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"
+                   role = "tab" >1 </a >
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#room_board_type"
+                   role = "tab" > 2</a >
+    
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"
+                   role = "tab" > 3</a >
+    
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#preview"
+                   role = "tab" >4</a >
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#payment"
+                   role = "tab" >5</a >
             </div >
-            <div class = "col-md-4 col-sm-12 img-thumbnail " >
-                <div id="location_default" class="d-flex justify-content-center align-items-center">
-                    <h4>Your <br > location  <br >details  <br >will <br > display <br > here !</h4>
-                </div>
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "probable_coordinates" >probable coordinates</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "probable_coordinates"-->
-                               <!--class = "form-control form-control-sm border_bottom_only bg_green_light"-->
-                               <!--id = "probable_coordinates" placeholder = "probable coordinates" required >-->
-                    <!--</div >-->
-                    
-                <form action = "#"  id = "location" >
-                
-                </form >
+            <div class = "list-group list-group-horizontal col-md-1 d-md-none" id = "add_room_tabs_h" role = "tablist" >
+                <a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"
+                   role = "tab" >1</a >
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#room_board_type"
+                   role = "tab" > 2</a >
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"
+                   role = "tab" > 3</a >
                
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "road" >Road</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "road" placeholder = "road" required >-->
-                    <!--</div >-->
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "suburb" >Suburb</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "suburb" placeholder = "suburb" required >-->
-                    <!--</div >-->
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "city_district" >City District</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "city_district" placeholder = "city_district" required >-->
-                    <!--</div >-->
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "city" >City</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "city" placeholder = "city" required >-->
-                    <!--</div >-->
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "county" >County</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "county" placeholder = "county" required >-->
-                    <!--</div >-->
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "state_district" >State District</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "state_district" placeholder = "state_district" required >-->
-                    <!--</div >-->
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "post_code" >Post Code</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "post_code" placeholder = "post_code" required >-->
-                    <!--</div >-->
-                <!--</div >-->
-                <!--<div class = "col-auto " >-->
-                    <!--<label class = "sr-only" for = "country" >Country</label >-->
-                    <!--<div class = "input-group mb-2" >-->
-                        <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" >-->
-                                <!--<i class = "fas fa-map-marker-alt" ></i >-->
-                            <!--</div >-->
-                        <!--</div >-->
-                        <!--<input type = "text" name = "road"-->
-                               <!--class = "form-control form-control-sm border_bottom_only "-->
-                               <!--id = "country" placeholder = "country" required >-->
-                    <!--</div >-->
-                <!--</div >-->
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#preview"
+                   role = "tab" >4</a >
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#payment"
+                   role = "tab" >5</a >
+            </div >
+            <!-- Tab panes -->
+            <div class = "tab-content col-md-11" >
+                <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
+                    <div class = "row no-gutters" >
+                        <div class = "col-md-8 col-sm-12 img-thumbnail" >
+                            <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
+                        </div >
+                        <div class = "col-md-4 col-sm-12 img-thumbnail " >
+                            <div id = "location_default" class = "d-flex justify-content-center align-items-center" >
+                              
+                                <div class = "how-to img-thumbnail" >
+                                    <h4 >Your location details will display  here !</h4>
+                                    <p class = "card-text p-2" >
+                                        By scrolling or clicking on the map, select location of your property. Once you are
+                                        happy with the location, click on
+                                        <button class = "bg_orange" >get details</button >
+                                        button,
+                                        and this will display all the address information. You can choose what details you want
+                                        to share. If you don't want to share some details,
+                                        just delete it by clicking on red <code >x</code >. If you are happy with the details
+                                        you are sharing, click on
+                                        <button class = "list" >2</button >
+                                    </p >
+                                </div >
+                            </div >
+                            <form action = "#" id = "location" >
+                            </form >
+                        </div >
+                       
+                    </div >
+                </div >
+               
+                <div class = "tab-pane" id = "room_board_type" role = "tabpanel" >
+                   
+                    <div class = "row no-gutters" >
+                        <div class="row d-flex justify-content-around align-items-center mb-3">
+                           
+                            <div class="card col-md-4 text-center">
+                                <img src = "assets/images/bedrooms/b11.jpg" class = "form_image img-thumbnail"
+                                     alt = "single bedroom image" >
+                                <div class="card-footer text-center bg-transparent d-flex justify-content-around align-items-center">
+            
+                                    <label for = "single_bedroom" >Single Bedroom</label >
+                                    <input id = "single_bedroom" name = "room_type" type = "radio" value = "0" required >
+                                </div>
+    
+                            </div>
+                            <div class = "how-to img-thumbnail card col-md-3 text-center" >
+                                <p class = "card-text p-2" >
+                                   Select your room type and board type.
+                                    Please note that you can select multiple boards.
+                                    Add prices accordingly.
+                                    Once you are happy with your selection, continue to step 3.
+                                </p >
+                            </div >
+                            <div class="card col-md-4 text-center">
+                                <img src = "assets/images/bedrooms/b7.jpg" class = "form_image img-thumbnail"
+                                     alt = "double bedroom image" >
+                                <div class="card-footer text-center bg-transparent d-flex justify-content-around align-items-center">
+            
+                                    <label for = "double_bedroom" >Double Bedroom</label >
+                                    <input id = "double_bedroom" name = "room_type" type = "radio" value = "1" required >
+                                </div>
+    
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="card col-md-3 text-center">
+                            <img src = "assets/images/bedrooms/b11.jpg" class = "form_image img-thumbnail"
+                                 alt = "single bedroom image" >
+                            <div class="card-footer text-center bg-transparent">
+                               
+                                <label for = "room_only" >Room only</label >
+                            </div>
+                            <div class="card-footer text-center bg_green_light_g d-flex justify-content-around align-items-center">
+                                <input id = "room_only" name = "board_type" type = "checkbox" value = "0" required >
+                                <input title="price" id="room_only_price" type = "number"  name="room_only_price" placeholder=" price" class="ml-1 form-control" >
+                            </div>
+                        </div>
+                        <div class="card col-md-3 text-center">
+                            <img src = "assets/images/breakfast/br_1.jpg" class = "form_image img-thumbnail"
+                                 alt = "breakfast image" >
+                            <div class="card-footer text-center bg-transparent">
+                               
+                                <label for = "bed_breakfast" >Bed & Breakfast</label >
+                            </div>
+                            <div class="card-footer text-center bg_green_light_g d-flex justify-content-around align-items-center">
+                                <input id = "bed_breakfast" name = "board_type" type = "checkbox" value = "1" required >
+                                <input title="price" id="bed_breakfast_price" type = "number"  name="bed_breakfast_price" placeholder=" price" class="ml-1 form-control" >
+                            </div>
+                        </div>
+                        <div class="card col-md-3 text-center">
+                            <img src = "assets/images/lunch/l_1.jpg" class = "form_image img-thumbnail"
+                                 alt = "lunch image" >
+                            <div class="card-footer text-center bg-transparent">
+                               
+                                <label for = "breakfast_dinner" > Breakfast & Dinner</label >
+                            </div>
+                            <div class="card-footer text-center bg_green_light_g d-flex justify-content-around align-items-center">
+                                <input id = "breakfast_dinner" name = "board_type" type = "checkbox" value = "1" required >
+                                <input title="price" id="breakfast_dinner_price" type = "number"  name="breakfast_dinner_price" placeholder=" price" class="ml-1 form-control" >
+                            </div>
+                        </div>
+                        <div class="card col-md-3 text-center">
+                            <img src = "assets/images/dinner/d_1.jpg" class = "form_image img-thumbnail"
+                                 alt = "lunch image" >
+                            <div class="card-footer text-center bg-transparent">
+                                <label for = "all_inclusive" > All inclusive</label >
+                            </div>
+                            <div class="card-footer text-center bg_green_light_g d-flex justify-content-around align-items-center">
+                                <input id = "all_inclusive" name = "board_type" type = "checkbox" value = "1"  required >
+                                <input title="price" id="all_inclusive_price" type = "number"  name="all_inclusive_price" placeholder=" price" class="ml-1 form-control" >
+                            </div>
+                        </div>
+                       
+                       
+                      
+                       
+                        
+                       
+                    </div >
+                </div >
+                <div class = "tab-pane" id = "description" role = "tabpanel" >...Description</div >
+                <div class = "tab-pane" id = "preview" role = "tabpanel" >...Preview</div >
+                <div class = "tab-pane" id = "payment" role = "tabpanel" >...Payment</div >
             </div >
         </div >
     </div >
@@ -162,6 +216,9 @@
 <script
         src = "https://code.jquery.com/jquery-3.4.1.js"
         integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin = "anonymous" ></script >
+<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin = "anonymous" ></script >
 <script src = "assets/js/open_maps/get_location.js" ></script >
 <script >
