@@ -22,7 +22,7 @@ function featured_rooms()
 //			render_gallery( property, food_id );
 //			render_booking_calendar( property );
 			
-			render(property, image_id, 'form_search_results');
+			render_index( property, image_id, 'form_search_results');
 			
 			e++;
 		}

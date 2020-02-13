@@ -8,7 +8,7 @@ $( document ).on( "click", ".property_popup", function () {
 	var property = DB[ p_id ];
 	var image_id = $( this ).data( 'image_id' );
 	
-	render(property, image_id, 'map_search_result');
+	render_index( property, image_id, 'map_search_result');
 	
 } );
 

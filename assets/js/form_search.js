@@ -73,7 +73,7 @@ $( document ).on( "click", "#search_btn", function ( e ) {
 		if(is_available(property,city))
 		{
 			
-			render( property, image_id, 'form_search_results' );
+			render_index( property, image_id, 'form_search_results' );
 			results++;
 		}
 		

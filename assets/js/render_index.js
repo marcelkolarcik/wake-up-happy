@@ -1,4 +1,4 @@
-function render( property, image_id, where ) {
+function render_index( property, image_id, where ) {
 	
 	var food_id = image_id % 3 + 1;///// because i am applying random image to  a food style
 	// ( breakfast style, lunch style, dinner style)and i have only 3 images per style ...
