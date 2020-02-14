@@ -15,14 +15,15 @@ var popup = L.popup( {
 	
                      } );
 
-function onMapClick( e ) {
+function getCoordinates( e ) {
 	
 	var location_details = $( '#location' );
-	$( '#location_default' ).html( '' );
-	location_details.html( '' );
+	$( '#location_details' ).html( '' );
+	
 	
 	var coordinates = e.latlng.toString().replace( 'LatLng(', '' ).replace( ')', '' ).replace( ' ', '' ).split( ',' );
-	
+	var get_address = $('#get_address');
+	get_address.removeClass('d-none');
 	popup
 		
 		.setLatLng( e.latlng )
@@ -34,16 +35,19 @@ function onMapClick( e ) {
 	
 	var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coordinates[ 0 ]}&lon=${coordinates[ 1 ]}`;
 	
-	function getData( url ) {
+	function getAddress( url ) {
 		var xhr = new XMLHttpRequest();
 		
 		xhr.onreadystatechange = function () {
 			if ( this.readyState === 4 && this.status === 200 ) {
+				location_details.html( '' );
+				var location = $( '#location' );
+				$('#get_address').addClass('d-none');
 				var location_data = JSON.parse( this.responseText ).address;
-				
+				//console.log(location_data)
 				$.each( location_data, function ( key, value ) {
 					
-					$( '#location' ).append( `
+					location.append( `
 					 <div class = "col-auto " >
                     <label class = "sr-only" for = "${key}" >${key}</label >
                     <div class = "input-group mb-2" >
@@ -52,13 +56,43 @@ function onMapClick( e ) {
                                 <i class = "fas fa-map-marker-alt" >&nbsp;${key.replace( '_', ' ' )}</i >
                             </div >
                         </div >
-                        <input type = "text" name = "${key}"
+                        <input type = "text" name = "address__${key}"
                                class = "form-control form-control-sm border_bottom_only "
-                               id = "${key}" value="${value}" required >
+                               id = "${key}" value="${value}" required  ${key  !== 'country' ? '' : 'readonly'} ${key  !== 'country_code' ? '' : 'readonly'}  >
                     </div >
                 </div >
 					` );
 				} );
+				location.append( `
+					 <div class = "col-auto " >
+                    <label class = "sr-only" for = "lat" >lat</label >
+                    <div class = "input-group mb-2" >
+                        <div class = "input-group-prepend" >
+                            <div class = "input-group-text bg-transparent border_bottom_only" >
+                                <i class = "fas fa-map-marker-alt" >&nbsp;lat</i >
+                            </div >
+                        </div >
+                        <input type = "text" name = "lat"
+                               class = "form-control form-control-sm border_bottom_only "
+                               id = "lat" value="${coordinates[ 0 ]}" required  readonly>
+                    </div >
+                </div >
+					` );
+				location.append( `
+					 <div class = "col-auto " >
+                    <label class = "sr-only" for = "lng" >lng</label >
+                    <div class = "input-group mb-2" >
+                        <div class = "input-group-prepend" >
+                            <div class = "input-group-text bg-transparent border_bottom_only" >
+                                <i class = "fas fa-map-marker-alt" >&nbsp;lng</i >
+                            </div >
+                        </div >
+                        <input type = "text" name = "lat"
+                               class = "form-control form-control-sm border_bottom_only "
+                               id = "lng" value="${coordinates[ 1 ]}" required readonly >
+                    </div >
+                </div >
+					` );
 				
 			}
 		};
@@ -68,11 +102,11 @@ function onMapClick( e ) {
 	}
 	
 	$( '#get_address' ).on( 'click', function () {
-		getData( url );
+		getAddress( url );
 	} );
 	
 }
 
-mymap.on( 'click', onMapClick );
+mymap.on( 'click', getCoordinates );
 
 

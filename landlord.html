@@ -19,44 +19,62 @@
 </head >
 <body >
 <section id = "header" >
+    <nav class = "navbar navbar-expand-sm navbar-dark bg_green  " >
+        <a class = "navbar-brand" href = "index.html" >
+            <img class = "d-none d-xl-block" src = "assets/images/logo_sm.png" alt = "logo image"
+                 title = "wake up happy | rooms with the view" >
+            <img class = "d-none d-lg-block d-xl-none" src = "assets/images/logo_sm.png" alt = "logo image"
+                 title = "wake up happy | rooms with the view" >
+            <img class = "d-none d-md-block d-lg-none" src = "assets/images/logo_sm.png" alt = "logo image"
+                 title = "wake up happy | rooms with the view" >
+            <img class = "d-none d-sm-block d-md-none" src = "assets/images/logo_sm.png" alt = "logo image"
+                 title = "wake up happy | rooms with the view" >
+            <img class = "d-block d-sm-none" src = "assets/images/logo_xs.png" alt = "logo image"
+                 title = "wake up happy | rooms with the view" >
+        </a >
+        <button class = "navbar-toggler " type = "button" data-toggle = "collapse" data-target = "#logo_cont"
+                aria-controls = "logo_cont" aria-expanded = "false" aria-label = "Toggle navigation" >
+            <span class = "small_menu" >Menu</span >
+            <br >
+            <span class = "navbar-toggler-icon" ></span >
+        </button >
+        <div class = "collapse navbar-collapse" id = "logo_cont" >
+            <ul class = "navbar-nav mr-auto " >
+            </ul >
+            <ul class = "navbar-nav mr-auto" >
+                <li class = "nav-item pr-3" >
+                    <span class = " my-2 my-md-0 text-light nav_link" >
+                        <a  class="text-light" href = "landlord.html" >Landlord ?</a >
+                    </span >
+                </li >
+                <li class = "nav-item dropdown" >
+                    <a class = "nav_link dropdown-toggle text-light" href = "#" id = "dropdown1"
+                       data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" ><img
+                            src = "assets/images/en_flag.png" style = "width:40px;" alt = "logo image" ></a >
+                    <div class = "dropdown-menu" aria-labelledby = "dropdown1" >
+                        <a class = "dropdown-item" href = "#" >English</a >
+                        <a class = "dropdown-item" href = "#" >franse</a >
+                        <a class = "dropdown-item" href = "#" >espanyol</a >
+                    </div >
+                </li >
+            </ul >
+        </div >
+    </nav >
 </section >
+
 <section id = "content" >
-    <!--<div class = "container" >-->
-    <!--<div class = "row" >-->
-    <!--<div class="col-md-12 text-center bg_green">-->
-    <!--<h4 class=" text-light"> Add your property</h4>-->
-    <!--</div>-->
-    <!---->
-    <!--<div class = "col-md-8 col-sm-12 img-thumbnail" >-->
-    <!---->
-    <!--</div >-->
-    <!--<div class = "col-md-4 col-sm-12 img-thumbnail " >-->
-    <!--<div id="location_default" class="d-flex justify-content-center align-items-center">-->
-    <!--<h4>Your <br > location  <br >details  <br >will <br > display <br > here !</h4>-->
-    <!--</div>-->
-    <!---->
-    <!---->
-    <!--<form action = "#"  id = "location" >-->
-    <!---->
-    <!--</form >-->
-    <!---->
-    <!---->
-    <!--</div >-->
-    <!--</div >-->
-    <!---->
-    <!--</div >-->
-</section >
-<section id = "content2" >
     <div class = "container" >
         <div class = "col-md-12 img-thumbnail" id = "step_description" >
-            description of each step
+            Follow the steps!
         </div >
+        <form id="add_your_room" onsubmit = "return checkForm(this);" >
         <div class = "row no-gutters" >
+           
             <!-- List group -->
             <div class = "list-group col-md-1 d-none d-md-block" id = "add_room_tabs" role = "tablist" >
                 <a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"
                    role = "tab" >1 </a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#room_board_type"
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#types"
                    role = "tab" > 2</a >
                 <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"
                    role = "tab" > 3</a >
@@ -68,7 +86,7 @@
             <div class = "list-group list-group-horizontal col-md-1 d-md-none" id = "add_room_tabs_h" role = "tablist" >
                 <a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"
                    role = "tab" >1</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#room_board_type"
+                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#types"
                    role = "tab" > 2</a >
                 <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"
                    role = "tab" > 3</a >
@@ -78,6 +96,9 @@
                    role = "tab" >5</a >
             </div >
             <!-- Tab panes -->
+    
+    
+          
             <div class = "tab-content col-md-11" >
                 <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
                     <div class = "row no-gutters" >
@@ -85,7 +106,8 @@
                             <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
                         </div >
                         <div class = "col-md-4 col-sm-12 img-thumbnail " >
-                            <div id = "location_default" class = "d-flex justify-content-center align-items-center" >
+                            
+                            <div id = "location_details" class = "d-flex justify-content-center align-items-center" >
                                 <div class = "how-to img-thumbnail" >
                                     <h4 >Your location details will display here !</h4 >
                                     <p class = "card-text p-2" >
@@ -104,201 +126,42 @@
                                     </p >
                                 </div >
                             </div >
-                            <form action = "#" id = "location" >
-                            </form >
+                            <div id="location">
+                            
+                            </div>
+                            <!--<form action = "#" id = "location" >-->
+                            <!--</form >-->
                         </div >
                     </div >
                 </div >
-                <div class = "tab-pane" id = "room_board_type" role = "tabpanel" >
-                    <div class = "row no-gutters" >
-                        <div class = "row d-flex justify-content-around align-items-center mb-3" >
-                            <div class = "card col-md-2 text-center" >
-                                <img src = "assets/images/bedrooms/b11.jpg" class = "form_image img-thumbnail"
-                                     alt = "single bedroom image" >
-                                <div class = "card-footer text-center bg-transparent d-flex justify-content-around align-items-center" >
-                                    <label for = "single_bedroom" >Single Bedroom</label >
-                                    <input id = "single_bedroom" name = "room_type" type = "radio" value = "0"
-                                           required >
-                                </div >
-                            </div >
-                            <div class = "how-to img-thumbnail card col-md-3 text-center " >
-                                <p class = "card-text p-2" >
-                                    Select your room type and board type and view type.
-                                    Please note that you can select multiple boards.
-                                    Add prices accordingly.
-                                    Once you are happy with your selection, continue to step 3.
-                                </p >
-                            </div >
-                            <div class = "card col-md-2 text-center" >
-                                <img src = "assets/images/bedrooms/b7.jpg" class = "form_image img-thumbnail"
-                                     alt = "double bedroom image" >
-                                <div class = "card-footer text-center bg-transparent d-flex justify-content-around align-items-center" >
-                                    <label for = "double_bedroom" >Double Bedroom</label >
-                                    <input id = "double_bedroom" name = "room_type" type = "radio" value = "1"
-                                           required >
-                                </div >
+                <div class = "tab-pane" id = "types" role = "tabpanel" >
+                    <div class = "row no-gutters" id="room_details" >
+                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                             id = "room_types" >
+                            <div class = "how-to img-thumbnail card col-md-12 " id = "room_types_title" >
                             </div >
                         </div >
-                        <div class = "row no-gutters d-flex justify-content-around align-items-center mb-3" >
-                            <div class = "how-to img-thumbnail card col-md-12 text-center "  >
-                                <p class = "card-text p-2" >
-                                    Select the view type your room has.
-        
-                                </p >
-                            </div >
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/beach.jpg" class = "form_image img-thumbnail"
-                                     alt = "beach image" >
-                                <div class = "card-footer  bg-transparent  " >
-                                    
-                                    <input id = "beach" name = "view_type" type = "radio" value = "0"
-                                           required >&nbsp;<label for = "beach" >Beach</label >
-                                </div >
-                            </div >
-                            
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/desert.jpg" class = "form_image img-thumbnail"
-                                     alt = "desert image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                    
-                                    <input id = "desert" name = "view_type" type = "radio" value = "1"
-                                           required >&nbsp;<label for = "desert" >Desert</label >
-                                </div >
-                            </div >
-    
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/fields.jpg" class = "form_image img-thumbnail"
-                                     alt = "desert image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                   
-                                    <input id = "fields" name = "view_type" type = "radio" value = "2"
-                                           required >&nbsp; <label for = "fields" >Fields</label >
-                                </div >
-                            </div >
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/forrest.jpg" class = "form_image img-thumbnail"
-                                     alt = "forrest image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                    
-                                    <input id = "forrest" name = "view_type" type = "radio" value = "3"
-                                           required >&nbsp;<label for = "forrest" >Forrest</label >
-                                </div >
-                            </div >
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/lake.jpg" class = "form_image img-thumbnail"
-                                     alt = "lake image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                   
-                                    <input id = "lake" name = "view_type" type = "radio" value = "4"
-                                           required >&nbsp; <label for = "lake" >Lake</label >
-                                </div >
-                            </div >
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/mountain.jpg" class = "form_image img-thumbnail"
-                                     alt = "mountain image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                   
-                                    <input id = "mountain" name = "view_type" type = "radio" value = "5"
-                                           required >&nbsp; <label for = "mountain" >Mountain</label >
-                                </div >
-                            </div >
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/pool.jpg" class = "form_image img-thumbnail"
-                                     alt = "pool image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                   
-                                    <input id = "pool" name = "view_type" type = "radio" value = "6"
-                                           required >&nbsp; <label for = "pool" >Pool</label >
-                                </div >
-                            </div >
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/river.jpg" class = "form_image img-thumbnail"
-                                     alt = "river image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                    
-                                    <input id = "river" name = "view_type" type = "radio" value = "7"
-                                           required > &nbsp;<label for = "river" >River</label >
-                                </div >
-                            </div >
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/sea.jpg" class = "form_image img-thumbnail"
-                                     alt = "sea image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                   
-                                    <input id = "sea" name = "view_type" type = "radio" value = "8"
-                                           required > &nbsp; <label for = "sea" >Sea</label >
-                                </div >
-                            </div >
-                           
-                            <div class = "card col-md-1 text-center" >
-                                <img src = "assets/images/views/skyline.jpg" class = "form_image img-thumbnail"
-                                     alt = "skyline image" >
-                                <div class = "card-footer text-center bg-transparent " >
-                                   
-                                    <input id = "skyline" name = "view_type" type = "radio" value = "9"
-                                           required > &nbsp;
-                                    <label for = "skyline" >skyline</label >
-                                </div >
+                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                             id = "view_types" >
+                            <div class = "how-to img-thumbnail card col-md-12 " id = "view_types_title" >
                             </div >
                         </div >
-                        <div class = "how-to img-thumbnail card col-md-12 text-center " >
-                            <p class = "card-text p-2" >
-                                Select the board basis you can provide for your guests.
-        
-                            </p >
-                        </div >
-                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center" >
-                        <div class = "card col-md-2 text-center" >
-                            <img src = "assets/images/bedrooms/b11.jpg" class = "form_image img-thumbnail"
-                                 alt = "single bedroom image" >
-                            <div class = "card-footer text-center bg-transparent" >
-                                <label for = "room_only" >Room only</label >
-                            </div >
-                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center" >
-                                <input id = "room_only" name = "board_type" type = "checkbox" value = "0" required >
-                                <input title = "price" id = "room_only_price" type = "number" name = "room_only_price"
-                                       placeholder = " price" class = "ml-1 form-control" >
+                       
+                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                             id = "room_styles"  >
+                            <div class = "how-to img-thumbnail card col-md-12  " id = "room_styles_title" >
                             </div >
                         </div >
-                        <div class = "card col-md-2 text-center" >
-                            <img src = "assets/images/breakfast/br_1.jpg" class = "form_image img-thumbnail"
-                                 alt = "breakfast image" >
-                            <div class = "card-footer text-center bg-transparent" >
-                                <label for = "bed_breakfast" >Bed & Breakfast</label >
-                            </div >
-                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center" >
-                                <input id = "bed_breakfast" name = "board_type" type = "checkbox" value = "1" required >
-                                <input title = "price" id = "bed_breakfast_price" type = "number"
-                                       name = "bed_breakfast_price" placeholder = " price" class = "ml-1 form-control" >
+                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                             id = "board_types" >
+                            <div class = "how-to img-thumbnail card col-md-12 " id = "board_types_title" >
                             </div >
                         </div >
-                        <div class = "card col-md-2 text-center" >
-                            <img src = "assets/images/lunch/l_1.jpg" class = "form_image img-thumbnail"
-                                 alt = "lunch image" >
-                            <div class = "card-footer text-center bg-transparent" >
-                                <label for = "breakfast_dinner" > Breakfast & Dinner</label >
-                            </div >
-                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center" >
-                                <input id = "breakfast_dinner" name = "board_type" type = "checkbox" value = "1"
-                                       required >
-                                <input title = "price" id = "breakfast_dinner_price" type = "number"
-                                       name = "breakfast_dinner_price" placeholder = " price"
-                                       class = "ml-1 form-control" >
+                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                             id = "amenities"  >
+                            <div class = "how-to img-thumbnail card col-md-12  " id = "amenities_title" >
                             </div >
                         </div >
-                        <div class = "card col-md-2 text-center" >
-                            <img src = "assets/images/dinner/d_1.jpg" class = "form_image img-thumbnail"
-                                 alt = "lunch image" >
-                            <div class = "card-footer text-center bg-transparent" >
-                                <label for = "all_inclusive" > All inclusive</label >
-                            </div >
-                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center" >
-                                <input id = "all_inclusive" name = "board_type" type = "checkbox" value = "1" required >
-                                <input title = "price" id = "all_inclusive_price" type = "number"
-                                       name = "all_inclusive_price" placeholder = " price" class = "ml-1 form-control" >
-                            </div >
-                        </div >
-                    </div >
                     </div >
                 </div >
                 <div class = "tab-pane" id = "description" role = "tabpanel" >
@@ -310,19 +173,22 @@
                                     <i class = "fas fa-question-circle" ></i >
                                 </div >
                             </div >
-                            <textarea name = "reason" form = "description"
+                            <textarea name = "description" form = "description"
                                       class = "form-control form-control-lg border_bottom_only" id = "reason"
                                       placeholder = "Describe your room, make it attractive"
                                       required ></textarea >
                         </div >
+                       <button class="bg_orange text-secondary">preview</button>
                     </div >
                 </div >
-                
                 <div class = "tab-pane" id = "preview" role = "tabpanel" >...Preview</div >
                 <div class = "tab-pane" id = "payment" role = "tabpanel" >...Payment</div >
             </div >
+          
         </div >
+        </form>
     </div >
+    
 </section >
 <script
         src = "https://code.jquery.com/jquery-3.4.1.js"
@@ -332,7 +198,9 @@
         integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin = "anonymous" ></script >
 <script src = "assets/js/open_maps/get_location.js" ></script >
-<script  src = "assets/js/module/render_add_room_form.js"  type="module"></script >
+<script src = "assets/js/functions.js" ></script >
+<script src = "assets/js/check_form.js" ></script >
+<script src = "assets/js/module/render_add_room_form.js" type = "module" ></script >
 <script >
 </script >
 </body >
