@@ -6,7 +6,7 @@ function checkForm() {
 	var sorted_array = [];
 	var missing_items = [];
 	
-	//console.log(your_room_array);
+console.log(your_room_array);
 		for(let item in your_room_array)
 		{
 			

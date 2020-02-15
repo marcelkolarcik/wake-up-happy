@@ -67,7 +67,7 @@ function render_view_types() {
 function render_room_styles() {
 	var room_styles_div = $( '#room_styles' );
 	$('#room_styles_title').append( ` <p class = "card-text p-2 show_content" data-hidden_class="room_style_images" >
- 										<strong>d) </strong>
+ 										<strong>c) </strong>
                                     Select image your room will be displayed as. <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
                                 </p >` );
 	
@@ -121,7 +121,7 @@ function render_board_types() {
 							` )
 	}
 	$('#board_types_title').append( ` <p class = "card-text p-2 show_content" data-hidden_class="board_type_images" >
- 													<strong>c) </strong>
+ 													<strong>d) </strong>
                                       Select the board basis you can provide for your guests.
                                        <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
         
@@ -140,7 +140,7 @@ function render_amenities() {
                                 <label for = "${amenities[amenity]} "  class="text-capitalize">${amenities[amenity]}</label >
                             </div >
                             <div class = "card-footer text-center  d-flex justify-content-around align-items-center " >
-                                <input id = "${amenities[amenity]}" class="amenity_type check" name = "amenities" type = "checkbox"
+                                <input id = "${amenities[amenity]}" class="amenity_type check" name = "amenities" type = "checkbox" value="${amenity}"
                                   data-type="amenity"
                                  data-parent_title="amenities_title"
                                  data-footer="amenity${amenity}"
@@ -158,10 +158,43 @@ function render_amenities() {
                                 </p >` )
 	
 }
+function render_description() {
+	var description_div = $( '#description' );
+	
+	description_div.append( `
 
+						  <div class = "input-group mb-2 description d-none" >
+                            <div class = "input-group-prepend" >
+                                <div class = "input-group-text bg-transparent border_bottom_only" title="Write description of your room, max 300 characters." >
+                                    <i class="fas fa-feather-alt"></i>
+                                    <br >
+                                    <span id="room_description_length">300</span>
+                                </div >
+                            </div >
+                           
+                      
+                            <textarea name = "description" form = "add_your_room" maxlength="300" oninput="countChars()" rows="4"
+                                      class = "form-control " id = "room_description"
+                                     
+                                      required >
+                               
+                            </textarea >
+                            
+                           
+                        </div >
+							` );
+	
+	$('#description_title').append( ` <p class = "card-text p-2 show_content" data-hidden_class="description" >
+ 													<strong>f) </strong>
+                                      <label class = "" for = "room_description" >Describe your room, make it attractive (max 300 characters)</label >
+         								<i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
+                                </p >` )
+	
+}
 
 render_room_types();
 render_view_types();
 render_room_styles();
 render_board_types();
 render_amenities();
+render_description();

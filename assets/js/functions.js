@@ -53,6 +53,9 @@ $( document ).on( "click", ".collapse_parent", function () {
 	var num_of_amenities = 0;
 	var titles = [];
 	var num_of_prices = 0;
+	var step_4 = $( '#step_4' );
+	
+	
 	
 	$( document ).on( "click", ".check", function () {
 		
@@ -69,17 +72,22 @@ $( document ).on( "click", ".collapse_parent", function () {
 			if ( type === 'room_type' ) $( '.room_type' ).removeClass( 'bg_green' ).addClass( 'bg-secondary' );
 
 //			HERE CHANGING COLOR OF TWO ELEMENTS TO bg_green
-			if ( type === 'board' && num_of_boards === 0 ) {
-				parent_title.addClass( 'bg_orange text-light' );
-			}
-			else {
-				parent_title.addClass( 'bg_green text-light' );
-			}
+//			if ( type === 'board' && num_of_boards === 0 ) {
+//				parent_title.addClass( 'bg_orange text-light' );
+//			}
+//			else {
+//				parent_title.addClass( 'bg_green text-light' );
+//			}
+			parent_title.addClass( 'bg_green text-light' );
 			
 			titles[ type ] = 1;
 			
+			
+			
+			
 			if ( type === 'board' ) {
 				footer.removeClass( 'bg-secondary' ).addClass( 'bg_orange' );
+				increment = true;
 			}
 			else {
 				footer.removeClass( 'bg-secondary' ).addClass( 'bg_green' );
@@ -93,17 +101,24 @@ $( document ).on( "click", ".collapse_parent", function () {
 //			}
 			if ( type === 'amenity' ) {
 				num_of_amenities++;
+				
 			}
-			
+			if(num_of_prices > 0 && num_of_prices > 0 && $('#room_description').val().length > 0)
+			{
+				step_4.removeClass('d-none');
+			}
+			//console.log('CHECK num_of_prices : '+num_of_prices,'num_of_amenities : '+num_of_amenities,'remaining_characters ',$('#room_description').val().length);
 		}
 		else if ( $( this ).is( ":not(:checked)" ) ) {
 			
 			if ( type === 'board' ) {
 				num_of_boards--;
 				num_of_prices--;
+				
 			}
 			if ( type === 'amenity' ) {
 				num_of_amenities--;
+				
 			}
 
 //			IF ANY OF THE RADIO'S  OR CHECKBOXES WERE SELECTED, IT WOULD HAVE  bg_green CLASS APPLIED, SO THIS IS
@@ -114,32 +129,55 @@ $( document ).on( "click", ".collapse_parent", function () {
 // REMOVE APPLIED CLASS
 			if ( num_of_boards === 0 && type === 'board' ) {
 				
-				parent_title.removeClass( 'bg_green text-light' );
+				parent_title.removeClass( 'bg_green text-light' ).addClass( 'bg_orange' );
 				delete titles[ type ];
+				titles.splice( titles.indexOf( type ), 1 );
+				step_4.addClass( 'd-none' );
 				
 			}
+//			else if(num_of_boards > 0 && type === 'board')
+//			{
+//				parent_title.addClass( 'bg_green text-light' );
+//				console.log('add step 4 if titles === 6')
+//			}
+			
+			
 			if ( num_of_amenities === 0 && type === 'amenity' ) {
 				
 				parent_title.removeClass( 'bg_green text-light' );
 				delete titles[ type ];
 				
 				titles.splice( titles.indexOf( type ), 1 );
+				step_4.addClass( 'd-none' );
+				
 			}
+//			else if(num_of_amenities > 0 && type === 'amenity')
+//			{
+//				parent_title.addClass( 'bg_green text-light' );
+//				console.log('add step 4 if titles === 6')
+//			}
 			
 		}
 		var num_of_titles = Object.keys( titles ).length;
-		if ( num_of_titles === 5 ) {
+		if ( num_of_titles === 3 ) {
 			$( '#step_3' ).removeClass( 'd-none' );
 		}
+//		else {
+//			$( '#step_3' ).addClass( 'd-none' );
+//		}
+		
+		if ( num_of_titles === 5 ) {
+			$( '#step_4' ).addClass( 'waiting_for_description' );
+		}
 		else {
-			$( '#step_3' ).addClass( 'd-none' );
+			$( '#step_4' ).removeClass( 'waiting_for_description' );
 		}
 		
 	} );
 	
 	
 	var increment = true;
-		    $( document ).on( 'focusin', '.board_price', function () {
+	$( document ).on( 'focusin', '.board_price', function () {
 		if( $( this ).val() !== '')
 		{
 			increment = false;
@@ -152,32 +190,44 @@ $( document ).on( "click", ".collapse_parent", function () {
 		if ( price > 0 ) {
 			$( '#board_types_title' ).addClass( 'bg_green text-light' ).removeClass( 'bg_orange' );
 			$( '#board_type_' + c_box_id ).addClass( 'bg_green text-light' ).removeClass( 'bg_orange' );
-			console.log(increment);
+			
 			if(increment)
 			{
 				num_of_prices++;
 				num_of_boards++;
+				
 			}
 			
 		}
 		else if ( price <= 0 ) {
-			num_of_prices--;
-			num_of_boards--;
+			if(num_of_prices > 0)   {
+				num_of_prices--;
+				
+			}
+			if(num_of_boards > 0)	num_of_boards--;
+			
 			
 			$( '#board_type_' + c_box_id ).removeClass( 'bg_green' ).addClass( 'bg-secondary' );
 			$( '#board_' + c_box_id ).prop( 'checked', false );
 			$( '#board_price_' + c_box_id ).remove();
 			
 			if ( num_of_boards === 0 && num_of_prices === 0 ) {
-				$( '#board_types_title' ).removeClass( 'bg_green text-light' );
+				$( '#board_types_title' ).removeClass( 'bg_green text-light' ).addClass( 'bg_orange' );
+				step_4.addClass( 'd-none' );
 				increment = true;
 				
 			}
 			
 		}
+		// ADDING STEP 4 BUTTON IF ALL CONDITIONS ARE MET
+		if(num_of_prices > 0 && num_of_amenities > 0 && $('#room_description').val().length > 0)
+		{
+			step_4.removeClass('d-none');
+		}
 		
-		console.log( 'boards ' + num_of_boards, 'pRIces ' + num_of_prices );
-		
+		//console.log('MOUSEINOUT num_of_prices : '+num_of_prices,'num_of_amenities : '+num_of_amenities,'remaining_characters ',$('#room_description').val().length);
+	//	console.log( 'boards ' + num_of_boards, 'pRIces ' + num_of_prices , 'increment : '+	increment);
+	
 	} );
 	
 } )();
@@ -199,7 +249,48 @@ $( document ).on( 'click', '.step', function () {
 		//$('#step_'+(step + 1)).removeClass('d-none').addClass('active');
 		$( '#step_' + ( step - 1 ) ).removeClass( 'd-none' );
 		$( this ).removeClass( 'bg-success text-light' );
+//		by clocking on map 60 characters added, so this is to clear it
+		$('#room_description').html('').prop('placeholder','write something !');
+		
+		
+	}
+	if ( step === 3 ) {
+		//$('#step_'+(step + 1)).removeClass('d-none').addClass('active');
+		$( '#step_' + ( step - 1 ) ).removeClass( 'd-none' );
+		$( this ).removeClass( 'bg-success text-light' );
 		
 	}
 } );
 
+
+function countChars()
+{
+	
+	var room_desc = $('#room_description');
+	var remaining_characters = 300 -  room_desc.val().length;
+	var step_4 = $( '#step_4' );
+	
+	if(remaining_characters === 300)
+	{
+		$('#description_title').removeClass( 'bg_green text-light' );
+		step_4.addClass( 'd-none' );
+	}
+	else
+	{
+		$('#description_title').addClass( 'bg_green text-light' );
+//		IF TWO PREVIOUS TITLES WERE COMPLETED board_type and amenities, step_4 button should have class .waiting_for_description,
+		// and we can display next step, otherwise we will hide it
+		if(step_4.hasClass( 'waiting_for_description' ))
+		{
+			step_4.removeClass( 'd-none' );
+		}
+		
+	}
+	
+	
+	$('#room_description_length').addClass('text-danger').html(remaining_characters);
+	
+	
+	
+	
+}
