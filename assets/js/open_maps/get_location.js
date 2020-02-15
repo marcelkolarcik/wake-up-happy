@@ -103,6 +103,7 @@ function getCoordinates( e ) {
 	
 	$( '#get_address' ).on( 'click', function () {
 		getAddress( url );
+		$('#step_2').removeClass('d-none').addClass('bg-success text-light');
 	} );
 	
 }

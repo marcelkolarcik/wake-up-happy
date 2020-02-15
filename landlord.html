@@ -63,6 +63,7 @@
 </section >
 
 <section id = "content" >
+    
     <div class = "container" >
         <div class = "col-md-12 img-thumbnail" id = "step_description" >
             Follow the steps!
@@ -70,36 +71,24 @@
         <form id="add_your_room" onsubmit = "return checkForm(this);" >
         <div class = "row no-gutters" >
            
-            <!-- List group -->
-            <div class = "list-group col-md-1 d-none d-md-block" id = "add_room_tabs" role = "tablist" >
-                <a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"
-                   role = "tab" >1 </a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#types"
-                   role = "tab" > 2</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"
-                   role = "tab" > 3</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#preview"
-                   role = "tab" >4</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#payment"
-                   role = "tab" >5</a >
-            </div >
-            <div class = "list-group list-group-horizontal col-md-1 d-md-none" id = "add_room_tabs_h" role = "tablist" >
-                <a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"
-                   role = "tab" >1</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#types"
-                   role = "tab" > 2</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"
-                   role = "tab" > 3</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#preview"
-                   role = "tab" >4</a >
-                <a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#payment"
-                   role = "tab" >5</a >
-            </div >
+           
+            <!--<div class = "list-group list-group-horizontal col-md-1 d-md-none" id = "add_room_tabs_h" role = "tablist" >-->
+                <!--<a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"-->
+                   <!--role = "tab" >1</a >-->
+                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#types"-->
+                   <!--role = "tab" > 2</a >-->
+                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"-->
+                   <!--role = "tab" > 3</a >-->
+                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#preview"-->
+                   <!--role = "tab" >4</a >-->
+                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#payment"-->
+                   <!--role = "tab" >5</a >-->
+            <!--</div >-->
             <!-- Tab panes -->
     
     
           
-            <div class = "tab-content col-md-11" >
+            <div class = "tab-content col-md-12" >
                 <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
                     <div class = "row no-gutters" >
                         <div class = "col-md-8 col-sm-12 img-thumbnail" >
@@ -184,7 +173,22 @@
                 <div class = "tab-pane" id = "preview" role = "tabpanel" >...Preview</div >
                 <div class = "tab-pane" id = "payment" role = "tabpanel" >...Payment</div >
             </div >
-          
+            <div id="steps" class="horizontally_aligned">
+            
+                <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
+                    <a class = "list-group-item list-group-item-action d-none step" data-toggle = "list" href = "#get_address2"
+                       role = "tab" id="step_1" data-step="1">1 </a >
+                    <a class = "list-group-item list-group-item-action  d-none  step" data-toggle = "list" href = "#types"
+                       role = "tab" id="step_2" data-step="2"> 2</a >
+                    <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list" href = "#description"
+                       role = "tab" id="step_3" data-step="3"> 3</a >
+                    <a class = "list-group-item list-group-item-action  d-none step" data-toggle = "list" href = "#preview"
+                       role = "tab" id="step_4" data-step="4">4</a >
+                    <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list" href = "#payment"
+                       role = "tab" id="step_5" data-step="5">5</a >
+                </div >
+            </div>
+           
         </div >
         </form>
     </div >

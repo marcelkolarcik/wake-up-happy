@@ -18,14 +18,51 @@ function render_room_types() {
 						<div class = "card col-md-2  room_type_images " >
                                 <img  src="assets/images/room_types/${room_types[ room_type ]}.jpg" class = "form_image img-thumbnail"
                                      alt = "${room_types[ room_type ]} bedroom image"  >
-                                <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center" >
-                                    <label for = "${room_types[ room_type ]}_bedroom"  class="text-capitalize">${room_types[ room_type ]} bedroom</label >
-                                    <input id = "${room_types[ room_type ]}_bedroom" name = "room_type" type = "radio" value = "${room_type}"
+                               
+                                            
+                                             <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center room_type" id="room_type_${room_type}">
+                                    <label for = "${room_types[ room_type ]}"  class="text-capitalize">${room_types[ room_type ]}  bedroom</label >
+                                    <input id = "${room_types[ room_type ]}" name = "room_type" type = "radio" value = "${room_type}"  class="collapse_parent check"
+                                    data-parent_div="room_type_images"
+                                     data-parent_title="room_types_title"
+                                     data-next_div="view_type_images"
+                                     data-footer="room_type_${room_type}"
+                                      data-type="room_type"
                                             >
                                 </div >
                             </div >
 							` )
 	}
+}
+
+function render_view_types() {
+	var view_types_div = $( '#view_types' );
+	for ( let view_type in view_types ) {
+		view_types_div.append( `
+
+						<div class = "card col-md-2  text-center view_type_images d-none" >
+                                <img  src="assets/images/views/${view_types[ view_type ]}.jpg" class = "form_image img-thumbnail"
+                                     alt = "${view_types[ view_type ]} view" >
+                               
+                                            <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center view_type" id="view_type_${view_type}">
+                                    <label for = "${view_types[ view_type ]}"  class="text-capitalize">${view_types[ view_type ]}</label >
+                                    <input id = "${view_types[ view_type ]}" name = "view_type" type = "radio" value = "${view_type}"  class="collapse_parent check"
+                                    data-parent_div="view_type_images"
+                                     data-parent_title="view_types_title"
+                                     data-next_div="room_style_images"
+                                     data-footer="view_type_${view_type}"
+                                      data-type="view_type"
+                                            >
+                                </div >
+                            </div >
+							` )
+	}
+	$('#view_types_title').append( ` <p class = "card-text p-2 show_content" data-hidden_class="view_type_images" >
+ 											<strong>b) </strong>
+                                    Select the view type your room has. <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
+        
+                                </p >` )
+	
 }
 function render_room_styles() {
 	var room_styles_div = $( '#room_styles' );
@@ -40,38 +77,21 @@ function render_room_styles() {
 						<div class = "card col-md-2 text-center room_style_images d-none" >
                                 <img  src="assets/images/bedrooms/b${room_styles[ room_style ]}.jpg" class = "form_image img-thumbnail"
                                      alt = "${room_styles[ room_style ]} bedroom image" >
-                                <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center" >
-                                    <label for = "${room_styles[ room_style ]}_style"  class="text-capitalize">style #${room_styles[ room_style ]}</label >
-                                    <input id = "${room_styles[ room_style ]}_style" name = "room_style" type = "radio" value = "${room_style}"
+                                <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center room_style" id="room_style_${room_style}">
+                                    <label for = "${room_styles[ room_style ]}"  class="text-capitalize">style #${room_styles[ room_style ]}</label >
+                                    <input id = "${room_styles[ room_style ]}" name = "room_style" type = "radio" value = "${room_style}"  class="collapse_parent check"
+                                    data-parent_div="room_style_images"
+                                     data-parent_title="room_styles_title"
+                                     data-next_div="board_type_images"
+                                     data-footer="room_style_${room_style}"
+                                      data-type="room_style"
                                             >
                                 </div >
                             </div >
 							` )
 	}
 }
-function render_view_types() {
-	var view_types_div = $( '#view_types' );
-	for ( let view_type in view_types ) {
-		view_types_div.append( `
 
-						<div class = "card col-md-2  text-center view_type_images d-none" >
-                                <img  src="assets/images/views/${view_types[ view_type ]}.jpg" class = "form_image img-thumbnail"
-                                     alt = "${view_types[ view_type ]} view" >
-                                <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center" >
-                                    <label for = "${view_types[ view_type ]}" class="text-capitalize">${view_types[ view_type ]}</label >
-                                    <input id = "${view_types[ view_type ]}" name = "view_type" type = "radio" value = ${view_type}
-                                            >
-                                </div >
-                            </div >
-							` )
-	}
-	$('#view_types_title').append( ` <p class = "card-text p-2 show_content" data-hidden_class="view_type_images" >
- 											<strong>b) </strong>
-                                    Select the view type your room has. <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
-        
-                                </p >` )
-	
-}
 function render_board_types() {
 	var board_types_div = $( '#board_types' );
 	for ( let board_type in board_types ) {
@@ -80,15 +100,18 @@ function render_board_types() {
 						 <div class = "card col-md-3  text-center board_type_images d-none" >
                             <img src="assets/images/board_types/${board_type}.jpg" class = "form_image img-thumbnail"
                                  alt = "${board_types[board_type]} image" >
-                            <div class = "card-footer text-center bg-secondary text-light" >
+                            <div class = "card-footer text-center bg-secondary text-light board_type_${board_type}" id="board_type_${board_type}">
                                 <label for = "${board_types[board_type]}"  class="text-capitalize">${board_types[board_type]}</label >
                             </div >
-                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center"  id="board_type_${board_type}">
+                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center "  >
                             
-                                <input id = "${board_types[board_type]}" class="board_type" name = "board_type_${board_type}"
+                                <input id = "board_${board_type}"   class="board_type check" name = "board_type_${board_type}"
                                 type = "checkbox"
-                                value = "${board_type}"
+                             
+                                data-type="board"
                                 data-board_type="${board_type}"
+                                data-parent_title="board_types_title"
+                                data-footer="board_type_${board_type}"
                                  >
                                 
                                 
@@ -113,11 +136,15 @@ function render_amenities() {
 
 						 <div class = "card col-md-4 text-center amenities d-none" >
                             
-                            <div class = "card-footer text-center bg-secondary text-light" >
+                            <div class = "card-footer text-center bg-secondary text-light amenity${amenity}" id="amenity${amenity}" >
                                 <label for = "${amenities[amenity]} "  class="text-capitalize">${amenities[amenity]}</label >
                             </div >
-                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center" >
-                                <input id = "${amenities[amenity]}" name = "amenities" type = "checkbox" value = "${amenity}"  >
+                            <div class = "card-footer text-center  d-flex justify-content-around align-items-center " >
+                                <input id = "${amenities[amenity]}" class="amenity_type check" name = "amenities" type = "checkbox"
+                                  data-type="amenity"
+                                 data-parent_title="amenities_title"
+                                 data-footer="amenity${amenity}"
+                                 >
                                
                             </div >
                         </div >
