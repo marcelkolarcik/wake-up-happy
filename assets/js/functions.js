@@ -1,4 +1,4 @@
-//toggling  content of room details part of the form
+//toggling content of the div ( particular part of the form )
 $( document ).on( "click", ".show_content", function () {
 	
 	var hidden_class = $( this ).data( 'hidden_class' );
@@ -31,6 +31,8 @@ $( document ).on( "click", ".board_type", function () {
 	}
 	
 } );
+// after selecting radio buttons : room_type, view_type, room_style, this function will collapse parent div, add color feedback to user that
+// it is selected already, and it will un-hide next div for selection
 $( document ).on( "click", ".collapse_parent", function () {
 	
 	var parent_div = $( '.' + $( this ).data( 'parent_div' ) );
@@ -43,11 +45,11 @@ $( document ).on( "click", ".collapse_parent", function () {
 	
 } );
 
-// not to put nunmer_of_boards outside of function as global variable i use this function to keep it in
+// not to put nunber_of_boards outside of function as global variable i use this function to keep it in
 //https://stackoverflow.com/questions/12319598/jquery-mouse-click-counter
 ( function () {
 
-//	FUNCTION TO GIVE USER COLOR FEEDBACK WHEN GOING THROUGH THE ADD ROOM FORM
+//	FUNCTION TO GIVE USER INTERACTIVE FEEDBACK WHEN GOING THROUGH THE ADD ROOM FORM
 	
 	var num_of_boards = 0;
 	var num_of_amenities = 0;
@@ -65,26 +67,25 @@ $( document ).on( "click", ".collapse_parent", function () {
 		
 		if ( $( this ).is( ":checked" ) ) {
 
-//			IF ANY OF THE RADIO'S WAS SELECTED, IT WOULD HAVE  bg_green CLASS APPLIED, SO THIS IS JUST TO RETURN IT
-// TO ORIGINAL STATE
+		//	IF ANY OF THE IMAGES RADIO BUTTON WAS SELECTED, IT WOULD HAVE  bg_green CLASS APPLIED, SO  IF USER
+        // CHANGES HIS MIND AND SELECTS ANOTHER IMAGE , THIS IS JUST TO REMOVE .bg_green FROM PREVIOUSLY SELECTED IMAGE
+		// AND BRING IT TO ORIGINAL STATE
 			if ( type === 'room_style' ) $( '.room_style' ).removeClass( 'bg_green' ).addClass( 'bg-secondary' );
 			if ( type === 'view_type' ) $( '.view_type' ).removeClass( 'bg_green' ).addClass( 'bg-secondary' );
 			if ( type === 'room_type' ) $( '.room_type' ).removeClass( 'bg_green' ).addClass( 'bg-secondary' );
 
-//			HERE CHANGING COLOR OF TWO ELEMENTS TO bg_green
-//			if ( type === 'board' && num_of_boards === 0 ) {
-//				parent_title.addClass( 'bg_orange text-light' );
-//			}
-//			else {
-//				parent_title.addClass( 'bg_green text-light' );
-//			}
+			// THIS IS TO ADD .bg_green TO TITLE OF THIS PART OF THE FORM WHEN USER SELECTS IT
 			parent_title.addClass( 'bg_green text-light' );
 			
+			//COLLECTING titles , USING IT FOR DISPLAYING NEXT STEP BUTTON
 			titles[ type ] = 1;
 			
 			
 			
-			
+			/// IMAGE CARD FOOTER CHANGED TO .bg_green, EXCEPT IF IT IS BOARD, BECAUSE USER NEEDS TO
+			// ADD PRICE FOR THE BOARD, .bg_orange IS APPLIED FIRST, AND WHEN HE ADDS PRICE , IT WILL CHANGE TO .bg_green
+			// AND WHEN HE DELETES PRICE , IT WILL RETURN TO .bg_orange , AND WHEN USER DESELECTS BOARD, IT WILL
+			// BE CHANGED TO ORIGINAL .bg-secondary
 			if ( type === 'board' ) {
 				footer.removeClass( 'bg-secondary' ).addClass( 'bg_orange' );
 				increment = true;
@@ -93,12 +94,10 @@ $( document ).on( "click", ".collapse_parent", function () {
 				footer.removeClass( 'bg-secondary' ).addClass( 'bg_green' );
 			}
 
-//			CALCULATING HOW MANY CHECKBOXES WERE SELECTED-DESELECTED, NEEDED LATER IF USER DESELECTS ALL OF THEM , TO
-// RETURN COLOR TO ORIGINAL STATE
+			//CALCULATING HOW MANY CHECKBOXES  num_of_amenities AND num_of_boards AND num_of_prices WERE SELECTED-DESELECTED, NEEDED LATER IF USER DESELECTS ALL OF THEM , TO
+			// RETURN COLOR TO ORIGINAL STATE
 
-//			if ( type === 'board' ) {
-//				num_of_boards++;
-//			}
+
 			if ( type === 'amenity' ) {
 				num_of_amenities++;
 				
@@ -121,12 +120,13 @@ $( document ).on( "click", ".collapse_parent", function () {
 				
 			}
 
-//			IF ANY OF THE RADIO'S  OR CHECKBOXES WERE SELECTED, IT WOULD HAVE  bg_green CLASS APPLIED, SO THIS IS
-// JUST TO RETURN IT TO ORIGINAL STATE
+		//	IF ANY OF THE IMAGES  RADIO'S  OR CHECKBOXES WERE SELECTED, IMAGE CARD FOOTER WOULD HAVE  bg_green CLASS APPLIED, SO THIS IS
+		// JUST TO RETURN IT TO ORIGINAL STATE
 			footer.removeClass( 'bg_green' ).addClass( 'bg-secondary' );
 
-//			IF USER HAS DESELECTED ALL OF PRECIOUSLY SELECTED CHECKBOXES ( board_types and amenities) , THIS IS TO
-// REMOVE APPLIED CLASS
+			//	IF USER HAS DESELECTED ALL OF PRECIOUSLY SELECTED CHECKBOXES ( board_types and amenities) , THIS IS TO
+			// REMOVE APPLIED CLASS
+			
 			if ( num_of_boards === 0 && type === 'board' ) {
 				
 				parent_title.removeClass( 'bg_green text-light' ).addClass( 'bg_orange' );
@@ -135,12 +135,6 @@ $( document ).on( "click", ".collapse_parent", function () {
 				step_4.addClass( 'd-none' );
 				
 			}
-//			else if(num_of_boards > 0 && type === 'board')
-//			{
-//				parent_title.addClass( 'bg_green text-light' );
-//				console.log('add step 4 if titles === 6')
-//			}
-			
 			
 			if ( num_of_amenities === 0 && type === 'amenity' ) {
 				
@@ -151,21 +145,16 @@ $( document ).on( "click", ".collapse_parent", function () {
 				step_4.addClass( 'd-none' );
 				
 			}
-//			else if(num_of_amenities > 0 && type === 'amenity')
-//			{
-//				parent_title.addClass( 'bg_green text-light' );
-//				console.log('add step 4 if titles === 6')
-//			}
-			
 		}
+		
 		var num_of_titles = Object.keys( titles ).length;
+		/// IF FIRST 3 PARTS OF THE FORM ARE FILLED CORRECTLY  num_of_titles === 3 AND THIS IS TO LET USER CAN CONTINUE
+		/// WITH THE FORM BY DISPLAYING NEXT STEP BUTTON
 		if ( num_of_titles === 3 ) {
 			$( '#step_3' ).removeClass( 'd-none' );
 		}
-//		else {
-//			$( '#step_3' ).addClass( 'd-none' );
-//		}
-		
+		/// THIS IS TO COMMUNICATE TO DESCRIPTION PART OF THE FORM THAT ALL 5 PARTS OF THE FORM IS FILLED CORRECTLY BY ADDING .waiting_for_description
+		/// ON STEP 4 BUTTON, AND THEN, WHEN THE DESCRIPTION IS FILLED AS WELL, STEP 4 BUTTON WILL APPEAR
 		if ( num_of_titles === 5 ) {
 			$( '#step_4' ).addClass( 'waiting_for_description' );
 		}
@@ -175,8 +164,12 @@ $( document ).on( "click", ".collapse_parent", function () {
 		
 	} );
 	
-	
+	////// THIS IS TO INCREMENT num_of_prices AND num_of_boards ONLY IF IT IS NEW BOARD
+	///// AND NOT IF THE USER IS EDITING PRICE ANOTHER TIME, SO WE CHECK IF PRICE INPUT FIELD HAS
+	//// ANY VALUE ON FOCUS IN , AND IF HAS increment WILL BE FALSE, OTHERWISE IT IS NEW BOARD AND
+	//// increment STAYS true
 	var increment = true;
+	
 	$( document ).on( 'focusin', '.board_price', function () {
 		if( $( this ).val() !== '')
 		{
@@ -235,31 +228,31 @@ $( document ).on( "click", ".collapse_parent", function () {
 //FORM PROGRESS (STEPS) BUTTONS
 
 $( document ).on( 'click', '.step', function () {
-//	var step_id = $( this ).attr( 'id' );
+
 	var step = $( this ).data( 'step' );
 	
-	if ( step === 1 ) {
-		//$('#step_'+(step)).addClass('d-none active');
-		//$('#step_'+(step - 1)).removeClass('d-none');
-		$( this ).addClass( 'active' );
-		
-	}
+//	if ( step === 1 ) {
+//
+//		$( this ).addClass( 'active' );
+//
+//	}
 	
 	if ( step === 2 ) {
-		//$('#step_'+(step + 1)).removeClass('d-none').addClass('active');
+		
 		$( '#step_' + ( step - 1 ) ).removeClass( 'd-none' );
 		$( this ).removeClass( 'bg-success text-light' );
-//		by clocking on map 60 characters added, so this is to clear it
+		
+//		by clicking on map 60 characters added, so this is to clear it
 		$('#room_description').html('').prop('placeholder','write something !');
 		
 		
 	}
-	if ( step === 3 ) {
-		//$('#step_'+(step + 1)).removeClass('d-none').addClass('active');
-		$( '#step_' + ( step - 1 ) ).removeClass( 'd-none' );
-		$( this ).removeClass( 'bg-success text-light' );
-		
-	}
+//	if ( step === 3 ) {
+//
+//		$( '#step_' + ( step - 1 ) ).removeClass( 'd-none' );
+//
+//
+//	}
 } );
 
 

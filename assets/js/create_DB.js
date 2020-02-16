@@ -181,7 +181,7 @@ var amenities = [
 	'in-room coffee machine', 'office corner', 'welcome gift', 'local flavor gifts', 'in-room beer tap', 'shower mini fridge',
 	'pop corn delivery', 'complementary smart phone', 'complementary BMW SUV'
 ];
-
+localStorage.clear();
 if ( localStorage.getItem( 'DB' ) ) {
 //	IF  DB IS IN LOCAL STORAGE ALREADY, WE WILL GET IT FROM THERE, NO RE-CREATING DB
 	// because local storage is storing strings we need to stringify our object on the way in and parse it on the way out

@@ -28,7 +28,11 @@ h2, h3, h4, .nav_link {
 	padding-bottom: 5px;
 	border-radius: 0;
 	}
-
+.nav_link_property.board{
+	text-transform: none;
+	letter-spacing: 0;
+	padding: 0;
+	}
 span.nav_link_property {
 	text-transform: none;
 	font-size: 0.9em;

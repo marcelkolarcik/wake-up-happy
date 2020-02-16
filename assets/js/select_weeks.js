@@ -1,12 +1,24 @@
 var booked_properties = [];
 
 $( document ).on( "click", ".week", function () {
+	
+	var p_id = $( this ).data( 'p_id' );
+	
+	if( $(this).data('user_set') === false)
+	{
+		$('#boards_'+p_id).addClass('bg_orange');
+		alert('Please select board');
+		return;
+	}
+	
 	var selected_week = $( this ).data( 'week' ).toString();
 	var price_per_week = $( this ).data( 'price' ).toString();
-	var p_id = $( this ).data( 'p_id' );
+	
 	var weeks = $( "#weeks_" + p_id );
 	var total_price = $( "#total_price_" + p_id );
-
+	
+//	IF USER CHANGES BOARD TYPE we are reseting prices and booked weeks to 0 and so we must reset counter as well
+	if(total_price.val() === '') counter = 0;
 //	RESETTING COUNTER IF CURRENT CLICK IS CLICK ON BOOKING CALENDAR OF DIFFERENT ROOM IN SEARCH RESULTS....
 	if ( booked_properties.slice( -1 )[ 0 ] !== p_id ) {
 		counter = 0;

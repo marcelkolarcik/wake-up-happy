@@ -21,7 +21,7 @@ function featured_rooms()
 //			render_room( property, image_id, 'form_search_results' );
 //			render_gallery( property, food_id );
 //			render_booking_calendar( property );
-			
+			//console.log(property);
 			render_index( property, image_id, 'form_search_results');
 			
 			e++;

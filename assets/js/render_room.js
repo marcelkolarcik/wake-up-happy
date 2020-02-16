@@ -22,12 +22,13 @@ function render_room( property, image_id, where ) {
     <div class = "row no-gutters" >
         <div class = "col-md-4 vertically_aligned img-thumbnail" >
             <img src = "assets/images/bedrooms/b${image_id}.jpg" class = "card-img property_img" alt = "property image" >
-            <h6 class = "bg_green text-light p-2 mt-2 text-center" > ${property.p_price_per_w}&nbsp;EUR
+            <h6 class = "bg_green text-light p-2 mt-2 text-center" >
+			from	${ property.price[  Object.keys(property.price)[0] ]}&nbsp;EUR <!--getting first available price to display form-->
                 <small >per week</small >
             </h6 >
              <span class=" d-md-none  text-capitalize"  >
-					<h4 class="ml-2 nav_link_property">${property.city} | ${room_types[ property.room_type ]} |
-                                                             ${board_types[ property.board_type ]}
+					<h4 class="ml-2 nav_link_property">${property.city} | ${room_types[ property.room_type ]}
+                                                            
                                                              </h4>
              </span >
              <span class="d-md-none ml-2">
@@ -60,8 +61,7 @@ function render_room( property, image_id, where ) {
                 <div class = "tab-pane active" id = "about_${property.p_id}" role = "tabpanel" >
                     <div class = "card-body " >
                         	<span class="pl-2 d-none d-md-block text-capitalize" >
-											<h4 class="nav_link_property">			${property.city} | ${room_types[ property.room_type ]} |
-                                                             ${board_types[ property.board_type ]}
+											<h4 class="nav_link_property">			${property.city } | ${room_types[ property.room_type ]}
                                              </h4>
              				</span >
                         <p class = "card-text" >${property.p_description}</p >
@@ -74,11 +74,18 @@ function render_room( property, image_id, where ) {
                 <div class = "tab-pane" id = "availability_${property.p_id}" role = "tabpanel" >
                     <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${property.p_id}" >
                     </div >
-                    <div class = "col-md-12 text-center" >
-                        <span class = "nav_link_property" >Pick the week(s) you wat to book
-                                                           the room for and click on <strong
+                    <div class = "col-md-12" >
+                    <div class="row">
+                    <div id="boards_${property.p_id}" class="col ">
+                    
+					</div>
+                    <div class="col">
+                    	<span class = "nav_link_property" >Pick the week(s) and board and click on <strong
                                     class = "bold" >BOOK</strong > button
                         </span >
+					</div>
+					</div>
+                    
                     </div >
                 </div >
                 <div class = "tab-pane" id = "amenities_${property.p_id}" role = "tabpanel" >

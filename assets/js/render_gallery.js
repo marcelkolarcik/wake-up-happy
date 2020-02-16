@@ -94,7 +94,7 @@ function render_gallery(property,food_id,image_id)
 				<div class="card" style="width: 10rem;">
 				  <img src="assets/images/views/${property.p_view}.jpg" class="card-img-top" alt="...">
 				  <div class="card-footer p-0 ">
-				    <p class="card-text text-center">Style of view</p>
+				    <p class="card-text text-center"><span class="text-capitalize">${property.p_view}</span> view</p>
 				  </div>
 				</div>
 				<div class="card" style="width: 10rem;">

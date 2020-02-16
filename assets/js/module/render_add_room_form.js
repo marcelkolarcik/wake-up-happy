@@ -20,7 +20,7 @@ function render_room_types() {
                                      alt = "${room_types[ room_type ]} bedroom image"  >
                                
                                             
-                                             <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center room_type" id="room_type_${room_type}">
+                                <div class = "card-footer text-center bg-secondary text-light d-flex justify-content-around align-items-center room_type" id="room_type_${room_type}">
                                     <label for = "${room_types[ room_type ]}"  class="text-capitalize">${room_types[ room_type ]}  bedroom</label >
                                     <input id = "${room_types[ room_type ]}" name = "room_type" type = "radio" value = "${room_type}"  class="collapse_parent check"
                                     data-parent_div="room_type_images"

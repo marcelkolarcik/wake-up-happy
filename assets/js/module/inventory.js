@@ -1,7 +1,7 @@
 /*arrays i am using in the pages*/
 export let room_types = [ 'single', 'double' ];
 export let board_types = [ 'room only', 'bed & breakfast', 'breakfast & dinner', 'all inclusive' ];
-export let view_types = [ 'beach', 'desert', 'fields', 'forrest', 'lake', 'mountain', 'pool', 'river', 'sea', 'skyline' ];
+export let view_types =  [ 'mountain', 'sea', 'lake', 'river', 'pool', 'beach', 'forrest', 'skyline', 'fields', 'desert' ];
 export let room_styles = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ];
 export let amenities = [
 	'fresh linens', 'extra blankets', 'puzzle turn down service', 'elevator bartender', 'celebrity wake up call', 'fast Wi-Fi',

@@ -87,7 +87,7 @@ function getCoordinates( e ) {
                                 <i class = "fas fa-map-marker-alt" >&nbsp;lng</i >
                             </div >
                         </div >
-                        <input type = "text" name = "lat"
+                        <input type = "text" name = "lng"
                                class = "form-control form-control-sm border_bottom_only "
                                id = "lng" value="${coordinates[ 1 ]}" required readonly >
                     </div >
@@ -103,7 +103,7 @@ function getCoordinates( e ) {
 	
 	$( '#get_address' ).on( 'click', function () {
 		getAddress( url );
-		$('#step_2').removeClass('d-none').addClass('bg-success text-light');
+		$('#step_2').removeClass('d-none');
 		
 	} );
 	
