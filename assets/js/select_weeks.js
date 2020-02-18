@@ -5,7 +5,7 @@
 		
 		var p_id = $( this ).data( 'p_id' );
 		
-		if ( $( this ).data( 'user_set' ) === false ) {
+		if ( $( this ).data( 'user_set_'+p_id ) === false ) {
 			$( '#boards_' + p_id ).addClass( 'bg_orange' );
 			alert( 'Please select board' );
 			return;
@@ -72,7 +72,7 @@
 			}
 		}
 		
-		console.log( Math.random().toString( 36 ).substr( 2, 7 ) );
+		console.log( Math.random().toString( 36 ).substr( 2, 7 ) ,total_price.val());
 		
 	} );
 } )();

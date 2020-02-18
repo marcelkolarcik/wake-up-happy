@@ -19,7 +19,7 @@ function render_booking_calendar( property ) {
 				 data-p_id="${property.p_id}"
 				 data-week="${week}"
 				 data-price="${ property.price[ Object.keys( property.price )[ 0 ] ]}"
-				 data-user_set = "false"
+				 data-user_set_${property.p_id} = "false"
 				 >
 			
 				  <span> ${week}</span>
@@ -31,7 +31,7 @@ function render_booking_calendar( property ) {
 	$.each( property.price, function ( index, value ) {
 		boards.append( `
 			<div>
-				 <input id = "${index}" name = "board" type = "radio" value = ""${value}  onclick=set_price(${property.p_id},${index}); >
+				 <input id = "${index}" name = "board" type = "radio" value = "${value}"  onclick=set_price(${property.p_id},${index}); >
                  <label for = "${index}"  class="nav_link_property board">${board_types[ index ]} : ${value} EUR</label >
 			</div>
 	` );
@@ -42,6 +42,7 @@ function render_booking_calendar( property ) {
 function set_price( p_id, index ) {
 	
 	var board_types = JSON.parse( localStorage.getItem( 'board_types' ) );
+	
 	$( '#boards_' + p_id ).removeClass( 'bg_orange' );
 	$( "#weeks_" + p_id ).val( '' );
 	$( "#total_price_" + p_id ).val( '' );
@@ -52,5 +53,5 @@ function set_price( p_id, index ) {
 	
 	week.data( 'price', board_price ).addClass( 'bg_green' ).removeClass( 'text-secondary selected' );
 	week.data( 'price', board_price );
-	week.data( 'user_set', 'true' );
+	week.data( 'user_set_'+p_id, 'true' );
 }

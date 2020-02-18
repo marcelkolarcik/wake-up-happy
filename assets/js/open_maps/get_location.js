@@ -21,6 +21,7 @@ function getCoordinates( e ) {
 	$( '#location_details' ).html( '' );
 	
 	
+	
 	var coordinates = e.latlng.toString().replace( 'LatLng(', '' ).replace( ')', '' ).replace( ' ', '' ).split( ',' );
 	var get_address = $('#get_address');
 	get_address.removeClass('d-none');
@@ -36,6 +37,9 @@ function getCoordinates( e ) {
 	var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coordinates[ 0 ]}&lon=${coordinates[ 1 ]}`;
 	
 	function getAddress( url ) {
+		
+	
+		
 		var xhr = new XMLHttpRequest();
 		
 		xhr.onreadystatechange = function () {

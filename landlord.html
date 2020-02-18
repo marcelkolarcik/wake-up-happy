@@ -2,7 +2,7 @@
 <html >
 <head >
     <title >Add your room</title >
-    <meta charset = "utf-8" />
+    <meta charset = "UTF-8" />
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
     <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel = "stylesheet"
           integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -87,18 +87,7 @@
         </div >
         <form id = "add_your_room" onsubmit = "return checkForm(this);" >
             <div class = "row no-gutters" >
-                <!--<div class = "list-group list-group-horizontal col-md-1 d-md-none" id = "add_room_tabs_h" role = "tablist" >-->
-                <!--<a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"-->
-                <!--role = "tab" >1</a >-->
-                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#types"-->
-                <!--role = "tab" > 2</a >-->
-                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"-->
-                <!--role = "tab" > 3</a >-->
-                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#preview"-->
-                <!--role = "tab" >4</a >-->
-                <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#payment"-->
-                <!--role = "tab" >5</a >-->
-                <!--</div >-->
+              
                 <!-- Tab panes -->
                 <div class = "tab-content col-md-12" >
                     <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
@@ -126,14 +115,13 @@
                                             the
                                             details
                                             you are sharing, click on
+                                          
                                             <button class = "list" >2</button >
                                         </p >
                                     </div >
                                 </div >
                                 <div id = "location" >
                                 </div >
-                                <!--<form action = "#" id = "location" >-->
-                                <!--</form >-->
                             </div >
                         </div >
                     </div >
@@ -144,8 +132,8 @@
                                 <div class = "how-to img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
                                 </div >
                             </div >
-                            <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12 carousel slide"
-                                 id = "view_types" data-ride = "carousel" >
+                            <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12 "
+                                 id = "view_types"  >
                                 <div class = "how-to img-thumbnail card col-md-12 p-0" id = "view_types_title" ></div >
                             </div >
                             <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
@@ -172,23 +160,7 @@
                             </div >
                         </div >
                         <div class = "col-auto" >
-                            <!--<label class = "" for = "room_description" >Describe your room, make it attractive (max 300 characters)</label >-->
-                            <!--<div class = "input-group mb-2" >-->
-                            <!--<div class = "input-group-prepend" >-->
-                            <!--<div class = "input-group-text bg-transparent border_bottom_only" title="Write description of your room, max 300 characters." >-->
-                            <!--<i class="fas fa-feather-alt"></i>-->
-                            <!--<br >-->
-                            <!--<span id="room_description_length">300</span>-->
-                            <!--</div >-->
-                            <!--</div >-->
-                            <!--<textarea name = "description" form = "add_your_room" maxlength="300" oninput="countChars()" rows="4"-->
-                            <!--class = "form-control form-control-lg border_bottom_only" id = "room_description"-->
-                            <!---->
-                            <!--required >-->
-                            <!---->
-                            <!--</textarea >-->
-                            <!---->
-                            <!--</div >-->
+                            
                             <button class = "bg_orange text-secondary" >preview</button >
                         </div >
                     </div >
@@ -241,7 +213,9 @@
 <script src = "assets/js/render_gallery.js" ></script >
 <script src = "assets/js/render_amenities.js" ></script >
 <script src = "assets/js/render_booking_calendar.js" ></script >
-<script src = "assets/js/book_room.js" ></script >
+
+<script src = "assets/js/pay_for_the_room_form.js" ></script >
+
 <script >
 </script >
 </body >
