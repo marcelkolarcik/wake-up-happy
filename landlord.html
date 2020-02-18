@@ -12,9 +12,7 @@
     <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity = "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin = "" />
-    <script src = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity = "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin = "" ></script >
+    
     <link rel = "stylesheet" href = "assets/css/app.css" >
 </head >
 <body >
@@ -44,7 +42,7 @@
             <ul class = "navbar-nav mr-auto" >
                 <li class = "nav-item pr-3" >
                     <span class = " my-2 my-md-0 text-light nav_link" >
-                        <a  class="text-light" href = "landlord.html" >Landlord ?</a >
+                        <a class = "text-light" href = "landlord.html" >Landlord ?</a >
                     </span >
                 </li >
                 <li class = "nav-item dropdown" >
@@ -61,151 +59,169 @@
         </div >
     </nav >
 </section >
-
 <section id = "content" >
-    
     <div class = "container" >
-        <div class = "col-md-12 img-thumbnail" id = "step_description" >
-            Follow the steps!
+        <div class = "col-md-12 img-thumbnail bg-transparent" id = "step_description" >
+            <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
+                <div class = "progress-bar   progress_step" >1</div >
+                <div class = "progress-bar   bg-transparent step_divider" ></div >
+                <div class = "progress-bar progress_step empty" id = "progress_step_2" >2</div >
+                <div class = "progress-bar  step_divider bg-transparent " ></div >
+                <div class = "progress-bar progress_step empty" id = "progress_step_3" >3</div >
+                <div class = "progress-bar  step_divider bg-transparent " ></div >
+                <div class = "progress-bar progress_step empty" id = "progress_step_4" >4</div >
+                <div class = "progress-bar  step_divider bg-transparent " ></div >
+                <div class = "progress-bar progress_step empty" id = "progress_step_5" >5</div >
+            </div >
+            <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
+                <div class = "progress-bar   progress_step p_description" role = "progressbar" >Location</div >
+                <div class = "progress-bar   bg-transparent step_divider p_description" ></div >
+                <div class = "progress-bar progress_step p_description" >Room</div >
+                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
+                <div class = "progress-bar progress_step p_description" >Services</div >
+                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
+                <div class = "progress-bar progress_step p_description" >Preview</div >
+                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
+                <div class = "progress-bar progress_step p_description" >Pay</div >
+            </div >
         </div >
-        <form id="add_your_room" onsubmit = "return checkForm(this);" >
-        <div class = "row no-gutters" >
-           
-           
-            <!--<div class = "list-group list-group-horizontal col-md-1 d-md-none" id = "add_room_tabs_h" role = "tablist" >-->
+        <form id = "add_your_room" onsubmit = "return checkForm(this);" >
+            <div class = "row no-gutters" >
+                <!--<div class = "list-group list-group-horizontal col-md-1 d-md-none" id = "add_room_tabs_h" role = "tablist" >-->
                 <!--<a class = "list-group-item list-group-item-action active" data-toggle = "list" href = "#get_address2"-->
-                   <!--role = "tab" >1</a >-->
+                <!--role = "tab" >1</a >-->
                 <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#types"-->
-                   <!--role = "tab" > 2</a >-->
+                <!--role = "tab" > 2</a >-->
                 <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#description"-->
-                   <!--role = "tab" > 3</a >-->
+                <!--role = "tab" > 3</a >-->
                 <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#preview"-->
-                   <!--role = "tab" >4</a >-->
+                <!--role = "tab" >4</a >-->
                 <!--<a class = "list-group-item list-group-item-action" data-toggle = "list" href = "#payment"-->
-                   <!--role = "tab" >5</a >-->
-            <!--</div >-->
-            <!-- Tab panes -->
-    
-    
-          
-            <div class = "tab-content col-md-12" >
-                <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
-                    <div class = "row no-gutters" >
-                        <div class = "col-md-8 col-sm-12 img-thumbnail" >
-                            <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
+                <!--role = "tab" >5</a >-->
+                <!--</div >-->
+                <!-- Tab panes -->
+                <div class = "tab-content col-md-12" >
+                    <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
+                        <div class = "row no-gutters" >
+                            <div class = "col-md-8 col-sm-12 img-thumbnail" >
+                                <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
+                            </div >
+                            <div class = "col-md-4 col-sm-12 img-thumbnail " >
+                                <div id = "location_details"
+                                     class = "d-flex justify-content-center align-items-center" >
+                                    <div class = "how-to img-thumbnail" >
+                                        <h4 >Your location details will display here !</h4 >
+                                        <p class = "card-text p-2" >
+                                            By scrolling or clicking on the map, select location of your property. Once
+                                            you
+                                            are
+                                            happy with the location, click on
+                                            <button class = "bg_orange" >get details</button >
+                                            button,
+                                            and this will display all the address information. You can choose what
+                                            details
+                                            you want
+                                            to share. If you don't want to share some details,
+                                            just delete it by clicking on red <code >x</code >. If you are happy with
+                                            the
+                                            details
+                                            you are sharing, click on
+                                            <button class = "list" >2</button >
+                                        </p >
+                                    </div >
+                                </div >
+                                <div id = "location" >
+                                </div >
+                                <!--<form action = "#" id = "location" >-->
+                                <!--</form >-->
+                            </div >
                         </div >
-                        <div class = "col-md-4 col-sm-12 img-thumbnail " >
-                            
-                            <div id = "location_details" class = "d-flex justify-content-center align-items-center" >
-                                <div class = "how-to img-thumbnail" >
-                                    <h4 >Your location details will display here !</h4 >
-                                    <p class = "card-text p-2" >
-                                        By scrolling or clicking on the map, select location of your property. Once you
-                                        are
-                                        happy with the location, click on
-                                        <button class = "bg_orange" >get details</button >
-                                        button,
-                                        and this will display all the address information. You can choose what details
-                                        you want
-                                        to share. If you don't want to share some details,
-                                        just delete it by clicking on red <code >x</code >. If you are happy with the
-                                        details
-                                        you are sharing, click on
-                                        <button class = "list" >2</button >
-                                    </p >
+                    </div >
+                    <div class = "tab-pane" id = "types" role = "tabpanel" >
+                        <div class = "row no-gutters" id = "room_details" >
+                            <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                                 id = "room_types" >
+                                <div class = "how-to img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
                                 </div >
                             </div >
-                            <div id="location">
-                            
-                            </div>
-                            <!--<form action = "#" id = "location" >-->
-                            <!--</form >-->
+                            <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12 carousel slide"
+                                 id = "view_types" data-ride = "carousel" >
+                                <div class = "how-to img-thumbnail card col-md-12 p-0" id = "view_types_title" ></div >
+                            </div >
+                            <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                                 id = "room_styles" >
+                                <div class = "how-to img-thumbnail card col-md-12 p-0 " id = "room_styles_title" >
+                                </div >
+                            </div >
                         </div >
                     </div >
-                </div >
-                <div class = "tab-pane" id = "types" role = "tabpanel" >
-                    <div class = "row no-gutters" id="room_details" >
+                    <div class = "tab-pane" id = "services" role = "tabpanel" >
                         <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
-                             id = "room_types" >
-                            <div class = "how-to img-thumbnail card col-md-12 " id = "room_types_title" >
+                             id = "board_types" >
+                            <div class = "how-to img-thumbnail card col-md-12 p-0" id = "board_types_title" >
                             </div >
                         </div >
-                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
-                             id = "view_types" >
-                            <div class = "how-to img-thumbnail card col-md-12 " id = "view_types_title" >
-                            </div >
-                        </div >
-                       
                         <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
-                             id = "room_styles"  >
-                            <div class = "how-to img-thumbnail card col-md-12  " id = "room_styles_title" >
+                             id = "amenities" >
+                            <div class = "how-to img-thumbnail card col-md-12 p-0 " id = "amenities_title" >
                             </div >
                         </div >
-                       
-                    </div >
-                </div >
-                <div class = "tab-pane" id = "services" role = "tabpanel" >
-                    <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
-                         id = "board_types" >
-                        <div class = "how-to img-thumbnail card col-md-12 " id = "board_types_title" >
+                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                             id = "description" >
+                            <div class = "how-to img-thumbnail card col-md-12  p-0" id = "description_title" >
+                            </div >
                         </div >
-                    </div >
-                    <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
-                         id = "amenities"  >
-                        <div class = "how-to img-thumbnail card col-md-12  " id = "amenities_title" >
-                        </div >
-                    </div >
-                    <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
-                         id = "description"  >
-                        <div class = "how-to img-thumbnail card col-md-12  " id = "description_title" >
-                        </div >
-                    </div >
-                    
-                    <div class = "col-auto" >
-                        <!--<label class = "" for = "room_description" >Describe your room, make it attractive (max 300 characters)</label >-->
-                        <!--<div class = "input-group mb-2" >-->
+                        <div class = "col-auto" >
+                            <!--<label class = "" for = "room_description" >Describe your room, make it attractive (max 300 characters)</label >-->
+                            <!--<div class = "input-group mb-2" >-->
                             <!--<div class = "input-group-prepend" >-->
-                                <!--<div class = "input-group-text bg-transparent border_bottom_only" title="Write description of your room, max 300 characters." >-->
-                                    <!--<i class="fas fa-feather-alt"></i>-->
-                                    <!--<br >-->
-                                    <!--<span id="room_description_length">300</span>-->
-                                <!--</div >-->
+                            <!--<div class = "input-group-text bg-transparent border_bottom_only" title="Write description of your room, max 300 characters." >-->
+                            <!--<i class="fas fa-feather-alt"></i>-->
+                            <!--<br >-->
+                            <!--<span id="room_description_length">300</span>-->
+                            <!--</div >-->
                             <!--</div >-->
                             <!--<textarea name = "description" form = "add_your_room" maxlength="300" oninput="countChars()" rows="4"-->
-                                      <!--class = "form-control form-control-lg border_bottom_only" id = "room_description"-->
-                                     <!---->
-                                      <!--required >-->
-                               <!---->
+                            <!--class = "form-control form-control-lg border_bottom_only" id = "room_description"-->
+                            <!---->
+                            <!--required >-->
+                            <!---->
                             <!--</textarea >-->
-                           <!---->
-                        <!--</div >-->
-                       <button class="bg_orange text-secondary">preview</button>
+                            <!---->
+                            <!--</div >-->
+                            <button class = "bg_orange text-secondary" >preview</button >
+                        </div >
+                    </div >
+                    <div class = "tab-pane" id = "preview" role = "tabpanel" >...Preview</div >
+                    <div class = "tab-pane" id = "payment" role = "tabpanel" >
                     </div >
                 </div >
-                <div class = "tab-pane" id = "preview" role = "tabpanel" >...Preview</div >
-                <div class = "tab-pane" id = "payment" role = "tabpanel" >...Payment</div >
-            </div >
-            <div id="steps" class="horizontally_aligned">
-            
-                <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
-                    <a class = "list-group-item list-group-item-action active step" data-toggle = "list" href = "#get_address2"
-                       role = "tab" id="step_1" data-step="1">1 </a >
-                    <a class = "list-group-item list-group-item-action  d-none  step" data-toggle = "list" href = "#types"
-                       role = "tab" id="step_2" data-step="2"> 2</a >
-                    <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list" href = "#services"
-                       role = "tab" id="step_3" data-step="3"> 3</a >
-                    <a class = "list-group-item list-group-item-action  d-none step" data-toggle = "list" href = "#preview"
-                       role = "tab" id="step_4" data-step="4" onclick=preview_room();>4</a >
-                    <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list" href = "#payment"
-                       role = "tab" id="step_5" data-step="5">5</a >
+                <div id = "steps" class = "horizontally_aligned" >
+                    <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
+                        <a class = "list-group-item list-group-item-action active step" data-toggle = "list"
+                           href = "#get_address2"
+                           role = "tab" id = "step_1" data-step = "1" >1 </a >
+                        <a class = "list-group-item list-group-item-action  d-none  step" data-toggle = "list"
+                           href = "#types"
+                           role = "tab" id = "step_2" data-step = "2" > 2</a >
+                        <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list"
+                           href = "#services"
+                           role = "tab" id = "step_3" data-step = "3" > 3</a >
+                        <a class = "list-group-item list-group-item-action  d-none step preview_room"
+                           data-toggle = "list" href = "#preview"
+                           role = "tab" id = "step_4" data-step = "4" >4</a >
+                        <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list"
+                           href = "#payment"
+                           role = "tab" id = "step_5" data-step = "5" >5</a >
+                    </div >
                 </div >
-            </div>
-           
-        </div >
-        </form>
+            </div >
+        </form >
     </div >
-    
 </section >
+<script src = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity = "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin = "" ></script >
 <script
         src = "https://code.jquery.com/jquery-3.4.1.js"
         integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -216,12 +232,12 @@
 <script src = "assets/js/open_maps/get_location.js" ></script >
 <script src = "assets/js/functions.js" ></script >
 <script src = "assets/js/check_form.js" ></script >
-<script src = "assets/js/preview_room.js" ></script >
+<script src = "assets/js/preview_room.js" type = "module" ></script >
 <script src = "assets/js/module/render_add_room_form.js" type = "module" ></script >
 <script src = "assets/js/getWeek.js" ></script >
-<script src = "assets/js/render_index.js" ></script >
+<script src = "assets/js/render_index.js" type = "module" ></script >
 <script src = "assets/js/select_weeks.js" ></script >
-<script src = "assets/js/render_room.js" ></script >
+<script src = "assets/js/render_room.js" type = "module" ></script >
 <script src = "assets/js/render_gallery.js" ></script >
 <script src = "assets/js/render_amenities.js" ></script >
 <script src = "assets/js/render_booking_calendar.js" ></script >

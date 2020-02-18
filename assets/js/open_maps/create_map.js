@@ -1,19 +1,21 @@
-function create_map( coordinates = null, zoom = null, show_p_id = null ) {
+import { DB } from './../create_DB.js';
+
+export function create_map( coordinates = null, zoom = null, show_p_id = null ) {
 	var tiles = L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom    : 18,
 		attribution: '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'
 	} );
 	
-	var container = L.DomUtil.get( 'map' );
+	var container = L.DomUtil.get( 'mapid' );
 	
 	if ( container != null ) {
 		/* on show on map we need to recreate divs to avoid container already initiated, or container not found...*/
 		container._leaflet_id = null;
 		$( "#api_open_maps" ).html( "" );
 		$( "#map" ).empty();
-		$( "<div id=\"map\" style=\"min-height: 400px;\"></div>" ).appendTo( "#api_open_maps" );
+		$( "<div id=\"mapid\" style=\"min-height: 400px;\"></div>" ).appendTo( "#api_open_maps" );
 	}
-	var map = L.map( 'map', {
+	var map = L.map( 'mapid', {
 		center: L.latLng( coordinates || 39.095963, -48.515625 ),
 		zoom  : zoom || 2,
 		layers: [ tiles ]
@@ -24,18 +26,10 @@ function create_map( coordinates = null, zoom = null, show_p_id = null ) {
 		                                //singleMarkerMode: true,
 		                                spiderfyOnMaxZoom: false
 	                                } );
-	let room_types = [
-		
-		'Single ( En Suite )',
-		'Double ( En Suite )'
-	];
 	
-	let board_types = [
-		'Room only',
-		'Bed & Breakfast',
-		'Breakfast & Dinner',
-		'All Inclusive'
-	];
+	let room_types = JSON.parse( localStorage.getItem( 'room_types' ) );
+	let views = JSON.parse( localStorage.getItem( 'views' ) );
+	
 	for ( var room in DB ) {
 		
 		var property = DB[ room ];
@@ -44,10 +38,10 @@ function create_map( coordinates = null, zoom = null, show_p_id = null ) {
 		var popup = `<img src="assets/images/bedrooms/b${image_id }_s.jpg"   alt = "property image"
 					 style="width:140px;height:70px;">
 					 <br><b><span class="text-capitalize">${property.city}</span></b>
-					 <br>board :  ${board_types[ property.board_type ]}
+					
 					 <br>room: ${room_types[ property.room_type ]}
-					 <br>view: ${property.p_view}
-					 <br> <h6 class="bg_green text-light p-2 mt-2">${property.p_price_per_w}&nbsp;EUR <small>per week</small></h6><br>
+					 <br>view: ${views[ property.p_view ] }
+
 					 <a class="property_popup btn btn-sm bg_green_light "
 					  title="See more information about the room."
 					  id="${property.p_id}"
@@ -72,6 +66,6 @@ function create_map( coordinates = null, zoom = null, show_p_id = null ) {
 }
 
 $( function () {
+	if ( window.location.pathname === '/index.html' ) create_map()
 	
-	create_map()
 } );

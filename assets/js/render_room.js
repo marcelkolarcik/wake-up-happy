@@ -1,20 +1,12 @@
-function render_room( property, image_id, where ) {
+import { create_map } from './open_maps/create_map.js';
+
+export function render_room( property, image_id, where ) {
 	var where_div = '#' + where;
 	var search_results = $( where_div );
-	
-	counter = 0;
-	
-	let room_types = [
-		'Single ( En Suite )',
-		'Double ( En Suite )'
-	];
-	
-	let board_types = [
-		'Room only',
-		'Bed & Breakfast',
-		'Breakfast & Dinner',
-		'All Inclusive'
-	];
+
+//	counter = 0;
+	var room_types = JSON.parse( localStorage.getItem( 'room_types' ) );
+	var board_types = JSON.parse( localStorage.getItem( 'board_types' ) );
 	
 	search_results.append( `
 
@@ -23,7 +15,7 @@ function render_room( property, image_id, where ) {
         <div class = "col-md-4 vertically_aligned img-thumbnail" >
             <img src = "assets/images/bedrooms/b${image_id}.jpg" class = "card-img property_img" alt = "property image" >
             <h6 class = "bg_green text-light p-2 mt-2 text-center" >
-			from	${ property.price[  Object.keys(property.price)[0] ]}&nbsp;EUR <!--getting first available price to display form-->
+			from	${ property.price[ Object.keys( property.price )[ 0 ] ]}&nbsp;EUR <!--getting first available price to display form-->
                 <small >per week</small >
             </h6 >
              <span class=" d-md-none  text-capitalize"  >
@@ -33,11 +25,11 @@ function render_room( property, image_id, where ) {
              </span >
              <span class="d-md-none ml-2">
              <!--to keep two spans on one line ...-->
-              ${    property.p_description.substring(0, 30)   }...
+              ${    property.p_description.substring( 0, 30 )   }...
               </span>
-              <span class="display_tabs btn btn-sm bg_green text-light d-md-none float-right mr-3"
-			title="Display more info..."
-			 onclick=show_tabs(${property.p_id});>more...</span>
+              <span class="display_tabs btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs"
+			title="Display more info..." data-p_id="${property.p_id}"
+			>more...</span>
 			
 			
 			
@@ -66,11 +58,16 @@ function render_room( property, image_id, where ) {
              				</span >
                         <p class = "card-text" >${property.p_description}</p >
                     </div >
-                    <span class="btn btn-sm bg_green text-light float-right mr-3"
+                  
+                    <span class="btn btn-sm bg_green text-light float-right mr-3 show_on_map   ${window.location.pathname === '/index.html' ? '' : 'd-none'}"
 						title="Show room on the map..."
-						 onclick=show_on_map(${property.lat},${property.lng},${property.p_id});>show on map</span>
+						data-lat="${property.lat}" data-lng="${property.lng}" data-p_id="${property.p_id}"
+						>show on map</span>
                 </div >
-                <div class = "tab-pane" id = "gallery_${property.p_id}" role = "tabpanel" ></div>
+                <div class = "tab-pane images carousel slide text-center" id = "gallery_${property.p_id}" role = "tabpanel" data-ride="carousel">
+               
+                
+				</div>
                 <div class = "tab-pane" id = "availability_${property.p_id}" role = "tabpanel" >
                     <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${property.p_id}" >
                     </div >
@@ -100,7 +97,7 @@ function render_room( property, image_id, where ) {
 								</div>
 	                             <div class = "col-auto" >
 	                             
-                                <label class = "sr-only" for = "room_details" >Room</label >
+                                <label class = "sr-only" for = "room_details${property.p_id}" >Room</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -109,7 +106,7 @@ function render_room( property, image_id, where ) {
                                     </div >
                                     <input type = "text" name = "room_details"
                                            class = "form-control form-control-sm  border_bottom_only bg_green_light"
-                                           id = "room_details" placeholder = "Room"
+                                           id = "room_details${property.p_id}" placeholder = "Room"
                                            value = "${property.city} | ${room_types[ property.room_type ]} | ${board_types[ property.board_type ]}"
                                            required readonly >
                                 </div >
@@ -125,6 +122,21 @@ function render_room( property, image_id, where ) {
                                     <input type = "text" name = "weeks"
                                            class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "weeks_${property.p_id}" placeholder = ""
+                                           value = ""
+                                           required readonly >
+                                </div >
+                            </div >
+                             <div class = "col-auto" >
+                                <label class = "" for = "board_${property.p_id}" >Board</label >
+                                <div class = "input-group mb-2" >
+                                    <div class = "input-group-prepend" >
+                                        <div class = "input-group-text bg-transparent border_bottom_only" >
+                                           <i class="far fa-calendar-alt"></i>&nbsp;
+                                        </div >
+                                    </div >
+                                    <input type = "text" name = "board"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
+                                           id = "board${property.p_id}" placeholder = ""
                                            value = ""
                                            required readonly >
                                 </div >
@@ -146,7 +158,7 @@ function render_room( property, image_id, where ) {
                                 </div >
                             </div >
                             <div class = "col-auto" >
-                                <label class = "sr-only" for = "fullname" >Full Name</label >
+                                <label class = "sr-only" for = "fullname${property.p_id}" >Full Name</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -155,11 +167,11 @@ function render_room( property, image_id, where ) {
                                     </div >
                                     <input type = "text" name = "name"
                                            class = "form-control form-control-sm border_bottom_only"
-                                           id = "fullname" placeholder = "Full Name" required >
+                                           id = "fullname${property.p_id}" placeholder = "Full Name" required >
                                 </div >
                             </div >
                             <div class = "col-auto" >
-                                <label class = "sr-only" for = "email_of_user" >Email</label >
+                                <label class = "sr-only" for = "email_of_user${property.p_id}" >Email</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -168,7 +180,7 @@ function render_room( property, image_id, where ) {
                                     </div >
                                     <input type = "text" name = "email_of_user"
                                            class = "form-control form-control-sm  border_bottom_only"
-                                           id = "email_of_user" placeholder = "Email" required >
+                                           id = "email_of_user${property.p_id}" placeholder = "Email" required >
                                 </div >
                             </div >
 								</div>
@@ -177,7 +189,7 @@ function render_room( property, image_id, where ) {
 	                            	Payment details
 								</div>
                              <div class = "col-auto " >
-                        <label class = "sr-only" for = "card_holder_name" >Card Holder Name:</label >
+                        <label class = "sr-only" for = "card_holder_name${property.p_id}" >Card Holder Name:</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -185,12 +197,12 @@ function render_room( property, image_id, where ) {
                                 </div >
                             </div >
                             <input type = "text" class = "form-control form-control-sm
-							        			border_bottom_only" id = "card_holder_name" name = "card_holder_name"
+							        			border_bottom_only" id = "card_holder_name${property.p_id}" name = "card_holder_name"
                                    placeholder = "Card Holder Name" required >
                         </div >
                     </div >
                     <div class = "col-auto" >
-                        <label class = "sr-only" for = "card_numder" >Card Number</label >
+                        <label class = "sr-only" for = "card_numder${property.p_id}" >Card Number</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -198,11 +210,11 @@ function render_room( property, image_id, where ) {
                                 </div >
                             </div >
                             <input type = "text" class = "form-control form-control-sm  border_bottom_only"
-                                   id = "card_numder" placeholder = "Card Number" name = "card_number" required >
+                                   id = "card_numder${property.p_id}" placeholder = "Card Number" name = "card_number" required >
                         </div >
                     </div >
                     <div class = "col-auto" >
-                        <label class = "sr-only" for = "cvv" >CVV</label >
+                        <label class = "sr-only" for = "cvv${property.p_id}" >CVV</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -210,20 +222,20 @@ function render_room( property, image_id, where ) {
                                 </div >
                             </div >
                             <input type = "text" class = "form-control form-control-sm  border_bottom_only"
-                                   id = "cvv" placeholder = "CVV" required name = "cvv" >
+                                   id = "cvv${property.p_id}" placeholder = "CVV" required name = "cvv" >
                         </div >
                     </div >
                             <div class = "col-auto" >
-                                <label class = "sr-only" for = "request_of_property" >Property Request</label >
+                                <label class = "sr-only" for = "request_of_property${property.p_id}" >Property Request</label >
                                 <div class = "input-group mb-2" >
                                     <textarea rows = "2" name = "request_of_property"
                                               class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2"
-                                              id = "request_of_property"
+                                              id = "request_of_property${property.p_id}"
                                               placeholder = "Any Requests..."  ></textarea >
                                 </div >
                             </div >
                             <div class = "col-auto text-center" >
-                            <div id="loader_holder"></div>
+                            <div id="loader_holder${property.p_id}"></div>
                                 <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
                                     Pay
                                 </button >
@@ -244,15 +256,23 @@ function render_room( property, image_id, where ) {
 				` );
 }
 
-function show_tabs( p_id ) {
-	$('#tabs_'+p_id).toggleClass('d-none d-md-block');
-}
-function show_on_map(lat,lng ,p_id) {
+//function show_tabs( p_id ) {
+//	$('#tabs_'+p_id).toggleClass('d-none d-md-block');
+//}
+$( document ).on( 'click', '.show_tabs', function () {
+	var p_id = $( this ).data( 'p_id' );
+	$( '#tabs_' + p_id ).toggleClass( 'd-none d-md-block' );
+} );
+$( document ).on( 'click', '.show_on_map', function () {
 	
+	var lat = $( this ).data( 'lat' );
+	var lng = $( this ).data( 'lng' );
+	var p_id = $( this ).data( 'p_id' );
 	
-	create_map([lat,lng],8,p_id);
+	create_map( [ lat, lng ], 8, p_id );
 	
-	$('html, body').animate({
-		                        scrollTop: $("#hero").offset().top
-	                        }, 11);
-}
+	$( 'html, body' ).animate( {
+		                           scrollTop: $( "#hero" ).offset().top
+	                           }, 11 );
+} );
+

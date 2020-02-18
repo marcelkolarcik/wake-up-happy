@@ -1,12 +1,6 @@
-function preview_room()
-{
-	var views = [ 'mountain', 'sea', 'lake', 'river', 'pool', 'beach', 'forrest', 'skyline', 'fields', 'desert' ];
-	var amenities_list = [
-		'fresh linens', 'extra blankets', 'puzzle turn down service', 'elevator bartender', 'celebrity wake up call', 'fast Wi-Fi',
-		'in-room cocktail station', 'in-room workout and meditation', 'USB charger ports', 'smart TV with Netflix',
-		'in-room coffee machine', 'office corner', 'welcome gift', 'local flavor gifts', 'in-room beer tap', 'shower mini fridge',
-		'pop corn delivery', 'complementary smart phone', 'complementary BMW SUV'
-	];
+import {render_index} from "./render_index.js";
+$( document ).on( 'click', '.preview_room', function () {
+	
 	var your_room = $("#add_your_room").serialize();
 	var your_room_array = your_room.split('&');
 	var address = {};
@@ -24,11 +18,11 @@ function preview_room()
 		}
 		else if(key === 'amenities')
 		{
-			amenities.push(amenities_list[value])  ;
+			amenities.push(value)  ;
 		}
 		else if(key === 'view_type')
 		{
-			property['p_view'] = views[ parseInt( value ) ];
+			property['p_view'] = value;
 		}
 		else if(key === 'description')
 		{
@@ -70,25 +64,5 @@ function preview_room()
 	property['bookings']   =   [];
 	
 	render_index( property, property.room_style, 'preview');
-	console.log(address,amenities,your_room_array,property);
-	/*room_type: "0"
-	 view_type: "2"
-	 room_style: "2"
-	 board_type_0_price: "5"*/
-	//console.log(your_room_array,address,amenities_list,s_item[1]);
-//	var property = {
-//		p_id: 1222,
-//		p_address: "",
-//		p_price_per_w: 176,
-//		p_description: "Beautiful room with river view to make you smile in the morning....",
-//		p_view: "river",
-//		lat: 51.93714,
-//		lng: -8.43699,
-//		board_type: 2,
-//		room_type: 0,
-//		city: "cork",
-//		bookings:[],
-//		amenities:[]
-//	}
+});
 
-}

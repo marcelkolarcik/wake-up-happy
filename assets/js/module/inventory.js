@@ -1,37 +1,124 @@
 /*arrays i am using in the pages*/
 export let room_types = [ 'single', 'double' ];
-export let board_types = [ 'room only', 'bed & breakfast', 'breakfast & dinner', 'all inclusive' ];
+export let board_types = [ 'Room only',
+                           'B & B',
+                           'B & D',
+                           'All Inclusive' ];
 export let view_types =  [ 'mountain', 'sea', 'lake', 'river', 'pool', 'beach', 'forrest', 'skyline', 'fields', 'desert' ];
 export let room_styles = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ];
-export let amenities = [
+
+export var cities_coordinates = [
+	[ 24.487149, -77.969971, 'Central Andros' ],
+	[ 25.621716, -80.288086, 'miami-dade county' ],
+	[ 26.698999, -80.093079, 'west palm beach' ],
+	
+	[ 28.860799, -13.841014, 'yaiza' ],
+	[ 28.863693, -13.828869, 'yaiza' ],
+	[ 28.865459, -13.834491, 'yaiza' ],
+	[ 28.865459, -13.835491, 'yaiza' ],
+	[ 28.845459, -13.836491, 'yaiza' ],
+	[ 28.365459, -13.854491, 'yaiza' ],
+	[ 28.86159, -13.854491, 'yaiza' ],
+	[ 28.865439, -13.86491, 'yaiza' ],
+	[ 28.865359, -13.836491, 'yaiza' ],
+	[ 28.864459, -13.83391, 'yaiza' ],
+	[ 28.865359, -13.85491, 'yaiza' ],
+	
+	[ 51.802614, -8.54399, "cork" ],
+	[ 51.90314, -8.464399, "cork" ],
+	[ 51.94614, -8.44359, "cork" ],
+	[ 51.905614, -8.4699, "cork" ],
+	[ 51.916614, -8.437399, "cork" ],
+	[ 51.973614, -8.460399, "cork" ],
+	[ 51.98664, -8.38999, "cork" ],
+	[ 51.99614, -8.4688499, "cork" ],
+	[ 51.98614, -8.66799, "cork" ],
+	[ 51.93714, -8.43699, "cork" ],
+	[ 51.906414, -8.455399, "cork" ],
+	[ 51.905614, -8.464699, "cork" ],
+	[ 51.94614, -8.46399, "cork" ],
+	[ 51.933614, -8.428799, "cork" ],
+	[ 51.9214, -8.4714399, "cork" ],
+	
+	[ 53.10140, -6.16155, "dublin" ],
+	[ 53.20140, -6.26155, "dublin" ],
+	[ 53.30140, -6.36155, "dublin" ],
+	[ 53.40140, -6.4155, "dublin" ],
+	[ 53.50140, -6.56155, "dublin" ],
+	[ 53.60140, -6.66155, "dublin" ],
+	[ 53.750140, -6.76155, "dublin" ],
+	[ 53.80140, -6.86155, "dublin" ],
+	[ 53.90140, -6.96155, "dublin" ],
+	[ 53.351140, -6.26155, "dublin" ],
+	[ 53.3240, -6.26255, "dublin" ],
+	[ 53.353140, -6.2355, "dublin" ],
+	[ 53.35440, -6.26645, "dublin" ],
+	[ 53.35540, -6.26555, "dublin" ],
+	[ 53.35640, -6.2665, "dublin" ],
+	[ 53.357140, -6.26755, "dublin" ],
+	[ 53.35840, -6.26685, "dublin" ],
+	
+	[ 52.272962, -9.12691, "limerick" ],
+	[ 52.10962, -9.2691, "limerick" ],
+	[ 52.220962, -9.3691, "limerick" ],
+	[ 52.40962, -9.4691, "limerick" ],
+	[ 52.50962, -9.5691, "limerick" ],
+	[ 52.60962, -9.6691, "limerick" ],
+	[ 52.30962, -9.7691, "limerick" ],
+	[ 52.00962, -9.8691, "limerick" ],
+	[ 52.10962, -9.92691, "limerick" ],
+	[ 52.00962, -9.06211, "limerick" ],
+	[ 52.27162, -9.06291, "limerick" ],
+	[ 52.27262, -9.06391, "limerick" ],
+	[ 52.27032, -9.06491, "limerick" ],
+	[ 52.27462, -9.06591, "limerick" ],
+	[ 52.27052, -9.06691, "limerick" ],
+	[ 52.27096, -9.0791, "limerick" ],
+	[ 52.2772, -9.06281, "limerick" ],
+	
+	[ 53.272962, -9.12691, "galway" ],
+	[ 54.10962, -9.2691, "galway" ],
+	[ 53.220962, -9.3691, "galway" ],
+	[ 53.40962, -9.4691, "galway" ],
+	[ 53.50962, -9.5691, "galway" ],
+	[ 53.60962, -9.6691, "galway" ],
+	[ 53.70962, -9.7691, "galway" ],
+	[ 53.30962, -9.8691, "galway" ],
+	[ 53.90962, -9.92691, "galway" ],
+	[ 53.00962, -9.06211, "galway" ],
+	[ 53.27162, -9.06291, "galway" ],
+	[ 53.27262, -9.06391, "galway" ],
+	[ 53.27032, -9.06491, "galway" ],
+	[ 53.27462, -9.06591, "galway" ],
+	[ 53.27052, -9.06691, "galway" ],
+	[ 53.27096, -9.0791, "galway" ],
+	[ 53.2772, -9.06281, "galway" ],
+	
+	[ 52.901614, -8.46599, "cork" ],
+	[ 52.202614, -8.44399, "cork" ],
+	[ 52.90314, -8.464399, "cork" ],
+	[ 52.94614, -8.44359, "cork" ],
+	[ 52.905614, -8.4699, "cork" ],
+	[ 52.916614, -8.437399, "cork" ],
+	[ 52.973614, -8.460399, "cork" ],
+	[ 52.98664, -8.38999, "cork" ],
+	[ 52.99614, -8.4688499, "cork" ],
+	[ 52.98614, -8.66799, "cork" ],
+	[ 52.93714, -8.43699, "cork" ],
+	[ 52.906414, -8.455399, "cork" ],
+	[ 52.905614, -8.464699, "cork" ],
+	[ 52.94614, -8.46399, "cork" ],
+	[ 52.933614, -8.428799, "cork" ],
+	[ 52.9214, -8.4714399, "cork" ]
+];
+export let num_of_booked_weeks = Math.floor( weeks_till_end_of_year.length / 4 ); // setting ~ 25 % of days as booked,
+export let amenities = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ];//19
+
+export let amenities_list = [
 	'fresh linens', 'extra blankets', 'puzzle turn down service', 'elevator bartender', 'celebrity wake up call', 'fast Wi-Fi',
 	'in-room cocktail station', 'in-room workout and meditation', 'USB charger ports', 'smart TV with Netflix',
 	'in-room coffee machine', 'office corner', 'welcome gift', 'local flavor gifts', 'in-room beer tap', 'shower mini fridge',
 	'pop corn delivery', 'complementary smart phone', 'complementary BMW SUV'
 ];
 
-//these two functions are not available in the page after import
-// i am including it in functions.js on landlord.html page
 
-/*Uncaught ReferenceError: enlarge_img is not defined
- at HTMLImageElement.onclick*/
-
-/*
-export function show_content() {
-	
-	$( document ).on( "click", ".form_image", function () {
-		
-		console.log( $( this ).parent(), $( this ) );
-		$( this ).parent().toggleClass( 'col-md-2' );
-		
-	} )
-}
-
-export function enlarge_img() {
-	$( document ).on( "click", ".form_image", function () {
-		
-		console.log( $( this ).parent(), $( this ) );
-		$( this ).parent().toggleClass( 'col-md-2' );
-		
-	} )
-}*/

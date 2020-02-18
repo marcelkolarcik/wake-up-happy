@@ -1,3 +1,5 @@
+import {DB} from './create_DB.js';
+import {render_index} from './render_index.js';
 /*clicking on more... link in the map popup */
 $( document ).on( "click", ".property_popup", function () {
 	

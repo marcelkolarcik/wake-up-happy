@@ -27,11 +27,10 @@ function confirm_payment( status, p_id, contactForm ) {
 		location.reload();
 	}
 	
-	if(contactForm.weeks.value === '' || contactForm.total_price.value === '') {
-		swal.fire('Please,select at least one week!');
+	if ( contactForm.weeks.value === '' || contactForm.total_price.value === '' ) {
+		swal.fire( 'Please,select at least one week!' );
 	}
-	else
-	{
+	else {
 		if ( status === 'SUCCESS' ) {
 			swal.fire( {
 				           html:
@@ -74,7 +73,7 @@ function confirm_payment( status, p_id, contactForm ) {
 									
 									  <span class="btn btn-sm bg_green_light d-print-none " onclick="window.print()">save as PDF</span>
 									  <div class="card-footer bg-transparent pb-0 mb-0">
-										    Reservation ID: ${Math.random().toString(36).substr(2, 10)}<br >
+										    Reservation ID: ${Math.random().toString( 36 ).substr( 2, 10 )}<br >
 										  
 										    
 										      <a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
@@ -84,8 +83,7 @@ function confirm_payment( status, p_id, contactForm ) {
 							 </div>
 							 </div>`,
 				
-				
-				           showConfirmButton:false
+				           showConfirmButton: false
 				
 			           } );
 			
@@ -105,6 +103,5 @@ function confirm_payment( status, p_id, contactForm ) {
 			setTimeout( reload_page, 2500 );
 		}
 	}
-	
 	
 }

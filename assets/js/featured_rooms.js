@@ -1,3 +1,5 @@
+import {DB} from './create_DB.js';
+import {getImageId,render_index} from './render_index.js';
 
 function featured_rooms()
 {
@@ -5,6 +7,7 @@ function featured_rooms()
 	$('#form_search_results').append(` <div class = "img-thumbnail mt-3 border_green pl-3" >Featured properties</div >`);
 	let e =0;
 	let randoms = [];
+	
 	while( e < 3)
 	{
 		var random_id = Math.floor(Math.random() * DB.length ) ;

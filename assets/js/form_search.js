@@ -1,3 +1,7 @@
+import {DB} from './create_DB.js';
+import {getImageId} from './render_index.js';
+import {render_index} from './render_index.js';
+
 function is_available( property , city ) {
 	
 	var room_type = $( "#room_type" ).val();
