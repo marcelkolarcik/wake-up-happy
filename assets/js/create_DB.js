@@ -7,7 +7,8 @@ import {
 	board_types,
 	room_types,
 	room_styles,
-	autocomplete_searchables
+	autocomplete_searchables,
+	address_keys
 } from './module/inventory.js';
 /*https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API*/
 
@@ -109,6 +110,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 			             'room_type'    : getRandom ( 0, 1 ),
 			             'room_style'   : getRandom ( 1, 16 ),
 			             'location'     : city_coordinates[ 2 ],
+			             'searchables'  : [city_coordinates[ 2 ]],
 			             'bookings'     : getRandom ( current_date.getWeek (), 53, num_of_booked_weeks ),
 			             'amenities'    : getRandom ( 1, amenities.length - 1, 15 )
 		             } );
@@ -126,6 +128,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 		localStorage.setItem ( 'room_styles', JSON.stringify ( room_styles ) );
 		localStorage.setItem ( 'amenities_list', JSON.stringify ( amenities_list ) );
 		localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
+		localStorage.setItem ( 'address_keys', JSON.stringify ( address_keys ) );
 		
 	}
 	else {

@@ -122,3 +122,4 @@ export let amenities_list = [
 ];
 
 export let autocomplete_searchables =['cork','dublin','limerick','yaiza','miami-dade county','west palm beach']; //// TO DO to get cities from DB object
+export let address_keys = ['city','country','village','town','state','state district','suburbs'];

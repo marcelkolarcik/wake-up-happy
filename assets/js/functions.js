@@ -263,8 +263,61 @@ $ ( document ).on ( 'click', '.step', function () {
 $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 	
 	var autocomplete_searchables = JSON.parse ( localStorage.getItem ( 'autocomplete_searchables' ) );
+	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
+	var addition = [];
+	
+//	jQuery.unique([].concat.apply([],[[1,2,3,4],[1,2,3,4,5,6],[3,4,5,6,7,8]])).sort();
 	
 	var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
+	//console.log('original '+autocomplete_searchables,autocomplete_searchables.length);
+	$.each(new_room.p_address, function ( key, value ) {
+		if(address_keys.indexOf(key) !== -1){
+			
+			$.each(value.split(' '), function (index,string){
+				addition.push( decodeURI(string)      );
+			} )
+			
+		}
+		
+	})
+	
+	//console.log('addition '+addition,addition.length);
+	//sessionStorage.removeItem('all');
+	
+	if(sessionStorage.getItem('all'))
+	{
+		//console.log(' session : '+sessionStorage.getItem('all'));
+		addition.push(sessionStorage.getItem('all').split(','));
+	}
+	else
+	{
+		addition.push(autocomplete_searchables);
+	}
+	
+	
+	var all = $.uniqueSort([].concat.apply([],addition));
+	
+	
+	//console.log('all '+all,all.length);
+	
+	
+	
+	
+	
+	let unique = [...new Set(all)];
+	//console.log('all +  '+unique,unique.length);
+	
+	sessionStorage.setItem('all',  unique  );
+	
+	//console.log('all + session  '+sessionStorage.getItem('all'));
+	
+	localStorage.setItem ( 'autocomplete_searchables',JSON.stringify ( unique) );
+	
+	
+	
+	
+	
+	
 	var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 	ROOMS.push ( new_room );
 	

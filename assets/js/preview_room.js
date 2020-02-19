@@ -4,7 +4,7 @@ import { render_index } from "./render_index.js";
 $ ( document ).on ( 'click', '.preview_room', function () {
 	
 	var p_id = JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length;
-	
+	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
 	var your_room = $ ( "#add_your_room" ).serialize ();
 	var your_room_array = your_room.split ( '&' );
 	var address = {};
@@ -56,6 +56,22 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	room[ 'location' ] = address.city || address.village  || address.city_district || address.county || address.state_district|| address.state  || address.country;
 	room[ 'amenities' ] = amenities;
 	room[ 'bookings' ] = [];
+	
+	var searchables = [];
+	$.each(address, function ( key, value ) {
+		if(address_keys.indexOf(key) !== -1){
+			
+			$.each(value.split(' '), function (index,string){
+				searchables.push( decodeURI(string)      );
+			} )
+			
+			
+		
+		}
+		
+	});
+	room['searchables'] = searchables;
+	console.log(searchables);
 	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
 	
 	

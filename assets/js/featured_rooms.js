@@ -1,7 +1,7 @@
 
 import {getImageId,render_index} from './render_index.js';
 
-function featured_rooms()
+export function featured_rooms()
 {
 	var ROOMS = JSON.parse(localStorage.getItem('ROOMS'));
 	
