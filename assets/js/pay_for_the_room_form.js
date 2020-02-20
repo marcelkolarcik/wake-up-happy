@@ -50,6 +50,19 @@ function pay_for_the_room_form ()
                        id = "email_of_user" placeholder = "Email" required >
             </div >
         </div >
+         <div class = "col-auto" >
+            <label class = "sr-only" for = "password" >Password</label >
+            <div class = "input-group mb-2" >
+                <div class = "input-group-prepend" >
+                    <div class = "input-group-text bg-transparent border_bottom_only" >
+                       <i class="fas fa-lock"></i>
+                    </div >
+                </div >
+                <input type = "password" name = "password"
+                       class = "form-control form-control-sm  border_bottom_only"
+                       id = "password" placeholder = "Password" required >
+            </div >
+        </div >
     </div >
     <div class = "col-md-6" >
         <div class = "col-auto " >

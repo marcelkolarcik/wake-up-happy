@@ -108,7 +108,7 @@ export function render_room( room, image_id, where ) {
                                     <input type = "text" name = "room_details"
                                            class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "room_details${room.p_id}" placeholder = "Room"
-                                           value = "${   room.location} | ${room_types[ room.room_type ]} "
+                                           value = "${   decodeURI( room.location )} | ${room_types[ room.room_type ]} "
                                            required readonly >
                                 </div >
                             </div >

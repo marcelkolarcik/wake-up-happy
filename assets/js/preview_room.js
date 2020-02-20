@@ -16,7 +16,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 		var value = s_item[ 1 ];
 		
 		if ( key.substring ( 0, 7 ) === 'address' ) {
-			address[ key.split ( '__' )[ 1 ] ] =   value.replace ( /%20/g, ' ' ) ;
+			address[ key.split ( '__' )[ 1 ] ] = decodeURI ( value );
 		}
 		else if ( key === 'amenities' ) {
 			amenities.push ( value );
@@ -25,7 +25,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 			room[ 'p_view' ] = value;
 		}
 		else if ( key === 'description' ) {
-			room[ 'p_description' ] = value.replace ( /%20/g, ' ' );
+			room[ 'p_description' ] = decodeURI ( value );
 			
 		}
 		
@@ -53,27 +53,25 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	
 	room[ 'p_id' ] = p_id;
 	room[ 'p_address' ] = address;
-	room[ 'location' ] = address.city || address.village  || address.city_district || address.county || address.state_district|| address.state  || address.country;
+	room[ 'location' ] = address.city || address.village || address.hamlet || address.county || address.state_district || address.state || address.country;
 	room[ 'amenities' ] = amenities;
 	room[ 'bookings' ] = [];
 	
 	var searchables = [];
-	$.each(address, function ( key, value ) {
-		if(address_keys.indexOf(key) !== -1){
+	$.each ( address, function ( key, value ) {
+		if ( address_keys.indexOf ( key ) !== -1 ) {
 			
-			$.each(value.split(' '), function (index,string){
-				searchables.push( decodeURI(string)      );
-			} )
+			$.each ( value.split ( ' ' ), function ( index, string ) {
+				searchables.push ( decodeURI ( string ) );
+			} );
 			
-			
-		
 		}
 		
-	});
-	room['searchables'] = searchables;
-	console.log(searchables);
-	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
+	} );
 	
+	room[ 'searchables' ] = searchables;
+	
+	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
 	
 	render_index ( room, room.room_style, 'preview' );
 } );

@@ -95,5 +95,7 @@ function autocomplete(inp, arr) {
 	});
 }
 var autocomplete_searchables = JSON.parse(  localStorage.getItem('autocomplete_searchables'));
+
+console.log(autocomplete_searchables)
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("location"), autocomplete_searchables);

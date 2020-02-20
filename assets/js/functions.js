@@ -105,7 +105,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 					
 				}
 				// ADDING STEP 4 BUTTON IF ALL CONDITIONS ARE MET
-			//	console.log(num_of_prices,num_of_amenities, $ ( '#room_description' ).val ().length)
+				//	console.log(num_of_prices,num_of_amenities, $ ( '#room_description' ).val ().length)
 				if ( num_of_prices > 0 && num_of_amenities > 0 && $ ( '#room_description' ).val ().length > 0 ) {
 					step_4.removeClass ( 'd-none' );
 				}
@@ -174,7 +174,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			
 			var price = $ ( this ).val ();
 			var c_box_id = $ ( this ).data ( 'c_box_id' );
-			console.log('PRICE: '+price);
+			console.log ( 'PRICE: ' + price );
 			if ( price > 0 ) {
 				$ ( '#board_types_title' ).addClass ( 'bg_green' ).removeClass ( 'bg_orange' );
 				$ ( '#board_type_' + c_box_id ).addClass ( 'bg_green ' ).removeClass ( 'bg_orange' );
@@ -261,80 +261,115 @@ $ ( document ).on ( 'click', '.step', function () {
 	
 } );
 $ ( document ).on ( 'click', '#pay_for_the_room', function () {
+
+//	GETTING AUTOCOMPLETE ARRAY FROM LOCAL STORAGE, TO ADD TO IT IF NEW LOCATION HAS NEW ELEMENTS, NOT IN ARRAY
+//  ALREADY, WHEN ADDING NEW ROOM...
 	
 	var autocomplete_searchables = JSON.parse ( localStorage.getItem ( 'autocomplete_searchables' ) );
-	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
-	var addition = [];
 	
-//	jQuery.unique([].concat.apply([],[[1,2,3,4],[1,2,3,4,5,6],[3,4,5,6,7,8]])).sort();
-	
+	//// RECENTLY CREATED ROOM TO BE ADDED TO "DB"...
 	var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
-	//console.log('original '+autocomplete_searchables,autocomplete_searchables.length);
-	$.each(new_room.p_address, function ( key, value ) {
-		if(address_keys.indexOf(key) !== -1){
-			
-			$.each(value.split(' '), function (index,string){
-				addition.push( decodeURI(string)      );
-			} )
-			
+	
+	//// USING address_keys  TO GET ELEMENTS TO AUTOCOMPLETE ( EX. 'city','country','village','town') FROM ADDRESS
+	// PROVIDED BY nominium, OMITTING KEYS LIKE lat,lng, road.....
+	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
+	var new_auto_c = false;
+	$.each ( new_room.p_address, function ( key, value ) {
+//		CHECK IF WE ARE USING KEY FOR AUTOCOMPLETE AND IF WE ALREADY HAVE IT IN  autocomplete_searchables ARRAY
+		if ( address_keys.indexOf ( key ) !== -1 && autocomplete_searchables.indexOf ( key ) === -1 ) {
+			autocomplete_searchables.push ( decodeURI ( value ) );
+			new_auto_c = true;
 		}
 		
-	})
+	} );
+
+//let unique = [ ...new Set ( all ) ];  TO GET UNIQUE ARRAY
 	
-	//console.log('addition '+addition,addition.length);
-	//sessionStorage.removeItem('all');
+	//// RE-SETTING autocomplete_searchables IF NEW VALUES
+	if ( new_auto_c ) localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 	
-	if(sessionStorage.getItem('all'))
-	{
-		//console.log(' session : '+sessionStorage.getItem('all'));
-		addition.push(sessionStorage.getItem('all').split(','));
-	}
-	else
-	{
-		addition.push(autocomplete_searchables);
-	}
-	
-	
-	var all = $.uniqueSort([].concat.apply([],addition));
-	
-	
-	//console.log('all '+all,all.length);
-	
-	
-	
-	
-	
-	let unique = [...new Set(all)];
-	//console.log('all +  '+unique,unique.length);
-	
-	sessionStorage.setItem('all',  unique  );
-	
-	//console.log('all + session  '+sessionStorage.getItem('all'));
-	
-	localStorage.setItem ( 'autocomplete_searchables',JSON.stringify ( unique) );
-	
-	
-	
-	
-	
-	
+	////////// ADDING NEWLY CREATED ROOM INTO "DB
 	var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 	ROOMS.push ( new_room );
-	
-	var landlord_details = $ ( "#add_room_payment" ).serialize ();
-	var landlord_details_array = landlord_details.split ( '&' );
-	
 	localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
+	
 	sessionStorage.removeItem ( 'new_room' );
 	
-	/*setting coordinates for popup to open after adding new room into "ROOMS" */
+	/*setting coordinates for popup to open after adding new room into "ROOMS"  and redirecting to index.html*/
 	sessionStorage.setItem ( 'new_p_id', new_room.p_id );
 	sessionStorage.setItem ( 'lng', new_room.lng );
 	sessionStorage.setItem ( 'lat', new_room.lat );
+
+//	 CREATING LANDLORD OBJECT AND STORING IT IN "DB"
+	var landlord_details = $ ( "#add_room_payment" ).serialize ();
+	var landlord_details_array = landlord_details.split ( '&' );
 	
-	location.replace ( `index.html` );
+	$.each ( landlord_details_array, function ( index, value ) {
+		
+		var split_value = decodeURIComponent ( value ).split ( '=' );
+		
+		landlord_details_array[ split_value[ 0 ] ] = split_value[ 1 ];
+		
+		//console.log(/*encodeURI(value), decodeURI(value),encodeURIComponent(value),*/decodeURIComponent(value));
+		/* decodeURIComponent(value) is the way to go*/
+		
+	} );
+	
+	if ( localStorage.getItem ( 'OWNERS' ) ) {
+		var current_owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
+		console.log ( 'fresh owners ', current_owners );
+	}
+	else {
+		current_owners = {};
+		console.log ( 'first time owners ' );
+	}
+
+//	var landlord = {
+//		'email'     : landlord_details_array.email_of_user,
+//		'name'      : landlord_details_array.name,
+//		'room'      : new_room,
+//		'updated_at': current_date,
+//		'created_at': current_date
+//	};
+
+//	console.log ( 'owners_old ', owners_old );
+//	console.log ( 'landlord ', landlord );
 	
 	
+	
+	var login = landlord_details_array.email_of_user + landlord_details_array.password;
+
+//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+	hashCode = string => string.split ( '' ).reduce ( ( a, b ) => {a = (
+		                                                                   (
+			                                                                   a << 5 ) - a ) + b.charCodeAt ( 0 );
+		return a & a;
+	}, 0 );
+	
+//	HASHING LOGIN DETAILS, WILL USE SAME HASH TO RETRIEVE OWNER
+	var new_owner = {
+		[ hashCode ( login ) ]: {
+			'name'      : landlord_details_array.name,
+			'password'  : landlord_details_array.password,
+			'room'      : new_room,
+			'updated_at': current_date,
+			'created_at': current_date
+		}
+	};
+
+//	MERGING CURRENT OWNERS WITH NEW OWNER
+	let owners = { ...current_owners, ...new_owner };
+	
+	localStorage.setItem ( 'OWNERS', JSON.stringify ( owners ) );
+	var parsed = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
+	console.log ( 'owners parse : ', parsed );
+
+//	if(email in parsed)
+//	{
+//		alert('yay')
+//	}
+	
+	//location.replace ( `index.html` );
 	
 } );
 
