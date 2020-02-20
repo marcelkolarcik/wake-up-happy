@@ -8,6 +8,7 @@ function render_room_types() {
 	var room_types_div = $( '#room_types' );
 	
 	$( '#room_types_title' ).append( `
+
 			<p class = "card-text p-2 show_content" data-hidden_class = "room_type_images" >
 			    <strong >a ) </strong >
 			    Select your room type.
@@ -177,7 +178,7 @@ function render_description() {
 	var description_div = $( '#description' );
 	
 	description_div.append( `
-
+ 
 						  <div class = "input-group mb-2 description d-none" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only" title="Write description of your room, max 300 characters." >

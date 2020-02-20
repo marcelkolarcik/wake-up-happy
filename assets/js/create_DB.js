@@ -110,9 +110,10 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 			             'room_type'    : getRandom ( 0, 1 ),
 			             'room_style'   : getRandom ( 1, 16 ),
 			             'location'     : city_coordinates[ 2 ],
-			             'searchables'  : [city_coordinates[ 2 ]],
+			             'searchables'  : [ city_coordinates[ 2 ] ],
 			             'bookings'     : getRandom ( current_date.getWeek (), 53, num_of_booked_weeks ),
-			             'amenities'    : getRandom ( 1, amenities.length - 1, 15 )
+			             'amenities'    : getRandom ( 1, amenities.length - 1, 15 ),
+			             'property_name': 'property name ' + index
 		             } );
 		
 	} );

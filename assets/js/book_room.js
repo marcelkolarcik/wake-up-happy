@@ -44,6 +44,7 @@ function confirm_payment( status, p_id, contactForm ) {
 							 <div class="card-body">
 									 <p class="card-title nav_link_property">Thank you for booking with us !</p>
 									 <table class="table table-sm">
+									
 									 	<tr>
 									 		<td> <span class="nav_link_property">Name:</span></td>
 									 		<td><span>${contactForm.name.value}</span></td>
@@ -63,6 +64,10 @@ function confirm_payment( status, p_id, contactForm ) {
 										<tr>
 									 		<td> <span class="nav_link_property">Total price:</span></td>
 									 		<td><span>${contactForm.total_price.value}</span></td>
+										</tr>
+										<tr>
+									 		<td> <span class="nav_link_property">address:</span></td>
+									 		<td><small>${contactForm.form_address.value}</small></td>
 										</tr>
 										<tr>
 									 		<td> <span class="nav_link_property">Request:</span></td>
@@ -87,7 +92,7 @@ function confirm_payment( status, p_id, contactForm ) {
 				
 			           } );
 			
-			//setTimeout(reload_page,5000);
+		//	setTimeout(reload_page,5000);
 			
 		}
 		else if ( status === 'FAILED' ) {
@@ -100,8 +105,7 @@ function confirm_payment( status, p_id, contactForm ) {
 				           timer            : 2500
 				
 			           } );
-			setTimeout( reload_page, 2500 );
+		//	setTimeout( reload_page, 2500 );
 		}
 	}
-	
 }

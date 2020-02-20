@@ -96,6 +96,19 @@ function getCoordinates( e ) {
                                id = "lng" value="${coordinates[ 1 ]}" required readonly >
                     </div >
                 </div >
+                 <div class = "col" >
+            <label class = "sr-only" for = "property_name" >Property Name</label >
+            <div class = "input-group mb-2" >
+                <div class = "input-group-prepend" >
+                    <div class = "input-group-text bg-transparent border_bottom_only" >
+                      <i class="fas fa-bed"></i>
+                    </div >
+                </div >
+                <input type = "text" name = "property_name"
+                       class = "form-control form-control-sm border_bottom_only bg_green_light"
+                       id = "property_name" placeholder = "Property Name" required >
+            </div >
+        </div >
 					` );
 				
 			}
@@ -107,12 +120,23 @@ function getCoordinates( e ) {
 	
 	$( '#get_address' ).on( 'click', function () {
 		getAddress( url );
-		$('#step_2').removeClass('d-none');
+	
 		
 	} );
+	
 	
 }
 
 mymap.on( 'click', getCoordinates );
 
+$ ( document ).on ( 'input', '#property_name', function () {
 
+	if($('#property_name').val().length > 2)
+	{
+		
+		$('#step_2').removeClass('d-none');
+	}
+	else{
+		$('#step_2').addClass('d-none');
+	}
+});

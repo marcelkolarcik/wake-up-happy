@@ -255,7 +255,7 @@ $ ( document ).on ( 'click', '.step', function () {
 	if ( step === 4 ) $ ( '#step_5' ).removeClass ( 'd-none' );
 	
 	if ( step === 5 ) {
-		pay_for_the_room_form ();
+		add_room_payment ();
 		
 	}
 	
@@ -276,8 +276,18 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 	var new_auto_c = false;
 	$.each ( new_room.p_address, function ( key, value ) {
 //		CHECK IF WE ARE USING KEY FOR AUTOCOMPLETE AND IF WE ALREADY HAVE IT IN  autocomplete_searchables ARRAY
-		if ( address_keys.indexOf ( key ) !== -1 && autocomplete_searchables.indexOf ( key ) === -1 ) {
-			autocomplete_searchables.push ( decodeURI ( value ) );
+		if ( address_keys.indexOf ( key ) !== -1 && autocomplete_searchables.indexOf ( value ) === -1 ) {
+			
+			$.each ( value.split ( ' ' ), function ( index, string ) {
+				if ( autocomplete_searchables.indexOf ( string ) === -1 ) {
+					autocomplete_searchables.push ( decodeURI ( string ) );
+				}
+				
+			} );
+			
+			if ( autocomplete_searchables.indexOf ( value ) === -1 ) {
+			autocomplete_searchables.push ( decodeURI ( value ) );}
+			
 			new_auto_c = true;
 		}
 		
@@ -300,15 +310,16 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 	sessionStorage.setItem ( 'lng', new_room.lng );
 	sessionStorage.setItem ( 'lat', new_room.lat );
 
-//	 CREATING LANDLORD OBJECT AND STORING IT IN "DB"
-	var landlord_details = $ ( "#add_room_payment" ).serialize ();
-	var landlord_details_array = landlord_details.split ( '&' );
+//	 CREATING OWNER OBJECT AND STORING IT IN "DB"
+	var owner_details = $ ( "#add_room_payment" ).serialize ();
 	
-	$.each ( landlord_details_array, function ( index, value ) {
+	var owner_details_array = owner_details.split ( '&' );
+	
+	$.each ( owner_details_array, function ( index, value ) {
 		
 		var split_value = decodeURIComponent ( value ).split ( '=' );
 		
-		landlord_details_array[ split_value[ 0 ] ] = split_value[ 1 ];
+		owner_details_array[ split_value[ 0 ] ] = split_value[ 1 ];
 		
 		//console.log(/*encodeURI(value), decodeURI(value),encodeURIComponent(value),*/decodeURIComponent(value));
 		/* decodeURIComponent(value) is the way to go*/
@@ -324,33 +335,23 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 		console.log ( 'first time owners ' );
 	}
 
-//	var landlord = {
-//		'email'     : landlord_details_array.email_of_user,
-//		'name'      : landlord_details_array.name,
-//		'room'      : new_room,
-//		'updated_at': current_date,
-//		'created_at': current_date
-//	};
+
 
 //	console.log ( 'owners_old ', owners_old );
 //	console.log ( 'landlord ', landlord );
 	
-	
-	
-	var login = landlord_details_array.email_of_user + landlord_details_array.password;
+	var login = owner_details_array.email_of_user + owner_details_array.password;
 
 //	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
-	hashCode = string => string.split ( '' ).reduce ( ( a, b ) => {a = (
-		                                                                   (
-			                                                                   a << 5 ) - a ) + b.charCodeAt ( 0 );
+	hashCode = string => string.split ( '' ).reduce ( ( a, b ) => {
+		a = (( a << 5 ) - a ) + b.charCodeAt ( 0 );
 		return a & a;
 	}, 0 );
-	
+
 //	HASHING LOGIN DETAILS, WILL USE SAME HASH TO RETRIEVE OWNER
 	var new_owner = {
 		[ hashCode ( login ) ]: {
-			'name'      : landlord_details_array.name,
-			'password'  : landlord_details_array.password,
+			'name'      : owner_details_array.name,
 			'room'      : new_room,
 			'updated_at': current_date,
 			'created_at': current_date
@@ -359,17 +360,17 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 
 //	MERGING CURRENT OWNERS WITH NEW OWNER
 	let owners = { ...current_owners, ...new_owner };
-	
+	//	PUTTING BACK TO STORAGE
 	localStorage.setItem ( 'OWNERS', JSON.stringify ( owners ) );
-	var parsed = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
-	console.log ( 'owners parse : ', parsed );
+
+
 
 //	if(email in parsed)
 //	{
 //		alert('yay')
 //	}
 	
-	//location.replace ( `index.html` );
+	location.replace ( `index.html` );
 	
 } );
 

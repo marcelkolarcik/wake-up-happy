@@ -1,8 +1,10 @@
-function pay_for_the_room_form ()
+function add_room_payment ()
 {
+	var payment = $('#payment');
 	
+	payment.html('');
 	
-	$('#payment').append(`
+	payment.html('').append(`
 <form id="add_room_payment">
    <div class = "bg_green text-light text-center mt-1 mb-3" >
     Payment details : 99 EUR per year + 9 % of each booking.
@@ -24,6 +26,7 @@ function pay_for_the_room_form ()
                        required readonly >
             </div >
         </div >
+       
         <div class = "col-auto" >
             <label class = "sr-only" for = "fullname" >Full Name</label >
             <div class = "input-group mb-2" >

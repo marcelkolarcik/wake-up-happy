@@ -18,6 +18,10 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 		if ( key.substring ( 0, 7 ) === 'address' ) {
 			address[ key.split ( '__' )[ 1 ] ] = decodeURI ( value );
 		}
+		else if ( key === 'property_name' ) {
+			
+			room[ 'property_name' ] = decodeURI ( value );
+		}
 		else if ( key === 'amenities' ) {
 			amenities.push ( value );
 		}
@@ -64,7 +68,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 			$.each ( value.split ( ' ' ), function ( index, string ) {
 				searchables.push ( decodeURI ( string ) );
 			} );
-			
+			searchables.push ( decodeURI ( value ) );
 		}
 		
 	} );
@@ -73,6 +77,6 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	
 	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
 	
-	render_index ( room, room.room_style, 'preview' );
+	render_index ( room, room.room_style, 'preview' , true);
 } );
 

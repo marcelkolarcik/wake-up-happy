@@ -391,3 +391,14 @@ input::-webkit-inner-spin-button {
 input[type=number] {
 	-moz-appearance:textfield;
 	}
+.parent{
+	position: relative;
+	
+	}
+.child_at_bottom{
+	font-size: 0.8rem;
+	position: absolute;
+	bottom:0;
+	margin:  10px 0 0 10px;
+	
+	}
