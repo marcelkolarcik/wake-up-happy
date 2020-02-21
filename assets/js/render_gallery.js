@@ -1,4 +1,4 @@
-function render_gallery(property,food_id,image_id)
+export function render_gallery(property,food_id,image_id)
 {
 	
 	var views = JSON.parse( localStorage.getItem('views') );

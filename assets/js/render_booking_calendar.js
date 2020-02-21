@@ -1,4 +1,4 @@
-function render_booking_calendar( property ) {
+export function render_booking_calendar( property ) {
 	var board_types = JSON.parse( localStorage.getItem( 'board_types' ) );
 	var bookings = $( '#bookings_' + property.p_id );
 	var boards = $( '#boards_' + property.p_id );
@@ -39,19 +39,3 @@ function render_booking_calendar( property ) {
 	
 }
 
-function set_price( p_id, index ) {
-	
-	var board_types = JSON.parse( localStorage.getItem( 'board_types' ) );
-	
-	$( '#boards_' + p_id ).removeClass( 'bg_orange' );
-	$( "#weeks_" + p_id ).val( '' );
-	$( "#total_price_" + p_id ).val( '' );
-	$( "#board" + p_id ).val( board_types[ index ] );
-	
-	var board_price = $( 'input[name="board"]:checked' ).val();
-	var week = $( '.week' );
-	
-	week.data( 'price', board_price ).addClass( 'bg_green' ).removeClass( 'text-secondary selected' );
-	week.data( 'price', board_price );
-	week.data( 'user_set_'+p_id, 'true' );
-}

@@ -12,7 +12,9 @@
     <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity = "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin = "" />
-    
+    <link rel = "stylesheet"
+          href = "https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css"
+          integrity = "sha256-2bAj1LMT7CXUYUwuEnqqooPb1W0Sw0uKMsqNH0HwMa4=" crossorigin = "anonymous" />
     <link rel = "stylesheet" href = "assets/css/app.css" >
 </head >
 <body >
@@ -63,15 +65,15 @@
     <div class = "container" >
         <div class = "col-md-12 img-thumbnail bg-transparent" id = "step_description" >
             <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
-                <div class = "progress-bar   progress_step" >1</div >
+                <div class = "progress-bar   progress_step" title="Choose your location" >1</div >
                 <div class = "progress-bar   bg-transparent step_divider" ></div >
-                <div class = "progress-bar progress_step empty" id = "progress_step_2" >2</div >
+                <div class = "progress-bar progress_step empty" title="Define your room" id = "progress_step_2" >2</div >
                 <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" id = "progress_step_3" >3</div >
+                <div class = "progress-bar progress_step empty" title="Define your services" id = "progress_step_3" >3</div >
                 <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" id = "progress_step_4" >4</div >
+                <div class = "progress-bar progress_step empty" title="Preview your work of art!" id = "progress_step_4" >4</div >
                 <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" id = "progress_step_5" >5</div >
+                <div class = "progress-bar progress_step empty" title="Pay !" id = "progress_step_5" >5</div >
             </div >
             <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
                 <div class = "progress-bar   progress_step p_description" role = "progressbar" >Location</div >
@@ -82,8 +84,26 @@
                 <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
                 <div class = "progress-bar progress_step p_description" >Preview</div >
                 <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
-                <div class = "progress-bar progress_step p_description" >Pay</div >
+                <div class = "progress-bar progress_step p_description" >Payment</div >
             </div >
+            <div id="form_info" class=" text-center border-warning secondary bg_green_light_g">
+    
+                By scrolling or clicking on the map, select location of your property. Once
+                you
+                are
+                happy with the location, click on
+                <button class = "bg_orange" >get details</button >
+                button,
+                and this will display all the address information. You can choose what
+                details
+                you want
+                to share. If you don't want to share some details,
+                just edit it by clicking on the field. Remember to add your <span
+                                                                                   class = "text-danger  p-2"
+                                                                                     >Property name! </span >
+                Once you choose location and are happy with it, click on
+                <span class="green">&nbsp;>>>room</span>
+            
         </div >
         <form id = "add_your_room" onsubmit = "return checkForm(this);" >
             <div class = "row no-gutters" >
@@ -100,24 +120,7 @@
                                      class = "d-flex justify-content-center align-items-center" >
                                     <div class = "how-to img-thumbnail" >
                                         <h4 >Your location details will display here !</h4 >
-                                        <p class = "card-text p-2" >
-                                            By scrolling or clicking on the map, select location of your property. Once
-                                            you
-                                            are
-                                            happy with the location, click on
-                                            <button class = "bg_orange" >get details</button >
-                                            button,
-                                            and this will display all the address information. You can choose what
-                                            details
-                                            you want
-                                            to share. If you don't want to share some details,
-                                            just delete it by clicking on red <code >x</code >. If you are happy with
-                                            the
-                                            details
-                                            you are sharing, click on
-                                          
-                                            <button class = "list" >2</button >
-                                        </p >
+                                       
                                     </div >
                                 </div >
                                 <div id = "location" >
@@ -170,25 +173,26 @@
                 </div >
                 <div id = "steps" class = "horizontally_aligned" >
                     <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
-                        <a class = "list-group-item list-group-item-action active step" data-toggle = "list"
+                        <a class = "list-group-item list-group-item-action no_padding active step " data-toggle = "list"
                            href = "#get_address2"
-                           role = "tab" id = "step_1" data-step = "1" >1 </a >
-                        <a class = "list-group-item list-group-item-action  d-none  step" data-toggle = "list"
+                           role = "tab" id = "step_1" data-step = "1"   title="Choose your location" >location </a >
+                        <a class = "list-group-item list-group-item-action no_padding d-none  step" data-toggle = "list"
                            href = "#types"
-                           role = "tab" id = "step_2" data-step = "2" > 2</a >
-                        <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list"
+                           role = "tab" id = "step_2" data-step = "2" title="Define your room" > room</a >
+                        <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
                            href = "#services"
-                           role = "tab" id = "step_3" data-step = "3" > 3</a >
-                        <a class = "list-group-item list-group-item-action  d-none step preview_room"
+                           role = "tab" id = "step_3" data-step = "3" title="Define your services" > services</a >
+                        <a class = "list-group-item list-group-item-action no_padding d-none step preview_room"
                            data-toggle = "list" href = "#preview"
-                           role = "tab" id = "step_4" data-step = "4" >4</a >
-                        <a class = "list-group-item list-group-item-action   d-none step" data-toggle = "list"
+                           role = "tab" id = "step_4" data-step = "4" title="Preview your work of art!"  >preview</a >
+                        <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
                            href = "#payment"
-                           role = "tab" id = "step_5" data-step = "5" >5</a >
+                           role = "tab" id = "step_5" data-step = "5" title="Pay !" >payment</a >
                     </div >
                 </div >
             </div >
         </form >
+    </div >
     </div >
 </section >
 <script src = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -201,20 +205,16 @@
 <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin = "anonymous" ></script >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"
+        integrity = "sha256-7OUNnq6tbF4510dkZHCRccvQfRlV3lPpBTJEljINxao=" crossorigin = "anonymous" ></script >
 <script src = "assets/js/open_maps/get_location.js" ></script >
-<script src = "assets/js/functions.js" ></script >
+<script src = "assets/js/add_room_helpers.js" ></script >
+<script src = "assets/js/booking_helpers.js" ></script >
 <script src = "assets/js/check_form.js" ></script >
-<script src = "assets/js/preview_room.js" type = "module" ></script >
+<script src = "assets/js/preview_added_room.js" type = "module" ></script >
 <script src = "assets/js/module/render_add_room_form.js" type = "module" ></script >
 <script src = "assets/js/getWeek.js" ></script >
 <script src = "assets/js/render_index.js" type = "module" ></script >
-<script src = "assets/js/render_address.js" ></script >
-<script src = "assets/js/select_weeks.js" ></script >
-<script src = "assets/js/render_room.js" type = "module" ></script >
-<script src = "assets/js/render_gallery.js" ></script >
-<script src = "assets/js/render_amenities.js" ></script >
-<script src = "assets/js/render_booking_calendar.js" ></script >
-
 <script src = "assets/js/add_room_payment.js" ></script >
 
 <script >

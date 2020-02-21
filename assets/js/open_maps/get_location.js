@@ -105,7 +105,7 @@ function getCoordinates( e ) {
                     </div >
                 </div >
                 <input type = "text" name = "property_name"
-                       class = "form-control form-control-sm border_bottom_only bg_green_light"
+                       class = "form-control form-control-sm  border-danger"
                        id = "property_name" placeholder = "Property Name" required >
             </div >
         </div >
@@ -129,14 +129,20 @@ function getCoordinates( e ) {
 
 mymap.on( 'click', getCoordinates );
 
+//// DISPALYING STEP 2 WHEN USER TYPES IN PROPERTY NAME
 $ ( document ).on ( 'input', '#property_name', function () {
 
-	if($('#property_name').val().length > 2)
+	var property_name = $('#property_name');
+	var step_2= $('#step_2');
+	if(property_name.val().length > 2)
 	{
 		
-		$('#step_2').removeClass('d-none');
+		property_name.removeClass('border-danger');
+		step_2.removeClass('d-none');
+		step_2.html('room&nbsp;>>>').addClass('no_border green');
 	}
 	else{
-		$('#step_2').addClass('d-none');
+		step_2.addClass('d-none');
+		property_name.addClass('border-danger');
 	}
 });

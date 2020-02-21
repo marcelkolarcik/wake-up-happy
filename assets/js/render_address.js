@@ -1,4 +1,4 @@
-function render_address ( room ) {
+export function render_address ( room ) {
 	var total = Object.keys ( room.p_address ).length;
 	var div = $ ( '#address' + room.p_id );
 	var div_form = $ ( '#form_address' + room.p_id );
@@ -16,17 +16,13 @@ function render_address ( room ) {
 //	` );
 		
 		if(e === total - 1){
-			div.append ( `
-		${ value}
-		
-	` );
+			
+			div.append ( `${ value}	` );
 			address += `<b>`+ key.replace('_',' ')+`</b>`+' : '+ value ;
 		}
 		else{
-			div.append ( `
-		${ value + ','}
-		
-	` );
+			
+			div.append ( `${ value + ','}` );
 			address += `<b>`+  key.replace('_',' ')+`</b>`+' :'+value+',';
 		}
 		

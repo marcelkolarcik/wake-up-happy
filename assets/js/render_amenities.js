@@ -1,4 +1,4 @@
-function render_amenities( property ) {
+export function render_amenities( property ) {
 	
 	var amenities = $( '#amenities_' + property.p_id );
 	var amenities_list = JSON.parse( localStorage.getItem( 'amenities_list' ) );

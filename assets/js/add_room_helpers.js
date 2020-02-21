@@ -45,7 +45,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 	
 } );
 
-// not to put nunber_of_boards outside of function as global variable i use this function to keep it in
+// not to put nunber_of_boards outside of function as global variable i use this anonymous function to keep it in
 //https://stackoverflow.com/questions/12319598/jquery-mouse-click-counter
 (
 	function () {
@@ -237,131 +237,205 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 	} ) ();
 
 //FORM PROGRESS (STEPS) BUTTONS
+(function (  ) {
+	
+	var steps = [];
+	var step_names = ['location','room','services','preview','payment'];
+	
+	var step_desc = [
+		`By scrolling or clicking on the map, select location of your property. Once
+                you
+                are
+                happy with the location, click on
+                <button class = "bg_orange" >get details</button >
+                button,
+                and this will display all the address information. You can choose what
+                details
+                you want
+                to share. If you don't want to share some details,
+                just edit it by clicking on the field. Remember to add your
+                <span class = "text-danger  p-2" >
+                Property name! </span > Once you choose location and are happy with it, click on
+                   <span class="green">&nbsp;>>>room</span> `,
+		
+		`Define your room by selecting appropriate radio buttons. Once all options are selected
+	<span class="green">&nbsp;>>>services</span> will appear and you can progress to next step.
 
-$ ( document ).on ( 'click', '.step', function () {
-	
-	var step = $ ( this ).data ( 'step' );
-	$ ( '#progress_step_' + step ).removeClass ( 'empty' );
-	if ( step === 2 ) {
-		
-		$ ( '#step_1' ).removeClass ( 'd-none' );
-		$ ( this ).removeClass ( 'bg-success text-light' );
+		You can always edit your choice, by clicking on  <i class = "fas fa-caret-down" ></i >
+			    <i class = "fas fa-caret-up" ></i > and choosing another option.
+			    `,
+		`Define your services by selecting appropriate check buttons. When selecting board type, <strong class="bg-light">you must enter price for the board.</strong>
+ 		You can select multiple options.When at least one of each options are selected and description is entered
+	<span class="green">&nbsp;>>>preview</span> will appear and you can progress to next step.
 
-//		by clicking on map 60 characters added, so this is to clear it
-		
-		$ ( '#room_description' ).html ( '' ).prop ( 'placeholder', 'write something !' );
-		
-	}
-	if ( step === 4 ) $ ( '#step_5' ).removeClass ( 'd-none' );
-	
-	if ( step === 5 ) {
-		add_room_payment ();
-		
-	}
-	
-} );
-$ ( document ).on ( 'click', '#pay_for_the_room', function () {
+		You can always edit your choice, by clicking on  <i class = "fas fa-caret-down" ></i >
+			    <i class = "fas fa-caret-up" ></i > and choosing another option.`,
+		`Here you can preview your work of art, by clicking on the tabs ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK. Once you
+are happy with your work, you can click on
+	<span class="green">&nbsp;>>>payment</span> proceed with payment.
 
-//	GETTING AUTOCOMPLETE ARRAY FROM LOCAL STORAGE, TO ADD TO IT IF NEW LOCATION HAS NEW ELEMENTS, NOT IN ARRAY
-//  ALREADY, WHEN ADDING NEW ROOM...
+		`,
+		`Here you can proceed with payment. Thank you for choosing <b>wake up happy!</b>`];
 	
-	var autocomplete_searchables = JSON.parse ( localStorage.getItem ( 'autocomplete_searchables' ) );
-	
-	//// RECENTLY CREATED ROOM TO BE ADDED TO "DB"...
-	var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
-	
-	//// USING address_keys  TO GET ELEMENTS TO AUTOCOMPLETE ( EX. 'city','country','village','town') FROM ADDRESS
-	// PROVIDED BY nominium, OMITTING KEYS LIKE lat,lng, road.....
-	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
-	var new_auto_c = false;
-	$.each ( new_room.p_address, function ( key, value ) {
-//		CHECK IF WE ARE USING KEY FOR AUTOCOMPLETE AND IF WE ALREADY HAVE IT IN  autocomplete_searchables ARRAY
-		if ( address_keys.indexOf ( key ) !== -1 && autocomplete_searchables.indexOf ( value ) === -1 ) {
+	$ ( document ).on ( 'click', '.step', function () {
+		
+		var step = $ ( this ).data ( 'step' );
+		var next_step =$ ( '#step_'+ (step + 1) );
+		var form_info = $('#form_info');
+		steps.push(step);
+		// TOP DISPLAY
+		
+		$ ( '#progress_step_' + step ).removeClass ( 'empty' );
+		
+		if(step)
+		{
 			
-			$.each ( value.split ( ' ' ), function ( index, string ) {
-				if ( autocomplete_searchables.indexOf ( string ) === -1 ) {
-					autocomplete_searchables.push ( decodeURI ( string ) );
-				}
-				
-			} );
-			
-			if ( autocomplete_searchables.indexOf ( value ) === -1 ) {
-			autocomplete_searchables.push ( decodeURI ( value ) );}
-			
-			new_auto_c = true;
+			//$ ( '#step_'+ (step - 1) ).html('<<<&nbsp;previous');
+			next_step.html(step_names[step ]+'&nbsp;>>>').addClass('no_border green');
+			$(this).html(step_names[step -1]).removeClass('no_border green');
+			$ ( '#step_'+ (step + 2) ).addClass('d-none').removeClass ( 'no_border green' );
 		}
 		
+		form_info.html(`${step_desc[step-1]}`);
+		
+		if ( step === 2 ) {
+			
+			$ ( '#step_1' ).removeClass ( 'd-none' );
+			$ ( this ).removeClass ( 'bg-success text-light' );
+
+//		by clicking on map 60 characters added, so this is to clear it
+			
+			$ ( '#room_description' ).html ( '' ).prop ( 'placeholder', 'write something !' );
+			
+		}
+		if ( step === 4 ) $ ( '#step_5' ).removeClass ( 'd-none' );
+		
+		if ( step === 5 ) {
+			add_room_payment ();
+			
+		}
+		if(steps.indexOf(step + 1) !== -1) next_step.removeClass('d-none');
 	} );
+	
+})();
 
-//let unique = [ ...new Set ( all ) ];  TO GET UNIQUE ARRAY
+$ ( document ).on ( 'click', '#pay_for_the_room', function () {
 	
-	//// RE-SETTING autocomplete_searchables IF NEW VALUES
-	if ( new_auto_c ) localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 	
-	////////// ADDING NEWLY CREATED ROOM INTO "DB
-	var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
-	ROOMS.push ( new_room );
-	localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 	
-	sessionStorage.removeItem ( 'new_room' );
+	//	 CREATING OWNER OBJECT AND STORING IT IN "DB"
 	
-	/*setting coordinates for popup to open after adding new room into "ROOMS"  and redirecting to index.html*/
-	sessionStorage.setItem ( 'new_p_id', new_room.p_id );
-	sessionStorage.setItem ( 'lng', new_room.lng );
-	sessionStorage.setItem ( 'lat', new_room.lat );
-
-//	 CREATING OWNER OBJECT AND STORING IT IN "DB"
 	var owner_details = $ ( "#add_room_payment" ).serialize ();
-	
 	var owner_details_array = owner_details.split ( '&' );
-	
+	var missing_values = '';
 	$.each ( owner_details_array, function ( index, value ) {
 		
 		var split_value = decodeURIComponent ( value ).split ( '=' );
 		
+		////checking form fields
+		if(split_value[ 1 ].replace(/ /g, "") === '' ||  split_value[ 0 ] === 'email_of_user' && !split_value[ 1 ].includes('@'))
+		{
+			missing_values += ` ${split_value[ 0 ].replace(/_/g, " ")}<br> `;
+		}
 		owner_details_array[ split_value[ 0 ] ] = split_value[ 1 ];
 		
 		//console.log(/*encodeURI(value), decodeURI(value),encodeURIComponent(value),*/decodeURIComponent(value));
 		/* decodeURIComponent(value) is the way to go*/
 		
 	} );
-	
-	if ( localStorage.getItem ( 'OWNERS' ) ) {
-		var current_owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
-		console.log ( 'fresh owners ', current_owners );
+	if(missing_values.length > 0 )
+	{
+		swal.fire({
+			          html : `<h3>Please review these fields:</h3>`+ missing_values} );
+		return false;
 	}
-	else {
-		current_owners = {};
-		console.log ( 'first time owners ' );
-	}
+
+//	GETTING AUTOCOMPLETE ARRAY FROM LOCAL STORAGE, TO ADD TO IT IF NEW LOCATION HAS NEW ELEMENTS, NOT IN ARRAY
+//  ALREADY, WHEN ADDING NEW ROOM...
+		
+		var autocomplete_searchables = JSON.parse ( localStorage.getItem ( 'autocomplete_searchables' ) );
+		
+		//// RECENTLY CREATED ROOM TO BE ADDED TO "DB"...
+		var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
+		
+		//// USING address_keys  TO GET ELEMENTS TO AUTOCOMPLETE ( EX. 'city','country','village','town') FROM ADDRESS
+		// PROVIDED BY nominium, OMITTING KEYS LIKE lat,lng, road.....
+		var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
+		var new_auto_c = false;
+		$.each ( new_room.p_address, function ( key, value ) {
+//		CHECK IF WE ARE USING KEY FOR AUTOCOMPLETE AND IF WE ALREADY HAVE IT IN  autocomplete_searchables ARRAY
+			if ( address_keys.indexOf ( key ) !== -1 && autocomplete_searchables.indexOf ( value ) === -1 ) {
+				
+				$.each ( value.split ( ' ' ), function ( index, string ) {
+					if ( autocomplete_searchables.indexOf ( string ) === -1 ) {
+						autocomplete_searchables.push ( decodeURI ( string ) );
+					}
+					
+				} );
+				
+				if ( autocomplete_searchables.indexOf ( value ) === -1 ) {
+					autocomplete_searchables.push ( decodeURI ( value ) );}
+				
+				new_auto_c = true;
+			}
+			
+		} );
+
+//let unique = [ ...new Set ( all ) ];  TO GET UNIQUE ARRAY
+		
+		//// RE-SETTING autocomplete_searchables IF NEW VALUES
+		if ( new_auto_c ) localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
+		
+		////////// ADDING NEWLY CREATED ROOM INTO "DB
+		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
+		ROOMS.push ( new_room );
+		localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
+		
+		sessionStorage.removeItem ( 'new_room' );
+		
+		/*setting coordinates for popup to open after adding new room into "ROOMS"  and redirecting to index.html*/
+		sessionStorage.setItem ( 'new_p_id', new_room.p_id );
+		sessionStorage.setItem ( 'lng', new_room.lng );
+		sessionStorage.setItem ( 'lat', new_room.lat );
+
+
+		
+		if ( localStorage.getItem ( 'OWNERS' ) ) {
+			var current_owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
+			console.log ( 'fresh owners ', current_owners );
+		}
+		else {
+			current_owners = {};
+			console.log ( 'first time owners ' );
+		}
 
 
 
 //	console.log ( 'owners_old ', owners_old );
 //	console.log ( 'landlord ', landlord );
-	
-	var login = owner_details_array.email_of_user + owner_details_array.password;
+		
+		var login = owner_details_array.email_of_user + owner_details_array.password;
 
 //	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
-	hashCode = string => string.split ( '' ).reduce ( ( a, b ) => {
-		a = (( a << 5 ) - a ) + b.charCodeAt ( 0 );
-		return a & a;
-	}, 0 );
+		hashCode = string => string.split ( '' ).reduce ( ( a, b ) => {
+			a = (( a << 5 ) - a ) + b.charCodeAt ( 0 );
+			return a & a;
+		}, 0 );
 
 //	HASHING LOGIN DETAILS, WILL USE SAME HASH TO RETRIEVE OWNER
-	var new_owner = {
-		[ hashCode ( login ) ]: {
-			'name'      : owner_details_array.name,
-			'room'      : new_room,
-			'updated_at': current_date,
-			'created_at': current_date
-		}
-	};
+		var new_owner = {
+			[ hashCode ( login ) ]: {
+				'name'      : owner_details_array.name,
+				'room'      : new_room,
+				'updated_at': current_date,
+				'created_at': current_date
+			}
+		};
 
 //	MERGING CURRENT OWNERS WITH NEW OWNER
-	let owners = { ...current_owners, ...new_owner };
-	//	PUTTING BACK TO STORAGE
-	localStorage.setItem ( 'OWNERS', JSON.stringify ( owners ) );
+		let owners = { ...current_owners, ...new_owner };
+		//	PUTTING BACK TO STORAGE
+		localStorage.setItem ( 'OWNERS', JSON.stringify ( owners ) );
 
 
 
@@ -369,9 +443,11 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 //	{
 //		alert('yay')
 //	}
-	
-	location.replace ( `index.html` );
-	
-} );
+		
+		location.replace ( `index.html` );
+		
+	} );
+
+
 
 

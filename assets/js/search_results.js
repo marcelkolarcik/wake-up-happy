@@ -3,6 +3,7 @@ import { render_index }   from './render_index.js';
 import { featured_rooms } from './featured_rooms.js';
 
 
+/* CHECKING AVAILABILITY OF THE ROOM */
 function is_available ( property, location ) {
 	
 	var room_type = $ ( "#room_type" ).val ();
@@ -52,7 +53,7 @@ function is_available ( property, location ) {
 	}
 }
 
-
+/* DISPLAYING AVAILABLE ROOMS IN form_search_results*/
 $ ( document ).on ( "click", "#search_btn", function ( e ) {
 	/*we don't want to submit form to the server, because we don't  have one*/
 	e.preventDefault ();
@@ -102,6 +103,21 @@ $ ( document ).on ( "click", "#search_btn", function ( e ) {
 	else {
 		form_search_results.prepend ( ` <div class = "img-thumbnail mt-3 border_green pl-3" >Search results: ${results}</div >` );
 	}
+	
+} );
+
+
+/*CLICKING ON more... LINK IN MAP POPUP  DISPLAY ROOM IN map_search_result*/
+$ ( document ).on ( "click", ".property_popup", function () {
+	var ROOMS = JSON.parse(localStorage.getItem('ROOMS'));
+	$ ( '#form_search_results' ).html ( '' );
+	$ ( '#map_search_result' ).html ( '' );
+	
+	var p_id = $ ( this ).attr ( 'id' );
+	var property = ROOMS[ p_id ];
+	var image_id = $ ( this ).data ( 'image_id' );
+	
+	render_index ( property, image_id, 'map_search_result' );
 	
 } );
 

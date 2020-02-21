@@ -5,7 +5,7 @@ function add_room_payment ()
 	payment.html('');
 	
 	payment.html('').append(`
-<form id="add_room_payment">
+			<form id="add_room_payment">
    <div class = "bg_green text-light text-center mt-1 mb-3" >
     Payment details : 99 EUR per year + 9 % of each booking.
 	</div >
