@@ -85,7 +85,7 @@ function getRandom ( min, max, times = null, array = null ) {
 
 
 //localStorage.clear ();
-
+//sessionStorage.clear ();
 if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 	var ROOMS = [];
 	$.each ( cities_coordinates, function ( index, city_coordinates ) {

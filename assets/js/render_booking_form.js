@@ -163,7 +163,7 @@ export function render_booking_form( room ) {
                            
                             <div class = "col-auto text-center" >
                             <div id="loader_holder${room.p_id}"></div>
-                            ${window.location.pathname === '/add_your_room.html' ? `
+                            ${sessionStorage.getItem('room_to_edit') ? `
 								<div class="bg_green_light_g">
 								Your future customers will be able to book your room through this form.
 								If you're happy with your work, please click on <span class="green">payment >>></span> to

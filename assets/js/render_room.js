@@ -15,14 +15,14 @@ export function render_room ( room, image_id, where, preview = false ) {
 
 <div class = "card mb-3 mt-3" >
     <div class = "row no-gutters" >
-        <div class = "col-md-4 vertically_aligned img-thumbnail" >
+        <div class = "col-md-4 vertically_aligned img-thumbnail" id="property_img">
             <img src = "assets/images/bedrooms/b${room.room_style}.jpg" class = "card-img room_img" alt = "property image" >
             <h6 class = "bg_green text-light p-2 mt-2 text-center" >
 			from	${ room.price[ Object.keys ( room.price )[ 0 ] ]}&nbsp;EUR <!--getting first available price to display form-->
                 <small >per week</small >
             </h6 >
              <span class=" d-md-none  text-capitalize"  >
-					<h4 class="ml-2 nav_link_property">${  decodeURI ( room.property_name ) } | ${ decodeURI ( room.location ) } | ${room_types[ room.room_type ]}
+					<h4 class="ml-2 nav_link_property">${  decodeURI ( room.p_address.property_name ) } | ${ decodeURI ( room.location ) } | ${room_types[ room.room_type ]}
                                                             
                                                              </h4>
              </span >
@@ -57,7 +57,7 @@ export function render_room ( room, image_id, where, preview = false ) {
                 <div class = "tab-pane active " id = "about_${room.p_id}" role = "tabpanel" >
                     <div class = "card-body " >
                         	<span class="pl-2 d-none d-md-block text-capitalize" >
-											<h4 class="nav_link_property">			${  decodeURI ( room.property_name ) } |  ${  decodeURI ( room.location ) } | ${room_types[ room.room_type ]}
+											<h4 class="nav_link_property">			${  decodeURI ( room.p_address.property_name ) } |  ${  decodeURI ( room.location ) } | ${room_types[ room.room_type ]}
                                              </h4>
              				</span >
                         <p class = "card-text" >${  decodeURI ( room.p_description )}</p >
@@ -99,8 +99,18 @@ export function render_room ( room, image_id, where, preview = false ) {
         </div >
     </div >
 </div >
-				
-				` );
+` );
+	if(sessionStorage.getItem('room_to_edit'))
+	{
+		$('#property_img').append(` <div class = "  text-center" >
+           
+            <a  class = "btn btn-sm m-0 bg_orange horizontally_aligned right-block " id="pay_for_the_room"
+                    title = "Save your changes" >
+                Save your changes
+            </a >
+        </div >`);
+	}
+	
 }
 
 

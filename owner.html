@@ -41,7 +41,7 @@
             <ul class = "navbar-nav" >
                 <li class = "nav-item pr-3" >
                     <span class = "form-inline my-2 my-md-0 text-light nav_link" >
-                        <a class = "text-light" id="logout" title="Already member? Login here!">Logout</a >
+                        <a class = "text-light" id="logout" title="Logout!">Logout</a >
                     </span >
                 </li >
                 <li class = "nav-item dropdown" >
@@ -84,25 +84,30 @@
                 <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
                 <div class = "progress-bar progress_step p_description" >Payment</div >
             </div >
-            <div id="form_info" class=" text-center border-warning secondary bg_green_light_g">
-    
-                By scrolling or clicking on the map, select location of your property. Once
-                you
-                are
-                happy with the location, click on
-                <button class = "bg_orange" >get details</button >
-                button,
-                and this will display all the address information. You can choose what
-                details
-                you want
-                to share. If you don't want to share some details,
-                just edit it by clicking on the field. Remember to add your <span
-                                                                                   class = "text-danger  p-2"
-                                                                                     >Property name! </span >
-                Once you choose location and are happy with it, click on
-                <span class="green">&nbsp;>>>room</span>
+            <div class="card">
+                <div class="card-header pl-3 pt-0 pb-0 pt-2 bg-transparent">
+                    <h5 class="card-title">How to :</h5>
+                </div>
+                <div id="form_info" class=" text-center bg-light  ">
             
-        </div >
+                    By scrolling or clicking on the map, select location of your property. Once
+                    you
+                    are
+                    happy with the location, click on
+                    <button class = "bg_orange" >get details</button >
+                    button,
+                    and this will display all the address information. You can choose what
+                    details
+                    you want
+                    to share. If you don't want to share some details,
+                    just edit it by clicking on the field. Remember to add your <span
+                        class = "text-danger  p-2"
+                >Property name! </span >
+                    Once you choose location and are happy with it, click on
+                    <span class="green">&nbsp;>>>room</span>
+        
+                </div >
+            </div>
         <form id = "add_your_room" onsubmit = "return checkForm(this);" >
             <div class = "row no-gutters" >
               
@@ -130,16 +135,16 @@
                         <div class = "row no-gutters" id = "room_details" >
                             <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
                                  id = "room_types" >
-                                <div class = "how-to img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
+                                <div class = "img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
                                 </div >
                             </div >
                             <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12 "
                                  id = "view_types"  >
-                                <div class = "how-to img-thumbnail card col-md-12 p-0" id = "view_types_title" ></div >
+                                <div class = " img-thumbnail card col-md-12 p-0" id = "view_types_title" ></div >
                             </div >
                             <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
                                  id = "room_styles" >
-                                <div class = "how-to img-thumbnail card col-md-12 p-0 " id = "room_styles_title" >
+                                <div class = " img-thumbnail card col-md-12 p-0 " id = "room_styles_title" >
                                 </div >
                             </div >
                         </div >
@@ -147,17 +152,17 @@
                     <div class = "tab-pane" id = "services" role = "tabpanel" >
                         <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
                              id = "board_types" >
-                            <div class = "how-to img-thumbnail card col-md-12 p-0" id = "board_types_title" >
+                            <div class = "img-thumbnail card col-md-12 p-0" id = "board_types_title" >
                             </div >
                         </div >
                         <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
                              id = "amenities" >
-                            <div class = "how-to img-thumbnail card col-md-12 p-0 " id = "amenities_title" >
+                            <div class = " img-thumbnail card col-md-12 p-0 " id = "amenities_title" >
                             </div >
                         </div >
                         <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
                              id = "description" >
-                            <div class = "how-to img-thumbnail card col-md-12  p-0" id = "description_title" >
+                            <div class = " img-thumbnail card col-md-12  p-0" id = "description_title" >
                             </div >
                         </div >
                         <div class = "col-auto" >
@@ -185,7 +190,7 @@
                            role = "tab" id = "step_4" data-step = "4" title="Preview your work of art!"  >preview</a >
                         <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
                            href = "#payment"
-                           role = "tab" id = "step_5" data-step = "5" title="Pay !" >payment</a >
+                           role = "tab" id = "step_5" data-step = "5" title="Pay !" >   payment</a >
                     </div >
                 </div >
             </div >
@@ -213,7 +218,7 @@
 <script src = "assets/js/getWeek.js" ></script >
 <script src = "assets/js/render_index.js" type = "module" ></script >
 <script src = "assets/js/add_room_payment.js" ></script >
-<script src = "assets/js/login.js" ></script >
+<script src = "assets/js/authorizations.js" ></script >
 
 <script >
 </script >

@@ -415,6 +415,6 @@ input[type=number] {
 	margin:  10px 0 0 10px;
 	
 	}
-#login{
+#login,#logout{
 	cursor: pointer;
 	}

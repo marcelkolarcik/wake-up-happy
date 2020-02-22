@@ -3,10 +3,22 @@ import { render_index } from "./render_index.js";
 
 $ ( document ).on ( 'click', '.preview_room', function () {
 	
-	var p_id = JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length;
+	if(sessionStorage.getItem('room_to_edit'))
+	{
+		var p_id = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_id
+		
+	}
+	else
+	{
+		 p_id = JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length;
+	}
+	
+	
 	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
 	var your_room = $ ( "#add_your_room" ).serialize ();
 	var your_room_array = your_room.split ( '&' );
+	
+	
 	var address = {};
 	var amenities = [];
 	var room = { 'price': {} };
@@ -19,12 +31,8 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 		if ( key.substring ( 0, 7 ) === 'address' ) {
 			address[ key.split ( '__' )[ 1 ] ] = decodeURI ( value );
 		}
-		else if ( key === 'property_name' ) {
-			
-			room[ 'property_name' ] = decodeURI ( value );
-		}
 		else if ( key === 'amenities' ) {
-			amenities.push ( value );
+			amenities.push ( parseInt(value) );
 		}
 		else if ( key === 'view_type' ) {
 			room[ 'p_view' ] = value;
@@ -61,7 +69,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	room[ 'location' ] = address.city || address.village || address.hamlet || address.county || address.state_district || address.state || address.country;
 	room[ 'amenities' ] = amenities;
 	room[ 'bookings' ] = [];
-	console.log(amenities)
+	
 	var searchables = [];
 	$.each ( address, function ( key, value ) {
 		if ( address_keys.indexOf ( key ) !== -1 ) {
@@ -75,7 +83,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	} );
 	
 	room[ 'searchables' ] = searchables;
-	
+
 	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
 	
 	render_index ( room, room.room_style, 'preview' , true);

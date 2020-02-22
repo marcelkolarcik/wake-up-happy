@@ -32,7 +32,7 @@ function set_price ( p_id, index ) {
 					
 					            title: 'Oops...',
 					            text : 'Please, select board!',
-					            type : 'warning'
+					            icon : 'warning'
 					
 				            } );
 				return;
