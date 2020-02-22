@@ -10,6 +10,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	var address = {};
 	var amenities = [];
 	var room = { 'price': {} };
+	
 	for ( var item in your_room_array ) {
 		var s_item = your_room_array[ item ].split ( '=' );
 		var key = s_item[ 0 ];
@@ -60,7 +61,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	room[ 'location' ] = address.city || address.village || address.hamlet || address.county || address.state_district || address.state || address.country;
 	room[ 'amenities' ] = amenities;
 	room[ 'bookings' ] = [];
-	
+	console.log(amenities)
 	var searchables = [];
 	$.each ( address, function ( key, value ) {
 		if ( address_keys.indexOf ( key ) !== -1 ) {

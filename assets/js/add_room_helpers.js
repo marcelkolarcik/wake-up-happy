@@ -256,23 +256,23 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
                 just edit it by clicking on the field. Remember to add your
                 <span class = "text-danger  p-2" >
                 Property name! </span > Once you choose location and are happy with it, click on
-                   <span class="green">&nbsp;>>>room</span> `,
+                   <span class="green">room&nbsp;>>></span> `,
 		
 		`Define your room by selecting appropriate radio buttons. Once all options are selected
-	<span class="green">&nbsp;>>>services</span> will appear and you can progress to next step.
+	<span class="green">services&nbsp;>>></span> will appear and you can progress to next step.
 
 		You can always edit your choice, by clicking on  <i class = "fas fa-caret-down" ></i >
 			    <i class = "fas fa-caret-up" ></i > and choosing another option.
 			    `,
 		`Define your services by selecting appropriate check buttons. When selecting board type, <strong class="bg-light">you must enter price for the board.</strong>
  		You can select multiple options.When at least one of each options are selected and description is entered
-	<span class="green">&nbsp;>>>preview</span> will appear and you can progress to next step.
+	<span class="green">preview&nbsp;>>></span> will appear and you can progress to next step.
 
 		You can always edit your choice, by clicking on  <i class = "fas fa-caret-down" ></i >
 			    <i class = "fas fa-caret-up" ></i > and choosing another option.`,
 		`Here you can preview your work of art, by clicking on the tabs ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK. Once you
 are happy with your work, you can click on
-	<span class="green">&nbsp;>>>payment</span> proceed with payment.
+	<span class="green">payment&nbsp;>>></span> proceed with payment.
 
 		`,
 		`Here you can proceed with payment. Thank you for choosing <b>wake up happy!</b>`];

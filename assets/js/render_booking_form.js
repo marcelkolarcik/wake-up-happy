@@ -5,7 +5,8 @@ export function render_booking_form( room ) {
 	
 	booking_form.append( `
 			 <div class = "center-form" >
-                        <form onsubmit = "return sendMail(this,${room.room_style})" >
+                        <form onsubmit = "return sendMail(this,${room.p_id},${room.room_style})" >
+                       
                             <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="bg_green text-light text-center  mt-1">
@@ -162,9 +163,16 @@ export function render_booking_form( room ) {
                            
                             <div class = "col-auto text-center" >
                             <div id="loader_holder${room.p_id}"></div>
-                                <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
+                            ${window.location.pathname === '/add_your_room.html' ? `
+								<div class="bg_green_light_g">
+								Your future customers will be able to book your room through this form.
+								If you're happy with your work, please click on <span class="green">payment >>></span> to
+								proceed with payment !</div>`:
+	                          
+	                          `  <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
                                     Pay
-                                </button >
+                                </button >`}
+                              
                             </div >
 								</div>
         

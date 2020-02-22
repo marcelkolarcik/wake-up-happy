@@ -47,6 +47,7 @@ function getCoordinates( e ) {
 				location_details.html( '' );
 				var location = $( '#location' );
 				$('#get_address').addClass('d-none');
+				
 				var location_data = JSON.parse( this.responseText ).address;
 				//console.log(location_data)
 				$.each( location_data, function ( key, value ) {

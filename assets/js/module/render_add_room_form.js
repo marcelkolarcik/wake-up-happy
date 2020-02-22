@@ -157,8 +157,8 @@ function render_amenities() {
 		                    >
 		                </div >
 		            </div >
-		            <label for = "${amenities_list[ amenity ]} " class = "text-capitalize float-right" >${amenities_list[
-					amenity ]}
+		            <label for = "${amenities_list[ amenity ]} " class = "text-capitalize float-right" >
+${amenities_list[ amenity ]}
 		            </label >
 		        </div >
 		    </div >
