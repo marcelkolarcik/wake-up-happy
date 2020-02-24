@@ -85,7 +85,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	room[ 'searchables' ] = searchables;
 
 	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
-	
+	//console.log(sessionStorage.getItem('new_room'));
 	render_index ( room, room.room_style, 'preview' , true);
 } );
 

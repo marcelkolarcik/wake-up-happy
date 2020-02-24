@@ -101,7 +101,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 		
 		ROOMS.push ( {
 			             'p_id'         : index,
-			             'p_address'    : { 'city': city_coordinates[ 2 ] },
+			             'p_address'    : { 'city': city_coordinates[ 2 ],'property_name':'property name ' + index },
 			             'price'        : price,
 			             'p_description': 'Beautiful room with ' + view_types[ index % 10 ] + ' view to make you smile in the morning....',
 			             'p_view'       : index % 10,
@@ -113,7 +113,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 			             'searchables'  : [ city_coordinates[ 2 ] ],
 			             'bookings'     : getRandom ( current_date.getWeek (), 53, num_of_booked_weeks ),
 			             'amenities'    : getRandom ( 1, amenities.length - 1, 15 ),
-			             'property_name': 'property name ' + index
+			             
 		             } );
 		
 	} );

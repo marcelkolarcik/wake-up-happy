@@ -170,7 +170,8 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			if ( $ ( this ).val () !== '' ) {
 				increment = false;
 			}
-		} ).on ( 'focusout', '.board_price', function () {
+		} ).on
+		( 'focusout', '.board_price', function () {
 			
 			var price = $ ( this ).val ();
 			var c_box_id = $ ( this ).data ( 'c_box_id' );
@@ -210,6 +211,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			}
 			
 		} );
+//		description must be not null
 		$ ( document ).on ( 'input', '#room_description', function () {
 			
 			var room_desc = $ ( '#room_description' );
@@ -228,7 +230,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			
 			// ADDING STEP 4 BUTTON IF ALL CONDITIONS ARE MET
 			
-			if ( num_of_prices > 0 && num_of_amenities > 0 && room_desc.val ().length > 0 ) {
+			if ( num_of_prices > 0 && num_of_amenities > 0 && room_desc.val ().length > 49 ) {
 				step_4.removeClass ( 'd-none' );
 			}
 			
@@ -244,57 +246,98 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		var step_names = [ 'location', 'room', 'services', 'preview', 'payment' ];
 		
 		var step_desc = [
-			`By scrolling or clicking on the map, select location of your property. Once
-                you
-                are
-                happy with the location, click on
+			`
+                    <span class="nav_link">How to:</span>
+              Find location of your property and click
                 <button class = "bg_orange" >get details</button >
-                button,
-                and this will display all the address information. You can choose what
-                details
-                you want
-                to share. If you don't want to share some details,
-                just edit it by clicking on the field. Remember to add your
+                button.Remember to add your
                 <span class = "text-danger  p-2" >
-                Property name! </span > Once you choose location and are happy with it, click on
+                Property name! (min 3 characters)</span >If all details are correct, click on
                    <span class="green">room&nbsp;>>></span> `,
 			
-			`Define your room by selecting appropriate radio buttons. Once all options are selected
+			`<span class="nav_link">How to:</span>Define your room by selecting appropriate radio buttons. Once all options are selected
 	<span class="green">services&nbsp;>>></span> will appear and you can progress to next step.
 
-		You can always edit your choice, by clicking on  <i class = "fas fa-caret-down" ></i >
-			    <i class = "fas fa-caret-up" ></i > and choosing another option.
+		
 			    `,
-			`Define your services by selecting appropriate check buttons. When selecting board type, <strong class="bg-light">you must enter price for the board.</strong>
+			`<span class="nav_link">How to:</span>Define your services by selecting appropriate check buttons. When selecting board type,
+		<strong class="bg-light">you must enter price for the board.</strong>
  		You can select multiple options.When at least one of each options are selected and description is entered
 	<span class="green">preview&nbsp;>>></span> will appear and you can progress to next step.
 
-		You can always edit your choice, by clicking on  <i class = "fas fa-caret-down" ></i >
-			    <i class = "fas fa-caret-up" ></i > and choosing another option.`,
-			`Here you can preview your work of art, by clicking on the tabs ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK. Once you
+		`,
+			`<span class="nav_link">How to:</span>Preview your work of art, by clicking on the tabs ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK. Once you
 are happy with your work, you can click on
 	<span class="green">payment&nbsp;>>></span> proceed with payment.
 
 		`,
-			`Here you can proceed with payment. Thank you for choosing <b>wake up happy!</b>`
+			`<span class="nav_link">How to:</span>Here you can proceed with payment. Thank you for choosing <b>wake up happy!</b>`
+			,
+			`<span class="nav_link">How to:</span>Edit your room to your liking and when you are
+ ready to save it, click on <span class="img-thumbnail">preview</span> button, and then on
+ 
+ 		<a  class = "btn btn-sm m-0 bg_orange horizontally_aligned right-block "
+                    title = "Save your changes" >
+                Save your changes
+            </a >`
+			,
+			`<span class="nav_link">How to:</span>You are previewing your room , if you would
+like to edit it, click on <span class="img-thumbnail">Edit mode</span> button`
 		];
 		var form_info = $ ( '#form_info' );
-		if ( sessionStorage.getItem ( 'room_to_edit' ) ) {
+		var how_to = $ ( '#how_to' );
+		
+		if ( (
+			window.location.pathname === '/owner.html' ) ) {
 			append_edit_info ( form_info );
+			how_to.html ( `${step_desc[ 6 ]}` );
+			
 		}
+		// PUBLIC USER ADDING ROOM
+		if ( (!sessionStorage.getItem ( 'edit_mode' ) && !sessionStorage.getItem ( 'preview_mode' ) ) && window.location.pathname !== '/owner.html') {
+			how_to.html ( `${step_desc[ 0 ]}` );
+			
+		}
+		// LOGGED IN USER EDITING ROOM
+		if ( (
+			sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname === '/owner.html' ) ) {
+			how_to.html ( `${step_desc[ 5 ]}` );
+			
+		}
+		// LOGGED IN USER PREVIEWING ROOM
+		if ( (
+			sessionStorage.getItem ( 'preview_mode' ) && window.location.pathname === '/owner.html' ) ) {
+			how_to.html ( `${step_desc[ 6 ]}` );
+			
+		}
+//		if ( (
+//			     sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'preview_mode' ) ) && window.location.pathname === '/owner.html' ) {
+//
+//			append_edit_info ( form_info );
+//
+//		}
 		
 		$ ( document ).on ( 'click', '.step', function () {
 			
 			var step = $ ( this ).data ( 'step' );
-			
-			if ( sessionStorage.getItem ( 'room_to_edit' ) ) {
+			if ( (
+				!sessionStorage.getItem ( 'edit_mode' ) && !sessionStorage.getItem ( 'preview_mode' ) ) ) {
+				how_to.html ( `${step_desc[ step - 1 ]}` );
+			}
+			if ( (
+				     sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'preview_mode' ) ) && window.location.pathname === '/owner.html' ) {
 				
 				//$ ( '.step' ).removeClass ( 'd-none' );
-				form_info.html ( `${step_desc[ step - 1 ]}` );
-				append_edit_info ( form_info );
+				
+				//append_edit_info ( form_info );
 				
 				remove_white_space_from_description ();
-
+				$ ( '#progress_step_' + step ).removeClass ( 'empty' );
+				if ( step === 4 ) {
+					
+					$ ( '#progress_step_5' ).removeClass ( 'empty' );
+					
+				}
 //			LOGGED IN OWNER'S ROOM DATA
 				var room = !sessionStorage.getItem ( 'room_to_edit' ) ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 				
@@ -304,7 +347,7 @@ are happy with your work, you can click on
 				}
 				
 				if ( step === 5 ) {
-					add_room_payment ();
+					add_room_payment_form ();
 					$ ( '#pay_for_the_room' ).text ( 'save' );
 				}
 			}
@@ -325,8 +368,9 @@ are happy with your work, you can click on
 					$ ( '#step_' + (
 					    step + 2 ) ).addClass ( 'd-none' ).removeClass ( 'no_border green' );
 				}
-				
-				form_info.html ( `${step_desc[ step - 1 ]}` );
+				if ( sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname === '/owner.html' ) {
+					how_to.html ( `${step_desc[ step - 1 ]}` );
+				}
 				
 				if ( step === 2 ) {
 					
@@ -339,7 +383,7 @@ are happy with your work, you can click on
 				if ( step === 4 ) $ ( '#step_5' ).removeClass ( 'd-none' );
 				
 				if ( step === 5 ) {
-					add_room_payment ();
+					add_room_payment_form ();
 					
 				}
 				if ( steps.indexOf ( step + 1 ) !== -1 ) next_step.removeClass ( 'd-none' );
@@ -348,13 +392,24 @@ are happy with your work, you can click on
 		} );
 		
 	} ) ();
+//console.log ( 'edit_mode ' + sessionStorage.getItem ( 'edit_mode' ) );
 
 
 function append_edit_info ( form_info ) {
-	form_info.append ( `<div class="bg_green p-2 text-light mt-2">Edit your room to your liking,
-								and when you are happy with your edits,
-								click on <span class="pl-2 pr-2 pb-1 bg-light text-secondary">preview</span>
-								 and <span  class="pl-2 pr-2 pb-1 bg_orange text-secondary">save your changes</span> .</div>` );
+	form_info.append ( `<div class = "list-group list-group-horizontal  "  >
+                      <button class = "list-group-item  no_padding ${sessionStorage.getItem ( 'edit_mode' ) === null ? 'bg_green text-light' : ''}  " id="preview_mode"
+                        
+                         title="Preview mode" >Preview mode </button >
+                         
+                      <button class = "list-group-item  no_padding ${sessionStorage.getItem ( 'edit_mode' ) === null ? '' : 'bg_green text-light'} " id="edit_mode"
+                        
+                         title="Edit mode" >Edit mode</button ><div id="how_to_edit"></div>
+                      
+                  </div >
+               
+            
+             ` );
+	
 }
 
 
@@ -376,7 +431,9 @@ function update () {
 
 $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 	
-	if ( sessionStorage.getItem ( 'authorized_owner' ) ) {
+	var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
+	if ( sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname === '/owner.html' && sessionStorage.getItem ( 'authorized_owner' ) ) {
+//	if ( sessionStorage.getItem ( 'authorized_owner' ) ) {
 		
 		update ();
 	}
@@ -386,9 +443,10 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 		
 		//	 CREATING OWNER OBJECT AND STORING IT IN "DB"
 		
-		var owner_details = $ ( "#add_room_payment" ).serialize ();
+		var owner_details = $ ( "#add_room_payment_form" ).serialize ();
 		var owner_details_array = owner_details.split ( '&' );
 		var missing_values = '';
+		console.log(owner_details_array);
 		$.each ( owner_details_array, function ( index, value ) {
 			
 			var split_value = decodeURIComponent ( value ).split ( '=' );
@@ -409,52 +467,10 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 			            } );
 			return false;
 		}
-
-//	GETTING AUTOCOMPLETE ARRAY FROM LOCAL STORAGE, TO ADD TO IT IF NEW LOCATION HAS NEW ELEMENTS, NOT IN ARRAY
-//  ALREADY, WHEN ADDING NEW ROOM...
-
-//		var autocomplete_searchables = JSON.parse ( localStorage.getItem ( 'autocomplete_searchables' ) );
 		
 		//// RECENTLY CREATED ROOM TO BE ADDED TO "DB"...
-		var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
-
-//		//// USING address_keys  TO GET ELEMENTS TO AUTOCOMPLETE ( EX. 'city','country','village','town') FROM
-// ADDRESS
-//		// PROVIDED BY nominium, OMITTING KEYS LIKE lat,lng, road.....
-//		var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
-//		var new_auto_c = false;
-//		$.each ( new_room.p_address, function ( key, value ) {
-////		CHECK IF WE ARE USING KEY FOR AUTOCOMPLETE AND IF WE ALREADY HAVE IT IN  autocomplete_searchables ARRAY
-//			if ( address_keys.indexOf ( key ) !== -1 && autocomplete_searchables.indexOf ( value ) === -1 ) {
-//
-//				$.each ( value.split ( ' ' ), function ( index, string ) {
-//					if ( autocomplete_searchables.indexOf ( string ) === -1 ) {
-//						autocomplete_searchables.push ( decodeURI ( string ) );
-//					}
-//
-//				} );
-//
-//				if ( autocomplete_searchables.indexOf ( value ) === -1 ) {
-//					autocomplete_searchables.push ( decodeURI ( value ) );}
-//
-//				new_auto_c = true;
-//			}
-//
-//		} );
-//
-////let unique = [ ...new Set ( all ) ];  TO GET UNIQUE ARRAY
-//
-//		//// RE-SETTING autocomplete_searchables IF NEW VALUES
-//		if ( new_auto_c ) localStorage.setItem ( 'autocomplete_searchables', JSON.stringify (
-// autocomplete_searchables ) );
+		
 		check_autocomplete ( new_room );
-
-//		////////// ADDING NEWLY CREATED ROOM INTO "DB
-//		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
-//		ROOMS.push ( new_room );
-//		localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
-//
-//		sessionStorage.removeItem ( 'new_room' );
 		
 		update_room ( new_room );
 		
@@ -489,23 +505,13 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 		//	PUTTING BACK TO STORAGE
 		localStorage.setItem ( 'OWNERS', JSON.stringify ( owners ) );
 		
-		sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( new_owner ) );
+		//sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( new_owner ) );
 		location.replace ( `index.html` );
 	}
 } );
 
 
-function hash_login ( string ) {
-	//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
-	hashed_string = string.split ( '' ).reduce ( ( a, b ) => {
-		a = (
-			    (
-				    a << 5 ) - a ) + b.charCodeAt ( 0 );
-		return a & a;
-	}, 0 );
-	
-	return hashed_string;
-}
+
 
 
 function check_autocomplete ( new_room ) {

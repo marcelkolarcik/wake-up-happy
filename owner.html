@@ -18,186 +18,186 @@
     <link rel = "stylesheet" href = "assets/css/app.css" >
 </head >
 <body >
-<section id = "header" >
-    <nav class = "navbar navbar-expand-sm navbar-dark bg_green" >
-        <a class = "navbar-brand" href = "index.html" >
-            <img class = "d-none d-xl-block" src = "assets/images/logo_sm.png" alt = "logo image"
-                 title = "wake up happy | rooms with the view" >
-            <img class = "d-none d-lg-block d-xl-none" src = "assets/images/logo_sm.png"
-                 alt = "logo image"
-                 title = "wake up happy | rooms with the view" >
-            <img class = "d-none d-md-block d-lg-none" src = "assets/images/logo_sm.png"
-                 alt = "logo image"
-                 title = "wake up happy | rooms with the view" >
-            <img class = "d-none d-sm-block d-md-none" src = "assets/images/logo_sm.png"
-                 alt = "logo image"
-                 title = "wake up happy | rooms with the view" >
-            <img class = "d-block d-sm-none" src = "assets/images/logo_xs.png" alt = "logo image"
-                 title = "wake up happy | rooms with the view" >
-        </a >
-        <div class = "collapse navbar-collapse" >
-            <ul class = "navbar-nav mr-auto " >
-            </ul >
-            <ul class = "navbar-nav" >
-                <li class = "nav-item pr-3" >
-                    <span class = "form-inline my-2 my-md-0 text-light nav_link" >
-                        <a class = "text-light" id="logout" title="Logout!">Logout</a >
-                    </span >
-                </li >
-                <li class = "nav-item dropdown" >
-                    <a class = "nav_link dropdown-toggle text-light" href = "#" id = "dropdown2"
-                       data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" ><img
-                            src = "assets/images/en_flag.png" style = "width:40px;"
-                            alt = "logo image" ></a >
-                    <div class = "dropdown-menu" aria-labelledby = "dropdown2" >
-                        <a class = "dropdown-item" href = "#" >English</a >
-                        <a class = "dropdown-item" href = "#" >franse</a >
-                        <a class = "dropdown-item" href = "#" >espanyol</a >
-                    </div >
-                </li >
-            </ul >
-        </div >
-    </nav >
-</section >
-<section id = "content" >
-    <div class = "container" >
-        <div class = "col-md-12 img-thumbnail bg-transparent" id = "step_description" >
-            <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
-                <div class = "progress-bar   progress_step" title="Choose your location" >1</div >
-                <div class = "progress-bar   bg-transparent step_divider" ></div >
-                <div class = "progress-bar progress_step empty" title="Define your room" id = "progress_step_2" >2</div >
-                <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" title="Define your services" id = "progress_step_3" >3</div >
-                <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" title="Preview your work of art!" id = "progress_step_4" >4</div >
-                <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" title="Pay !" id = "progress_step_5" >5</div >
-            </div >
-            <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
-                <div class = "progress-bar   progress_step p_description" role = "progressbar" >Location</div >
-                <div class = "progress-bar   bg-transparent step_divider p_description" ></div >
-                <div class = "progress-bar progress_step p_description" >Room</div >
-                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
-                <div class = "progress-bar progress_step p_description" >Services</div >
-                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
-                <div class = "progress-bar progress_step p_description" >Preview</div >
-                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
-                <div class = "progress-bar progress_step p_description" >Payment</div >
-            </div >
-            <div class="card">
-                <div class="card-header pl-3 pt-0 pb-0 pt-2 bg-transparent">
-                    <h5 class="card-title">How to :</h5>
-                </div>
-                <div id="form_info" class=" text-center bg-light  ">
-            
-                    By scrolling or clicking on the map, select location of your property. Once
-                    you
-                    are
-                    happy with the location, click on
-                    <button class = "bg_orange" >get details</button >
-                    button,
-                    and this will display all the address information. You can choose what
-                    details
-                    you want
-                    to share. If you don't want to share some details,
-                    just edit it by clicking on the field. Remember to add your <span
-                        class = "text-danger  p-2"
-                >Property name! </span >
-                    Once you choose location and are happy with it, click on
-                    <span class="green">&nbsp;>>>room</span>
-        
-                </div >
-            </div>
-        <form id = "add_your_room" onsubmit = "return checkForm(this);" >
-            <div class = "row no-gutters" >
-              
-                <!-- Tab panes -->
-                <div class = "tab-content col-md-12" >
-                    <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
-                        <div class = "row no-gutters" >
-                            <div class = "col-md-8 col-sm-12 img-thumbnail" >
-                                <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
+<section id = "navigation" >
+    <div class = "nav_background" >
+        <div class = "navigation container" >
+            <nav class = "navbar navbar-expand-sm navbar-dark bg_green_light pb-0" >
+                <a class = "navbar-brand" href = "index.html" >
+                    
+                    <img class = "d-none d-sm-block " src = "assets/images/logo_sm.png"
+                         alt = "logo image"
+                         title = "wake up happy | rooms with the view" >
+                    <img class = "d-sm-none" src = "assets/images/logo_xs.png" alt = "logo image"
+                         title = "wake up happy | rooms with the view" >
+                </a >
+                <button class = "navbar-toggler " type = "button" data-toggle = "collapse" data-target = "#logo_cont"
+                        aria-controls = "logo_cont" aria-expanded = "false" aria-label = "Toggle navigation" >
+                    <span class = "small_menu" >Menu</span >
+                    <br >
+                    <span class = "navbar-toggler-icon" ></span >
+                </button >
+                <div class = "collapse navbar-collapse" id = "logo_cont" >
+                    <ul class = "navbar-nav mr-auto " >
+                    </ul >
+                    <ul class = "navbar-nav " >
+                        <li id="add_room">
+                            <a class = "nav_link text-light mr-3 " href = "add_your_room.html" title="Add your room">
+                                add your room
+                            </a >
+                        </li>
+                        <li class = "nav-item dropdown mr-3" id = "languages" >
+                            <a class = "nav_link text-light dropdown-toggle caret-off" href = "#"
+                               data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" ><img
+                                    src = "assets/images/en_flag.png" style = "width:30px;"
+                                    alt = "logo image" ></a >
+                            <div class = "dropdown-menu dropdown-menu-right" aria-labelledby = "languages" >
+                                
+                                <h6 class = "dropdown-header" >Change Languages</h6 >
+                                <div class = "dropdown-divider" ></div >
+                                <a class = "dropdown-item" href = "#" >English</a >
+                                <a class = "dropdown-item" href = "#" >franse</a >
+                                <a class = "dropdown-item" href = "#" >espanyol</a >
                             </div >
-                            <div class = "col-md-4 col-sm-12 img-thumbnail " >
-                                <div id = "location_details"
-                                     class = "d-flex justify-content-center align-items-center" >
-                                    <div class = "how-to img-thumbnail" >
-                                        <h4 >Your location details will display here !</h4 >
-                                       
+                        </li >
+                        <li class = "nav-item dropdown mr-3" id = "user" >
+                        
+                        
+                        </li >
+                    </ul >
+                </div >
+            </nav >
+        </div >
+    </div >
+</section >
+<div class = "container" >
+ <section id = "form_navigation_steps" >
+   
+   <div class = "col-md-12 img-thumbnail bg-transparent" id = "step_description" >
+                        <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
+                            <div class = "progress-bar   progress_step" title="Choose your location" >1</div >
+                            <div class = "progress-bar   bg-transparent step_divider" ></div >
+                            <div class = "progress-bar progress_step empty" title="Define your room" id = "progress_step_2" >2</div >
+                            <div class = "progress-bar  step_divider bg-transparent " ></div >
+                            <div class = "progress-bar progress_step empty" title="Define your services" id = "progress_step_3" >3</div >
+                            <div class = "progress-bar  step_divider bg-transparent " ></div >
+                            <div class = "progress-bar progress_step empty" title="Preview your work of art!" id = "progress_step_4" >4</div >
+                            <div class = "progress-bar  step_divider bg-transparent progress_step_5" ></div >
+                            <div class = "progress-bar progress_step empty progress_step_5" title="Pay !" id = "progress_step_5" >5</div >
+                        </div >
+                        <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
+                            <div class = "progress-bar   progress_step p_description" role = "progressbar" >Location</div >
+                            <div class = "progress-bar   bg-transparent step_divider p_description" ></div >
+                            <div class = "progress-bar progress_step p_description" >Room</div >
+                            <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
+                            <div class = "progress-bar progress_step p_description" >Services</div >
+                            <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
+                            <div class = "progress-bar progress_step p_description progress_step_4"  >Preview</div >
+                            <div class = "progress-bar  step_divider p_description bg-transparent progress_step_5" ></div >
+                            <div class = "progress-bar progress_step p_description progress_step_5" >Payment</div >
+                        </div >
+                        <div class="card">
+                           
+                            <div id="form_info" class=" text-center">
+                            
+                            
+                            </div >
+                            <div id="how_to" class=" pl-2 img-thumbnail"></div>
+                        </div>
+               
+                    </div>
+              
+  </section >
+ <section id = "content" >
+                    <form id = "add_your_room" onsubmit = "return checkForm(this);" >
+                        <div class = "row no-gutters" >
+                          
+                            <!-- Tab panes -->
+                            <div class = "tab-content col-md-12" >
+                                <div class = "tab-pane active" id = "get_address2" role = "tabpanel" >
+                                    <div class = "row no-gutters" >
+                                        <div class = "col-md-8 col-sm-12 img-thumbnail" >
+                                            <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
+                                        </div >
+                                        <div class = "col-md-4 col-sm-12 img-thumbnail " >
+                                            <div id = "location_details"
+                                                 class = "d-flex justify-content-center align-items-center" >
+                                                <div class = "how-to img-thumbnail" >
+                                                    <h4 >Your location details will display here !</h4 >
+                                                   
+                                                </div >
+                                            </div >
+                                            <div id = "location" >
+                                            </div >
+                                        </div >
                                     </div >
                                 </div >
-                                <div id = "location" >
+                                <div class = "tab-pane" id = "types" role = "tabpanel" >
+                                    <div class = "row no-gutters" id = "room_details" >
+                                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                                             id = "room_types" >
+                                            <div class = "img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
+                                            </div >
+                                        </div >
+                                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12 "
+                                             id = "view_types"  >
+                                            <div class = " img-thumbnail card col-md-12 p-0" id = "view_types_title" ></div >
+                                        </div >
+                                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                                             id = "room_styles" >
+                                            <div class = " img-thumbnail card col-md-12 p-0 " id = "room_styles_title" >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class = "tab-pane" id = "services" role = "tabpanel" >
+                                    <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                                         id = "board_types" >
+                                        <div class = "img-thumbnail card col-md-12 p-0" id = "board_types_title" >
+                                        </div >
+                                    </div >
+                                    <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                                         id = "amenities" >
+                                        <div class = " img-thumbnail card col-md-12 p-0 " id = "amenities_title" >
+                                        </div >
+                                    </div >
+                                    <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                                         id = "description" >
+                                        <div class = " img-thumbnail card col-md-12  p-0" id = "description_title" >
+                                        </div >
+                                    </div >
+                                    
+                                </div >
+                                <div class = "tab-pane" id = "preview" role = "tabpanel" >...Preview</div >
+                                <div class = "tab-pane" id = "payment" role = "tabpanel" >
+                                </div >
+                            </div >
+                            <div id = "steps" class = "horizontally_aligned" >
+                                <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
+                                    <a class = "list-group-item list-group-item-action no_padding active step " data-toggle = "list"
+                                       href = "#get_address2"
+                                       role = "tab" id = "step_1" data-step = "1"   title="Choose your location" >location </a >
+                                    <a class = "list-group-item list-group-item-action no_padding d-none  step" data-toggle = "list"
+                                       href = "#types"
+                                       role = "tab" id = "step_2" data-step = "2" title="Define your room" > room</a >
+                                    <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
+                                       href = "#services"
+                                       role = "tab" id = "step_3" data-step = "3" title="Define your services" > services</a >
+                                    <a class = "list-group-item list-group-item-action no_padding d-none step preview_room"
+                                       data-toggle = "list" href = "#preview"
+                                       role = "tab" id = "step_4" data-step = "4" title="Preview your work of art!"  >preview</a >
+                                    <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
+                                       href = "#payment"
+                                       role = "tab" id = "step_5" data-step = "5" title="Pay !" >   payment</a >
                                 </div >
                             </div >
                         </div >
-                    </div >
-                    <div class = "tab-pane" id = "types" role = "tabpanel" >
-                        <div class = "row no-gutters" id = "room_details" >
-                            <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
-                                 id = "room_types" >
-                                <div class = "img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
-                                </div >
-                            </div >
-                            <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12 "
-                                 id = "view_types"  >
-                                <div class = " img-thumbnail card col-md-12 p-0" id = "view_types_title" ></div >
-                            </div >
-                            <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
-                                 id = "room_styles" >
-                                <div class = " img-thumbnail card col-md-12 p-0 " id = "room_styles_title" >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                    <div class = "tab-pane" id = "services" role = "tabpanel" >
-                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
-                             id = "board_types" >
-                            <div class = "img-thumbnail card col-md-12 p-0" id = "board_types_title" >
-                            </div >
-                        </div >
-                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
-                             id = "amenities" >
-                            <div class = " img-thumbnail card col-md-12 p-0 " id = "amenities_title" >
-                            </div >
-                        </div >
-                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
-                             id = "description" >
-                            <div class = " img-thumbnail card col-md-12  p-0" id = "description_title" >
-                            </div >
-                        </div >
-                        <div class = "col-auto" >
-                            
-                            <button class = "bg_orange text-secondary" >preview</button >
-                        </div >
-                    </div >
-                    <div class = "tab-pane" id = "preview" role = "tabpanel" >...Preview</div >
-                    <div class = "tab-pane" id = "payment" role = "tabpanel" >
-                    </div >
-                </div >
-                <div id = "steps" class = "horizontally_aligned" >
-                    <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
-                        <a class = "list-group-item list-group-item-action no_padding active step " data-toggle = "list"
-                           href = "#get_address2"
-                           role = "tab" id = "step_1" data-step = "1"   title="Choose your location" >location </a >
-                        <a class = "list-group-item list-group-item-action no_padding d-none  step" data-toggle = "list"
-                           href = "#types"
-                           role = "tab" id = "step_2" data-step = "2" title="Define your room" > room</a >
-                        <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
-                           href = "#services"
-                           role = "tab" id = "step_3" data-step = "3" title="Define your services" > services</a >
-                        <a class = "list-group-item list-group-item-action no_padding d-none step preview_room"
-                           data-toggle = "list" href = "#preview"
-                           role = "tab" id = "step_4" data-step = "4" title="Preview your work of art!"  >preview</a >
-                        <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
-                           href = "#payment"
-                           role = "tab" id = "step_5" data-step = "5" title="Pay !" >   payment</a >
-                    </div >
-                </div >
-            </div >
-        </form >
-    </div >
-    </div >
-</section >
+                    </form >
+            </section >
+</div >
+
+
+
+
 <script src = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity = "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin = "" ></script >
@@ -213,13 +213,13 @@
 <script src = "assets/js/add_room_helpers.js" ></script >
 <script src = "assets/js/booking_helpers.js" ></script >
 <script src = "assets/js/check_form.js" ></script >
-<script src = "assets/js/preview_added_room.js" type = "module" ></script >
-<script src = "assets/js/module/render_add_room_form.js" type = "module" ></script >
+<script src = "assets/js/added_room_preview.js" type = "module" ></script >
+<script src = "assets/js/add_room_form_render.js" type = "module" ></script >
 <script src = "assets/js/getWeek.js" ></script >
 <script src = "assets/js/render_index.js" type = "module" ></script >
-<script src = "assets/js/add_room_payment.js" ></script >
+<script src = "assets/js/add_room_payment_form.js" ></script >
 <script src = "assets/js/authorizations.js" ></script >
-
+<script src = "assets/js/navigation.js" ></script >
 <script >
 </script >
 </body >

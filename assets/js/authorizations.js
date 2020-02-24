@@ -52,9 +52,9 @@ $ ( document ).on ( 'click', '#log_user', function () {
 	swal.close ();
 	var form_data = $ ( '#login_form' ).serialize ().split ( '&' );
 	var email = form_data[ 0 ].split ( '=' )[ 1 ];
-	var name = form_data[ 1 ].split ( '=' )[ 1 ];
+	var password = form_data[ 1 ].split ( '=' )[ 1 ];
 	
-	var login = decodeURIComponent ( email ) + decodeURIComponent ( name );
+	var login = decodeURIComponent ( email ) + decodeURIComponent ( password );
 	
 	/// USING SAME HASHING AS WHEN CREATING OWNER
 	var hashed_login = hash_login ( login );
@@ -70,7 +70,7 @@ $ ( document ).on ( 'click', '#log_user', function () {
 		not_registered ();
 	}
 //console.log(owners, decodeURI(email),decodeURIComponent(email),decodeURIComponent(name) ,name,);
-	//console.log(owner);
+	console.log(owner);
 	
 } );
 
@@ -120,22 +120,42 @@ function authorized ( owner ,hashed_login) {
 	window.location.replace ( "/owner.html" );
 }
 
-//// LOGGING USER OUT OF APPLICATION, DESTROYING SESSION VARIABLE authorized_owner
+//// LOGGING USER OUT OF APPLICATION, DESTROYING SESSION
 $ ( document ).on ( 'click', '#logout', function () {
-	sessionStorage.removeItem ( 'authorized_owner' );
-	sessionStorage.removeItem ( 'hashed_login' );
-	sessionStorage.removeItem ( 'room_to_edit' );
-	window.location.replace ( "/add_your_room.html" );
+//	sessionStorage.removeItem ( 'authorized_owner' );
+//	sessionStorage.removeItem ( 'hashed_login' );
+//	sessionStorage.removeItem ( 'room_to_edit' );
+	sessionStorage.clear();
+	window.location.replace ( "/index.html" );
 } );
 
-//function hash_login(string)
-//{
-//	 hashed_string = string.split ( '' ).reduce ( ( a, b ) => {
-//		a = (
-//			    (
-//				    a << 5 ) - a ) + b.charCodeAt ( 0 );
-//		return a & a;
-//	}, 0 );
-//
-//	 return  hashed_string;
-//}
+$ ( document ).on ( 'click', '#preview_mode', function () {
+//	/owner.html
+	sessionStorage.setItem('preview_mode',true);
+	sessionStorage.removeItem('edit_mode');
+	window.location.reload();
+	
+	//swal.fire('preview mode',window.location.pathname)
+});
+$ ( document ).on ( 'click', '#edit_mode', function () {
+	
+	
+	
+	window.location.reload();
+	sessionStorage.setItem('edit_mode',true);
+	sessionStorage.removeItem('preview_mode');
+	//swal.fire('edit mode',sessionStorage.getItem('edit_mode'))
+	
+});
+
+function hash_login ( string ) {
+	//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+	hashed_string = string.split ( '' ).reduce ( ( a, b ) => {
+		a = (
+			    (
+				    a << 5 ) - a ) + b.charCodeAt ( 0 );
+		return a & a;
+	}, 0 );
+	
+	return hashed_string;
+}

@@ -24,7 +24,7 @@ export function render_booking_form( room ) {
                                     <input type = "text" name = "room_details"
                                            class = "form-control form-control-sm  border_bottom_only bg_green_light"
                                            id = "room_details${room.p_id}" placeholder = "Room"
-                                           value = "${  decodeURI ( room.property_name ) }  | ${room_types[ room.room_type ]} "
+                                           value = "${  decodeURI ( room.p_address.property_name  ) }  ${room.p_address.property_name ?'|':''} ${room_types[ room.room_type]  } "
                                            required readonly >
                                 </div >
                             </div >
@@ -160,14 +160,15 @@ export function render_booking_form( room ) {
                                                >
                                 </div >
                             </div >
-                           
+                          
                             <div class = "col-auto text-center" >
                             <div id="loader_holder${room.p_id}"></div>
-                            ${sessionStorage.getItem('room_to_edit') ? `
+    
+                            ${( (sessionStorage.getItem('edit_mode') || sessionStorage.getItem('preview_mode')) && window.location.pathname === '/owner.html' )
+	                         /* || (!sessionStorage.getItem('edit_mode') && !sessionStorage.getItem('preview_mode'))*/? `
 								<div class="bg_green_light_g">
 								Your future customers will be able to book your room through this form.
-								If you're happy with your work, please click on <span class="green">payment >>></span> to
-								proceed with payment !</div>`:
+								</div>`:
 	                          
 	                          `  <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
                                     Pay

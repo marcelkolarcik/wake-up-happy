@@ -4,22 +4,12 @@ var view_types = JSON.parse( localStorage.getItem( 'views' ) );
 var amenities_list = JSON.parse( localStorage.getItem( 'amenities_list' ) );
 var room_styles = JSON.parse( localStorage.getItem( 'room_styles' ) );
 //console.log(JSON.parse ( sessionStorage.getItem ( 'room_to_edit' )));
-var room = !sessionStorage.getItem ( 'room_to_edit' ) ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ));
+var room = null;
+if((sessionStorage.getItem('edit_mode') || sessionStorage.getItem('preview_mode')) && window.location.pathname === '/owner.html')
+{
+	 room = !sessionStorage.getItem ( 'room_to_edit' ) ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ));
+}
 
-/*price: {2: "3424"}
- lat: "53.278353"
- lng: "-8.444682"
- room_type: "0"
- p_view: "2"
- room_style: 3
- p_description: "dewd"
- p_id: 97
- p_address: {road: "L7445", locality: "Treanbaun", city_district: "Killallaghtan Electoral Division", region: "Loughrea Municipal District", county: "County Galway", …}
- location: "County Galway"
- amenities: ["1"]
- bookings: []
- searchables: (11) ["Treanbaun", "Treanbaun", "Loughrea", "Municipal", "District", "Loughrea Municipal District", "County", "Galway", "County Galway", "Írsko", "Írsko"]
- _*/
 
 function render_room_types() {
 	var room_types_div = $( '#room_types' );
@@ -45,7 +35,7 @@ function render_room_types() {
     <div class = "p-0 card-footer text-center  ${owners_room_type && parseInt(owners_room_type)  === parseInt(index) ? 'bg_green':'bg-secondary'} text-light d-flex justify-content-around align-items-center room_type"
          id = "room_type_${room_type}" >
         <label for = "${room_type}" class = "text-capitalize" >${room_type}</label >
-        <input id = "${room_type}" name = "room_type" type = "radio" value = "${room_type}"
+        <input id = "${room_type}" name = "room_type" type = "radio" value = "${index}"
                class = "collapse_parent check"
                data-parent_div = "room_type_images"
                data-parent_title = "room_types_title"
@@ -230,7 +220,8 @@ function render_description() {
  
 						  <div class = "input-group mb-2 description d-none" >
                             <div class = "input-group-prepend" >
-                                <div class = "input-group-text bg-transparent border_bottom_only" title="Write description of your room, max 300 characters." >
+                                <div class = "input-group-text bg-transparent border_bottom_only"
+                                title="Write description of your room, min 50 -  max 300 characters." >
                                     <i class="fas fa-feather-alt"></i>
                                     <br >
                                     <span id="room_description_length">300</span>
@@ -251,7 +242,7 @@ function render_description() {
 	
 	$( '#description_title' ).append( ` <p class = "card-text p-2 show_content" data-hidden_class="description" >
  													<strong>f ) </strong>
-                                       Describe your room, make it attractive (max 300 characters)
+                                       Describe your room, make it attractive (min 50 - max 300 characters)
          								<i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
                                 </p >` )
 	

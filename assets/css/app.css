@@ -109,7 +109,7 @@ hr.green {
 	}
 
 .bg_green_light {
-	background-color: rgba(0, 195, 209, 0.5);
+	background-color: rgba(0, 195, 209, 0.7);
 	}
 
 .border_green {
@@ -358,40 +358,7 @@ input:hover, select:hover {
 	height: 40px;
 	}
 
-@media screen and ( max-width: 1200px ) {
-	
-	}
 
-@media screen and ( max-width: 990px ) {
-	
-	}
-
-@media screen and ( max-width: 767px ) {
-	#hero_image {
-		height: 0;
-		padding: 0;
-		}
-	}
-
-@media screen and ( max-width: 540px ) {
-	.progress_step.description {
-		font-size: 0.8rem;
-		}
-	
-	.step_divider {
-		width: 30px;
-		margin-bottom: 15px;
-		}
-	
-	.progress_step {
-		width: 30px;
-		font-size: 0.8rem;
-		}
-	
-	.step_holder {
-		height: 30px;
-		}
-	}
 /*to remove arrows from input number*/
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -417,4 +384,84 @@ input[type=number] {
 	}
 #login,#logout{
 	cursor: pointer;
+	}
+.user_initials{
+	width:2.8rem;
+	height: 2.8rem;
+	border-radius: 1.4rem;
+	background-color: #fafafa;
+	background-image: url("../images/user_logo.png");
+	
+	}
+#initials:hover{
+	text-decoration: none;
+	}
+.dropdown-item:hover{
+	background-color: rgba(0, 195, 209, 0.3);
+	}
+.nav_background{
+	
+	height: 0;
+	padding: 0;
+	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
+	
+	/*https://stackoverflow.com/questions/11099930/100-width-background-image-with-an-auto-height*/
+	background-position: center center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-image: url("../images/carousel/1.jpg");
+	}
+.navigation{
+	height: 0;
+	padding: 0;
+	padding-top:20px;
+	padding-bottom: 10.75%;
+	}
+
+@media screen and ( max-width: 1200px ) {
+	
+	}
+
+@media screen and ( max-width: 990px ) {
+	
+	}
+
+@media screen and ( max-width: 767px ) {
+	#hero_image {
+		height: 0;
+		padding: 0;
+		}
+	.navigation{
+		height: 0;
+		padding: 0;
+		padding-bottom: 18.75%;
+		}
+	}
+
+@media screen and ( max-width: 540px ) {
+	.progress_step.description {
+		font-size: 0.8rem;
+		}
+	
+	.step_divider {
+		width: 30px;
+		margin-bottom: 15px;
+		}
+	
+	.progress_step {
+		width: 30px;
+		font-size: 0.8rem;
+		}
+	
+	.step_holder {
+		height: 30px;
+		}
+	
+	}
+
+.caret-off::before {
+	display: none;
+	}
+.caret-off::after {
+	display: none;
 	}
