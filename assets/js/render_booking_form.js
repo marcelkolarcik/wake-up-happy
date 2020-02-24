@@ -165,6 +165,7 @@ export function render_booking_form( room ) {
                             <div id="loader_holder${room.p_id}"></div>
     
                             ${( (sessionStorage.getItem('edit_mode') || sessionStorage.getItem('preview_mode')) && window.location.pathname === '/owner.html' )
+                              || window.location.pathname === '/add_your_room.html'
 	                         /* || (!sessionStorage.getItem('edit_mode') && !sessionStorage.getItem('preview_mode'))*/? `
 								<div class="bg_green_light_g">
 								Your future customers will be able to book your room through this form.

@@ -396,8 +396,9 @@ input[type=number] {
 #initials:hover{
 	text-decoration: none;
 	}
-.dropdown-item:hover{
+.dropdown-item:hover,.dashboard_link:hover{
 	background-color: rgba(0, 195, 209, 0.3);
+	text-decoration: none;
 	}
 .nav_background{
 	

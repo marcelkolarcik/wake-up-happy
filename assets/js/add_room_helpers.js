@@ -58,6 +58,26 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		var num_of_prices = 0;
 		var step_4 = $ ( '#step_4' );
 		
+		if(sessionStorage.getItem('room_to_edit'))
+		{
+			room = JSON.parse(sessionStorage.getItem('room_to_edit'));
+			console.log(room.amenities.length,  Object.keys(room.price).length );
+			num_of_boards = Object.keys(room.price).length;
+			num_of_prices = Object.keys(room.price).length;
+			num_of_amenities = room.amenities.length;
+			titles['room_type'] = 1;
+			titles['view_type'] = 1;
+			titles['room_style'] = 1;
+			titles['board'] = 1;
+			titles['amenity'] = 1;
+			$('#room_types_title').addClass('bg_green text-light');
+			$('#view_types_title').addClass('bg_green text-light');
+			$('#room_styles_title').addClass('bg_green text-light');
+			$('#board_types_title').addClass('bg_green text-light');
+			$('#amenities_title').addClass('bg_green text-light');
+			$('#description_title').addClass('bg_green text-light');
+		}
+		
 		$ ( document ).on ( "click", ".check", function () {
 			
 			var parent_title = $ ( '#' + $ ( this ).data ( 'parent_title' ) );
@@ -70,9 +90,9 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				//	IF ANY OF THE IMAGES RADIO BUTTON WAS SELECTED, IT WOULD HAVE  bg_green text-light_light CLASS
 				// APPLIED, SO  IF USER CHANGES HIS MIND AND SELECTS ANOTHER IMAGE , THIS IS JUST TO REMOVE .bg_green
 				// text-light_light FROM PREVIOUSLY SELECTED IMAGE AND BRING IT TO ORIGINAL STATE
-				if ( type === 'room_style' ) $ ( '.room_style' ).removeClass ( 'bg_green text-light_light' ).addClass ( 'bg-secondary' );
-				if ( type === 'view_type' ) $ ( '.view_type' ).removeClass ( 'bg_green text-light_light' ).addClass ( 'bg-secondary' );
-				if ( type === 'room_type' ) $ ( '.room_type' ).removeClass ( 'bg_green text-light_light' ).addClass ( 'bg-secondary' );
+				if ( type === 'room_style' ) $ ( '.room_style' ).removeClass ( 'bg_green text-light' ).addClass ( 'bg-secondary' );
+				if ( type === 'view_type' ) $ ( '.view_type' ).removeClass ( 'bg_green text-light' ).addClass ( 'bg-secondary' );
+				if ( type === 'room_type' ) $ ( '.room_type' ).removeClass ( 'bg_green text-light' ).addClass ( 'bg-secondary' );
 				
 				// THIS IS TO ADD .bg_green text-light_light TO TITLE OF THIS PART OF THE FORM WHEN USER SELECTS IT
 				if ( type === 'board' ) parent_title.addClass ( 'bg_orange text-light' );
@@ -94,7 +114,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 					increment = true;
 				}
 				else {
-					footer.removeClass ( 'bg-secondary' ).addClass ( 'bg_green text-light text-light' );
+					footer.removeClass ( 'bg-secondary' ).addClass ( 'bg_green text-light' );
 				}
 				
 				//CALCULATING HOW MANY CHECKBOXES  num_of_amenities AND num_of_boards AND num_of_prices WERE
@@ -108,6 +128,10 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				
 				if ( num_of_prices > 0 && num_of_amenities > 0 && $ ( '#room_description' ).val ().length > 0 ) {
 					step_4.removeClass ( 'd-none' );
+				}
+				else
+				{
+					step_4.addClass ( 'd-none' );
 				}
 				
 			}
@@ -126,16 +150,20 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				if ( num_of_prices > 0 && num_of_amenities > 0 && $ ( '#room_description' ).val ().length > 0 ) {
 					step_4.removeClass ( 'd-none' );
 				}
+				else
+				{
+					step_4.addClass ( 'd-none' );
+				}
 				//	IF ANY OF THE IMAGES  RADIO'S  OR CHECKBOXES WERE SELECTED, IMAGE CARD FOOTER WOULD HAVE
 				// bg_green text-light_light CLASS APPLIED, SO THIS IS JUST TO RETURN IT TO ORIGINAL STATE
-				footer.removeClass ( 'bg_green' ).addClass ( 'bg-secondary' );
+				footer.removeClass ( 'bg_green text-light' ).addClass ( 'bg-secondary' );
 				
 				//	IF USER HAS DESELECTED ALL OF PRECIOUSLY SELECTED CHECKBOXES ( board_types and amenities) , THIS
 				// IS TO REMOVE APPLIED CLASS
 				
 				if ( num_of_boards === 0 && type === 'board' ) {
 					
-					parent_title.removeClass ( 'bg_green' ).addClass ( 'bg_orange' );
+					parent_title.removeClass ( 'bg_green  text-light' ).addClass ( 'bg_orange' );
 					delete titles[ type ];
 					titles.splice ( titles.indexOf ( type ), 1 );
 					
@@ -143,7 +171,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				
 				if ( num_of_amenities === 0 && type === 'amenity' ) {
 					
-					parent_title.removeClass ( 'bg_green' );
+					parent_title.removeClass ( 'bg_green  text-light' );
 					delete titles[ type ];
 					
 					titles.splice ( titles.indexOf ( type ), 1 );
@@ -156,7 +184,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			/// IF FIRST 3 PARTS OF THE FORM ARE FILLED CORRECTLY  num_of_titles === 3 AND THIS IS TO LET USER CAN
 			// CONTINUE / WITH THE FORM BY DISPLAYING NEXT STEP BUTTON
 			
-			if ( num_of_titles === 3 ) $ ( '#step_3' ).removeClass ( 'd-none' );
+			if ( num_of_titles > 2 ) $ ( '#step_3' ).removeClass ( 'd-none' );
 			
 		} );
 		
@@ -209,6 +237,10 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			if ( num_of_prices > 0 && num_of_amenities > 0 && $ ( '#room_description' ).val ().length > 0 ) {
 				step_4.removeClass ( 'd-none' );
 			}
+			else
+			{
+				step_4.addClass ( 'd-none' );
+			}
 			
 		} );
 //		description must be not null
@@ -218,21 +250,22 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			var remaining_characters = 300 - room_desc.val ().length;
 			var step_4 = $ ( '#step_4' );
 			
-			if ( remaining_characters === 300 ) {
-				$ ( '#description_title' ).removeClass ( 'bg_green' );
+			if ( room_desc.val ().length <= 29 ) {
+				$ ( '#description_title' ).removeClass ( 'bg_green  text-light' );
 				step_4.addClass ( 'd-none' );
 			}
 			else {
-				$ ( '#description_title' ).addClass ( 'bg_green' );
+				$ ( '#description_title' ).addClass ( 'bg_green  text-light' );
 			}
 			
 			$ ( '#room_description_length' ).addClass ( 'text-danger' ).html ( remaining_characters );
 			
 			// ADDING STEP 4 BUTTON IF ALL CONDITIONS ARE MET
 			
-			if ( num_of_prices > 0 && num_of_amenities > 0 && room_desc.val ().length > 49 ) {
+			if ( num_of_prices > 0 && num_of_amenities > 0 && room_desc.val ().length > 29 ) {
 				step_4.removeClass ( 'd-none' );
 			}
+			console.log(num_of_prices,num_of_amenities,room_desc.val ().length)
 			
 		} );
 		

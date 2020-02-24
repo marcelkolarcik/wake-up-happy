@@ -121,5 +121,5 @@ export let amenities_list = [
 	'pop corn delivery', 'complementary smart phone', 'complementary BMW SUV'
 ];
 
-export let autocomplete_searchables =['Cork','Dublin','Limerick','Yaiza','miami-dade county','west palm beach']; //// TO DO to get cities from DB object
+export let autocomplete_searchables =['Cork','Dublin','Limerick','Yaiza','Miami-dade county','West palm beach']; //// TO DO to get cities from DB object
 export let address_keys = ['city','country','county','village','town','state','state district','suburbs','city district','region','locality','hamlet'];

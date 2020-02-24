@@ -70,7 +70,7 @@ $ ( document ).on ( 'click', '#log_user', function () {
 		not_registered ();
 	}
 //console.log(owners, decodeURI(email),decodeURIComponent(email),decodeURIComponent(name) ,name,);
-	console.log(owner);
+	//console.log(owner);
 	
 } );
 
@@ -109,13 +109,15 @@ function authorized ( owner ,hashed_login) {
 	
 	sessionStorage.removeItem ( 'authorized_owner' );
 	sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
-	
+	sessionStorage.setItem('preview_mode',true);
 	var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 	var room = ROOMS[owner.room_id];
+	
 	
 	sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
 //	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE....
 	sessionStorage.setItem ( 'hashed_login', hashed_login );
+	
 	
 	window.location.replace ( "/owner.html" );
 }

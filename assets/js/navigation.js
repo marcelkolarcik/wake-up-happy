@@ -30,7 +30,7 @@ $ ( function () {
                                 
                                 <a id = "logout" class = "dropdown-item" href = "#" title = "Logout" >Logout</a >` );
 		
-		$ ( '#owner_name' ).append ( full_name );
+		$ ( '#owner_name' ).append (`<a href="/owner.html" class="nav_link_property dashboard_link" title="Dashboard">${full_name}</a>`  );
 		$ ( '.user_initials' ).text ( initials );
 		$ ( '#add_room' ).remove ();
 		$ ( '#login' ).remove ();

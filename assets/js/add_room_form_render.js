@@ -214,17 +214,17 @@ function render_amenities() {
 }
 
 function render_description() {
-	var description_div = $( '#description' );
-	
-	description_div.append( `
+	var description_div = $ ( '#description' );
+	var room_description = room ? room.p_description : null;
+	description_div.append ( `
  
 						  <div class = "input-group mb-2 description d-none" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only"
-                                title="Write description of your room, min 50 -  max 300 characters." >
+                                title="Write description of your room, min 30 -  max 300 characters." >
                                     <i class="fas fa-feather-alt"></i>
                                     <br >
-                                    <span id="room_description_length">300</span>
+                                    <span id="room_description_length">${room_description ? (300 - room_description.length) : '300'}  </span>
                                 </div >
                             </div >
                            
@@ -240,7 +240,7 @@ function render_description() {
                         </div >
 							` );
 	
-	$( '#description_title' ).append( ` <p class = "card-text p-2 show_content" data-hidden_class="description" >
+	$ ( '#description_title' ).append ( ` <p class = "card-text p-2 show_content" data-hidden_class="description" >
  													<strong>f ) </strong>
                                        Describe your room, make it attractive (min 50 - max 300 characters)
          								<i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>

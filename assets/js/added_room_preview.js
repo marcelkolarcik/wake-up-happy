@@ -29,7 +29,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 		var value = s_item[ 1 ];
 		
 		if ( key.substring ( 0, 7 ) === 'address' ) {
-			address[ key.split ( '__' )[ 1 ] ] = decodeURI ( value );
+			address[ key.split ( '__' )[ 1 ] ] = decodeURIComponent ( value );
 		}
 		else if ( key === 'amenities' ) {
 			amenities.push ( parseInt(value) );
@@ -38,7 +38,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 			room[ 'p_view' ] = value;
 		}
 		else if ( key === 'description' ) {
-			room[ 'p_description' ] = decodeURI ( value );
+			room[ 'p_description' ] = decodeURIComponent(value);
 			
 		}
 		
@@ -69,6 +69,13 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	room[ 'location' ] = address.city || address.village || address.hamlet || address.county || address.state_district || address.state || address.country;
 	room[ 'amenities' ] = amenities;
 	room[ 'bookings' ] = [];
+	
+	if(sessionStorage.getItem ( 'room_to_edit' ))
+	{
+//		IF OWNER IS PREVIEWING / EDITING ROOM , WE'LL SHOW BOOKINGS, IF ANY...
+		room['bookings'] =  JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).bookings;
+	}
+	
 	
 	var searchables = [];
 	$.each ( address, function ( key, value ) {
