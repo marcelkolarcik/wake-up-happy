@@ -99,9 +99,11 @@ span.nav_link_property {
 	font-weight: bold;
 	
 	}
+
 .green:hover{
 	background-color: rgba(0, 195, 209, 0.5);
 	}
+
 hr.green {
 	width: 450px;
 	margin: -25px 50% 50px 25%;
@@ -466,3 +468,21 @@ input[type=number] {
 .caret-off::after {
 	display: none;
 	}
+.tr_light{
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	}
+i.green,i.blue,i.orange{
+	font-size: 1.3rem;
+	}
+i.green:hover{
+	background-color: initial;
+	}
+i.blue{
+	color: dodgerblue;
+	}
+i.orange{
+	color: orangered;
+	}
+

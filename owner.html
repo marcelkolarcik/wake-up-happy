@@ -103,7 +103,27 @@
                             </div >
                             <div id="how_to" class=" pl-2 img-thumbnail"></div>
                         </div>
-               
+       <div class="row no-gutters mb-1 mt-1">
+           <div id = "steps" class = "horizontally_aligned" >
+               <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
+                   <a class = "list-group-item list-group-item-action p-1 active step " data-toggle = "list"
+                      href = "#get_address2"
+                      role = "tab" id = "step_1" data-step = "1"   title="Choose your location" >location </a >
+                   <a class = "list-group-item list-group-item-action p-1 d-none  step" data-toggle = "list"
+                      href = "#types"
+                      role = "tab" id = "step_2" data-step = "2" title="Define your room" > room</a >
+                   <a class = "list-group-item list-group-item-action p-1  d-none step" data-toggle = "list"
+                      href = "#services"
+                      role = "tab" id = "step_3" data-step = "3" title="Define your services" > services</a >
+                   <a class = "list-group-item list-group-item-action p-1 d-none step preview_room"
+                      data-toggle = "list" href = "#preview"
+                      role = "tab" id = "step_4" data-step = "4" title="Preview your work of art!"  >preview</a >
+                   <a class = "list-group-item list-group-item-action p-1  d-none step" data-toggle = "list"
+                      href = "#payment"
+                      role = "tab" id = "step_5" data-step = "5" title="Pay !" >payment</a >
+               </div >
+           </div >
+       </div>
                     </div>
               
   </section >
@@ -138,9 +158,10 @@
                                             <div class = "img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
                                             </div >
                                         </div >
-                                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12 "
+                                        <div class = "row no-gutters img-thumbnail d-flex justify-content-between align-items-center mb-3 col-md-12 "
                                              id = "view_types"  >
-                                            <div class = " img-thumbnail card col-md-12 p-0" id = "view_types_title" ></div >
+                                            <div class = " col-md-11  p-0" id = "view_types_title" ></div >
+                                            <div class="tr_light green horizontally_aligned" >&nbsp;</div>
                                         </div >
                                         <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
                                              id = "room_styles" >
@@ -171,25 +192,25 @@
                                 <div class = "tab-pane" id = "payment" role = "tabpanel" >
                                 </div >
                             </div >
-                            <div id = "steps" class = "horizontally_aligned" >
-                                <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
-                                    <a class = "list-group-item list-group-item-action no_padding active step " data-toggle = "list"
-                                       href = "#get_address2"
-                                       role = "tab" id = "step_1" data-step = "1"   title="Choose your location" >location </a >
-                                    <a class = "list-group-item list-group-item-action no_padding d-none  step" data-toggle = "list"
-                                       href = "#types"
-                                       role = "tab" id = "step_2" data-step = "2" title="Define your room" > room</a >
-                                    <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
-                                       href = "#services"
-                                       role = "tab" id = "step_3" data-step = "3" title="Define your services" > services</a >
-                                    <a class = "list-group-item list-group-item-action no_padding d-none step preview_room"
-                                       data-toggle = "list" href = "#preview"
-                                       role = "tab" id = "step_4" data-step = "4" title="Preview your work of art!"  >preview</a >
-                                    <a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"
-                                       href = "#payment"
-                                       role = "tab" id = "step_5" data-step = "5" title="Pay !" >   payment</a >
-                                </div >
-                            </div >
+                            <!--<div id = "steps" class = "horizontally_aligned" >-->
+                                <!--<div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >-->
+                                    <!--<a class = "list-group-item list-group-item-action no_padding active step " data-toggle = "list"-->
+                                       <!--href = "#get_address2"-->
+                                       <!--role = "tab" id = "step_1" data-step = "1"   title="Choose your location" >location </a >-->
+                                    <!--<a class = "list-group-item list-group-item-action no_padding d-none  step" data-toggle = "list"-->
+                                       <!--href = "#types"-->
+                                       <!--role = "tab" id = "step_2" data-step = "2" title="Define your room" > room</a >-->
+                                    <!--<a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"-->
+                                       <!--href = "#services"-->
+                                       <!--role = "tab" id = "step_3" data-step = "3" title="Define your services" > services</a >-->
+                                    <!--<a class = "list-group-item list-group-item-action no_padding d-none step preview_room"-->
+                                       <!--data-toggle = "list" href = "#preview"-->
+                                       <!--role = "tab" id = "step_4" data-step = "4" title="Preview your work of art!"  >preview</a >-->
+                                    <!--<a class = "list-group-item list-group-item-action no_padding  d-none step" data-toggle = "list"-->
+                                       <!--href = "#payment"-->
+                                       <!--role = "tab" id = "step_5" data-step = "5" title="Pay !" >   payment</a >-->
+                                <!--</div >-->
+                            <!--</div >-->
                         </div >
                     </form >
             </section >
