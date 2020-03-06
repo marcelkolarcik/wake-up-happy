@@ -18,17 +18,17 @@ export function featured_rooms()
 			randoms.push(random_id) ;
 			
 			var property = ROOMS[ random_id ];
+			if(property !== null){
+//				AVOIDING DELETED ROOMS
+				var image_id = getImageId(property.p_id);
+				
+				render_index( property, image_id, 'form_search_results');
+				
+				e++;
+			}
 			
-			var image_id = getImageId(property.p_id);
-//			var food_id = image_id % 3 + 1;
-//
-//			render_room( property, image_id, 'form_search_results' );
-//			render_gallery( property, food_id );
-//			render_booking_calendar( property );
-			//console.log(property);
-			render_index( property, image_id, 'form_search_results');
 			
-			e++;
+			
 		}
 	}
 }
