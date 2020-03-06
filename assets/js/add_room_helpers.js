@@ -203,7 +203,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		var increment = true;
 		
 		$ ( document ).on ( 'focusin', '.board_price', function () {
-			console.log ( 'focusin ', num_of_prices, num_of_amenities, $ ( '#room_description' ).val ().length );
+			
 			if ( $ ( this ).val () !== '' ) {
 				increment = false;
 				
@@ -224,7 +224,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 					increment = false;
 					
 				}
-				console.log ( 'price > 0 ', price > 0, price, num_of_boards, num_of_prices );
+				
 				orange.addClass ( 'd-none' );
 				green.removeClass ( 'd-none' );
 				blue.addClass ( 'd-none' );
@@ -233,7 +233,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			}
 			else if ( price <= 0 ) {
 				if ( !increment ) {
-					console.log ( 'decrementing' );
+					
 					num_of_prices--;
 					num_of_boards--;
 					increment = true;
@@ -726,8 +726,8 @@ function store_room ( new_room, update = false ) {
 	
 	sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
 	sessionStorage.setItem ( 'preview_mode', true );
+	
+	sessionStorage.getItem('edit_mode') ?location.replace ( `owner.html` ):location.replace ( `index.html` );
+	
 	sessionStorage.removeItem ( 'edit_mode' );
-	
-	location.replace ( `index.html` );
-	
 }

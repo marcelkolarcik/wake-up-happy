@@ -68,8 +68,6 @@ $ ( document ).on ( 'click', '#login', function () {
 	else {
 		not_registered ();
 	}
-//console.log(owners, decodeURI(email),decodeURIComponent(email),decodeURIComponent(name) ,name,);
-	//console.log(owner);
 	
 } );
 $ ( document ).on ( 'click', '#logout', function () {
@@ -124,9 +122,7 @@ function authorize_owner ( owner ,hashed_login) {
 	sessionStorage.setItem('preview_mode',true);
     var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 	var room = ROOMS[owner.room_id];
-	console.log('room',room === null);
-	console.log('ROOMS',ROOMS);
-	console.log('owner',owner);
+	
 	if(ROOMS[owner.room_id] !== null){
 		sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
 	}

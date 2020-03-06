@@ -38,13 +38,13 @@ $ ( function () {
 		
 		var ROOMS = JSON.parse(localStorage.getItem('ROOMS'));
 		var room_ids = JSON.parse(sessionStorage.getItem('authorized_owner')).room_ids;
-		console.log(room_ids,ROOMS)
+		
 		
 			$.each(room_ids, function(key,value)
 			{
 				if(ROOMS[value])
 				{
-					console.log(ROOMS[value].p_address.property_name,ROOMS,room_ids);
+					
 					user_drop_down.append ( `
                                 
                                 <a id = "${value}" class = "dropdown-item room_switch" href = "#"

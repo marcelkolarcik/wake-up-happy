@@ -19,7 +19,7 @@ export function featured_rooms()
 			
 			var property = ROOMS[ random_id ];
 			if(property !== null){
-//				AVOIDING DELETED ROOMS
+//				OMITTING DELETED ROOMS
 				var image_id = getImageId(property.p_id);
 				
 				render_index( property, image_id, 'form_search_results');
