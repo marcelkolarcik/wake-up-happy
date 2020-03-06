@@ -3,7 +3,7 @@ import { render_index } from "./render_index.js";
 
 $ ( document ).on ( 'click', '.preview_room', function () {
 	
-	if(sessionStorage.getItem('room_to_edit'))
+	if(sessionStorage.getItem('room_to_edit') && !sessionStorage.getItem('add_mode'))
 	{
 		var p_id = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_id
 		

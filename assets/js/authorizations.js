@@ -1,4 +1,4 @@
-$ ( document ).on ( 'click', '#login', function () {
+$ ( document ).on ( 'click', '#login_details', function () {
 	swal.fire ( {
 		            position: 'top-end',
 		
@@ -33,7 +33,7 @@ $ ( document ).on ( 'click', '#login', function () {
 		        </div >
 		         <div class = "col-auto text-center" >
            
-		            <a  class = "btn btn-sm bg_green text-light " id="log_user"
+		            <a  class = "btn btn-sm bg_green text-light " id="login"
 		                    title = "Login" >
 		                Login
 		            </a >
@@ -42,8 +42,7 @@ $ ( document ).on ( 'click', '#login', function () {
 		            showConfirmButton: false
 	            } );
 } );
-
-$ ( document ).on ( 'click', '#log_user', function () {
+$ ( document ).on ( 'click', '#login', function () {
 	var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 	if ( owners === null ) {
 		not_registered ();
@@ -64,7 +63,7 @@ $ ( document ).on ( 'click', '#log_user', function () {
 	//	WE ARE CHECKING IF WE HAVE USER WITH THESE CREDENTIALS
 	// IF WE DO WE WILL REDIRECT TO owner.html or will reuse add_your_room.html
 	if ( owner ) {
-		authorized ( owner ,hashed_login);
+		authorize_owner ( owner ,hashed_login);
 	}
 	else {
 		not_registered ();
@@ -73,8 +72,23 @@ $ ( document ).on ( 'click', '#log_user', function () {
 	//console.log(owner);
 	
 } );
+$ ( document ).on ( 'click', '#logout', function () {
+	sessionStorage.clear();
+	window.location.replace ( "/index.html" );
+} );
 
 
+function hash_login ( string ) {
+	//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+	hashed_string = string.split ( '' ).reduce ( ( a, b ) => {
+		a = (
+			    (
+				    a << 5 ) - a ) + b.charCodeAt ( 0 );
+		return a & a;
+	}, 0 );
+	
+	return hashed_string;
+}
 function not_registered () {
 	swal.fire ( {
 		            position: 'top-end',
@@ -103,61 +117,21 @@ function not_registered () {
 		
 	            } );
 }
-
-
-function authorized ( owner ,hashed_login) {
+function authorize_owner ( owner ,hashed_login) {
 	
-	sessionStorage.removeItem ( 'authorized_owner' );
+	
 	sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
 	sessionStorage.setItem('preview_mode',true);
-	var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
+    var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 	var room = ROOMS[owner.room_id];
+	console.log('room',room === null);
+	console.log('ROOMS',ROOMS);
+	console.log('owner',owner);
+	if(ROOMS[owner.room_id] !== null){
+		sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
+	}
 	
-	
-	sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
 //	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE....
 	sessionStorage.setItem ( 'hashed_login', hashed_login );
-	
-	
 	window.location.replace ( "/owner.html" );
-}
-
-//// LOGGING USER OUT OF APPLICATION, DESTROYING SESSION
-$ ( document ).on ( 'click', '#logout', function () {
-//	sessionStorage.removeItem ( 'authorized_owner' );
-//	sessionStorage.removeItem ( 'hashed_login' );
-//	sessionStorage.removeItem ( 'room_to_edit' );
-	sessionStorage.clear();
-	window.location.replace ( "/index.html" );
-} );
-
-$ ( document ).on ( 'click', '#preview_mode', function () {
-//	/owner.html
-	sessionStorage.setItem('preview_mode',true);
-	sessionStorage.removeItem('edit_mode');
-	window.location.reload();
-	
-	//swal.fire('preview mode',window.location.pathname)
-});
-$ ( document ).on ( 'click', '#edit_mode', function () {
-	
-	
-	
-	window.location.reload();
-	sessionStorage.setItem('edit_mode',true);
-	sessionStorage.removeItem('preview_mode');
-	//swal.fire('edit mode',sessionStorage.getItem('edit_mode'))
-	
-});
-
-function hash_login ( string ) {
-	//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
-	hashed_string = string.split ( '' ).reduce ( ( a, b ) => {
-		a = (
-			    (
-				    a << 5 ) - a ) + b.charCodeAt ( 0 );
-		return a & a;
-	}, 0 );
-	
-	return hashed_string;
 }

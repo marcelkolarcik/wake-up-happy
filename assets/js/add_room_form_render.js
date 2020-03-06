@@ -5,10 +5,15 @@ var amenities_list = JSON.parse ( localStorage.getItem ( 'amenities_list' ) );
 var room_styles = JSON.parse ( localStorage.getItem ( 'room_styles' ) );
 //console.log(JSON.parse ( sessionStorage.getItem ( 'room_to_edit' )));
 var room = null;
-if ( (
+if(sessionStorage.getItem ( 'add_mode' ))
+{
+	room = null;
+}
+else if( (
 	     sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'preview_mode' ) ) && window.location.pathname === '/owner.html' ) {
 	room = !sessionStorage.getItem ( 'room_to_edit' ) ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 }
+
 
 
 function render_room_types () {
@@ -65,7 +70,7 @@ function render_view_types () {
 			    <div class = "card-footer text-center  ${owners_room_view && owners_room_view === view_type ? 'bg_green' : 'bg-secondary'}   text-light d-flex justify-content-around align-items-center view_type p-0"
 			         id = "view_type_${view_type}" >
 			        <label for = "${view_types[ view_type ]}" class = "text-capitalize" >${view_types[ view_type ]}</label >
-			        <input id = "${view_types[ view_type ]}" name = "view_type" type = "radio" value = "${view_type}"
+			        <input name = "view_type" type = "radio" value = "${view_type}"
 			               class = "collapse_parent check"
 			               data-parent_div = "view_type_images"
 			               data-parent_title = "view_types_title"
@@ -84,7 +89,7 @@ function render_view_types () {
  
  
  											<i class="fas fa-check-circle green ${room ? '':'d-none' }" id="view_types_title_green" title="View type selected."></i>
-            								<i class="fas fa-question-circle ${room ? 'd-none':'' }" id="view_types_title_blue" title="Select your view type."></i>
+            								<i class="fas fa-question-circle blue ${room ? 'd-none':'' }" id="view_types_title_blue" title="Select your view type."></i>
                                     Select the view type your room has. <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
                                     
         
@@ -114,7 +119,7 @@ function render_room_styles () {
 		    <div class = "p-0 card-footer text-center   ${owners_room_style && parseInt ( owners_room_style - 1 ) === parseInt ( room_style ) ? 'bg_green' : 'bg-secondary'} text-light d-flex justify-content-around align-items-center room_style"
 		         id = "room_style_${room_style}" >
 		        <label for = "${room_styles[ room_style ]}" class = "text-capitalize" >#${room_styles[ room_style ]}</label >
-		        <input id = "${room_styles[ room_style ]}" name = "room_style" type = "radio" value = "${room_style}"
+		        <input  name = "room_style" type = "radio" value = "${room_style}"
 		               class = "collapse_parent check"
 		               data-parent_div = "room_style_images"
 		               data-parent_title = "room_styles_title"
@@ -145,7 +150,7 @@ function render_board_types () {
         <div class = "input-group mb-2 text-center" >
             <div class = "input-group-prepend" >
                 <div class = "input-group-text bg-transparent border_bottom_only" >
-                    <input id = "board_${board_type}" class = "board_type check  " name = "board_type_${board_type}"
+                    <input  class = "board_type check  " name = "board_type_${board_type}"
                            type = "checkbox"
                            data-type = "board"
                            data-board_type = "${board_type}"

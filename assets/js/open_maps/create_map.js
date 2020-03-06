@@ -32,10 +32,11 @@ export function create_map ( coordinates = null, zoom = null, show_p_id = null )
 	for ( var room in ROOMS ) {
 		
 		var property = ROOMS[ room ];
-		var image_id = (
-			               property.p_id % 16 ) + 1;
-		var marker = L.marker ( new L.LatLng ( property.lat, property.lng ), { title: property.city } );
-		var popup = `<img src="assets/images/bedrooms/b${property.room_style }_s.jpg"   alt = "property image"
+		if(property)
+		{
+			var image_id = (property.p_id % 16 ) + 1;
+			var marker = L.marker ( new L.LatLng ( property.lat, property.lng ), { title: property.city } );
+			var popup = `<img src="assets/images/bedrooms/b${property.room_style }_s.jpg"   alt = "property image"
 					 style="width:140px;height:70px;">
 					 <br><b><span class="text-capitalize">  ${decodeURI( property.location )}</span></b>
 					
@@ -47,30 +48,32 @@ export function create_map ( coordinates = null, zoom = null, show_p_id = null )
 					  id="${property.p_id}"
 					  data-image_id="${image_id}"
 					  href="#" >more...</a>`;
-		
-		if ( parseInt ( sessionStorage.getItem ( 'new_p_id' ) ) === property.p_id && sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' )) {
-			//		ADDED NEW ROOM => SHOW ON MAP
 			
-			L.marker ( [ sessionStorage.getItem ( 'lat' ), sessionStorage.getItem ( 'lng' ) ] ).addTo ( map )
-			 .bindPopup ( popup ).openPopup ();
+			if ( parseInt ( sessionStorage.getItem ( 'new_p_id' ) ) === property.p_id && sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' )) {
+				//		ADDED NEW ROOM => SHOW ON MAP
+				
+				L.marker ( [ sessionStorage.getItem ( 'lat' ), sessionStorage.getItem ( 'lng' ) ] ).addTo ( map )
+				 .bindPopup ( popup ).openPopup ();
+				
+				sessionStorage.removeItem('new_p_id');
+				sessionStorage.removeItem('lat');
+				sessionStorage.removeItem('lng');
+				
+			}
 			
-			sessionStorage.removeItem('new_p_id');
-			sessionStorage.removeItem('lat');
-			sessionStorage.removeItem('lng');
+			else if ( coordinates && property.p_id === show_p_id ) {
+				
+				/*OPEN POPUP ON CLICK ON show on map BUTTON IN ROOM PREVIEW*/
+				L.marker ( coordinates ).addTo ( map )
+				 .bindPopup ( popup ).openPopup ();
+			}
+			else {
+				marker.bindPopup ( popup );
+			}
 			
+			mcg.addLayer ( marker );
 		}
 		
-		else if ( coordinates && property.p_id === show_p_id ) {
-			
-			/*open popup on show on map click*/
-			L.marker ( coordinates ).addTo ( map )
-			 .bindPopup ( popup ).openPopup ();
-		}
-		else {
-			marker.bindPopup ( popup );
-		}
-		
-		mcg.addLayer ( marker );
 		
 	}
 	

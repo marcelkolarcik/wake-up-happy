@@ -3,7 +3,8 @@ function add_room_payment_form ()
 	var payment = $('#payment');
 	
 	payment.html('');
-	
+	var owner = JSON.parse(sessionStorage.getItem('authorized_owner')) ;
+	//console.log(sessionStorage.getItem('authorized_owner'))
 	payment.html('').append(`
 			<form id="add_room_payment_form">
    <div class = "bg_green text-light text-center mt-1 mb-3" >
@@ -37,10 +38,12 @@ function add_room_payment_form ()
                 </div >
                 <input type = "text" name = "name"
                        class = "form-control form-control-sm border_bottom_only"
-                       id = "fullname" placeholder = "Full Name" required >
+                       id = "fullname" placeholder = "Full Name" value="${owner ? owner.name: ''}" required
+                        ${owner ? 'readonly': ''}>
             </div >
         </div >
-        <div class = "col-auto" >
+        <!--IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM, NO NEED FOR EMAIL AND PASSWORD-->
+         ${owner ? '': ` <div class = "col-auto" >
             <label class = "sr-only" for = "email_of_user" >Email</label >
             <div class = "input-group mb-2" >
                 <div class = "input-group-prepend" >
@@ -50,10 +53,12 @@ function add_room_payment_form ()
                 </div >
                 <input type = "text" name = "email_of_user"
                        class = "form-control form-control-sm  border_bottom_only"
-                       id = "email_of_user" placeholder = "Email" required >
+                       id = "email_of_user" placeholder = "Email" required
+                       >
             </div >
-        </div >
-         <div class = "col-auto" >
+        </div >`}
+          <!--IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM, NO NEED FOR EMAIL AND PASSWORD-->
+       ${owner ? '': `<div class = "col-auto" >
             <label class = "sr-only" for = "password" >Password</label >
             <div class = "input-group mb-2" >
                 <div class = "input-group-prepend" >
@@ -63,9 +68,10 @@ function add_room_payment_form ()
                 </div >
                 <input type = "password" name = "password"
                        class = "form-control form-control-sm  border_bottom_only"
-                       id = "password" placeholder = "Password" required >
+                       id = "password" placeholder = "Password" >
             </div >
-        </div >
+        </div >`}
+        
     </div >
     <div class = "col-md-6" >
         <div class = "col-auto " >

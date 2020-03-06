@@ -68,9 +68,9 @@ function getCoordinates ( e ) {
 
 mymap.on ( 'click', getCoordinates );
 
-/////// OWNER LOGS IN INTO HIS PROPERTY TO EDIT OR DELETE
+/////// OWNER LOGS IN INTO HIS PROPERTY TO EDIT / PREVIEW / DELETE / ADD
 $ ( function () {
-	if ( sessionStorage.getItem ( 'room_to_edit' ) ) {
+	if ( sessionStorage.getItem ( 'room_to_edit' )  && !sessionStorage.getItem('add_mode')) {
 		
 		var coordinates = [];
 		var room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ));
@@ -185,7 +185,7 @@ $ ( document ).on ( 'input', '#property_name', function () {
 	
 	var property_name = $ ( '#property_name' );
 	var step_2 = $ ( '#step_2' );
-	if(!sessionStorage.getItem ( 'room_to_edit' ))
+	if(!sessionStorage.getItem ( 'room_to_edit' ) || sessionStorage.getItem ( 'add_mode' ) )
 	{
 		if ( property_name.val ().length > 2  ) {
 			
