@@ -22,12 +22,26 @@ Date.prototype.getWeekYear = function() {
 	return date.getFullYear();
 };
 var current_date = new Date();
+var current_year = current_date.getFullYear();
+var next_year   =current_year+1;
 var weeks_till_end_of_year = [];
+var next_year_weeks = [];
 var current_week = current_date.getWeek();
+var next_year_week = 0;
+if(current_week > next_year_week)
+{
+	
+	
+	while ( current_week > next_year_week ) {
+		next_year_weeks.push( next_year_week + 1 );
+		next_year_week++;
+	}
+}
 while (current_week < 53) {
 	weeks_till_end_of_year.push( current_week + 1 );
 	current_week++;
 }
+
 
 
 

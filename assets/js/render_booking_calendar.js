@@ -8,14 +8,15 @@ export function render_booking_calendar( property ) {
 		if ( property.bookings.indexOf( week ) !== -1 ) {
 			//			booked out weeks
 			bookings.append( `
-				<div class="col img-thumbnail  bg_orange " title="booked already !"> <span> ${week}</span></div>
+				<div class="col img-thumbnail  bg_orange " title="week ${week} - ${current_year} booked already !">
+				<span class="no_padding"> ${week}</span></div>
 			` );
 		}
 		
 		else {
 			//			   available weeks
 			bookings.append( `
-				<div class="col img-thumbnail week bg_green " title="week: ${week} - available !"
+				<div class="col img-thumbnail week bg_green " title="week: ${week} - ${current_year} : available !"
 				 data-p_id="${property.p_id}"
 				 data-week="${week}"
 				 data-price="${ property.price[ Object.keys( property.price )[ 0 ] ]}"
@@ -27,6 +28,36 @@ export function render_booking_calendar( property ) {
 			` );
 		}
 	} );
+	$.each( next_year_weeks, function ( index, week ) {
+		
+		if ( property.bookings.indexOf( week ) !== -1 ) {
+			//			booked out weeks
+			bookings.append( `
+				<div class="col img-thumbnail  bg_orange " title="week ${week} - ${next_year} booked already !"> <span> ${week}</span></div>
+			` );
+		}
+		
+		else {
+			//			   available weeks
+			bookings.append( `
+				<div class="col img-thumbnail week bg_green " title="week: ${week} - ${next_year} : available !"
+				 data-p_id="${property.p_id}"
+				 data-week="${week}"
+				 data-price="${ property.price[ Object.keys( property.price )[ 0 ] ]}"
+				 data-user_set_${property.p_id} = "false"
+				 >
+			
+				  <span> ${week}</span>
+				 </div>
+			` );
+		}
+	} );
+	
+	
+	
+	
+	
+//	AVAILABLE BOARDS FOR THE PROPERTY
 	
 	$.each( property.price, function ( index, value ) {
 		boards.append( `

@@ -373,7 +373,7 @@ are happy with your work, you can click on
             </a >`
 			,
 			`<span class="nav_link">How to:</span>You are previewing your room , if you would
-like to edit it, click on <span class="img-thumbnail">Edit mode</span> button`
+like to edit it, click on <button class = " no_padding bg-secondary text-light " ><i class="far fa-edit"></i> Edit</button > button`
 			,
 			`<span class="nav_link">How to:</span>You are adding new room.
               Find location of your property and click
