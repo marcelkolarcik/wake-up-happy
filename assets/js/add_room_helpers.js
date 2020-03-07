@@ -63,7 +63,8 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		var step_4 = $ ( '#step_4' );
 
 //		IF WE HAVE USER WITH ROOM ALREADY, AND USER IS VIEWING OR EDITING ROOM => ROOM HAS ALL DETAILS FILLED
-		if ( sessionStorage.getItem ( 'room_to_edit' ) && !sessionStorage.getItem ( 'add_mode' ) ) {
+		
+		if ( (sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null) && !sessionStorage.getItem ( 'add_mode' ) ) {
 			
 			room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 			
@@ -512,7 +513,7 @@ like to edit it, click on <button class = " no_padding bg-secondary text-light "
 
 function append_room_actions ( room_actions ) {
 	room_actions.append ( `<div class = "list-group list-group-horizontal  mb-2"  >
-					${sessionStorage.getItem ( 'room_to_edit' ) ? `<button class = "list-group-item  no_padding " id="room_name"
+					${(sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null) ? `<button class = "list-group-item  no_padding " id="room_name"
                         
                          title="${JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_address.property_name}" >
                         
@@ -530,7 +531,11 @@ function append_room_actions ( room_actions ) {
                           <button class = "list-group-item  no_padding ${sessionStorage.getItem ( 'delete_mode' ) === null ? 'bg-secondary text-light' : 'bg_green text-light'} " id="delete_mode"
                         
                          title="Delete mode" data-room_id="${ JSON.parse ( sessionStorage.getItem ( 'authorized_owner' ) ).room_id }"><i class="far fa-trash-alt"></i> Delete</button >
-                         ` : ``}
+                         <button class = "list-group-item no_padding ${sessionStorage.getItem ( 'block_mode' ) === null ? 'bg-secondary text-light' : 'bg_green text-light'} " id="block_mode"
+                        
+                         title="Block dates" ><i class="far fa-plus-square"></i> Block dates</button >
+
+						` : ``}
  					 <div id="how_to_edit"></div>
                          
                          
@@ -538,9 +543,7 @@ function append_room_actions ( room_actions ) {
                         
                          title="Add new room" ><i class="far fa-plus-square"></i> Add new room</button >
                          
-                          <button class = "list-group-item no_padding ${sessionStorage.getItem ( 'block_mode' ) === null ? 'bg-secondary text-light' : 'bg_green text-light'} " id="block_mode"
-                        
-                         title="Block dates" ><i class="far fa-plus-square"></i> Block dates</button >
+                         
                       
                   </div >
                

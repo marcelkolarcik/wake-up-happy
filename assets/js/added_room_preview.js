@@ -70,7 +70,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	room[ 'amenities' ] = amenities;
 	room[ 'bookings' ] = [];
 	
-	if(sessionStorage.getItem ( 'room_to_edit' ))
+	if(sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null)
 	{
 //		IF OWNER IS PREVIEWING / EDITING ROOM , WE'LL SHOW BOOKINGS, IF ANY...
 		room['bookings'] =  JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).bookings;

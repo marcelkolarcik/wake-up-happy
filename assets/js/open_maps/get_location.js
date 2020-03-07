@@ -70,7 +70,7 @@ mymap.on ( 'click', getCoordinates );
 
 /////// OWNER LOGS IN INTO HIS PROPERTY TO EDIT / PREVIEW / DELETE / ADD
 $ ( function () {
-	if ( sessionStorage.getItem ( 'room_to_edit' )  && !sessionStorage.getItem('add_mode')) {
+	if ( (sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null)  && !sessionStorage.getItem('add_mode')) {
 		
 		var coordinates = [];
 		var room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ));

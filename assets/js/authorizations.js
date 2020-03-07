@@ -125,6 +125,11 @@ function authorize_owner ( owner ,hashed_login) {
 	
 	if(ROOMS[owner.room_id] !== null){
 		sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
+		
+	}
+	else
+	{
+		sessionStorage.setItem ( 'room_to_edit', null );
 	}
 	
 //	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE....

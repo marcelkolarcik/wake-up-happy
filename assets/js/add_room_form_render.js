@@ -10,8 +10,8 @@ if(sessionStorage.getItem ( 'add_mode' ))
 	room = null;
 }
 else if( (
-	     sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'preview_mode' ) ) && window.location.pathname === '/owner.html' ) {
-	room = !sessionStorage.getItem ( 'room_to_edit' ) ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
+	         sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' || sessionStorage.getItem ( 'preview_mode' ) ) && window.location.pathname === '/owner.html' ) {
+	room = sessionStorage.getItem ( 'room_to_edit' ) === 'undefined' ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 }
 
 
