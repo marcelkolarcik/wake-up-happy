@@ -45,7 +45,7 @@ export function render_booking_form( room ) {
                             </div >
                             
                             
-                             <div class = "col-auto" >
+                             <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                                 <label class = "" for = "board_${room.p_id}" >Board</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
@@ -54,14 +54,15 @@ export function render_booking_form( room ) {
                                         </div >
                                     </div >
                                     <input type = "text" name = "board"
-                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light
+													"
                                            id = "board${room.p_id}" placeholder = ""
                                            value = ""
                                            ${sessionStorage.getItem('edit_mode') ? '':'required'} readonly >
                                 </div >
                             </div >
                             
-                             <div class = "col-auto" >
+                             <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                                 <label class = "" for = "total_price_${room.p_id}" >Total price</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
@@ -76,7 +77,7 @@ export function render_booking_form( room ) {
                                            ${sessionStorage.getItem('edit_mode') ? '':'required'} readonly >
                                 </div >
                             </div >
-                            <div class = "col-auto" >
+                            <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                                 <label class = "sr-only" for = "fullname${room.p_id}" >Full Name</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
@@ -89,7 +90,7 @@ export function render_booking_form( room ) {
                                            id = "fullname${room.p_id}" placeholder = "Full Name" ${sessionStorage.getItem('edit_mode') ? '':'required'} >
                                 </div >
                             </div >
-                            <div class = "col-auto" >
+                            <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                                 <label class = "sr-only" for = "email_of_user${room.p_id}" >Email</label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
@@ -104,10 +105,10 @@ export function render_booking_form( room ) {
                             </div >
 								</div>
 								<div class="col-md-6">
-								 <div class="bg_green text-light text-center mt-1">
+								 <div class="bg_green text-light text-center mt-1 ${sessionStorage.getItem('edit_mode') ? 'd-none':''}">
 	                            	Payment details
 								</div>
-                             <div class = "col-auto " >
+                             <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                         <label class = "sr-only" for = "card_holder_name${room.p_id}" >Card Holder Name:</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
@@ -120,7 +121,7 @@ export function render_booking_form( room ) {
                                    placeholder = "Card Holder Name" ${sessionStorage.getItem('edit_mode') ? '':'required'} >
                         </div >
                     </div >
-                    <div class = "col-auto" >
+                    <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                         <label class = "sr-only" for = "card_numder${room.p_id}" >Card Number</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
@@ -132,7 +133,7 @@ export function render_booking_form( room ) {
                                    id = "card_numder${room.p_id}" placeholder = "Card Number" name = "card_number" ${sessionStorage.getItem('edit_mode') ? '':'required'} >
                         </div >
                     </div >
-                    <div class = "col-auto" >
+                    <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                         <label class = "sr-only" for = "cvv${room.p_id}" >CVV</label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
@@ -144,7 +145,7 @@ export function render_booking_form( room ) {
                                    id = "cvv${room.p_id}" placeholder = "CVV"  ${sessionStorage.getItem('edit_mode') ? '':'required'}  name = "cvv" >
                         </div >
                     </div >
-                            <div class = "col-auto" >
+                            <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >
                                 <label class = "sr-only" for = "request_of_property${room.p_id}" >Property Request</label >
                                 <div class = "input-group mb-2" >
                                     <textarea rows = "2" name = "request_of_property"
@@ -169,7 +170,7 @@ export function render_booking_form( room ) {
                             ${(sessionStorage.getItem('edit_mode') || sessionStorage.getItem('preview_mode')  || sessionStorage.getItem('add_mode') )
                             
 	                         /* || (!sessionStorage.getItem('edit_mode') && !sessionStorage.getItem('preview_mode'))*/? `
-								<div class="bg_green_light_g">
+								<div class="bg_green_light_g ${sessionStorage.getItem('edit_mode') ? 'd-none':''}">
 								Your future customers will be able to book your room through this form.
 								</div>`:
 	                          
