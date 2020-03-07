@@ -82,10 +82,14 @@ export function render_room ( room, image_id, where, preview = false ) {
 		                        <span class = "nav_link_property" >Pick the week(s) and board and click on <strong
 		                                    class = "bold" >BOOK</strong > button
 		                        </span >
+		                         <button class = "btn btn-sm bg-secondary text-light horizontally_aligned right-block " id='how_to_block_dates' title="Block selected dates">
+                                   How to block weeks ?
+                                </button >
 							</div>
 							 <div id="boards_${room.p_id}" class="col ">
 		      
 							</div>
+							
 						</div>
                     
                     </div >
@@ -115,6 +119,38 @@ export function render_room ( room, image_id, where, preview = false ) {
 }
 
 
+$ ( document ).on ( 'click', '#how_to_block_dates', function () {
+	swal.fire({
+		          title   : 'How to block some weeks.',
+		
+		          html             : `
+				<div class = "col-auto" >
+				<p>1) Select any board</p>
+		      	<p>2) Select the weeks you want to block. </p>
+		      	<p>3) Click on <strong class="nav_link_property">BOOK</strong></p>
+		      	<p>4) Click on &nbsp;
+           			<button type = "submit" id="block_dates" class = "btn bg_green_light horizontally_aligned right-block " title="Block selected dates">
+                                   Block selected dates
+                     </button >
+                 </p>
+		      	 <hr class="bg_green">
+		      
+		        </div >
+		       
+		         <div class = "col-auto text-center" >
+           			
+           			<br>
+           			<br>
+		            <a  class = "btn btn-sm bg_green text-light pl-3 pr-3" id="ok" onclick="swal.close()"
+		                    title = "ok" >
+		               ok
+		            </a >
+        		</div >
+        		
+		`,
+		          showConfirmButton: false
+	          })
+});
 $ ( document ).on ( 'click', '.show_tabs', function () {
 	var p_id = $ ( this ).data ( 'p_id' );
 	$ ( '#tabs_' + p_id ).toggleClass ( 'd-none d-md-block' );

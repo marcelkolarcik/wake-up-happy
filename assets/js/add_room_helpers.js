@@ -61,9 +61,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		var titles = [];
 		var num_of_prices = 0;
 		var step_4 = $ ( '#step_4' );
-//		var OWNERS = JSON.parse(localStorage.getItem('OWNERS'));
-//		var ROOMS = JSON.parse(localStorage.getItem('ROOMS'));
-//		console.log( OWNERS[sessionStorage.getItem('hashed_login')],ROOMS);
+
 //		IF WE HAVE USER WITH ROOM ALREADY, AND USER IS VIEWING OR EDITING ROOM => ROOM HAS ALL DETAILS FILLED
 		if ( sessionStorage.getItem ( 'room_to_edit' ) && !sessionStorage.getItem ( 'add_mode' ) ) {
 			
@@ -83,9 +81,9 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		$ ( document ).on ( "click", ".check", function () {
 			
 			var parent_title = $ ( '#' + $ ( this ).data ( 'parent_title' ) );
-			var green = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_green' );
-			var blue = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_blue' );
-			var orange = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_orange' );
+			var success = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_green' );
+			var info = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_blue' );
+			var warning = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_orange' );
 			var footer = $ ( '#' + $ ( this ).data ( 'footer' ) );
 			var type = $ ( this ).data ( 'type' );
 			
@@ -94,21 +92,21 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 //				IF USER SELECTS ANYTHING FROM THE SELECTION EXCEPT board, WE WILL GIVE HIM GREEN LIGHT TO CONTINUE
 				// IF IT IS board TYPE, HE NEEDS TO TYPE IN PRICE FOR THE BOARD
 				if ( type === 'board' ) {
-					orange.removeClass ( 'd-none' );
-					blue.addClass ( 'd-none' );
+					warning.removeClass ( 'd-none' );
+					info.addClass ( 'd-none' );
 				}
 				else {
 					
-					green.removeClass ( 'd-none' );
-					blue.addClass ( 'd-none' );
+					success.removeClass ( 'd-none' );
+					info.addClass ( 'd-none' );
 				}
 				
 				//COLLECTING titles , USING IT FOR DISPLAYING NEXT STEP BUTTON
 				titles[ type ] = 1;
 				
-				/// IMAGE CARD FOOTER CHANGED TO .bg_green text-light_light, EXCEPT IF IT IS BOARD, BECAUSE USER NEEDS
+				/// IMAGE CARD FOOTER CHANGED TO .bg_success text-light_light, EXCEPT IF IT IS BOARD, BECAUSE USER NEEDS
 				// TO ADD PRICE FOR THE BOARD, .bg_orange IS APPLIED FIRST, AND WHEN HE ADDS PRICE , IT WILL CHANGE TO
-				// .bg_green text-light_light AND WHEN HE DELETES PRICE , IT WILL RETURN TO .bg_orange , AND WHEN USER
+				// .bg_success text-light_light AND WHEN HE DELETES PRICE , IT WILL RETURN TO .bg_orange , AND WHEN USER
 				// DESELECTS BOARD, IT WILL BE CHANGED TO ORIGINAL .bg-secondary
 				if ( type === 'board' ) {
 					footer.removeClass ( 'bg-secondary' ).addClass ( 'bg_orange' );
@@ -165,9 +163,9 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				if ( num_of_boards === 0 && type === 'board' ) {
 					
 					//parent_title.removeClass ( 'bg_green  text-light' ).addClass ( 'bg_orange' );
-					orange.addClass ( 'd-none' );
-					green.addClass ( 'd-none' );
-					blue.removeClass ( 'd-none' );
+					warning.addClass ( 'd-none' );
+					success.addClass ( 'd-none' );
+					info.removeClass ( 'd-none' );
 					delete titles[ type ];
 					titles.splice ( titles.indexOf ( type ), 1 );
 					
@@ -175,8 +173,8 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				
 				if ( num_of_amenities === 0 && type === 'amenity' ) {
 					
-					green.addClass ( 'd-none' );
-					blue.removeClass ( 'd-none' );
+					success.addClass ( 'd-none' );
+					info.removeClass ( 'd-none' );
 					parent_title.removeClass ( 'bg_green  text-light' );
 					delete titles[ type ];
 					
@@ -208,9 +206,9 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			}
 		} ).on ( 'input', '.board_price', function () {
 			
-			var green = $ ( '#board_types_title_green' );
-			var orange = $ ( '#board_types_title_orange' );
-			var blue = $ ( '#board_types_title_blue' );
+			var success = $ ( '#board_types_title_green' );
+			var warning = $ ( '#board_types_title_orange' );
+			var info = $ ( '#board_types_title_blue' );
 			var check_box_id = $ ( this ).data ( 'c_box_id' );
 			
 			var price = $ ( this ).val ();
@@ -223,9 +221,9 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 					
 				}
 				
-				orange.addClass ( 'd-none' );
-				green.removeClass ( 'd-none' );
-				blue.addClass ( 'd-none' );
+				warning.addClass ( 'd-none' );
+				success.removeClass ( 'd-none' );
+				info.addClass ( 'd-none' );
 				$ ( '#board_type_' + check_box_id ).addClass ( 'bg_green' ).removeClass ( 'bg_orange' );
 				
 			}
@@ -243,9 +241,9 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			}
 			if ( price <= 0 && num_of_boards <= 0 && num_of_prices <= 0 ) {
 				
-				orange.addClass ( 'd-none' );
-				green.addClass ( 'd-none' );
-				blue.removeClass ( 'd-none' );
+				warning.addClass ( 'd-none' );
+				success.addClass ( 'd-none' );
+				info.removeClass ( 'd-none' );
 				
 				$ ( '#board_type_' + check_box_id ).removeClass ( 'bg_green' ).addClass ( 'bg-secondary' );
 				$ ( '#board_price_' + check_box_id ).removeClass ( 'bg_green' ).addClass ( 'bg-secondary' );
@@ -263,8 +261,8 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		} ).on
 		              ( 'focusout', '.board_price', function () {
 			
-			              var green = $ ( '#board_types_title_green' );
-			              var orange = $ ( '#board_types_title_orange' );
+			              var success = $ ( '#board_types_title_green' );
+			              var warning = $ ( '#board_types_title_orange' );
 			              var price = $ ( this ).val ();
 			              var check_box_id = $ ( this ).data ( 'c_box_id' );
 			
@@ -279,8 +277,8 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				
 				              if ( num_of_boards === 0 && num_of_prices === 0 ) {
 					
-					              orange.removeClass ( 'd-none' );
-					              green.addClass ( 'd-none' );
+					              warning.removeClass ( 'd-none' );
+					              success.addClass ( 'd-none' );
 					              step_4.addClass ( 'd-none' );
 					              increment = true;
 					
@@ -304,19 +302,19 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 			var room_desc = $ ( '#room_description' );
 			var remaining_characters = 300 - room_desc.val ().length;
 			var step_4 = $ ( '#step_4' );
-			var green = $ ( '#description_title_green' );
-			var blue = $ ( '#description_title_blue' );
+			var success = $ ( '#description_title_green' );
+			var info = $ ( '#description_title_blue' );
 			
 			if ( room_desc.val ().length <= 29 ) {
 				
-				blue.removeClass ( 'd-none' );
-				green.addClass ( 'd-none' );
+				info.removeClass ( 'd-none' );
+				success.addClass ( 'd-none' );
 				step_4.addClass ( 'd-none' );
 			}
 			else {
 				
-				blue.addClass ( 'd-none' );
-				green.removeClass ( 'd-none' );
+				info.addClass ( 'd-none' );
+				success.removeClass ( 'd-none' );
 			}
 			
 			$ ( '#room_description_length' ).addClass ( 'text-danger' ).html ( remaining_characters );
@@ -384,6 +382,11 @@ like to edit it, click on <span class="img-thumbnail">Edit mode</span> button`
                 <span class = "text-danger  p-2" >
                 Property name! (min 3 characters)</span >If all details are correct, click on
                    <span class="green">room&nbsp;>>></span> `
+			,
+			`<span class="nav_link">How to:</span>If you want to block some dates click on
+  <button class = " no_padding bg-secondary text-light " ><i class="far fa-edit"></i> Edit</button > above, then click on
+               <span class="img-thumbnail">preview</span >, then click on <strong class="nav_link_property">AVAILABILITY</strong>
+                button. `
 		];
 		var room_actions = $ ( '#room_actions' );
 		var how_to = $ ( '#how_to' );
@@ -412,10 +415,17 @@ like to edit it, click on <span class="img-thumbnail">Edit mode</span> button`
 			how_to.html ( `${step_desc[ 6 ]}` );
 			
 		}
+		// LOGGED IN USER ADDING ROOM
 		if ( (
 			sessionStorage.getItem ( 'add_mode' ) && window.location.pathname === '/owner.html' ) ) {
 			how_to.html ( `${step_desc[ 7 ]}` );
 			
+		}
+		// LOGGED IN USER BLOCKING DATES
+		if ( (
+			sessionStorage.getItem ( 'block_mode' ) && window.location.pathname === '/owner.html' ) ) {
+			how_to.html ( `${step_desc[ 8 ]}` );
+			$('#steps').html('');
 		}
 //		if ( (
 //			     sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'preview_mode' ) ) &&
@@ -456,8 +466,8 @@ like to edit it, click on <span class="img-thumbnail">Edit mode</span> button`
 				}
 			}
 			else {
-				var next_step = $ ( '#step_' + (
-				                    step + 1 ) );
+				var next_step = $ ( '#step_' + (step + 1 ) );
+				
 				
 				steps.push ( step );
 				// TOP DISPLAY
@@ -527,6 +537,10 @@ function append_room_actions ( room_actions ) {
                           <button class = "list-group-item no_padding ${sessionStorage.getItem ( 'add_mode' ) === null ? 'bg-secondary text-light' : 'bg_green text-light'} " id="add_mode"
                         
                          title="Add new room" ><i class="far fa-plus-square"></i> Add new room</button >
+                         
+                          <button class = "list-group-item no_padding ${sessionStorage.getItem ( 'block_mode' ) === null ? 'bg-secondary text-light' : 'bg_green text-light'} " id="block_mode"
+                        
+                         title="Block dates" ><i class="far fa-plus-square"></i> Block dates</button >
                       
                   </div >
                

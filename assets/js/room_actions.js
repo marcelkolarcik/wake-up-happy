@@ -3,7 +3,7 @@ $ ( document ).on ( 'click', '#preview_mode', function () {
 	
 	sessionStorage.removeItem('edit_mode');
 	sessionStorage.removeItem('add_mode');
-	
+	sessionStorage.removeItem('block_mode');
 	sessionStorage.setItem('preview_mode',true);
 	
 	window.location.reload();
@@ -16,7 +16,7 @@ $ ( document ).on ( 'click', '#edit_mode', function () {
 	
 	sessionStorage.removeItem('preview_mode');
 	sessionStorage.removeItem('add_mode');
-	
+	sessionStorage.removeItem('block_mode');
 	sessionStorage.setItem('edit_mode',true);
 	
 	window.location.reload();
@@ -30,12 +30,22 @@ $ ( document ).on ( 'click', '#add_mode', function () {
 	
 	sessionStorage.removeItem('preview_mode');
 	sessionStorage.removeItem('edit_mode');
-	
+	sessionStorage.removeItem('block_mode');
 	sessionStorage.setItem('add_mode',true);
 	
 	window.location.reload();
 	
 	
+});
+$ ( document ).on ( 'click', '#block_mode', function () {
+	
+	sessionStorage.removeItem('edit_mode');
+	sessionStorage.removeItem('add_mode');
+	sessionStorage.removeItem('preview_mode');
+	
+	sessionStorage.setItem('block_mode',true);
+	window.location.reload();
+
 });
 
 $ ( document ).on ( 'click', '#delete_mode', function () {
@@ -112,6 +122,7 @@ $ ( document ).on ( 'click', '#delete_mode', function () {
 			sessionStorage.removeItem('preview_mode');
 			sessionStorage.removeItem('edit_mode');
 			sessionStorage.removeItem('add_mode');
+			sessionStorage.removeItem('block_mode');
 			window.location.reload();
 		}
 	});
@@ -119,6 +130,9 @@ $ ( document ).on ( 'click', '#delete_mode', function () {
 	
 });
 
+$ ( document ).on ( 'click', '#block_dates', function () {
+	sessionStorage.setItem('block_dates_mode',true);
+});
 $ ( document ).on ( 'click', '.room_switch', function () {
 	
 	

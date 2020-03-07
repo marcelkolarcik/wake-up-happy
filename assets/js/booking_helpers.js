@@ -135,9 +135,9 @@ function sendMail ( contactForm, p_id, room_style ) {
 
 // PAYMENT CONFIRMATION  POPUP
 function confirm_payment ( status, p_id, contactForm, room_style ) {
-	function reload_page () {
-		location.reload ();
-	}
+//	function reload_page () {
+//		location.reload ();
+//	}
 	
 	
 	if ( contactForm.weeks.value === '' || contactForm.total_price.value === '' ) {
@@ -163,10 +163,43 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 			room.bookings = room.bookings.concat ( current_bookings );
 			ROOMS[ p_id ] = room;
 			localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
-//	END OF	ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
-			swal.fire ( {
-				            html:
-					            `<div class="card horizontally_aligned" style="width: 100%;">
+			
+			sessionStorage.setItem ( 'room_to_edit', JSON.stringify(room) );
+			console.log(room);
+			if(sessionStorage.getItem('block_dates_mode'))
+			{
+				swal.fire({
+					html:` <div class="card-body">
+									 <p class="card-title nav_link_property">Your dates were booked !</p>
+									 <table class="table table-sm">
+									
+									 
+										<tr>
+									 		<td> <span class="nav_link_property">Week:</span></td>
+									 		<td><span>${contactForm.weeks.value}</span></td>
+										</tr>
+									
+									</table>
+									
+									
+									
+									  <div class="card-footer bg-transparent pb-0 mb-0">
+										   
+										  
+										    
+										      <a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
+										     
+											
+										</div>
+							 </div>`,
+					          showConfirmButton: false
+				          })
+			}
+			else
+			{
+				swal.fire ( {
+					            html:
+						            `<div class="card horizontally_aligned" style="width: 100%;">
 							<div class=" bg_green">
 							 <img class="" src="assets/images/logo_sm.png"  alt="logo image">
 						
@@ -219,12 +252,15 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 										</div>
 							 </div>
 							 </div>`,
+					
+					            showConfirmButton: false
+					
+				            } );
 				
-				            showConfirmButton: false
-				
-			            } );
-			
-			//	setTimeout(reload_page,5000);
+			}
+//	END OF	ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
+		
+		
 			
 		}
 		else if ( status === 'FAILED' ) {
@@ -237,7 +273,7 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 				            timer            : 2500
 				
 			            } );
-			//	setTimeout( reload_page, 2500 );
+			
 		}
 	}
 }
