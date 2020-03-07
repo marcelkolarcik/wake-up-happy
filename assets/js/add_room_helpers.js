@@ -726,8 +726,9 @@ function store_room ( new_room, update = false ) {
 	
 	sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
 	sessionStorage.setItem ( 'preview_mode', true );
-	
-	sessionStorage.getItem('edit_mode') ?location.replace ( `owner.html` ):location.replace ( `index.html` );
+//	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT, OTHERWISE TO INDEX TO SHOW ROOM ON THE MAP WITH MARKER
+// AND POPUP
+	sessionStorage.getItem ( 'edit_mode' ) ? location.replace ( `owner.html` ) : location.replace ( `index.html` );
 	
 	sessionStorage.removeItem ( 'edit_mode' );
 }

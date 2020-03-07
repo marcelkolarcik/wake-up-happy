@@ -50,29 +50,6 @@ $ ( document ).on ( 'click', '#delete_mode', function () {
 	var OWNERS = JSON.parse(localStorage.getItem('OWNERS'));
 	var owner = OWNERS[sessionStorage.getItem('hashed_login')];
 	
-//	delete ROOMS[room_id];
-//	ROOMS.splice(ROOMS.indexOf(room_id) - 1, 1);
-//	localStorage.setItem('ROOMS', JSON.stringify(ROOMS));
-//
-//	owner.room_ids.shift(room_id);
-//	if(owner.room_ids[0])
-//	{
-//		console.log('room_ids',owner.room_ids[0]);
-//
-//		console.log('we have room');
-//		owner.room_id = owner.room_ids[0];
-//		sessionStorage.setItem('room_to_edit', JSON.stringify(ROOMS[owner.room_ids[0]])   );
-//	}
-//	else
-//	{
-//		console.log('we have no room');
-//		owner.room_id = null;
-//		sessionStorage.removeItem('room_to_edit');
-//	}
-//	console.log(sessionStorage.getItem('room_to_edit'))
-//
-//	console.log('this room',JSON.stringify(ROOMS[owner.room_ids[0]]));
-	
 	Swal.fire({
 		          title: `Delete ${room_name} ?`,
 		          text: "You won't be able to revert this!",
@@ -87,18 +64,11 @@ $ ( document ).on ( 'click', '#delete_mode', function () {
 	          }).then((result) => {
 		if (result.value) {
 			
-			
+//			DELETING ROOM FROM LOCAL STORAGE
 			delete ROOMS[room_id];
-			//ROOMS.splice(ROOMS.indexOf(room_id) - 1, 1);
+			
 			localStorage.setItem('ROOMS', JSON.stringify(ROOMS));
-			
-			
-//			owner.room_ids.shift(room_id);
-//
-//			var value = 3
-//
-//			var arr = [1, 2, 3, 4, 5, 3]
-			
+//			DELETING room_id FROM OWNER'S room_ids, SO THAT IT WON'T SHOW UP IN NAVIGATION DROP DOWN, WHICH WOULD CAUSE ERRORS....
 			owner.room_ids = owner.room_ids.filter(function(item) {
 				return item !== room_id
 			});
@@ -108,22 +78,26 @@ $ ( document ).on ( 'click', '#delete_mode', function () {
 			if(owner.room_ids[0])
 			{
 				console.log('we have room');
+
 				owner.room_id = owner.room_ids[0];
 				if(ROOMS[owner.room_id] !== null){
+					//				SETTING CURRENT ROOM TO INTERACT WITH IF IT IS NOT NULL,
+					// BECAUSE delete ROOMS[room_id] IS SETTING  ROOMS[room_id] TO NULL
 					sessionStorage.setItem('room_to_edit', JSON.stringify(ROOMS[owner.room_ids[0]])   );
-					//sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
+					
 				}
-				//sessionStorage.setItem('room_to_edit', JSON.stringify(ROOMS[owner.room_ids[0]])   );
+				
 			}
 			else
 			{
-				console.log('we have no room');
+//				IF OWNER DELETED LAST ROOM, HE HAS NO ROOM TO INTERACT WITH => ROOM ACTION  IN add_room_helpers.js
+//              (function append_room_actions()) IS ONLY ADD ROOM
 				owner.room_id = null;
 				owner.room_ids = [];
 				sessionStorage.removeItem('room_to_edit');
 			}
 			
-			
+//			UPDATING OWNERS IN LOCAL STORAGE
 			OWNERS[sessionStorage.getItem('hashed_login')] = owner;
 			localStorage.setItem('OWNERS', JSON.stringify(OWNERS));
 			sessionStorage.setItem('authorized_owner',JSON.stringify(owner)  );
@@ -134,16 +108,13 @@ $ ( document ).on ( 'click', '#delete_mode', function () {
 				'success'
 			);
 			
-			console.log(OWNERS,owner,room_id);
+			
 			sessionStorage.removeItem('preview_mode');
 			sessionStorage.removeItem('edit_mode');
 			sessionStorage.removeItem('add_mode');
 			window.location.reload();
 		}
 	});
-	
-	//sessionStorage.removeItem('room_to_edit');
-	//window.location.reload();
 	
 	
 });
@@ -152,8 +123,9 @@ $ ( document ).on ( 'click', '.room_switch', function () {
 	
 	
 	
-	//	SETTING SELECTED ROOM AS room_to_edit
+	//	SETTING ROOM TO INTERACT WITH AS room_to_edit
 	sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( JSON.parse ( localStorage.getItem ( 'ROOMS' ) )[$(this).attr('id')] ) );
+	
 	sessionStorage.removeItem('edit_mode');
 	sessionStorage.removeItem('add_mode');
 	

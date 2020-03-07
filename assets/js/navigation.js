@@ -32,7 +32,7 @@ $ ( function () {
 		
 		user_drop_down.append ( `
                                 
-                                <a  class = "dropdown-header bg_green_light text-light"  title = "My rooms" >My rooms</a >` );
+                                <span  class = "dropdown-header bg-secondary text-light"   >My rooms</span >` );
 		
 		
 		
