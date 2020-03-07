@@ -176,7 +176,9 @@ export function render_booking_form( room ) {
 	                          `  <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
                                     Pay
                                 </button >`}
-                            ${sessionStorage.getItem('edit_mode') ?`<button type = "submit" id="block_dates" class = "btn bg_green_light horizontally_aligned right-block " title="Block selected dates">
+                            ${sessionStorage.getItem('edit_mode') ?`<button type = "submit" id="block_dates"
+								 class = "btn bg_green_light horizontally_aligned right-block mt-2"
+								 title="Block selected dates">
                                    Block selected dates
                                 </button >`:''}
                               

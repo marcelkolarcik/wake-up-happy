@@ -57,7 +57,7 @@ export function render_room ( room, image_id, where, preview = false ) {
                 <div class = "tab-pane active " id = "about_${room.p_id}" role = "tabpanel" >
                     <div class = "card-body " >
                         	<span class="pl-2 d-none d-md-block text-capitalize" >
-											<h4 class="nav_link_property">		${  decodeURI ( room.p_address.property_name )  || decodeURI ( room.p_address.city )}  | ${room_types[ room.room_type ]}
+											<h4 class="nav_link_property">		${  decodeURI ( room.p_address.property_name ) || decodeURI ( room.p_address.city )}  | ${room_types[ room.room_type ]}
                                              </h4>
              				</span >
                         <p class = "card-text" >${  decodeURI ( room.p_description )}</p >
@@ -82,9 +82,11 @@ export function render_room ( room, image_id, where, preview = false ) {
 		                        <span class = "nav_link_property" >Pick the week(s) and board and click on <strong
 		                                    class = "bold" >BOOK</strong > button
 		                        </span >
-		                         <button class = "btn btn-sm bg-secondary text-light horizontally_aligned right-block " id='how_to_block_dates' title="Block selected dates">
+		                        
+                                   ${sessionStorage.getItem ( 'edit_mode' ) ? `
+ 									<button class = "btn btn-sm bg-secondary text-light horizontally_aligned right-block " id="how_to_block_dates" title="Block selected dates">
                                    How to block weeks ?
-                                </button >
+                                </button >` : ''}
 							</div>
 							 <div id="boards_${room.p_id}" class="col ">
 		      
@@ -105,15 +107,14 @@ export function render_room ( room, image_id, where, preview = false ) {
 </div >
 ` );
 	
-	if(sessionStorage.getItem('edit_mode') && window.location.pathname === '/owner.html')
-	{
-		$('#property_img').append(` <div class = "  text-center" >
+	if ( sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname === '/owner.html' ) {
+		$ ( '#property_img' ).append ( ` <div class = "  text-center" >
            
             <a  class = "btn btn-sm m-0 bg_orange horizontally_aligned right-block " id="pay_for_the_room"
                     title = "Save your changes" >
                 Save your changes
             </a >
-        </div >`);
+        </div >` );
 	}
 	
 }
