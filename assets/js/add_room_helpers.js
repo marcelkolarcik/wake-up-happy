@@ -41,7 +41,6 @@ $ ( document ).on ( "click", ".board_type", function () {
 $ ( document ).on ( "click", ".collapse_parent", function () {
 	
 	var parent_div = $ ( '.' + $ ( this ).data ( 'parent_div' ) );
-	var parent_title = $ ( '#' + $ ( this ).data ( 'parent_title' ) );
 	var next_div = $ ( '.' + $ ( this ).data ( 'next_div' ) );
 	
 	parent_div.addClass ( 'd-none' );
@@ -84,7 +83,6 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 		$ ( document ).on ( "click", ".check", function () {
 			
 			var parent_title = $ ( '#' + $ ( this ).data ( 'parent_title' ) );
-			var check = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_check' );
 			var green = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_green' );
 			var blue = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_blue' );
 			var orange = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_orange' );
@@ -720,15 +718,19 @@ function store_room ( new_room, update = false ) {
 	sessionStorage.removeItem ( 'new_room' );
 	sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( new_room ) );
 	
+//	SET NEW OWNER AS authorized_owner , REDIRECT HIM INTO HIS ACCOUNT DASHBOARD
 	var hashed_login = sessionStorage.getItem ( 'hashed_login' );
 	var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 	var owner = owners[ hashed_login ];
-	
 	sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
+	
+	
 	sessionStorage.setItem ( 'preview_mode', true );
 //	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT, OTHERWISE TO INDEX TO SHOW ROOM ON THE MAP WITH MARKER
 // AND POPUP
 	sessionStorage.getItem ( 'edit_mode' ) ? location.replace ( `owner.html` ) : location.replace ( `index.html` );
 	
 	sessionStorage.removeItem ( 'edit_mode' );
+	sessionStorage.removeItem ( 'add_mode' );
+	
 }

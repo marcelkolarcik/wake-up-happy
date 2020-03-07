@@ -61,7 +61,7 @@ $ ( document ).on ( 'click', '#login', function () {
 	var owner = owners[ hashed_login ];
 	
 	//	WE ARE CHECKING IF WE HAVE USER WITH THESE CREDENTIALS
-	// IF WE DO WE WILL REDIRECT TO owner.html or will reuse add_your_room.html
+	// IF WE DO WE WILL REDIRECT TO owner.html
 	if ( owner ) {
 		authorize_owner ( owner ,hashed_login);
 	}
