@@ -165,7 +165,7 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 			localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 			
 			sessionStorage.setItem ( 'room_to_edit', JSON.stringify(room) );
-			console.log(room);
+			
 			if(sessionStorage.getItem('block_dates_mode'))
 			{
 				swal.fire({

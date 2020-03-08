@@ -3,8 +3,8 @@ var board_types = JSON.parse ( localStorage.getItem ( 'board_types' ) );
 var view_types = JSON.parse ( localStorage.getItem ( 'views' ) );
 var amenities_list = JSON.parse ( localStorage.getItem ( 'amenities_list' ) );
 var room_styles = JSON.parse ( localStorage.getItem ( 'room_styles' ) );
-//console.log(JSON.parse ( sessionStorage.getItem ( 'room_to_edit' )));
 var room = null;
+
 if(sessionStorage.getItem ( 'add_mode' ))
 {
 	room = null;
@@ -116,7 +116,9 @@ function render_room_styles () {
 		<div class = "card col-lg-2 col-md-3  col-sm-4 col-4 text-center room_style_images d-none" >
 		    <img src = "assets/images/bedrooms/b${room_styles[ room_style ]}.jpg" class = "form_image img-thumbnail"
 		         alt = "${room_styles[ room_style ]} bedroom image" >
-		    <div class = "p-0 card-footer text-center   ${owners_room_style && parseInt ( owners_room_style - 1 ) === parseInt ( room_style ) ? 'bg_green' : 'bg-secondary'} text-light d-flex justify-content-around align-items-center room_style"
+		    <div class = "p-0 card-footer text-center
+${owners_room_style && parseInt ( owners_room_style - 1 ) === parseInt ( room_style ) ? 'bg_green' : 'bg-secondary'}
+text-light d-flex justify-content-around align-items-center room_style"
 		         id = "room_style_${room_style}" >
 		        <label for = "${room_styles[ room_style ]}" class = "text-capitalize" >#${room_styles[ room_style ]}</label >
 		        <input  name = "room_style" type = "radio" value = "${room_style}"
@@ -150,7 +152,7 @@ function render_board_types () {
         <div class = "input-group mb-2 text-center" >
             <div class = "input-group-prepend" >
                 <div class = "input-group-text bg-transparent border_bottom_only" >
-                    <input  class = "board_type check  " name = "board_type_${board_type}"
+                    <input  class = "board_type check" id="board_${board_type}" name = "board_type_${board_type}"
                            type = "checkbox"
                            data-type = "board"
                            data-board_type = "${board_type}"

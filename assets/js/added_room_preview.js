@@ -78,11 +78,13 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	
 	
 	var searchables = [];
+	
 	$.each ( address, function ( key, value ) {
 		if ( address_keys.indexOf ( key ) !== -1 ) {
 			
 			$.each ( value.split ( ' ' ), function ( index, string ) {
-				searchables.push ( decodeURI ( string ) );
+				if( value.split ( ' ' ).length > 1) searchables.push ( decodeURI ( string ) );
+				
 			} );
 			searchables.push ( decodeURI ( value ) );
 		}

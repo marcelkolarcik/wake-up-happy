@@ -490,3 +490,6 @@ i.orange{
 	margin-top:-50px;
 	font-size: 0.7rem;
 	}
+.nave{
+	z-index: 3;
+	}

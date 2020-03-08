@@ -167,21 +167,25 @@ export function render_booking_form( room ) {
                             <div class = "col-auto text-center" >
                             <div id="loader_holder${room.p_id}"></div>
     
-                            ${(sessionStorage.getItem('edit_mode') || sessionStorage.getItem('preview_mode')  || sessionStorage.getItem('add_mode') )
-                            
-	                         /* || (!sessionStorage.getItem('edit_mode') && !sessionStorage.getItem('preview_mode'))*/? `
-								<div class="bg_green_light_g ${sessionStorage.getItem('edit_mode') ? 'd-none':''}">
-								Your future customers will be able to book your room through this form.
-								</div>`:
-	                          
-	                          `  <button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
+                          
+                             ${window.location.pathname === '/index.html' ?`
+								<button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
                                     Pay
-                                </button >`}
+                                </button >`:''}
+                            
                             ${sessionStorage.getItem('edit_mode') ?`<button type = "submit" id="block_dates"
 								 class = "btn bg_green_light horizontally_aligned right-block mt-2"
 								 title="Block selected dates">
                                    Block selected dates
                                 </button >`:''}
+                            
+                              ${ (sessionStorage.getItem ( 'preview_mode' ) || sessionStorage.getItem ( 'add_mode' ))
+	                             && window.location.pathname !== '/index.html'
+	                             ?
+	                             `	<div class="bg_green_light_g">
+									Your future customers will be able to book your room through this form.
+									</div>`
+	                             :''}
                               
                             </div >
 								</div>

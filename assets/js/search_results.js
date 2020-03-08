@@ -80,13 +80,19 @@ $ ( document ).on ( "click", "#search_btn", function ( e ) {
 		
 		var property = ROOMS[ room ];
 		
-		var image_id = getImageId ( property.p_id );
-		
-		if ( is_available ( property, location ) ) {
+		if(property)
+//		property COULD BE null, BECAUSE, WHEN OWNER DELETES ROOM, IT IS ACTUALLY SET TO NULL
+			// SO NEED TO FILTER OUT THOSE DELETED ROOMS
+		{
+			var image_id = getImageId ( property.p_id );
 			
-			render_index ( property, image_id, 'form_search_results' );
-			results++;
+			if ( is_available ( property, location ) ) {
+				
+				render_index ( property, image_id, 'form_search_results' );
+				results++;
+			}
 		}
+		
 		
 	}
 	

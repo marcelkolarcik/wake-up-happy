@@ -22,9 +22,9 @@ export function render_room ( room, image_id, where, preview = false ) {
                 <small >per week</small >
             </h6 >
              <span class=" d-md-none  text-capitalize"  >
-					<h4 class="ml-2 nav_link_property">${  decodeURI ( room.p_address.property_name ) } | ${ decodeURI ( room.location ) } | ${room_types[ room.room_type ]}
-                                                            
-                                                             </h4>
+					<h4 class="ml-2 nav_link_property">
+			${  decodeURI ( room.p_address.property_name ) } | ${ decodeURI ( room.location ) } | ${room_types[ room.room_type ]}
+                    </h4>
              </span >
              <span class="d-md-none ml-2">
              <!--to keep two spans on one line ...-->
@@ -78,25 +78,30 @@ export function render_room ( room, image_id, where, preview = false ) {
                  <div class = "col-md-12" >
 	                    <div class="row">
 		                   
-		                    <div class="col-md-12">
-		                        <span class = "nav_link_property" >Pick the week(s) and board and click on <strong
-		                                    class = "bold" >BOOK</strong > button
-		                        </span >
-		                        
+		                   
+							<div class="card col-md-12">
+								<div class="card-header p-0 bg-transparent">
+								Boards
+								
                                    ${sessionStorage.getItem ( 'edit_mode' ) ? `
- 									<button class = "btn btn-sm bg-secondary text-light horizontally_aligned right-block " id="how_to_block_dates" title="Block selected dates">
+
+ 									<button class = "btn btn-sm bg-secondary text-light horizontally_aligned right-block float-right " id="how_to_block_dates" title="Block selected dates">
                                    How to block weeks ?
                                 </button >` : ''}
-							</div>
-							 <div id="boards_${room.p_id}" class="col ">
-		      
+								</div>
+							 	<div id="boards_${room.p_id}" class="col p-0"></div>
+							 	 <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${room.p_id}" > </div >
+          
+							 	<div class="card-footer bg-transparent"> <span class = "nav_link_property" >Select board and the week(s) and  click on <strong
+		                                    class = "bold" >BOOK</strong > button
+		                        </span >
+		                        </div>
 							</div>
 							
 						</div>
                     
                     </div >
-                    <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${room.p_id}" >
-                    </div >
+                   
                    
                 </div >
                 <div class = "tab-pane" id = "amenities_${room.p_id}" role = "tabpanel" ></div >
@@ -152,6 +157,7 @@ $ ( document ).on ( 'click', '#how_to_block_dates', function () {
 		          showConfirmButton: false
 	          })
 });
+//ON MOBILE DEVICES, more... BUTTON TO SHOW TABS TO PREVIEW ROOM
 $ ( document ).on ( 'click', '.show_tabs', function () {
 	var p_id = $ ( this ).data ( 'p_id' );
 	$ ( '#tabs_' + p_id ).toggleClass ( 'd-none d-md-block' );

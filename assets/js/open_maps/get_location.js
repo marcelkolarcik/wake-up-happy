@@ -113,7 +113,21 @@ function render_location_details ( location_data, coordinates, owner = false ) {
 		
 		
 	}
-	
+	location.append ( `
+					 ${owner ? '' : `<div class = "col" >
+            <label class = "sr-only" for = "property_name" >Property Name</label >
+            <div class = "input-group mb-2" >
+                <div class = "input-group-prepend" >
+                    <div class = "input-group-text bg-transparent border_bottom_only" >
+                      <i class="fas fa-bed"></i>
+                    </div >
+                </div >
+                <input type = "text" name = "address__property_name"
+                       class = "form-control form-control-sm  border-danger"
+                       id = "property_name" placeholder = "Property Name"
+                        value="${ typeof(location_data.property_name) !== "undefined" ? location_data.property_name: '' }" required >
+            </div >` }
+					` );
 	$.each ( location_data, function ( key, value ) {
 		
 		location.append ( `
@@ -161,19 +175,7 @@ function render_location_details ( location_data, coordinates, owner = false ) {
                                id = "lng" value="${coordinates[ 1 ]}" required readonly >
                     </div >
                 </div >
-                ${owner ? '' : `<div class = "col" >
-            <label class = "sr-only" for = "property_name" >Property Name</label >
-            <div class = "input-group mb-2" >
-                <div class = "input-group-prepend" >
-                    <div class = "input-group-text bg-transparent border_bottom_only" >
-                      <i class="fas fa-bed"></i>
-                    </div >
-                </div >
-                <input type = "text" name = "address__property_name"
-                       class = "form-control form-control-sm  border-danger"
-                       id = "property_name" placeholder = "Property Name"
-                        value="${ typeof(location_data.property_name) !== "undefined" ? location_data.property_name: '' }" required >
-            </div >` }
+               
             
         </div >
 					` );
