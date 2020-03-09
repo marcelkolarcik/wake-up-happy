@@ -20,7 +20,7 @@ export function render_booking_calendar( property ) {
 				 data-p_id="${property.p_id}"
 				 data-week="${week}"
 				 data-price="${ property.price[ Object.keys( property.price )[ 0 ] ]}"
-				 data-user_set_${property.p_id} = "false"
+				 data-board_selected_${property.p_id} = "false"
 				 >
 			
 				  <span> ${week}</span>
@@ -44,7 +44,7 @@ export function render_booking_calendar( property ) {
 				 data-p_id="${property.p_id}"
 				 data-week="${week}"
 				 data-price="${ property.price[ Object.keys( property.price )[ 0 ] ]}"
-				 data-user_set_${property.p_id} = "false"
+				 data-board_selected_${property.p_id} = "false"
 				 >
 			
 				  <span> ${week}</span>

@@ -1,38 +1,77 @@
-// SETTING BOOKED WEEKS AND TOTAL PRICE ON BOOKING FORM
+// WHEN USER SELECTS BOARD ON BOOKING CALENDAR
+// IT'S EITHER FIRST TIME OR USER IS CHANGING BOARDS
+// => SETTING  WEEKS BOOKED, TOTAL PRICE AND BOARD PRICE FOR THE WEEKS
+// ALL FIELDS ARE READONLY SO USER CANNOT CHANGE THEM EASILY....
 function set_price ( p_id, index ) {
 	
 	var board_types = JSON.parse ( localStorage.getItem ( 'board_types' ) );
 	
 	$ ( '#boards_' + p_id ).removeClass ( 'border border-danger' );
-	$ ( "#weeks_" + p_id ).val ( '' );
-	$ ( "#total_price_" + p_id ).val ( '' );
+	
+	var num_of_selected_weeks = selected_weeks(p_id);
+	
+
+	
+//	PRICE FRO THE BOARD (ROOM ONLY, B&B...) TO CALCULATE TOTAL PRICE FOR THE BOOKING
+//	num_of_selected_weeks * board_price
+	var board_price = $ ( 'input[name="board"]:checked' ).val ();
+	
+//			SETTING TOTAL PRICE FOR THE BOOKING ON PAYMENT FOR BOOKING FORM
+	$ ( "#total_price_" + p_id ).val ( num_of_selected_weeks * board_price );
+	
+//			SETTING NAME OF THE BOARD FOR THE BOOKING ON PAYMENT FOR BOOKING FORM
 	$ ( "#board" + p_id ).val ( board_types[ index ] );
 	
-	var board_price = $ ( 'input[name="board"]:checked' ).val ();
-	var week = $ ( '.week' );
+	//			FEEDBACK TO USER ON BOOKING CALENDAR ABOUT THE TOTAL PRICE FOR THE BOOKING
+	$ ( "#preview_total_price_" + p_id ).html ( num_of_selected_weeks * board_price +" EUR" );
 	
-	week.data ( 'price', board_price ).addClass ( 'bg_green' ).removeClass ( 'text-secondary selected' );
+//	WEEKS ON BOOKING CALENDAR
+	var week = $ ( '.week' );
 	week.data ( 'price', board_price );
-	week.data ( 'user_set_' + p_id, 'true' );
+	
+//	WHEN USER SELECTS BOARD WHILE BOOKING WEEKS, WE'LL SET WEEKS ON BOOKING CALENDAR AS BOOKABLE
+//	BECAUSE IF NO BOARD IS SELECTED, WE'LL FIRE ALERT IF USER TRIES TO
+//	SELECT ANY WEEK
+	week.data ( 'board_selected_' + p_id, 'true' );
 }
 
+function selected_weeks(p_id)
+{
+	var selected_weeks = $ ( "#weeks_" + p_id ).val();
+
+//	COUNTING NUMBER OF SELECTED WEEKS TO CALCULATE TOTAL PRICE FOR THE BOOKING
+//	num_of_selected_weeks * board_price
+	if(selected_weeks !== "")
+	{
+//		IF MORE THEN 1 WEEK
+		if(selected_weeks.includes('-')) return selected_weeks.split('-').length;
+//		IF 1 WEEK selected_weeks.includes('-') RETURNS  FALSE , BECAUSE FIRST WEEK IS APPENDED WITHOUT -
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
 
 // MARKING SELECTED WEEKS ON THE BOOKING CALENDAR
 (
 	function () {
 		var booked_properties = [];
-		
+		var num_of_selected_weeks = 0;
 		$ ( document ).on ( "click", ".week", function () {
 			
 			var p_id = $ ( this ).data ( 'p_id' );
 			
-			if ( $ ( this ).data ( 'user_set_' + p_id ) === false ) {
+			
+//			IF USER FORGETS TO SELECT THE BOARD BEFORE SELECTING WEEKS, WE'LL FIRE ALERT
+			if ( $ ( this ).data ( 'board_selected_' + p_id ) === false ) {
 				$ ( '#boards_' + p_id ).addClass ( 'border border-danger' );
 				swal.fire ( {
 					
 					            title: 'Oops...',
 					            text : 'Please, select board!',
-					            icon : 'warning'
+					            type : 'warning'
 					
 				            } );
 				return;
@@ -43,71 +82,78 @@ function set_price ( p_id, index ) {
 			
 			var weeks = $ ( "#weeks_" + p_id );
 			var total_price = $ ( "#total_price_" + p_id );
+			
 
-//	IF USER CHANGES BOARD TYPE we are reseting prices and booked weeks to '' and so we must reset counter as well
-			if ( total_price.val () === '' ) counter = 0;
-//	RESETTING COUNTER IF CURRENT CLICK IS CLICK ON BOOKING CALENDAR OF DIFFERENT ROOM IN SEARCH RESULTS....
-			if ( booked_properties.slice ( -1 )[ 0 ] !== p_id ) {
-				counter = 0;
-			}
+			
+
 //	COLLECTING ALL BOOKED ROOMS IDS
 			booked_properties.push ( p_id );
 			
-			if ( counter === 0 ) {
-				
+			if ( num_of_selected_weeks === 0 ) {
+			
+//				IF THE WEEK IS NOT SELECTED, ADD THIS WEEK TO BOOKINGS
 				if ( !$ ( this ).hasClass ( 'selected' ) ) {
+					
+					/* IF IT IS FIRST CLICK, WE APPEND WEEK WITHOUT - ; */
 					weeks.val ( weeks.val () + selected_week );
-					/*BECAUSE IF IT IS FIRST CLICK, WE APPEND WEEK WITHOUT - ; */
 					$ ( this ).removeClass ( 'bg_green' ).addClass ( 'text-secondary selected' );
-					total_price.val ( (
-						                  counter + 1 ) * price_per_week );
-					counter++;
-				}
-				else {
-					/*BECAUSE IF USER CLICKS ON THE SAME WEEK AGAIN, WE NEED TO , DESELECT IT AND RECALCULATE TOTAL PRICE
-					 * AND REMOVE THIS WEEK FROM BOOKING FORM*/
-					$ ( this ).addClass ( 'bg_green' ).removeClass ( 'text-secondary selected' );
-					total_price.val ( parseInt ( total_price.val () ) - parseInt ( price_per_week ) );
+//					TOTAL PRICE IS ONE price_per_week , BECAUSE IT'S FIRST WEEK SELECTED
+					total_price.val ( price_per_week );
 					
-					if ( weeks.val ().includes ( '-' + selected_week ) ) weeks.val ( weeks.val ().replace ( '-' + selected_week, '' ) );
-					else weeks.val ( weeks.val ().replace ( selected_week, '' ) );
-					counter--;
-					/* DECREASE COUNTER FOR ACCURATE CALCULATION*/
+					num_of_selected_weeks = selected_weeks(p_id);
+					
 					
 				}
+				
 				
 			}
 			else {
 				if ( !$ ( this ).hasClass ( 'selected' ) ) {
+					
+					/* IF IT IS NOT FIRST CLICK, WE APPEND WEEK WITH - ;  (11-12-13)*/
 					weeks.val ( weeks.val () + '-' + selected_week );
-					/*BECAUSE IF IT IS NOT FIRST CLICK, WE APPEND WEEK WITH - ; */
+					num_of_selected_weeks = selected_weeks(p_id);
+					
+//					UPDATING COLOR OF SELECTED WEEK
 					$ ( this ).removeClass ( 'bg_green' ).addClass ( 'text-secondary selected' );
-					total_price.val ( (
-						                  counter + 1 ) * price_per_week );
-					counter++;
+					
+					total_price.val ( (num_of_selected_weeks ) * price_per_week );
+					
+					
 				}
 				else {
 					/*BECAUSE IF USER CLICKS ON THE SAME WEEK AGAIN, WE NEED TO , DESELECT IT AND RECALCULATE TOTAL PRICE
 					 * AND REMOVE THIS WEEK FROM BOOKING FORM*/
+					
+					//					UPDATING COLOR OF DE-SELECTED WEEK
 					$ ( this ).addClass ( 'bg_green' ).removeClass ( 'text-secondary selected' );
+					
 					total_price.val ( parseInt ( total_price.val () ) - parseInt ( price_per_week ) );
 					
 					if ( weeks.val ().includes ( '-' + selected_week ) ) weeks.val ( weeks.val ().replace ( '-' + selected_week, '' ) );
 					else weeks.val ( weeks.val ().replace ( selected_week, '' ) );
 					
-					counter--;
-					/* DECREASE COUNTER FOR ACCURATE CALCULATION*/
+//					IF USER DESELECT FIRSTLY SELECTED WEEK FIRST CHARACTER OF BOOKED WEEKS AFTER USER DESELECTS IT IS - ,
+//                  WE'LL REMOVE IT FROM BOOKING FORM => TO AVOID DISPLAYING BOOKED WEEKS AS -12-23,
+//					EXAMPLE: CURRENTLY SELECTED WEEKS 11-12-13 , USER DESELECT FIRSTLY SELECTED WEEK 11 => DISPLAY IS -12-13
+//					SO WE'RE REMOVING FIRST -
+					if(weeks.val ().charAt(0) === '-') weeks.val ( weeks.val ().substring(1) ) ;
+					
+					num_of_selected_weeks = selected_weeks(p_id);
+					
 					
 				}
 			}
+//			FEEDBACK TO USER ON BOOKING CALENDAR ABOUT THE TOTAL PRICE FOR THE BOOKING
+			$ ( "#preview_total_price_" + p_id ).html ( total_price.val ()+" EUR" );
 			
-			//	console.log( Math.random().toString( 36 ).substr( 2, 7 ) ,total_price.val());
 			
 		} );
 	} ) ();
 
 
 //// SEND EMAIL TO ADMIN
+// WHEN USER PAYS FOR THE ROOM, ADMIN OF THE SITE WILL BE NOTIFIED VIA EMAIL
 function sendMail ( contactForm, p_id, room_style ) {
 	confirm_payment ( "SUCCESS", p_id, contactForm, room_style );
 	
@@ -134,10 +180,10 @@ function sendMail ( contactForm, p_id, room_style ) {
 
 
 // PAYMENT CONFIRMATION  POPUP
+//ONCE USER PAYS FOR THE BOOKING, WE WILL FIRE CONFIRMATION ALERT, WITH OPTION
+// TO SAVE THIS CONFIRMATION LOCALLY
 function confirm_payment ( status, p_id, contactForm, room_style ) {
-//	function reload_page () {
-//		location.reload ();
-//	}
+
 	
 	
 	if ( contactForm.weeks.value === '' || contactForm.total_price.value === '' ) {
@@ -146,12 +192,12 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 	else {
 		if ( status === 'SUCCESS' ) {
 		
-//			ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
+
 			var booked_weeks = contactForm.weeks.value;
 			if ( booked_weeks.charAt ( 0 ) === '-' ) booked_weeks = booked_weeks.substr ( 1 );
 		
 			var current_bookings_s = booked_weeks.split ( '-' );
-			//	parsing weeks ( strings ) to integers
+			//	PARSING weeks ( strings ) to integers
 			var current_bookings = current_bookings_s.map ( parse_to_int );
 			
 			function parse_to_int ( num ) {
@@ -160,41 +206,35 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 			
 			var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 			var room = ROOMS[ p_id ];
+			
+//			ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
 			room.bookings = room.bookings.concat ( current_bookings );
 			ROOMS[ p_id ] = room;
 			localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 			
 			sessionStorage.setItem ( 'room_to_edit', JSON.stringify(room) );
 			
+//			IF OWNER WANTS TO BLOCK SOME DATES WE WILL FIRE THIS ALERT
 			if(sessionStorage.getItem('block_dates_mode'))
 			{
 				swal.fire({
 					html:` <div class="card-body">
 									 <p class="card-title nav_link_property">Your dates were booked !</p>
 									 <table class="table table-sm">
-									
-									 
 										<tr>
 									 		<td> <span class="nav_link_property">Week:</span></td>
 									 		<td><span>${contactForm.weeks.value}</span></td>
 										</tr>
-									
+								
 									</table>
-									
-									
-									
-									  <div class="card-footer bg-transparent pb-0 mb-0">
-										   
-										  
-										    
-										      <a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
-										     
-											
-										</div>
+									 <div class="card-footer bg-transparent pb-0 mb-0">
+										 <a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
+									</div>
 							 </div>`,
 					          showConfirmButton: false
 				          })
 			}
+//			IF USER BOOKED A ROOM WE WILL FIRE THIS ALERT
 			else
 			{
 				swal.fire ( {
@@ -228,7 +268,7 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 										</tr>
 										<tr>
 									 		<td> <span class="nav_link_property">Total price:</span></td>
-									 		<td><span>${contactForm.total_price.value}</span></td>
+									 		<td><span>${contactForm.total_price.value} EUR</span></td>
 										</tr>
 										<tr>
 									 		<td> <span class="nav_link_property">address:</span></td>

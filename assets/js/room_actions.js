@@ -31,6 +31,7 @@ $ ( document ).on ( 'click', '#add_mode', function () {
 	sessionStorage.removeItem('preview_mode');
 	sessionStorage.removeItem('edit_mode');
 	sessionStorage.removeItem('block_mode');
+	sessionStorage.removeItem('room_to_edit');
 	sessionStorage.setItem('add_mode',true);
 	
 	window.location.reload();
@@ -146,4 +147,7 @@ $ ( document ).on ( 'click', '.room_switch', function () {
 	sessionStorage.setItem('preview_mode',true);
 	window.location.replace ( "/owner.html" );
 	
+});
+$ ( document ).on ( 'click', '#add_your_room', function () {
+	sessionStorage.setItem('add_mode',true);
 });

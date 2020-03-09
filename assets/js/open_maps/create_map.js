@@ -29,6 +29,9 @@ export function create_map ( coordinates = null, zoom = null, show_p_id = null )
 	var views = JSON.parse ( localStorage.getItem ( 'views' ) );
 	var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 	
+	/*CREATING MARKERS ON THE MAP WITH ROOMS IN LOCAL STORAGE, AS WELL AS
+	* POPUP WITH ROOM IMAGE AND ROOM TYPE*/
+	
 	for ( var room in ROOMS ) {
 		
 		var property = ROOMS[ room ];
@@ -49,8 +52,10 @@ export function create_map ( coordinates = null, zoom = null, show_p_id = null )
 					  data-image_id="${image_id}"
 					  href="#" >more...</a>`;
 			
+//			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html OPEN POPUP WITH HIS NEWLY CREATED ROOM
+			
 			if ( parseInt ( sessionStorage.getItem ( 'new_p_id' ) ) === property.p_id && sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' )) {
-				//		ADDED NEW ROOM => SHOW ON MAP
+				
 				
 				L.marker ( [ sessionStorage.getItem ( 'lat' ), sessionStorage.getItem ( 'lng' ) ] ).addTo ( map )
 				 .bindPopup ( popup ).openPopup ();
@@ -61,9 +66,11 @@ export function create_map ( coordinates = null, zoom = null, show_p_id = null )
 				
 			}
 			
+			/*OPEN POPUP ON CLICK ON show on map BUTTON IN ROOM PREVIEW*/
+			
 			else if ( coordinates && property.p_id === show_p_id ) {
 				
-				/*OPEN POPUP ON CLICK ON show on map BUTTON IN ROOM PREVIEW*/
+			
 				L.marker ( coordinates ).addTo ( map )
 				 .bindPopup ( popup ).openPopup ();
 			}

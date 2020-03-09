@@ -1,16 +1,18 @@
-//toggling content of the div ( particular part of the form )
+//toggling content of the div ( particular part of the form room_types,board_types,views,amenities_list,room_style )
 $ ( document ).on ( "click", ".show_content", function () {
 	
 	var hidden_class = $ ( this ).data ( 'hidden_class' );
 	
 	$ ( '.' + hidden_class ).toggleClass ( 'd-none' );
 } );
+
 //toggling size of images on form
 $ ( document ).on ( "click", ".form_image", function () {
 	
 	$ ( this ).parent ().toggleClass ( 'col-lg-2 col-md-3 col-sm-4 col-4' );
 	
 } );
+
 // showing input for board price only when user selects board. removing input when user deselects board
 $ ( document ).on ( "click", ".board_type", function () {
 	
@@ -44,8 +46,10 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 	var parent_div = $ ( '.' + $ ( this ).data ( 'parent_div' ) );
 	var next_div = $ ( '.' + $ ( this ).data ( 'next_div' ) );
 	
+	
 	parent_div.addClass ( 'd-none' );
 	next_div.removeClass ( 'd-none' );
+
 	
 } );
 
@@ -300,6 +304,26 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc ) {
 //FORM PROGRESS (STEPS) BUTTONS
 (
 	function () {
+		
+		//// DISPLAYING STEP 2 WHEN USER TYPES IN PROPERTY NAME
+		$ ( document ).on ( 'input', '#property_name', function () {
+			
+			var property_name = $ ( '#property_name' );
+			var step_2 = $ ( '#step_2' );
+			if ( !sessionStorage.getItem ( 'room_to_edit' ) || sessionStorage.getItem ( 'add_mode' ) ) {
+				if ( property_name.val ().length > 2 ) {
+					
+					property_name.removeClass ( 'border-danger' );
+					step_2.removeClass ( 'd-none' );
+					step_2.html ( 'room&nbsp;>>>' ).addClass ( 'no_border green' );
+				}
+				else {
+					step_2.addClass ( 'd-none' );
+					property_name.addClass ( 'border-danger' );
+				}
+			}
+			
+		} );
 		
 		var steps = [];
 		var step_names = [ 'location', 'room', 'services', 'preview', 'payment' ];
@@ -561,6 +585,7 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 			
 		} );
 		
+//		IF ANY OF THE FIELDS ARE MISSING, WE'LL FIRE ALERT WITH MISSING FIELDS
 		if ( missing_values.length > 0 ) {
 			swal.fire ( {
 				            html: `<h3>Please review these fields:</h3>` + missing_values
@@ -596,31 +621,39 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 //			CURRENTLY LOGGED IN OWNER ADDING NEW ROOM
 			var authorized_owner = JSON.parse ( sessionStorage.getItem ( 'authorized_owner' ) );
 			
+//			ADDING NEWLY CREATED ROOM'S ID  new_room.p_id INTO OWNER room_ids ARRAY
 			room_ids = authorized_owner.room_ids;
 			room_ids.push ( new_room.p_id );
+			
 			authorized_owner.room_ids = room_ids;
+			
+//			SETTING MOST RECENT ROOM ID AS room_id => SO WHENEVER OWNER LOGS IN INTO HIS ACCOUNT
+			// AND IF HE HAS MORE THEN 1 ROOM
+			// LAST ROOM HE INTERACTED WITH BEFORE LOGOUT WILL BE  ROOM TO  SEE AFTER SUCCESSFUL LOGIN.
 			authorized_owner.room_id = new_room.p_id;
 			
+//			UPDATING OWNER WITH NEW ROOM
 			var new_owner = {
 				[ hashed_login ]: authorized_owner
 			};
 			
 			
-			
+//			UPDATING OWNERS WITH NEW OWNER
 			current_owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 			current_owners[ hashed_login ] = authorized_owner;
-			
 			localStorage.setItem ( 'OWNERS', JSON.stringify ( current_owners ) );
+			
 			
 			sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( authorized_owner ) );
 			
 		}
 		else {
-			//			NEW USER ADDING NEW ROOM
+//			NEW USER ADDING NEW ROOM
 			var login = owner_details_array.email_of_user + owner_details_array.password;
 			hashed_login = hash_login ( login );
 			
 			room_ids.push ( new_room.p_id );
+			
 //	HASHING LOGIN DETAILS, WILL USE SAME HASH TO RETRIEVE OWNER
 			new_owner = {
 				[ hashed_login ]: {
@@ -638,7 +671,7 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 //	MERGING CURRENT OWNERS WITH NEW OWNER
 		let owners = { ...current_owners, ...new_owner };
 		
-		//	PUTTING BACK TO STORAGE
+//	UPDATING OWNERS
 		localStorage.setItem ( 'OWNERS', JSON.stringify ( owners ) );
 		
 		store_room ( new_room );
@@ -691,29 +724,32 @@ function store_room ( new_room, update = false ) {
 	var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 	
 	if ( update ) {
-		//// updating existing room
+//// UPDATING EXISTING ROOM
 		ROOMS[ new_room.p_id ] = new_room;
 		
 	}
 	else {
-		//// adding new room
+////ADDING NEW ROOM
 		ROOMS.push ( new_room );
 	}
-	
+//	UPDATING ROOMS IN localStorage
 	localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
-	
+
+//	new_room IS STORED, SO REMOVING IT FROM SESSION AND SETTING IT AS room_to_edit IN SESSION
 	sessionStorage.removeItem ( 'new_room' );
 	sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( new_room ) );
 
-//	SET NEW OWNER AS authorized_owner
+//	SETTING NEW OWNER AS authorized_owner
 	var hashed_login = sessionStorage.getItem ( 'hashed_login' );
 	var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 	var owner = owners[ hashed_login ];
 	sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
 	
+//	AFTER STORING / UPDATING ROOM WE SET  preview_mode AS TRUE
 	sessionStorage.setItem ( 'preview_mode', true );
-//	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT, OTHERWISE TO INDEX TO SHOW ROOM ON THE MAP WITH MARKER
-// AND POPUP
+	
+//	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT,
+// OTHERWISE TO INDEX TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
 	sessionStorage.getItem ( 'edit_mode' ) ? location.replace ( `owner.html` ) : location.replace ( `index.html` );
 	
 	sessionStorage.removeItem ( 'edit_mode' );

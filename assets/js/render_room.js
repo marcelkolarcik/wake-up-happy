@@ -51,7 +51,8 @@ export function render_room ( room, image_id, where, preview = false ) {
                 <a class = "list-group-item list-group-item-action nav_link_property "
                    data-toggle = "list" href = "#availability_${room.p_id}" role = "tab" title = "Preview the availability" >Availability</a >
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#book_${room.p_id}" role = "tab" title = "Book your room !" >Book</a >
+                   data-toggle = "list" href = "#book_${room.p_id}" role = "tab" title = "Book your room !" >Book
+                   <div class="bg_green text-light p-1" id="preview_total_price_${room.p_id}"></div></a >
             </div >
             <div class = "tab-content" >
                 <div class = "tab-pane active " id = "about_${room.p_id}" role = "tabpanel" >

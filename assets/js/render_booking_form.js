@@ -75,6 +75,7 @@ export function render_booking_form( room ) {
                                            id = "total_price_${room.p_id}" placeholder = ""
                                            value = ""
                                            ${sessionStorage.getItem('edit_mode') ? '':'required'} readonly >
+                                           <span>EUR</span>
                                 </div >
                             </div >
                             <div class = "col-auto ${sessionStorage.getItem('edit_mode') ? 'd-none':''}" >

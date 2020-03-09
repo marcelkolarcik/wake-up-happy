@@ -9,7 +9,7 @@ import {
 	room_styles,
 	autocomplete_searchables,
 	address_keys
-} from './module/inventory.js';
+} from './inventory.js';
 /*https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API*/
 
 /*Browsers that support localStorage will have a property on the window object named localStorage.
