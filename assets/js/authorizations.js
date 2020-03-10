@@ -106,7 +106,7 @@ function not_registered () {
 				<div class = "col-auto" >
 		       No Problem! <hr class="bg_green">
 		       Just take the first step.... <br>
-		       <a href="/owner.html" title="Add your room now!">Right on this site !</a>
+		       <a href="/owner.html"  class="add_your_room" title="Add your room now!">Right on this site !</a>
 		        </div >
 		        <hr class="bg_green">
 		         <div class = "col-auto text-center" >
@@ -114,7 +114,7 @@ function not_registered () {
            			Select location of your property first !
            			<br>
            			<br>
-		            <a  href="/owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3" id="ok" onclick="swal.close()"
+		            <a  href="/owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room"  id="ok" onclick="swal.close()"
 		                   title="Add your room now!" >
 		               ok
 		            </a >

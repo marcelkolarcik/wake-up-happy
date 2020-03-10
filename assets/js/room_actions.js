@@ -148,6 +148,6 @@ $ ( document ).on ( 'click', '.room_switch', function () {
 	window.location.replace ( "/owner.html" );
 	
 });
-$ ( document ).on ( 'click', '#add_your_room', function () {
+$ ( document ).on ( 'click', '.add_your_room', function () {
 	sessionStorage.setItem('add_mode',true);
 });

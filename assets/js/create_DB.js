@@ -1,3 +1,9 @@
+// HERE IS FUNCTION TO CREATE INITIAL "DATABASE" (localStorage) WITH
+// "TABLES"  (ROOMS,board_types,views,room_types,room_styles,amenities_list,autocomplete_searchables,address_keys)
+// THAT WILL BE USED THROUGHOUT THE PROJECT
+// ANOTHER TABLE "OWNERS" WILL BE CREATED ONCE FIRST OWNER ADDS HIS ROOM TO OUR SYSTEM
+
+
 import {
 	cities_coordinates,
 	num_of_booked_weeks,
@@ -10,6 +16,8 @@ import {
 	autocomplete_searchables,
 	address_keys
 } from './inventory.js';
+
+
 /*https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API*/
 
 /*Browsers that support localStorage will have a property on the window object named localStorage.
@@ -51,31 +59,25 @@ function storageAvailable ( type ) {
 /*https://gist.github.com/kerimdzhanov/7529623
  * getting random range from range to get random price and random types of boards and rooms
  *
- * I have updated the function to include case when i need an array of times integers for random booked weeks in this case
- * and array of times random items from array */
+ *
+ * I HAVE UPDATED THE FUNCTION TO INCLUDE CASES WHEN I NEED AN ARRAY OR RANDOM INTEGERS FOR BOOKINGS AND AMENITIES*/
 
-function getRandom ( min, max, times = null, array = null ) {
+function getRandom ( min, max, times = null ) {
 	var random_array = [];
 	
+//	RANDOM  SINGLE INTEGER FROM RANGE => room_type, room_style, board_type, board_price
 	if ( times === null ) return Math.floor ( Math.random () * (
 	                                          max - min + 1 ) + min );
 	
+//	ARRAY OF RANDOM  MULTIPLE INTEGERS FROM RANGE => bookings, amenities
 	while ( times > 0 ) {
 		var random_number = Math.floor ( Math.random () * (
 		                                 max - min + 1 ) + min );
-		
+
 		if ( random_array.indexOf ( random_number ) === -1 ) {
-			if ( array === null ) {
-				/// getting  array of  times random numbers from range
-				random_array.push ( random_number );
-				times--;
-			}
 			
-			else if ( random_array.indexOf ( array[ random_number ] ) === -1 ) {
-				/// getting array of times random items from array
-				random_array.push ( array[ random_number ] );
-				times--;
-			}
+			random_array.push ( random_number );
+			times--;
 			
 		}
 	}
@@ -84,10 +86,19 @@ function getRandom ( min, max, times = null, array = null ) {
 }
 
 
+//IF I WANT TO START ALL OVER I WOULD UNCOMMENT TWO LINES BELLOW
+//TO CLEAR localStorage AND sessionStorage
+// AND REFRESH index.html
+
 //localStorage.clear ();
 //sessionStorage.clear ();
+
+
+//  IF WE ALREADY HAVE ROOMS IN LOCAL STORAGE WE WON'T RECREATE IT AGAIN,
+//  BECAUSE WE WOULD DELETE ANY ROOMS ALREADY CREATED BY OWNERS
 if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 	var ROOMS = [];
+//	HERE IN A LOOP WE CREATE ROOMS OBJECT AND STORE IT IN localStorage AS INITIAL ROOMS TO DISPLAY
 	$.each ( cities_coordinates, function ( index, city_coordinates ) {
 		
 		var price = {};
@@ -111,7 +122,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 			             'room_style'   : getRandom ( 1, 16 ),
 			             'location'     : city_coordinates[ 2 ],
 			             'searchables'  : [ city_coordinates[ 2 ] ],
-			             'bookings'     : getRandom ( current_date.getWeek (), 53, num_of_booked_weeks ),
+			             'bookings'     : getRandom ( 1, 53, num_of_booked_weeks ),
 			             'amenities'    : getRandom ( 1, amenities.length - 1, 15 ),
 			             
 		             } );
@@ -119,8 +130,10 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 	} );
 	
 	if ( storageAvailable ( 'localStorage' ) ) {
-		// because local storage is storing strings we need to stringify our object on the way in and parse it on the
-		// way out
+	
+//		BECAUSE localStorage CAN STORE ONLY STRINGS, WE NEED TO JSON.stringify OUR OBJECT ON THE WAY IN localStorage
+//		AND JSON.parse ON THE WAY OUT OF localStorage
+		
 		localStorage.setItem ( 'ROOMS_created', true );
 		localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 		localStorage.setItem ( 'board_types', JSON.stringify ( board_types ) );
@@ -130,7 +143,6 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 		localStorage.setItem ( 'amenities_list', JSON.stringify ( amenities_list ) );
 		localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 		localStorage.setItem ( 'address_keys', JSON.stringify ( address_keys ) );
-		
 	}
 	else {
 		
@@ -138,7 +150,3 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 	}
 	
 }
-
-//console.log('local storage '+localStorage.getItem( 'ROOMS' ), ROOMS);
-//console.log('local storage '+localStorage.getItem( 'ROOMS' ), ROOMS);
-//localStorage.clear();

@@ -111,7 +111,7 @@ export var cities_coordinates = [
 	[ 52.933614, -8.428799, "Cork" ],
 	[ 52.9214, -8.4714399, "Cork" ]
 ];
-export let num_of_booked_weeks = Math.floor( weeks_till_end_of_year.length / 4 ); // setting ~ 25 % of days as booked,
+export let num_of_booked_weeks = 10;
 export let amenities = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ];//19
 
 export let amenities_list = [

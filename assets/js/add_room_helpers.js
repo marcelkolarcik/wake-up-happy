@@ -492,9 +492,9 @@ like to edit it, click on <button class = " no_padding bg-secondary text-light "
 
 
 function append_room_actions ( room_actions ) {
+	
 	room_actions.append ( `<div class = "list-group list-group-horizontal  mb-2"  >
-					${(
-		                                             sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null ) ?
+					${(sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null ) ?
 	                  `<button class = "list-group-item  no_padding " id="room_name"
                         
                          title="${JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_address.property_name}" >
