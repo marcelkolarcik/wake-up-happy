@@ -1,4 +1,27 @@
-/*arrays i am using in the pages*/
+/*TO CREATE "DATABASE" IN localStorage I AM USING THESE ARRAYS AS "TABLES"
+* WHEN STORING NEW ROOM INTO localStorage , I AM STORING ONLY KEY OF THE ARRAY ITEM INTO ROOM OBJECT
+* AND ON RENDERING THE PAGE DISPLAYING FULL STRING
+* EXAMPLE  of one of the ROOM STORED IN localStorage
+*
+* var property = {"p_id":0,
+* "p_address":{"city":"Central Andros","property_name":"property name 0"},
+* "price":{"0":300,"1":292,"2":219},
+* "p_description":"Beautiful room with mountain view to make you smile in the morning....","
+* p_view":0,
+* "lat":24.487149,
+* "lng":-77.969971,
+* "room_type":0,
+* "room_style":14,
+* "location":"Central Andros",
+* "searchables":["Central Andros"],
+* "bookings":[18,34,12,24,29,48,47,2,51,40],
+* "amenities":[12,10,4,5,13,3,15,17,8,11,9,6,14,16,7]}
+*
+* SO WHEN RENDERING THE ROOM ON THE PAGE FOR EXAMPLE IF I WANT TO RENDER VIEW TYPE IMAGE
+* var views = JSON.parse( localStorage.getItem('views') );
+* I AM ACCESSING IT BY ${views[property.p_view]}.jpg WHICH IS IN THIS CASE WILL RENDER mountain.jpg FILE*/
+
+
 export let room_types = [ 'single', 'double' ];
 export let board_types = [ 'Room only',
                            'B & B',
@@ -111,8 +134,11 @@ export var cities_coordinates = [
 	[ 52.933614, -8.428799, "Cork" ],
 	[ 52.9214, -8.4714399, "Cork" ]
 ];
+
+//NUMBER OF INITIAL BOOKED WEEKS FOR THE ROOM
 export let num_of_booked_weeks = 10;
-export let amenities = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ];//19
+
+
 
 export let amenities_list = [
 	'fresh linens', 'extra blankets', 'puzzle turn down service', 'elevator bartender', 'celebrity wake up call', 'fast Wi-Fi',
@@ -121,5 +147,19 @@ export let amenities_list = [
 	'pop corn delivery', 'complementary smart phone', 'complementary BMW SUV'
 ];
 
-export let autocomplete_searchables =['Cork','Dublin','Limerick','Yaiza','Miami-dade county','West palm beach']; //// TO DO to get cities from DB object
+// INITIAL autocomplete_searchables  ARRAY, THAT IS UPDATED WITH EVERY ADDRESS OF NEW ROOM ADDED TO localStorage IF
+// ADDRESS ITEM IS NOT ALREADY IN THE ARRAY USING address_keys AS FILTER
+// IN add_room_helpers.js => check_autocomplete(room) function -> lines 682 ->...
+// SO WHEN USER TYPES IN LOCATION AND WE ALREADY HAVE IT, AUTO-COMPLETE OPTION WILL SHOW
+// city_autocomplete.js line 101
+export let autocomplete_searchables =['Cork','Dublin','Limerick','Yaiza','Miami-dade county','West palm beach'];
+
+// WE ARE CREATING SEARCHABLE ARRAY FOR EACH ROOM  IN added_room_preview.js lines 101 -> ...
+// ADDED FROM ADDRESS DETAILS PROVIDED BY
+// https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coordinates[ 0 ]}&lon=${coordinates[ 1 ]}
+// PASSING IT THROUGH FILTER address_keys , OMITTING DETAILS LIKE road, lng,lat...
+// SO WHEN USER IS SEARCHING FOR THE LOCATION OF THE ROOM ON index.html
+// search_results.js ->  function is_available ( property, location ) lines 7 -> ...
+// IF ROOM'S SEARCHABLE ARRAY CONTAINS
+// STRING THAT USER TYPES => THIS ROOM WILL APPEAR IN SEARCH RESULTS, IF OF COURSE OTHER CONDITIONS ARE MET LIKE room_type, board_type, free weeks
 export let address_keys = ['city','country','county','village','town','state','state district','suburbs','city district','region','locality','hamlet'];

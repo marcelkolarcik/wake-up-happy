@@ -1,5 +1,3 @@
-/*INITIAL COORDINATES OF THE MAP WITH ZOOM 6 */
-
 var mymap = L.map ( 'mapid' ).setView ( [ 53.505, -8.49 ], 6 );
 
 L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -11,13 +9,12 @@ L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 } ).addTo ( mymap );
 
 var popup = L.popup ( {
-	                      /*CUSTOM CLASS TO STYLE POPUP*/
+	
 	                      className: 'popup_class'
 	
                       } );
 
-/*WHEN USER CLICKS ON THE MAP WHEN SELECTING THE LOCATION OF THE PROPERTY ON owner.html
-* POPUP WILL SHOW WITH COORDINATES AND get details BUTTON*/
+
 function getCoordinates ( e ) {
 	
 	var location_details = $ ( '#location' );
@@ -35,15 +32,7 @@ function getCoordinates ( e ) {
 										title="click to get location details">get details</button>` )
 		.openOn ( mymap );
 	
-	/*USING nominatim API FROM openstreetmap TO DO REVERSE SEARCH AND WHEN USER CLICKS ON get details WE'LL
-	* TAKE THE this.responseText AND TAKE address   FROM IT TO DISPLAY LOCATION DETAILS TO OWNER WITH render_location_details() FUNCTION*/
-	
 	var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coordinates[ 0 ]}&lon=${coordinates[ 1 ]}`;
-	
-	$ ( '#get_address' ).on ( 'click', function () {
-		getAddress ( url );
-		
-	} );
 	
 	
 	function getAddress ( url ) {
@@ -54,7 +43,7 @@ function getCoordinates ( e ) {
 			if ( this.readyState === 4 && this.status === 200 ) {
 				location_details.html ( '' );
 				
-				get_address.addClass ( 'd-none' );
+				$ ( '#get_address' ).addClass ( 'd-none' );
 				
 				var location_data = JSON.parse ( this.responseText ).address;
 				
@@ -68,92 +57,50 @@ function getCoordinates ( e ) {
 	}
 	
 	
-	
+	$ ( '#get_address' ).on ( 'click', function () {
+		getAddress ( url );
+
+	} );
 	
 }
 
 
 mymap.on ( 'click', getCoordinates );
 
-/////// OWNER LOGS IN INTO HIS PROPERTY TO EDIT / PREVIEW / DELETE / ADD WE WILL POPULATE LOCATION DETAILS FROM HIS ROOM
-
-
-
-function render_location_details ( location_data, coordinates, owner = false ) {
-	var location = $ ( '#location' );
-	if ( owner ) {
-		$ ( '.how-to' ).html ( '' );
-		$ ( '.step' ).removeClass ( 'd-none' );
-		$ ( '#step_5' ).addClass ( 'd-none' );
+/////// OWNER LOGS IN INTO HIS PROPERTY TO EDIT / PREVIEW / DELETE / ADD
+$ ( function () {
+	if ( (sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null)  && !sessionStorage.getItem('add_mode')) {
 		
+		var coordinates = [];
+		var room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ));
+		$('.progress_step_5').addClass('d-none');
+		$('.progress_step_4').html(`Preview <br> Save`);
+		
+		
+		if(sessionStorage.getItem ( 'authorized_owner'))
+		{
+			var full_name = JSON.parse(sessionStorage.getItem ( 'authorized_owner')).name;
+			var owner_name_a = full_name.split(' ');
+			var owner_name = owner_name_a.map(myFunction).join('');
+			function myFunction(str) {
+				return str.charAt(0).toUpperCase();
+			}
+			
+			$('#initials').html(`<div class="user_initials d-flex justify-content-center align-items-center"><span>${owner_name}</span></div>`);
+			$('#owner_name').text(full_name);
+		}
+		
+	
+		
+		location_data = room.p_address;
+		coordinates[ 0 ] = room.lat;
+		coordinates[ 1 ] = room.lng;
+		
+		render_location_details ( location_data, coordinates, true );
 	}
-	location.append ( `
-					 ${owner ? '' : `<div class = "col" >
-            <label class = "sr-only" for = "property_name" >Property Name</label >
-            <div class = "input-group mb-2" >
-                <div class = "input-group-prepend" >
-                    <div class = "input-group-text bg-transparent border_bottom_only" >
-                      <i class="fas fa-bed"></i>
-                    </div >
-                </div >
-                <input type = "text" name = "address__property_name"
-                       class = "form-control form-control-sm  border-danger"
-                       id = "property_name" placeholder = "Property Name"
-                        value="${ typeof(
-		location_data.property_name ) !== "undefined" ? location_data.property_name : '' }" required >
-            </div >` }
-					` );
-	$.each ( location_data, function ( key, value ) {
-		
-		location.append ( `
-					 <div class = "col-auto " >
-                    <label class = "sr-only" for = "${key}" >${key}</label >
-                    <div class = "input-group mb-2" >
-                        <div class = "input-group-prepend" >
-                            <div class = "input-group-text bg-transparent border_bottom_only" >
-                                <i class = "fas fa-map-marker-alt" >&nbsp;${key.replace ( '_', ' ' )}</i >
-                            </div >
-                        </div >
-                        <input type = "text" name = "address__${key}"
-                               class = "form-control form-control-sm border_bottom_only "
-                               id = "${key}" value="${value}" required  ${key !== 'country' ? '' : 'readonly'} ${key !== 'country_code' ? '' : 'readonly'}  >
-                    </div >
-                </div >
-					` );
-	} );
-	location.append ( `
-					 <div class = "col-auto " >
-                    <label class = "sr-only" for = "lat" >lat</label >
-                    <div class = "input-group mb-2" >
-                        <div class = "input-group-prepend" >
-                            <div class = "input-group-text bg-transparent border_bottom_only" >
-                                <i class = "fas fa-map-marker-alt" >&nbsp;lat</i >
-                            </div >
-                        </div >
-                        <input type = "text" name = "lat"
-                               class = "form-control form-control-sm border_bottom_only "
-                               id = "lat" value="${coordinates[ 0 ]}" required  readonly>
-                    </div >
-                </div >
-					` );
-	location.append ( `
-					 <div class = "col-auto " >
-                    <label class = "sr-only" for = "lng" >lng</label >
-                    <div class = "input-group mb-2" >
-                        <div class = "input-group-prepend" >
-                            <div class = "input-group-text bg-transparent border_bottom_only" >
-                                <i class = "fas fa-map-marker-alt" >&nbsp;lng</i >
-                            </div >
-                        </div >
-                        <input type = "text" name = "lng"
-                               class = "form-control form-control-sm border_bottom_only "
-                               id = "lng" value="${coordinates[ 1 ]}" required readonly >
-                    </div >
-                </div >
-               
-            
-        </div >
-					` );
-}
+} );
+
+
+
 
 

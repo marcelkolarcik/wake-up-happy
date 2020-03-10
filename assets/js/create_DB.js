@@ -7,7 +7,6 @@
 import {
 	cities_coordinates,
 	num_of_booked_weeks,
-	amenities,
 	amenities_list,
 	view_types,
 	board_types,
@@ -123,7 +122,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 			             'location'     : city_coordinates[ 2 ],
 			             'searchables'  : [ city_coordinates[ 2 ] ],
 			             'bookings'     : getRandom ( 1, 53, num_of_booked_weeks ),
-			             'amenities'    : getRandom ( 1, amenities.length - 1, 15 ),
+			             'amenities'    : getRandom ( 1, amenities_list.length - 1, 15 ),
 			             
 		             } );
 		
@@ -143,6 +142,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 		localStorage.setItem ( 'amenities_list', JSON.stringify ( amenities_list ) );
 		localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 		localStorage.setItem ( 'address_keys', JSON.stringify ( address_keys ) );
+		console.log(JSON.stringify ( ROOMS ))
 	}
 	else {
 		

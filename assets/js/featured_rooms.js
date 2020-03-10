@@ -1,6 +1,9 @@
 
 import {getImageId,render_index} from './render_index.js';
 
+// WHEN WE LOAD index.html FOR THE FIRST TIME, DISPLAYING 3 FEATURED PROPERTIES TO HAVE SOME CONTENT
+// ON THE PAGE...
+// ALSO, WHEN SEARCH RESULT RETURNS 0 RESULTS, DISPLAYING 3 FEATURED PROPERTIES
 export function featured_rooms()
 {
 	var ROOMS = JSON.parse(localStorage.getItem('ROOMS'));
@@ -32,6 +35,6 @@ export function featured_rooms()
 		}
 	}
 }
-/// because when we load index.html we want to show user some feature rooms on document ready
+
 $(function() { featured_rooms() });
 

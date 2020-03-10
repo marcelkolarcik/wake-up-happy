@@ -3,6 +3,10 @@
 // Source: https://weeknumber.net/how-to/javascript
 
 // Returns the ISO week of the date.
+
+//AS MY CALENDAR FOR BOOKING ROOM IS BY THE WEEKS, SO I RESEARCHED HOW TO GET CURRENT WEEK
+// FROM Date OBJECT IN JS AND DISCOVERED FUNCTION BELLOW
+
 Date.prototype.getWeek = function() {
 	var date = new Date(this.getTime());
 	date.setHours(0, 0, 0, 0);
@@ -21,22 +25,26 @@ Date.prototype.getWeekYear = function() {
 	date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
 	return date.getFullYear();
 };
+
 var current_date = new Date();
 var current_year = current_date.getFullYear();
 var next_year   =current_year+1;
 var weeks_till_end_of_year = [];
 var next_year_weeks = [];
+
 var current_week = current_date.getWeek();
 var next_year_week = 0;
+
+// CALCULATING WEEKS FOR THE NEXT YEAR TO HAVE FULL 53 WEEKS DISPLAYED
+// EXAMPLE: IF CURRENT WEEK IS 13th WEEK OF THE YEAR => NEXT YEAR WEEKS WILL BE [1,2,3,4,5,6,7,8,9,10,11,12]
 if(current_week > next_year_week)
 {
-	
-	
 	while ( current_week > next_year_week ) {
 		next_year_weeks.push( next_year_week + 1 );
 		next_year_week++;
 	}
 }
+// CALCULATING WEEKS FOR THE CURRENT YEAR
 while (current_week < 53) {
 	weeks_till_end_of_year.push( current_week + 1 );
 	current_week++;

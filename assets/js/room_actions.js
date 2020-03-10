@@ -1,5 +1,5 @@
 $ ( document ).on ( 'click', '#preview_mode', function () {
-//	/owner.html
+
 	
 	sessionStorage.removeItem('edit_mode');
 	sessionStorage.removeItem('add_mode');
@@ -8,7 +8,7 @@ $ ( document ).on ( 'click', '#preview_mode', function () {
 	
 	window.location.reload();
 	
-	//swal.fire('preview mode',window.location.pathname)
+	
 });
 $ ( document ).on ( 'click', '#edit_mode', function () {
 	
@@ -122,7 +122,7 @@ $ ( document ).on ( 'click', '#delete_mode', function () {
 			
 			sessionStorage.removeItem('preview_mode');
 			sessionStorage.removeItem('edit_mode');
-			sessionStorage.removeItem('add_mode');
+			sessionStorage.setItem('add_mode',true);
 			sessionStorage.removeItem('block_mode');
 			window.location.reload();
 		}

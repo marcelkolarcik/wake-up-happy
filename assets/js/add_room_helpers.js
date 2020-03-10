@@ -1,3 +1,85 @@
+function render_location_details ( location_data, coordinates, owner = false ) {
+	var location = $ ( '#location' );
+	if(owner)
+	{
+		$ ( '.how-to' ).html ( '' );
+		$('.step').removeClass('d-none');
+		$('#step_5').addClass('d-none');
+		
+		
+		
+	}
+	location.append ( `${owner ? '' : `<div class = "col" >
+            <label class = "sr-only" for = "property_name" >Property Name</label >
+            <div class = "input-group mb-2" >
+                <div class = "input-group-prepend" >
+                    <div class = "input-group-text bg-transparent border_bottom_only" >
+                     <i class="fas fa-signature"></i>
+                    </div >
+                </div >
+                <input type = "text" name = "address__property_name"
+                       class = "form-control form-control-sm  border-danger"
+                       id = "property_name" placeholder = "Property Name"
+                        value="${ typeof(location_data.property_name) !== "undefined" ? location_data.property_name: '' }" required >
+            </div >` }
+					` );
+	$.each ( location_data, function ( key, value ) {
+		
+		location.append ( `
+					 <div class = "col-auto " >
+                    <label class = "sr-only" for = "${key}" >${key}</label >
+                    <div class = "input-group mb-2" >
+                        <div class = "input-group-prepend" >
+                            <div class = "input-group-text bg-transparent border_bottom_only" >
+                            ${key === 'property_name' ? ` <i class="fas fa-signature"></i>`:
+		                      ` <i class = "fas fa-map-marker-alt" >&nbsp;${key.replace ( '_', ' ' )}</i >`}
+                            
+                            </div >
+                        </div >
+                        <input type = "text" name = "address__${key}"
+                               class = "form-control form-control-sm border_bottom_only "
+                               id = "	${key}" value="${value}" required
+										${key !== 'country' ? '' : 'readonly'}
+										${key !== 'country_code' ? '' : 'readonly'}  >
+                    </div >
+                </div >
+					` );
+	} );
+	location.append ( `
+					 <div class = "col-auto " >
+                    <label class = "sr-only" for = "lat" >lat</label >
+                    <div class = "input-group mb-2" >
+                        <div class = "input-group-prepend" >
+                            <div class = "input-group-text bg-transparent border_bottom_only" >
+                                <i class = "fas fa-map-marker-alt" >&nbsp;lat</i >
+                            </div >
+                        </div >
+                        <input type = "text" name = "lat"
+                               class = "form-control form-control-sm border_bottom_only "
+                               id = "lat" value="${coordinates[ 0 ]}" required  readonly>
+                    </div >
+                </div >
+					` );
+	location.append ( `
+					 <div class = "col-auto " >
+                    <label class = "sr-only" for = "lng" >lng</label >
+                    <div class = "input-group mb-2" >
+                        <div class = "input-group-prepend" >
+                            <div class = "input-group-text bg-transparent border_bottom_only" >
+                                <i class = "fas fa-map-marker-alt" >&nbsp;lng</i >
+                            </div >
+                        </div >
+                        <input type = "text" name = "lng"
+                               class = "form-control form-control-sm border_bottom_only "
+                               id = "lng" value="${coordinates[ 1 ]}" required readonly >
+                    </div >
+                </div >
+                
+            
+        </div >
+					` );
+}
+
 //toggling content of the div ( particular part of the form room_types,board_types,views,amenities_list,room_style )
 $ ( document ).on ( "click", ".show_content", function () {
 	
@@ -250,6 +332,7 @@ $ ( document ).on ( "click", ".collapse_parent", function () {
 				
 				increment = true;
 			}
+			
 			is_ready_for_step_4 ( num_of_prices, num_of_amenities, $ ( '#room_description' ).val ().length );
 			
 		} );
