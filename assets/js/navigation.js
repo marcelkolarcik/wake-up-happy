@@ -84,3 +84,112 @@ $ ( function () {
 	
 } );
 
+$(document).on('click','#make_money',function (  ) {
+	
+	swal.fire({
+//		width: ($(window).width() - 20) ,
+		html: `
+<div id="revenue">
+ <span class="btn btn-sm text-danger float-right btn-warning" onclick="swal.close()">x</span>
+<h1>
+    Rent-a-Room Relief
+</h1>
+    <h2>What conditions must be met?</h2>
+
+
+
+
+
+<p>For you to qualify for Rent-a-Room Relief in Ireland the following conditions must be met:</p>
+<ul>
+<li>the gross income from the rent must be below the exemption limit</li>
+<li>there must be a minimum continuous-letting period (with exceptions)</li>
+<li>the room must be in a &rsquo;qualifying residence&rsquo;.</li>
+</ul>
+<h3>Exclusions</h3>
+<p>You cannot claim the relief against income received for the use of the room or rooms from:</p>
+<ul>
+<li>your child or civil partner</li>
+<li>an employer</li>
+<li>short-term guests (including those who book accommodation through online booking sites).</li>
+</ul>
+<p class="callout-title">Note</p>
+<p class="callout-content">The relief can apply to lettings used as residential accommodation for students in an academic year or term.</p>
+<h2>Exemption limit</h2>
+<p>There is an annual exemption limit for Rent-a-Room Relief.&nbsp;This limit applies to the gross amount of
+<a title="Irish rental income" class="sys_0 sys_t0" href="https://www.revenue.ie/en/property/rental-income/irish-rental-income/index.aspx">income</a>&nbsp;received for the room or rooms in your home.</p>
+<table><caption>Annual exemption limit for Rent-a-Room Relief</caption>
+<thead>
+<tr><th>Year</th><th>Income amount exempt</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>2015</p>
+</td>
+<td>
+<p>&euro;12,000</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2016</p>
+</td>
+<td>
+<p>&euro;12,000</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2017</p>
+</td>
+<td>
+<p>&euro;14,000</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2018</p>
+</td>
+<td>
+<p>&euro;14,000</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>2019</p>
+</td>
+<td>
+<p>&euro;14,000</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The gross income is the total income before you deduct expenses.&nbsp;</p>
+<p>Expenses include the maintenance of the room let and
+<a target="_blank" title="Capital allowances and deductions" class="sys_0 sys_t0"
+href="https://www.revenue.ie/en/companies-and-charities/corporation-tax-for-companies/corporation-tax/capital-allowances-and-deductions.aspx">capital allowances</a> due on fixtures and fittings.</p>
+<p>If your gross rental income does not exceed the exemption limit, you do not pay:</p>
+<ul>
+<li><a target="_blank" title="Calculating your Income Tax" class="sys_0 sys_t0" href="https://www.revenue.ie/en/jobs-and-pensions/calculating-your-income-tax/index.aspx">Income Tax&nbsp;(IT)</a></li>
+<li><a target="_blank"  class="external-links" title="Pay Related Social Insurance" href="http://www.welfare.ie/en/Pages/PRSI---Pay-Related-Social-Insurance---Contributions-and-Clas.aspx">Pay Related Social Insurance (PRSI)</a></li>
+<li><a target="_blank" title="What is USC?" class="sys_0 sys_t0" href="https://www.revenue.ie/en/jobs-and-pensions/usc/what-is-usc.aspx">Universal Social Charge (USC)</a>.</li>
+</ul>
+<p>If the gross rental income does exceed the exemption limit, the total amount of income is taxed.</p>
+<h2>Minimum continuous letting period</h2>
+<p>From 1 January 2019, the relief does not apply to income arising from letting periods which do not exceed 28 consecutive days.</p>
+<h3>Exceptions</h3>
+<p>Relief will apply to shorter term residential accommodation which is not leisure or business , for example:</p>
+<ul>
+<li>lettings for respite care for incapacitated individuals</li>
+<li>accommodation for full or part time students, including language students,</li>
+<li>four-day-a-week &lsquo;digs&rsquo;.</li>
+</ul>
+<h4>source</h4>
+<a target="_blank"
+href="https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/land-and-property/rent-a-room-relief/what-conditions-must-be-met.aspx">
+Revenue.ie</a>
+</div>`
+	          })
+	
+});

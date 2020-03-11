@@ -7,13 +7,6 @@ export function render_address ( room ) {
 	var address = '';
 	$.each ( room.p_address, function ( key, value ) {
 		
-//		e === total - 1 ? div.append ( `
-//		${ value}
-//
-//	` ) : div.append ( `
-//		${ value + ','}
-//
-//	` );
 		
 		if(e === total - 1){
 			

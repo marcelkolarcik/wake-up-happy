@@ -80,7 +80,9 @@ $ ( document ).on ( 'click', '#login', function () {
 // WHEN USER LOGS OUT, WE'LL CLEAR SESSION AND LOG HIM OUT
 $ ( document ).on ( 'click', '#logout', function () {
 	sessionStorage.clear();
+	sessionStorage.setItem('add_mode',true);
 	window.location.reload();
+	
 } );
 
 // FUNCTION TO HASH LOGIN DETAILS, EXAMPLE FROM stackoverflow.com
@@ -153,41 +155,4 @@ function authorize_owner ( owner ,hashed_login) {
 	window.location.replace ( "/owner.html" );
 	
 	
-	/*IF LOGGED IN OWNER HAS AT LEAST ONE ROOM, WE WILL RENDER LOCATION DETAILS OF THAT ROOM
-	* NEXT TO THE MAP */
-	if (
-		sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' &&
-		sessionStorage.getItem ( 'room_to_edit' ) !== null  &&
-		!sessionStorage.getItem ( 'add_mode' ) &&
-		sessionStorage.getItem ( 'authorized_owner' ) ) {
-		
-		var coordinates = [];
-		room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
-		 
-		 
-		 /*IF HE IS PREVIEWING OR EDITING ROOM, THERE IS NO NEED FOR PAYMENT STEP*/
-		
-		$ ( '.progress_step_5' ).addClass ( 'd-none' ); // PAYMENT
-		$ ( '.progress_step_4' ).html ( `Preview <br> Save` );
-		
-		
-		/*GETTING INITIALS OF OWNER'S NAME TO DISPLAY IN NAVIGATION*/
-		var full_name = JSON.parse ( sessionStorage.getItem ( 'authorized_owner' ) ).name;
-		var owner_name_a = full_name.split ( ' ' );
-		var owner_name = owner_name_a.map ( myFunction ).join ( '' );
-		
-		function myFunction ( str ) {
-			return str.charAt ( 0 ).toUpperCase ();
-		}
-		$ ( '#initials' ).html ( `<div class="user_initials d-flex justify-content-center align-items-center"><span>${owner_name}</span></div>` );
-		$ ( '#owner_name' ).text ( full_name );
-		
-		
-		/*DATA TO RENDER LOCATION  DETAILS OF THE ROOM*/
-		location_data = room.p_address;
-		coordinates[ 0 ] = room.lat;
-		coordinates[ 1 ] = room.lng;
-		
-		render_location_details ( location_data, coordinates, true );
-	}
 }

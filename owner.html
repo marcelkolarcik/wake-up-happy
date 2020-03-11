@@ -62,10 +62,19 @@
                     </ul >
                 </div >
             </nav >
+            
+           
         </div >
     </div >
 </section >
 <div class = "container" >
+    <div class="col-md-12 mb-1 bg_green_light text-center" id="hello" >
+        <span class="btn btn-sm text-danger float-right btn-warning" onclick="document.getElementById('hello').remove();">x</span>
+        <h5 class="float-left bg-danger text-light p-2 mr-1">NEW</h5>
+        <br >
+        <h3 class="text-light ">If you have spare room and want to make up to €14,000 tax free, come and join thousands of happy landlords !</h3>
+        <a id="make_money" href = "#"  >more info</a >
+    </div>
     <section id = "form_navigation_steps" >
         <div class = "col-md-12 img-thumbnail bg-transparent" id = "step_description" >
             <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
@@ -99,26 +108,27 @@
             </div >
             <div class = "card" >
                 <div id = "room_actions" class = " text-center" > </div >
-                <div id = "how_to" class = " pl-2 img-thumbnail" ></div >
+                <div id = "how_to" class="text-center" > </div >
+               
             </div >
             <div class = "row no-gutters mb-1 mt-1" >
                 <div id = "steps" class = "horizontally_aligned" >
                     <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
                         <a class = "list-group-item list-group-item-action p-1 active step " data-toggle = "list"
                            href = "#get_address2"
-                           role = "tab" id = "step_1" data-step = "1" title = "Choose your location" >location </a >
+                           role = "tab" id = "step_1" data-step = "location"  data-step_id = "1" title = "Choose your location" >location </a >
                         <a class = "list-group-item list-group-item-action p-1 d-none  step" data-toggle = "list"
                            href = "#room"
-                           role = "tab" id = "step_2" data-step = "2" title = "Define your room" > room</a >
+                           role = "tab" id = "step_2" data-step = "room" data-step_id = "2" title = "Define your room" > room</a >
                         <a class = "list-group-item list-group-item-action p-1  d-none step" data-toggle = "list"
                            href = "#services"
-                           role = "tab" id = "step_3" data-step = "3" title = "Define your services" > services</a >
+                           role = "tab" id = "step_3" data-step = "services" data-step_id = "3" title = "Define your services" > services</a >
                         <a class = "list-group-item list-group-item-action p-1 d-none step preview_room"
                            data-toggle = "list" href = "#preview"
-                           role = "tab" id = "step_4" data-step = "4" title = "Preview your work of art!" >preview</a >
+                           role = "tab" id = "step_4" data-step = "preview" data-step_id = "4" title = "Preview your work of art!" >preview</a >
                         <a class = "list-group-item list-group-item-action p-1  d-none step" data-toggle = "list"
                            href = "#payment"
-                           role = "tab" id = "step_5" data-step = "5" title = "Pay !" >payment</a >
+                           role = "tab" id = "step_5" data-step = "payment" data-step_id = "5" title = "Pay !" >payment</a >
                     </div >
                 </div >
             </div >

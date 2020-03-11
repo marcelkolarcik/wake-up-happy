@@ -1,5 +1,3 @@
-import { create_map } from './open_maps/create_map.js';
-
 
 export function render_room ( room, image_id, where, preview = false ) {
 	//var where_div = '#' + where;
@@ -34,25 +32,30 @@ export function render_room ( room, image_id, where, preview = false ) {
               <span class="display_tabs btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs"
 			title="Display more info..." data-p_id="${room.p_id}"
 			>more...</span>
-			
-			
-			
-             
         </div >
         <div class = "col-md-8 d-none d-md-block parent" id="tabs_${room.p_id}" style = "position:relative" >
             <div class = "list-group list-group-mine list-group-horizontal-lg" id = "myList" role = "tablist" >
+            
                 <a class = "list-group-item list-group-item-action active nav_link_property "
-                   data-toggle = "list" href = "#about_${room.p_id}" role = "tab" title = "Informations about room" >About</a >
+                   data-toggle = "list" href = "#about_${room.p_id}" role = "tab"
+                   title = "Informations about room" >About</a >
+                   
                 <a class = "list-group-item list-group-item-action nav_link_property "
                    data-toggle = "list" href = "#gallery_${room.p_id}" role = "tab"
                    title = "Preview images of the property" >Gallery</a >
+                   
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#amenities_${room.p_id}" role = "tab" title = "See the amenities" >Amenities</a >
+                   data-toggle = "list" href = "#amenities_${room.p_id}" role = "tab"
+                   title = "See the amenities" >Amenities</a >
+                   
                 <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#availability_${room.p_id}" role = "tab" title = "Preview the availability" >Availability</a >
+                   data-toggle = "list" href = "#availability_${room.p_id}" role = "tab"
+                   title = "Preview the availability" >Availability</a >
+                   
                 <a class = "list-group-item list-group-item-action nav_link_property "
                    data-toggle = "list" href = "#book_${room.p_id}" role = "tab" title = "Book your room !" >Book
                    <div class="bg_green text-light p-1" id="preview_total_price_${room.p_id}"></div></a >
+                   
             </div >
             <div class = "tab-content" >
                 <div class = "tab-pane active " id = "about_${room.p_id}" role = "tabpanel" >
@@ -119,13 +122,13 @@ export function render_room ( room, image_id, where, preview = false ) {
             <a  class = "btn btn-sm m-0 bg_orange horizontally_aligned right-block " id="pay_for_the_room"
                     title = "Save your changes" >
                 Save your changes
-            </a >
+            </a ><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
         </div >` );
 	}
 	
 }
 
-
+// ALERT FOR USER TO SHOW, HOW TO BLOCK DATES
 $ ( document ).on ( 'click', '#how_to_block_dates', function () {
 	swal.fire({
 		          title   : 'How to block some weeks.',
@@ -164,17 +167,6 @@ $ ( document ).on ( 'click', '.show_tabs', function () {
 	$ ( '#tabs_' + p_id ).toggleClass ( 'd-none d-md-block' );
 } );
 
-$ ( document ).on ( 'click', '.show_on_map', function () {
-	
-	var lat = $ ( this ).data ( 'lat' );
-	var lng = $ ( this ).data ( 'lng' );
-	var p_id = $ ( this ).data ( 'p_id' );
-	
-	create_map ( [ lat, lng ], 8, p_id );
-	
-	$ ( 'html, body' ).animate ( {
-		                             scrollTop: $ ( "#hero" ).offset ().top
-	                             }, 11 );
-} );
+
 
 

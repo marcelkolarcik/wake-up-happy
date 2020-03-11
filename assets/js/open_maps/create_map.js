@@ -88,8 +88,22 @@ export function create_map ( coordinates = null, zoom = null, show_p_id = null )
 	
 }
 
-
+//INITIAL MAP WITH CURRENT ROOMS
 $ ( function () {
-	if ( window.location.pathname === '/index.html' ) create_map ();
+	 create_map ();
+} );
+
+//WHEN USER CLICKS ON show on map BUTTON WHEN PREVIEWING THE ROOM WE WILL
+// RECREATE THE MARKERS WITH OPEN POPUP FOR CLICKED PROPERTY
+$ ( document ).on ( 'click', '.show_on_map', function () {
 	
+	var lat = $ ( this ).data ( 'lat' );
+	var lng = $ ( this ).data ( 'lng' );
+	var p_id = $ ( this ).data ( 'p_id' );
+	
+	create_map ( [ lat, lng ], 8, p_id );
+	
+	$ ( 'html, body' ).animate ( {
+		                             scrollTop: $ ( "#hero" ).offset ().top
+	                             }, 11 );
 } );
