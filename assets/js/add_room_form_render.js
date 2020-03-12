@@ -165,7 +165,7 @@ function render_board_types () {
 	for ( let board_type in board_types ) {
 		board_types_div.append ( `
 
-	<div class = "card col-lg-3 col-md-3 col-sm-6 col-6  text-center board_type_images d-none" >
+	<div class = "card col-lg-3 col-md-3 col-sm-6 col-6  text-center board_type_images services d-none" >
     <img src = "assets/images/board_types/${board_type}.jpg" class = "form_image img-thumbnail"
          alt = "${board_types[ board_type ]} image" >
          
@@ -223,7 +223,7 @@ function render_amenities () {
 		
 		amenities_div.append ( `
 
-		<div class = "card col-lg-4 col-md-6 col-sm-12 col-12 text-center amenities d-none" >
+		<div class = "card col-lg-4 col-md-6 col-sm-12 col-12 text-center amenities services d-none" >
 		
 		  <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 		  
@@ -270,7 +270,7 @@ function render_description () {
 	
 	description_div.append ( `
  
-						  <div class = "input-group mb-2 description d-none" >
+						  <div class = "input-group mb-2 description services d-none" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only"
                                 title="Write description of your room, min 30 -  max 300 characters." >
@@ -288,10 +288,8 @@ function render_description () {
                            
                       
                             <textarea name = "description" form = "add_your_room" maxlength="300" rows="4"
-                                      class = "form-control " id = "room_description"
-                                     
-                                      required >
-                               
+                                      class = "form-control " id = "room_description" required  >
+                              
                             </textarea >
                             
                            

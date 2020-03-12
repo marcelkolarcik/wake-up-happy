@@ -14,6 +14,7 @@ export function render_room ( room, image_id, where, preview = false ) {
 <div class = "card mb-3 mt-3" >
     <div class = "row no-gutters" >
         <div class = "col-md-4 vertically_aligned img-thumbnail" id="property_img">
+       
             <img src = "assets/images/bedrooms/b${room.room_style}.jpg" class = "card-img room_img" alt = "property image" >
             <h6 class = "bg_green text-light p-2 mt-2 text-center" >
 			from	${ room.price[ Object.keys ( room.price )[ 0 ] ]}&nbsp;EUR <!--getting first available price to display form-->
@@ -34,11 +35,11 @@ export function render_room ( room, image_id, where, preview = false ) {
 			>more...</span>
         </div >
         <div class = "col-md-8 d-none d-md-block parent" id="tabs_${room.p_id}" style = "position:relative" >
-            <div class = "list-group list-group-mine list-group-horizontal-lg" id = "myList" role = "tablist" >
+            <div class = "list-group  list-group-horizontal-lg"  role = "tablist" >
             
                 <a class = "list-group-item list-group-item-action active nav_link_property "
                    data-toggle = "list" href = "#about_${room.p_id}" role = "tab"
-                   title = "Informations about room" >About</a >
+                   title = "Informations about room" id="about" >About</a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property "
                    data-toggle = "list" href = "#gallery_${room.p_id}" role = "tab"
@@ -50,7 +51,7 @@ export function render_room ( room, image_id, where, preview = false ) {
                    
                 <a class = "list-group-item list-group-item-action nav_link_property "
                    data-toggle = "list" href = "#availability_${room.p_id}" role = "tab"
-                   title = "Preview the availability" >Availability</a >
+                   title = "Preview the availability" id="availability" >Availability</a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property "
                    data-toggle = "list" href = "#book_${room.p_id}" role = "tab" title = "Book your room !" >Book
@@ -59,9 +60,11 @@ export function render_room ( room, image_id, where, preview = false ) {
             </div >
             <div class = "tab-content" >
                 <div class = "tab-pane active " id = "about_${room.p_id}" role = "tabpanel" >
+                 <div id="save_changes" class="float-right"></div>
                     <div class = "card-body " >
                         	<span class="pl-2 d-none d-md-block text-capitalize" >
-											<h4 class="nav_link_property">		${  decodeURI ( room.p_address.property_name ) || decodeURI ( room.p_address.city )}  | ${room_types[ room.room_type ]}
+											<h4 class="nav_link_property">
+						${  decodeURI ( room.p_address.property_name ) || decodeURI ( room.p_address.city )}  | ${room_types[ room.room_type ]}
                                              </h4>
              				</span >
                         <p class = "card-text" >${  decodeURI ( room.p_description )}</p >
@@ -89,7 +92,8 @@ export function render_room ( room, image_id, where, preview = false ) {
 								
                                    ${sessionStorage.getItem ( 'edit_mode' ) ? `
 
- 									<button class = "btn btn-sm bg-secondary text-light horizontally_aligned right-block float-right " id="how_to_block_dates" title="Block selected dates">
+ 									<button class = "btn btn-sm bg-danger text-light horizontally_aligned right-block float-right "
+ 									id="how_to_block_dates" title="Block selected dates">
                                    How to block weeks ?
                                 </button >` : ''}
 								</div>
@@ -116,15 +120,7 @@ export function render_room ( room, image_id, where, preview = false ) {
 </div >
 ` );
 	
-	if ( sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname === '/owner.html' ) {
-		$ ( '#property_img' ).append ( ` <div class = "  text-center" >
-           
-            <a  class = "btn btn-sm m-0 bg_orange horizontally_aligned right-block " id="pay_for_the_room"
-                    title = "Save your changes" >
-                Save your changes
-            </a ><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-        </div >` );
-	}
+
 	
 }
 
@@ -139,7 +135,7 @@ $ ( document ).on ( 'click', '#how_to_block_dates', function () {
 		      	<p>2) Select the weeks you want to block. </p>
 		      	<p>3) Click on <strong class="nav_link_property">BOOK</strong></p>
 		      	<p>4) Click on &nbsp;
-           			<button type = "submit" id="block_dates" class = "btn bg_green_light horizontally_aligned right-block " title="Block selected dates">
+           			<button  class = "btn bg_green_light horizontally_aligned right-block " title="Block selected dates">
                                    Block selected dates
                      </button >
                  </p>
@@ -160,6 +156,7 @@ $ ( document ).on ( 'click', '#how_to_block_dates', function () {
 		`,
 		          showConfirmButton: false
 	          })
+	return false;
 });
 //ON MOBILE DEVICES, more... BUTTON TO SHOW TABS TO PREVIEW ROOM
 $ ( document ).on ( 'click', '.show_tabs', function () {

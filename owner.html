@@ -3,19 +3,19 @@
 <head >
     <title >Owner</title >
     <meta charset = "UTF-8" />
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
-    <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel = "stylesheet"
+    <meta content = "width=device-width, initial-scale=1.0" name = "viewport" >
+    <link crossorigin = "anonymous" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin = "anonymous" >
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-          integrity = "sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin = "anonymous" />
-    <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          rel = "stylesheet" >
+    <link crossorigin = "anonymous" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+          integrity = "sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" rel = "stylesheet" />
+    <link crossorigin = "" href = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity = "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin = "" />
-    <link rel = "stylesheet"
+          rel = "stylesheet" />
+    <link crossorigin = "anonymous"
           href = "https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css"
-          integrity = "sha256-2bAj1LMT7CXUYUwuEnqqooPb1W0Sw0uKMsqNH0HwMa4=" crossorigin = "anonymous" />
-    <link rel = "stylesheet" href = "assets/css/app.css" >
+          integrity = "sha256-2bAj1LMT7CXUYUwuEnqqooPb1W0Sw0uKMsqNH0HwMa4=" rel = "stylesheet" />
+    <link href = "assets/css/app.css" rel = "stylesheet" >
 </head >
 <body >
 <section id = "navigation" >
@@ -23,14 +23,14 @@
         <div class = "navigation container" >
             <nav class = "navbar navbar-expand-sm navbar-dark bg_green_light pb-0 nave" >
                 <a class = "navbar-brand" href = "index.html" >
-                    <img class = "d-none d-sm-block " src = "assets/images/logo_sm.png"
-                         alt = "logo image"
+                    <img alt = "logo image" class = "d-none d-sm-block "
+                         src = "assets/images/logo_sm.png"
                          title = "wake up happy | rooms with the view" >
-                    <img class = "d-sm-none" src = "assets/images/logo_xs.png" alt = "logo image"
+                    <img alt = "logo image" class = "d-sm-none" src = "assets/images/logo_xs.png"
                          title = "wake up happy | rooms with the view" >
                 </a >
-                <button class = "navbar-toggler " type = "button" data-toggle = "collapse" data-target = "#logo_cont"
-                        aria-controls = "logo_cont" aria-expanded = "false" aria-label = "Toggle navigation" >
+                <button aria-controls = "logo_cont" aria-expanded = "false" aria-label = "Toggle navigation" class = "navbar-toggler "
+                        data-target = "#logo_cont" data-toggle = "collapse" type = "button" >
                     <span class = "small_menu" >Menu</span >
                     <br >
                     <span class = "navbar-toggler-icon" ></span >
@@ -40,16 +40,16 @@
                     </ul >
                     <ul class = "navbar-nav vertically_aligned" >
                         <!--<li id = "add_room mb-1" >-->
-                            <!--<a class = "nav_link text-light mr-3 " href = "owner.html" title = "Add your room" >-->
-                                <!--add your room-->
-                            <!--</a >-->
+                        <!--<a class = "nav_link text-light mr-3 " href = "owner.html" title = "Add your room" >-->
+                        <!--add your room-->
+                        <!--</a >-->
                         <!--</li >-->
                         <li class = "nav-item dropdown mr-3" id = "languages" >
-                            <a class = "nav_link text-light dropdown-toggle caret-off" href = "#"
-                               data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" ><img
-                                    src = "assets/images/en_flag.png" style = "width:30px;"
-                                    alt = "logo image" ></a >
-                            <div class = "dropdown-menu dropdown-menu-right" aria-labelledby = "languages" >
+                            <a aria-expanded = "false" aria-haspopup = "true"
+                               class = "nav_link text-light dropdown-toggle caret-off" data-toggle = "dropdown" href = "#" ><img
+                                    alt = "logo image" src = "assets/images/en_flag.png"
+                                    style = "width:30px;" ></a >
+                            <div aria-labelledby = "languages" class = "dropdown-menu dropdown-menu-right" >
                                 <h6 class = "dropdown-header" >Change Languages</h6 >
                                 <div class = "dropdown-divider" ></div >
                                 <a class = "dropdown-item" href = "#" >English</a >
@@ -62,36 +62,38 @@
                     </ul >
                 </div >
             </nav >
-            
-           
         </div >
     </div >
 </section >
 <div class = "container" >
-    <div class="col-md-12 mb-1 bg_green_light text-center" id="hello" >
-        <span class="btn btn-sm text-danger float-right btn-warning" onclick="document.getElementById('hello').remove();">x</span>
-        <h5 class="float-left bg-danger text-light p-2 mr-1">NEW</h5>
+    <div class = "col-md-12 mb-1 bg_green_light text-center d-none" id = "hello" >
+        <span class = "btn btn-sm text-danger float-right btn-warning"
+              onclick = "document.getElementById('hello').remove();" >x
+        </span >
+        <h5 class = "float-left bg-danger text-light p-2" >NEW</h5 >
+        <h4 class = "text-light " >Do you live in Ireland ?</h4 >
         <br >
-        <h3 class="text-light ">If you have spare room and want to make up to €14,000 tax free, come and join thousands of happy landlords !</h3>
-        <a id="make_money" href = "#"  >more info</a >
-    </div>
+        <h3 class = "text-light " >If you have spare room and want to earn up to €14,000 tax free, come and join
+                                   thousands of happy landlords !</h3 >
+        <a href = "#" id = "make_money" >more info</a >
+    </div >
     <section id = "form_navigation_steps" >
-        <div class = "col-md-12 img-thumbnail bg-transparent" id = "step_description" >
+        <div class = "col-md-12 img-thumbnail bg-transparent " id = "step_description" >
             <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
                 <div class = "progress-bar   progress_step" title = "Choose your location" >1</div >
                 <div class = "progress-bar   bg-transparent step_divider" ></div >
-                <div class = "progress-bar progress_step empty" title = "Define your room" id = "progress_step_2" >2
+                <div class = "progress-bar progress_step empty" id = "progress_step_2" title = "Define your room" >2
                 </div >
                 <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" title = "Define your services" id = "progress_step_3" >
+                <div class = "progress-bar progress_step empty" id = "progress_step_3" title = "Define your services" >
                     3
                 </div >
                 <div class = "progress-bar  step_divider bg-transparent " ></div >
-                <div class = "progress-bar progress_step empty" title = "Preview your work of art!"
-                     id = "progress_step_4" >4
+                <div class = "progress-bar progress_step empty" id = "progress_step_4"
+                     title = "Preview your work of art!" >4
                 </div >
                 <div class = "progress-bar  step_divider bg-transparent progress_step_5" ></div >
-                <div class = "progress-bar progress_step empty progress_step_5" title = "Pay !" id = "progress_step_5" >
+                <div class = "progress-bar progress_step empty progress_step_5" id = "progress_step_5" title = "Pay !" >
                     5
                 </div >
             </div >
@@ -107,35 +109,13 @@
                 <div class = "progress-bar progress_step p_description progress_step_5" >Payment</div >
             </div >
             <div class = "card" >
-                <div id = "room_actions" class = " text-center" > </div >
-                <div id = "how_to" class="text-center" > </div >
-               
-            </div >
-            <div class = "row no-gutters mb-1 mt-1" >
-                <div id = "steps" class = "horizontally_aligned" >
-                    <div class = "list-group list-group-horizontal  " id = "add_room_tabs" role = "tablist" >
-                        <a class = "list-group-item list-group-item-action p-1 active step " data-toggle = "list"
-                           href = "#get_address2"
-                           role = "tab" id = "step_1" data-step = "location"  data-step_id = "1" title = "Choose your location" >location </a >
-                        <a class = "list-group-item list-group-item-action p-1 d-none  step" data-toggle = "list"
-                           href = "#room"
-                           role = "tab" id = "step_2" data-step = "room" data-step_id = "2" title = "Define your room" > room</a >
-                        <a class = "list-group-item list-group-item-action p-1  d-none step" data-toggle = "list"
-                           href = "#services"
-                           role = "tab" id = "step_3" data-step = "services" data-step_id = "3" title = "Define your services" > services</a >
-                        <a class = "list-group-item list-group-item-action p-1 d-none step preview_room"
-                           data-toggle = "list" href = "#preview"
-                           role = "tab" id = "step_4" data-step = "preview" data-step_id = "4" title = "Preview your work of art!" >preview</a >
-                        <a class = "list-group-item list-group-item-action p-1  d-none step" data-toggle = "list"
-                           href = "#payment"
-                           role = "tab" id = "step_5" data-step = "payment" data-step_id = "5" title = "Pay !" >payment</a >
-                    </div >
-                </div >
+                <div class = " text-center" id = "room_actions" ></div >
+                <div class = "text-center" id = "how_to" ></div >
             </div >
         </div >
     </section >
     <section id = "content" >
-        <form id = "add_your_room" onsubmit = "return checkForm(this);" >
+        <form id = "add_your_room" >
             <div class = "row no-gutters" >
                 <!-- Tab panes -->
                 <div class = "tab-content col-md-12" >
@@ -145,8 +125,8 @@
                                 <div id = "mapid" style = "width: 100%; height: 400px;" ></div >
                             </div >
                             <div class = "col-md-4 col-sm-12 img-thumbnail " >
-                                <div id = "location_details"
-                                     class = "d-flex justify-content-center align-items-center" >
+                                <div class = "d-flex justify-content-center align-items-center"
+                                     id = "location_details" >
                                     <div class = "how-to img-thumbnail" >
                                         <h4 >Your location details will display here !</h4 >
                                     </div >
@@ -192,32 +172,60 @@
                         </div >
                     </div >
                     <div class = "tab-pane" id = "preview" role = "tabpanel" ></div >
-                    <div class = "tab-pane" id = "payment" role = "tabpanel" > </div >
-                   
+                    <div class = "tab-pane" id = "payment" role = "tabpanel" ></div >
+                </div >
+            </div >
+            <div class = "d-flex justify-content-center" id = "steps" >
+                <div class = "list-group list-group-horizontal " id = "add_room_tabs" role = "tablist" >
+                    <a class = "list-group-item list-group-item-action p-1   active step " data-step = "location"
+                       data-step_id = "1"
+                       data-toggle = "list" href = "#get_address2" id = "step_1" role = "tab"
+                       title = "Choose your location" >location </a >
+                    <a class = "list-group-item list-group-item-action p-1 d-none  step" data-step = "room"
+                       data-step_id = "2"
+                       data-toggle = "list" href = "#room" id = "step_2" role = "tab" title = "Define your room" >
+                        room</a >
+                    <a class = "list-group-item list-group-item-action p-1  d-none step" data-step = "services"
+                       data-step_id = "3"
+                       data-toggle = "list" href = "#services" id = "step_3" role = "tab"
+                       title = "Define your services" > services</a >
+                    <a class = "list-group-item list-group-item-action p-1 d-none step preview_room"
+                       data-step = "preview" data-step_id = "4"
+                       data-toggle = "list" href = "#preview" id = "step_4" role = "tab"
+                       title = "Preview your work of art!" >preview</a >
+                    <a class = "list-group-item list-group-item-action p-1  d-none step" data-step = "payment"
+                       data-step_id = "5"
+                       data-toggle = "list" href = "#payment" id = "step_5" role = "tab" title = "Pay !" >payment</a >
+                    <a class = "ml-1 list-group-item  list-group-item-action  bg_orange p-1 d-none "
+                       
+                       id = "pay_for_the_room"  title = "Save your changes !" >Update</a >
                 </div >
             </div >
         </form >
     </section >
+    <section id="footer" style="height: 500px;">
+    
+    </section>
 </div >
-<script src = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+<script crossorigin = ""
         integrity = "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin = "" ></script >
+        src = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" ></script >
 <script
-        src = "https://code.jquery.com/jquery-3.4.1.js"
+        crossorigin = "anonymous"
         integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin = "anonymous" ></script >
-<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        src = "https://code.jquery.com/jquery-3.4.1.js" ></script >
+<script crossorigin = "anonymous"
         integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin = "anonymous" ></script >
+        src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script >
 <script src = "https://cdn.jsdelivr.net/npm/sweetalert2@9" ></script >
 <script src = "assets/js/open_maps/get_location.js" ></script >
+<script src = "assets/js/render_index.js" type = "module" ></script >
 <script src = "assets/js/add_room_helpers.js" ></script >
 <script src = "assets/js/booking_helpers.js" ></script >
 <script src = "assets/js/check_form.js" ></script >
 <script src = "assets/js/added_room_preview.js" type = "module" ></script >
 <script src = "assets/js/add_room_form_render.js" type = "module" ></script >
 <script src = "assets/js/getWeek.js" ></script >
-<script src = "assets/js/render_index.js" type = "module" ></script >
 <script src = "assets/js/add_room_payment_form.js" ></script >
 <script src = "assets/js/authorizations.js" ></script >
 <script src = "assets/js/navigation.js" ></script >

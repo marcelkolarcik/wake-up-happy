@@ -292,10 +292,13 @@ input:hover, select:hover {
 	color: #ffffff;
 	}
 
-.show_content {
+#pay_for_the_room,.show_content {
 	cursor: pointer;
 	}
-
+#pay_for_the_room:hover{
+	background-color: rgba(0, 195, 209, 1);
+	color:#fafafa;
+	}
 .images.carousel {
 	}
 

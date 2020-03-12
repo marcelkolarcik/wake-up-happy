@@ -25,6 +25,7 @@ function set_price ( p_id, index ) {
 	//			FEEDBACK TO USER ON BOOKING CALENDAR ABOUT THE TOTAL PRICE FOR THE BOOKING
 	$ ( "#preview_total_price_" + p_id ).html ( num_of_selected_weeks * board_price +" EUR" );
 	
+	
 //	WEEKS ON BOOKING CALENDAR
 	var week = $ ( '.week' );
 	week.data ( 'price', board_price );
@@ -71,7 +72,7 @@ function selected_weeks(p_id)
 					
 					            title: 'Oops...',
 					            text : 'Please, select board!',
-					            type : 'warning'
+					            icon : 'warning'
 					
 				            } );
 				return;
@@ -215,21 +216,15 @@ function confirm_payment ( status, p_id, contactForm, room_style ) {
 			sessionStorage.setItem ( 'room_to_edit', JSON.stringify(room) );
 			
 //			IF OWNER WANTS TO BLOCK SOME DATES WE WILL FIRE THIS ALERT
-			if(sessionStorage.getItem('block_dates_mode'))
+			if(sessionStorage.getItem('edit_mode'))
 			{
 				swal.fire({
-					html:` <div class="card-body">
-									 <p class="card-title nav_link_property">Your dates were booked !</p>
-									 <table class="table table-sm">
-										<tr>
-									 		<td> <span class="nav_link_property">Week:</span></td>
-									 		<td><span>${contactForm.weeks.value}</span></td>
-										</tr>
-								
-									</table>
-									 <div class="card-footer bg-transparent pb-0 mb-0">
-										 <a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
-									</div>
+					html:` <div >
+									 <p class="card-title nav_link_property">Your dates were blocked !</p>
+									 <hr >
+									 <span class="nav_link_property">Week(s): ${contactForm.weeks.value}</span>
+									  <hr >
+									<a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
 							 </div>`,
 					          showConfirmButton: false
 				          })

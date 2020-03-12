@@ -1,5 +1,6 @@
 (
 	function () {
+		
 		/*INITIAL COORDINATES OF THE MAP WITH ZOOM 6 */
 		var mymap = L.map ( 'mapid' ).setView ( [ 53.505, -8.49 ], 6 );
 		
@@ -18,13 +19,20 @@
 		                      } );
 		
 		mymap.on ( 'click', getCoordinates );
-
+		
 //WHEN USER CLICKS ON THE MAP WHEN SELECTING THE LOCATION OF THE PROPERTY ON owner.html
 // POPUP WILL SHOW WITH COORDINATES AND get details BUTTON*/
+		
 		function getCoordinates ( e ) {
+		
+//		    by clicking on map  59 characters are added to description text area, so this is to clear it
+//			NOT QUITE SURE WHY....
+			$ ( '#room_description' ).html ( '' ).prop ( 'placeholder', 'Write description of your room, min 30 -  max 300 characters.' );
 			
 			$ ( '#location_details' ).html ( '' );
+			
 			var coordinates = e.latlng.toString ().replace ( 'LatLng(', '' ).replace ( ')', '' ).replace ( ' ', '' ).split ( ',' );
+			
 			popup
 				.setLatLng ( e.latlng )
 				.setContent ( "Coordinates : " + coordinates[ 0 ] + ',' + coordinates[ 1 ] +
@@ -39,9 +47,15 @@
 			var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coordinates[ 0 ]}&lon=${coordinates[ 1 ]}`;
 			
 			$ ( '#get_address' ).removeClass ( 'd-none' ).on ( 'click', function () {
+				
 				getAddress ( url, coordinates );
 				
+//				TO PREVENT PAGE FROM RELOADING AND CLEARING LOCATION DETAILS FROM THE FORM
+				return false;
+				
 			} );
+			
+			
 		}
 		
 		
@@ -65,6 +79,7 @@
 			
 			xhr.open ( "GET", url );
 			xhr.send ();
+			
 		}
 		
 	} ) ();
@@ -84,7 +99,7 @@ $ ( function () {
 		 /*IF OWNER IS PREVIEWING OR EDITING ROOM, THERE IS NO NEED FOR PAYMENT STEP*/
 
 		$ ( '.progress_step_5' ).addClass ( 'd-none' ); // PAYMENT
-		$ ( '.progress_step_4' ).html ( `Preview <br> Save` );
+		
 		
 		/*DATA TO RENDER LOCATION  DETAILS OF THE ROOM*/
 		location_data = room.p_address;
@@ -176,8 +191,7 @@ function render_location_details ( location_data, coordinates, owner = false ) {
         </div >
 					` );
 	
-	//		by clicking on map 60 characters added to description text area, so this is to clear it
-	$ ( '#room_description' ).html ( '' ).prop ( 'placeholder', 'write something !' );
+	
 }
 
 

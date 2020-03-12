@@ -2,8 +2,8 @@
 $ ( document ).on ( "click", ".show_content", function () {
 	
 	var hidden_class = $ ( this ).data ( 'hidden_class' );
-	
-	$ ( '.' + hidden_class ).toggleClass ( 'd-none' );
+	$('.services').addClass('d-none');
+	$ ( '.' + hidden_class).toggleClass ( 'd-none' );
 } );
 
 //toggling size of images on form
@@ -271,8 +271,7 @@ $ ( document ).on ( 'input', '#property_name', function () {
 			              is_ready_for_step_4 ( num_of_prices, num_of_amenities, $ ( '#room_description' ).val ().length );
 			
 		              } );
-		
-		
+
 //		ROOM DESCRIPTION MUST BE AT LEAST 30 CHARACTERS LONG,
 //		IF IT REACHES 30 CHARACTERS =>
 //      1. CHANGING COLOR OF REMAINING CHARACTERS COUNTER TO.text-success
@@ -322,186 +321,82 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc ) {
 }
 
 
-//FORM PROGRESS (STEPS) BUTTONS
+//FORM PROGRESS (STEPS) BUTTONS APPEARANCE
 (
 	function () {
 		
-		
-		
-		var steps = [];
 		var step_names = [ 'location', 'room', 'services', 'preview', 'payment' ];
 		
-		var step_desc = [
-			`
-                    <span class="nav_link">How to:</span>
-              Find location of your property on the map and then click the map to display coordinates.
-              Then click on
-                <button class = "bg_orange" >get details</button >
-                button, to display location details.
-                 <span class = "bg-danger text-light  p-1" >
-                Remember to add your property name! (min 3 characters) to be able to continue to next step.</span >
-                You can correct these details.
-                Once you're happy with the location details, click on
-                   <span class="green">room&nbsp;>>></span> `,
-			
-			`<span class="nav_link">How to:</span>Define your room by selecting appropriate radio buttons. Once all options are selected
-	<span class="green">services&nbsp;>>></span> will appear and you can progress to next step.
-
-		
-			    `,
-			`<span class="nav_link">How to:</span>Define your services by selecting appropriate check buttons.
-	<span class = "bg-danger text-light  p-1" > When selecting board type,
-		you must enter price for the board.</span>
- 		You can select multiple options.
- 
- 		When at least one of each options are selected and description is entered
-	<span class="green">preview&nbsp;>>></span> will appear and you can progress to next step.
-	<span class = "bg-danger text-light  p-1" >Description of the room must be at least 30 characters!</span>
-
-		`,
-			`<span class="nav_link">How to:</span>Preview your work of art, by clicking on the tabs
-   <span class="nav_link_property"> ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK.</span>
-  Once you
-are happy with your work, you can click on
-	<span class="green">payment&nbsp;>>></span> proceed with payment.
-
-		`,
-			`<span class="nav_link">How to:</span>Here you can proceed with payment. Thank you for choosing <b>wake up happy!</b>`
-			,
-			`<span class="nav_link">How to:</span>Edit your room to your liking and when you are
- ready to save it, click on <span class="img-thumbnail">preview</span> button, and then on
- 
- 		<a  class = "btn btn-sm m-0 bg_orange horizontally_aligned right-block "
-                    title = "Save your changes" >
-                Save your changes
-            </a >`
-			,
-			`<span class="nav_link">How to:</span>You are previewing your room , if you would
-like to edit it, click on <button class = " no_padding bg-secondary text-light " ><i class="far fa-edit"></i> Edit</button > button`
-			
-			,
-			`<span class="nav_link">How to:</span>If you want to block some dates click on
-  <button class = " no_padding bg-secondary text-light " ><i class="far fa-edit"></i> Edit</button > above, then click on
-               <span class="img-thumbnail">preview</span >, then click on <strong class="nav_link_property">AVAILABILITY</strong>
-                button. `
-		];
-		var how_to = $ ( '#how_to' );
-		var how_alert = $ ( '#how_alert' );
-		
-		
-		// PUBLIC USER ADDING ROOM
-//		if ( !sessionStorage.getItem ( 'authorized_user' ) ) {
-//
-//			how_to.html ( `${step_desc[ 0 ]}` );
-//			how_alert.data ( 'step', 'add_mode' );
-//
-//		}
-		// LOGGED IN USER EDITING ROOM
-//		if ( sessionStorage.getItem ( 'edit_mode' ) ) {
-//			how_to.html ( `${step_desc[ 5 ]}` );
-//			how_alert.data ( 'step', 'edit_mode' );
-//		}
-		// LOGGED IN USER PREVIEWING ROOM
-//		if ( sessionStorage.getItem ( 'preview_mode' ) ) {
-//			if ( (
-//				sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' ) !== null ) )
-//				how_to.html ( `${step_desc[ 6 ]}` );
-//			how_alert.data ( 'step', 'preview_mode' );
-//
-//		}
-		// LOGGED IN USER ADDING ROOM
-//		if ( sessionStorage.getItem ( 'add_mode' ) ) how_to.html ( `${step_desc[ 0 ]}` );
-		// LOGGED IN USER BLOCKING DATES
-//		if ( sessionStorage.getItem ( 'block_mode' ) ) {
-//			how_to.html ( `${step_desc[ 7 ]}` );
-//			$ ( '#steps' ).html ( '' );
-//			how_alert.data ( 'step', 'block_mode' );
-//		}
-		
 //		location,room,services,preview,payment steps
-//		ADDING HOW-TO DESCRIPTION FOR EACH STEP , DEPENDING ON STEP CLICKED
+
 		$ ( document ).on ( 'click', '.step', function () {
-		
+			
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+
 //			SETTING CURRENT PROGRESS STEP ON HOW-TO BUTTON =>
 //			WHEN USER CLICKS ON HOW-TO BUTTON, WE'LL RETRIEVE CURRENT STEP AND
-//			DISPLAY CORRESPONDING DESCRIPTION OF THE STEP room_actions.js lines 213 -> ...
-			$ ( '#how_alert' ).data ( 'step', $(this).data('step') );
+//			DISPLAY CORRESPONDING DESCRIPTION OF THE STEP room_actions.js lines 145 -> ...
+			$ ( '#how_alert' ).data ( 'step', $ ( this ).data ( 'step' ) );
 			
+			var step_id = $ ( this ).data ( 'step_id' );
 			
-		var step_id = $(this).data('step_id');
-			if ( (
-				!sessionStorage.getItem ( 'edit_mode' ) && !sessionStorage.getItem ( 'preview_mode' ) ) ) {
-				//how_to.html ( `${step_desc[ step_id - 1 ]}` );
-				
-			}
-//			PREVIEWING OR EDITING NEW ROOM
-			if ( (
-				sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'preview_mode' ) ) ) {
-				
-				
-				
-				$ ( '#progress_step_' + step_id ).removeClass ( 'empty' );
-				if ( step_id === 4 ) {
-					
-					$ ( '#progress_step_5' ).removeClass ( 'empty' );
-					
-				}
-//			LOGGED IN OWNER'S ROOM DATA
-				var room = !sessionStorage.getItem ( 'room_to_edit' ) ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
-				
-				if ( room ) {
-					
-					$ ( '#room_description' ).html ( room.p_description );
-				}
-				
-				if ( step_id === 5 ) {
-					add_room_payment_form ();
-					
-				}
-			}
-//			ADDING NEW ROOM
-			else {
-				var next_step = $ ( '#step_' + (
-				                    step_id + 1 ) );
-				
-				steps.push ( step_id );
-				//remove_white_space_from_description ();
 //			PROGRESS STEP BAR ON THE TOP OF THE PAGE, CIRCLES WITH NUMBERS 1->5
-//				WHEN USER CLICKS ON THE STEP , CIRCLE WILL CHANGE COLOR TO GREEN
-				$ ( '#progress_step_' + step_id ).removeClass ( 'empty' );
+//			AS USER PROGRESSES THROUGH THE FORM , CIRCLES WILL CHANGE COLOR FORM WHITE BG TO GREEN BG
+			$ ( '#progress_step_' + step_id ).removeClass ( 'empty' );
+			
+//              WHEN OWNER IS PREVIEWING ROOM NEWLY CREATED ROOM, HE IS READY FOR PAYMENT, SO WE DISPLAY payment button
+			if ( step_id === 4 && sessionStorage.getItem ( 'add_mode' )) $ ( '#step_5' ).removeClass ( 'd-none' );
+			
+//              WHEN OWNER wWANTS TO BLOCK SOME WEEKS WE WILL DISPLAY pay_for_the_room button
+			if ( step_id === 4 && sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname === '/owner.html' ) {
+				$ ( '#pay_for_the_room' ).removeClass ( 'd-none' );
 				
-				if ( step_id ) {
-					
-					next_step.html ( step_names[ step_id ] + '&nbsp;>>>' ).addClass ( 'no_border green' );
-					$ ( this ).html ( step_names[ step_id - 1 ] ).removeClass ( 'no_border green' );
-					
-				}
-				//		ADDING HOW-TO DESCRIPTION FOR EACH STEP , DEPENDING ON STEP CLICKED
-				if ( sessionStorage.getItem ( 'edit_mode' ) ) {
-					//how_to.html ( `${step_desc[ step_id - 1 ]}` );
-					how_alert.data ( 'step', 'edit_mode' );
-				}
+			}
+			
+//              WHEN OWNER CLICKS ON location,room,services BUTTON, WE WILL REMOVE payment BUTTON,
+//				BECAUSE HE COULD BE MAKING CHANGES FOR THE ROOM, AND IF HE DIDN'T CLICK ON PREVIEW
+//				BUTTON, BUT STRAIGHT ON payment BUTTON, THE CHANGES WOULDN'T BE RECOGNIZED
+//				BECAUSE, BY CLICKING ON preview BUTTON, WE ARE CREATING new_room OBJECT
+//				FROM THE DATA IN THE FORM, AND WHEN OWNER DECIDES TO PAY,
+//				WE ARE STORING new_room INTO localStorage
+//				SO preview BUTTON HAS SAVE YOUR CHANGES FUNCTIONALITY
+			else if( step_id < 4){
+				$ ( '#step_5' ).addClass ( 'd-none' );
 				
-				if ( step_id === '2' ) {
-					
-					$ ( '#step_1' ).removeClass ( 'd-none' );
-					$ ( this ).removeClass ( 'bg-success text-light' );
-					
-					
-					
-				}
-				if ( step_id === 3 && sessionStorage.getItem ( 'ready_for_step_4' ) === true ) $ ( '#step_4' ).removeClass ( 'd-none' );
-				if ( step_id === 4 ) $ ( '#step_5' ).removeClass ( 'd-none' );
+//				SAME GOES FOR EDITING ROOM
+				$ ( '#pay_for_the_room' ).addClass ( 'd-none' );
+			}
+			
+//			RENDERING PAYMENT FORM WHEN OWNER CLICK ON PAYMENT BUTTON
+			if ( step_id === 5 ) {
+				add_room_payment_form ();
 				
-				if ( step_id === 5 ) add_room_payment_form ();
+			}
+			
+//			LOGGED IN OWNER'S ROOM DATA
+			var room = !sessionStorage.getItem ( 'room_to_edit' ) ? null : JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
+			
+			if ( room ) {
+//				RENDERING ROOM DESCRIPTION
+				$ ( '#room_description' ).html ( room.p_description );
+			}
+
+			///ADDING NEW ROOM
+			if(sessionStorage.getItem ( 'add_mode' )) {
 				
-				if ( steps.indexOf ( step_id + 1 ) !== -1 ) next_step.removeClass ( 'd-none' );
+				var next_step = $ ( '#step_' + ( step_id + 1 ) );
+				
+//				CHANGING APPEARANCE OF THE location,room,services,preview,payment STEPS
+//				DEPENDING ON WHICH ONE WAS CURRENTLY CLICKED
+				next_step.html ( step_names[ step_id ] + '&nbsp;>>>' ).addClass ( 'no_border green' );
+				$ ( this ).html ( step_names[ step_id - 1 ] ).removeClass ( 'no_border green' );
+
+				
 			}
 			
 		} );
 		
 	} ) ();
-
 
 
 function update () {
@@ -637,7 +532,6 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function () {
 
 
 function check_autocomplete ( new_room ) {
-
 
 //  ARRAY OF LOCATION NAMES, AUTO-UPDATING WITH EVERY NEW LOCATION, SO WHEN USER SEARCHES FOR LOCATION IN
 	// SEARCH FORM ON index.html , IF THE LOCATION IS IN THIS ARRAY, IT WILL SHOW ON AUTO-COMPLETE
