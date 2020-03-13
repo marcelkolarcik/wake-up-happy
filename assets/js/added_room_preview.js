@@ -1,9 +1,11 @@
+/*WHEN OWNER CLICKS ON preview BUTTON, WE WILL CREATE AND RENDER ROOM FOR PREVIEWING
+ * OWNER COULD BE PREVIEWING, EDITING OR ADDING NEW ROOM, IF ADDING NEW ROOM
+ * NEW room_id WILL BE JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length
+ * OTHERWISE WE WILL RETRIEVE room_id FORM CURRENT ROOM*/
+
 import { render_index } from "./render_index.js";
 
-/*WHEN OWNER CLICKS ON preview BUTTON, WE WILL CREATE AND RENDER ROOM FOR PREVIEWING
-* OWNER COULD BE PREVIEWING, EDITING OR ADDING NEW ROOM, IF ADDING NEW ROOM
-* NEW ROOM ID WILL BE JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length
-* OTHERWISE WE WILL RETRIEVE IT FORM CURRENT ROOM*/
+
 
 $ ( document ).on ( 'click', '.preview_room', function () {
 	
@@ -43,7 +45,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 			amenities.push ( parseInt(value) );
 		}
 		else if ( key === 'view_type' ) {
-			room[ 'p_view' ] = value; // (1,2,3....16)
+			room[ 'p_view' ] = value; // (1 || 2 || 3....16)
 		}
 		else if ( key === 'description' ) {
 			room[ 'p_description' ] = decodeURIComponent(value);
@@ -94,7 +96,7 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	var searchables = [];
 	
 	
-	//	address_keys FOR CREATING SEARCHABLE ARRAY FOR THE ROOM ( EX. 'city','country','village','town')
+	//	address_keys ( FILTER ) FOR CREATING SEARCHABLE ARRAY FOR THE ROOM ( EX. 'city','country','village','town')
 	// FROM THE ADDRESS DETAILS PROVIDED BY nominatim, WITHOUT KEYS LIKE (lat,lng, road....)
 	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
 	
@@ -121,11 +123,11 @@ $ ( document ).on ( 'click', '.preview_room', function () {
 	
 	room[ 'searchables' ] = searchables;
 	
-	// SETTING new_room TO SESSION, FOR WHEN OWNER DECIDES TO GO AHEAD AND ADD AND PAY FOR THE ROOM,
+	// SETTING new_room TO SESSION, FOR WHEN OWNER DECIDES TO GO AHEAD AND PAY FOR THE ADDING THE ROOM TO THE SITE
 	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
 	
-	// WE'LL RETRIEVE new_room FROM THE SESSION AND STORE IT
-	// IN localStorage IN add_room_helpers.js (line 555 +)
+	//LATER AFTER PAYMENT WE'LL RETRIEVE new_room FROM THE sessionStorage AND STORE IT
+	// IN localStorage IN add_room_helpers.js  LINE NUMBER ~ 423
 	
 	
 //	RENDERING ROOM FOR PREVIEW

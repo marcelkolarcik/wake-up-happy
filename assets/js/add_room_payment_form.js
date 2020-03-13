@@ -1,8 +1,13 @@
+/*RENDERING ADD_ROOM_PAYMENT FORM,
+IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM,
+ NO NEED FOR EMAIL AND PASSWORD*/
+
+
 function add_room_payment_form ()
 {
 	var payment = $('#payment');
 	var owner = JSON.parse(sessionStorage.getItem('authorized_owner')) ;
-	<!--RENDERING ADD_ROOM_PAYMENT FORM, IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM, NO NEED FOR EMAIL AND PASSWORD-->
+	
 	payment.html('').append(`
 			<form id="add_room_payment_form">
    <div class = "bg_green text-light text-center mt-1 mb-3" >

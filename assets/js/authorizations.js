@@ -1,9 +1,34 @@
-/*LOGIN FORM*/
-$ ( document ).on ( 'click', '#login_details', function () {
+/*WE HAVE USER SYSTEM ON THE SITE
+ *
+ * AFTER SUCCESSFUL PAYMENT
+ * WHEN OWNER ADDS ROOM TO THE SITE AND PAYS FEE,
+ * WE CREATE NEW OWNER OBJECT AND STORE IT TO OWNERS OBJECT
+ * IN localStorage
+ *
+ * NEW OWNER IS SET AS authorized_owner ,
+ * HE IS LOGGED INTO HIS ACCOUNT WITH HASHED EMAIL AND PASSWORD
+ * PROVIDED WHEN PAYING FOR THE ROOM
+ *
+ * HE HAS OPTION OF LOGGING OUT => WE WILL CLEAR sessionStorage
+ * REMOVE authorized_owner FROM sessionStorage
+ *
+ * THEN HE CAN LOGIN AGAIN
+ * WE WILL HASH EMAIL AND PASSWORD PROVIDED WHEN LOGGING IN
+ * AND COMPARE IT WITH OWNERS OBJECT FROM localStorage
+ * AND IF WE HAVE KEY === hashed(email+password)
+ * WE WILL LOG OWNER INTO HIS ACCOUT
+ *
+ * OTHERWISE ALERT WILL POP INFORMING USER THAT
+ * WE DON'T HAVE USER WITH THIS CREDENTIALS
+ */
+
+
+$ ( document ).on ( 'click', '#login_details', function ()
+{
 	swal.fire ( {
-		            position: 'top-end',
+		            position : 'top-end',
 		
-		            html             : `
+		            html              : `
 			<h4>Owner login</h4>
 			<form id="login_form">
 				<div class = "col-auto" >
@@ -40,24 +65,30 @@ $ ( document ).on ( 'click', '#login_details', function () {
 		            </a >
         		</div >
 		</form>`,
-		            showConfirmButton: false
+		            showConfirmButton : false
 	            } );
 } );
 
 // WHEN USER CLICKS ON LOGIN BUTTON, WE'LL CHECK HIS CREDENTIALS
 // IF WE HAVE USER WE'LL LOG HIM IN, OTHERWISE FIRE ALERT
 // WITH NOTIFICATION THAT HE CAN REGISTER OR CHECK HIS INPUT
-$ ( document ).on ( 'click', '#login', function () {
+$ ( document ).on ( 'click', '#login', function ()
+{
 	var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
-	if ( owners === null ) {
-		not_registered ();
-		return;
-	}
+	
+	/*IF USER TRYING TO LOG IN AND THERE IS NO OWNERS OBJECT
+	 IN localStorage YET, WE WILL ALERT WITH POPUP not_registered ()*/
+	if ( owners === null )
+		{
+			not_registered ();
+			return;
+		}
+	/*AFTER CLICKING ON login BUTTON WE WILL CLOSE LOGIN FORM*/
 	swal.close ();
 	
 	var form_data = $ ( '#login_form' ).serialize ().split ( '&' );
-	var email = form_data[ 0 ].split ( '=' )[ 1 ];
-	var password = form_data[ 1 ].split ( '=' )[ 1 ];
+	var email     = form_data[ 0 ].split ( '=' )[ 1 ];
+	var password  = form_data[ 1 ].split ( '=' )[ 1 ];
 	
 	var login = decodeURIComponent ( email ) + decodeURIComponent ( password );
 	
@@ -68,91 +99,124 @@ $ ( document ).on ( 'click', '#login', function () {
 	
 	//	WE ARE CHECKING IF WE HAVE USER WITH THESE CREDENTIALS
 	// IF WE DO WE WILL REDIRECT TO owner.html
-	if ( owner ) {
-		authorize_owner ( owner ,hashed_login);
-	}
-	else {
-		not_registered ();
-	}
+	if ( owner )
+		{
+			authorize_owner ( owner, hashed_login );
+		}
+	
+	/*ELSE WE WILL ALERT WITH POPUP not_registered ()*/
+	else
+		{
+			not_registered ();
+		}
 	
 } );
 
-// WHEN USER LOGS OUT, WE'LL CLEAR SESSION AND LOG HIM OUT
-$ ( document ).on ( 'click', '#logout', function () {
-	sessionStorage.clear();
-	sessionStorage.setItem('add_mode',true);
-	window.location.reload();
+/*WHEN USER LOGS OUT, WE'LL CLEAR SESSION AND LOG HIM OUT
+* authorized_owner WILL BE CLEARED FROM SESSION
+* AMONG OTHER ITEMS IN THE sessionStorage*/
+$ ( document ).on ( 'click', '#logout', function ()
+{
+	
+	sessionStorage.clear ();
+	sessionStorage.setItem ( 'add_mode', true );
+	window.location.reload ();
 	
 } );
+
 
 // FUNCTION TO HASH LOGIN DETAILS, EXAMPLE FROM stackoverflow.com
-function hash_login ( string ) {
-	//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
-	hashed_string = string.split ( '' ).reduce ( ( a, b ) => {
-		a = (
-			    (
-				    a << 5 ) - a ) + b.charCodeAt ( 0 );
-		return a & a;
-	}, 0 );
-	
-	return hashed_string;
-}
-
-// USER IS NOT REGISTERED OR CREDENTIALS ARE WRONG, FIRING ALERT TO NOTIFY OWNER
-function not_registered () {
-	swal.fire ( {
-		            position: 'top-end',
-		            title   : 'Not registered yet?',
-		
-		            html             : `
-				<div class = "col-auto" >
-		       No Problem! <hr class="bg_green">
-		       Just take the first step.... <br>
-		       <a href="/owner.html"  class="add_your_room" title="Add your room now!">Right on this site !</a>
-		        </div >
-		        <hr class="bg_green">
-		         <div class = "col-auto text-center" >
-		        
-           			Select location of your property first !
-           			<br>
-           			<br>
-		            <a  href="/owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room"  id="ok" onclick="swal.close()"
-		                   title="Add your room now!" >
-		               ok
-		            </a >
-        		</div >
-        		 <hr >
-        	<small> If you are already registered, check your login credentials, or CAPS Lock...;-) </small>
-		`,
-		            showConfirmButton: false
-		
-	            } );
-}
-
-// AUTHORIZING OWNER AFTER LOGIN
-function authorize_owner ( owner ,hashed_login) {
-	
-	
-	sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
-	sessionStorage.setItem('preview_mode',true);
-	
-	
-    var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
-	var room = ROOMS[owner.room_id];
-	
-//	IF OWNER HAS ROOM, WE'LL SET IT AS room_to_edit TO sessionStorage
-	if(ROOMS[owner.room_id] !== null){
-		sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
-		
-	}
-	else
+function hash_login ( string )
 	{
-		sessionStorage.setItem ( 'room_to_edit', null );
+		//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+		hashed_string = string.split ( '' ).reduce ( ( a, b ) =>
+		                                             {
+			                                             a = (
+				                                                 (
+					                                                 a << 5 ) - a ) + b.charCodeAt ( 0 );
+			                                             return a & a;
+		                                             }, 0 );
+		
+		return hashed_string;
 	}
-	
-//	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE....
-	sessionStorage.setItem ( 'hashed_login', hashed_login );
-	window.location.replace ( "/owner.html" );
-	
-	
-}
+
+
+// USER IS NOT REGISTERED OR CREDENTIALS ARE WRONG, FIRING ALERT TO NOTIFY USER
+function not_registered ()
+	{
+		swal.fire ( {
+			            position : 'top-end',
+			            title    : 'Not registered yet?',
+			
+			            html : `
+									<div class = "col-auto" >
+									    No Problem!
+									    <hr class = "bg_green" >
+									    Just take the first step.... <br >
+									    <a class = "add_your_room" href = "/owner.html" title = "Add your room now!" >Right on this site !</a >
+									</div >
+									<hr class = "bg_green" >
+									<div class = "col-auto text-center" >
+									    Select location of your property first !
+									    <br >
+									    <br >
+									    <a href = "/owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room" id = "ok"
+									       onclick = "swal.close()"
+									       title = "Add your room now!" >
+									        ok
+									    </a >
+									</div >
+									<hr >
+									<small > If you are already registered, check your login credentials, or CAPS Lock...;-)</small >`,
+			
+			            showConfirmButton : false
+			
+		            } );
+	}
+
+
+/*IF WE HAVE OWNER WITH PROVIDED CREDENTIALS
+* WE WILL SET LOGGED IN OWNER AS authorized_owner IN sessionStorage
+*       => sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
+*
+* AND SET CURRENT MODE TO  preview_mode
+*       => sessionStorage.setItem ( 'preview_mode', true )
+*
+* AND IF OWNER HAS AT LEAST ONE room ADDED
+* WE WILL SET room_to_edit IN sessionStorage
+*       => sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) )
+*
+* owner.room_id IS THE ID OF THE ROOM OWNER INTERACTED LAST
+* SO AFTER LOGGING IN HE WILL SEE LASTLY INTERACTED ROOM WITH IN
+* PREVIEW, READY TO BE INTERACTED WITH AGAIN
+*
+* IF OWNER HAS MORE THEN ONE ROOM, HE CAN SWITCH TO ANY ROOM FROM
+* NAVIGATION IN TOP RIGHT CORNER*/
+function authorize_owner ( owner, hashed_login )
+	{
+		
+		
+		sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
+		sessionStorage.setItem ( 'preview_mode', true );
+		
+		
+		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
+		var room  = ROOMS[ owner.room_id ];
+
+//	IF OWNER HAS ROOM, WE'LL SET IT AS room_to_edit TO sessionStorage
+		if ( ROOMS[ owner.room_id ] !== null )
+			{
+				sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
+				
+			}
+		else
+			{
+				sessionStorage.setItem ( 'room_to_edit', null );
+			}
+
+//	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE ....
+		sessionStorage.setItem ( 'hashed_login', hashed_login );
+		window.location.replace ( "/owner.html" );
+		
+		
+	}

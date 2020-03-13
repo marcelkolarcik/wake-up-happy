@@ -142,7 +142,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) ) {
 		localStorage.setItem ( 'amenities_list', JSON.stringify ( amenities_list ) );
 		localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 		localStorage.setItem ( 'address_keys', JSON.stringify ( address_keys ) );
-		console.log(JSON.stringify ( ROOMS ))
+		
 	}
 	else {
 		

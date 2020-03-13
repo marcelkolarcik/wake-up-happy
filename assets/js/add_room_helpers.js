@@ -327,6 +327,16 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc ) {
 		
 		var step_names = [ 'location', 'room', 'services', 'preview', 'payment' ];
 		
+		/*IF WE HAVE authorized_owner WE ARE SHOWING STEPS (TABS) location,room,services,preview
+		 * BELLOW THE FORM => OWNER CAN PREVIEW THE ROOM, REMOVING PAYMENT BUTTON*/
+		if(sessionStorage.getItem('authorized_owner') && !sessionStorage.getItem('add_mode'))
+			{
+				
+				$ ( '#location_details' ).html ( '' );
+				$('.step').removeClass('d-none');
+				$('#step_5').addClass('d-none');
+				
+			}
 //		location,room,services,preview,payment steps
 
 		$ ( document ).on ( 'click', '.step', function () {
@@ -582,6 +592,7 @@ function store_room ( new_room, update = false ) {
 	else {
 ////ADDING NEW ROOM
 		ROOMS.push ( new_room );
+		
 	}
 //	UPDATING ROOMS IN localStorage
 	localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
@@ -589,7 +600,13 @@ function store_room ( new_room, update = false ) {
 //	new_room IS STORED, SO REMOVING IT FROM SESSION AND SETTING IT AS room_to_edit IN SESSION
 	sessionStorage.removeItem ( 'new_room' );
 	sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( new_room ) );
-
+	
+	/*SETTING NEWLY CREATED ROOM'S ID AS ID OF LASTLY INTERACTED ROOM WITH
+	* SO IF OWNER HAS MORE THEN ONE ROOM, AND IF HE LOGS OUT RIGHT
+	* AFTER ADDING THIS ROOM,
+	* LATER WHEN HE LOGS IN, HE WILL SEE THIS ROOM AS CURRENT ROOM*/
+	set_last_room_id();
+	
 //	SETTING NEW OWNER AS authorized_owner
 	var hashed_login = sessionStorage.getItem ( 'hashed_login' );
 	var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );

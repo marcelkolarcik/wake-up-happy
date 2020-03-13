@@ -155,7 +155,7 @@ $ ( document ).on ( 'click', '#how_to_block_dates', function () {
         		
 		`,
 		          showConfirmButton: false
-	          })
+	          });
 	return false;
 });
 //ON MOBILE DEVICES, more... BUTTON TO SHOW TABS TO PREVIEW ROOM
