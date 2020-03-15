@@ -96,8 +96,8 @@ function getRandom ( min, max, times = null )
 //TO CLEAR localStorage AND sessionStorage
 // AND REFRESH index.html
 
-//localStorage.clear ();
-//sessionStorage.clear ();
+localStorage.clear ();
+sessionStorage.clear ();
 
 
 //  IF WE ALREADY HAVE ROOMS IN LOCAL STORAGE WE WON'T RECREATE IT AGAIN,
@@ -111,6 +111,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 			
 			var price         = {};
 			var r_board_types = getRandom ( 0, 3 );
+			
 			
 			while ( r_board_types >= 0 )
 				{
@@ -131,6 +132,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				             'p_view'        : index % 10,
 				             'lat'           : city_coordinates[ 0 ],
 				             'lng'           : city_coordinates[ 1 ],
+				             'food_id'       : getRandom ( 1, 3 ),
 				             'room_type'     : getRandom ( 0, 1 ),
 				             'room_style'    : getRandom ( 1, 16 ),
 				             'location'      : city_coordinates[ 2 ],

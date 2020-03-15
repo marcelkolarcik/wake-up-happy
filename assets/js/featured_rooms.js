@@ -1,7 +1,7 @@
 /*WHEN WE LOAD index.html FOR THE FIRST TIME, OR IF SEARCH RESULTS ARE null,
  * WE WILL DISPLAY 3 FEATURED  PROPERTIES TO HAVE SOME CONTENT ON
  * THE PAGE*/
-import { getImageId, render_index } from './render_index.js';
+import {  render_room_preview } from './render_room_preview.js';
 
 
 export function featured_rooms ()
@@ -28,9 +28,9 @@ export function featured_rooms ()
 						if ( property !== null )
 							{
 								
-								var image_id = getImageId ( property.p_id );
 								
-								render_index ( property, image_id, 'form_search_results' );
+								
+								render_room_preview (property, 'form_search_results' );
 								
 								e++;
 							}

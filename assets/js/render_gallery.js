@@ -1,221 +1,183 @@
-export function render_gallery(property,food_id,image_id)
-{
-	
-	var views = JSON.parse( localStorage.getItem('views') );
-	var gallery = $('#gallery_'+property.p_id);
-	
-	//console.log(('1' in property.price),property.price,Object.values(property.price), Object.keys(property.price), typeof(property.price))
-	//		All Inclusive
- if ('3' in property.price  ) {
-	gallery.append(`
-  			<!--carousel-->
-  			 <div class="images carousel-inner" >
-  			 
-  			   <ol class="carousel-indicators">
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="0" class="active"></li>
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="1"></li>
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="2"></li>
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="3"></li>
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="4"></li>
-			  </ol>
-			  
-			<div class="carousel-item active" >
-			      <img src="assets/images/views/${views[property.p_view]   }.jpg" class="d-block w-100" alt="property view image" >
+/*FUNCTION TO RENDER ROOMS IMAGES GALLERY
+ *
+ * PRESENTING:
+ *
+ *   1.  IMAGE THAT ROOM IS DISPLAYED AS assets/images/bedrooms/b${image_id}.jpg
+ *   2.  IMAGE OF THE VIEW TYPE OF THE room
+ *   3.  NUMBER OF IMAGES OF FOOD ITEMS REPRESENTING BOARD TYPE:
+ *
+ *       a.  0 IMAGES => ROOM ONLY
+ *       B.  1 IMAGE =>  B&B
+ *       c.  2 IMAGES => B&D
+ *       d.  3 IMAGES => ALL INCLUSIVE
+ * */
+
+
+export function render_gallery ( room )
+	{
+		
+		var views   = JSON.parse ( localStorage.getItem ( 'views' ) );
+		var gallery = $ ( '#gallery_' + room.p_id );
+		
+		var indicators = `<a class="carousel-control-prev" href="${ '#gallery_' + room.p_id }" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="${ '#gallery_' + room.p_id }" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>`;
+		
+		var room_view = `<div class="carousel-item active" >
+			      <img src="assets/images/views/${ views[ room.p_view ] }.jpg" class="d-block w-100" alt="room view image" >
 			      <div class="carousel-caption ">
-			        <h5 class="images caption">${views[property.p_view]} view</h5>
-			       
+			        <h5 class="images caption">${ views[ room.p_view ] } view</h5>
 			      </div>
-		    </div>
-		    <div class="carousel-item ">
-			      <img src="assets/images/bedrooms/b${image_id}.jpg" class="d-block w-100" alt="bedroom image">
+		    </div>`;
+		
+		var room_style = ` <div class="carousel-item ">
+			      <img src="assets/images/bedrooms/b${ room.room_style }.jpg" class="d-block w-100" alt="bedroom image">
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">bedroom</h5>
-			       
 			      </div>
-		    </div>
-		     <div class="carousel-item " >
-			      <img src="assets/images/breakfast/br_${food_id}.jpg" class="d-block w-100" alt="breakfast image">
+		    </div>`;
+		
+		var breakfast = `<div class="carousel-item " >
+			      <img src="assets/images/breakfast/br_${ room.food_id }.jpg" class="d-block w-100" alt="breakfast image">
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">breakfast</h5>
 			       
 			      </div>
-		    </div>
-		     <div class="carousel-item " >
-			      <img src="assets/images/lunch/l_${food_id}.jpg" class="d-block w-100" alt="lunch image" >
+		    </div>`;
+		
+		var lunch = ` <div class="carousel-item " >
+			      <img src="assets/images/lunch/l_${ room.food_id }.jpg" class="d-block w-100" alt="lunch image" >
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">lunch</h5>
 			       
 			      </div>
-		    </div>
-		    
-		    <div class="carousel-item " >
-			      <img src="assets/images/dinner/d_${food_id}.jpg" class="d-block w-100" alt="dinner image" >
+		    </div>`;
+		
+		var dinner = `<div class="carousel-item " >
+			      <img src="assets/images/dinner/d_${ room.food_id }.jpg" class="d-block w-100" alt="dinner image" >
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">dinner</h5>
 			       
 			      </div>
-		    </div>
-		     <a class="carousel-control-prev" href=${'#gallery_'+property.p_id} role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href=${'#gallery_'+property.p_id} role="button" data-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
-			  </a>
+		    </div>`;
+		
+		
+		var slide_to_0 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="0" class="active" title="room view"></li>`;
+		var slide_to_1 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="1"  title="room style"></li>`;
+		var slide_to_2 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="2"  title="breakfast"></li>`;
+		var slide_to_3 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="3"  title="lunch"></li>`;
+		
+		/*IF IT IS B&D  WE ARE NOT DISPLAYING LUNCH SLIDE AND LAST SLIDE IS NUMBER 3*/
+		var slide_to_4 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="${'3' in room.price ? 4 : 3 }"  title="dinner"></li>`;
+		
+		//		All Inclusive
+		if ( '3' in room.price )
+			{
+				gallery.append ( `
+  			<!--carousel-->
+  			 <div class="images carousel-inner" >
+  			 
+  			  <ol class="carousel-indicators">
+		              ${ slide_to_0 }
+		              ${ slide_to_1 }
+		              ${ slide_to_2 }
+		              ${ slide_to_3 }
+		              ${ slide_to_4 }
+			  </ol>
+			  
+					${ room_view }
+					
+					${ room_style }
+				   
+				    ${ breakfast }
+				    
+				    ${ lunch }
+				    
+				    ${ dinner }
+				    
+				    ${ indicators }
 			</div>
 		    <!--end of carousel-->
 			
 			
-			`);
-}
+			` );
+			}
 //		Breakfast & Dinner
-	else if ('2' in property.price  ) {
-		gallery.append(`
+		else if ( '2' in room.price )
+			{
+				gallery.append ( `
 			
 			
 			<!--carousel-->
   			 <div class="images carousel-inner" >
   			 
   			   <ol class="carousel-indicators">
-			    <li data-target=${'#gallery_' + property.p_id} data-slide-to="0" class="active"></li>
-			    <li data-target=${'#gallery_' + property.p_id} data-slide-to="1"></li>
-			    <li data-target=${'#gallery_' + property.p_id} data-slide-to="2"></li>
-			    <li data-target=${'#gallery_' + property.p_id} data-slide-to="3"></li>
-			   
-			  </ol>
+			      ${ slide_to_0 }
+	              ${ slide_to_1 }
+	              ${ slide_to_2 }
+	              ${ slide_to_4 }
+  			 </ol>
 			  
-			<div class="carousel-item active" >
-			      <img src="assets/images/views/${views[property.p_view]}.jpg" class="d-block w-100" alt="property view image" >
-			      <div class="carousel-caption ">
-			        <h5 class="images caption">${views[property.p_view]} view</h5>
-			       
-			      </div>
-		    </div>
-		    <div class="carousel-item ">
-			      <img src="assets/images/bedrooms/b${image_id}.jpg" class="d-block w-100" alt="bedroom image">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">bedroom</h5>
-			       
-			      </div>
-		    </div>
-		     <div class="carousel-item " >
-			      <img src="assets/images/breakfast/br_${food_id}.jpg" class="d-block w-100" alt="breakfast image">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">breakfast</h5>
-			       
-			      </div>
-		    </div>
+					${ room_view }
+					
+					${ room_style }
+				   
+				    ${ breakfast }
+				    
+				    ${ dinner }
+				    
+				    ${ indicators }
+		    <!--end of carousel-->
+			` );
+			}
+		//		Bed & Breakfast
+		else if ( '1' in room.price )
+			{
+				gallery.append ( `
+			<!--carousel-->
+  			 <div class="images carousel-inner" >
+  			 
+  			   <ol class="carousel-indicators">
+			      ${ slide_to_0 }
+	              ${ slide_to_1 }
+	              ${ slide_to_2 }
+	           </ol>
+			  
+			${ room_view }
+			
+			${ room_style }
 		   
+		    ${ breakfast }
 		    
-		    <div class="carousel-item " >
-			      <img src="assets/images/dinner/d_${food_id}.jpg" class="d-block w-100" alt="dinner image" >
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">dinner</h5>
-			       
-			      </div>
-		    </div>
-		     <a class="carousel-control-prev" href=${'#gallery_'+property.p_id} role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href=${'#gallery_'+property.p_id} role="button" data-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
-			  </a>
-			</div>
+		    ${ indicators }
 		    <!--end of carousel-->
-			`);
-	}
-	//		Bed & Breakfast
-	else if('1' in property.price )
-	{
-		gallery.append(`
+			` );
+			}
+		//	room only
+		else if ( '0' in room.price )
+			{
+				gallery.append ( `
 			<!--carousel-->
   			 <div class="images carousel-inner" >
   			 
   			   <ol class="carousel-indicators">
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="0" class="active"></li>
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="1"></li>
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="2"></li>
+			   	  ${ slide_to_0 }
+	              ${ slide_to_1 }
+	          </ol>
 			  
-			  </ol>
-			  
-			<div class="carousel-item active" >
-			      <img src="assets/images/views/${views[property.p_view]}.jpg" class="d-block w-100" alt="property view image" >
-			      <div class="carousel-caption ">
-			        <h5 class="images caption">${views[property.p_view]} view</h5>
-			       
-			      </div>
-		    </div>
-		    <div class="carousel-item ">
-			      <img src="assets/images/bedrooms/b${image_id}.jpg" class="d-block w-100" alt="bedroom image">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">bedroom</h5>
-			       
-			      </div>
-		    </div>
-		     <div class="carousel-item " >
-			      <img src="assets/images/breakfast/br_${food_id}.jpg" class="d-block w-100" alt="breakfast image">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">breakfast</h5>
-			       
-			      </div>
-		    </div>
+			${ room_view }
+			
+			${ room_style }
 		    
-		     <a class="carousel-control-prev" href=${'#gallery_'+property.p_id} role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href=${'#gallery_'+property.p_id} role="button" data-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
-			  </a>
-			</div>
+		    ${ indicators }
 		    <!--end of carousel-->
-			`);
+				` );
+			}
+		
+		
 	}
-	//	room only
- else if('0' in property.price)
-	{
-		gallery.append(`
-			<!--carousel-->
-  			 <div class="images carousel-inner" >
-  			 
-  			   <ol class="carousel-indicators">
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="0" class="active"></li>
-			    <li data-target=${'#gallery_'+property.p_id} data-slide-to="1"></li>
-			   
-			  </ol>
-			  
-			<div class="carousel-item active" >
-			      <img src="assets/images/views/${views[property.p_view]}.jpg" class="d-block w-100" alt="property view image" >
-			      <div class="carousel-caption ">
-			        <h5 class="images caption">${views[property.p_view]} view</h5>
-			       
-			      </div>
-		    </div>
-		    <div class="carousel-item ">
-			      <img src="assets/images/bedrooms/b${image_id}.jpg" class="d-block w-100" alt="bedroom image">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">bedroom</h5>
-			       
-			      </div>
-		    </div>
-		    
-		     <a class="carousel-control-prev" href=${'#gallery_'+property.p_id} role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href=${'#gallery_'+property.p_id} role="button" data-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
-			  </a>
-			</div>
-		    <!--end of carousel-->
-				`);
-	}
-	
-	
-
-}

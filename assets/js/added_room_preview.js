@@ -3,7 +3,7 @@
  * NEW room_id WILL BE JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length
  * OTHERWISE WE WILL RETRIEVE room_id FORM CURRENT ROOM*/
 
-import { render_index } from "./render_index.js";
+import { render_room_preview } from "./render_room_preview.js";
 
 
 $ ( document ).on ( 'click', '.preview_room', function ()
@@ -148,7 +148,7 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 
 
 //	RENDERING ROOM FOR PREVIEW
-	render_index ( room, room.room_style, 'preview', true );
+	render_room_preview ( room, 'preview', true );
 	
 } );
 

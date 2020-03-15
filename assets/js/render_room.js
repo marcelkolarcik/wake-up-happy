@@ -1,5 +1,5 @@
 
-export function render_room ( room, image_id, where, preview = false ) {
+export function render_room ( room, where, preview = false ) {
 	//var where_div = '#' + where;
 	var where_div = $ ( '#' + where );
 //	IF USER IS CLICKING BACK AND FORTH,WHILE ADDING NEW ROOM, WE WOULD APPEND SAME THING MULTIPLE TIMES, SO WE JUST

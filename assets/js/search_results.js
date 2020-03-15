@@ -1,6 +1,6 @@
-import { getImageId }     from './render_index.js';
-import { render_index }   from './render_index.js';
-import { featured_rooms } from './featured_rooms.js';
+
+import { render_room_preview } from './render_room_preview.js';
+import { featured_rooms }      from './featured_rooms.js';
 
 
 /* CHECKING AVAILABILITY OF THE ROOM */
@@ -84,11 +84,10 @@ $ ( document ).on ( "click", "#search_btn", function ( e ) {
 //		property COULD BE null, BECAUSE, WHEN OWNER DELETES ROOM, IT IS ACTUALLY SET TO NULL
 			// SO NEED TO FILTER OUT THOSE DELETED ROOMS
 		{
-			var image_id = getImageId ( property.p_id );
 			
 			if ( is_available ( property, location ) ) {
 				
-				render_index ( property, image_id, 'form_search_results' );
+				render_room_preview (  property, 'form_search_results' );
 				results++;
 			}
 		}
@@ -121,9 +120,9 @@ $ ( document ).on ( "click", ".property_popup", function () {
 	
 	var p_id = $ ( this ).attr ( 'id' );
 	var property = ROOMS[ p_id ];
-	var image_id = $ ( this ).data ( 'image_id' );
 	
-	render_index ( property, image_id, 'map_search_result' );
+	
+	render_room_preview ( property, 'map_search_result' );
 	
 } );
 
