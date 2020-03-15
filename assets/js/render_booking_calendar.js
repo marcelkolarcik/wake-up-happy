@@ -62,7 +62,8 @@ export function render_booking_calendar( property ) {
 	$.each( property.price, function ( index, value ) {
 		boards.append( `
 			
-				 <input id = "${index}" name = "board" type = "radio" value = "${value}"  onclick=set_price(${property.p_id},${index}); >
+				 <input id = "${index}" name = "board" type = "radio" value = "${value}"  class="board_type"
+				  		data-p_id="${property.p_id}" data-index="${index}"	>
                  <label for = "${index}"  class="nav_link_property board p-2">${board_types[ index ]} : ${value} EUR</label >
 			
 	` );

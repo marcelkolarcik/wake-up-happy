@@ -44,77 +44,82 @@
  *   */
 
 
-/*FUNCTION USED AT render_booking_calendar.js line ~ 65
- * ON onclick EVENT*/
-function set_price ( p_id, index )
+/*WHEN USER IS CHANGING BOARD TYPE WHEN BOOKING ROOM,
+ * BY CLICKING ON RADIO BUTTON ON AVAILABILITY TAB IN ROOM PREVIEW
+ * WE WILL RECALCULATE TOTAL PRICE OF BOOKING BASED ON BOARD PRICE AND
+ * NUMBER OF WEEKS SELECTED , */
+( function ()
 	{
+		var to_be_booked_room_ids = [];
 		
-		var board_types = JSON.parse ( localStorage.getItem ( 'board_types' ) );
-		
-		$ ( '#boards_' + p_id ).removeClass ( 'border border-danger' );
-		
-		var num_of_selected_weeks = selected_weeks ( p_id );
+		$ ( document ).on ( 'click', '.board_type', function ()
+		{
+			var p_id  = $ ( this ).data ( 'p_id' );
+			var index = $ ( this ).data ( 'index' );
+			
+			/*COLLECTING to_be_booked_room_ids FOR CHECK*/
+			to_be_booked_room_ids.push ( p_id );
+			
+			/*CHECKING IF USER CHANGED HIS MIND AND SELECTED DIFFERENT ROOM
+			 * TO BOOK, IF HE SELECTS DIFFERENT ROOM, WE WILL SET
+			 * PREVIOUS ROOM TO DEFAULT STATE, AS IF IT WAS NEVER INTERACTED WITH*/
+			check_current_room ( to_be_booked_room_ids );
+			
+			var board_types = JSON.parse ( localStorage.getItem ( 'board_types' ) );
+			
+			$ ( '#boards_' + p_id ).removeClass ( 'border border-danger' );
 
 
 //	PRICE FOR THE BOARD (ROOM ONLY, B&B...) TO CALCULATE TOTAL PRICE FOR THE BOOKING
-//	num_of_selected_weeks * board_price
-		var board_price = $ ( 'input[name="board"]:checked' ).val ();
+			
+			var board_price = $ ( 'input[name="board"]:checked' ).val ();
 
 //			SETTING TOTAL PRICE FOR THE BOOKING ON PAYMENT FOR BOOKING FORM
-		$ ( "#total_price_" + p_id ).val ( num_of_selected_weeks * board_price );
+			$ ( "#total_price_" + p_id ).val ( sessionStorage.num_of_selected_weeks * board_price );
 
 //			SETTING NAME OF THE BOARD FOR THE BOOKING ON PAYMENT FOR BOOKING FORM
-		$ ( "#board" + p_id ).val ( board_types[ index ] );
-		
-		//			FEEDBACK TO USER ON BOOKING CALENDAR ABOUT THE TOTAL PRICE FOR THE BOOKING
-		$ ( "#preview_total_price_" + p_id ).html ( num_of_selected_weeks * board_price + " EUR" );
+			$ ( "#board" + p_id ).val ( board_types[ index ] );
+
+//			FEEDBACK TO USER ON BOOKING CALENDAR ABOUT THE TOTAL PRICE FOR THE BOOKING
+//			ON AVAILABILITY TAB, SO USER CAN SEE TOTAL PRICE FOR THE BOOKING AS
+//			HE SELECTS / DESELECTS THE WEEKS HE WANTS
+			$ ( "#preview_total_price_" + p_id ).html ( sessionStorage.num_of_selected_weeks * board_price + " EUR" );
 
 
 //	WEEKS ON BOOKING CALENDAR
-		var week = $ ( '.week' );
-		week.data ( 'price', board_price );
+			var week = $ ( '.week' );
+			
+			/*SETTING BOARD PRICE ON A WEEK, FOR CURRENTLY SELECTED BOARD*/
+			week.data ( 'price', board_price );
 
-//	WHEN USER SELECTS BOARD WHILE BOOKING WEEKS, WE'LL SET WEEKS ON BOOKING CALENDAR AS BOOKABLE
-//	BECAUSE IF NO BOARD IS SELECTED, WE'LL FIRE ALERT IF USER TRIES TO
-//	SELECT ANY WEEK
-		week.data ( 'board_selected_' + p_id, 'true' );
-	}
-
-
-function selected_weeks ( p_id )
-	{
-		var selected_weeks = $ ( "#weeks_" + p_id ).val ();
-
-//	COUNTING NUMBER OF SELECTED WEEKS TO CALCULATE TOTAL PRICE FOR THE BOOKING
-//	num_of_selected_weeks * board_price
-		if ( selected_weeks !== "" )
-			{
-//		IF MORE THEN 1 WEEK
-				if ( selected_weeks.includes ( '-' ) ) return selected_weeks.split ( '-' ).length;
-//		IF 1 WEEK selected_weeks.includes('-') RETURNS  FALSE , BECAUSE FIRST WEEK IS APPENDED WITHOUT -
-				return 1;
-			}
-		else
-			{
-				return 0;
-			}
-	}
+//	WHEN USER SELECTS BOARD WHILE BOOKING WEEKS, WE'LL SET board_selected_(p_id) AS true
+//  SO THAT HE CAN BOOK THOSE WEEKS,
+//	BECAUSE DEFAULT board_selected_(p_id) IS false => IF HE FORGETS TO SELECT BOARD FIRST
+//	AND NO BOARD IS SELECTED, WE'LL FIRE ALERT
+//	TO SELECT BOARD FIRST
+			week.data ( 'board_selected_' + p_id, 'true' );
+		} );
+		
+		
+	} ) ();
 
 
 // MARKING SELECTED WEEKS ON THE BOOKING CALENDAR
+// AND CHECKING CURRENTLY to_be_booked_room_ids
+// WITH 	check_current_room ( to_be_booked_room_ids )
+// SO THAT IF USER CHANGES ROOM HE WANTS TO BOOK
+// WE WILL SET PREVIOUS ROOM TO DEFAULT STATE
 (
 	function ()
 		{
 			
-			var num_of_selected_weeks = 0;
-			var booked_room_ids       = [];
-			var booked_room_every_click_ids           = [];
+			sessionStorage.num_of_selected_weeks = 0;
+			
 			$ ( document ).on ( "click", ".week", function ()
 			{
 				
 				var p_id = $ ( this ).data ( 'p_id' );
-				
-				//alert($ ( this ).data ( 'board_selected_' + p_id )  === false);
+
 
 //			IF USER FORGETS TO SELECT THE BOARD FOR THE ROOM,
 //			BEFORE SELECTING WEEKS, WE'LL FIRE ALERT
@@ -136,111 +141,117 @@ function selected_weeks ( p_id )
 				var weeks       = $ ( "#weeks_" + p_id );
 				var total_price = $ ( "#total_price_" + p_id );
 				
-				booked_room_every_click_ids.push ( p_id );
-
-
-				if ( booked_room_ids.indexOf ( p_id ) === -1 || ( booked_room_every_click_ids.length > 1
-				                                                  && booked_room_every_click_ids[ booked_room_every_click_ids.length - 2 ]
-				                                                  !== booked_room_every_click_ids[ booked_room_every_click_ids.length - 1 ] ) )
+				/*IF WEEK ON BOOKING CALENDAR IS NOT SELECTED YET, WE WILL ADD IT
+				 * TO BOOKING FORM , RECALCULATE TOTAL PRICE, CHANGE COLOR OF SELECTED WEEK*/
+				if ( !$ ( this ).hasClass ( 'selected' ) )
 					{
 						
 						
-						booked_room_ids.push ( p_id );
+						weeks.val ( weeks.val () + '-' + selected_week );
 						
-						if ( booked_room_ids.length > 1 )
-							{
-								
-								var previous_room_id = booked_room_ids[ booked_room_ids.length - 2 ];
-								
-								var week = $ ( '.week' );
-								week.removeClass ( 'text-secondary selected' ).addClass ( 'bg_green' );
-								
-								$ ( "#preview_total_price_" + previous_room_id ).html ( '' );
-								$ ( "#total_price_" + previous_room_id ).val ( '' );
-								$ ( "#weeks_" + previous_room_id ).val ( '' );
-								$ ( "#room_details" + previous_room_id ).val ( '' );
-								$ ( "#board" + previous_room_id ).val ( '' );
-								
-								week.data ( 'board_selected_' + previous_room_id, false );
-								
-								
-								
-							}
-					}
-				
-				
-				if ( weeks.val ().charAt ( 0 ) === '-' ) weeks.val ( weeks.val ().substring ( 1 ) );
-				
-				if ( num_of_selected_weeks === 0 )
-					{
+						/*UPDATING num_of_selected_weeks*/
+						sessionStorage.num_of_selected_weeks++;
 
-//				IF THE WEEK IS NOT SELECTED, ADD THIS WEEK TO BOOKINGS
-						if ( !$ ( this ).hasClass ( 'selected' ) )
-							{
-								
-								/* IF IT IS FIRST CLICK, WE APPEND WEEK WITHOUT - ; */
-								weeks.val ( weeks.val () + selected_week );
-								$ ( this ).removeClass ( 'bg_green' ).addClass ( 'text-secondary selected' );
-//					TOTAL PRICE IS ONE price_per_week , BECAUSE IT'S FIRST WEEK SELECTED
-								total_price.val ( price_per_week );
-								
-								num_of_selected_weeks = selected_weeks ( p_id );
-								
-								
-							}
+//					UPDATING COLOR OF SELECTED WEEK
+						$ ( this ).removeClass ( 'bg_green' ).addClass ( 'text-secondary selected' );
+
+//						AND TOTAL PRICE FOR THE BOOKING
+						total_price.val ( ( sessionStorage.num_of_selected_weeks ) * price_per_week );
 						
 						
 					}
 				else
 					{
-						if ( !$ ( this ).hasClass ( 'selected' ) )
-							{
-								
-								/* IF IT IS NOT FIRST CLICK, WE APPEND WEEK WITH - ;  (11-12-13)*/
-								weeks.val ( weeks.val () + '-' + selected_week );
-								num_of_selected_weeks = selected_weeks ( p_id );
+						/*BECAUSE IF USER CLICKS ON THE SAME WEEK AGAIN, WE NEED TO , DESELECT IT AND RECALCULATE TOTAL PRICE
+						 * AND REMOVE THIS WEEK FROM BOOKING FORM*/
+						
+						//					UPDATING COLOR OF DE-SELECTED WEEK
+						$ ( this ).addClass ( 'bg_green' ).removeClass ( 'text-secondary selected' );
 
-//					UPDATING COLOR OF SELECTED WEEK
-								$ ( this ).removeClass ( 'bg_green' ).addClass ( 'text-secondary selected' );
-								
-								total_price.val ( ( num_of_selected_weeks ) * price_per_week );
-								
-								
-							}
-						else
-							{
-								/*BECAUSE IF USER CLICKS ON THE SAME WEEK AGAIN, WE NEED TO , DESELECT IT AND RECALCULATE TOTAL PRICE
-								 * AND REMOVE THIS WEEK FROM BOOKING FORM*/
-								
-								//					UPDATING COLOR OF DE-SELECTED WEEK
-								$ ( this ).addClass ( 'bg_green' ).removeClass ( 'text-secondary selected' );
-								
-								total_price.val ( parseInt ( total_price.val () ) - parseInt ( price_per_week ) );
-								
-								if ( weeks.val ().includes ( '-' + selected_week ) ) weeks.val (
-									weeks.val ().replace ( '-' + selected_week, '' ) );
-								else weeks.val ( weeks.val ().replace ( selected_week, '' ) );
+//						AND TOTAL PRICE FOR THE BOOKING
+						total_price.val ( parseInt ( total_price.val () ) - parseInt ( price_per_week ) );
 
-//					IF USER DESELECT FIRSTLY SELECTED WEEK FIRST CHARACTER OF BOOKED WEEKS AFTER USER DESELECTS IT IS
-// - , WE'LL REMOVE IT FROM BOOKING FORM => TO AVOID DISPLAYING BOOKED WEEKS AS -12-23, EXAMPLE: CURRENTLY SELECTED
-// WEEKS 11-12-13 , USER DESELECT FIRSTLY SELECTED WEEK 11 => DISPLAY IS -12-13 SO WE'RE REMOVING FIRST -
-								if ( weeks.val ().charAt ( 0 ) === '-' ) weeks.val ( weeks.val ().substring ( 1 ) );
-								
-								num_of_selected_weeks = selected_weeks ( p_id );
-								
-								
-							}
+//						REMOVING MINUS SIGN '-' THAT I USE TO SEPARATE WEEKS IN INPUT FIELD ON THE BOOKING
+//						FORM WHEN APPENDING WEEKS BOOKED,SO THAT WE WON'T HAVE TWO MINUS SIGNS NEXT TO
+//		                EACH OTHER, WHEN DESELECTING WEEK, THAT IS NOT FIRST IN INPUT FIELD
+						if ( weeks.val ().includes ( '-' + selected_week ) ) weeks.val (
+							weeks.val ().replace ( '-' + selected_week, '' ) );
+						
+						//		                IF THE WEEK IS FIRST IN INPUT
+//						FIELD, IT WON'T HAVE MINUS '-' SIGN, SO WE JUST REMOVE WEEK NUMBER
+						else weeks.val ( weeks.val ().replace ( selected_week, '' ) );
+						
+						
+						/*UPDATING num_of_selected_weeks*/
+						sessionStorage.num_of_selected_weeks--;
+						
+						
 					}
+				
+				/*IF USER SELECTS / DESELECT  WEEK AND THE WEEK WAS FIRST IN INPUT FIELD IT WOULD HAVE MINUS SIGN '-'
+				 AT THE BEGINNING SO  WE'LL REMOVE IT FROM BOOKING FORM => TO AVOID DISPLAYING BOOKED WEEKS AS -12-23,
+				 EXAMPLE:
+				 
+				 1. USER SELECT FIRST WEEK 22, DISPLAY IN INPUT FIELD WOULD BE -22
+				 
+				 2. CURRENTLY SELECTED WEEKS 11-12-13 , USER DESELECT FIRSTLY SELECTED WEEK 11 => DISPLAY WOULD BE -12-13 SO WE'RE REMOVING
+				 FIRST -
+				 */
+				if ( weeks.val ().charAt ( 0 ) === '-' ) weeks.val ( weeks.val ().substring ( 1 ) );
+
 //			FEEDBACK TO USER ON BOOKING CALENDAR ABOUT THE TOTAL PRICE FOR THE BOOKING
 				$ ( "#preview_total_price_" + p_id ).html ( total_price.val () + " EUR" );
-				console.log ( num_of_selected_weeks );
+				
 				
 			} );
+			
+			
 		} ) ();
 
 
-//// SEND EMAIL TO ADMIN
-// WHEN USER PAYS FOR THE ROOM, ADMIN OF THE SITE WILL BE NOTIFIED VIA EMAIL
+/*ON index.html , WHEN USER IS BOOKING A ROOM AND SELECTS FEW WEEKS AND THEN DECIDES
+ * THAT HE WANTS TO BOOK ANOTHER ROOM AND TRIES TO BOOK ANOTHER ROOM,
+ * WE WILL PUT PREVIOUS ROOM TO DEFAULT STATE, AS IT WAS NEVER INTERACTED WITH*/
+function check_current_room ( to_be_booked_room_ids )
+	{
+		
+		/*IF WE HAVE BOOKED ROOM ID'S AND CURRENT ID IS DIFFERENT FORM
+		 * PREVIOUS ID => DIFFERENT ROOM => ...*/
+		if ( ( to_be_booked_room_ids.length > 1
+		       && to_be_booked_room_ids[ to_be_booked_room_ids.length - 2 ]
+		       !== to_be_booked_room_ids[ to_be_booked_room_ids.length - 1 ] ) )
+			{
+				
+				
+				var previous_room_id = to_be_booked_room_ids[ to_be_booked_room_ids.length - 2 ];
+				
+				var week = $ ( '.week' );
+				
+				week.removeClass ( 'text-secondary selected' ).addClass ( 'bg_green' );
+				
+				$ ( "#preview_total_price_" + previous_room_id ).html ( '' );
+				$ ( "#total_price_" + previous_room_id ).val ( '' );
+				$ ( "#weeks_" + previous_room_id ).val ( '' );
+				$ ( "#board" + previous_room_id ).val ( '' );
+				sessionStorage.num_of_selected_weeks = 0;
+				
+				week.data ( 'board_selected_' + previous_room_id, false );
+			}
+	}
+
+
+/*
+ SEND EMAIL TO ADMIN
+ 
+ BY USING emailjs WE CAN SEND EMAIL TO ADMIN OF THE SITE ABOUT THE BOOKING
+ WHEN USER PAYS FOR THE ROOM, ADMIN OF THE SITE CAN THEN
+ NOTIFY OWNER / FORWARD BOOKING TO OWNER OF THE ROOM
+ 
+ 
+ IT IS A BIT OF LIMITATION OF emailjs, THAT IT CAN'T SEND EMAIL
+ TO VARIOUS EMAIL ADDRESSES, BECAUSE IN REAL WORLD APPLICATION
+ OWNER OF THE ROOM WOULD GET EMAIL DIRECTLY UPON BOOKING...
+ */
 function sendMail ( contactForm, p_id, room_style )
 	{
 		confirm_payment ( "SUCCESS", p_id, contactForm, room_style );
@@ -267,9 +278,9 @@ function sendMail ( contactForm, p_id, room_style )
 	}
 
 
-// PAYMENT CONFIRMATION  POPUP
-//ONCE USER PAYS FOR THE BOOKING, WE WILL FIRE CONFIRMATION ALERT, WITH OPTION
-// TO SAVE THIS CONFIRMATION LOCALLY
+/*PAYMENT CONFIRMATION  POPUP
+ ONCE USER PAYS FOR THE BOOKING, WE WILL FIRE CONFIRMATION ALERT, WITH OPTION
+ TO SAVE THIS CONFIRMATION LOCALLY*/
 function confirm_payment ( status, p_id, contactForm, room_style )
 	{
 		
