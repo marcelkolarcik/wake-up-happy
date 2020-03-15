@@ -1,40 +1,46 @@
+/*WHEN WE LOAD index.html FOR THE FIRST TIME, OR IF SEARCH RESULTS ARE null,
+ * WE WILL DISPLAY 3 FEATURED  PROPERTIES TO HAVE SOME CONTENT ON
+ * THE PAGE*/
+import { getImageId, render_index } from './render_index.js';
 
-import {getImageId,render_index} from './render_index.js';
 
-// WHEN WE LOAD index.html FOR THE FIRST TIME, DISPLAYING 3 FEATURED PROPERTIES TO HAVE SOME CONTENT
-// ON THE PAGE...
-// ALSO, WHEN SEARCH RESULT RETURNS 0 RESULTS, DISPLAYING 3 FEATURED PROPERTIES
-export function featured_rooms()
-{
-	var ROOMS = JSON.parse(localStorage.getItem('ROOMS'));
-	
-	$('#form_search_results').append(` <div class = "img-thumbnail mt-3 border_green pl-3" >Featured properties</div >`);
-	let e =0;
-	let randoms = [];
-	
-	while( e < 3)
+export function featured_rooms ()
 	{
-		var random_id = Math.floor(Math.random() * ROOMS.length ) ;
+		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 		
-		if(randoms.indexOf(random_id) === -1) // to avoid display of same properties....
-		{
-			randoms.push(random_id) ;
-			
-			var property = ROOMS[ random_id ];
-			if(property !== null){
-//				OMITTING DELETED ROOMS
-				var image_id = getImageId(property.p_id);
+		$ ( '#form_search_results' ).append (
+			` <div class = "img-thumbnail mt-3 border_green pl-3" >Featured properties</div >` );
+		var e       = 0;
+		var randoms = [];
+		
+		while ( e < 3 )
+			{
+				var random_id = Math.floor ( Math.random () * ROOMS.length );
 				
-				render_index( property, image_id, 'form_search_results');
-				
-				e++;
+				/*TO AVOID DISPLAY OF SAME PROPERTIES ... */
+				if ( randoms.indexOf ( random_id ) === -1 )
+					{
+						randoms.push ( random_id );
+						
+						var property = ROOMS[ random_id ];
+						
+						//				OMITTING DELETED ROOMS
+						if ( property !== null )
+							{
+								
+								var image_id = getImageId ( property.p_id );
+								
+								render_index ( property, image_id, 'form_search_results' );
+								
+								e++;
+							}
+					}
 			}
-			
-			
-			
-		}
 	}
-}
 
-$(function() { featured_rooms() });
+
+$ ( function ()
+    {
+	    featured_rooms ();
+    } );
 

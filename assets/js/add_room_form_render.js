@@ -2,10 +2,12 @@
  room_types,board_types,views,amenities_list,room_styles
  FROM localStorage
  
- INSTEAD OF HARDCODING HTML IN owner.html, RENDERING FORM PARTS IN A LOOP FOR
- EACH OF THE FORM PART
+ INSTEAD OF HARDCODING HTML IN owner.html, I AM RENDERING EACH FORM PART
+ IN A LOOP FOR EACH OF THE  room_types,board_types,views,amenities_list,room_styles
+ FROM localStorage
  
- IF OWNER IS EDITING ALREADY EXISTING ROOM WE WILL POPULATE FIELDS WITH room VALUES*/
+ 
+ IF OWNER IS EDITING ALREADY EXISTING ROOM WE WILL POPULATE FIELDS WITH HIS room VALUES*/
 
 var room_types     = JSON.parse ( localStorage.getItem ( 'room_types' ) );
 var board_types    = JSON.parse ( localStorage.getItem ( 'board_types' ) );

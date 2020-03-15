@@ -13,8 +13,6 @@
  * AMENITIES, GALLERY, DESCRIPTION, AVAILABILITY AND HE CAN
  * BOOK THE ROOM AS WELL
  */
-
-
 export function create_map ( coordinates = null, show_p_id = null )
 	{
 		var tiles = L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

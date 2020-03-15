@@ -1,14 +1,15 @@
-/*RENDERING ADD_ROOM_PAYMENT FORM,
-IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM,
+/*RENDERING ADD_ROOM_PAYMENT FORM.
+ 
+ IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM,
  NO NEED FOR EMAIL AND PASSWORD*/
 
 
 function add_room_payment_form ()
-{
-	var payment = $('#payment');
-	var owner = JSON.parse(sessionStorage.getItem('authorized_owner')) ;
-	
-	payment.html('').append(`
+	{
+		var payment = $ ( '#payment' );
+		var owner   = JSON.parse ( sessionStorage.getItem ( 'authorized_owner' ) );
+		
+		payment.html ( '' ).append ( `
 			<form id="add_room_payment_form">
    <div class = "bg_green text-light text-center mt-1 mb-3" >
     Payment details : 99 EUR per year + 9 % of each booking.
@@ -41,12 +42,12 @@ function add_room_payment_form ()
                 </div >
                 <input type = "text" name = "name"
                        class = "form-control form-control-sm border_bottom_only"
-                       id = "fullname" placeholder = "Full Name" value="${owner ? owner.name: ''}" required
-                        ${owner ? 'readonly': ''}>
+                       id = "fullname" placeholder = "Full Name" value="${ owner ? owner.name : '' }" required
+                        ${ owner ? 'readonly' : '' }>
             </div >
         </div >
         <!--IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM, NO NEED FOR EMAIL AND PASSWORD-->
-         ${owner ? '': ` <div class = "col-auto" >
+         ${ owner ? '' : ` <div class = "col-auto" >
             <label class = "sr-only" for = "email_of_user" >Email</label >
             <div class = "input-group mb-2" >
                 <div class = "input-group-prepend" >
@@ -59,9 +60,9 @@ function add_room_payment_form ()
                        id = "email_of_user" placeholder = "Email" required
                        >
             </div >
-        </div >`}
+        </div >` }
           <!--IF ALREADY LOGGED IN OWNER ADDING ANOTHER ROOM, NO NEED FOR EMAIL AND PASSWORD-->
-       ${owner ? '': `<div class = "col-auto" >
+       ${ owner ? '' : `<div class = "col-auto" >
             <label class = "sr-only" for = "password" >Password</label >
             <div class = "input-group mb-2" >
                 <div class = "input-group-prepend" >
@@ -73,7 +74,7 @@ function add_room_payment_form ()
                        class = "form-control form-control-sm  border_bottom_only"
                        id = "password" placeholder = "Password" >
             </div >
-        </div >`}
+        </div >` }
         
     </div >
     <div class = "col-md-6" >
@@ -124,5 +125,5 @@ function add_room_payment_form ()
     </div >
 </div >
 </form>
-   `);
-}
+   ` );
+	}

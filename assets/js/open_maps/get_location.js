@@ -98,7 +98,7 @@
 								$ ( '#get_address' ).addClass ( 'd-none' );
 								
 								var address_data = JSON.parse ( this.responseText ).address;
-								
+								console.log(address_data);
 								render_location_details ( address_data, coordinates );
 								
 							}
