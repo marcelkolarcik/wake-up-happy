@@ -1,3 +1,16 @@
+/*I AM USING EXAMPLE FROM W3C FOR AUTOCOMPLETE FUNCTIONALITY
+* WHEN USER SEARCHING FOR THE LOCATION OF THE ROOM
+*
+* I AM UPDATING autocomplete_searchables ARRAY ON THE GO, AS NEW OWNERS
+* ADDING NEW ROOMS TO THE SITE, IF THEY ARE IN DIFFERENT LOCATION THEN DEFAULT
+* ROOMS
+*
+* AND I AM CREATING searchable ARRAY FOR EVERY ROOM CREATED,
+ IN added_room_preview.js
+ SO WHEN USER IS SEARCHING FOR THE LOCATION AND IT IS IN searchables ARRAY
+ OF THE ROOM, IF OTHER CONDITIONS ARE MET (board_tyoe, room_type...)
+ ROOM WILL SHOW UP IN THE SEARCH RESULTS*/
+
 function autocomplete(inp, arr) {
 	/*the autocomplete function takes two arguments,
 	 the text field element and an array of possible autocompleted values:*/
@@ -42,19 +55,19 @@ function autocomplete(inp, arr) {
 	inp.addEventListener("keydown", function(e) {
 		var x = document.getElementById(this.id + "autocomplete-list");
 		if (x) x = x.getElementsByTagName("div");
-		if (e.keyCode === 40) {
+		if (e.code  === 40) {
 			/*If the arrow DOWN key is pressed,
 			 increase the currentFocus variable:*/
 			currentFocus++;
 			/*and and make the current item more visible:*/
 			addActive(x);
-		} else if (e.keyCode === 38) { //up
+		} else if (e.code  === 38) { //up
 			/*If the arrow UP key is pressed,
 			 decrease the currentFocus variable:*/
 			currentFocus--;
 			/*and and make the current item more visible:*/
 			addActive(x);
-		} else if (e.keyCode === 13) {
+		} else if (e.code  === 13) {
 			/*If the ENTER key is pressed, prevent the form from being submitted,*/
 			e.preventDefault();
 			if (currentFocus > -1) {
@@ -97,5 +110,5 @@ function autocomplete(inp, arr) {
 var autocomplete_searchables = JSON.parse(  localStorage.getItem('autocomplete_searchables'));
 
 
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+/*initiate the autocomplete function on the "location" element, and pass along the autocomplete_searchables array as possible autocomplete values:*/
 autocomplete(document.getElementById("location"), autocomplete_searchables);

@@ -151,7 +151,7 @@ export let amenities_list = [
 // ADDRESS ITEM IS NOT ALREADY IN THE ARRAY USING address_keys AS FILTER
 // IN add_room_helpers.js => check_autocomplete(room) function -> lines 682 ->...
 // SO WHEN USER TYPES IN LOCATION AND WE ALREADY HAVE IT, AUTO-COMPLETE OPTION WILL SHOW
-// city_autocomplete.js line 101
+// location_autocomplete.js line 101
 export let autocomplete_searchables =['Cork','Dublin','Limerick','Yaiza','Miami-dade county','West palm beach'];
 
 // WE ARE CREATING SEARCHABLE ARRAY FOR EACH ROOM  IN added_room_preview.js lines 101 -> ...
