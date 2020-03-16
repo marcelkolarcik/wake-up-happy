@@ -65,7 +65,7 @@ function storageAvailable ( type )
  *
  * I HAVE UPDATED THE FUNCTION TO INCLUDE CASES WHEN I NEED AN ARRAY OR RANDOM INTEGERS FOR BOOKINGS AND AMENITIES*/
 
-function getRandom ( min, max, times = null )
+export function getRandom ( min, max, times = null )
 	{
 		var random_array = [];
 

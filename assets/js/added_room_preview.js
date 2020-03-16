@@ -4,7 +4,7 @@
  * OTHERWISE WE WILL RETRIEVE room_id FORM CURRENT ROOM*/
 
 import { render_room_preview } from "./render_room_preview.js";
-
+import { getRandom } from "./create_DB.js";
 
 $ ( document ).on ( 'click', '.preview_room', function ()
 {
@@ -93,18 +93,29 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 		}
 	
 	room[ 'p_id' ]      = p_id;
-	room[ 'food_id' ]   = getRandom(1,3);
+	
 	room[ 'p_address' ] = address;
 	room[ 'location' ]  = address.city || address.village || address.hamlet || address.county || address.state_district
 	                      || address.state || address.country;
 	room[ 'amenities' ] = amenities;
 	room[ 'bookings' ]  = [];
 	
-	if ( sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' && sessionStorage.getItem ( 'room_to_edit' )
-	     !== null )
+	if ( sessionStorage.getItem ( 'room_to_edit' ) )
 		{
 //		IF OWNER IS PREVIEWING / EDITING ROOM , WE'LL SHOW BOOKINGS, IF ANY...
 			room[ 'bookings' ] = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).bookings;
+			
+			/*IF WE HAVE ROOM ALREADY WE HAVE ALREADY food_id CREATED, SO WON'T BE RECREATYING IT
+			* AGAIN, BECAUSE IT COULD MESS THINGS UP, BY DISPLAYING DIFFERENT IMAGES EVERY
+			* TIME USER PREVIEW ROOM*/
+			room[ 'food_id' ]  = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).food_id;
+		}
+	else
+		{
+			/*IF IT IS NEW ROOM, WE WILL CREATE RANDOM food_id FOR DISPLAYING
+			* IMAGES FOR THE BOARDS, I HAVE 3 DIFFERENT IMAGES FOR EACH BOARD, SO JUST TO ADD
+			* BIT OF VARIETY, EVERY ROOM SHOULD HAVE LITTLE BIT DIFFERENT IMAGES....*/
+			room[ 'food_id' ]   = getRandom(1,3);
 		}
 
 //	ARRAY OF SEARCHABLE ADDRESS STRINGS , BY WHICH ROOM CAN BE FOUND BY SEARCHING IN SEARCH FORM ON index.html
