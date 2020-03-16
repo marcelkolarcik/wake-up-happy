@@ -200,6 +200,7 @@ function authorize_owner ( owner, hashed_login )
 		sessionStorage.setItem ( 'preview_mode', true );
 		
 		
+		
 		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 		var room  = ROOMS[ owner.room_id ];
 
@@ -207,6 +208,8 @@ function authorize_owner ( owner, hashed_login )
 		if ( ROOMS[ owner.room_id ] !== null )
 			{
 				sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
+				sessionStorage.removeItem('add_mode');
+				
 				
 			}
 		else
@@ -217,6 +220,7 @@ function authorize_owner ( owner, hashed_login )
 //	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE ....
 		sessionStorage.setItem ( 'hashed_login', hashed_login );
 		window.location.replace ( "/owner.html" );
+	
 		
 		
 	}

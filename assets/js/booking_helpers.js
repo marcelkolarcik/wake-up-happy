@@ -322,7 +322,7 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 						
 						sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
 
-//			IF OWNER WANTS TO BLOCK SOME DATES WE WILL FIRE THIS ALERT
+//			IF OWNER BLOCKED SOME DATES WE WILL FIRE THIS ALERT
 						if ( sessionStorage.getItem ( 'edit_mode' ) )
 							{
 								swal.fire ( {

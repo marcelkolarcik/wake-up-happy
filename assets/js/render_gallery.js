@@ -43,7 +43,7 @@ export function render_gallery ( room )
 		    </div>`;
 		
 		var breakfast = `<div class="carousel-item " >
-			      <img src="assets/images/breakfast/br_${ room.food_id }.jpg" class="d-block w-100" alt="breakfast image">
+			      <img src="assets/images/breakfast/br_${ room.food_id || 1}.jpg" class="d-block w-100" alt="breakfast image">
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">breakfast</h5>
 			       
@@ -51,7 +51,7 @@ export function render_gallery ( room )
 		    </div>`;
 		
 		var lunch = ` <div class="carousel-item " >
-			      <img src="assets/images/lunch/l_${ room.food_id }.jpg" class="d-block w-100" alt="lunch image" >
+			      <img src="assets/images/lunch/l_${ room.food_id  || 1}.jpg" class="d-block w-100" alt="lunch image" >
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">lunch</h5>
 			       
@@ -59,7 +59,7 @@ export function render_gallery ( room )
 		    </div>`;
 		
 		var dinner = `<div class="carousel-item " >
-			      <img src="assets/images/dinner/d_${ room.food_id }.jpg" class="d-block w-100" alt="dinner image" >
+			      <img src="assets/images/dinner/d_${ room.food_id  || 1}.jpg" class="d-block w-100" alt="dinner image" >
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">dinner</h5>
 			       

@@ -261,13 +261,8 @@ function append_room_actions ()
                        How to
                       </button >
 					
-					${ (
-			                                                                                                       sessionStorage.getItem (
-				                                                                                                       'room_to_edit' )
-			                                                                                                       !== 'undefined'
-			                                                                                                       && sessionStorage.getItem (
-			                                                                                                       'room_to_edit' )
-			                                                                                                       !== null )
+					${ (sessionStorage.getItem ('room_to_edit' )!== 'undefined'
+		                && sessionStorage.getItem ('room_to_edit' ) !== null )
 		               ?
 		               `
 

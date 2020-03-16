@@ -1,7 +1,7 @@
 // HERE IS FUNCTION TO CREATE INITIAL "DATABASE" (localStorage) WITH
 // "TABLES"  (ROOMS,board_types,views,room_types,room_styles,amenities_list,autocomplete_searchables,address_keys)
 // THAT WILL BE USED THROUGHOUT THE PROJECT
-// ANOTHER TABLE "OWNERS" WILL BE CREATED ONCE FIRST OWNER ADDS HIS ROOM TO OUR SYSTEM
+// ANOTHER "TABLE" "OWNERS" WILL BE CREATED ONCE FIRST OWNER ADDS HIS ROOM TO OUR SYSTEM
 
 
 import {
@@ -96,8 +96,8 @@ function getRandom ( min, max, times = null )
 //TO CLEAR localStorage AND sessionStorage
 // AND REFRESH index.html
 
-localStorage.clear ();
-sessionStorage.clear ();
+//localStorage.clear ();
+//sessionStorage.clear ();
 
 
 //  IF WE ALREADY HAVE ROOMS IN LOCAL STORAGE WE WON'T RECREATE IT AGAIN,

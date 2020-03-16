@@ -93,6 +93,7 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 		}
 	
 	room[ 'p_id' ]      = p_id;
+	room[ 'food_id' ]   = getRandom(1,3);
 	room[ 'p_address' ] = address;
 	room[ 'location' ]  = address.city || address.village || address.hamlet || address.county || address.state_district
 	                      || address.state || address.country;
