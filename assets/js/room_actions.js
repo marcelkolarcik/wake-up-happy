@@ -117,7 +117,7 @@ $ ( function ()
 							                       else
 								                       {
 
-//				IF OWNER DELETED LAST ROOM, HE HAS NO ROOM TO INTERACT WITH => ROOM ACTION  IN add_room_helpers.js
+//				IF OWNER DELETED LAST ROOM, HE HAS NO ROOM TO INTERACT WITH => ROOM ACTION  IN add_room_interactions.js
 //              (function append_room_actions()) IS ONLY ADD ROOM
 									                       owner.room_id  = null;
 									                       owner.room_ids = [];

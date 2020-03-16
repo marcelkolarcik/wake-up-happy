@@ -145,7 +145,7 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
 	
 	//LATER AFTER PAYMENT WE'LL RETRIEVE new_room FROM THE sessionStorage AND STORE IT
-	// IN localStorage IN add_room_helpers.js  LINE NUMBER ~ 423
+	// IN localStorage IN add_room_interactions.js  LINE NUMBER ~ 423
 
 
 //	RENDERING ROOM FOR PREVIEW

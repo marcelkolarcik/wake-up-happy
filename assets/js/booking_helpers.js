@@ -251,7 +251,7 @@ function check_current_room ( to_be_booked_room_ids )
  IT IS A BIT OF LIMITATION OF emailjs, THAT IT CAN'T SEND EMAIL
  TO VARIOUS EMAIL ADDRESSES, BECAUSE IN REAL WORLD APPLICATION
  OWNER OF THE ROOM WOULD GET EMAIL DIRECTLY UPON BOOKING...
- function check_autocomplete ( new_room ) IN add_room_helpers.js
+ function check_autocomplete ( new_room ) IN add_room_interactions.js
  
  
  */

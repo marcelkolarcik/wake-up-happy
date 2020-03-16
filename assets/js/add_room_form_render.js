@@ -63,7 +63,7 @@ function render_room_types ()
 						        <!--IF WE HAVE ROOM  => SETTING ROOM'S OPTION TO checked-->
 						        <input id = "${ room_type }" name = "room_type" type = "radio" value = "${ index }"
 						               class = "collapse_parent check"
-						               data-parent_div = "room_type_images"
+						               data-current_div = "room_type_images"
 						               data-parent_title = "room_types_title"
 						               data-next_div = "view_type_images"
 						               data-footer = "room_type_${ room_type }"
@@ -101,7 +101,7 @@ function render_view_types ()
 							         <!--IF WE HAVE ROOM => SETTING ROOM'S OPTION TO checked-->
 							        <input name = "view_type" type = "radio" value = "${ view_type }"
 							               class = "collapse_parent check"
-							               data-parent_div = "view_type_images"
+							               data-current_div = "view_type_images"
 							               data-parent_title = "view_types_title"
 							               data-next_div = "room_style_images"
 							               data-footer = "view_type_${ view_type }"
@@ -167,7 +167,7 @@ function render_room_styles ()
 							         <!--IF WE HAVE ROOM  => SETTING ROOM'S OPTION TO checked-->
 							        <input  name = "room_style" type = "radio" value = "${ room_style }"
 							               class = "collapse_parent check"
-							               data-parent_div = "room_style_images"
+							               data-current_div = "room_style_images"
 							               data-parent_title = "room_styles_title"
 							               data-next_div = "board_type_images"
 							               data-footer = "room_style_${ room_style }"

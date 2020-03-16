@@ -1,10 +1,13 @@
-//toggling content of the div ( particular part of the form room_types,board_types,views,amenities_list,room_style )
+/* INTERACTIVE FEEDBACK TO USER WHEN FILLING ADD_YOUR_ROOM
+ * FORM AND VALIDATION LOGIC FOR THE FORM*/
+
+/*WHEN USER CLICKS TAB TO SELECT  room_types,board_types,views,amenities_list,room_style
+ TOGGLING CONTENT OF THE DIV */
 $ ( document ).on ( "click", ".show_content", function ()
 {
-	
-	var hidden_class = $ ( this ).data ( 'hidden_class' );
-	$ ( '.services' ).addClass ( 'd-none' );
-	$ ( '.' + hidden_class ).toggleClass ( 'd-none' );
+	/*EVERY TAB HAS data-hidden_class ATTRIBUTE BY WHICH
+	 * WE KNOW WHICH DIV TO TOGGLE ON CLICK*/
+	$ ( '.' + $ ( this ).data ( 'hidden_class' ) ).toggleClass ( 'd-none' );
 } );
 
 //toggling size of images on form
@@ -48,11 +51,12 @@ $ ( document ).on ( "click", ".board_type", function ()
 // feedback to user that it is selected already, and it will un-hide next div for selection
 $ ( document ).on ( "click", ".collapse_parent", function ()
 {
+	/* TABS HAVE data-parent_div , data-next_div ATTRIBUTES BY WHICH
+	 * WE KNOW WHICH DIVS TO OPEN AND CLOSE ON CLICK*/
+	var current_div = $ ( '.' + $ ( this ).data ( 'current_div' ) );
+	var next_div    = $ ( '.' + $ ( this ).data ( 'next_div' ) );
 	
-	var parent_div = $ ( '.' + $ ( this ).data ( 'parent_div' ) );
-	var next_div   = $ ( '.' + $ ( this ).data ( 'next_div' ) );
-	
-	parent_div.addClass ( 'd-none' );
+	current_div.addClass ( 'd-none' );
 	next_div.removeClass ( 'd-none' );
 	
 } );

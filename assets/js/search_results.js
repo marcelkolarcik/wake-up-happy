@@ -1,3 +1,9 @@
+/*FUNCTION TO FIND MATCHES TO SEARCH QUERY AND DISPLAY
+RESULT TO THE USER
+
+
+TO DO SEARCH BY WEEKS AVAILABLE*/
+
 
 import { render_room_preview } from './render_room_preview.js';
 import { featured_rooms }      from './featured_rooms.js';
@@ -11,12 +17,6 @@ function is_available ( property, location ) {
 	
 	var property_searchables = property.searchables;
 	
-	//console.log(property_searchables,'search : '+location.toString())
-	
-	//console.log('room_type '+property.room_type.toString(),'search : '+room_type.toString());
-	//console.log('board_type '+property.price[board_type],'search : '+board_type.toString());
-	
-	//console.log('room_type_same :'+ (property.room_type.toString() === room_type.toString())  );
 	
 	if ( room_type === 'any' && board_type === 'any' ) {
 		///// searching only for the city
