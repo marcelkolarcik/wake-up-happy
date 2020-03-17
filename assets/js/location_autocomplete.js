@@ -1,3 +1,9 @@
+/*https://www.w3schools.com/howto/howto_js_autocomplete.asp
+*
+* USING EXAMPLE FROM W3C FOR AUTOCOMPLETE I AM AUTOPOPULATING LOCATION FIELD AT SEARCH FORM
+*
+* I HAVE REPLACED e.keyCode WITH e.code AS e.keyCode WAS DEPRECATED*/
+
 function autocomplete(inp, arr) {
 	/*the autocomplete function takes two arguments,
 	 the text field element and an array of possible autocompleted values:*/

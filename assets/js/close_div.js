@@ -28,8 +28,8 @@
  * AND IT CAN BE true or false :
  *
  *  1.  locations INPUT HAS data-add_in_lo = true
- *  2.  board_type, room_type, search_btn ALL HAVE
- *      data-add_in_lo = false
+ *  2.  board_type, room_type, search_btn INPUTS
+ *      ALL HAVE data-add_in_lo = false
  *
  *      SO IF USER FOCUSES INTO location FIELD WE WILL DISPLAY LITTLE INFO
  *      ABOUT INITIAL autocomplete_locations IF IT'S NOT SET AS don't display again

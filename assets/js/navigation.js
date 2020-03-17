@@ -1,6 +1,10 @@
+/*FUNCTION TO RENDER USER NAVIGATION */
+
+
 $ ( function ()
     {
 	
+    	/*INITIAL NAV WHEN OWNER IS NOT LOGGED IN*/
 	    $ ( '#user' ).append ( `<a class = " dropdown-toggle caret-off " href = "#" id = "initials"
                                data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >
                                 <div id="initials" class="user_initials d-flex justify-content-center align-items-center">
@@ -222,14 +226,4 @@ $ ( document ).on ( 'click', '#make_money', function ()
 	
 } );
 
-/*ADDING LITTLE INFO TO FIRST TIME USER ABOUT INITIAL AUTOCOMPLETE LOCATIONS*/
-function initial_locations ( add = true )
-	{
-		if(!sessionStorage.getItem('initial_locations'))
-			{
-				var initial =  $('#initial_locations');
-				add  ? initial.fadeIn(1000).removeClass('d-none') : initial.fadeOut(350) ;
-			}
-		
-		
-	}
+
