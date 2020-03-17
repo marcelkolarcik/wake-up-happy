@@ -151,15 +151,6 @@ hr.green {
 	background-color: rgba(118, 136, 148, 0.5);
 	}
 
-/*changing default blue active class color to match website colors*/
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-	z-index: 2;
-	color: #ffffff;
-	background-color: #0fbeba;
-	border-color: #0fbeba;
-	border-radius: 0;
-	}
-
 .price {
 	font-family: Oswald, sans-serif;
 	text-transform: uppercase;
