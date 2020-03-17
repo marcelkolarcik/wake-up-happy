@@ -1,8 +1,27 @@
 ( function ()
 	{
+		/*OUR TRANSLATIONS*/
+		var our_translations = [ 'sk', 'en' ];
+		
+		/*BROWSER PREFERRED LANGUAGES*/
+		var userLangs         = navigator.languages;
+		var selected_language = 'en';
+		
+		
+		$.each ( userLangs, function ( key, language )
+		{
+			if ( our_translations.indexOf ( language ) !== -1 )
+				{
+					
+					selected_language = language;
+					return false;
+				}
+			
+		} );
+		
 		
 		/*PATH ACCORDING TO SELECTED LANGUAGE OR DEFAULT*/
-		var path = "./assets/js/es.json";
+		var path = "./assets/js/languages/" + selected_language + ".json";
 		
 		/*GETTING LANGUAGE FILE AND SETTING IT IN LOCAL STORAGE*/
 		
@@ -28,6 +47,7 @@
 //
 //
 //		}
+		
 		
 		/*GETTING CURRENT TRANSLATION*/
 		$.getJSON ( path, function ( translation )
