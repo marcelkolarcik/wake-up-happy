@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,800|Oswald&display=swap');
 
+/*INITIAL VALUES SET TO 0 TO AVOID ANY SURPRISES FROM THE DIFFERENT BROWSER RENDERING*/
 * {
 	margin: 0;
 	padding: 0;
@@ -9,6 +10,26 @@
 body {
 	font-family: "Lato", sans-serif;
 	color: #777777;
+	}
+
+.nav_background {
+	
+	height: 0;
+	padding: 0;
+	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
+	
+	/*https://stackoverflow.com/questions/11099930/100-width-background-image-with-an-auto-height*/
+	background-position: center center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-image: url("../images/carousel/1.jpg");
+	}
+
+.navigation {
+	height: 0;
+	padding: 0;
+	padding-top: 20px;
+	padding-bottom: 10.75%;
 	}
 
 h2, h3, h4, .nav_link {
@@ -48,7 +69,6 @@ span.nav_link_property {
 .logo {
 	font-family: "Lato", sans-serif;
 	letter-spacing: 4px;
-	/*color: #fafafa;*/
 	font-size: 2em;
 	font-weight: bold;
 	}
@@ -56,7 +76,6 @@ span.nav_link_property {
 .logo_small {
 	font-family: "Lato", sans-serif;
 	letter-spacing: 4px;
-	/*color: #fafafa;*/
 	font-size: 1.1em;
 	font-weight: bolder;
 	}
@@ -81,26 +100,18 @@ span.nav_link_property {
 	font-size: 0.6em;
 	}
 
-#hero_image {
-	height: 0;
-	padding: 0;
-	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
-	}
-
-.propderty_img {
-	width: 10rem;
-	}
-
+/*SITE'S GREEN COLOR */
 .bg_green {
 	background-color: #0fbeba;
 	}
-.green{
+
+.green {
 	color: rgba(0, 195, 209, 1);
 	font-weight: bold;
 	
 	}
 
-.green:hover{
+.green:hover {
 	background-color: rgba(0, 195, 209, 0.5);
 	}
 
@@ -114,6 +125,7 @@ hr.green {
 	background-color: rgba(0, 195, 209, 0.7);
 	}
 
+/*SITE'S ORANGE COLOR*/
 .border_green {
 	border: 1px solid #0fbeba;
 	}
@@ -134,9 +146,6 @@ hr.green {
 	background-color: rgba(255, 221, 0, 0.3);
 	}
 
-.bg_green_light_g {
-	background-color: rgba(157, 192, 46, 0.5);
-	}
 
 .bg_grey_light {
 	background-color: rgba(118, 136, 148, 0.5);
@@ -181,9 +190,9 @@ input:hover, select:hover {
 	background-color: rgba(0, 195, 209, 0.2);
 	}
 
-/*map holder*/
-#map {
-	min-height: 400px;
+/*MAP HOLDERS owner.html,index.html*/
+#map_index, #map_owner {
+	height: 400px;
 	}
 
 .social-networks {
@@ -201,10 +210,12 @@ input:hover, select:hover {
 	padding: 5%;
 	}
 
+/*REMOVING DEFAULT BOOTSTRAP'S BORDER RADIUS*/
 .btn {
 	border-radius: 0;
 	}
 
+/*WEEK IN THE BOOKING CALENDAR*/
 .week {
 	cursor: pointer;
 	color: #fafafa;
@@ -215,8 +226,8 @@ input:hover, select:hover {
 	color: #777777;
 	}
 
-#mapid { height: 180px; }
 
+/*CUSTOMIZING LEAFLET'S CSS FOR STYLING POPUPS*/
 .popup_class .leaflet-popup-tip,
 .popup_class .leaflet-popup-content-wrapper {
 	background-color: rgba(0, 195, 209, 0.8);
@@ -271,7 +282,7 @@ input:hover, select:hover {
 	top: 100%;
 	left: 13%; /* was 0 changed to 8% to allow for the icon*/
 	right: 0;
-	width:  100%
+	width: 100%
 	}
 
 .autocomplete-items div {
@@ -293,32 +304,47 @@ input:hover, select:hover {
 	color: #ffffff;
 	}
 
-#pay_for_the_room,.show_content {
+#login, #logout, #pay_for_the_room, .show_content {
 	cursor: pointer;
 	}
-#pay_for_the_room:hover{
+
+#pay_for_the_room:hover {
 	background-color: rgba(0, 195, 209, 1);
-	color:#fafafa;
-	}
-.images.carousel {
+	color: #fafafa;
 	}
 
+
+/*CAROUSEL FOR PREVIEWING GALLERY IN ROOM PREVIEW
+TO BE HALF WIDTH NOT TO OVER STRETCH*/
 .images.carousel-inner {
 	width: 50%;
 	left: 25%;
 	margin-top: 1%;
 	}
 
+/*ADDING BACKGROUND COLOR WITH OPACITY
+ AND WHITISH FONT COLOR TO CAPTIONS
+ ( NAME OF THE IMAGE : ( breakfast, view....))
+ IN ROOM PREVIEW => GALLERY
+ TO HAVE GOOD CONTRAST AGAINST UNDERLYING IMAGES*/
 .images.caption {
 	background-color: rgba(118, 136, 148, 0.7);
+	color: #fafafa;
 	}
-.no_padding{
+
+.no_padding {
 	padding: 0 3px 0 3px;
 	margin-right: 5px;
 	}
-.step:hover{
+
+.step:hover {
 	background-color: rgba(0, 195, 209, 0.5);
 	}
+
+
+/*FORM PROGRESS DISPLAY ITEMS*/
+
+/*LINE BETWEEN CIRCLES*/
 .step_divider {
 	width: 40px;
 	color: #777777;
@@ -326,6 +352,7 @@ input:hover, select:hover {
 	border-bottom: 2px solid #0fbeba
 	}
 
+/*CIRCLE WITH GREEN BACKGROUND => STEP COMPLETED*/
 .progress_step {
 	width: 40px;
 	font-size: 1.1rem;
@@ -335,12 +362,14 @@ input:hover, select:hover {
 	background-color: rgba(0, 195, 209, 1);
 	}
 
+/*CIRCLE WITH WHITE BACKGROUND => STEP NOT COMPLETED*/
 .progress_step.empty {
 	color: rgba(0, 195, 209, 1);
 	background-color: #ffffff;
 	border: 1px solid rgba(0, 195, 209, 1);
 	}
 
+/*STEP NAMES ( location, room, services....)*/
 .progress_step.p_description {
 	width: 75px;
 	font-size: 1rem;
@@ -353,6 +382,7 @@ input:hover, select:hover {
 	background-color: #ffffff;
 	}
 
+/*NO CONNECTING LINE BETWEEN STEP NAMES*/
 .step_divider.p_description {
 	width: 5px;
 	color: #777777;
@@ -360,13 +390,18 @@ input:hover, select:hover {
 	border-bottom: 0;
 	}
 
+/*DIV TO HOLD STEPS*/
 .step_holder {
 	height: 40px;
 	}
 
 
-/*to remove arrows from input number*/
-/* Chrome, Safari, Edge, Opera */
+/*to remove arrows from input number
+REMOVING ARROWS FROM NUMBER INPUT
+FOR THE PRICE OF THE BOARD*/
+/* Chrome, Safari, Edge, Opera
+
+https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
@@ -375,54 +410,106 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type=number] {
-	-moz-appearance:textfield;
+	-moz-appearance: textfield;
 	}
-.parent{
+
+
+/*REMOVING ARROW FROM SELECT INPUT
+FOR room_type, board_type
+IN THE SEARCH FORM IN index.html
+
+https://stackoverflow.com/questions/16603979/how-to-remove-the-default-arrow-icon-from-a-dropdown-list-select-element*/
+select {
+	/* for Firefox */
+	-moz-appearance: none;
+	/* for Chrome */
+	-webkit-appearance: none;
+	}
+
+/* For IE10 */
+select::-ms-expand {
+	display: none;
+	}
+
+/* COUPLE OF DIVS TO ALIGN CHILD DIV
+TO THE BOTTOM OF A PARENT DIV*/
+.parent {
 	position: relative;
 	
 	}
-.child_at_bottom{
+
+.child_at_bottom {
 	font-size: 0.8rem;
 	position: absolute;
-	bottom:0;
-	margin:  10px 0 0 10px;
+	bottom: 0;
+	margin: 10px 0 0 10px;
 	
 	}
-#login,#logout{
-	cursor: pointer;
-	}
-.user_initials{
-	width:2.8rem;
+
+/*CIRCLE IN THE NAVIGATION IN THE TOP RIGHT CORNER
+TO DISPLAY
+USER INITIALS WHEN LOGGED IN OR USER ICON
+WHEN NOT LOGGED IN*/
+.user_initials {
+	width: 2.8rem;
 	height: 2.8rem;
 	border-radius: 1.4rem;
 	background-color: #fafafa;
 	background-image: url("../images/user_logo.png");
 	
 	}
-#initials:hover{
+/*REMOVING UNDERLINE FROM USER INITIALS*/
+#initials:hover {
 	text-decoration: none;
 	}
-.dropdown-item:hover,.dashboard_link:hover{
+
+.dropdown-item:hover, .dashboard_link:hover {
 	background-color: rgba(0, 195, 209, 0.3);
 	text-decoration: none;
 	}
-.nav_background{
-	
-	height: 0;
-	padding: 0;
-	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
-	
-	/*https://stackoverflow.com/questions/11099930/100-width-background-image-with-an-auto-height*/
-	background-position: center center;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-image: url("../images/carousel/1.jpg");
+
+
+
+
+/*INDICATORS TO USER GOING THROUGH
+THE ADD_YOUR_ROOM FORM AT owner.html
+CHANGING COLORS AT add_room_interactions.js*/
+.tr_light {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
 	}
-.navigation{
-	height: 0;
-	padding: 0;
-	padding-top:20px;
-	padding-bottom: 10.75%;
+/*SPANS HOLDING FONTAWESOME ICONS */
+i.green, i.red, i.orange {
+	font-size: 1.3rem;
+	}
+
+i.green:hover {
+	background-color: initial;
+	}
+
+i.red {
+	color: red;
+	
+	}
+
+i.orange {
+	color: lightsalmon;
+	}
+
+
+/*  SETTING z-index OF NAVIGATION DROPDOWN TO 1001 TO SHOW ABOVE LEAFLET MAPS,
+    BECAUSE LEAFLET MAP AND MAP CONTROLS
+	HAVE Z-INDEX OF 1000*/
+.nave {
+	z-index: 1001;
+	}
+
+#dont_show_again {
+	cursor: pointer;
+	background-color: salmon;
+	color: #fafafa;
+	padding: 3px;
 	}
 
 @media screen and ( max-width: 1200px ) {
@@ -434,17 +521,15 @@ input[type=number] {
 	}
 
 @media screen and ( max-width: 767px ) {
-	#hero_image {
-		height: 0;
-		padding: 0;
-		}
-	.navigation{
+	
+	.navigation {
 		height: 0;
 		padding: 0;
 		padding-bottom: 18.75%;
 		}
 	}
 
+/*SMALLER SIZES FOR PROGRESS STEPS */
 @media screen and ( max-width: 540px ) {
 	.progress_step.description {
 		font-size: 0.8rem;
@@ -463,44 +548,5 @@ input[type=number] {
 	.step_holder {
 		height: 30px;
 		}
-	
-	}
-
-.caret-off::before {
-	display: none;
-	}
-.caret-off::after {
-	display: none;
-	}
-.tr_light{
-	height: 30px;
-	width: 30px;
-	border-radius: 50%;
-	}
-i.green,i.blue,i.orange{
-	font-size: 1.3rem;
-	}
-i.green:hover{
-	background-color: initial;
-	}
-i.blue{
-	color: red;
-	
-	}
-i.orange{
-	color: lightsalmon;
-	}
-.year{
-	margin-top:-50px;
-	font-size: 0.7rem;
-	}
-.nave{
-	z-index: 3;
-	}
-
-#dont_show_again{
-	cursor: pointer;
-	background-color: salmon;
-	color: #fafafa;
-	padding: 3px;
+		
 	}

@@ -20,7 +20,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 			attribution : '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'
 		} );
 		
-		var container = L.DomUtil.get ( 'mapid' );
+		var container = L.DomUtil.get ( 'map_index' );
 		
 		if ( container != null )
 			{
@@ -32,8 +32,8 @@ export function create_map ( coordinates = null, show_p_id = null )
 				 */
 				container._leaflet_id = null;
 				$ ( "#api_open_maps" ).html ( "" );
-				$ ( "#map" ).empty ();
-				$ ( "<div id=\"mapid\" style=\"min-height: 400px;\"></div>" ).appendTo ( "#api_open_maps" );
+				$ ( "#map_index" ).empty ();
+				$ ( "<div id=\"map_index\" ></div>" ).appendTo ( "#api_open_maps" );
 			}
 		
 		/*IF WE HAVE COORDINATES FOR THE ROOM -> TWO POSSIBLE CASES :
@@ -49,7 +49,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 		var zoom = coordinates || ( sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' ) ) ? 12 : null;
 		
 		
-		var map = L.map ( 'mapid', {
+		var map = L.map ( 'map_index', {
 			center : L.latLng ( coordinates || 39.095963, -48.515625 ),
 			zoom   : zoom || 2,
 			layers : [ tiles ]

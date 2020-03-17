@@ -201,7 +201,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 				 *   5.Select the amenities you can provide for your guests
 				 *   6.Describe your room, make it attractive (min 30 - max 300 characters)*/
 				var success = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_green' );
-				var info    = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_blue' );/*it is actually red ! =>  TO DO : change data attribute*/
+				var info    = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_red' );
 				var warning = $ ( '#' + $ ( this ).data ( 'parent_title' ) + '_orange' );
 				
 				
@@ -369,7 +369,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 				
 				              var success = $ ( '#board_types_title_green' );
 				              var warning = $ ( '#board_types_title_orange' );
-				              var info    = $ ( '#board_types_title_blue' );
+				              var info    = $ ( '#board_types_title_red' );
 				
 				              /* ID OF CURRENTLY SELECTED PRICE INPUT FIELD*/
 				              var check_box_id = $ ( this ).data ( 'c_box_id' );
@@ -448,7 +448,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 				var remaining_characters = 300 - room_desc.val ().length;
 				var step_4               = $ ( '#step_4' );
 				var success              = $ ( '#description_title_green' );
-				var info                 = $ ( '#description_title_blue' );
+				var info                 = $ ( '#description_title_red' );
 				
 				if ( room_desc.val ().length <= 29 )
 					{

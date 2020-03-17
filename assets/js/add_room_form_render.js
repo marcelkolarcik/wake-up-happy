@@ -32,7 +32,7 @@ function render_room_types ()
 					
 					 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
 					<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }  " id="room_types_title_green" title="Room type selected."></i>
-		            <i class="fas fa-question-circle blue ${ room ? 'd-none' : '' }" id="room_types_title_blue" title="Select your room type."></i>
+		            <i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="room_types_title_red" title="Select your room type."></i>
 			
 					    Select your room type.
 					    <i class = "fas fa-caret-down" ></i >
@@ -118,7 +118,7 @@ function render_view_types ()
  
  										 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
  											<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }" id="view_types_title_green" title="View type selected."></i>
-            								<i class="fas fa-question-circle blue ${ room ? 'd-none' : '' }" id="view_types_title_blue" title="Select your view type."></i>
+            								<i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="view_types_title_red" title="Select your view type."></i>
                                     Select the view type your room has. <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
                                     
         
@@ -140,7 +140,7 @@ function render_room_styles ()
 					 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
 					
 					   <i class="fas fa-check-circle green ${ room ? '' : 'd-none' }" id="room_styles_title_green" title="Room style selected."></i>
-				       <i class="fas fa-question-circle blue ${ room ? 'd-none' : '' }" id="room_styles_title_blue" title="Select your room style."></i>
+				       <i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="room_styles_title_red" title="Select your room style."></i>
 					    Select image your room will be displayed as.
 					    <i class = "fas fa-caret-down" ></i >
 					    <i class = "fas fa-caret-up" ></i >
@@ -240,7 +240,7 @@ function render_board_types ()
  
  									 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
  											<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }" id="board_types_title_green" title="Board type(s) selected."></i>
-            								<i class="fas fa-question-circle blue ${ room ? 'd-none' : '' }" id="board_types_title_blue" title="Select your board type(s)."></i>
+            								<i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="board_types_title_red" title="Select your board type(s)."></i>
             								<i class="fas fa-exclamation-circle orange d-none" id="board_types_title_orange" title="Add price for the board !"></i>
                                       Select the board basis you can provide for your guests.
                                        <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
@@ -296,7 +296,7 @@ function render_amenities ()
 						    <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
 						    <i class = "fas fa-check-circle green ${ room ? '' : 'd-none' }" id = "amenities_title_green"
 						       title = "Amenity selected." ></i >
-						    <i class = "fas fa-question-circle blue ${ room ? 'd-none' : '' }" id = "amenities_title_blue"
+						    <i class = "fas fa-question-circle red ${ room ? 'd-none' : '' }" id = "amenities_title_red"
 						       title = "Select amenities you provide!" ></i >
 						    Select the amenities you can provide for your guests.
 						    <i class = "fas fa-caret-down" ></i >
@@ -326,10 +326,15 @@ function render_description ()
 				300 - room_description.length ) : '300' }
 								            </span >
 								        </div >
-								    </div >
-								<textarea class = "form-control " form = "add_your_room" id = "room_description" maxlength = "300"
+								  </div >
+						
+								  
+									<div>
+									<textarea class = "form-control " form = "add_your_room" id = "room_description" maxlength = "300"
 								              name = "description" required rows = "4" >
 								    </textarea >
+									</div>
+								
 						</div >` );
 		
 		
@@ -339,7 +344,7 @@ function render_description ()
 						    <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
 						    <i class = "fas fa-check-circle green ${ room ? '' : 'd-none' }" id = "description_title_green"
 						       title = "Your room description" ></i >
-						    <i class = "fas fa-question-circle blue ${ room ? 'd-none' : '' }" id = "description_title_blue"
+						    <i class = "fas fa-question-circle red ${ room ? 'd-none' : '' }" id = "description_title_red"
 						       title = " Describe your room, make it attractive (min 30 - max 300 characters)" ></i >
 						    Describe your room, make it attractive (min 30 - max 300 characters)
 						    <i class = "fas fa-caret-down" ></i >

@@ -22,6 +22,8 @@
 
 ( function () {
 	
+	/*WHEN USER CLICKS ON HOW-TO BUTTON, WE WILL FIRE POPUP WITH APPROPRIATE DESCRIPTION
+	* DEPENDING ON THE STEP OF THE FORM*/
 	$ ( document ).on ( 'click', '#how_alert,#block_mode', function () {
 		
 		var step = $ ( this ).data ( 'step' );
@@ -39,6 +41,7 @@
 		);
 	} );
 	
+	/*RENDERING OF ALERT AFTER USER CLICKS ON HOW TO BUTTON*/
 	function render_description ( step ) {
 		
 		var descriptions = {
@@ -61,7 +64,7 @@
 		return descriptions[ step ];
 	}
 	
-	
+	/*HTML "COMPONENT" IN WHICH TO DISPLAY ALERT*/
 	function description_component ( description, step, gif ) {
 		
 		return `<div class="row">
@@ -111,7 +114,7 @@
 		
 	}
 	
-	
+	/*DESCRIPTION OF HOW TO STEP DEPENDING ON THE STEP*/
 	function description_content ( step ) {
 		var description_content = {
 			location : `Find location of your property on the map and then click the map to display coordinates.

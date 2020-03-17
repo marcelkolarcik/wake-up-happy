@@ -4,23 +4,31 @@
     <meta charset = "UTF-8" >
     <meta content = "width=device-width, initial-scale=1.0" name = "viewport" >
     <meta content = "ie=edge" http-equiv = "X-UA-Compatible" >
+    
+    <!--BOOTSTRAP CSS FILES-->
     <link crossorigin = "anonymous" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           rel = "stylesheet" >
+    
+    <!--FONT AWESOME CSS FILES-->
     <link crossorigin = "anonymous" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
           integrity = "sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" rel = "stylesheet" />
-    <!--LEAFLET JS FILES-->
+    
+    <!--LEAFLET CSS FILES-->
     <link crossorigin = "" href = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity = "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           rel = "stylesheet" />
     <link href = "https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" rel = "stylesheet" >
     <link href = "https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" rel = "stylesheet" >
+    
     <!--APP CSS FILE-->
     <link href = "assets/css/app.css" rel = "stylesheet" >
+    
     <!--SWEET ALERT CSS FOR DISPLAYING ALERT-->
     <link crossorigin = "anonymous"
           href = "https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css"
           integrity = "sha256-2bAj1LMT7CXUYUwuEnqqooPb1W0Sw0uKMsqNH0HwMa4=" rel = "stylesheet" />
+    
     <!--emailjs FILE TO SEND EMAIL WHEN NEW BOOKING IS MADE-->
     <script src = "https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"
             type = "text/javascript" >
@@ -65,10 +73,12 @@
                 -->
             <nav class = "navbar navbar-expand-sm navbar-dark bg_green_light pb-0 nave" >
                 <a class = "navbar-brand" href = "index.html" >
+                    
                     <!--LOGO OF THE SITE DISPLAYING DOWN TO 768 PX-->
                     <img alt = "logo image" class = "d-none d-sm-block "
                          src = "assets/images/logo_sm.png"
                          title = "wake up happy | rooms with the view" >
+                    
                     <!--LOGO OF THE SITE FOR MOBILE DEVICES DISPLAYING FROM 768 PX DOWN-->
                     <img alt = "logo image" class = "d-sm-none" src = "assets/images/logo_xs.png"
                          title = "wake up happy | rooms with the view" >
@@ -116,28 +126,42 @@
         </div >
     </div >
 </section >
-<!--DIV FOR DISPLAYING PREVIEW OF THE ROOM, WHEN USER CLICKS ON MARKER ON THE MAP,
-AND THEN ON more BUTTON-->
 <div class = "container" >
+    
+    
+    <!--DIV FOR DISPLAYING PREVIEW OF THE ROOM, WHEN USER CLICKS ON MARKER ON THE MAP,
+        AND THEN ON more BUTTON-->
     <div class = "col-md-12" id = "map_search_result" ></div >
+    
+    
+    <!--LITTLE INFO TO USERS ABOUT INITIAL LOCATIONS OF THE ROOMS,
+    WITH 2 OPTIONS OF CLOSING IT:
+    
+        1.  x BUTTON => REMOVE DIV FROM THE VIEW -> WILL REAPEAR AFTER PAGE RELOAD
+        2.  don't show again BUTTON => REMOVE DIV FROM THE VIEW
+            AND FOR THE DURATION OF THE SESSION ( WHILE THE BROWSER IS OPEN )
+            WHEN THE BROWSER WILL CLOSE AND REOPEN AGAIN, WE WILL DISPLAY DIV AGAIN
+            -->
     <div class = "d-none" id = "initial_locations" >
-        <div class="d-flex justify-content-between">
+        <div class = "d-flex justify-content-between" >
+            
+            
+            <!--CLOSE INFO DIV PER VIEW-->
             <span class = "btn btn-sm text-danger float-right btn-warning mr-2 close_div"
-                  data-per="view"
-                  data-div="initial_locations"
-                  id="close"
+                  data-div = "initial_locations"
+                  data-per = "view"
+                  id = "close"
             >x
             </span >
+            
+            
+            <!--CLOSE INFO DIV PER SESSION-->
             <span class = "close_div"
                   data-div = "initial_locations"
                   data-per = "session"
                   id = "dont_show_again" >don't show again
             </span >
-        </div>
-        
-        
-        
-        
+        </div >
         <p >
             Initial locations are
             <span class = "nav_link_property" >
@@ -154,6 +178,7 @@ AND THEN ON more BUTTON-->
             <div class = "container" >
                 <div class = "row" >
                     <div class = "col-md-4" >
+                        
                         <!--SEARCH FORM FOR THE ROOMS-->
                         <!--LOCATION FIELD ( REQUIRED ) WITH AUTOCOMPLETE FUNCTIONALITY locations_autocomplete.js-->
                         <div id = "search_form" >
@@ -175,6 +200,7 @@ AND THEN ON more BUTTON-->
                                     </div >
                                 </div >
                             </div >
+                            
                             <!--BOARD TYPES FIELD -> DEFAULT ->ANY-->
                             <div class = "col-auto" >
                                 <div class = "input-group mb-2" >
@@ -195,6 +221,7 @@ AND THEN ON more BUTTON-->
                                     </select >
                                 </div >
                             </div >
+                            
                             <!--ROOM TYPES FIELD -> DEFAULT ->ANY-->
                             <div class = "col-auto" >
                                 <div class = "input-group mb-2" >
@@ -218,6 +245,7 @@ AND THEN ON more BUTTON-->
                                     </select >
                                 </div >
                             </div >
+                            
                             <!--SEARCH BUTTON-->
                             <div class = "text-right" >
                                 <button class = "btn  btn-lg bg_green text-light add_initial_locations"
@@ -229,9 +257,10 @@ AND THEN ON more BUTTON-->
                             </div >
                         </div >
                     </div >
+                    
                     <div class = "col-md-8 mt-2" id = "api_open_maps" >
-                        <!-- LEAFLET -->
-                        <div class = "border border-info" id = "mapid" ></div >
+                        <!-- LEAFLET MAP-->
+                        <div class = "border border-info" id = "map_index" ></div >
                     </div >
                 </div >
             </div >
@@ -243,8 +272,10 @@ AND THEN ON more BUTTON-->
 <section id = "" >
     <div class = "container" >
         <div class = "row" >
-            <div class = "col-md-12" id = "form_search_results" >
-            </div >
+            
+            <!--RESULTS FROM THE SEARCH APPENDED AT search_results.js
+            IF NO SEARCH RESULTS => APPENDING FEATURED ROOMS AT featured_rooms.js-->
+            <div class = "col-md-12" id = "form_search_results" ></div >
         </div >
     </div >
 </section >
@@ -267,8 +298,8 @@ AND THEN ON more BUTTON-->
         <p >&copy; Copyright <em >Marcel Kolarcik</em ></p >
     </div >
 </footer >
-<!-- Make sure you put this AFTER Leaflet's CSS -->
-<!-- leaflet maps -->
+
+<!--LEAFLET MAPS JS -->
 <script crossorigin = "anonymous"
         integrity = "sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso="
         src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js" ></script >
@@ -278,7 +309,8 @@ AND THEN ON more BUTTON-->
 <script crossorigin = "anonymous"
         integrity = "sha256-WL6HHfYfbFEkZOFdsJQeY7lJG/E5airjvqbznghUzRw="
         src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js" ></script >
-<!--end leaflet maps -->
+
+<!--BOOTSTRAP JS -->
 <script
         crossorigin = "anonymous"
         integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -286,9 +318,13 @@ AND THEN ON more BUTTON-->
 <script crossorigin = "anonymous"
         integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script >
+
+<!--SWEETALERT JS-->
 <script crossorigin = "anonymous"
         integrity = "sha256-7OUNnq6tbF4510dkZHCRccvQfRlV3lPpBTJEljINxao="
         src = "https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js" ></script >
+
+<!--APP JS FILES => TO DO : USE WEBPACK TO COMPILE THEM INTO ONE FILE-->
 <script src = "assets/js/booking_helpers.js" ></script >
 <script src = "assets/js/getWeek.js" ></script >
 <script src = "assets/js/create_DB.js" type = "module" ></script >

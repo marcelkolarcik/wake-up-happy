@@ -9,7 +9,7 @@
 	{
 		
 		/*INITIAL COORDINATES OF THE MAP WITH ZOOM 6 */
-		var mymap = L.map ( 'mapid' ).setView ( [ 53.505, -8.49 ], 6 );
+		var mymap = L.map ( 'map_owner' ).setView ( [ 53.505, -8.49 ], 6 );
 		
 		L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom     : 18,
