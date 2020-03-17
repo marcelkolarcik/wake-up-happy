@@ -201,7 +201,7 @@ input:hover, select:hover {
 	padding: 5%;
 	}
 
-/*REMOVING DEFAULT BOOTSTRAP'S BORDER RADIUS*/
+/*REMOVING DEFAULT BOOTSTRAP'S BORDER RADIUS OF BUTTON*/
 .btn {
 	border-radius: 0;
 	}
