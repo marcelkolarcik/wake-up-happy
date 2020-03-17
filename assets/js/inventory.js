@@ -22,14 +22,14 @@
  * I AM ACCESSING IT BY ${views[property.p_view]}.jpg WHICH IS IN THIS CASE WILL RENDER mountain.jpg FILE*/
 
 
-export let room_types = [ 'single', 'double' ];
+export let room_types  = [ 'single', 'double' ];
 export let board_types = [
 	'Room only',
 	'B & B',
 	'B & D',
 	'All Inclusive'
 ];
-export let view_types = [
+export let view_types  = [
 	'mountain', 'sea', 'lake', 'river', 'pool', 'beach', 'forrest', 'skyline', 'fields', 'desert'
 ];
 export let room_styles = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ];

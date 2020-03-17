@@ -271,6 +271,7 @@ input:hover, select:hover {
 	top: 100%;
 	left: 13%; /* was 0 changed to 8% to allow for the icon*/
 	right: 0;
+	width:  100%
 	}
 
 .autocomplete-items div {
@@ -495,4 +496,11 @@ i.orange{
 	}
 .nave{
 	z-index: 3;
+	}
+
+#dont_show_again{
+	cursor: pointer;
+	background-color: salmon;
+	color: #fafafa;
+	padding: 3px;
 	}

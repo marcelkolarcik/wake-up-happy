@@ -43,7 +43,7 @@ export function render_gallery ( room )
 		    </div>`;
 		
 		var breakfast = `<div class="carousel-item " >
-			      <img src="assets/images/breakfast/br_${ room.food_id || 1}.jpg" class="d-block w-100" alt="breakfast image">
+			      <img src="assets/images/breakfast/br_${ room.food_id || 1 }.jpg" class="d-block w-100" alt="breakfast image">
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">breakfast</h5>
 			       
@@ -51,7 +51,7 @@ export function render_gallery ( room )
 		    </div>`;
 		
 		var lunch = ` <div class="carousel-item " >
-			      <img src="assets/images/lunch/l_${ room.food_id  || 1}.jpg" class="d-block w-100" alt="lunch image" >
+			      <img src="assets/images/lunch/l_${ room.food_id || 1 }.jpg" class="d-block w-100" alt="lunch image" >
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">lunch</h5>
 			       
@@ -59,7 +59,7 @@ export function render_gallery ( room )
 		    </div>`;
 		
 		var dinner = `<div class="carousel-item " >
-			      <img src="assets/images/dinner/d_${ room.food_id  || 1}.jpg" class="d-block w-100" alt="dinner image" >
+			      <img src="assets/images/dinner/d_${ room.food_id || 1 }.jpg" class="d-block w-100" alt="dinner image" >
 			      <div class="carousel-caption d-none d-md-block">
 			        <h5 class="images caption">dinner</h5>
 			       
@@ -67,13 +67,15 @@ export function render_gallery ( room )
 		    </div>`;
 		
 		
-		var slide_to_0 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="0" class="active" title="room view"></li>`;
+		var slide_to_0 = ` <li data-target="${ '#gallery_'
+		                                       + room.p_id }" data-slide-to="0" class="active" title="room view"></li>`;
 		var slide_to_1 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="1"  title="room style"></li>`;
 		var slide_to_2 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="2"  title="breakfast"></li>`;
 		var slide_to_3 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="3"  title="lunch"></li>`;
 		
 		/*IF IT IS B&D  WE ARE NOT DISPLAYING LUNCH SLIDE AND LAST SLIDE IS NUMBER 3*/
-		var slide_to_4 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="${'3' in room.price ? 4 : 3 }"  title="dinner"></li>`;
+		var slide_to_4 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="${ '3' in room.price ? 4
+		                                                                                                      : 3 }"  title="dinner"></li>`;
 		
 		//		All Inclusive
 		if ( '3' in room.price )

@@ -64,8 +64,8 @@ $ ( function ()
 						
 						    user_drop_down.append ( `
                                 
-                                <a id = "${value}" class = "dropdown-item room_switch" href = "#"
-                                title = "Switch to ${room.p_address.property_name}" >${room.p_address.property_name}</a >` );
+                                <a id = "${ value }" class = "dropdown-item room_switch" href = "#"
+                                title = "Switch to ${ room.p_address.property_name }" >${ room.p_address.property_name }</a >` );
 					    }
 				
 				
@@ -221,3 +221,15 @@ $ ( document ).on ( 'click', '#make_money', function ()
 	            } );
 	
 } );
+
+/*ADDING LITTLE INFO TO FIRST TIME USER ABOUT INITIAL AUTOCOMPLETE LOCATIONS*/
+function initial_locations ( add = true )
+	{
+		if(!sessionStorage.getItem('initial_locations'))
+			{
+				var initial =  $('#initial_locations');
+				add  ? initial.fadeIn(1000).removeClass('d-none') : initial.fadeOut(350) ;
+			}
+		
+		
+	}

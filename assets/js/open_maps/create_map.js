@@ -101,7 +101,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							 .addTo ( map )
 							 .bindPopup ( popup )
 							 .openPopup ();
-							
+
 //							BECAUSE WE ALREADY OPENED POPUP FOR NEWLY CREATED ROOM, WE ARE
 //		                    REMOVING 	'new_p_id',	'lat','lng'FROM sessionStorage
 //							OTHERWISE WE WOULD HAVE THIS MARKER OPEN UNTIL WE CLOSE BROWSER
@@ -123,7 +123,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							 .bindPopup ( popup )
 							 .openPopup ();
 						}
-						/*ALL OTHER ROOMS */
+					/*ALL OTHER ROOMS */
 					else
 						{
 							marker.bindPopup ( popup );

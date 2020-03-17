@@ -66,10 +66,21 @@
     </div >
 </section >
 <div class = "container" >
-    <div class = "col-md-12 mb-1 bg_green_light text-center d-none" id = "hello" >
-        <span class = "btn btn-sm text-danger float-right btn-warning"
-              onclick = "document.getElementById('hello').remove();" >x
-        </span >
+    <div class = "col-md-12 mb-1 bg_green_light text-center" id = "hello" >
+        <div class="d-flex justify-content-between">
+            <span class = "btn btn-sm text-danger float-right btn-warning mr-2 close_div"
+                  data-per="view"
+                  data-div="hello"
+                  id="close"
+                   >x
+            </span >
+            <span id="dont_show_again"
+                  data-div="hello"
+                  data-per="session"
+                  class="close_div">don't show again</span>
+        </div>
+       
+       
         <h5 class = "float-left bg-danger text-light p-2" >NEW</h5 >
         <h4 class = "text-light " >Do you live in Ireland ?</h4 >
         <br >
@@ -244,7 +255,6 @@
 <script src = "assets/js/render_room_preview.js" type = "module" ></script >
 <script src = "assets/js/add_room_interactions.js" ></script >
 <script src = "assets/js/booking_helpers.js" ></script >
-<script src = "assets/js/check_form.js" ></script >
 <script src = "assets/js/added_room_preview.js" type = "module" ></script >
 <script src = "assets/js/add_room_form_render.js" type = "module" ></script >
 <script src = "assets/js/getWeek.js" ></script >
@@ -253,6 +263,7 @@
 <script src = "assets/js/navigation.js" ></script >
 <script src = "assets/js/room_actions.js" ></script >
 <script src = "assets/js/how_to_alert.js" ></script >
+<script src = "assets/js/close_div.js" ></script >
 <script >
 </script >
 </body >

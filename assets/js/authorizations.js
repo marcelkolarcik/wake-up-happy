@@ -113,8 +113,8 @@ $ ( document ).on ( 'click', '#login', function ()
 } );
 
 /*WHEN USER LOGS OUT, WE'LL CLEAR SESSION AND LOG HIM OUT
-* authorized_owner WILL BE CLEARED FROM SESSION
-* AMONG OTHER ITEMS IN THE sessionStorage*/
+ * authorized_owner WILL BE CLEARED FROM SESSION
+ * AMONG OTHER ITEMS IN THE sessionStorage*/
 $ ( document ).on ( 'click', '#logout', function ()
 {
 	
@@ -176,29 +176,28 @@ function not_registered ()
 
 
 /*IF WE HAVE OWNER WITH PROVIDED CREDENTIALS
-* WE WILL SET LOGGED IN OWNER AS authorized_owner IN sessionStorage
-*       => sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
-*
-* AND SET CURRENT MODE TO  preview_mode
-*       => sessionStorage.setItem ( 'preview_mode', true )
-*
-* AND IF OWNER HAS AT LEAST ONE room ADDED
-* WE WILL SET room_to_edit IN sessionStorage
-*       => sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) )
-*
-* owner.room_id IS THE ID OF THE ROOM OWNER INTERACTED LAST
-* SO AFTER LOGGING IN HE WILL SEE LASTLY INTERACTED ROOM WITH IN
-* PREVIEW, READY TO BE INTERACTED WITH AGAIN
-*
-* IF OWNER HAS MORE THEN ONE ROOM, HE CAN SWITCH TO ANY ROOM FROM
-* NAVIGATION IN TOP RIGHT CORNER*/
+ * WE WILL SET LOGGED IN OWNER AS authorized_owner IN sessionStorage
+ *       => sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
+ *
+ * AND SET CURRENT MODE TO  preview_mode
+ *       => sessionStorage.setItem ( 'preview_mode', true )
+ *
+ * AND IF OWNER HAS AT LEAST ONE room ADDED
+ * WE WILL SET room_to_edit IN sessionStorage
+ *       => sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) )
+ *
+ * owner.room_id IS THE ID OF THE ROOM OWNER INTERACTED LAST
+ * SO AFTER LOGGING IN HE WILL SEE LASTLY INTERACTED ROOM WITH IN
+ * PREVIEW, READY TO BE INTERACTED WITH AGAIN
+ *
+ * IF OWNER HAS MORE THEN ONE ROOM, HE CAN SWITCH TO ANY ROOM FROM
+ * NAVIGATION IN TOP RIGHT CORNER*/
 function authorize_owner ( owner, hashed_login )
 	{
 		
 		
 		sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
 		sessionStorage.setItem ( 'preview_mode', true );
-		
 		
 		
 		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
@@ -208,7 +207,7 @@ function authorize_owner ( owner, hashed_login )
 		if ( ROOMS[ owner.room_id ] !== null )
 			{
 				sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
-				sessionStorage.removeItem('add_mode');
+				sessionStorage.removeItem ( 'add_mode' );
 				
 				
 			}
@@ -220,7 +219,6 @@ function authorize_owner ( owner, hashed_login )
 //	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE ....
 		sessionStorage.setItem ( 'hashed_login', hashed_login );
 		window.location.replace ( "/owner.html" );
-	
 		
 		
 	}

@@ -50,7 +50,8 @@ $ ( document ).on ( "click", ".show_content", function ()
 {
 	/*EVERY TAB HAS data-hidden_class ATTRIBUTE BY WHICH
 	 * WE KNOW WHICH DIV TO TOGGLE ON CLICK*/
-	$ ( '.' + $ ( this ).data ( 'hidden_class' ) ).toggleClass ( 'd-none' );
+	
+	$ ( '.' + $ ( this ).data ( 'hidden_class' ) ).fadeToggle(700).toggleClass ( 'd-none' );
 } );
 
 /*WHEN USER CLICKS ON ANY IMAGE ON ROOM SECTION
@@ -115,8 +116,8 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 	var current_div = $ ( '.' + $ ( this ).data ( 'current_div' ) );
 	var next_div    = $ ( '.' + $ ( this ).data ( 'next_div' ) );
 	
-	current_div.addClass ( 'd-none' );
-	next_div.removeClass ( 'd-none' );
+	current_div.fadeOut(1000).addClass ( 'd-none' );
+	next_div.fadeIn(1000).removeClass ( 'd-none' );
 	
 } );
 
