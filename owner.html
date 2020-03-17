@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html >
+<head >
+    <title >Owner</title >
+    <meta charset = "UTF-8" />
+    <meta content = "width=device-width, initial-scale=1.0" name = "viewport" >
+	<!--BOOTSTRAP CSS-->
+    <link crossorigin = "anonymous" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          rel = "stylesheet" >
+	<!--FONTAWESOME CSS-->
+    <link crossorigin = "anonymous" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+          integrity = "sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" rel = "stylesheet" />
+	<!--LEAFLET CSS-->
+    <link crossorigin = "" href = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity = "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          rel = "stylesheet" />
+	<!--SWEETALERT CSS-->
+    <link crossorigin = "anonymous"
+          href = "https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css"
+          integrity = "sha256-2bAj1LMT7CXUYUwuEnqqooPb1W0Sw0uKMsqNH0HwMa4=" rel = "stylesheet" />
+    <link href = "assets/css/app.css" rel = "stylesheet" >
+</head >
+<body >
+<section id = "navigation" >
+    <div class = "nav_background" >
+        <div class = "navigation container" >
+            <nav class = "navbar navbar-expand-sm navbar-dark bg_green_light pb-0 nave" >
+                <a class = "navbar-brand" href = "index.html" >
+                    <img alt = "logo image" class = "d-none d-sm-block "
+                         src = "assets/images/logo_sm.png"
+                         title = "wake up happy | rooms with the view" >
+                    <img alt = "logo image" class = "d-sm-none" src = "assets/images/logo_xs.png"
+                         title = "wake up happy | rooms with the view" >
+                </a >
+                <button aria-controls = "logo_cont" aria-expanded = "false" aria-label = "Toggle navigation"
+                        class = "navbar-toggler "
+                        data-target = "#logo_cont" data-toggle = "collapse" type = "button" >
+                    <span class = "small_menu" >Menu</span >
+                    <br >
+                    <span class = "navbar-toggler-icon" ></span >
+                </button >
+                <div class = "collapse navbar-collapse" id = "logo_cont" >
+                    <ul class = "navbar-nav mr-auto " >
+                    </ul >
+                    <ul class = "navbar-nav vertically_aligned" >
+                        <!--<li id = "add_room mb-1" >-->
+                        <!--<a class = "nav_link text-light mr-3 " href = "owner.html" title = "Add your room" >-->
+                        <!--add your room-->
+                        <!--</a >-->
+                        <!--</li >-->
+                        <li class = "nav-item dropdown mr-3 " id = "languages" >
+                            <a aria-expanded = "false" aria-haspopup = "true"
+                               class = "nav_link text-light dropdown-toggle caret-off" data-toggle = "dropdown"
+                               href = "#" ><img
+		                            alt = "logo image" src = "assets/images/en_flag.png"
+		                            style = "width:30px;" ></a >
+                            <div aria-labelledby = "languages" class = "dropdown-menu dropdown-menu-right" >
+                                <h6 class = "dropdown-header" >Change Languages</h6 >
+                                <div class = "dropdown-divider" ></div >
+                                <a class = "dropdown-item" href = "#" >English</a >
+                                <a class = "dropdown-item" href = "#" >franse</a >
+                                <a class = "dropdown-item" href = "#" >espanyol</a >
+                            </div >
+                        </li >
+                        <li class = "nav-item dropdown mr-3 " id = "user" >
+                        </li >
+                    </ul >
+                </div >
+            </nav >
+        </div >
+    </div >
+</section >
+<div class = "container" >
+    
+    <!--INFO DIV. CURRENT INFO  =>  INFO TO IRISH LANDLORDS ABOUT POSSIBILITY OF
+    MAKING 14,000 EUR TAX FREE .... WITH 2 OPTIONS OF CLOSING IT:
+    
+        1.  x BUTTON => REMOVE DIV FROM THE VIEW -> WILL REAPEAR AFTER PAGE RELOAD
+        2.  don't show again BUTTON => REMOVE DIV FROM THE VIEW
+            AND FOR THE DURATION OF THE SESSION ( WHILE THE BROWSER IS OPEN )
+            WHEN THE BROWSER WILL CLOSE AND REOPEN AGAIN, WE WILL DISPLAY DIV AGAIN-->
+    <div class = "col-md-12 mb-1 bg_green_light text-center" id = "hello" >
+        <div class = "d-flex justify-content-between" >
+            
+             <!--CLOSE INFO DIV PER VIEW-->
+            <span class = "btn btn-sm text-danger float-right btn-warning mr-2 close_div"
+                  data-div = "hello"
+                  data-per = "view"
+                  id = "close"
+            >x
+            </span >
+
+             <!--CLOSE INFO DIV PER SESSION-->
+            <span class = "close_div"
+                  data-div = "hello"
+                  data-per = "session"
+                  id = "dont_show_again" >don't show again</span >
+        </div >
+       
+       
+        <h5 class = "float-left bg-danger text-light p-2" >NEW</h5 >
+        <h4 class = "text-light " >Do you live in Ireland ?</h4 >
+        <br >
+        <h3 class = "text-light " >If you have spare room and want to earn up to €14,000 tax free, come and join
+                                   thousands of happy landlords !</h3 >
+        <a href = "#" id = "make_money" >more info</a >
+    </div >
+    
+    
+    <!--FORM PROGRESS DISPLAY ON THE TOP OF THE PAGE UNDER IMAGE
+    CONTAINS 5 CIRCLES WITH NUMBERS FROM 1 -> 5
+    AND NAME OF EACH STEP ( location, room, services, preview, payment)
+    
+    AS OWNER PROGRESSES THROUGH THE FORM WE WILL CHANGE COLOR OF THE CIRCLE
+    FROM WHITE BACKGROUND TO GREEN BACKGROUND WHEN OWNER COMPLETES THIS STEP
+    OF THE FORM IN  add_room_interactions.js
+    -->
+    <section id = "form_navigation_steps" >
+        
+        <!--CIRCLES WITH NUMBERS OF STEPS-->
+        <div class = "col-md-12 img-thumbnail bg-transparent " id = "step_description" >
+            <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
+                <div class = "progress-bar   progress_step" title = "Choose your location" >1</div >
+                <div class = "progress-bar   bg-transparent step_divider" ></div >
+                <div class = "progress-bar progress_step empty" id = "progress_step_2" title = "Define your room" >2
+                </div >
+                <div class = "progress-bar  step_divider bg-transparent " ></div >
+                <div class = "progress-bar progress_step empty" id = "progress_step_3" title = "Define your services" >
+                    3
+                </div >
+                <div class = "progress-bar  step_divider bg-transparent " ></div >
+                <div class = "progress-bar progress_step empty" id = "progress_step_4"
+                     title = "Preview your work of art!" >4
+                </div >
+                <div class = "progress-bar  step_divider bg-transparent progress_step_5" ></div >
+                <div class = "progress-bar progress_step empty progress_step_5" id = "progress_step_5" title = "Pay !" >
+                    5
+                </div >
+            </div >
+    
+            <!--NAMES OF STEPS-->
+            <div class = "progress d-flex justify-content-center bg-transparent step_holder" >
+                <div class = "progress-bar   progress_step p_description" role = "progressbar" >Location</div >
+                <div class = "progress-bar   bg-transparent step_divider p_description" ></div >
+                <div class = "progress-bar progress_step p_description" >Room</div >
+                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
+                <div class = "progress-bar progress_step p_description" >Services</div >
+                <div class = "progress-bar  step_divider p_description bg-transparent " ></div >
+                <div class = "progress-bar progress_step p_description progress_step_4" >Preview</div >
+                <div class = "progress-bar  step_divider p_description bg-transparent progress_step_5" ></div >
+                <div class = "progress-bar progress_step p_description progress_step_5" >Payment</div >
+            </div >
+            <div class = "card" >
+                
+                <!--DIV TO APPEND ROOM ACTIONS room_actions.js-->
+                <div class = " text-center" id = "room_actions" ></div >
+
+               
+            </div >
+        </div >
+    </section >
+    <section id = "content" >
+        
+        <!--
+        I AM USING DYNAMIC TABBET INTERFACES TO DISPLAY PARTS OF THE FORM
+        FROM BOOTSTRAP EXAMPLE BY ADDING data-toggle="tab" href="#( "div_to_open" )
+        TO TABS UNDER THE FORM , SO WHEN USER CLICKS ON TAB "div_to_open" WILL OPEN "-->
+        <form id = "add_your_room" >
+            <div class = "row no-gutters" >
+                <!-- Tab panes -->
+                <div class = "tab-content col-md-12" >
+                    
+                    <!--DIV FOR HOLDING MAP AND DIV TO DISPLAY LOCATION DETAILS, AFTER USER SELECTS
+                    LOCATION ON THE MAP AND THEN CLICKS ON get details BUTTON -> get_location.js-->
+
+                    <!--STEP => LOCATION-->
+                    <div class = "tab-pane fade show active" id = "get_address2" role = "tabpanel" >
+                        <div class = "row no-gutters" >
+                            <div class = "col-md-8 col-sm-12 img-thumbnail" >
+                                
+                                <!--MAP WILL RENDER INTO THIS DIV-->
+                                <div id = "map_owner"  ></div >
+                            </div >
+                            <div class = "col-md-4 col-sm-12 img-thumbnail " >
+                                <div class = "d-flex justify-content-center align-items-center"
+                                     id = "location_details" >
+                                    
+                                    <!--INITIAL HOW TO INFO ABOUT HOW TO GET LOCATION DETAILS
+                                    WILL HIDE AFTER USER GETS LOCATION DETAILS-->
+                                    <div class = "how-to img-thumbnail" >
+                                        <h4 >location details</h4 >
+                                        <div >
+                                            Find location of your property on the map and then click the map to display coordinates.
+                                            <hr class = "bg_green" >
+                                            Then click on
+                                            <button class = "bg_orange" >get details</button >
+                                            button, to display location details.
+                                            You can correct these details.
+                                            <hr class = "bg_green" >
+                                            Once you're happy with the location details, click on
+                                            <span class = "green" >room&nbsp;>>></span >
+                                            <hr class = "bg-danger" >
+                                            <p class = " text-danger" >
+                                                Remember to add your property name! (min 3 characters)
+                                                to be able to continue to next step.
+                                            </p >
+                                            <hr class = "bg_greem" >
+                                            By clicking on
+                                            <span class = " btn btn-sm bg-danger  text-light no_padding" >
+                                                <i class = "far fa-question-circle" ></i >
+                                                How to
+                                            </span > you will get information that will assist on every step of your journey...;-).
+                                        </div >
+                                    </div >
+                                </div >
+                                
+                                <!--LOCATION DETAILS WILL RENDER HERE   =>    get_location.js-->
+                                <div id = "location" ></div >
+                            </div >
+                        </div >
+                    </div >
+
+                    <!--DIVS FOR HOLDING ADD ROOM DETAILS
+                    RENDERED BY add_room_form_render.js-->
+                    
+                    <!--STEP => ROOM-->
+                    <div class = "tab-pane fade" id = "room" role = "tabpanel" >
+                        <div class = "row no-gutters" id = "room_details" >
+                            
+                            <!--ROOM TYPES IMAGES WITH RADIO BUTTONS WILL RENDER HERE-->
+                            <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                                 id = "room_types" >
+                                <!--TITLE OF THE FORM PART => 	Select your room type.-->
+                                <div class = "img-thumbnail card col-md-12 p-0 " id = "room_types_title" >
+                                </div >
+                            </div >
+
+                            <!--VIEW TYPES IMAGES WITH RADIO BUTTONS WILL RENDER HERE-->
+                            <div class = "row no-gutters img-thumbnail d-flex justify-content-between align-items-center mb-3 col-md-12 "
+                                 id = "view_types" >
+                                
+                                <!--TITLE OF THE FORM PART => 	Select the view type your room has.-->
+                                <div class = " col-md-12  p-0" id = "view_types_title" ></div >
+                                <div class = "tr_light green horizontally_aligned" >&nbsp;</div >
+                            </div >
+
+                            <!--ROOM STYLES IMAGES WITH RADIO BUTTONS WILL RENDER HERE-->
+                            <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                                 id = "room_styles" >
+                                
+                                 <!--TITLE OF THE FORM PART => 	Select image your room will be displayed as..-->
+                                <div class = " img-thumbnail card col-md-12 p-0 " id = "room_styles_title" >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                    
+                    <!--STEP => SERVICES-->
+                    <div class = "tab-pane fade" id = "services" role = "tabpanel" >
+                        
+                         <!--BOARD TYPES IMAGES WITH CHECK BUTTONS WILL RENDER HERE-->
+                        <div class = "row no-gutters d-flex justify-content-center align-items-center mb-3 col-md-12"
+                             id = "board_types" >
+                            
+                             <!--TITLE OF THE FORM PART => 	 Select the board basis you can provide for your guests-->
+                            <div class = "img-thumbnail card col-md-12 p-0" id = "board_types_title" >
+                            </div >
+                        </div >
+
+                         <!--AMENITIES TEXT WITH CHECK BUTTONS WILL RENDER HERE-->
+                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                             id = "amenities" >
+                            
+                            <!--TITLE OF THE FORM PART => 	 Select the amenities you can provide for your guests.-->
+                            <div class = " img-thumbnail card col-md-12 p-0 " id = "amenities_title" >
+                            </div >
+                        </div >
+
+                         <!--DESCRIPTION TEXT AREA-->
+                        <div class = "row no-gutters  mb-3 d-flex justify-content-around align-items-center col-md-12"
+                             id = "description" >
+                            
+                            <!--TITLE OF THE FORM PART => 	 Describe your room, make it attractive (min 30 - max 300 characters)-->
+                            <div class = " img-thumbnail card col-md-12  p-0" id = "description_title" >
+                            </div >
+                        </div >
+                    </div >
+                    
+                    <!--STEP    =>  PREVIEW
+                    PREVIEW OF THE ROOM WILL BE RENDERED HERE added_room_preview.js-->
+                    <div class = "tab-pane fade" id = "preview" role = "tabpanel" ></div >
+                    
+                    <!--STEP    =>  PAYMENT
+                    PAYMENT FORM WILL RENDER HERE =>    add_room_payment_form.js-->
+                    <div class = "tab-pane fade" id = "payment" role = "tabpanel" ></div >
+                </div >
+            </div >
+            
+            
+            <div class = "d-flex justify-content-center" id = "steps" >
+                <!-- Nav tabs -->
+                <!--TABS TO NAVIGATE THROUGH THE FORM DISPLAYING / HIDING THEM ACCORDING TO
+                USER ACTIONS add_room_interactions.js-->
+                <div class = "list-group list-group-horizontal " id = "add_room_tabs" role = "tablist" >
+                    <a class = "list-group-item list-group-item-action p-1   active step " data-step = "location"
+                       data-step_id = "1"
+                       data-toggle = "list" href = "#get_address2" id = "step_1" role = "tab"
+                       title = "Choose your location" >location </a >
+                    
+                    <a class = "list-group-item list-group-item-action p-1 d-none  step" data-step = "room"
+                       data-step_id = "2"
+                       data-toggle = "list" href = "#room" id = "step_2" role = "tab" title = "Define your room" >
+                        room</a >
+                    
+                    <a class = "list-group-item list-group-item-action p-1  d-none step" data-step = "services"
+                       data-step_id = "3"
+                       data-toggle = "list" href = "#services" id = "step_3" role = "tab"
+                       title = "Define your services" > services</a >
+                    
+                    <a class = "list-group-item list-group-item-action p-1 d-none step preview_room"
+                       data-step = "preview" data-step_id = "4"
+                       data-toggle = "list" href = "#preview" id = "step_4" role = "tab"
+                       title = "Preview your work of art!" >preview</a >
+                    
+                    <a class = "list-group-item list-group-item-action p-1  d-none step" data-step = "payment"
+                       data-step_id = "5"
+                       data-toggle = "list" href = "#payment" id = "step_5" role = "tab" title = "Pay !" >payment</a >
+                    
+                    <a class = "ml-1 list-group-item  list-group-item-action  bg_orange p-1 d-none "
+                       id = "pay_for_the_room" title = "Save your changes !" >Update</a >
+                </div >
+            </div >
+        </form >
+    </section >
+    <section id = "footer" style = "height: 500px;" >
+    
+    </section >
+</div >
+<!--LEAFLET JS-->
+<script crossorigin = ""
+        integrity = "sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        src = "https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" ></script >
+<!--JQUERY JS-->
+<script
+		crossorigin = "anonymous"
+		integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		src = "https://code.jquery.com/jquery-3.4.1.js" ></script >
+<!--BOOTSTRAP JS-->
+<script crossorigin = "anonymous"
+        integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script >
+<!--SWEETALERT JS-->
+<script src = "https://cdn.jsdelivr.net/npm/sweetalert2@9" ></script >
+<!--APP JS FILES => TO DO : USE WEBPACK TO COMPILE THEM INTO ONE FILE-->
+<script src = "assets/js/open_maps/get_location.js" ></script >
+<script src = "assets/js/render_room_preview.js" type = "module" ></script >
+<script src = "assets/js/add_room_interactions.js" ></script >
+<script src = "assets/js/booking_helpers.js" ></script >
+<script src = "assets/js/added_room_preview.js" type = "module" ></script >
+<script src = "assets/js/add_room_form_render.js" type = "module" ></script >
+<script src = "assets/js/getWeek.js" ></script >
+<script src = "assets/js/add_room_payment_form.js" ></script >
+<script src = "assets/js/authorizations.js" ></script >
+<script src = "assets/js/navigation.js" ></script >
+<script src = "assets/js/room_actions.js" ></script >
+<script src = "assets/js/how_to_alert.js" ></script >
+<script src = "assets/js/close_div.js" ></script >
+<script >
+</script >
+</body >
+</html >

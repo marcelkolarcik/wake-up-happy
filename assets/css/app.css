@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,800|Oswald&display=swap');
 
+/*INITIAL VALUES SET TO 0 TO AVOID ANY SURPRISES FROM THE DIFFERENT BROWSER RENDERING*/
 * {
 	margin: 0;
 	padding: 0;
@@ -9,6 +10,26 @@
 body {
 	font-family: "Lato", sans-serif;
 	color: #777777;
+	}
+
+.nav_background {
+	
+	height: 0;
+	padding: 0;
+	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
+	
+	/*https://stackoverflow.com/questions/11099930/100-width-background-image-with-an-auto-height*/
+	background-position: center center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-image: url("../images/carousel/1.jpg");
+	}
+
+.navigation {
+	height: 0;
+	padding: 0;
+	padding-top: 20px;
+	padding-bottom: 10.75%;
 	}
 
 h2, h3, h4, .nav_link {
@@ -29,6 +50,12 @@ h2, h3, h4, .nav_link {
 	border-radius: 0;
 	}
 
+.nav_link_property.board {
+	text-transform: none;
+	letter-spacing: 0;
+	padding: 0;
+	}
+
 span.nav_link_property {
 	text-transform: none;
 	font-size: 0.9em;
@@ -42,7 +69,6 @@ span.nav_link_property {
 .logo {
 	font-family: "Lato", sans-serif;
 	letter-spacing: 4px;
-	/*color: #fafafa;*/
 	font-size: 2em;
 	font-weight: bold;
 	}
@@ -50,7 +76,6 @@ span.nav_link_property {
 .logo_small {
 	font-family: "Lato", sans-serif;
 	letter-spacing: 4px;
-	/*color: #fafafa;*/
 	font-size: 1.1em;
 	font-weight: bolder;
 	}
@@ -70,22 +95,37 @@ span.nav_link_property {
 	font-size: 0.5em;
 	font-weight: normal;
 	}
-.small_menu{
+
+.small_menu {
 	font-size: 0.6em;
 	}
-#hero_image{
-	height: 0;
-	padding: 0;
-	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
-	}
+
+/*SITE'S GREEN COLOR */
 .bg_green {
 	background-color: #0fbeba;
 	}
 
-.bg_green_light {
+.green {
+	color: rgba(0, 195, 209, 1);
+	font-weight: bold;
+	
+	}
+
+.green:hover {
 	background-color: rgba(0, 195, 209, 0.5);
 	}
 
+hr.green {
+	width: 450px;
+	margin: -25px 50% 50px 25%;
+	border: 1px solid rgba(0, 195, 209, 1);
+	}
+
+.bg_green_light {
+	background-color: rgba(0, 195, 209, 0.7);
+	}
+
+/*SITE'S ORANGE COLOR*/
 .border_green {
 	border: 1px solid #0fbeba;
 	}
@@ -101,19 +141,14 @@ span.nav_link_property {
 .border_orange {
 	border: 1px solid #ffdd00;
 	}
+
 .bg_orange_light {
-	background-color: rgba(255, 221, 0, 0.5);
+	background-color: rgba(255, 221, 0, 0.3);
 	}
-.bg_green_light_g {
-	background-color: rgba(157, 192, 46, 0.5);
-	}
-/*changing default blue active class color to match website colors*/
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-	z-index: 2;
-	color: #ffffff;
-	background-color: #0fbeba;
-	border-color: #0fbeba;
-	border-radius: 0;
+
+
+.bg_grey_light {
+	background-color: rgba(118, 136, 148, 0.5);
 	}
 
 .price {
@@ -146,9 +181,9 @@ input:hover, select:hover {
 	background-color: rgba(0, 195, 209, 0.2);
 	}
 
-/*map holder*/
-#map {
-	min-height: 360px;
+/*MAP HOLDERS owner.html,index.html*/
+#map_index, #map_owner {
+	height: 400px;
 	}
 
 .social-networks {
@@ -166,10 +201,12 @@ input:hover, select:hover {
 	padding: 5%;
 	}
 
+/*REMOVING DEFAULT BOOTSTRAP'S BORDER RADIUS*/
 .btn {
 	border-radius: 0;
 	}
 
+/*WEEK IN THE BOOKING CALENDAR*/
 .week {
 	cursor: pointer;
 	color: #fafafa;
@@ -179,8 +216,294 @@ input:hover, select:hover {
 	background-color: #adff02; /*light green*/
 	color: #777777;
 	}
-@media screen and ( max-width: 1200px ) {
+
+
+/*CUSTOMIZING LEAFLET'S CSS FOR STYLING POPUPS*/
+.popup_class .leaflet-popup-tip,
+.popup_class .leaflet-popup-content-wrapper {
+	background-color: rgba(0, 195, 209, 0.8);
+	color: #fafafa;
+	font-size: 1.2em;
+	}
+
+.leaflet-container a.leaflet-popup-close-button {
+	top: 0;
+	right: 0;
+	padding: 4px 4px 0 0;
+	border: none;
+	text-align: center;
+	font: 16px/14px Tahoma, Verdana, sans-serif;
+	color: red;
+	text-decoration: none;
+	font-weight: bold;
+	background: transparent;
+	}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+	color: red;
+	}
+
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+	margin: -10px auto 0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	}
+
+.leaflet-popup-tip-container {
+	position: absolute;
+	left: 50%;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+
+/*AUTO COMPLETE CSS*/
+.autocomplete-items {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 13%; /* was 0 changed to 8% to allow for the icon*/
+	right: 0;
+	width: 100%
+	}
+
+.autocomplete-items div {
+	padding: 10px;
+	cursor: pointer;
+	background-color: #b0edeb;
+	border-bottom: 1px solid #d4d4d4;
+	}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+	background-color: rgba(0, 195, 209, 1);
+	color: #fafafa;
+	}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+	background-color: DodgerBlue !important;
+	color: #ffffff;
+	}
+
+#login, #logout, #pay_for_the_room, .show_content {
+	cursor: pointer;
+	}
+
+#pay_for_the_room:hover {
+	background-color: rgba(0, 195, 209, 1);
+	color: #fafafa;
+	}
+
+
+/*CAROUSEL FOR PREVIEWING GALLERY IN ROOM PREVIEW
+TO BE HALF WIDTH NOT TO OVER STRETCH*/
+.images.carousel-inner {
+	width: 50%;
+	left: 25%;
+	margin-top: 1%;
+	}
+
+/*ADDING BACKGROUND COLOR WITH OPACITY
+ AND WHITISH FONT COLOR TO CAPTIONS
+ ( NAME OF THE IMAGE : ( breakfast, view....))
+ IN ROOM PREVIEW => GALLERY
+ TO HAVE GOOD CONTRAST AGAINST UNDERLYING IMAGES*/
+.images.caption {
+	background-color: rgba(118, 136, 148, 0.7);
+	color: #fafafa;
+	}
+
+.no_padding {
+	padding: 0 3px 0 3px;
+	margin-right: 5px;
+	}
+
+.step:hover {
+	background-color: rgba(0, 195, 209, 0.5);
+	}
+
+
+/*FORM PROGRESS DISPLAY ITEMS*/
+
+/*LINE BETWEEN CIRCLES*/
+.step_divider {
+	width: 40px;
+	color: #777777;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #0fbeba
+	}
+
+/*CIRCLE WITH GREEN BACKGROUND => STEP COMPLETED*/
+.progress_step {
+	width: 40px;
+	font-size: 1.1rem;
+	color: #fafafa;
+	border-radius: 50%;
+	margin: 0;
+	background-color: rgba(0, 195, 209, 1);
+	}
+
+/*CIRCLE WITH WHITE BACKGROUND => STEP NOT COMPLETED*/
+.progress_step.empty {
+	color: rgba(0, 195, 209, 1);
+	background-color: #ffffff;
+	border: 1px solid rgba(0, 195, 209, 1);
+	}
+
+/*STEP NAMES ( location, room, services....)*/
+.progress_step.p_description {
+	width: 75px;
+	font-size: 1rem;
+	font-family: Oswald, sans-serif;
+	font-weight: lighter;
+	letter-spacing: 1px;
+	color: rgba(0, 195, 209, 1);
+	border-radius: 0;
+	margin: 0;
+	background-color: #ffffff;
+	}
+
+/*NO CONNECTING LINE BETWEEN STEP NAMES*/
+.step_divider.p_description {
+	width: 5px;
+	color: #777777;
+	margin-bottom: 0;
+	border-bottom: 0;
+	}
+
+/*DIV TO HOLD STEPS*/
+.step_holder {
+	height: 40px;
+	}
+
+
+/*to remove arrows from input number
+REMOVING ARROWS FROM NUMBER INPUT
+FOR THE PRICE OF THE BOARD*/
+/* Chrome, Safari, Edge, Opera
+
+https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+	}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+	}
+
+
+/*REMOVING ARROW FROM SELECT INPUT
+FOR room_type, board_type
+IN THE SEARCH FORM IN index.html
+
+https://stackoverflow.com/questions/16603979/how-to-remove-the-default-arrow-icon-from-a-dropdown-list-select-element*/
+select {
+	/* for Firefox */
+	-moz-appearance: none;
+	/* for Chrome */
+	-webkit-appearance: none;
+	}
+
+/* For IE10 */
+select::-ms-expand {
+	display: none;
+	}
+
+/* COUPLE OF DIVS TO ALIGN CHILD DIV
+TO THE BOTTOM OF A PARENT DIV*/
+.parent {
+	position: relative;
 	
+	}
+
+.child_at_bottom {
+	font-size: 0.8rem;
+	position: absolute;
+	bottom: 0;
+	margin: 10px 0 0 10px;
+	
+	}
+
+/*CIRCLE IN THE NAVIGATION IN THE TOP RIGHT CORNER
+TO DISPLAY
+USER INITIALS WHEN LOGGED IN OR USER ICON
+WHEN NOT LOGGED IN*/
+.user_initials {
+	width: 2.8rem;
+	height: 2.8rem;
+	border-radius: 1.4rem;
+	background-color: #fafafa;
+	background-image: url("../images/user_logo.png");
+	
+	}
+/*REMOVING UNDERLINE FROM USER INITIALS*/
+#initials:hover {
+	text-decoration: none;
+	}
+
+.dropdown-item:hover, .dashboard_link:hover {
+	background-color: rgba(0, 195, 209, 0.3);
+	text-decoration: none;
+	}
+
+
+
+
+/*INDICATORS TO USER GOING THROUGH
+THE ADD_YOUR_ROOM FORM AT owner.html
+CHANGING COLORS AT add_room_interactions.js*/
+.tr_light {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	}
+/*SPANS HOLDING FONTAWESOME ICONS */
+i.green, i.red, i.orange {
+	font-size: 1.3rem;
+	}
+
+i.green:hover {
+	background-color: initial;
+	}
+
+i.red {
+	color: red;
+	
+	}
+
+i.orange {
+	color: lightsalmon;
+	}
+
+
+/*  SETTING z-index OF NAVIGATION DROPDOWN TO 1001 TO SHOW ABOVE LEAFLET MAPS,
+    BECAUSE LEAFLET MAP AND MAP CONTROLS
+	HAVE Z-INDEX OF 1000*/
+.nave {
+	z-index: 1001;
+	}
+
+#dont_show_again {
+	cursor: pointer;
+	background-color: salmon;
+	color: #fafafa;
+	padding: 3px;
+	}
+
+@media screen and ( max-width: 1200px ) {
 	
 	}
 
@@ -189,61 +512,32 @@ input:hover, select:hover {
 	}
 
 @media screen and ( max-width: 767px ) {
-	#hero_image{
+	
+	.navigation {
 		height: 0;
 		padding: 0;
-		
+		padding-bottom: 18.75%;
 		}
 	}
 
+/*SMALLER SIZES FOR PROGRESS STEPS */
 @media screen and ( max-width: 540px ) {
+	.progress_step.description {
+		font-size: 0.8rem;
+		}
 	
-	}
-
-#mapid { height: 180px; }
-
-
-.popup_class .leaflet-popup-tip ,
-.popup_class .leaflet-popup-content-wrapper
-{
-	background-color: rgba(0, 195, 209, 0.8);
-	color: #fafafa;
-	font-size: 1.2em;
-	}
- .leaflet-container a.leaflet-popup-close-button {
+	.step_divider {
+		width: 30px;
+		margin-bottom: 15px;
+		}
 	
-	top: 0;
-	right: 0;
-	padding: 4px 4px 0 0;
-	border: none;
-	text-align: center;
+	.progress_step {
+		width: 30px;
+		font-size: 0.8rem;
+		}
 	
-	font: 16px/14px Tahoma, Verdana, sans-serif;
-	color: red;
-	text-decoration: none;
-	font-weight: bold;
-	background: transparent;
-	}
-.leaflet-container a.leaflet-popup-close-button:hover {
-	color: red;
-	}
-.leaflet-popup-tip {
-	width: 17px;
-	height: 17px;
-	padding: 1px;
-	
-	margin: -10px auto 0;
-	
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
-	}
-.leaflet-popup-tip-container {
-	
-	position: absolute;
-	left: 50%;
-	margin-left: -20px;
-	overflow: hidden;
-	pointer-events: none;
+	.step_holder {
+		height: 30px;
+		}
+		
 	}
