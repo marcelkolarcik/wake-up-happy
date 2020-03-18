@@ -1,9 +1,10 @@
-
 {
-    "hello": "ola",
-    "this is link":"esta linko",
-    "label":"labelo",
-    "great input placeholder":"grande inputo",
-    "i am input":"io sono inputo",
-    "link": "linko"
+  "hello"                   : "ola" ,
+  "this is link"            : "esta linko" ,
+  "label"                   : "labelo" ,
+  "great input placeholder" : "grande inputo" ,
+  "i am input"              : "io sono inputo" ,
+  "link"                    : "linko" ,
+  "logo image"              : "logo imago" ,
+  "translate"               : "translato"
 }

@@ -1,9 +1,10 @@
-
 {
-    "hello": "hello",
-    "this is link":"this is link",
-    "label":"label",
-    "great input placeholder":"great input placeholder",
-    "i am input":"i am input",
-    "link": "link"
+  "hello"                   : "hello" ,
+  "this is link"            : "this is link" ,
+  "label"                   : "label" ,
+  "great input placeholder" : "great input placeholder" ,
+  "i am input"              : "i am input" ,
+  "link"                    : "link" ,
+  "logo image"              : "logo image",
+  "translate"               : "translate"
 }

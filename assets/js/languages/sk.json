@@ -1,9 +1,10 @@
-
 {
-    "hello": "ahoj",
-    "this is link":"to je linka",
-    "label":"znacka",
-    "great input placeholder":"velky placeholder",
-    "i am input":"ja som input",
-    "link": "linka"
+  "hello"                   : "ahoj" ,
+  "this is link"            : "to je linka" ,
+  "label"                   : "znacka" ,
+  "great input placeholder" : "velky placeholder" ,
+  "i am input"              : "ja som input" ,
+  "link"                    : "linka" ,
+  "logo image"              : "logo fotka" ,
+  "translate"               : "prelozit"
 }

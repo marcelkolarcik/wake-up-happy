@@ -96,8 +96,8 @@ export function getRandom ( min, max, times = null )
 //TO CLEAR localStorage AND sessionStorage
 // AND REFRESH index.html
 
-//localStorage.clear ();
-//sessionStorage.clear ();
+
+
 
 
 //  IF WE ALREADY HAVE ROOMS IN LOCAL STORAGE WE WON'T RECREATE IT AGAIN,
