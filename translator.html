@@ -1,30 +1,237 @@
 <!doctype html>
-<html lang = "en" >
+<html lang = "en">
 <head >
-<meta charset = "UTF-8" >
-             <meta content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-                   name = "viewport" >
-                         <meta content = "ie=edge" http-equiv = "X-UA-Compatible" >
-	<!--BOOTSTRAP CSS FILES-->
-    <link crossorigin = "anonymous" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          rel = "stylesheet" >
-	
-	
+<meta charset = "UTF-8">
+             <meta
+                 content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+                 name = "viewport"
+             >
+                         <meta
+                             content = "ie=edge"
+                             http-equiv = "X-UA-Compatible"
+                         >
+    <!--BOOTSTRAP CSS FILES-->
+    <link
+        crossorigin = "anonymous"
+        href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        rel = "stylesheet"
+    >
+
+    <!--APP CSS FILE-->
+    <link
+        href = "assets/css/app.css"
+        rel = "stylesheet"
+    >
              <title >Translator test</title >
 </head >
 <body >
 
-<div class = "container" id="translations">
+<div class = "container ">
+
 	
-	<!---->
+	<nav class = "navbar navbar-expand-sm navbar-dark bg_green">
+                <a
+                    class = "navbar-brand"
+                    href = "#"
+                >jQuery translator</a >
+  <button
+      aria-controls = "languages"
+      aria-expanded = "false"
+      aria-label = "Toggle navigation"
+      class = "navbar-toggler"
+      data-target = "#languages"
+      data-toggle = "collapse"
+      type = "button"
+  >
+    <span class = "navbar-toggler-icon"></span >
+  </button >
+
+  <div
+      class = "collapse navbar-collapse"
+      id = "languages"
+  >
+    <ul class = "navbar-nav mr-auto">
+      <li class = "nav-item active">
+        <a
+            class = "nav-link ___"
+            data-value = "Example"
+            href = "#"
+        > <span class = "sr-only">(current)</span ></a >
+      </li >
+      <li class = "nav-item">
+        <a
+            class = "nav-link ___"
+            data-value = "Link"
+            href = "#"
+        ></a >
+      </li >
+      <li class = "nav-item">
+        <a
+            aria-disabled = "true"
+            class = "nav-link disabled ___"
+            data-value = "Disabled"
+            href = "#"
+            tabindex = "-1"
+        ></a >
+      </li >
+      <li class = "nav-item dropdown">
+        <a
+            aria-expanded = "false"
+            aria-haspopup = "true"
+            class = "nav-link dropdown-toggle ___"
+            data-toggle = "dropdown"
+            href = "#"
+            id = "language_flag"
+        >
+              <img
+                  alt = ""
+                  class = "___"
+                  data-alt = "english flag image"
+                  src = "assets/images/flags/en_sm.png"
+              ></a >
+        <div
+            aria-labelledby = "language_flag"
+            class = "dropdown-menu"
+        >
+          <a
+              class = "dropdown-item language ___"
+              data-language = "en"
+              data-title = "switch to english"
+              href = "#"
+          >
+            <img
+                alt = ""
+                data-alt = "english flag image"
+                src = "assets/images/flags/en_sm.png"
+            >
+            &nbsp;english</a >
+    <a
+        class = "dropdown-item language ___"
+        data-language = "sk"
+        data-title = "switch to slovak"
+        href = "#"
+    >
+        <img
+            alt = ""
+            data-alt = "slovak flag image"
+            src = "assets/images/flags/sk_sm.png"
+        >
+       &nbsp;slovak</a >
+    <a
+        class = "dropdown-item language ___"
+        data-language = "es"
+        data-title = "switch to spanish"
+        href = "#"
+    >
+       <img
+           alt = ""
+           data-alt = "spanish flag image"
+           src = "assets/images/flags/es_sm.png"
+       >
+      
+       &nbsp;espanyol</a >
+	        
+             <a
+                 class = "dropdown-item language ___"
+                 data-language = "pl"
+                 data-title = "switch to polish"
+                 href = "#"
+             >
+       <img
+           alt = ""
+           data-alt = "polish flag image"
+           src = "assets/images/flags/pl_sm.png"
+       >
+      
+       &nbsp;polish</a >
+        </div >
+      </li >
+    </ul >
+    <form class = "form-inline my-2 my-md-0">
+        <label for = "input"></label >
+      <input
+          class = "form-control ___"
+          data-placeholder = "Search"
+          id = "input"
+          type = "text"
+      >
+    </form >
+  </div >
+</nav >
+	<div
+        class = "text-center mt-5"
+        id = "translations"
+    >
+	
+	</div >
+	<div class = "card">
+        <div class = "card header bg_green text-center">
+            <h4 class = "card-title text-light">Create translation JSON file for your site.</h4 >
+            <p > <strong >select translated to language</strong ></p >
+        </div >
+        <div class = "card-body">
+
+            <div
+                class = "d-flex justify-content-start"
+                id = "form"
+            >
+                <label
+                    class = "mr-3"
+                    for = "from_language"
+                >from language</label >
+                <select
+                    class = "form-control col-md-3 mr-3"
+                    id = "from_language"
+                    name = "from_language"
+                ><option value = "en">default ( en )</option >
+               </select >
+
+                 <label
+                     class = "mr-3"
+                     for = "to_language"
+                 >to language</label >
+                <select
+                    class = "form-control col-md-3 mr-3"
+                    id = "to_language"
+                    name = "to_language"
+                ><option value = "en">english</option >
+                <option value = "sk">slovak</option >
+                <option value = "es">spanish</option >
+                <option value = "pl">polish</option ></select >
+
+                <button class="btn bg_green text-light" id="create_JSON">
+                    create JSON
+                </button>
+            </div >
+
+            <div    class="bg-secondary text-light mt-3 p-3" id="translated_JSON">
+                Your JSON file will display here.
+            </div>
+            <div class="btn btn-sm bg_green text-light d-none mt-3" id="copy">
+
+            </div>
+
+        </div >
+
+    </div >
 		
 </div >
-<!--jQUERY JS -->
+    <!--jQUERY JS -->
 <script
-		crossorigin = "anonymous"
-		integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-		src = "https://code.jquery.com/jquery-3.4.1.js" ></script >
-<script src = "assets/js/translator.js"></script >
+    crossorigin = "anonymous"
+    integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    src = "https://code.jquery.com/jquery-3.4.1.js"
+></script >
+    <!--BOOTSTRAP JS -->
+<script
+    crossorigin = "anonymous"
+    integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+></script >
+<script src = "assets/js/translator/translator.js" type="module"></script >
+<script src = "assets/js/append_test.js"></script >
+    <script src = "assets/js/create_translation_json.js"></script >
+    <script src = "assets/js/change_language.js" type="module"></script >
 </body >
 </html >

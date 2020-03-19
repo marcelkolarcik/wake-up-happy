@@ -1,0 +1,22 @@
+{
+  "hello"                   : "cześć" ,
+  "this is link"            : "to jest link" ,
+  "label"                   : "etykieta" ,
+  "great input placeholder" : "doskonały symbol zastępczy" ,
+  "i am input"              : "Jestem wprowadzony" ,
+  "link"                    : "link" ,
+  "logo image"              : "obraz logo" ,
+  "translate"               : "tłumaczyć" ,
+  "switch to english"       : "zmień na angielski" ,
+  "switch to slovak"        : "zmień na słowacki" ,
+  "switch to spanish"       : "zmień na hiszpański" ,
+  "switch to polish"        : "zmień na polski" ,
+  "english flag image"      : "obraz flagi angielskiej" ,
+  "slovak flag image"       : "obraz flagi słowackiej" ,
+  "spanish flag image"      : "obraz hiszpańskiej flagi" ,
+  "polish flag image"       : "obraz polskiej flagi" ,
+  "Example"                 : "Przykład" ,
+  "Link"                    : "Link" ,
+  "Disabled"                : "Wyłączone" ,
+  "Search"                  : "Szukaj"
+}

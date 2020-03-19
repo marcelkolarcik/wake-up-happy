@@ -1,3 +1,5 @@
+import { translate } from './translator/translator.js';
+
 /* INTERACTIVE FEEDBACK TO USER WHEN GOING THROUGH
  * ADD_YOUR_ROOM FORM AND VALIDATION
  * LOGIC FOR THE FORM*/
@@ -891,4 +893,18 @@ function store_room ( new_room, update = false )
 		sessionStorage.removeItem ( 'edit_mode' );
 		sessionStorage.removeItem ( 'add_mode' );
 		
+	
+	
+	
 	}
+
+/*WHEN USER CLICKS ON FORM STEPS - TABS ( location, room, services, preview, payment )
+ WE NEED TO TRANSLATE  TAB PANES ( DIV CONTENT )
+ THAT IS BEING INTRODUCED TO THE VIEW,
+ BECAUSE ON INITIAL LOAD OF owner.html TAB PANES THAT ARE
+ NOT ACTIVE ARE NOT BEING TRANSLATED*/
+$(document).on('click', '.step', function (  )
+{
+	translate();
+	
+});

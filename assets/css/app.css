@@ -422,6 +422,14 @@ select::-ms-expand {
 	display: none;
 	}
 
+/*REMOVING CARET FROM DROPDOWN UNDER USER ICON
+IN THE TOP RIGHT CORNER OF NAVIGATION*/
+.caret-off::before {
+	display: none;
+	}
+.caret-off::after {
+	display: none;
+	}
 /* COUPLE OF DIVS TO ALIGN CHILD DIV
 TO THE BOTTOM OF A PARENT DIV*/
 .parent {

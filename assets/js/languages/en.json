@@ -5,6 +5,19 @@
   "great input placeholder" : "great input placeholder" ,
   "i am input"              : "i am input" ,
   "link"                    : "link" ,
-  "logo image"              : "logo image",
-  "translate"               : "translate"
+  "logo image"              : "logo image" ,
+  "translate"               : "translate" ,
+  "switch to english"       : "switch to english" ,
+  "switch to slovak"        : "switch to slovak" ,
+  "switch to spanish"       : "switch to spanish" ,
+  "switch to polish"        : "switch to polish" ,
+  "english flag image"      : "english flag image" ,
+  "slovak flag image"       : "slovak flag image" ,
+  "spanish flag image"      : "spanish flag image" ,
+  "polish flag image"       : "polish flag image" ,
+  "Example"                 : "Example" ,
+  "Link"                    : "Link" ,
+  "Disabled"                : "Disabled" ,
+  "Search"                  : "Search" ,
+  "translated"              : "translated text"
 }

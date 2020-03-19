@@ -77,18 +77,20 @@ export function create_map ( coordinates = null, show_p_id = null )
 						new L.LatLng ( property.lat, property.lng ), { title : property.city } );
 					
 					var popup =
-						    `<img src="assets/images/bedrooms/b${ property.room_style }_s.jpg"   alt = "property image"
+						    `<img src="assets/images/bedrooms/b${ property.room_style }_s.jpg" class="___" data-alt="property image" alt = ""
 							 style="width:140px;height:70px;">
 							 <br><b><span class="text-capitalize">  ${ decodeURI ( property.location ) }</span></b>
 							
-							 <br>room: ${ room_types[ property.room_type ] }
-							 <br>view: ${ views[ property.p_view ] }
+							 <br> <span class="___" data-value="room :"></span>  ${ room_types[ property.room_type ] }
+							 <br><span class="___" data-value="view :"> </span> ${ views[ property.p_view ] }
 		
-							 <a class="property_popup btn btn-sm bg_green_light "
+							 <a class="property_popup btn btn-sm bg_green_light ___"
 							  title="See more information about the room."
 							  id="${ p_id }"
 							  data-image_id="${ property.room_style }"
-							  href="#" >more...</a>`;
+							  data-value="more..."
+							  data-title="preview room"
+							  href="#" ></a>`;
 
 //			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html AND OPEN POPUP WITH HIS NEWLY CREATED ROOM
 					

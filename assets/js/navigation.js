@@ -93,6 +93,11 @@ $ ( function ()
 	
     } );
 
+
+
+
+
+
 $ ( document ).on ( 'click', '#make_money', function ()
 {
 	
