@@ -16,7 +16,7 @@
  * WE WILL HASH EMAIL AND PASSWORD PROVIDED WHEN LOGGING IN
  * AND COMPARE IT WITH OWNERS OBJECT FROM localStorage
  * AND IF WE HAVE KEY === hashed(email+password)
- * WE WILL LOG OWNER INTO HIS ACCOUT
+ * WE WILL LOG OWNER INTO HIS ACCOUNT
  *
  * OTHERWISE ALERT WILL POP INFORMING USER THAT
  * WE DON'T HAVE USER WITH THIS CREDENTIALS
@@ -146,9 +146,8 @@ function not_registered ()
 	{
 		swal.fire ( {
 			            position : 'top-end',
-			            title    : 'Not registered yet?',
 			
-			            html : `
+			            html : `<h4>Not registered yet?</h4>
 									<div class = "col-auto" >
 									    No Problem!
 									    <hr class = "bg_green" >

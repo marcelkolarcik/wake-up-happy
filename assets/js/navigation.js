@@ -69,7 +69,7 @@ $ ( function ()
 						    user_drop_down.append ( `
                                 
                                 <a id = "${ value }" class = "dropdown-item room_switch" href = "#"
-                                title = "Switch to ${ room.p_address.property_name }" >${ room.p_address.property_name }</a >` );
+                                title = "${ room.p_address.property_name }" >${ room.p_address.property_name }</a >` );
 					    }
 				
 				

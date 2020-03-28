@@ -511,6 +511,18 @@ i.orange {
 	padding: 3px;
 	}
 
+
+.bg_light_grey{
+	background-color: #d4d4d4;
+	}
+.bold{
+	font-weight: bold;
+	}
+a.side_nav:hover{
+	text-decoration: none;
+	
+	}
+
 @media screen and ( max-width: 1200px ) {
 	
 	}

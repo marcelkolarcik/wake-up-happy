@@ -92,7 +92,7 @@
 							` }
 						  
 						  <a class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok" onclick = "swal.close()"
-					   		title = "Got it !" >
+					   		title = "OK, got it !" >
 					    		OK, got it !
 						 </a >
 				 </div >
@@ -120,6 +120,7 @@
 			location : `Find location of your property on the map and then click the map to display coordinates.
 					Then click on
 					<button class = "bg_orange" >get details</button >
+					<!--all separate sentences-->
 					button, to display location details.
 					You can correct these details.
 					Once you're happy with the location details, click on
@@ -173,6 +174,7 @@
   						<hr class="bg_green">
   						Once you pay, you will be redirected to landing page to see your room live on the site.
   						<hr class="bg_green">
+  						<!--separate sentences-->
   						You will be logged in into your account, and in the top right corner, you will see your
   						 initials, with your room listed in the dropdown menu. You can click on your name or room name,
   						 to get to your account dashboard,where you can further edit your room, or add new one!
@@ -189,11 +191,11 @@
                 		 tab.
  						<hr class = "bg_green" >For more details click on
 								<span class = "btn btn-sm bg-danger text-light "
- 									 title="Block selected dates">
+ 									 title="How to block weeks ?">
                                    How to block weeks ?
                                 </span >
 						<hr class = "bg_green" >`,
-			edit_mode    : ` Edit your room to your liking .
+			edit_mode    : ` Edit your room to your liking.
 								<hr class = "bg_green" >
 								Once you are happy with your work, preview it by clicking on
   						<br><br>

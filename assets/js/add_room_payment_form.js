@@ -118,7 +118,7 @@ function add_room_payment_form ()
         <div class = "col-auto text-center" >
             <div id = "loader_holder" ></div >
             <a  class = "btn bg_green_light horizontally_aligned right-block " id="pay_for_the_room"
-                    title = "Submit & Pay" >
+                    title = "Pay" >
                 Pay
             </a >
         </div >

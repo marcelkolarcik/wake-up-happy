@@ -53,10 +53,10 @@ function render_room_types ()
 						         
 						         <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 						        
-						    <div class = "p-0 card-footer text-center  ${ owners_room_type && parseInt (
-					owners_room_type )
-				                                                          === parseInt ( index ) ? 'bg_green'
-				                                                                                 : 'bg-secondary' } text-light d-flex justify-content-around align-items-center room_type"
+						    <div class = "p-0 card-footer text-center
+							${ owners_room_type && parseInt (owners_room_type ) === parseInt ( index )
+				               ? 'bg_green'
+				               : 'bg-secondary' } text-light d-flex justify-content-around align-items-center room_type"
 						         id = "room_type_${ room_type }" >
 						        <label for = "${ room_type }" class = "text-capitalize" >${ room_type }</label >
 						        
@@ -152,7 +152,7 @@ function render_room_styles ()
 					.append ( `
 							<div class = "card col-lg-2 col-md-3  col-sm-4 col-4 text-center room_style_images d-none" >
 							    <img src = "assets/images/bedrooms/b${ room_styles[ room_style ] }.jpg" class = "form_image img-thumbnail"
-							         alt = "${ room_styles[ room_style ] } bedroom image" >
+							         alt = "bedroom image" >
 							         
 							         <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 							    <div class = "p-0 card-footer text-center
@@ -172,8 +172,9 @@ function render_room_styles ()
 							               data-next_div = "board_type_images"
 							               data-footer = "room_style_${ room_style }"
 							               data-type = "room_style"
-							               ${ owners_room_style && parseInt ( owners_room_style - 1 ) === parseInt (
-						room_style )
+							               ${ owners_room_style && parseInt ( owners_room_style - 1 )
+					                          === parseInt (room_style )
+						
 					                          ? 'checked' : '' }
 							        >
 							    </div >
@@ -345,7 +346,7 @@ function render_description ()
 						    <i class = "fas fa-check-circle green ${ room ? '' : 'd-none' }" id = "description_title_green"
 						       title = "Your room description" ></i >
 						    <i class = "fas fa-question-circle red ${ room ? 'd-none' : '' }" id = "description_title_red"
-						       title = " Describe your room, make it attractive (min 30 - max 300 characters)" ></i >
+						       title = "Write description of your room, min 30 -  max 300 characters." ></i >
 						    Describe your room, make it attractive (min 30 - max 300 characters)
 						    <i class = "fas fa-caret-down" ></i >
 						    <i class = "fas fa-caret-up" ></i >

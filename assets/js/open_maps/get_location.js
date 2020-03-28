@@ -41,7 +41,10 @@
 				
 				$ ( '#location_details' ).html ( '' );
 				
-				var coordinates = e.latlng.toString ().replace ( 'LatLng(', '' ).replace ( ')', '' ).replace ( ' ', '' )
+				var coordinates = e.latlng.toString ()
+				                   .replace ( 'LatLng(', '' )
+				                   .replace ( ')', '' )
+				                   .replace ( ' ', '' )
 				                   .split ( ',' );
 				
 				popup
@@ -98,7 +101,7 @@
 								$ ( '#get_address' ).addClass ( 'd-none' );
 								
 								var address_data = JSON.parse ( this.responseText ).address;
-								console.log ( address_data );
+								
 								render_location_details ( address_data, coordinates );
 								
 							}

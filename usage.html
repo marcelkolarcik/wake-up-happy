@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang = "en">
+<head >
+<meta charset = "UTF-8">
+             <meta
+		             content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		             name = "viewport"
+             >
+                         <meta
+		                         content = "ie=edge"
+		                         http-equiv = "X-UA-Compatible"
+                         >
+	<!--BOOTSTRAP CSS FILES-->
+    <link
+		    crossorigin = "anonymous"
+		    href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		    integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		    rel = "stylesheet"
+    >
+
+
+             <title >simple jQuery translator usage</title >
+</head >
+<body >
+
+<div class = "container ">
+
+
+	<nav class = "navbar navbar-expand-sm navbar-dark bg-info">
+                <a
+		                class = "navbar-brand"
+		                href = "index.html"
+                >simple jQuery translator</a >
+  <button
+		  aria-controls = "languages"
+		  aria-expanded = "false"
+		  aria-label = "Toggle navigation"
+		  class = "navbar-toggler"
+		  data-target = "#languages"
+		  data-toggle = "collapse"
+		  type = "button"
+  >
+    <span class = "navbar-toggler-icon"></span >
+  </button >
+
+  <div
+		  class = "collapse navbar-collapse"
+		  id = "languages"
+  >
+    <ul class = "navbar-nav mr-auto">
+        <li class = "nav-item  active">
+        <a
+		        class = "nav-link ___"
+		        data-text = "Usage"
+		        href = "usage.html"
+        ></a >
+      </li >
+      <li class = "nav-item ">
+        <a
+		        class = "nav-link ___"
+		        data-text = "Examples"
+		        href = "translator.html"
+        > <span class = "sr-only">(current)</span ></a >
+      </li >
+ <li class = "nav-item">
+			  <a
+					  class = "nav-link ___"
+					  data-text = "Variables"
+					  href = "variables.html"
+			  ></a >
+			</li >
+        <li class = "nav-item">
+        <a
+		        class = "nav-link ___"
+		        data-text = "helper"
+		        href = "helper.html"
+        ></a >
+      </li >
+ <li class = "nav-item">
+			  <a
+					  class = "nav-link"
+					  href = "https://github.com/marcelkolarcik/simple-jQuery-translator"
+					  target="_blank"
+			  >Github</a >
+			</li >
+
+    </ul >
+
+  </div >
+</nav >
+    <div class = "row ">
+        <div class = "col-md-3  mt-2">
+            <ul class = "list-group">
+                <li class = "list-group-item mb-1 "><a
+		                class = "side_nav ___"
+		                data-text = "Usage"
+		                href = "#usage"
+                ></a ></li >
+
+
+            </ul >
+        </div >
+        <div class = "col-md-9  mt-2">
+            <div
+		            class = "card"
+		            id = "usage"
+            >
+                <div class = "card-header  bg-info ">
+
+                  <h4 class = "card-title text-light">Usage</h4 >
+                </div >
+                <div class = "card-body">
+
+                        <ul class = "list-group">
+
+                            <li class = "list-group-item">
+                                <h4 >To use it in your project : </h4 >
+
+                            </li >
+                                <li class = "list-group-item list-group-item-info">
+                                    Download <code >assets</code > folder from <a href = "https://github.com/marcelkolarcik/simple-jQuery-translator">simple Jquery translator repository</a >
+                                    and place it in the root directory of your project.
+
+                                </li >
+                            <li class = "list-group-item">
+                                If developing locally, you will need to run HTTP server. One of them can be found at
+                                <a href = "https://github.com/lwsjs/local-web-server">local web server</a >.
+                            </li >
+                            <li class = "list-group-item">
+                                 If you are using any of the online translators, feel free to download <code >index.html, helper.html, usage.html, variables.html</code >
+                                and follow the instractions in <a href = "https://marcelkolarcik.github.io/simple-jQuery-translator/helper.html">helper.html</a >
+                                to help you create translation JSON files faster.
+
+                            </li >
+                              <li class = "list-group-item list-group-item-info">
+                              Update <code >settings.js</code ></li >
+                             <li class = "list-group-item">
+
+
+                              Open <code >settings.js</code > in <code >assets/js/translator/settings.js</code > and update variables :<br ><br >
+                             <span class = "text-danger">var</span >       <span class = "text-primary">default_language</span > <span class = "text-warning"> // Demo example : "en"</span > <br >
+                                    <span class = "text-danger">var</span >       <span class = "text-primary">path_to_language_files</span > <span class = "text-warning"> // Demo example : "assets/js/languages"</span ><br >
+                                    <span class = "text-danger">var</span >       <span class = "text-primary">site_languages</span > <span class = "text-warning"> // Demo example : ["en","pl","sk","pl"]</span ><br >
+	                             <span class = "text-danger">var</span >       <span class = "text-primary">highlight_class</span > <span class = "text-warning"> // Demo example : "bg-warning text-danger p-1"</span ><br ><br >
+
+                              to match your site.
+                            </li >
+                            <li class = "list-group-item">
+                                Create translation JSON files and place them in <code >assets/js/languages</code > directory.
+                                <br >
+                                You can help yourself with <a href = "https://marcelkolarcik.github.io/simple-jQuery-translator/helper.html">helper.html</a >
+                                and <code >helper.js</code >
+
+
+                            </li >
+                            <li class = "list-group-item list-group-item-info">
+                                Create your HTML elements that need translating using
+                                <a href = "https://marcelkolarcik.github.io/simple-jQuery-translator/index.html">HTML Examples</a >
+	                            and
+	                             <a href = "https://marcelkolarcik.github.io/simple-jQuery-translator/variables.html">Variables</a >
+                            </li >
+
+                            <li class = "list-group-item">
+                                <h4 >First load of the page</h4 >
+
+                               Translator will try and match any of site language(s) with browser language(s)
+                                by running <code >translate();</code > function.
+                                <br ><br >
+
+                               If there will be match,page will be translated to matched language. <br ><br >
+                               Otherwise page will get translated to default language
+                                as set in  <br ><code >assets/js/translator/settings.js</code >
+                                <br ><br >
+                                In any case we will store this language into  <code >localStorage</code >  .
+                            </li >
+
+                             <li class = "list-group-item">
+                                <h4 >User changing language</h4 >
+                                  When user changes language, we will run <code >translate();</code > function again and
+                                  page will be translated to that language. And newly selected language
+                                 will be set in   <code >localStorage</code >.
+
+                                 <br ><br >
+                                 In the demo example, we are using bootstrap's dropdown, and <span class = "text-success">'click'</span >
+                                 event to trigger <code >translate();</code > function. <br > <br >
+                                 You can of course apply different logic for triggering  <code >translate();</code > function.
+
+                                 <br >
+                                <code >assets/js/change_language.js</code >
+                            </li >
+
+
+
+                        </ul >
+
+
+
+
+
+                </div >
+
+                </div >
+
+
+        </div >
+    </div >
+
+
+
+
+	</div >
+
+	<!--jQUERY JS -->
+<script
+		crossorigin = "anonymous"
+		integrity = "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		src = "https://code.jquery.com/jquery-3.4.1.js"
+></script >
+	<!--BOOTSTRAP JS -->
+<script
+		crossorigin = "anonymous"
+		integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+></script >
+<script
+		src = "assets/js/translator/translator.js"
+		type = "module"
+></script >
+
+    <script
+		    src = "assets/js/translator/helper.js"
+		    type = "module"
+    ></script >
+    <script
+		    src = "assets/js/change_language.js"
+		    type = "module"
+    ></script >
+
+</body >
+</html >

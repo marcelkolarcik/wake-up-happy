@@ -127,9 +127,17 @@
 					{
 						$ ( '#boards_' + p_id ).addClass ( 'border border-danger' );
 						swal.fire ( {
-							            title : 'Oops...',
-							            text  : 'Please, select board!',
-							            icon  : 'warning'
+							           
+							            html : `<h4>Oops...</h4>
+										<div class = "col-auto" >
+									   
+									    <hr class = "bg_green" >
+									    Please, select board! <br ><br >
+									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
+									       onclick = "swal.close()"
+									       > ok </a ></div>`,
+							
+							            showConfirmButton : false
 							
 						            } );
 						return;
@@ -290,7 +298,22 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 		
 		if ( contactForm.weeks.value === '' || contactForm.total_price.value === '' )
 			{
-				swal.fire ( 'Please,select at least one week!' );
+			
+				
+				swal.fire ( {
+					
+					            html : `<h4>Oops...</h4>
+										<div class = "col-auto" >
+									   
+									    <hr class = "bg_green" >
+									    Please,select at least one week! <br ><br >
+									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
+									       onclick = "swal.close()"
+									       > ok </a ></div>`,
+					
+					            showConfirmButton : false
+					
+				            } );
 			}
 		else
 			{
@@ -406,14 +429,20 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 					}
 				else if ( status === 'FAILED' )
 					{
+						
+						
 						swal.fire ( {
-							            position          : 'top-end',
-							            type              : 'error',
-							            title             : 'Whoops !',
-							            text              : 'Your room is not booked !',
-							            showConfirmButton : true,
-							            timer             : 2500
-							
+							            html              : ` <div >
+                                    <h4>Whoops !</h4>
+									 <p class="card-title nav_link_property">Your room is not booked !</p>
+									 <hr class="bg-danger">
+									 <span class="nav_link_property">Week(s): ${ contactForm.weeks.value }</span>
+									   <hr class="bg-danger">
+									 <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
+									       onclick = "swal.close()"
+									       > ok </a >
+							 </div>`,
+							            showConfirmButton : false
 						            } );
 						
 					}

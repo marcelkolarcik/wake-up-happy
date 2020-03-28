@@ -5,32 +5,27 @@ $ ( document ).on ( 'click', '.language', function ()
 {
 	
 	var current_language =  $ ( this ).data ( 'language' );
-	console.log(current_language)
-	/*TRANSLATING ACCORDING TO USER CHOSEN LANGUAGE*/
+	
+	
 	localStorage.setItem ( 'language', current_language );
 	
+	/*TRANSLATING ACCORDING TO USER CHOSEN LANGUAGE*/
 	translate ();
 	
 	
-	/*CHANGING CHOSEN LANGUAGE FLAG IN NAVIGATION BAR*/
-	
+	/*CHANGING CHOSEN LANGUAGE FLAG IN NAVIGATION BAR , OPTIONAL*/
 	change_flag ( current_language )
 	
 } );
 
 
-/*CHANGING CHOSEN LANGUAGE FLAG IN NAVIGATION BAR*/
+/*CHANGING CHOSEN LANGUAGE FLAG IN NAVIGATION BAR, OPTIONAL*/
 export function change_flag ( current_language )
 	{
-		var languages = {
-			'en':'english',
-			'es':'spanish',
-			'sk':'slovak',
-			'pl':'polish'
-		};
 		
 		$ ( '#language_flag' ).html('').html (
-			` <img class="___" src = "assets/images/flags/${ current_language }_sm.png" data-alt="${languages[current_language]} flag image" alt = "" ></a>` );
+			` <img src = "assets/images/flags/${ current_language }_sm.png"  alt = "country flag" ></a>` );
 	}
 
+/*CHANGING CHOSEN LANGUAGE FLAG IN NAVIGATION BAR , OPTIONAL*/
 change_flag ( localStorage.getItem ( 'language' ) );

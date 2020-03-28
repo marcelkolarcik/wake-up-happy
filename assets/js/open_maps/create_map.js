@@ -81,15 +81,15 @@ export function create_map ( coordinates = null, show_p_id = null )
 							 style="width:140px;height:70px;">
 							 <br><b><span class="text-capitalize">  ${ decodeURI ( property.location ) }</span></b>
 							
-							 <br> <span class="___" data-value="room :"></span>  ${ room_types[ property.room_type ] }
-							 <br><span class="___" data-value="view :"> </span> ${ views[ property.p_view ] }
+							 <br> <span class="___" data-text="room :"></span>  ${ room_types[ property.room_type ] }
+							 <br><span class="___" data-text="view :"> </span> ${ views[ property.p_view ] }
 		
 							 <a class="property_popup btn btn-sm bg_green_light ___"
-							  title="See more information about the room."
+							  data-title="See more information about the room."
 							  id="${ p_id }"
 							  data-image_id="${ property.room_style }"
-							  data-value="more..."
-							  data-title="preview room"
+							  data-text="more..."
+							  
 							  href="#" ></a>`;
 
 //			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html AND OPEN POPUP WITH HIS NEWLY CREATED ROOM
