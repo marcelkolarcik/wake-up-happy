@@ -1,55 +1,282 @@
 {
-  "hello"                                                                                   : "Witaj" ,
-  "Examples"                                                                                : "HTML Przykłady" ,
-  "this is link"                                                                            : "to jest link" ,
-  "label"                                                                                   : "etykieta" ,
-  "Your idea"                                                                               : "Twój pomysł" ,
-  "Create something amazing..."                                                             : "Stwórz coś niesamowitego ..." ,
-  "image alt description"                                                                   : "opis obrazu alt" ,
-  "helper"                                                                                  : "Pomocnik" ,
-  "link"                                                                                    : "połączyć" ,
-  "logo image"                                                                              : "obraz logo" ,
-  "translate"                                                                               : "Tłumaczyć" ,
-  "switch to english"                                                                       : "Przełącz na angielski" ,
-  "switch to slovak"                                                                        : "zmień na słowacki" ,
-  "switch to spanish"                                                                       : "zmień na hiszpański" ,
-  "switch to polish"                                                                        : "zmień na polski" ,
-  "english flag image"                                                                      : "obraz flagi angielskiej" ,
-  "slovak flag image"                                                                       : "obraz flagi słowackiej" ,
-  "spanish flag image"                                                                      : "obraz hiszpańskiej flagi" ,
-  "polish flag image"                                                                       : "obraz polskiej flagi" ,
-  "Home"                                                                                    : "Dom" ,
-  "Link"                                                                                    : "Połączyć" ,
-  "Disabled"                                                                                : "Niepełnosprawny" ,
-  "Search"                                                                                  : "Szukaj" ,
-  "Title of element : data-title attribute"                                                 : "Tytuł elementu: atrybut data-title" ,
-  "Placeholder for input fields : data-placeholder attribute"                               : "Symbol zastępczy dla pól wejściowych: atrybutdata-placeholder " ,
-  "alt attribute for images : data-alt attribute"                                           : "alt atrybut dla obrazów: data-alt atrybut" ,
-  "No translation for text"                                                                 : "Brak tłumaczenia tekstu" ,
-  "Examples of usage"                                                                       : "Przykłady użycia" ,
-  "Single data-text attribute"                                                              : "Pojedynczy atrybut data-text" ,
-  "Multiple data-text attribute"                                                            : "Wiele atrybutów data-text" ,
-  "If there is no translation for the text, we will display text from data-text attribute." : "Jeśli nie ma tłumaczenia tekstu, wyświetlimy tekst z atrybutu data-text" ,
-  "Every element that need translating must have class"                                     : "Każdy element wymagający tłumaczenia musi mieć klasę" ,
-  "and any combination of"                                                                  : "i dowolna kombinacja" ,
-  "with values written in default language"                                                 : "z wartościami zapisanymi w języku domyślnym" ,
-  "___ ( three underscores )"                                                               : "___ ( trzy znaki podkreślenia )" ,
-  "Usage"                                                                                   : "Stosowanie" ,
-  "This user's name is |user and he is from |city"                                          : "Ten użytkownik ma na imię |user i pochodzi z |city" ,
-  "staff_name accepted position of staff_role role."                                        : ":staff_name acceptoval :position of :staff_role poziciu." ,
-  "This is"                                                                                 : "To jest" ,
-  "bold text."                                                                              : "pogrubiony tekst." ,
-  "And this is green text on grey background"                                               : "A to jest zielony tekst na szarym tle" ,
-  "single"                                                                                  : "pojedynczy" ,
-  "My name is |first_variable and I live in city |second_variable and i am :status" : "Nazywam się |first_variable i mieszkam w mieście |second_variable i jestem :status",
-  "My name is |first_variable and I am :single"                                             : "Nazywam się |first_variable i jestem :single",
-  "This is :double bedroom"                                                                 : "To jest sypialnia z :double" ,
-  "double"                                                                                 : "podwójnym łóżkiem",
-  "This is :room_type bedroom"                                                              : "To jest sypialnia z :room_type",
-  "This user's name is |user and he is from |city and he is :gender"                        : "Ten użytkownik ma na imię |user, a on pochodzi z |city i jest :gender",
-  "male"                                                                                    : "męski" ,
-  "female"                                                                                  : "żeńska",
-  "Variables"                                                                               : "Zmienne"
-  
-  
+  "room :"
+  : "Pokój :" ,
+  "view :"
+  : "widok:" ,
+  "See more information about the room."
+  : "Zobacz więcej informacji o pokoju." ,
+  "Coordinates : "
+  : "Współrzędne:" ,
+  "get details"
+  : "uzyskać szczegółowe informacje" ,
+  "Property Name"
+  : "Nazwa właściwości" ,
+  "Click on any image to enlarge it !"
+  : "Kliknij dowolny obraz, aby go powiększyć!" ,
+  "single"
+  : "pojedynczy" ,
+  "double"
+  : "podwójnie" ,
+  "Room type selected."
+  : "Wybrano typ pokoju." ,
+  "Select your room type."
+  : "Wybierz typ pokoju." ,
+  "single bedroom image"
+  : "obraz jednej sypialni" ,
+  "double bedroom image"
+  : "obraz podwójnej sypialni" ,
+  "mountain view"
+  : "widok na góry" ,
+  "sea view"
+  : "Widok morza" ,
+  "river view"
+  : "widok na rzekę" ,
+  "pool view"
+  : "widok na basen" ,
+  "beach view"
+  : "widok na plażę" ,
+  "forrest view"
+  : "widok lasu" ,
+  "skyline view"
+  : "widok na panoramę" ,
+  "fields view"
+  : "widok pól" ,
+  "desert view"
+  : "widok na pustynię" ,
+  "mountain"
+  : "Góra" ,
+  "sea"
+  : "morze" ,
+  "lake"
+  : "jezioro" ,
+  "river"
+  : "rzeka" ,
+  "pool"
+  : "basen" ,
+  "beach"
+  : "plaża" ,
+  "forrest"
+  : "las" ,
+  "skyline"
+  : "sylwetka na tle nieba" ,
+  "fields"
+  : "pola" ,
+  "desert"
+  : "pustynia" ,
+  "View type selected."
+  : "Wybrano typ widoku." ,
+  "Select your view type."
+  : "Wybierz typ widoku." ,
+  "Select the view type your room has."
+  : "Wybierz typ widoku, jaki ma Twój pokój." ,
+  "Room style selected."
+  : "Wybrano styl pokoju." ,
+  "Select your room style."
+  : "Wybierz styl pokoju." ,
+  "bedroom image"
+  : "obraz sypialni" ,
+  "Room only"
+  : "Tylko pokój" ,
+  "B & B"
+  : "B & B" ,
+  "B & D"
+  : "B & D" ,
+  "All Inclusive"
+  : "Wszystko w cenie" ,
+  "Room only image"
+  : "Obraz tylko pokoju" ,
+  "B & B image"
+  : "Obraz B & B" ,
+  "B & D image"
+  : "Obraz B&R" ,
+  "All Inclusive image"
+  : "All Inclusive obraz" ,
+  "price"
+  : "Cena EUR" ,
+  "Board type(s) selected."
+  : "Wybrano typ (y) planszy." ,
+  "Select your board type(s)."
+  : "Wybierz typ (y) swojej planszy." ,
+  "Add price for the board !"
+  : "Dodaj cenę za żywność!" ,
+  "Select the board basis you can provide for your guests."
+  : "Wybierz podstawę forum, którą możesz zapewnić swoim gościom." ,
+  "Amenity selected."
+  : "Wybrane udogodnienia." ,
+  "Select amenities you provide!"
+  : "Wybierz udogodnienia, które zapewnisz!" ,
+  "Select the amenities you can provide for your guests."
+  : "Wybierz udogodnienia, które możesz zapewnić swoim gościom." ,
+  "fresh linens"
+  : "świeża pościel" ,
+  "extra blankets"
+  : "dodatkowe koce" ,
+  "puzzle turn down service"
+  : "łamigłówka odmawia usługi" ,
+  "elevator bartender"
+  : "barman windy" ,
+  "celebrity wake up call"
+  : "budzenie gwiazd" ,
+  "fast Wi-Fi"
+  : "szybkie Wi-Fi" ,
+  "in-room cocktail station"
+  : "stanowisko koktajlowe w pokoju" ,
+  "in-room workout and meditation"
+  : "trening i medytacja w pokoju" ,
+  "USB charger ports"
+  : "Porty ładowarki USB" ,
+  "smart TV with Netflix"
+  : "smart TV z Netflix" ,
+  "in-room coffee machine"                                                                                                                        : "ekspres do kawy w pokoju" ,
+  "office corner"                                                                                                                                 : "kącik biurowy" ,
+  "welcome gift"                                                                                                                                  : "prezent powitalny" ,
+  "local flavor gifts"                                                                                                                            : "prezenty o smaku lokalnym" ,
+  "in-room beer tap"                                                                                                                              : "kran piwny w pokoju" ,
+  "shower mini fridge"                                                                                                                            : "mini lodówka z prysznicem" ,
+  "pop corn delivery"                                                                                                                             : "dostawa kukurydzy pop" ,
+  "complementary smart phone"                                                                                                                     : "uzupełniający inteligentny telefon" ,
+  "complementary BMW SUV"                                                                                                                         : "uzupełniający SUV BMW" ,
+  "Write description of your room, min 30 - max 300 characters."                                                                                  : "Napisz opis swojego pokoju, min. 30 - maks. 300 znaków." ,
+  "Your room description"                                                                                                                         : "Opis Twojego pokoju" ,
+  "Describe your room, make it attractive (min 30 - max 300 characters)"                                                                          : "Opisz swój pokój, spraw, aby był atrakcyjny (min. 30 - maks. 300 znaków)" ,
+  "location"                                                                                                                                      : "Lokalizacja" ,
+  "room"                                                                                                                                          : "Pokój" ,
+  "services"                                                                                                                                      : "usługi" ,
+  "preview"                                                                                                                                       : "zapowiedź" ,
+  "payment"                                                                                                                                       : "Zapłata" ,
+  "Please review these fields:"                                                                                                                   : "Przejrzyj następujące pola:" ,
+  "Payment details : 99 EUR per year + 9 % of each booking."                                                                                      : "Szczegóły płatności: 99 EUR rocznie + 9% każdej rezerwacji." ,
+  "Total price"                                                                                                                                   : "Cena całkowita" ,
+  "Full Name"                                                                                                                                     : "Pełne imię i nazwisko" ,
+  "Email"                                                                                                                                         : "E-mail" ,
+  "Password"                                                                                                                                      : "Hasło" ,
+  "Card Holder Name:"                                                                                                                             : "Imię właściciela karty:" ,
+  "Card Number"                                                                                                                                   : "Numer karty" ,
+  "CVV"                                                                                                                                           : "CVV" ,
+  "Pay"                                                                                                                                           : "Zapłacić" ,
+  "Owner login"                                                                                                                                   : "Login właściciela" ,
+  "Login"                                                                                                                                         : "Zaloguj sie" ,
+  "Not registered yet?"                                                                                                                           : "Jeszcze nie zarejestrowany?" ,
+  "No Problem!"                                                                                                                                   : "Nie ma problemu!" ,
+  "Just take the first step...."                                                                                                                  : "Po prostu zrób pierwszy krok ..." ,
+  "Right on this site !"                                                                                                                          : "Bezpośrednio na tej stronie!" ,
+  "Add your room now!"                                                                                                                            : "Dodaj swój pokój teraz!" ,
+  "Select location of your property first !"                                                                                                      : "Najpierw wybierz lokalizację swojej nieruchomości!" ,
+  "ok"                                                                                                                                            : "dobrze" ,
+  "If you are already registered, check your login credentials, or CAPS Lock...;-)"                                                               : "Jeśli jesteś już zarejestrowany, sprawdź dane logowania lub CAPS Lock ... ;-)" ,
+  "Oops..."                                                                                                                                       : "Ups…" ,
+  "Please, select board!"                                                                                                                         : "Proszę wybrać planszę!" ,
+  "Please,select at least one week!"                                                                                                              : "Wybierz przynajmniej tydzień!" ,
+  "Your dates were blocked !"                                                                                                                     : "Twoje daty zostały zablokowane!" ,
+  "Week(s):"                                                                                                                                      : "Tydzień (y):" ,
+  "Thank you for booking with us !"                                                                                                               : "Dziękujemy za rezerwację u nas!" ,
+  "Name:"                                                                                                                                         : "Nazwa:" ,
+  "Email:"                                                                                                                                        : "E-mail:" ,
+  "Room:"                                                                                                                                         : "Pokój:" ,
+  "Week:"                                                                                                                                         : "Tydzień:" ,
+  "Total price:"                                                                                                                                  : "Cena całkowita:" ,
+  "address:"                                                                                                                                      : "adres:" ,
+  "Request:"                                                                                                                                      : "Żądanie:" ,
+  "save as PDF"                                                                                                                                   : "zapisz jako PDF" ,
+  "Reservation ID:"                                                                                                                               : "Identyfikator rezerwacji:" ,
+  "Dismiss"                                                                                                                                       : "Odwołać" ,
+  "Your room is not booked !"                                                                                                                     : "Twój pokój nie jest zarezerwowany!" ,
+  "How to:"                                                                                                                                       : "Jak:" ,
+  "you are in editing mode"                                                                                                                       : "jesteś w trybie edycji" ,
+  "you are in preview mode"                                                                                                                       : "jesteś w trybie podglądu" ,
+  "you are in add mode"                                                                                                                           : "jesteś w trybie dodawania" ,
+  "you are in block mode"                                                                                                                         : "jesteś w trybie blokowym" ,
+  "Click on"                                                                                                                                      : "Kliknij" ,
+  "button, if you would like to edit your room."                                                                                                  : "przycisk, jeśli chcesz edytować swój pokój." ,
+  "OK, got it !"                                                                                                                                  : "Ok, rozumiem !" ,
+  "By clicking on"                                                                                                                                : "Klikając na" ,
+  "you will get information that will assist on every step of your journey...;-)."                                                                : "otrzymasz informacje, które pomogą na każdym etapie podróży ... ;-)." ,
+  "Find location of your property on the map and then click the map to display coordinates."                                                      : "Znajdź lokalizację swojej nieruchomości na mapie, a następnie kliknij mapę, aby wyświetlić współrzędne." ,
+  "Then click on"                                                                                                                                 : "Następnie kliknij" ,
+  "button, to display location details."                                                                                                          : "przycisk, aby wyświetlić szczegóły lokalizacji." ,
+  "You can correct these details."                                                                                                                : "Możesz poprawić te dane." ,
+  "Once you're happy with the location details, click on"                                                                                         : "Gdy będziesz zadowolony ze szczegółów lokalizacji, kliknij" ,
+  "Remember to add your property name! (min 3 characters) to be able to continue to next step."                                                   : "Pamiętaj, aby dodać nazwę swojej nieruchomości! (Min 3 znaki), aby móc przejść do następnego kroku." ,
+  "Define your room by selecting appropriate radio buttons."                                                                                      : "Zdefiniuj swój pokój, wybierając odpowiednie przyciski radiowe." ,
+  "Once all options are selected"                                                                                                                 : "Po wybraniu wszystkich opcji" ,
+  "Define your services by selecting appropriate check buttons."                                                                                  : "Zdefiniuj swoje usługi, wybierając odpowiednie przyciski wyboru." ,
+  "You can select multiple options."                                                                                                              : "Możesz wybrać wiele opcji." ,
+  "When at least one of each options are selected and description is entered"                                                                     : "Po wybraniu co najmniej jednej z każdej opcji i wprowadzeniu opisu" ,
+  "will appear and you can progress to next step."                                                                                                : "pojawi się i możesz przejść do następnego kroku." ,
+  "Description of the room must be at least 30 characters!"                                                                                       : "Opis pokoju musi mieć co najmniej 30 znaków!" ,
+  "When selecting board type, you must enter price for the board."                                                                                : "Wybierając typ tablicy, musisz wprowadzić cenę tablicy." ,
+  "Preview your work of art, by clicking on the tabs"                                                                                             : "Przejrzyj swoje dzieło sztuki, klikając zakładki" ,
+  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."                                                                                                : "O, GALERIA, UDOGODNIENIA, DOSTĘPNOŚĆ, KSIĄŻKA." ,
+  "You can edit your work if needed!"                                                                                                             : "W razie potrzeby możesz edytować swoją pracę!" ,
+  "Once you are happy with your work, preview it by clicking on"                                                                                  : "Gdy będziesz zadowolony ze swojej pracy, wyświetl podgląd, klikając" ,
+  "Update"                                                                                                                                        : "Aktualizacja" ,
+  "to proceed with payment."                                                                                                                      : "aby kontynuować płatność." ,
+  "Here you can proceed with payment. Thank you for choosing"                                                                                     : "Tutaj możesz kontynuować płatność. Dziękujemy za wybranie" ,
+  "wake up happy!"                                                                                                                                : "obudź się szczęśliwy!" ,
+  "Once you pay, you will be redirected to landing page to see your room live on the site."                                                       : "Po zapłaceniu nastąpi przekierowanie do strony docelowej, aby zobaczyć swój pokój na żywo w witrynie." ,
+  "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." : "Zostaniesz zalogowany na swoje konto, aw prawym górnym rogu zobaczysz swoje inicjały, z pokojem wymienionym w menu rozwijanym." ,
+  "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!"               : "Możesz kliknąć swoje imię lub nazwę pokoju, aby przejść do pulpitu nawigacyjnego konta, gdzie możesz dalej edytować swój pokój lub dodać nowy!" ,
+  "if you want to block some of the dates."                                                                                                       : "jeśli chcesz zablokować niektóre daty." ,
+  "then click on"                                                                                                                                 : "następnie kliknij" ,
+  "AVAILABILITY"                                                                                                                                  : "DOSTĘPNOŚĆ" ,
+  "tab."                                                                                                                                          : "patka." ,
+  "For more details click on"                                                                                                                     : "Aby uzyskać więcej informacji, kliknij" ,
+  "Edit your room to your liking."                                                                                                                : "Edytuj swój pokój według własnych upodobań." ,
+  "to save your changes."                                                                                                                         : "aby zapisać zmiany." ,
+  "If you would like to edit room, click on"                                                                                                      : "Jeśli chcesz edytować pokój, kliknij" ,
+  "My rooms"                                                                                                                                      : "Moje pokoje" ,
+  "No rooms yet"                                                                                                                                  : "Nie ma jeszcze pokoi" ,
+  "Logout"                                                                                                                                        : "Wyloguj" ,
+  "Dashboard"                                                                                                                                     : "Deska rozdzielcza" ,
+  "Room details"                                                                                                                                  : "Szczegóły pokoju" ,
+  "Week(s) booked"                                                                                                                                : "Zarezerwowane tygodnie" ,
+  "Board"                                                                                                                                         : "Tablica" ,
+  "Payment details"                                                                                                                               : "Szczegóły płatności" ,
+  "Property Request"                                                                                                                              : "Zapytanie o nieruchomość" ,
+  "Any Requests..."                                                                                                                               : "Jakieś wymagania..." ,
+  "Your future customers will be able to book your room through this form."                                                                       : "Twoi przyszli klienci będą mogli zarezerwować pokój za pomocą tego formularza." ,
+  "Previous"                                                                                                                                      : "Poprzedni" ,
+  "Next"                                                                                                                                          : "Kolejny" ,
+  ":view view"                                                                                                                                    : ": widok widoku" ,
+  "bedroom"                                                                                                                                       : "sypialnia" ,
+  "breakfast"                                                                                                                                     : "śniadanie" ,
+  "lunch"                                                                                                                                         : "lunch" ,
+  "dinner"                                                                                                                                        : "obiad" ,
+  "property image"                                                                                                                                : "obraz nieruchomości" ,
+  "from"                                                                                                                                          : "z" ,
+  "EUR"                                                                                                                                           : "EUR" ,
+  "per week"                                                                                                                                      : "na tydzień" ,
+  "more..."                                                                                                                                       : "więcej..." ,
+  "Information about room"                                                                                                                        : "Informacje o pokoju" ,
+  "About"                                                                                                                                         : "O" ,
+  "Preview images of the property"                                                                                                                : "Podgląd zdjęć nieruchomości" ,
+  "Gallery"                                                                                                                                       : "Galeria" ,
+  "See the amenities"                                                                                                                             : "Zobacz udogodnienia" ,
+  "Amenities"                                                                                                                                     : "Udogodnienia" ,
+  "Preview the availability"                                                                                                                      : "Podgląd dostępności" ,
+  "Availability"                                                                                                                                  : "Dostępność" ,
+  "Book your room !"                                                                                                                              : "Zarezerwuj pokój!" ,
+  "Book"                                                                                                                                          : "Rezerwuj" ,
+  "show on map"                                                                                                                                   : "Pokaż na mapie" ,
+  "Boards"                                                                                                                                        : "żywność" ,
+  "Block selected dates"                                                                                                                          : "Blokuj wybrane daty" ,
+  "How to block weeks ?"                                                                                                                          : "Jak blokować tygodnie?" ,
+  "Select board and the week(s) and click on"                                                                                                     : "Wybierz wyżywienie i tygodnie (tygodnie) i kliknij" ,
+  "BOOK"                                                                                                                                          : "Rezerwuj" ,
+  "button"                                                                                                                                        : "przycisk" ,
+  "1) Select any board"                                                                                                                           : "1) Wybierz dowolną tablicę" ,
+  "2) Select the weeks you want to block."                                                                                                        : "2) Wybierz tygodnie, które chcesz zablokować." ,
+  "3) Click on"                                                                                                                                   : "3) Kliknij" ,
+  "less..."                                                                                                                                       : "mniej..." ,
+  "You won't be able to revert this!"                                                                                                             : "Nie będzie można tego cofnąć!" ,
+  "Yes, delete"                                                                                                                                   : "Tak, usuń" ,
+  "How to"                                                                                                                                        : "Jak" ,
+  "Preview"                                                                                                                                       : "Zapowiedź" ,
+  "Edit"                                                                                                                                          : "Edytować" ,
+  "Delete"                                                                                                                                        : "Usunąć" ,
+  "Block Dates"                                                                                                                                   : "Blokuj daty" ,
+  "Add new room"                                                                                                                                  : "Dodaj nowy pokój" ,
+  "select location"                                                                                                                               : "Wybierz lokalizację" ,
+  "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."                                 : "Twoje wyszukiwanie zwróciło 0 wyników, wypróbuj inne parametry wyszukiwania lub spójrz na wyróżnione właściwości poniżej." ,
+  "Search results:"                                                                                                                               : "Wyniki wyszukiwania:"
 }
