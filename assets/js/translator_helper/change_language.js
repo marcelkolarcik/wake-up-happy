@@ -1,4 +1,4 @@
-import { translate } from './translator/translator.js';
+import { translate } from '../translator/translator.js';
 
 /*USER CHANGING LANGUAGE*/
 $ ( document ).on ( 'click', '.language', function ()

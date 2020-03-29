@@ -76,14 +76,15 @@ export function translate ()
 								                    {
 									                    $ ( this ).html ( translated_text );
 								                    }
-							                    /*IF WE DO NOT HAVE TRANSLATION WE WILL USE DEFAULT LANGUAGE*/
+							                    /*IF WE DO NOT HAVE TRANSLATION WE WILL USE DEFAULT LANGUAGE
+							                     * AND HIGHLIGHT ELEMENT ACCORDING TO highlight_class*/
 							                    else
 								                    {
 									                    $ ( this ).html ( $ ( this ).data ( 'text' ) ).addClass(highlight_class);
 								                    }
 							
 							                    /*WE WILL CHECK IF TEXT HAS VARIABLE
-							                     * IT WOULD HAVE "|" AS FIRST CHARACTER
+							                     * IT WOULD HAVE "|"  OR ":" AS FIRST CHARACTER
 							                     * IF WE HAVE IT => WE WILL LOOK FOR data- ATTRIBUTE
 							                     * VALUE OF THAT VARIABLE AND THEN REPLACE
 							                     * NAMED VARIABLE WITH ACTUAL VARIABLE
@@ -198,7 +199,7 @@ export function translate ()
 				 * AND WE WILL JUST REPLACE NAMED VARIABLE WITH ACTUAL VARIABLE VALUE
 				 *
 				 * IF COLON ":" IS PREPENDED TO A WORD => IT IS VARIABLE
-				 * THAT NEED TRANSLATION, SO WE WILL REPLACE NAMED
+				 * THAT NEEDS TRANSLATION, SO WE WILL REPLACE NAMED
 				 * VARIABLE WITH TRANSLATION*/
 				var split = original.split ( " " );
 				
@@ -206,19 +207,19 @@ export function translate ()
 				for ( var i = 0 ; i < split.length ; i++ )
 					{
 						/*IF WE HAVE SIMPLE VARIABLE, WE WILL REPLACE IT WITH VARIABLE VALUE
-						*
-						* IF THE FIRST CHARACTER IS | AND IT'S NOT STAND ALONE CHARACTER*/
+						 *
+						 * IF THE FIRST CHARACTER IS "|" AND IT'S NOT STAND ALONE CHARACTER AND WE HAVE TRANSLATION*/
 						if ( split[ i ].charAt ( 0 ) === "|" &&  split[ i ].length > 1 && translated_text)
 							{
 								
 								translated_text = translated_text.replace (
 									split[ i ],
-													/* GETTING NAMED VARIABLE WITHOUT "|" */
+									/* GETTING NAMED VARIABLE WITHOUT "|" */
 									element.data ( split[ i ].substr ( 1 ) )
 								);
 								
 								/*IF THERE IS NO VARIABLE IN ELEMENT'S data-{ named_variable }
-								* WE WILL HIGHLIGHT TEXT TO DEVELOPER*/
+								 * WE WILL HIGHLIGHT TEXT TO DEVELOPER*/
 								if(!element.data ( split[ i ].substr ( 1 ) ))
 									{
 										element.addClass(highlight_class);
@@ -227,10 +228,10 @@ export function translate ()
 						/*ELSE IF WE HAVE VARIABLE THAT NEEDS TRANSLATING
 						 *  WE WILL REPLACE IT WITH TRANSLATION
 						 *
-						 *  IF THE FIRST CHARACTER IS : AND IT'S NOT STAND ALONE CHARACTER*/
+						 *  IF THE FIRST CHARACTER IS : AND IT'S NOT STAND ALONE CHARACTER AND WE HAVE TRANSLATION*/
 						else if ( split[ i ].charAt ( 0 ) === ":" &&  split[ i ].length > 1  && translated_text)
 							{
-
+								
 								if ( translation[ element.data ( split[ i ].substr ( 1 ) ) ] )
 									{
 //

@@ -242,9 +242,12 @@ function set_last_room_id ()
 	{
 		var OWNERS                                          = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 		var owner                                           = OWNERS[ sessionStorage.getItem ( 'hashed_login' ) ];
+		
 		owner.room_id                                       = JSON.parse (
 			sessionStorage.getItem ( 'room_to_edit' ) ).p_id;
+		
 		OWNERS[ sessionStorage.getItem ( 'hashed_login' ) ] = owner;
+		
 		localStorage.setItem ( 'OWNERS', JSON.stringify ( OWNERS ) );
 	}
 
@@ -261,6 +264,8 @@ function append_room_actions ()
                        How to
                       </button >
 					
+					<!--IF WE HAVE ROOM TO EDIT WE WILL DISPALY CONTROLS TO INTERACT WITH THE ROOM :
+					Preview, Edit, Delete, Block Dates-->
 					${ ( sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined'
 		                 && sessionStorage.getItem ( 'room_to_edit' ) !== null )
 		               ?

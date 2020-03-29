@@ -75,7 +75,7 @@ export function render_room ( room, where, preview = false )
             
                 <a class = "list-group-item list-group-item-action active nav_link_property "
                    data-toggle = "list" href = "#about_${ room.p_id }" role = "tab"
-                   title = "Informations about room" id="about" >About</a >
+                   title = "Information about room" id="about" >About</a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property "
                    data-toggle = "list" href = "#gallery_${ room.p_id }" role = "tab"

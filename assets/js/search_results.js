@@ -121,10 +121,10 @@ import { featured_rooms }      from './featured_rooms.js';
 					
 					/*IF SEARCH RESULTS ARE EMPTY, WE WILL DISPLAY INFO TO THE USER ABOUT 0 RESULTS
 					 * AND DISPLAY featured_rooms INSTEAD*/
-					form_search_results.append ( ' <div class = "img-thumbnail mt-3 bg_orange " >' +
-					                             'Your search returned 0 results, try different search parameters or have a look at '
-					                             +
-					                             'featured properties bellow.</div >' );
+					form_search_results.append ( ` <div class = "img-thumbnail mt-3 bg_orange " >
+					                             Your search returned 0 results, try different search parameters or have a look at featured properties bellow.
+					                            
+					                             </div >` );
 					featured_rooms ();
 					
 				}
