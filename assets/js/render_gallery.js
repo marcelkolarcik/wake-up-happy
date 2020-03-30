@@ -33,6 +33,7 @@ export function render_gallery ( room )
 			      <div class="carousel-caption ">
 			        <h5 class="images caption">${ views[ room.p_view ] } view</h5>
 			      </div>
+			       <span class="___" data-text="translation"></span>
 		    </div>`;
 		
 		var room_style = ` <div class="carousel-item ">

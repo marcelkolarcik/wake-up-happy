@@ -24,7 +24,7 @@ export function render_amenities ( property )
 			 * AND THEN IN A LOOP WE APPEND 5 AMENITIES TO EACH  ul         */
 			if ( index === 0 )
 				{
-					amenities_div.append ( `
+					amenities_div.append ( ` <span class="___" data-text="translation"></span>
 			<div class = "row mt-3 no-gutters" >
 			    <div class = "col-md-4 " >
 			        <ul class = "list-group" id = "first_${ property.p_id }" >

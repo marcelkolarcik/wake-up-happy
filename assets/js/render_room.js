@@ -50,6 +50,7 @@ export function render_room ( room, where, preview = false )
         <div class = "col-md-4 vertically_aligned img-thumbnail" id="property_img">
        
             <img src = "assets/images/bedrooms/b${ room.room_style }.jpg" class = "card-img room_img" alt = "property image" >
+            <span class="___" data-text="translation"></span>
             <h6 class = "bg_green text-light p-2 mt-2 text-center" >
 			from	${ room.price[ Object.keys ( room.price )[ 0 ] ] }&nbsp;EUR <!--getting first available price to display form-->
                 <small >per week</small >

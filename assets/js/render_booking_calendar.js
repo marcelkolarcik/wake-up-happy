@@ -87,7 +87,7 @@ export function render_booking_calendar ( property )
 		$.each ( property.price, function ( index, value )
 		{
 			boards.append ( `
-			
+			 <span class="___" data-text="translation"></span>
 				 <input id = "${ index }" name = "board" type = "radio" value = "${ value }"  class="board_type"
 				  		data-p_id="${ property.p_id }" data-index="${ index }"	>
                  <label for = "${ index }"  class="nav_link_property board p-2">${ board_types[ index ] } : ${ value } EUR</label >

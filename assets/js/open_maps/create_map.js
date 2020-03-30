@@ -13,6 +13,9 @@
  * AMENITIES, GALLERY, DESCRIPTION, AVAILABILITY AND HE CAN
  * BOOK THE ROOM AS WELL
  */
+import { translate } from "../translator/translator.js";
+
+
 export function create_map ( coordinates = null, show_p_id = null )
 	{
 		var tiles = L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -90,7 +93,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							  data-image_id="${ property.room_style }"
 							  data-text="more..."
 							  
-							  href="#" ></a>`;
+							  href="#" >more...</a> <span class="___" data-text="translation"></span>`;
 
 //			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html AND OPEN POPUP WITH HIS NEWLY CREATED ROOM
 					
@@ -163,6 +166,8 @@ $ ( document ).on ( 'click', '.show_on_map', function ()
 //AND HE SCROLLED DOWN AND MAP IS NOT IN HIS CURRENT VIEW
 // HE WOULDN'T SEE MAP OTHERWISE
 	$ ( 'html, body' ).animate ( {
-		                             scrollTop : $ ( "#hero" ).offset ().top
+		                             scrollTop : $ ( "#content" ).offset ().top
 	                             }, 11 );
+	
+	translate();
 } );

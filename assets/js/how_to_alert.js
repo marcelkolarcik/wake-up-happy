@@ -20,6 +20,9 @@
 * WHERE step IS DECIDING FACTOR AS TO WHAT DESCRIPTION WILL BE DISPLAYED*/
 
 
+import { translate } from "./translator/translator.js";
+
+
 ( function () {
 	
 	/*WHEN USER CLICKS ON HOW-TO BUTTON, WE WILL FIRE POPUP WITH APPROPRIATE DESCRIPTION
@@ -39,6 +42,8 @@
 			            showConfirmButton : false
 		            }
 		);
+		
+		translate();
 	} );
 	
 	/*RENDERING OF ALERT AFTER USER CLICKS ON HOW TO BUTTON*/
@@ -71,7 +76,7 @@
 				
 				<div class = "col-md-3 description" >
 						 <h4> How to: ${ step.replace ( '_', ' ' ) }</h4>
-						
+						<span class="___" data-text="translation"></span>
 						${ sessionStorage.getItem ( 'edit_mode' )
 		                   ? `you are in editing mode` : sessionStorage.getItem ( 'preview_mode' )
 		                                                 ? `you are in preview mode` : sessionStorage.getItem ( 'add_mode' )

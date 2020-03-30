@@ -17,6 +17,7 @@ import { render_gallery }          from './render_gallery.js';
 import { render_amenities }        from './render_amenities.js';
 import { render_booking_calendar } from './render_booking_calendar.js';
 import { render_booking_form }     from './render_booking_form.js';
+import { translate }               from "./translator/translator.js";
 
 
 export function render_room_preview ( property, where, preview = false )
@@ -28,6 +29,8 @@ export function render_room_preview ( property, where, preview = false )
 		render_booking_calendar ( property );
 		render_booking_form ( property );
 		render_address ( property );
+		
+		translate();
 	}
 
 

@@ -176,7 +176,7 @@
     <!--INFO DIV. CURRENT INFO  =>  INFO TO IRISH LANDLORDS ABOUT POSSIBILITY OF
     MAKING 14,000 EUR TAX FREE .... WITH 2 OPTIONS OF CLOSING IT:
     
-        1.  x BUTTON => REMOVE DIV FROM THE VIEW -> WILL REAPEAR AFTER PAGE RELOAD
+        1.  x BUTTON => REMOVE DIV FROM THE VIEW -> WILL REAPPEAR AFTER PAGE RELOAD
         2.  don't show again BUTTON => REMOVE DIV FROM THE VIEW
             AND FOR THE DURATION OF THE SESSION ( WHILE THE BROWSER IS OPEN )
             WHEN THE BROWSER WILL CLOSE AND REOPEN AGAIN, WE WILL DISPLAY DIV AGAIN-->
@@ -192,6 +192,7 @@
                 data-div = "hello"
                 data-per = "view"
                 id = "close"
+                data-title="Close it for now."
             >x
             </span >
 
@@ -201,6 +202,7 @@
                 data-div = "hello"
                 data-per = "session"
                 id = "dont_show_again"
+                data-title="Don't show again."
             >don't show again</span >
         </div >
        
@@ -234,20 +236,20 @@
             <div class = "progress d-flex justify-content-center bg-transparent step_holder">
                 <div
                     class = "progress-bar   progress_step"
-                    title = "Choose your location"
+
                 >1</div >
                 <div class = "progress-bar   bg-transparent step_divider"></div >
                 <div
                     class = "progress-bar progress_step empty"
                     id = "progress_step_2"
-                    title = "Define your room"
+
                 >2
                 </div >
                 <div class = "progress-bar  step_divider bg-transparent "></div >
                 <div
                     class = "progress-bar progress_step empty"
                     id = "progress_step_3"
-                    title = "Define your services"
+
                 >
                     3
                 </div >
@@ -255,14 +257,14 @@
                 <div
                     class = "progress-bar progress_step empty"
                     id = "progress_step_4"
-                    title = "Preview your work of art!"
+
                 >4
                 </div >
                 <div class = "progress-bar  step_divider bg-transparent progress_step_5"></div >
                 <div
                     class = "progress-bar progress_step empty progress_step_5"
                     id = "progress_step_5"
-                    title = "Pay !"
+
                 >
                     5
                 </div >
@@ -298,9 +300,9 @@
     <section id = "content">
         
         <!--
-        I AM USING DYNAMIC TABBET INTERFACES TO DISPLAY PARTS OF THE FORM
+        I AM USING DYNAMIC TABBED INTERFACES TO DISPLAY PARTS OF THE FORM
         FROM BOOTSTRAP EXAMPLE BY ADDING data-toggle="tab" href="#( "div_to_open" )
-        TO TABS UNDER THE FORM , SO WHEN USER CLICKS ON TAB "div_to_open" WILL OPEN "-->
+        TO TABS UNDER THE FORM , SO WHEN USER CLICKS ON TAB ".div_to_open" WILL OPEN "-->
         <form id = "add_your_room">
             <div class = "row no-gutters">
                 <!-- Tab panes -->
@@ -509,7 +511,7 @@
                         id = "step_1"
                         role = "tab"
                         title = "Choose your location"
-                    >location </a >
+                    >location</a >
                     
                     <a
                         class = "list-group-item list-group-item-action p-1 d-none  step"
@@ -553,7 +555,7 @@
                         href = "#payment"
                         id = "step_5"
                         role = "tab"
-                        title = "Pay !"
+                        title = "Payment"
                     >payment</a >
                     
                     <a
@@ -592,6 +594,8 @@
 ></script >
     <!--SWEETALERT JS-->
 <script src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"></script >
+
+
     <!--APP JS FILES => TO DO : USE WEBPACK TO COMPILE THEM INTO ONE FILE-->
 <script src = "assets/js/open_maps/get_location.js"></script >
 <script
@@ -612,8 +616,8 @@
 <script src = "assets/js/add_room_payment_form.js" ></script >
 <script src = "assets/js/authorizations.js"></script >
 <script src = "assets/js/navigation.js"></script >
-<script src = "assets/js/room_actions.js"></script >
-<script src = "assets/js/how_to_alert.js"></script >
+<script src = "assets/js/room_actions.js"  type = "module"></script >
+<script src = "assets/js/how_to_alert.js" type = "module"></script >
 <script src = "assets/js/close_div.js"></script >
 <script src = "assets/js/translator/translator.js" type="module"></script >
 <script src = "assets/js/translator_helper/change_language.js" type="module"></script >

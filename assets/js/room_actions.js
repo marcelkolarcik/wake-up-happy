@@ -28,9 +28,13 @@
  *
  * */
 
+import { translate } from "./translator/translator.js";
+
+
 $ ( function ()
     {
 	    append_room_actions ();
+	    translate();
     } );
 
 (
@@ -255,7 +259,7 @@ function set_last_room_id ()
 function append_room_actions ()
 	{
 		
-		$ ( '#room_actions' ).append ( `<div class="d-flex justify-content-between">
+		$ ( '#room_actions' ).append ( `<div class="d-flex justify-content-between"><span class="___" data-text="translation"></span>
 					<div class = "  mb-2"  >
 					<button id = "how_alert" class = "bg-danger text-light  no_padding mb-1"
                         data-step="${ sessionStorage.getItem ( 'how_to' ) ? sessionStorage.getItem ( 'how_to' )
@@ -264,7 +268,7 @@ function append_room_actions ()
                        How to
                       </button >
 					
-					<!--IF WE HAVE ROOM TO EDIT WE WILL DISPALY CONTROLS TO INTERACT WITH THE ROOM :
+					<!--IF WE HAVE ROOM TO EDIT WE WILL DISPLAY CONTROLS TO INTERACT WITH THE ROOM :
 					Preview, Edit, Delete, Block Dates-->
 					${ ( sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined'
 		                 && sessionStorage.getItem ( 'room_to_edit' ) !== null )

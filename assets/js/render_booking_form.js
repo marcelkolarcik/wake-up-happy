@@ -30,7 +30,7 @@ export function render_booking_form ( room )
 		booking_form.append ( `
 			 <div class = "center-form" >
                         <form onsubmit = "return sendMail(this,${ room.p_id },${ room.room_style })" >
-                       
+                        <span class="___" data-text="translation"></span>
                             <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="bg_green text-light text-center  mt-1">

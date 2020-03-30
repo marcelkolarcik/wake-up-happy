@@ -115,7 +115,7 @@ function render_view_types ()
 			}
 		$ ( '#view_types_title' )
 			.append ( ` <p class = "card-text p-2 show_content" data-hidden_class="view_type_images" >
- 
+ <span class="___" data-text="translation"></span>
  										 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
  											<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }" id="view_types_title_green" title="View type selected."></i>
             								<i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="view_types_title_red" title="Select your view type."></i>

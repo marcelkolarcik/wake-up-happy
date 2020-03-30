@@ -22,7 +22,7 @@
   "Select your room type."
   : "Vyberte typ izby." ,
   "single bedroom image"
-  : "obraz jednej spálne" ,
+  : "obraz jednposteľovej spálne" ,
   "double bedroom image"
   : "obraz dvojposteľovej izby" ,
   "mountain view"
@@ -125,17 +125,28 @@
   : "cvičenie a meditácia na izbe" ,
   "USB charger ports"
   : "Porty USB nabíjačky" ,
-  "smart TV with Netflix"                                                                                                                         : "smart TV with Netflix" ,
-  "in-room coffee machine"                                                                                                                        : "kávovar na izbe" ,
-  "office corner"                                                                                                                                 : "kancelársky kút" ,
-  "welcome gift"                                                                                                                                  : "darček na privítanie" ,
-  "local flavor gifts"                                                                                                                            : "miestne chuťové dary" ,
-  "in-room beer tap"                                                                                                                              : "kohútik na pivo na izbe" ,
-  "shower mini fridge"                                                                                                                            : "sprchovacia mini chladnička" ,
-  "pop corn delivery"                                                                                                                             : "dodávka pop kukurice" ,
-  "complementary smart phone"                                                                                                                     : "doplnkový chytrý telefón" ,
-  "complementary BMW SUV"                                                                                                                         : "doplnkové BMW SUV" ,
-  "Write description of your room, min 30 - max 300 characters."                                                                                  : "Napíšte popis svojej izby, min. 30 - max. 300 znakov." ,
+  "smart TV with Netflix"
+  : "smart TV with Netflix" ,
+  "in-room coffee machine"
+  : "kávovar na izbe" ,
+  "office corner"
+  : "kancelársky kút" ,
+  "welcome gift"
+  : "darček na privítanie" ,
+  "local flavor gifts"
+  : "miestne chuťové dary" ,
+  "in-room beer tap"
+  : "kohútik na pivo na izbe" ,
+  "shower mini fridge"
+  : "sprchovacia mini chladnička" ,
+  "pop corn delivery"
+  : "dodávka pop kukurice" ,
+  "complementary smart phone"
+  : "doplnkový chytrý telefón" ,
+  "complementary BMW SUV"
+  : "doplnkové BMW SUV" ,
+  "Write description of your room, min 30 - max 300 characters."
+  : "Napíšte popis svojej izby, min. 30 - max. 300 znakov." ,
   "Your room description"                                                                                                                         : "Popis vašej izby" ,
   "Describe your room, make it attractive (min 30 - max 300 characters)"                                                                          : "Popíšte svoju izbu, urobte ju atraktívnou (min. 30 - max. 300 znakov)" ,
   "location"                                                                                                                                      : "Location" ,
@@ -277,5 +288,51 @@
   "Add new room"                                                                                                                                  : "Pridať novú izbu" ,
   "select location"                                                                                                                               : "vyberte miesto" ,
   "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."                                 : "Vaše vyhľadávanie vrátilo 0 výsledkov, skúste iné parametre vyhľadávania alebo si pozrite nižšie uvedené vlastnosti." ,
-  "Search results:"                                                                                                                               : "Výsledky vyhľadávania:"
+  "Search results:"                                                                                                                               : "Výsledky vyhľadávania:" ,
+  "Wake up happy !"                                                                                                                               : "Zobuď sa šťastný!" ,
+  "logo image"                                                                                                                                    : "logo obrázok" ,
+  "wake up happy | rooms with the view"                                                                                                           : "prebudiť šťastné | izby s výhľadom" ,
+  "Menu"                                                                                                                                          : "Ponuka" ,
+  "owner?"                                                                                                                                        : "Majiteľ?" ,
+  "english"                                                                                                                                       : "Angličtina" ,
+  "english flag image"                                                                                                                            : "anglický obrázok vlajky" ,
+  "switch to english"                                                                                                                             : "prejsť na angličtinu" ,
+  "slovak"                                                                                                                                        : "slovenský" ,
+  "slovak flag image"                                                                                                                             : "obrázok slovenskej vlajky" ,
+  "switch to slovak"                                                                                                                              : "prejsť na slovenčinu" ,
+  "spanish"                                                                                                                                       : "španielsky" ,
+  "switch to spanish"                                                                                                                             : "prejsť na španielčinu" ,
+  "spanish flag image"                                                                                                                            : "španielsky obrázok vlajky" ,
+  "polish"                                                                                                                                        : "poľský" ,
+  "switch to polish"                                                                                                                              : "prepnúť na poľský" ,
+  "polish flag image"                                                                                                                             : "poľský obrázok vlajky" ,
+  "don't show again"                                                                                                                              : "nezobrazovať znova" ,
+  "Initial locations are"                                                                                                                         : "Počiatočné polohy sú" ,
+  "they will update with new rooms added in different locations"                                                                                  : "aktualizujú sa o nové miestnosti pridané na rôznych miestach" ,
+  "Room type"                                                                                                                                     : "Typ izby" ,
+  "Room type (any)"                                                                                                                               : "Typ izby (akýkoľvek)" ,
+  "Single ( En Suite )"                                                                                                                           : "Jednoposteľová (En Suite)" ,
+  "Double ( En Suite )"                                                                                                                           : "Dvojposteľová (En Suite)" ,
+  "Board type (any)"                                                                                                                              : "Typ starvovania (akýkoľvek)" ,
+  "Bed & Breakfast"                                                                                                                               : "Izba & Raňajky" ,
+  "Breakfast & Dinner"                                                                                                                            : "Raňajky a večere" ,
+  "All inclusive"                                                                                                                                 : "All inclusive" ,
+  "Search"                                                                                                                                        : "Vyhľadávanie" ,
+  "Search for your property"                                                                                                                      : "Vyhľadaj svoju izbu" ,
+  "Copyright"                                                                                                                                     : "Autorské práva" ,
+  "Close it for now."                                                                                                                             : "Teraz to zatvorte." ,
+  "Don't show again"                                                                                                                              : "Nezobrazovať znova" ,
+  "NEW"                                                                                                                                           : "NOVÝ" ,
+  "Do you live in Ireland ?"                                                                                                                      : "Žiješ v Írsku?" ,
+  "If you have spare room and want to earn up to €14,000 tax free, come and join thousands of happy landlords !"                                  : "Ak máte voľný priestor a chcete zarobiť až 14 000 EUR bez dane, príďte a pripojte sa k tisícom šťastných majiteľov!" ,
+  "more info"                                                                                                                                     : "viac informácií" ,
+  "Location"                                                                                                                                      : "Miesto" ,
+  "Room"                                                                                                                                          : "Izba" ,
+  "Services"                                                                                                                                      : "Služby" ,
+  "Choose your location"                                                                                                                          : "Vyberte si svoju polohu" ,
+  "Define your room"                                                                                                                              : "Definujte svoju izbu" ,
+  "Define your services"                                                                                                                          : "Definujte svoje služby" ,
+  "Preview your work of art!"                                                                                                                     : "Prezrite si svoje umelecké dielo!" ,
+  "Payment"                                                                                                                                       : "Platba" ,
+  "Save your changes !"                                                                                                                           : "Uložte svoje zmeny!"
 }
