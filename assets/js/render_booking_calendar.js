@@ -20,6 +20,15 @@ export function render_booking_calendar ( property )
 		/*WEEKS IN CURRENT YEAR:
 		 BOOKED => bg_orange
 		 NOT BOOKED => bg_green*/
+		
+		/*ADDING .need_translation CLASS TO EACH WEEK,
+		* SO THAT WHEN USER FORGETS TO SELECT BOARD FIRST ,
+		* AND WE ARE FIRING ALERT TO USER =>
+		* WE WILL TRANSLATE ALERT TO SELECTED LANGUAGE
+		*
+		* WHEN USER SELECTS BOARD , WE WILL REMOVE CLASS .need_translation
+		* FROM WEEKS RENDERED FOR THIS PROPERTY -> booking_helpers.js ( ~ line 69 )
+		* SO THAT translate() FUNCTION IS NOT CALLED...*/
 		$.each ( weeks_till_end_of_year, function ( index, week )
 		{
 			
@@ -27,8 +36,12 @@ export function render_booking_calendar ( property )
 				{
 					//			booked out weeks
 					bookings.append ( `
-				<div class="col img-thumbnail  bg_orange " title="week ${ week } - ${ current_year } booked already !">
-				<span class="no_padding"> ${ week }</span></div>
+				<div class="col img-thumbnail  bg_orange ___"
+				data-title="week |week - |year booked already !"
+				data-week="${ week }"
+				data-year="${ current_year }">
+				<span class="no_padding"> ${ week }</span>
+				</div>
 			` );
 				}
 			
@@ -36,11 +49,13 @@ export function render_booking_calendar ( property )
 				{
 					//			   available weeks
 					bookings.append ( `
-				<div class="col img-thumbnail week bg_green " title="week: ${ week } - ${ current_year } : available !"
-				 data-p_id="${ property.p_id }"
-				 data-week="${ week }"
-				 data-price="${ property.price[ Object.keys ( property.price )[ 0 ] ] }"
-				 data-board_selected_${ property.p_id } = "false"
+				<div class="col img-thumbnail week bg_green need_translation ___"
+					data-title="week |week - |year available !"
+					data-week="${ week }"
+					data-year="${ current_year }"
+					data-p_id="${ property.p_id }"
+					data-price="${ property.price[ Object.keys ( property.price )[ 0 ] ] }"
+					data-board_selected_${ property.p_id } = "false"
 				 >
 			
 				  <span> ${ week }</span>
@@ -60,7 +75,13 @@ export function render_booking_calendar ( property )
 				{
 					//			booked out weeks
 					bookings.append ( `
-				<div class="col img-thumbnail  bg_orange " title="week ${ week } - ${ next_year } booked already !"> <span> ${ week }</span></div>
+				<div class="col img-thumbnail  bg_orange ___"
+				
+				data-title="week |week - |year booked already !"
+				data-week="${ week }"
+				data-year="${ next_year }">
+				 <span class="no_padding"> ${ week }</span>
+				</div>
 			` );
 				}
 			
@@ -68,9 +89,11 @@ export function render_booking_calendar ( property )
 				{
 					//			   available weeks
 					bookings.append ( `
-				<div class="col img-thumbnail week bg_green " title="week: ${ week } - ${ next_year } : available !"
-				 data-p_id="${ property.p_id }"
+				<div class="col img-thumbnail week bg_green need_translation ___"
+				 data-title="week |week - |year available !"
+				 data-year="${ next_year }"
 				 data-week="${ week }"
+				 data-p_id="${ property.p_id }"
 				 data-price="${ property.price[ Object.keys ( property.price )[ 0 ] ] }"
 				 data-board_selected_${ property.p_id } = "false"
 				 >
@@ -87,10 +110,10 @@ export function render_booking_calendar ( property )
 		$.each ( property.price, function ( index, value )
 		{
 			boards.append ( `
-			 <span class="___" data-text="translation"></span>
+			
 				 <input id = "${ index }" name = "board" type = "radio" value = "${ value }"  class="board_type"
 				  		data-p_id="${ property.p_id }" data-index="${ index }"	>
-                 <label for = "${ index }"  class="nav_link_property board p-2">${ board_types[ index ] } : ${ value } EUR</label >
+                 <label for = "${ index }"  class="nav_link_property board p-2 ___" data-text="${ board_types[ index ] }"> :</label ><span class="nav_link_property"> ${ value } EUR</span>
 			
 	` );
 		} );

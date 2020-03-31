@@ -23,16 +23,19 @@
  */
 
 
+import { translate } from "./translator/translator.js";
+
+
 $ ( document ).on ( 'click', '#login_details', function ()
 {
 	swal.fire ( {
 		            position : 'top-end',
 		
 		            html              : `
-			<h4>Owner login</h4>
+			<h4 class="___" data-text="Owner login"></h4>
 			<form id="login_form">
 				<div class = "col-auto" >
-		            <label class = "sr-only" for = "email" >Email</label >
+		            <label class = "sr-only ___" for = "email" data-text="Email"></label >
 		            <div class = "input-group mb-2" >
 		                <div class = "input-group-prepend" >
 		                    <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -40,12 +43,12 @@ $ ( document ).on ( 'click', '#login_details', function ()
 		                    </div >
 		                </div >
 		                <input type = "text" name = "email"
-		                       class = "form-control form-control-sm  border_bottom_only"
-		                       id = "email_of_user" placeholder = "Email" required >
+		                       class = "form-control form-control-sm  border_bottom_only ___"
+		                       id = "email_of_user" data-placeholder = "Email" required >
 		            </div >
 		        </div >
 		         <div class = "col-auto" >
-		            <label class = "sr-only" for = "password" >Password</label >
+		            <label class = "sr-only ___" for = "password" data-text="Password"></label >
 		            <div class = "input-group mb-2" >
 		                <div class = "input-group-prepend" >
 		                    <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -53,20 +56,22 @@ $ ( document ).on ( 'click', '#login_details', function ()
 		                    </div >
 		                </div >
 		                <input type = "password" name = "password"
-		                       class = "form-control form-control-sm  border_bottom_only"
-		                       id = "password" placeholder = "Password" required >
+		                       class = "form-control form-control-sm  border_bottom_only ___"
+		                       id = "password" data-placeholder = "Password" required >
 		            </div >
 		        </div >
 		         <div class = "col-auto text-center" >
            
-		            <a  class = "btn btn-sm bg_green text-light " id="login"
-		                    title = "Login" >
-		                Login
+		            <a  class = "btn btn-sm bg_green text-light ___" id="login"
+		                    data-title = "Login" data-text="Login">
+		                
 		            </a >
         		</div >
 		</form>`,
 		            showConfirmButton : false
 	            } );
+	
+	translate();
 } );
 
 // WHEN USER CLICKS ON LOGIN BUTTON, WE'LL CHECK HIS CREDENTIALS
@@ -81,6 +86,7 @@ $ ( document ).on ( 'click', '#login', function ()
 	if ( owners === null )
 		{
 			not_registered ();
+			
 			return;
 		}
 	/*AFTER CLICKING ON login BUTTON WE WILL CLOSE LOGIN FORM*/
@@ -108,6 +114,7 @@ $ ( document ).on ( 'click', '#login', function ()
 	else
 		{
 			not_registered ();
+			
 		}
 	
 } );
@@ -126,10 +133,10 @@ $ ( document ).on ( 'click', '#logout', function ()
 
 
 // FUNCTION TO HASH LOGIN DETAILS, EXAMPLE FROM stackoverflow.com
-function hash_login ( string )
+export function hash_login ( string )
 	{
 		//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
-		hashed_string = string.split ( '' ).reduce ( ( a, b ) =>
+		return string.split ( '' ).reduce ( ( a, b ) =>
 		                                             {
 			                                             a = (
 				                                                 (
@@ -137,7 +144,7 @@ function hash_login ( string )
 			                                             return a & a;
 		                                             }, 0 );
 		
-		return hashed_string;
+		
 	}
 
 
@@ -147,30 +154,37 @@ function not_registered ()
 		swal.fire ( {
 			            position : 'top-end',
 			
-			            html : `<h4>Not registered yet?</h4>
+			            html : `<h4 class="___" data-text="Not registered yet?"></h4>
 									<div class = "col-auto" >
-									    No Problem!
+									<span class="___" data-text="No Problem!"></span>
+									  
 									    <hr class = "bg_green" >
-									    Just take the first step.... <br >
-									    <a class = "add_your_room" href = "/owner.html" title = "Add your room now!" >Right on this site !</a >
+									    <span class="___" data-text="Just take the first step...."></span>
+									     <br >
+									    <a class = "add_your_room ___"
+									    href = "/owner.html"
+									    data-title = "Add your room now!" data-text="Right on this site !"></a >
 									</div >
 									<hr class = "bg_green" >
 									<div class = "col-auto text-center" >
-									    Select location of your property first !
+									<span class="___" data-text="Select location of your property first !"></span>
+									    
 									    <br >
 									    <br >
-									    <a href = "/owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room" id = "ok"
+									    <a href = "/owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room ___" id = "ok"
 									       onclick = "swal.close()"
-									       title = "Add your room now!" >
+									       data-title = "Add your room now!" >
 									        ok
 									    </a >
 									</div >
 									<hr >
-									<small > If you are already registered, check your login credentials, or CAPS Lock...;-)</small >`,
+									<small class="___" data-text="If you are already registered, check your login credentials, or CAPS Lock...;-)"> </small >`,
 			
 			            showConfirmButton : false
 			
 		            } );
+		/*NEED TO TRANSLATE ALERT, BECAUSE ON INITIAL PAGE LOAD,ALERT IS NOT IN THE DOCUMENT */
+		translate();
 	}
 
 

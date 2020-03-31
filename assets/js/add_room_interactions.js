@@ -1,4 +1,6 @@
 import { translate } from './translator/translator.js';
+import { hash_login } from "./authorizations.js";
+import { set_last_room_id } from "./room_actions.js"
 
 /* INTERACTIVE FEEDBACK TO USER WHEN GOING THROUGH
  * ADD_YOUR_ROOM FORM AND VALIDATION
@@ -83,15 +85,17 @@ $ ( document ).on ( "click", ".board_type", function ()
 	if ( $ ( this ).is ( ":checked" ) )
 		{
 			
-			board_div.append ( `<input  title = "price"
-									type = "number"
-									name = "board_type_${ board_type }_price"
-									id="board_price_${ board_type }"
-									class="board_price col-md-9 ml-1 form-control "
-									data-c_box_id="${ board_type }"
-                                    placeholder = "price"
-                                    value="">
-                           ` );
+			board_div.append ( `<input
+											title = "EUR"
+											type = "number"
+											name = "board_type_${ board_type }_price"
+											id="board_price_${ board_type }"
+											class="board_price col-md-9 ml-1 form-control"
+											data-c_box_id="${ board_type }"
+		                                    placeholder = "EUR">
+                           
+
+									` );
 		}
 	else if ( $ ( this ).is ( ":not(:checked)" ) )
 		{
@@ -178,7 +182,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 			     && !sessionStorage.getItem ( 'add_mode' ) )
 				{
 					
-					room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
+					var room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 					
 					num_of_boards          = Object.keys ( room.price ).length;
 					num_of_prices          = Object.keys ( room.price ).length;

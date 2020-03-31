@@ -21,32 +21,34 @@ export function render_gallery ( room )
 		
 		var indicators = `<a class="carousel-control-prev" href="${ '#gallery_' + room.p_id }" role="button" data-slide="prev">
 			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
+			    <span class="sr-only ___" data-text="Previous"></span>
 			  </a>
 			  <a class="carousel-control-next" href="${ '#gallery_' + room.p_id }" role="button" data-slide="next">
 			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
+			    <span class="sr-only ___" data-text="Next"></span>
 			  </a>`;
 		
 		var room_view = `<div class="carousel-item active" >
 			      <img src="assets/images/views/${ views[ room.p_view ] }.jpg" class="d-block w-100" alt="room view image" >
 			      <div class="carousel-caption ">
-			        <h5 class="images caption">${ views[ room.p_view ] } view</h5>
+			        <h5 class="images caption ___"
+			        data-text=":view_type view"
+			        data-view_type="${ views[ room.p_view ] }"> </h5>
 			      </div>
-			       <span class="___" data-text="translation"></span>
+			      
 		    </div>`;
 		
 		var room_style = ` <div class="carousel-item ">
 			      <img src="assets/images/bedrooms/b${ room.room_style }.jpg" class="d-block w-100" alt="bedroom image">
 			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">bedroom</h5>
+			        <h5 class="images caption ___" data-text="bedroom"></h5>
 			      </div>
 		    </div>`;
 		
 		var breakfast = `<div class="carousel-item " >
 			      <img src="assets/images/breakfast/br_${ room.food_id || 1 }.jpg" class="d-block w-100" alt="breakfast image">
 			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">breakfast</h5>
+			        <h5 class="images caption ___" data-text="breakfast"></h5>
 			       
 			      </div>
 		    </div>`;
@@ -54,7 +56,7 @@ export function render_gallery ( room )
 		var lunch = ` <div class="carousel-item " >
 			      <img src="assets/images/lunch/l_${ room.food_id || 1 }.jpg" class="d-block w-100" alt="lunch image" >
 			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">lunch</h5>
+			        <h5 class="images caption ___" data-text="lunch"></h5>
 			       
 			      </div>
 		    </div>`;
@@ -62,21 +64,21 @@ export function render_gallery ( room )
 		var dinner = `<div class="carousel-item " >
 			      <img src="assets/images/dinner/d_${ room.food_id || 1 }.jpg" class="d-block w-100" alt="dinner image" >
 			      <div class="carousel-caption d-none d-md-block">
-			        <h5 class="images caption">dinner</h5>
+			        <h5 class="images caption ___" data-text="dinner"></h5>
 			       
 			      </div>
 		    </div>`;
 		
 		
 		var slide_to_0 = ` <li data-target="${ '#gallery_'
-		                                       + room.p_id }" data-slide-to="0" class="active" title="room view"></li>`;
-		var slide_to_1 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="1"  title="room style"></li>`;
-		var slide_to_2 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="2"  title="breakfast"></li>`;
-		var slide_to_3 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="3"  title="lunch"></li>`;
+		                                       + room.p_id }" data-slide-to="0" class="active" ></li>`;
+		var slide_to_1 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="1"  ></li>`;
+		var slide_to_2 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="2"  ></li>`;
+		var slide_to_3 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="3"  ></li>`;
 		
 		/*IF IT IS B&D  WE ARE NOT DISPLAYING LUNCH SLIDE AND LAST SLIDE IS NUMBER 3*/
 		var slide_to_4 = ` <li data-target="${ '#gallery_' + room.p_id }" data-slide-to="${ '3' in room.price ? 4
-		                                                                                                      : 3 }"  title="dinner"></li>`;
+		                                                                                                      : 3 }"  ></li>`;
 		
 		//		All Inclusive
 		if ( '3' in room.price )

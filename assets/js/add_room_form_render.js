@@ -31,14 +31,14 @@ function render_room_types ()
 					<p class = "card-text p-2 show_content" data-hidden_class = "room_type_images" >
 					
 					 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
-					<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }  " id="room_types_title_green" title="Room type selected."></i>
-		            <i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="room_types_title_red" title="Select your room type."></i>
-						<span class="___" data-value="translated"></span>
-					    Select your room type.
+					<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }  ___" id="room_types_title_green" data-title="Room type selected."></i>
+		            <i class="fas fa-question-circle red ${ room ? 'd-none' : '' } ___" id="room_types_title_red" data-title="Select your room type."></i>
+						<span class="___" data-text="Select your room type."></span>
+					    
 					    <i class = "fas fa-caret-down" ></i >
 					    <i class = "fas fa-caret-up" ></i >
 					    
-					    <span class = "float-right" >Click on any image to enlarge it !</span >
+					    <span class = "float-right ___" data-text="Click on any image to enlarge it !" ></span >
 					   
 					</p >
 ` );
@@ -48,9 +48,13 @@ function render_room_types ()
 			room_types_div
 				.append ( `
 						<div class = "card  col-lg-2 col-md-3 col-sm-4 col-4 room_type_images " >
-						    <img src = "assets/images/room_types/${ room_type }.jpg" class = "form_image img-thumbnail"
-						         alt = "${ room_types[ room_type ] } bedroom image" >
+						    <img src = "assets/images/room_types/${ room_type }.jpg" class = "form_image img-thumbnail ___"
+						        alt=" "
+						          data-alt = ":room_type bedroom image" alt=" "
+							         data-title=":room_type bedroom image"
+							         data-room_type = "${ room_type }">
 						         
+						       
 						         <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 						        
 						    <div class = "p-0 card-footer text-center
@@ -58,7 +62,7 @@ function render_room_types ()
 				               ? 'bg_green'
 				               : 'bg-secondary' } text-light d-flex justify-content-around align-items-center room_type"
 						         id = "room_type_${ room_type }" >
-						        <label for = "${ room_type }" class = "text-capitalize" >${ room_type }</label >
+						        <label for = "${ room_type }" class = "text-capitalize ___" data-text="${ room_type }"></label >
 						        
 						        <!--IF WE HAVE ROOM  => SETTING ROOM'S OPTION TO checked-->
 						        <input id = "${ room_type }" name = "room_type" type = "radio" value = "${ index }"
@@ -88,15 +92,19 @@ function render_view_types ()
 				view_types_div
 					.append ( `
 							<div class = "card col-lg-2 col-md-3  col-sm-4 col-4 text-center view_type_images d-none" >
-							    <img src = "assets/images/views/${ view_types[ view_type ] }.jpg" class = "form_image img-thumbnail"
-							         alt = "${ view_types[ view_type ] } view" >
+							    <img src = "assets/images/views/${ view_types[ view_type ] }.jpg" class = "form_image img-thumbnail ___"
+							         data-alt = ":view_type view" alt=" "
+							         data-title=":view_type view"
+							         data-view_type = "${ view_types[ view_type ] }">
 							         
 							           <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 							    <div class = "card-footer text-center  ${ owners_room_view && owners_room_view
 					                                                      === view_type
 					                                                      ? 'bg_green' : 'bg-secondary' }   text-light d-flex justify-content-around align-items-center view_type p-0"
 							         id = "view_type_${ view_type }" >
-							        <label for = "${ view_types[ view_type ] }" class = "text-capitalize" >${ view_types[ view_type ] }</label >
+							        <label for = "${ view_types[ view_type ] }" class = "text-capitalize ___"
+							         data-text=":view_type view"
+							          data-view_type = "${ view_types[ view_type ] }"></label >
 							        
 							         <!--IF WE HAVE ROOM => SETTING ROOM'S OPTION TO checked-->
 							        <input name = "view_type" type = "radio" value = "${ view_type }"
@@ -115,11 +123,13 @@ function render_view_types ()
 			}
 		$ ( '#view_types_title' )
 			.append ( ` <p class = "card-text p-2 show_content" data-hidden_class="view_type_images" >
- <span class="___" data-text="translation"></span>
+ 
  										 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
- 											<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }" id="view_types_title_green" title="View type selected."></i>
-            								<i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="view_types_title_red" title="Select your view type."></i>
-                                    Select the view type your room has. <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
+ 											<i class="fas fa-check-circle green ${ room ? '' : 'd-none' } ___" id="view_types_title_green" data-title="View type selected."></i>
+            								<i class="fas fa-question-circle red ${ room ? 'd-none' : '' } ___" id="view_types_title_red" data-title="Select your view type."></i>
+                                    
+                                    <span class="___" data-text="Select the view type your room has."></span>
+                                    <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
                                     
         
                           </p >` );
@@ -139,9 +149,10 @@ function render_room_styles ()
 					
 					 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
 					
-					   <i class="fas fa-check-circle green ${ room ? '' : 'd-none' }" id="room_styles_title_green" title="Room style selected."></i>
-				       <i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="room_styles_title_red" title="Select your room style."></i>
-					    Select image your room will be displayed as.
+					   <i class="fas fa-check-circle green ${ room ? '' : 'd-none' } ___" id="room_styles_title_green" data-title="Room style selected."></i>
+				       <i class="fas fa-question-circle red ${ room ? 'd-none' : '' } ___" id="room_styles_title_red" data-title="Select your room style."></i>
+				       <span class="___" data-text="Select image your room will be displayed as."></span>
+					    
 					    <i class = "fas fa-caret-down" ></i >
 					    <i class = "fas fa-caret-up" ></i >
 					</p >` );
@@ -196,9 +207,12 @@ function render_board_types ()
 					.append ( `
 
 							<div class = "card col-lg-3 col-md-3 col-sm-6 col-6  text-center board_type_images services d-none" >
-						    <img src = "assets/images/board_types/${ board_type }.jpg" class = "form_image img-thumbnail"
-						         alt = "${ board_types[ board_type ] } image" >
-						         
+						    <img src = "assets/images/board_types/${ board_type }.jpg" class = "form_image img-thumbnail  ___"
+						         alt = " "
+						           data-alt = ":board_type image" alt=" "
+							         data-title=":board_type image"
+							         data-board_type = "${ board_types[ board_type ] }">
+						        
 						          <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 						          
 						    <div class = "card-footer text-center    ${ owners_boards && board_type in owners_boards
@@ -221,7 +235,8 @@ function render_board_types ()
 						                   
 						                </div >
 						            </div >
-						            <label for = "${ board_types[ board_type ] }" class = "text-capitalize" >${ board_types[ board_type ] }</label >
+						            <label for = "${ board_types[ board_type ] }" class = "text-capitalize ___"
+						            data-text="${ board_types[ board_type ] }" ></label >
 						        </div >
 						    </div >` );
 
@@ -230,9 +245,17 @@ function render_board_types ()
 					{
 						$ ( '#board_type_' + board_type )
 							.append ( `
-									<input title = "price" type = "number" name = "board_type_${ board_type }_price" id="board_price_${ board_type }"
-									class="board_price col-md-9 ml-1 form-control "  data-c_box_id="${ board_type }"
-                                       placeholder = "price"   value="${ owners_boards[ board_type ] }">` );
+									<input
+											data-title = "EUR"
+											type = "number"
+											name = "board_type_${ board_type }_price"
+											id="board_price_${ board_type }"
+											class="board_price col-md-9 ml-1 form-control ___"
+											data-c_box_id="${ board_type }"
+		                                    data-placeholder = "EUR"
+		                                    value="${ owners_boards[ board_type ] }"
+		                                    
+		                            >` );
 						
 					}
 			}
@@ -240,10 +263,11 @@ function render_board_types ()
 			.append ( ` <p class = "card-text p-2 show_content" data-hidden_class="board_type_images" >
  
  									 <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
- 											<i class="fas fa-check-circle green ${ room ? '' : 'd-none' }" id="board_types_title_green" title="Board type(s) selected."></i>
-            								<i class="fas fa-question-circle red ${ room ? 'd-none' : '' }" id="board_types_title_red" title="Select your board type(s)."></i>
-            								<i class="fas fa-exclamation-circle orange d-none" id="board_types_title_orange" title="Add price for the board !"></i>
-                                      Select the board basis you can provide for your guests.
+ 											<i class="fas fa-check-circle green ${ room ? '' : 'd-none' } ___" id="board_types_title_green" data-title="Board type(s) selected."></i>
+            								<i class="fas fa-question-circle red ${ room ? 'd-none' : '' } ___" id="board_types_title_red" data-title="Select your board type(s)."></i>
+            								<i class="fas fa-exclamation-circle orange d-none ___" id="board_types_title_orange" data-title="Add price for the board !"></i>
+                                     
+                                      <span class="___" data-text="Select the board basis you can provide for your guests."></span>
                                        <i class="fas fa-caret-down"></i><i class="fas fa-caret-up"></i>
         
                           </p >` );
@@ -284,8 +308,8 @@ function render_amenities ()
 		                    >
 		                </div >
 		            </div >
-		            <label for = "${ index } " class = "text-capitalize float-right" >
-						${ amenity }
+		            <label for = "${ index } " class = "text-capitalize float-right ___" data-text="${ amenity }">
+						
 		            </label >
 		        </div >
 		    </div >
@@ -295,11 +319,12 @@ function render_amenities ()
 		$ ( '#amenities_title' )
 			.append ( `<p class = "card-text p-2 show_content" data-hidden_class = "amenities" >
 						    <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
-						    <i class = "fas fa-check-circle green ${ room ? '' : 'd-none' }" id = "amenities_title_green"
-						       title = "Amenity selected." ></i >
-						    <i class = "fas fa-question-circle red ${ room ? 'd-none' : '' }" id = "amenities_title_red"
-						       title = "Select amenities you provide!" ></i >
-						    Select the amenities you can provide for your guests.
+						    <i class = "fas fa-check-circle green ${ room ? '' : 'd-none' } ___" id = "amenities_title_green"
+						       data-title = "Amenity selected." ></i >
+						    <i class = "fas fa-question-circle red ${ room ? 'd-none' : '' } ___" id = "amenities_title_red"
+						       data-title = "Select the amenities you can provide for your guests." ></i >
+						       <span class="___" data-text="Select the amenities you can provide for your guests."></span>
+						   
 						    <i class = "fas fa-caret-down" ></i >
 						    <i class = "fas fa-caret-up" ></i >
 						</p >` );
@@ -317,8 +342,8 @@ function render_description ()
 			.append ( `
 						<div class = "input-group mb-2 description services d-none" >
 								<div class = "input-group-prepend" >
-								        <div class = "input-group-text bg-transparent border_bottom_only"
-								             title = "Write description of your room, min 30 -  max 300 characters." >
+								        <div class = "input-group-text bg-transparent border_bottom_only ___"
+								             data-title = "Describe your room, make it attractive (min 30 - max 300 characters)" >
 								            <i class = "fas fa-feather-alt" ></i >
 								            <br >
 								            <!--IF WE HAVE OWNERS ROOM , DISPLAYING ROOM DESCRIPTION-->
@@ -332,7 +357,7 @@ function render_description ()
 								  
 									<div>
 									<textarea class = "form-control " form = "add_your_room" id = "room_description" maxlength = "300"
-								              name = "description" required rows = "4" >
+								              name = "description" required rows = "4" data-placeholder="Describe your room, make it attractive (min 30 - max 300 characters)" >
 								    </textarea >
 									</div>
 								
@@ -343,11 +368,12 @@ function render_description ()
 			.append ( `
 						<p class = "card-text p-2 show_content" data-hidden_class = "description" >
 						    <!--IF WE HAVE OWNERS ROOM , GIVING "GREEN LIGHT" ( green circle with white check sign)-->
-						    <i class = "fas fa-check-circle green ${ room ? '' : 'd-none' }" id = "description_title_green"
-						       title = "Your room description" ></i >
-						    <i class = "fas fa-question-circle red ${ room ? 'd-none' : '' }" id = "description_title_red"
-						       title = "Write description of your room, min 30 -  max 300 characters." ></i >
-						    Describe your room, make it attractive (min 30 - max 300 characters)
+						    <i class = "fas fa-check-circle green ${ room ? '' : 'd-none' } ___" id = "description_title_green"
+						       data-title = "Your room description" ></i >
+						    <i class = "fas fa-question-circle red ${ room ? 'd-none' : '' } ___" id = "description_title_red"
+						       data-title = "Describe your room, make it attractive (min 30 - max 300 characters)" ></i >
+						       <span class="___" data-text="Describe your room, make it attractive (min 30 - max 300 characters)"></span>
+						    
 						    <i class = "fas fa-caret-down" ></i >
 						    <i class = "fas fa-caret-up" ></i >
 						</p >` );

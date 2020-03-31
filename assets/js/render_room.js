@@ -25,6 +25,9 @@
  *                   ROOM ABOVE SEARCH FORM AND MAP, BECAUSE ON MOBILE DEVICES
  *                   ROOM WOULDN'T BE IN IMMEDIATE VIEW, BUT UNDER MAP...
  * preview => IF OWNER IS LOGGED*/
+import { translate } from "./translator/translator.js";
+
+
 export function render_room ( room, where, preview = false )
 	{
 		
@@ -52,8 +55,9 @@ export function render_room ( room, where, preview = false )
             <img src = "assets/images/bedrooms/b${ room.room_style }.jpg" class = "card-img room_img" alt = "property image" >
             <span class="___" data-text="translation"></span>
             <h6 class = "bg_green text-light p-2 mt-2 text-center" >
-			from	${ room.price[ Object.keys ( room.price )[ 0 ] ] }&nbsp;EUR <!--getting first available price to display form-->
-                <small >per week</small >
+			<span class="___" data-text="from"></span>
+			${ room.price[ Object.keys ( room.price )[ 0 ] ] }&nbsp;EUR <!--getting first available price to display form-->
+                <small class="___" data-text="per week"></small >
             </h6 >
              <span class=" d-md-none  text-capitalize"  >
 					<h4 class="ml-2 nav_link_property">
@@ -67,31 +71,39 @@ export function render_room ( room, where, preview = false )
              
               <!--ON MOBILE DEVICES WE WILL DISPLAY SHORTER VERSION OF THE ROOM AND more... / less... BUTTON
               TO SHOW / HIDE FULL PREVIEW-->
-              <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs"
-			title="Display more info..." data-p_id="${ room.p_id }"
-			>more...</span>
+              <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___"
+			data-title="Display more info..."
+			data-text="more..."
+			 data-p_id="${ room.p_id }"
+			></span>
         </div >
         <div class = "col-md-8 d-none d-md-block parent" id="tabs_${ room.p_id }" style = "position:relative" >
             <div class = "list-group  list-group-horizontal-lg"  role = "tablist" >
             
-                <a class = "list-group-item list-group-item-action active nav_link_property "
+                <a class = "list-group-item list-group-item-action active nav_link_property ___"
                    data-toggle = "list" href = "#about_${ room.p_id }" role = "tab"
-                   title = "Information about room" id="about" >About</a >
+                   data-title = "Information about room" id="about" data-text="About" ></a >
                    
-                <a class = "list-group-item list-group-item-action nav_link_property "
+                <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#gallery_${ room.p_id }" role = "tab"
-                   title = "Preview images of the property" >Gallery</a >
+                   data-title = "Preview images of the property"
+                   data-text="Gallery"></a >
                    
-                <a class = "list-group-item list-group-item-action nav_link_property "
+                <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#amenities_${ room.p_id }" role = "tab"
-                   title = "See the amenities" >Amenities</a >
+                   data-title = "See the amenities"
+                   data-text="Amenities">
+                   </a >
                    
-                <a class = "list-group-item list-group-item-action nav_link_property "
+                <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#availability_${ room.p_id }" role = "tab"
-                   title = "Preview the availability" id="availability" >Availability</a >
+                   data-title = "Preview the availability" id="availability"
+                   data-text="Availability"></a >
                    
-                <a class = "list-group-item list-group-item-action nav_link_property "
-                   data-toggle = "list" href = "#book_${ room.p_id }" role = "tab" title = "Book your room !" >Book
+                <a class = "list-group-item list-group-item-action nav_link_property ___"
+                   data-toggle = "list" href = "#book_${ room.p_id }" role = "tab"
+                   data-title = "Book your room !"
+                   data-text="Book">
                    <div class="bg_green text-light p-1" id="preview_total_price_${ room.p_id }"></div></a >
                    
             </div >
@@ -109,12 +121,15 @@ export function render_room ( room, where, preview = false )
                     </div >
                   
                   <!--ONLY SHOWING SHOW ON THE MAP ON index.html AND NOT ON owner.html-->
-                    <span class="btn btn-sm bg_green text-light float-right mr-3 show_on_map
+                    <span class="btn btn-sm bg_green text-light float-right mr-3 show_on_map ___
                  
 						${ window.location.pathname === '/index.html' ? '' : 'd-none' }"
-						title="Show room on the map..."
-						data-lat="${ room.lat }" data-lng="${ room.lng }" data-p_id="${ room.p_id }"
-						>show on map</span>
+						data-title="Show room on the map..."
+						data-lat="${ room.lat }"
+						data-lng="${ room.lng }"
+						data-p_id="${ room.p_id }"
+						data-text="show on map"
+						></span>
 						
 				
 					<div class="child_at_bottom d-flex justify-content-center" id="address${ room.p_id }"></div>
@@ -129,23 +144,29 @@ export function render_room ( room, where, preview = false )
 		                   
 							<div class="card col-md-12">
 								<div class="card-header p-0 bg-transparent">
-								Boards
+								<span class="___" data-text="Boards"></span>
 								
 								<!--IF OWNER IS LOGGED IN AND IN edit_mode WE WILL DISPLAY  How to block weeks ?
 								 THAT WILL FIRE POPUP WITH INFO HOW TO BLOCK WEEKS FOR HIMSELF...-->
                                    ${ sessionStorage.getItem ( 'edit_mode' ) ? `
 
- 									<button class = "btn btn-sm bg-danger text-light horizontally_aligned right-block float-right "
- 									id="how_to_block_dates" title="Block selected dates">
-                                   How to block weeks ?
+ 									<button class = "btn btn-sm bg-danger text-light horizontally_aligned right-block float-right ___ "
+ 									id="how_to_block_dates"
+ 									data-title="Block selected dates"
+ 									data-text="How to block weeks ?">
+                                
                                 </button >` : '' }
 								</div>
 							 	<div id="boards_${ room.p_id }" class="col p-0"></div>
 							 	 <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${ room.p_id }" > </div >
           
-							 	<div class="card-footer bg-transparent"> <span class = "nav_link_property" >Select board and the week(s) and  click on <strong
-		                                    class = "bold" >BOOK</strong > button
+							 	<div class="card-footer bg-transparent">
+							 	    <span class = "nav_link_property ___"
+							 	     data-text="Select board and the week(s) and  click on">
 		                        </span >
+		                         <strong
+		                                    class = "bold" ><span class="___" data-text="BOOK"></span></strong >
+		                        <span class="___" data-text="button"></span>
 		                        </div>
 							</div>
 							
@@ -171,18 +192,23 @@ export function render_room ( room, where, preview = false )
 $ ( document ).on ( 'click', '#how_to_block_dates', function ()
 {
 	swal.fire ( {
-		            title : 'How to block some weeks.',
+		           
 		
 		            html              : `
+				<h4 class="___" data-text="How to block weeks ?"></h4>
 				<div class = "col-auto" >
-				<p>1) Select any board</p>
-		      	<p>2) Select the weeks you want to block. </p>
-		      	<p>3) Click on <strong class="nav_link_property">BOOK</strong></p>
-		      	<p>4) Click on &nbsp;
-           			<button  class = "btn bg_green_light horizontally_aligned right-block " title="Block selected dates">
-                                   Block selected dates
-                     </button >
+				<p class="___" data-text="1) Select any board"></p>
+		      	<p class="___" data-text="2) Select the weeks you want to block."> </p>
+		      	<p class="___" data-text="3) Click on"> </p><strong class="nav_link_property"><span class="___" data-text="BOOK"></span></strong>
+		      	<br>
+		      	<p class="___" data-text="Click on"> &nbsp;
+           			
                  </p>
+                 <button  class = "btn bg_green_light horizontally_aligned right-block ___"
+           			         data-title="Block selected dates"
+           			         data-text="Block selected dates">
+                       
+                     </button >
 		      	 <hr class="bg_green">
 		      
 		        </div >
@@ -200,6 +226,7 @@ $ ( document ).on ( 'click', '#how_to_block_dates', function ()
 		`,
 		            showConfirmButton : false
 	            } );
+	translate();
 	return false;
 } );
 //ON MOBILE DEVICES, more..., less... BUTTON TO SHOW / HIDE TABS TO PREVIEW ROOM
@@ -208,8 +235,10 @@ $ ( document ).on ( 'click', '.show_tabs', function ()
 	var p_id = $ ( this ).data ( 'p_id' );
 	
 	/*SWITCHING BUTTON'S html()   AND CHANGING COLOR OF THE BUTTON WHEN CLICKING ON more...*/
-	$ ( this ).html () === 'more...' ? $ ( this ).html ( 'less...' ).addClass ( 'bg-danger' ) : $ ( this ).html (
-		'more...' ).removeClass ( 'bg-danger' );
+	$ ( this ).html () ===  'more...' ?
+							$ ( this ).html ( 'less...' ).addClass ( 'bg-danger' )
+	                                  :
+							$ ( this ).html ( 'more...' ).removeClass ( 'bg-danger' );
 	
 	$ ( '#tabs_' + p_id ).toggleClass ( 'd-none d-md-block' );
 	

@@ -97,9 +97,6 @@ export function getRandom ( min, max, times = null )
 // AND REFRESH index.html
 
 
-
-
-
 //  IF WE ALREADY HAVE ROOMS IN LOCAL STORAGE WE WON'T RECREATE IT AGAIN,
 //  BECAUSE WE WOULD DELETE ANY ROOMS ALREADY CREATED BY OWNERS
 if ( !localStorage.getItem ( 'ROOMS_created' ) )

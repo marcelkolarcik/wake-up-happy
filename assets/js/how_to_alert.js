@@ -30,11 +30,7 @@ import { translate } from "./translator/translator.js";
 	$ ( document ).on ( 'click', '#how_alert,#block_mode', function () {
 		
 		var step = $ ( this ).data ( 'step' );
-		
-		$ ( '.ht_description' ).append ( ` <a class = "btn btn-sm bg_green text-light pl-3 pr-3 float-right"  id="ok" onclick="swal.close()"
-						 title="Got it !" >
-						 Got it !
-						 </a >` );
+
 		swal.fire ( {
 			            width             : $ ( window ).width (),
 			            position          : 'top-end',
@@ -75,39 +71,45 @@ import { translate } from "./translator/translator.js";
 		return `<div class="row">
 				
 				<div class = "col-md-3 description" >
-						 <h4> How to: ${ step.replace ( '_', ' ' ) }</h4>
-						<span class="___" data-text="translation"></span>
+						 <h4><span class="___" data-text="How to:"></span> <span class="___" data-text="${ step.replace ( '_', ' ' ) }"></span>  </h4>
+						
 						${ sessionStorage.getItem ( 'edit_mode' )
-		                   ? `you are in editing mode` : sessionStorage.getItem ( 'preview_mode' )
-		                                                 ? `you are in preview mode` : sessionStorage.getItem ( 'add_mode' )
-		                                                                               ? `you are in add mode` : sessionStorage.getItem ( 'block_mode' )
-		                                                                                                         ? `you are in block mode` : `` }
+		                   ? `<span class="___" data-text="you are in editing mode"></span> ` : sessionStorage.getItem ( 'preview_mode' )
+		                                                 ? ` <span class="___" data-text="you are in preview mode"></span>` : sessionStorage.getItem ( 'add_mode' )
+		                                                                               ? `  <span class="___" data-text="you are in add mode"></span>` : sessionStorage.getItem ( 'block_mode' )
+		                                                                                                         ? ` <span class="___" data-text="you are in block mode"></span>` : `` }
 						 <br>
 						 <hr class="bg_green">
 						  ${ sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'add_mode' ) || sessionStorage.getItem ( 'block_mode' )
 		                     ? description :
-		                     `${ sessionStorage.getItem ( 'preview_mode' ) ? `Click on
+		                     `${ sessionStorage.getItem ( 'preview_mode' ) ? `
+												<span class="___" data-text="Click on"></span>
 										        <span class = " no_padding bg-secondary text-light " >
 										            <i class = "far fa-edit" ></i >
-										            Edit
+										          <span class="___" data-text="Edit"></span>
 										        </span >
-										        button, if you would
-										        like to edit your room. <hr class="bg_green">`
+										        
+										        <span class="___" data-text="button, if you would like to edit your room."></span>
+										         <hr class="bg_green">`
 		                                                                   : `` }
 							` }
 						  
-						  <a class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok" onclick = "swal.close()"
-					   		title = "OK, got it !" >
-					    		OK, got it !
+						  <a class = "btn btn-sm bg_green text-light pl-3 pr-3 ___" id = "ok" onclick = "swal.close()"
+					   		data-title = "OK, got it !"
+					   		 data-text="OK, got it !">
+					    		
 						 </a >
 				 </div >
 				 <div class = "col-md-9 text-center" >
 						 	<img src="assets/images/screenshots/${ gif }.gif" class="card-img-top" alt="${ gif } gif image">
-						 	<div class="">By clicking on
+						 	<div class="">
+						 	<span class="___" data-text="By clicking on"></span>
 						  <span  class = " btn btn-sm bg-danger  text-light no_padding" >
                           <i class="far fa-question-circle"></i>
-	                       How to
-	                      </span > you will get information that will assist on every step of your journey...;-).
+                          <span class="___" data-text="How to"></span>
+	                       
+	                      </span >
+	                       <span class="___" data-text="you will get information that will assist on every step of your journey...;-)."></span>
 				</div>
 				 </div >
 						 <hr >
@@ -122,103 +124,151 @@ import { translate } from "./translator/translator.js";
 	/*DESCRIPTION OF HOW TO STEP DEPENDING ON THE STEP*/
 	function description_content ( step ) {
 		var description_content = {
-			location : `Find location of your property on the map and then click the map to display coordinates.
-					Then click on
-					<button class = "bg_orange" >get details</button >
-					<!--all separate sentences-->
-					button, to display location details.
-					You can correct these details.
-					Once you're happy with the location details, click on
-					<span class = "green" >room&nbsp;>>></span >
+			location : `
+					<span class="___" data-text="Find location of your property on the map and then click the map to display coordinates."></span>
+					<span class="___" data-text="Then click on"></span>
+					<button class = "bg_orange ___" data-text="get details" ></button >
+					
+					
+					<span class="___" data-text="button, to display location details."></span>
+					<span class="___" data-text="You can correct these details."></span>
+					<span class="___" data-text="Once you're happy with the location details, click on"></span>
+					
+					
+					<span class = "green ___" data-text="room" ></span >
+					<span class = "green" >&nbsp;>>></span >
 					<hr class = "bg-danger" >
-					<p class = " text-danger" >
-					Remember to add your property name! (min 3 characters)
-					to be able to continue to next step.
+					<p class = " text-danger ___" data-text="Remember to add your property name! (min 3 characters) to be able to continue to next step." >
+					
 					</p >
 					<hr class = "bg-danger" >
 					`,
 			
-			room         : `Define your room by selecting appropriate radio buttons. Once all options are selected
-					 <span class="green">services&nbsp;>>></span> will appear and you can progress to next step.
+			room         : `<span class="___" data-text="Define your room by selecting appropriate radio buttons."></span>
+							<span class="___" data-text="Once all options are selected"></span>
+					 <span class="green ___" data-text="services"></span>
+					  <span class="green">&nbsp;>>></span>
+					  <span class="___" data-text="will appear and you can progress to next step."></span>
+					  
  					<hr class="bg_green">`,
-			services     : `Define your services by selecting appropriate check buttons.
-						
- 							You can select multiple options.
+			services     : `<span class="___" data-text="Define your services by selecting appropriate check buttons."></span>
+							<span class="___" data-text="You can select multiple options."></span>
+							<span class="___" data-text="When at least one of each options are selected and description is entered"></span>
+							<span class="green ___" data-text="preview"></span>
+							<span class="green">&nbsp;>>></span>
+							<span class="___" data-text="will appear and you can progress to next step."></span>
+ 						
 
-							When at least one of each options are selected and description is entered
-							<span class="green">preview&nbsp;>>></span> will appear and you can progress to next step.
+							
+							
 						<hr class="bg-danger">
-						<p class = " text-danger" >Description of the room must be at least 30 characters!</p>
-						<p class = " text-danger" > When selecting board type,
-							you must enter price for the board.</p>
+						<p class = " text-danger ___" data-text="Description of the room must be at least 30 characters!" ></p>
+						<p class = " text-danger ___" data-text="When selecting board type, you must enter price for the board." > </p>
 						<hr class="bg-danger">`,
-			preview      : `Preview your work of art, by clicking on the tabs
-  						<span class="nav_link_property"> ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK.</span>
+			preview      : `
+						<span class="___"  data-text="Preview your work of art, by clicking on the tabs"></span>
+  						<span class="nav_link_property ___" data-text="ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."> </span>
+  						
   						<hr class="bg_green">
-  						You can edit your work if needed!
+  						
+  						<span class="___"  data-text="You can edit your work if needed!"></span>
+  						
   						<hr class="bg_green">
-  						Once you are happy with your work, preview it by clicking on
+  						
+  						<span class="___"  data-text="Once you are happy with your work, preview it by clicking on"></span>
+  						
   						<br><br>
-						<span class="img-thumbnail">preview</span>
+						<span class="img-thumbnail ___" data-text="preview"></span>
+						
 						<hr class="bg_green">
-						Click on
+						
+						<span class="___"  data-text="Click on"></span>
+						
   						${ sessionStorage.getItem ( 'edit_mode' ) ? `
 						
-						 <span class = "ml-1 img-thumbnail  bg_orange p-1  "
+						 <span class = "ml-1 img-thumbnail  bg_orange p-1  ___"
                        
-                                  title = "Save your changes !" >Update</span >
-								<br> to save your changes.` : `` }
+                                  data-title = "Save your changes !" data-text="Update"></span >
+								<br>
+								<span class="___"  data-text="to save your changes."></span>
+								` : `` }
 		      
 						${ sessionStorage.getItem ( 'add_mode' ) ? `
 					
-						<span class="green">payment&nbsp;>>></span> to proceed with payment.
+						<span class="green ___" data-text="payment"></span>
+						<span class="green">&nbsp;>>></span>
+						 <span class="___"  data-text="to proceed with payment."></span>
+						 
 						` : `` }
 						<hr class="bg_green">`,
-			payment      : `Here you can proceed with payment. Thank you for choosing <b>wake up happy!</b>
+			payment      : `
+						<span class="___" data-text="Here you can proceed with payment. Thank you for choosing"></span>
+						
+						 <b><span >wake up happy!</span></b>
 					
   						<hr class="bg_green">
-  						Once you pay, you will be redirected to landing page to see your room live on the site.
+  						<span class="___" data-text="Once you pay, you will be redirected to landing page to see your room live on the site."></span>
+  						
   						<hr class="bg_green">
-  						<!--separate sentences-->
-  						You will be logged in into your account, and in the top right corner, you will see your
-  						 initials, with your room listed in the dropdown menu. You can click on your name or room name,
-  						 to get to your account dashboard,where you can further edit your room, or add new one!
+  						
+  						<span class="___" data-text="You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu."></span>
+  						<span class="___" data-text="You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!"></span>
+  						
   						<br><br>
 						
 						<hr class="bg_green">`,
-			block_mode   : `Click on
- 						 <span class = "no_padding bg-secondary text-light " ><i class="far fa-edit"></i> Edit</span >
- 						 if you want to block some of the dates.
+			block_mode   : `
+						<span class="___" data-text="Click on"></span>
+						
+ 						 <span class = "no_padding bg-secondary text-light " ><i class="far fa-edit"></i> </span >
+ 						 <span class="___" data-text="Edit"></span>
+ 						 <span class="___" data-text="if you want to block some of the dates."></span>
+ 						 
  						  <hr class = "bg_green" >
- 						  Then click on
-              			 <span class="img-thumbnail">preview</span >,
-              			 <hr class = "bg_green" >then click on <strong class="nav_link_property">AVAILABILITY</strong>
-                		 tab.
- 						<hr class = "bg_green" >For more details click on
-								<span class = "btn btn-sm bg-danger text-light "
- 									 title="How to block weeks ?">
-                                   How to block weeks ?
+ 						  <span class="___" data-text="Then click on"></span>
+ 						  
+              			 <span class="img-thumbnail ___" data-text="preview"></span >,
+              			 <hr class = "bg_green" >
+              			 <span class="___" data-text="then click on"></span>
+              			  <strong class="nav_link_property ___" data-text="AVAILABILITY"></strong>
+                		 <span class="___" data-text="tab."></span>
+ 						<hr class = "bg_green" >
+ 						<span class="___" data-text="For more details click on"></span>
+ 						
+								<span class = "btn btn-sm bg-danger text-light ___"
+ 									 data-title="How to block weeks ?"
+ 									 data-text="How to block weeks ?">
+                                
                                 </span >
 						<hr class = "bg_green" >`,
-			edit_mode    : ` Edit your room to your liking.
+			edit_mode    : `
+                            <span class="___" data-text="Edit your room to your liking."></span>
+                            
 								<hr class = "bg_green" >
-								Once you are happy with your work, preview it by clicking on
+								<span class="___" data-text="Once you are happy with your work, preview it by clicking on"></span>
+								
   						<br><br>
-						<span class="img-thumbnail">preview</span>
+						<span class="img-thumbnail ___" data-text="preview"></span>
 						<hr class="bg_green">
-						Click on
-  						 <span class = "ml-1 img-thumbnail  bg_orange p-1  "
+						<span class="___" data-text="Click on"></span>
+						
+  						 <span class = "ml-1 img-thumbnail  bg_orange p-1  ___"
                        
-                                  title = "Save your changes !" >Update</span >
-								<br> to save your changes.
+                                  data-title = "Save your changes !" data-text="Update" ></span >
+								<br>
+								<span class="___" data-text="to save your changes."></span>
+								
 								<hr class="bg_green">`,
-			preview_mode : ` If you would
-						        like to edit room, click on
+			preview_mode : `
+                                <span class="___" data-text=" If you would like to edit room, click on"></span>
+                               
 						        <span class = " no_padding bg-secondary text-light " >
 						            <i class = "far fa-edit" ></i >
-						            Edit
+						            
 						        </span >
-						        button`
+						        <span class="___" data-text="Edit"></span>
+						       <span class="___" data-text="button"></span>
+								`
 			
 		};
 		

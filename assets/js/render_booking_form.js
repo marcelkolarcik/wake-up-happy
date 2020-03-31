@@ -21,6 +21,9 @@
  *   FOR EXAMPLE FOR PERSONAL REASONS...*/
 
 
+
+
+
 export function render_booking_form ( room )
 	{
 		
@@ -29,16 +32,16 @@ export function render_booking_form ( room )
 		
 		booking_form.append ( `
 			 <div class = "center-form" >
-                        <form onsubmit = "return sendMail(this,${ room.p_id },${ room.room_style })" >
-                        <span class="___" data-text="translation"></span>
+                        <form onsubmit = "return process_booking(this,${ room.p_id },${ room.room_style })"  >
+                      
                             <div class="row">
 	                            <div class="col-md-6">
-	                            <div class="bg_green text-light text-center  mt-1">
-	                            	Room details
+	                            <div class="bg_green text-light text-center  mt-1 ___" data-text="Room details">
+	                            
 								</div>
 	                             <div class = "col-auto" >
 	                             
-                                <label class = "sr-only" for = "room_details${ room.p_id }" >Room</label >
+                                <label class = "sr-only ___" for = "room_details${ room.p_id }" data-text="Room"></label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -46,16 +49,16 @@ export function render_booking_form ( room )
                                         </div >
                                     </div >
                                     <input type = "text" name = "room_details"
-                                           class = "form-control form-control-sm  border_bottom_only bg_green_light"
-                                           id = "room_details${ room.p_id }" placeholder = "Room"
-                                           value = "${ decodeURI (
-			room.p_address.property_name ) }  ${ room.p_address.property_name ? '|'
-		                                                                      : '' } ${ room_types[ room.room_type ] } "
+                                           class = "form-control form-control-sm  border_bottom_only bg_green_light ___"
+                                           id = "room_details${ room.p_id }" data-placeholder = "Room"
+                                           value = "${ decodeURI (room.p_address.property_name ) }
+												${ room.p_address.property_name ? '|' : '' }
+												${ room_types[ room.room_type ] }"
                                            required readonly >
                                 </div >
                             </div >
                              <div class = "col-auto" >
-                                <label class = "" for = "weeks_${ room.p_id }" >Week(s) booked</label >
+                                <label class = "___" for = "weeks_${ room.p_id }" data-text="Week(s) booked" ></label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -72,7 +75,7 @@ export function render_booking_form ( room )
                             
                             
                              <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                                <label class = "" for = "board_${ room.p_id }" >Board</label >
+                                <label class = "___" for = "board_${ room.p_id }" data-text="Board"></label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -89,7 +92,7 @@ export function render_booking_form ( room )
                             </div >
                             
                              <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                                <label class = "" for = "total_price_${ room.p_id }" >Total price</label >
+                                <label class = "___" for = "total_price_${ room.p_id }" data-text="Total price"></label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -105,7 +108,7 @@ export function render_booking_form ( room )
                                 </div >
                             </div >
                             <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                                <label class = "sr-only" for = "fullname${ room.p_id }" >Full Name</label >
+                                <label class = "sr-only ___" for = "fullname${ room.p_id }" data-text="Full Name"></label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -113,13 +116,13 @@ export function render_booking_form ( room )
                                         </div >
                                     </div >
                                     <input type = "text" name = "name"
-                                           class = "form-control form-control-sm border_bottom_only"
-                                           id = "fullname${ room.p_id }" placeholder = "Full Name" ${ sessionStorage.getItem (
-			'edit_mode' ) ? '' : 'required' } >
+                                           class = "form-control form-control-sm border_bottom_only ___"
+                                           id = "fullname${ room.p_id }" data-placeholder = "Full Name"
+										${ sessionStorage.getItem ('edit_mode' ) ? '' : 'required' } >
                                 </div >
                             </div >
                             <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                                <label class = "sr-only" for = "email_of_user${ room.p_id }" >Email</label >
+                                <label class = "sr-only ___" for = "email_of_user${ room.p_id }" data-text="Email"></label >
                                 <div class = "input-group mb-2" >
                                     <div class = "input-group-prepend" >
                                         <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -128,67 +131,68 @@ export function render_booking_form ( room )
                                     </div >
                                     <input type = "text" name = "email_of_user"
                                            class = "form-control form-control-sm  border_bottom_only"
-                                           id = "email_of_user${ room.p_id }" placeholder = "Email" ${ sessionStorage.getItem (
-			'edit_mode' ) ? '' : 'required' } >
+                                           id = "email_of_user${ room.p_id }" placeholder = "Email"
+											${ sessionStorage.getItem ('edit_mode' ) ? '' : 'required' } >
                                 </div >
                             </div >
 								</div>
 								<div class="col-md-6">
-								 <div class="bg_green text-light text-center mt-1 ${ sessionStorage.getItem (
-			'edit_mode' ) ? 'd-none' : '' }">
-	                            	Payment details
+								 <div class="bg_green text-light text-center mt-1 ___
+											${ sessionStorage.getItem ('edit_mode' ) ? 'd-none' : '' }"
+											data-text="Payment details">
+	          
 								</div>
                              <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                        <label class = "sr-only" for = "card_holder_name${ room.p_id }" >Card Holder Name:</label >
+                        <label class = "sr-only ___" for = "card_holder_name${ room.p_id }" data-text="Card Holder Name"></label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only" >
                                     <i class = "far fa-user" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control form-control-sm
+                            <input type = "text" class = "form-control form-control-sm ___
 							        			border_bottom_only" id = "card_holder_name${ room.p_id }" name = "card_holder_name"
-                                   placeholder = "Card Holder Name" ${ sessionStorage.getItem ( 'edit_mode' ) ? ''
+                                   data-placeholder = "Card Holder Name" ${ sessionStorage.getItem ( 'edit_mode' ) ? ''
 		                                                                                                      : 'required' } >
                         </div >
                     </div >
                     <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                        <label class = "sr-only" for = "card_numder${ room.p_id }" >Card Number</label >
+                        <label class = "sr-only ___" for = "card_numder${ room.p_id }" data-text="Card Number" ></label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only" >
                                     <i class = "far fa-credit-card" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control form-control-sm  border_bottom_only"
-                                   id = "card_numder${ room.p_id }" placeholder = "Card Number" name = "card_number" ${ sessionStorage.getItem (
+                            <input type = "text" class = "form-control form-control-sm  border_bottom_only ___"
+                                   id = "card_numder${ room.p_id }" data-placeholder = "Card Number" name = "card_number" ${ sessionStorage.getItem (
 			'edit_mode' ) ? '' : 'required' } >
                         </div >
                     </div >
                     <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                        <label class = "sr-only" for = "cvv${ room.p_id }" >CVV</label >
+                        <label class = "sr-only ___" for = "cvv${ room.p_id }" data-text="CVV"></label >
                         <div class = "input-group mb-2" >
                             <div class = "input-group-prepend" >
                                 <div class = "input-group-text bg-transparent border_bottom_only" >
                                     <i class = "fas fa-credit-card" ></i >
                                 </div >
                             </div >
-                            <input type = "text" class = "form-control form-control-sm  border_bottom_only"
-                                   id = "cvv${ room.p_id }" placeholder = "CVV"  ${ sessionStorage.getItem (
-			'edit_mode' ) ? '' : 'required' }  name = "cvv" >
+                            <input type = "text" class = "form-control form-control-sm  border_bottom_only ___"
+                                   id = "cvv${ room.p_id }" data-placeholder = "CVV"
+									${ sessionStorage.getItem ('edit_mode' ) ? '' : 'required' }  name = "cvv" >
                         </div >
                     </div >
                             <div class = "col-auto ${ sessionStorage.getItem ( 'edit_mode' ) ? 'd-none' : '' }" >
-                                <label class = "sr-only" for = "request_of_property${ room.p_id }" >Property Request</label >
+                                <label class = "sr-only ___" for = "request_of_property${ room.p_id }" data-text="Property Request" ></label >
                                 <div class = "input-group mb-2" >
                                     <textarea rows = "2" name = "request_of_property"
-                                              class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2"
+                                              class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2 ___"
                                               id = "request_of_property${ room.p_id }"
-                                              placeholder = "Any Requests..."  ></textarea >
+                                              data-placeholder = "Any Requests..."  ></textarea >
                                 </div >
                             </div >
                              <div class = "col-auto" >
-                                <label class = "sr-only" for = "address${ room.p_id }" >address</label >
+                                <label class = "sr-only ___" for = "address${ room.p_id }" data-text="address"></label >
                                 <div class = "input-group mb-2 d-none" >
                                     <input name = "form_address"
                                               class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2"
@@ -202,21 +206,25 @@ export function render_booking_form ( room )
     
                           
                              ${ window.location.pathname === '/index.html' ? `
-								<button type = "submit" class = "btn bg_green_light horizontally_aligned right-block " title="Submit & Pay">
-                                    Pay
+								<button type = "submit" class = "btn bg_green_light horizontally_aligned right-block need_translation ___"
+								 data-title="Submit & Pay"
+								 data-text="Payment">
+                                
                                 </button >` : '' }
                             
                             ${ sessionStorage.getItem ( 'edit_mode' ) ? `<button type = "submit" id="block_dates"
-								 class = "btn bg_green_light horizontally_aligned right-block mt-2"
-								 title="Block selected dates">
-                                   Block selected dates
+								 class = "btn bg_green_light horizontally_aligned right-block mt-2 need_translation ___"
+								 data-title="Block selected dates"
+								 data-text="Block selected dates">
+                                
                                 </button >` : '' }
                             
                               ${ ( sessionStorage.getItem ( 'preview_mode' ) || sessionStorage.getItem ( 'add_mode' ) )
 		                         && window.location.pathname !== '/index.html'
 		                         ?
-		                         `	<div class="bg_green_light_g">
-									Your future customers will be able to book your room through this form.
+		                         `	<div class="bg_green_light_g ___"
+										data-text="Your future customers will be able to book your room through this form.">
+									
 									</div>`
 		                         : '' }
                               

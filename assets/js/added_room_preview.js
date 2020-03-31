@@ -5,6 +5,7 @@
 
 import { render_room_preview } from "./render_room_preview.js";
 import { getRandom }           from "./create_DB.js";
+import { translate }           from "./translator/translator.js";
 
 
 $ ( document ).on ( 'click', '.preview_room', function ()
@@ -162,6 +163,7 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 
 //	RENDERING ROOM FOR PREVIEW
 	render_room_preview ( room, 'preview', true );
+	translate();
 	
 } );
 

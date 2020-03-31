@@ -1,4 +1,5 @@
 {
+  
   "room :"
   : "Izba:" ,
   "view :"
@@ -14,9 +15,9 @@
   "Click on any image to enlarge it !"
   : "Kliknutím na obrázok ho zväčšíte!" ,
   "single"
-  : "Single" ,
+  : "jednoposteľová" ,
   "double"
-  : "Double" ,
+  : "dvojposteľová" ,
   "Room type selected."
   : "Zvolený typ izby." ,
   "Select your room type."
@@ -52,7 +53,7 @@
   "river"
   : "Rieka" ,
   "pool"
-  : "Pool" ,
+  : "bazén" ,
   "beach"
   : "Pláž" ,
   "forrest"
@@ -68,7 +69,7 @@
   "Select your view type."
   : "Vyberte typ zobrazenia." ,
   "Select the view type your room has."
-  : "Vyberte typ zobrazenia, ktorý má vaša izba." ,
+  : "Vyberte typ vyhliadky, vašej izby." ,
   "Room style selected."
   : "Zvolený štýl miestnosti." ,
   "Select your room style."
@@ -78,9 +79,9 @@
   "Room only"
   : "Iba izbu" ,
   "B & B"
-  : "B & B" ,
+  : "Izba & Raňajky" ,
   "B & D"
-  : "B & D" ,
+  : "Raňajky a večere" ,
   "All Inclusive"
   : "All Inclusive" ,
   "Room only image"
@@ -100,7 +101,7 @@
   "Add price for the board !"
   : "Pridať cenu za tabuľu!" ,
   "Select the board basis you can provide for your guests."
-  : "Vyberte základňu, ktorú môžete poskytnúť svojim hosťom." ,
+  : "Vyberte stravovanie, ktoré môžete poskytnúť svojim hosťom." ,
   "Amenity selected."
   : "Zariadenie vybrané." ,
   "Select amenities you provide!"
@@ -147,59 +148,112 @@
   : "doplnkové BMW SUV" ,
   "Write description of your room, min 30 - max 300 characters."
   : "Napíšte popis svojej izby, min. 30 - max. 300 znakov." ,
-  "Your room description"                                                                                                                         : "Popis vašej izby" ,
-  "Describe your room, make it attractive (min 30 - max 300 characters)"                                                                          : "Popíšte svoju izbu, urobte ju atraktívnou (min. 30 - max. 300 znakov)" ,
-  "location"                                                                                                                                      : "Location" ,
-  "room"                                                                                                                                          : "Room" ,
-  "services"                                                                                                                                      : "Služby" ,
-  "preview"                                                                                                                                       : "Náhľad" ,
-  "payment"                                                                                                                                       : "Platba" ,
-  "Please review these fields:"                                                                                                                   : "Skontrolujte tieto polia:" ,
-  "Payment details : 99 EUR per year + 9 % of each booking."                                                                                      : "Podrobnosti o platbe: 99 EUR ročne + 9% z každej rezervácie." ,
-  "Total price"                                                                                                                                   : "Celková cena" ,
-  "Full Name"                                                                                                                                     : "Celé meno" ,
-  "Email"                                                                                                                                         : "E-mail" ,
-  "Password"                                                                                                                                      : "Heslo" ,
-  "Card Holder Name:"                                                                                                                             : "Meno držiteľa karty:" ,
-  "Card Number"                                                                                                                                   : "Číslo karty" ,
-  "CVV"                                                                                                                                           : "CVV" ,
-  "Pay"                                                                                                                                           : "Platba" ,
-  "Owner login"                                                                                                                                   : "Prihlasovacie meno vlastníka" ,
-  "Login"                                                                                                                                         : "Prihlásiť sa" ,
-  "Not registered yet?"                                                                                                                           : "Ešte nie ste zaregistrovaní?" ,
-  "No Problem!"                                                                                                                                   : "Žiaden problém!" ,
-  "Just take the first step...."                                                                                                                  : "Len urob prvý krok ...." ,
-  "Right on this site !"                                                                                                                          : "Priamo na tomto webe!" ,
-  "Add your room now!"                                                                                                                            : "Pridajte svoju izbu teraz!" ,
-  "Select location of your property first !"                                                                                                      : "Najprv vyberte polohu svojho majetku!" ,
-  "ok"                                                                                                                                            : "Ok" ,
-  "If you are already registered, check your login credentials, or CAPS Lock...;-)"                                                               : "Ak ste už zaregistrovaní, skontrolujte svoje prihlasovacie údaje alebo zámok CAPS ... ;-)" ,
-  "Oops..."                                                                                                                                       : "Och ..." ,
-  "Please, select board!"                                                                                                                         : "Prosím, vyberte stravovanie!" ,
-  "Please,select at least one week!"                                                                                                              : "Prosím, vyberte aspoň jeden týždeň!" ,
-  "Your dates were blocked !"                                                                                                                     : "Vaše dáta boli zablokované!" ,
-  "Week(s):"                                                                                                                                      : "Týždeň:" ,
-  "Thank you for booking with us !"                                                                                                               : "Ďakujeme za rezerváciu u nás!" ,
-  "Name:"                                                                                                                                         : "Názov:" ,
-  "Email:"                                                                                                                                        : "E-mail" ,
-  "Room:"                                                                                                                                         : "Room" ,
-  "Week:"                                                                                                                                         : "Týždeň" ,
-  "Total price:"                                                                                                                                  : "Celková cena:" ,
-  "address:"                                                                                                                                      : "Adresa" ,
-  "Request:"                                                                                                                                      : "Žiadosť" ,
-  "save as PDF"                                                                                                                                   : "uložiť ako PDF" ,
-  "Reservation ID:"                                                                                                                               : "ID rezervácie:" ,
-  "Dismiss"                                                                                                                                       : "Zatvoriť" ,
-  "Your room is not booked !"                                                                                                                     : "Vaša izba nie je rezervovaná!" ,
-  "How to:"                                                                                                                                       : "Ako:" ,
-  "you are in editing mode"                                                                                                                       : "ste v režime úprav" ,
-  "you are in preview mode"                                                                                                                       : "ste v režime ukážky" ,
-  "you are in add mode"                                                                                                                           : "ste v režime pridania" ,
-  "you are in block mode"                                                                                                                         : "ste v blokovom režime" ,
-  "Click on"                                                                                                                                      : "Kliknite na" ,
-  "button, if you would like to edit your room."                                                                                                  : ", ak chcete upraviť svoju izbu." ,
-  "OK, got it !"                                                                                                                                  : "OK Mám to !" ,
-  "By clicking on"                                                                                                                                : "Kliknutím na" ,
+  "Your room description"
+  : "Popis vašej izby" ,
+  "Describe your room, make it attractive (min 30 - max 300 characters)"
+  : "Popíšte svoju izbu, urobte ju atraktívnou (min. 30 - max. 300 znakov)" ,
+  "location"
+  : "miesto" ,
+  "room"
+  : "izba" ,
+  "services"
+  : "služby" ,
+  "preview"
+  : "prehľad" ,
+  "payment"
+  : "platba" ,
+  "Please review these fields:"
+  : "Skontrolujte tieto polia:" ,
+  "Payment details : 99 EUR per year + 9 % of each booking."
+  : "Podrobnosti o platbe: 99 EUR ročne + 9% z každej rezervácie." ,
+  "Total price"
+  : "Celková cena" ,
+  "Full Name"
+  : "Celé meno" ,
+  "Email"
+  : "E-mail" ,
+  "Password"
+  : "Heslo" ,
+  "Card Holder Name"
+  : "Meno držiteľa karty" ,
+  "Card Number"
+  : "Číslo karty" ,
+  "CVV"
+  : "CVV" ,
+  "Pay"
+  : "Platba" ,
+  "Owner login"
+  : "Prihlasovacie meno vlastníka" ,
+  "Login"
+  : "Prihlásiť sa" ,
+  "Not registered yet?"
+  : "Ešte nie ste zaregistrovaní?" ,
+  "No Problem!"
+  : "Žiaden problém!" ,
+  "Just take the first step...."
+  : "Len urob prvý krok ...." ,
+  "Right on this site !"
+  : "Priamo na tomto webe!" ,
+  "Add your room now!"
+  : "Pridajte svoju izbu teraz!" ,
+  "Select location of your property first !"
+  : "Najprv vyberte polohu svojho majetku!" ,
+  "ok"
+  : "Ok" ,
+  "If you are already registered, check your login credentials, or CAPS Lock...;-)"
+  : "Ak ste už zaregistrovaní, skontrolujte svoje prihlasovacie údaje alebo zámok CAPS ... ;-)" ,
+  "Oops..."
+  : "Och ..." ,
+  "Please, select board!"
+  : "Prosím, vyberte stravovanie!" ,
+  "Please,select at least one week!"
+  : "Prosím, vyberte aspoň jeden týždeň!" ,
+  "Your dates were blocked !"
+  : "Vaše dáta boli zablokované!" ,
+  "Week(s):"
+  : "Týždeň:" ,
+  "Thank you for booking with us !"
+  : "Ďakujeme za rezerváciu u nás!" ,
+  "Name:"
+  : "Názov:" ,
+  "Email:"
+  : "E-mail" ,
+  "Room:"
+  : "Room" ,
+  "Week:"
+  : "Týždeň" ,
+  "Total price:"
+  : "Celková cena:" ,
+  "address:"
+  : "Adresa" ,
+  "Request:"
+  : "Žiadosť" ,
+  "save as PDF"
+  : "uložiť ako PDF" ,
+  "Reservation ID:"
+  : "ID rezervácie:" ,
+  "Dismiss"
+  : "Zatvoriť" ,
+  "Your room is not booked !"
+  : "Vaša izba nie je rezervovaná!" ,
+  "How to:"
+  : "Ako:" ,
+  "you are in editing mode"
+  : "ste v režime úprav" ,
+  "you are in preview mode"
+  : "ste v režime ukážky" ,
+  "you are in add mode"
+  : "ste v režime pridania" ,
+  "you are in block mode"
+  : "ste v blokovom režime" ,
+  "Click on"
+  : "Kliknite na" ,
+  "button, if you would like to edit your room."
+  : ", ak chcete upraviť svoju izbu." ,
+  "OK, got it !"
+  : "OK Mám to !" ,
+  "By clicking on"
+  : "Kliknutím na" ,
   "you will get information that will assist on every step of your journey...;-)."                                                                : "získate informácie, ktoré vám pomôžu pri každom kroku vašej cesty ... ;-)." ,
   "Find location of your property on the map and then click the map to display coordinates."                                                      : "Vyhľadajte polohu svojho majetku na mape a potom kliknutím na mapu zobrazte súradnice." ,
   "Then click on"                                                                                                                                 : "Potom kliknite na" ,
@@ -240,18 +294,18 @@
   "Dashboard"                                                                                                                                     : "Prístrojová doska" ,
   "Room details"                                                                                                                                  : "Podrobnosti o izbe" ,
   "Week(s) booked"                                                                                                                                : "Rezervované týždne" ,
-  "Board"                                                                                                                                         : "Board" ,
+  "Board"                                                                                                                                         : "Stravovanie" ,
   "Payment details"                                                                                                                               : "Platobné údaje" ,
   "Property Request"                                                                                                                              : "Žiadosť o nehnuteľnosť" ,
   "Any Requests..."                                                                                                                               : "Všetky žiadosti ..." ,
   "Your future customers will be able to book your room through this form."                                                                       : "Vaši zákazníci si budú môcť prostredníctvom tohto formulára rezervovať izbu." ,
   "Previous"                                                                                                                                      : "Predchádzajúci" ,
   "Next"                                                                                                                                          : "Ďalšie" ,
-  ":view view"                                                                                                                                    : ": view view" ,
+  ":view view"                                                                                                                                    : ":view view" ,
   "bedroom"                                                                                                                                       : "Spálňa" ,
   "breakfast"                                                                                                                                     : "Raňajky" ,
   "lunch"                                                                                                                                         : "Obed" ,
-  "dinner"                                                                                                                                        : "Večeru" ,
+  "dinner"                                                                                                                                        : "Večera" ,
   "property image"                                                                                                                                : "obraz vlastníctva" ,
   "from"                                                                                                                                          : "Z" ,
   "EUR"                                                                                                                                           : "EUR" ,
@@ -268,7 +322,7 @@
   "Book your room !"                                                                                                                              : "Rezervuj si izbu!" ,
   "Book"                                                                                                                                          : "Rezervovať" ,
   "show on map"                                                                                                                                   : "zobraziť na mape" ,
-  "Boards"                                                                                                                                        : "Dosky" ,
+  "Boards"                                                                                                                                        : "Stravovanie" ,
   "Block selected dates"                                                                                                                          : "Blokovať vybrané dátumy" ,
   "How to block weeks ?"                                                                                                                          : "Ako blokovať týždne?" ,
   "Select board and the week(s) and click on"                                                                                                     : "Vyberte dosku a týždne a kliknite na" ,
@@ -291,7 +345,7 @@
   "Search results:"                                                                                                                               : "Výsledky vyhľadávania:" ,
   "Wake up happy !"                                                                                                                               : "Zobuď sa šťastný!" ,
   "logo image"                                                                                                                                    : "logo obrázok" ,
-  "wake up happy | rooms with the view"                                                                                                           : "prebudiť šťastné | izby s výhľadom" ,
+  "wake up happy | rooms with the view"                                                                                                           : "Zobuď sa šťastný | izby s výhľadom" ,
   "Menu"                                                                                                                                          : "Ponuka" ,
   "owner?"                                                                                                                                        : "Majiteľ?" ,
   "english"                                                                                                                                       : "Angličtina" ,
@@ -322,7 +376,7 @@
   "Copyright"                                                                                                                                     : "Autorské práva" ,
   "Close it for now."                                                                                                                             : "Teraz to zatvorte." ,
   "Don't show again"                                                                                                                              : "Nezobrazovať znova" ,
-  "NEW"                                                                                                                                           : "NOVÝ" ,
+  "NEW"                                                                                                                                           : "NOVÉ" ,
   "Do you live in Ireland ?"                                                                                                                      : "Žiješ v Írsku?" ,
   "If you have spare room and want to earn up to €14,000 tax free, come and join thousands of happy landlords !"                                  : "Ak máte voľný priestor a chcete zarobiť až 14 000 EUR bez dane, príďte a pripojte sa k tisícom šťastných majiteľov!" ,
   "more info"                                                                                                                                     : "viac informácií" ,
@@ -334,5 +388,14 @@
   "Define your services"                                                                                                                          : "Definujte svoje služby" ,
   "Preview your work of art!"                                                                                                                     : "Prezrite si svoje umelecké dielo!" ,
   "Payment"                                                                                                                                       : "Platba" ,
-  "Save your changes !"                                                                                                                           : "Uložte svoje zmeny!"
+  "Save your changes !"                                                                                                                           : "Uložte svoje zmeny!" ,
+  "click to get location details"                                                                                                                 : "kliknutím získate podrobnosti o polohe" ,
+  ":view_type view"                                                                                                                               : "vyhliadka - :view_type" ,
+  ":room_type bedroom image"                                                                                                                      : "spálňa - :room_type" ,
+  "Select image your room will be displayed as."                                                                                                  : "Vyberte obrázok, ako sa bude vaša izba zobrazovať.",
+  ":board_type image": ":board_type obrazok",
+  "Featured properties": "Odporúčané izby",
+  "week |week - |year booked already !":"týždeň |week - |year už rezervovaný!",
+  "week |week - |year available !": "týždeň |week - |year k dispozícii!"
+  
 }

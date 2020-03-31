@@ -55,134 +55,136 @@ export function translate ()
 		 *
 		 *   3.  USER SELECTED LANGUAGE FILE*/
 		
+		$(document).ready(function (  )
+		                  {
+			                  $.getJSON (
+				                  path_to_language_files + '/' + localStorage.getItem ( 'language' ) + ".json", function ( translation )
+				                  {
+					
+					                  /*ALL ELEMENTS THAT NEED TRANSLATING
+					                   * MUST HAVE ___ CLASS TO BE TRANSLATED*/
+					                  $ ( '.___' ).each ( function ()
+					                                      {
+						
+						                                      /*IF ELEMENT HAS data-text ATTRIBUTE*/
+						                                      if ( $ ( this ).data ( 'text' ) )
+							                                      {
+								
+								                                      /*TRANSLATED LANGUAGE TEXT*/
+								                                      var translated_text = translation[ $ ( this ).data ( 'text' ) ];
+								
+								                                      if ( translated_text )
+									                                      {
+										                                      $ ( this ).html ( translated_text );
+									                                      }
+								                                      /*IF WE DO NOT HAVE TRANSLATION WE WILL USE DEFAULT LANGUAGE
+								                                       * AND HIGHLIGHT ELEMENT ACCORDING TO highlight_class*/
+								                                      else
+									                                      {
+										                                      $ ( this ).html ( $ ( this ).data ( 'text' ) ).addClass(highlight_class);
+									                                      }
+								
+								                                      /*WE WILL CHECK IF TEXT HAS VARIABLE
+								                                       * IT WOULD HAVE "|"  OR ":" AS FIRST CHARACTER
+								                                       * IF WE HAVE IT => WE WILL LOOK FOR data- ATTRIBUTE
+								                                       * VALUE OF THAT VARIABLE AND THEN REPLACE
+								                                       * NAMED VARIABLE WITH ACTUAL VARIABLE
+								                                       *
+								                                       * EXAMPLE :
+								                                       *
+								                                       *  <span class="___" id="variable_text"
+								                                       data-text="text with |user variable"
+								                                       data-user="Marcel">
+								                                       </span>
+								 
+								                                       * HERE WE HAVE data-text="text with |user variable"
+								                                       *
+								                                       * WHERE |user IS NAMED VARIABLE
+								                                       *
+								                                       * AND WE HAVE data-user="Marcel"
+								                                       *
+								                                       * SO "Marcel" IS ACTUAL VARIABLE
+								                                       *
+								                                       * SO WE WILL REPLACE NAMED VARIABLE |user WITH
+								                                       * ACTUAL VARIABLE "Marcel"
+								                                       *
+								                                       * IN THIS CASE HTML WILL RENDER AS "text with Marcel variable"
+								                                       *
+								                                       * IN ANY LANGUAGE WE CHOOSE
+								                                       *
+								                                       *
+								 
+								 
+								                                       * */
+								                                      check_variables ( $ ( this ), 'text', translation );
+							                                      }
+						                                      /*IF ELEMENT HAS data-title ATTRIBUTE*/
+						                                      if ( $ ( this ).data ( 'title' ) )
+							                                      {
+								                                      var translated_title = translation[ $ ( this ).data ( 'title' ) ];
+								
+								                                      /*IF WE HAVE TRANSLATION WE WILL TRANSLATE TO LANGUAGE*/
+								                                      if ( translated_title )
+									                                      {
+										                                      $ ( this ).prop ( 'title', translated_title );
+									                                      }
+								                                      /*IF NOT WE WILL USE DEFAULT*/
+								                                      else
+									                                      {
+										                                      $ ( this ).prop (
+											                                      'title', $ ( this ).data ( 'title' ) );
+									                                      }
+								                                      check_variables ( $ ( this ), 'title', translation );
+								
+							                                      }
+						                                      /*IF ELEMENT HAS data-placeholder ATTRIBUTE*/
+						                                      if ( $ ( this ).data ( 'placeholder' ) )
+							                                      {
+								
+								                                      var translated_placeholder = translation[ $ ( this ).data (
+									                                      'placeholder' ) ];
+								
+								                                      /*IF WE HAVE TRANSLATION WE WILL TRANSLATE TO LANGUAGE*/
+								                                      if ( translated_placeholder )
+									                                      {
+										                                      $ ( this ).prop (
+											                                      'placeholder', translated_placeholder );
+									                                      }
+								                                      /*IF NOT WE WILL USE DEFAULT*/
+								                                      else
+									                                      {
+										                                      $ ( this ).prop (
+											                                      'placeholder', $ ( this ).data ( 'placeholder' ) );
+									                                      }
+								
+								                                      check_variables ( $ ( this ), 'placeholder', translation );
+							                                      }
+						                                      /*IF ELEMENT HAS data-alt ATTRIBUTE*/
+						                                      if ( $ ( this ).data ( 'alt' ) )
+							                                      {
+								
+								                                      var translated_alt = translation[ $ ( this ).data (
+									                                      'alt' ) ];
+								
+								                                      /*IF WE HAVE TRANSLATION WE WILL TRANSLATE TO LANGUAGE*/
+								                                      if ( translated_alt )
+									                                      {
+										                                      $ ( this ).prop ( 'alt', translated_alt );
+									                                      }
+								                                      /*IF NOT WE WILL USE DEFAULT*/
+								                                      else
+									                                      {
+										                                      $ ( this ).prop ( 'alt', $ ( this ).data ( 'alt' ) );
+									                                      }
+								
+								                                      check_variables ( $ ( this ), 'alt', translation );
+							                                      }
+					                                      } );
+					
+				                  } )
+		                  });
 		
-		$.getJSON (
-			path_to_language_files + '/' + localStorage.getItem ( 'language' ) + ".json", function ( translation )
-			{
-				
-				/*ALL ELEMENTS THAT NEED TRANSLATING
-				 * MUST HAVE ___ CLASS TO BE TRANSLATED*/
-				$ ( '.___' ).each ( function ()
-				                    {
-					
-					                    /*IF ELEMENT HAS data-text ATTRIBUTE*/
-					                    if ( $ ( this ).data ( 'text' ) )
-						                    {
-							
-							                    /*TRANSLATED LANGUAGE TEXT*/
-							                    var translated_text = translation[ $ ( this ).data ( 'text' ) ];
-							
-							                    if ( translated_text )
-								                    {
-									                    $ ( this ).html ( translated_text );
-								                    }
-							                    /*IF WE DO NOT HAVE TRANSLATION WE WILL USE DEFAULT LANGUAGE
-							                     * AND HIGHLIGHT ELEMENT ACCORDING TO highlight_class*/
-							                    else
-								                    {
-									                    $ ( this ).html ( $ ( this ).data ( 'text' ) ).addClass(highlight_class);
-								                    }
-							
-							                    /*WE WILL CHECK IF TEXT HAS VARIABLE
-							                     * IT WOULD HAVE "|"  OR ":" AS FIRST CHARACTER
-							                     * IF WE HAVE IT => WE WILL LOOK FOR data- ATTRIBUTE
-							                     * VALUE OF THAT VARIABLE AND THEN REPLACE
-							                     * NAMED VARIABLE WITH ACTUAL VARIABLE
-							                     *
-							                     * EXAMPLE :
-							                     *
-							                     *  <span class="___" id="variable_text"
-							                     data-text="text with |user variable"
-							                     data-user="Marcel">
-							                     </span>
-							 
-							                     * HERE WE HAVE data-text="text with |user variable"
-							                     *
-							                     * WHERE |user IS NAMED VARIABLE
-							                     *
-							                     * AND WE HAVE data-user="Marcel"
-							                     *
-							                     * SO "Marcel" IS ACTUAL VARIABLE
-							                     *
-							                     * SO WE WILL REPLACE NAMED VARIABLE |user WITH
-							                     * ACTUAL VARIABLE "Marcel"
-							                     *
-							                     * IN THIS CASE HTML WILL RENDER AS "text with Marcel variable"
-							                     *
-							                     * IN ANY LANGUAGE WE CHOOSE
-							                     *
-							                     *
-							 
-							 
-							                     * */
-							                    check_variables ( $ ( this ), 'text', translation );
-						                    }
-					
-					
-					                    /*IF ELEMENT HAS data-title ATTRIBUTE*/
-					                    if ( $ ( this ).data ( 'title' ) )
-						                    {
-							                    var translated_title = translation[ $ ( this ).data ( 'title' ) ];
-							
-							                    /*IF WE HAVE TRANSLATION WE WILL TRANSLATE TO LANGUAGE*/
-							                    if ( translated_title )
-								                    {
-									                    $ ( this ).prop ( 'title', translated_title );
-								                    }
-							                    /*IF NOT WE WILL USE DEFAULT*/
-							                    else
-								                    {
-									                    $ ( this ).prop (
-										                    'title', $ ( this ).data ( 'title' ) );
-								                    }
-							                    check_variables ( $ ( this ), 'title', translation );
-							
-						                    }
-					                    /*IF ELEMENT HAS data-placeholder ATTRIBUTE*/
-					                    if ( $ ( this ).data ( 'placeholder' ) )
-						                    {
-							
-							                    var translated_placeholder = translation[ $ ( this ).data (
-								                    'placeholder' ) ];
-							
-							                    /*IF WE HAVE TRANSLATION WE WILL TRANSLATE TO LANGUAGE*/
-							                    if ( translated_placeholder )
-								                    {
-									                    $ ( this ).prop (
-										                    'placeholder', translated_placeholder );
-								                    }
-							                    /*IF NOT WE WILL USE DEFAULT*/
-							                    else
-								                    {
-									                    $ ( this ).prop (
-										                    'placeholder', $ ( this ).data ( 'placeholder' ) );
-								                    }
-							
-							                    check_variables ( $ ( this ), 'placeholder', translation );
-						                    }
-					                    /*IF ELEMENT HAS data-alt ATTRIBUTE*/
-					                    if ( $ ( this ).data ( 'alt' ) )
-						                    {
-							
-							                    var translated_alt = translation[ $ ( this ).data (
-								                    'alt' ) ];
-							
-							                    /*IF WE HAVE TRANSLATION WE WILL TRANSLATE TO LANGUAGE*/
-							                    if ( translated_alt )
-								                    {
-									                    $ ( this ).prop ( 'alt', translated_alt );
-								                    }
-							                    /*IF NOT WE WILL USE DEFAULT*/
-							                    else
-								                    {
-									                    $ ( this ).prop ( 'alt', $ ( this ).data ( 'alt' ) );
-								                    }
-							
-							                    check_variables ( $ ( this ), 'alt', translation );
-						                    }
-				                    } );
-				
-			} );
+		
 		
 		
 		function check_variables ( element, type, translation )

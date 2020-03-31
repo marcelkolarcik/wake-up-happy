@@ -28,8 +28,7 @@ export function render_amenities ( property )
 			<div class = "row mt-3 no-gutters" >
 			    <div class = "col-md-4 " >
 			        <ul class = "list-group" id = "first_${ property.p_id }" >
-			            <li class = "list-group-item no_border p-2" ><input type = "checkbox" checked disabled > ${ amenities_list[
-						value ] }
+			            <li class = "list-group-item no_border p-2" ><input type = "checkbox" checked disabled > <span class="___" data-text="${ amenities_list[ value ] }"></span>
 			            </li >
 			        </ul >
 			    </div >
@@ -48,17 +47,17 @@ export function render_amenities ( property )
 			else if ( index < 5 )
 				{
 					$ ( '#first_' + property.p_id ).append (
-						`<li class="list-group-item no_border p-2"><input type="checkbox" checked disabled> ${ amenities_list[ value ] }</li>` );
+						`<li class="list-group-item no_border p-2"><input type="checkbox" checked disabled><span class="___" data-text="${ amenities_list[ value ] }"></span> </li>` );
 				}
 			else if ( index < 10 )
 				{
 					$ ( '#second_' + property.p_id ).append (
-						`<li class="list-group-item no_border p-2"><input type="checkbox" checked disabled> ${ amenities_list[ value ] }</li>` );
+						`<li class="list-group-item no_border p-2"><input type="checkbox" checked disabled> <span class="___" data-text="${ amenities_list[ value ] }"></li>` );
 				}
 			else
 				{
 					$ ( '#third_' + property.p_id ).append (
-						`<li class="list-group-item no_border p-2"><input type="checkbox" checked disabled> ${ amenities_list[ value ] }</li>` );
+						`<li class="list-group-item no_border p-2"><input type="checkbox" checked disabled> <span class="___" data-text="${ amenities_list[ value ] }"></li>` );
 				}
 		} );
 		

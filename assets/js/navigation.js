@@ -4,7 +4,7 @@
 $ ( function ()
     {
 	
-    	/*INITIAL NAV WHEN OWNER IS NOT LOGGED IN*/
+	    /*INITIAL NAV WHEN OWNER IS NOT LOGGED IN*/
 	    $ ( '#user' ).append ( `<a class = " dropdown-toggle caret-off " href = "#" id = "initials"
                                data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >
                                 <div id="initials" class="user_initials d-flex justify-content-center align-items-center">
@@ -17,7 +17,7 @@ $ ( function ()
                                  <i class="fa fa-user  text-secondary "></i> &nbsp;</h6 >
                                 <div class = "dropdown-divider" ></div >
                                 ${ !sessionStorage.getItem ( 'authorized_owner' ) ?
-	                               ` <a id = "login_details" class = "dropdown-item" href = "#" title = "Login form" >Owner Login</a >`
+	                               ` <a id = "login_details" class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login"></a >`
 	                                                                              :
 	                               `` }
                             </div >` );
@@ -44,7 +44,7 @@ $ ( function ()
 			
 			    user_drop_down.append ( `
                                 
-                                <span  class = "dropdown-header bg-secondary text-light"   >My rooms</span >` );
+                                <span  class = "dropdown-header bg-secondary text-light ___" data-text="My rooms" ></span >` );
 			
 			
 			    var ROOMS    = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
@@ -54,8 +54,8 @@ $ ( function ()
 				    {
 					    user_drop_down.append ( `
                                
-                                <a class = "dropdown-header"
-                                title = "No rooms yet" >No rooms yet</a >
+                                <a class = "dropdown-header ___"
+                                data-title = "No rooms yet" data-text="No rooms yet"></a >
 								` );
 				    }
 //AND WE WILL APPEND NAMES OF ALL ROOMS HE HAS ADDED. SO THAT HE CAN SWITCH BETWEEN THEM FROM NAVIGATION
@@ -68,7 +68,7 @@ $ ( function ()
 						
 						    user_drop_down.append ( `
                                 
-                                <a id = "${ value }" class = "dropdown-item room_switch" href = "#"
+                                <a id = "${ room.p_id }" class = "dropdown-item room_switch" href = "#"
                                 title = "${ room.p_address.property_name }" >${ room.p_address.property_name }</a >` );
 					    }
 				
@@ -80,11 +80,11 @@ $ ( function ()
 			
 			    user_drop_down.append ( `
                                  <div class = "dropdown-divider" ></div >
-                                <a id = "logout" class = "dropdown-item bg_orange_light" href = "#" title = "Logout" >Logout</a >` );
+                                <a id = "logout" class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout"></a >` );
 			
 			
 			    $ ( '#owner_name' ).append (
-				    `<a href="/owner.html" class="nav_link_property dashboard_link" title="Dashboard">${ full_name }</a>` );
+				    `<a href="/owner.html" class="nav_link_property dashboard_link ___" data-title="Dashboard">${ full_name }</a>` );
 			
 			    $ ( '#add_room' ).remove ();
 			    $ ( '#login_details' ).remove ();
@@ -94,17 +94,13 @@ $ ( function ()
     } );
 
 
-
-
-
-
 $ ( document ).on ( 'click', '#make_money', function ()
 {
 	
 	swal.fire ( {
-//		width: ($(window).width() - 20) ,
+
 		            html              : `
-<div id = "revenue" >
+			<div id = "revenue" >
     <span class = "btn btn-sm text-danger float-right btn-warning" onclick = "swal.close()" >x</span >
     <h1 >
         Rent-a-Room Relief

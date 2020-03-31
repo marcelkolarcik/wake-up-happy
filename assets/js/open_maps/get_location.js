@@ -5,6 +5,9 @@
  *
  * */
 
+import { translate } from "../translator/translator.js";
+
+
 ( function ()
 	{
 		
@@ -49,12 +52,14 @@
 				
 				popup
 					.setLatLng ( e.latlng )
-					.setContent ( "Coordinates : " + coordinates[ 0 ] + ',' + coordinates[ 1 ] +
-					              `<br><button type="submit" id="get_address"
-										class="bg_orange  btn btn-sm p-0 float-right"
-										title="click to get location details">get details</button>` )
+					.setContent ( ` <i class = "fas fa-map-marker-alt" >  ${coordinates[ 0 ]} , ${coordinates[ 0 ]}
+					              <br><button type="submit" id="get_address"
+										class="bg_orange  btn btn-sm p-0 float-right ___"
+										data-title="click to get location details"
+										data-text="get details"></button>` )
 					.openOn ( mymap );
 				
+				translate();
 				/*USING nominatim API FROM openstreetmap TO DO REVERSE SEARCH AND
 				 *WHEN USER CLICKS ON get details WE'LL
 				 * TAKE THE this.responseText AND TAKE address   FROM IT
@@ -127,10 +132,10 @@ $ ( function ()
 		    {
 			
 			    var coordinates = [];
-			    room            = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
+			    var room            = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 			
 			    /*DATA TO RENDER LOCATION  DETAILS OF THE ROOM*/
-			    address_data     = room.p_address;
+			    var address_data     = room.p_address;
 			    coordinates[ 0 ] = room.lat;
 			    coordinates[ 1 ] = room.lng;
 			

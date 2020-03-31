@@ -28,18 +28,19 @@
  *
  * */
 
-import { translate } from "./translator/translator.js";
+
 
 
 $ ( function ()
     {
 	    append_room_actions ();
-	    translate();
+	  
     } );
 
 (
 	function ()
 		{
+			
 			/*WHEN DELETING ROOM, ALERT WILL POP UP TO CONFIRM DELETION.
 			 *
 			 * WHEN CONFIRMED, WE NEED TO :
@@ -187,7 +188,9 @@ $ ( function ()
 			
 			$ ( document ).on ( 'click', '.add_your_room', function ()
 			{
+
 				sessionStorage.setItem ( 'add_mode', true );
+				set_current_mode ( 'add_mode' );
 			} );
 			
 		} ) ();
@@ -242,7 +245,7 @@ function set_description_id ( step )
  * SO IF OWNER HAS MORE THEN ONE ROOM, AND IF HE LOGS OUT RIGHT
  * AFTER ADDING THIS ROOM,
  * LATER WHEN HE LOGS IN, HE WILL SEE THIS ROOM AS CURRENT ROOM*/
-function set_last_room_id ()
+export function set_last_room_id ()
 	{
 		var OWNERS                                          = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 		var owner                                           = OWNERS[ sessionStorage.getItem ( 'hashed_login' ) ];
@@ -258,23 +261,28 @@ function set_last_room_id ()
 
 function append_room_actions ()
 	{
+		/*INITIALLY, WHEN USER LANDS ON owner.html, WE WILL SET add_mode TO
+		* TRUE, SO HE CAN SEE HOW-TO ALERT FOR THAT MODE*/
+		if(!sessionStorage.room_to_edit)
+			{
+				sessionStorage.setItem('add_mode',true);
+			}
 		
-		$ ( '#room_actions' ).append ( `<div class="d-flex justify-content-between"><span class="___" data-text="translation"></span>
+		$ ( '#room_actions' ).append ( `<div class="d-flex justify-content-between">
 					<div class = "  mb-2"  >
-					<button id = "how_alert" class = "bg-danger text-light  no_padding mb-1"
+					<button id = "how_alert" class = "bg-danger text-light  no_padding mb-1 "
                         data-step="${ sessionStorage.getItem ( 'how_to' ) ? sessionStorage.getItem ( 'how_to' )
 		                                                                  : "location" }"   style="cursor:pointer">
                       <i class="far fa-question-circle"></i>
-                       How to
+                      <span class="___ need_translation" data-text="How to"></span>
                       </button >
 					
 					<!--IF WE HAVE ROOM TO EDIT WE WILL DISPLAY CONTROLS TO INTERACT WITH THE ROOM :
 					Preview, Edit, Delete, Block Dates-->
-					${ ( sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined'
-		                 && sessionStorage.getItem ( 'room_to_edit' ) !== null )
+					${ ( sessionStorage.room_to_edit && sessionStorage.authorized_owner  )
 		               ?
 		               `
-
+						
  					 <button class = "  no_padding  mb-1" id="room_name"
                         
                          title="${ JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_address.property_name }" >

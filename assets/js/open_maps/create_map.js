@@ -80,12 +80,17 @@ export function create_map ( coordinates = null, show_p_id = null )
 						new L.LatLng ( property.lat, property.lng ), { title : property.city } );
 					
 					var popup =
-						    `<img src="assets/images/bedrooms/b${ property.room_style }_s.jpg" class="___" data-alt="property image" alt = ""
+						    `<img src="assets/images/bedrooms/b${ property.room_style }_s.jpg" class="___" data-alt="property image" alt = " "
 							 style="width:140px;height:70px;">
 							 <br><b><span class="text-capitalize">  ${ decodeURI ( property.location ) }</span></b>
 							
-							 <br> <span class="___" data-text="room :"></span>  ${ room_types[ property.room_type ] }
-							 <br><span class="___" data-text="view :"> </span> ${ views[ property.p_view ] }
+							 <br> <span class="___" data-text="room :"></span>
+							 <span class="___"
+							 data-text   = "${ room_types[ property.room_type ] }"
+							>
+							 
+							</span>
+							 <br><span class="___" data-text="view :"> </span> <span class="___" data-text="${ views[ property.p_view ] }"></span>
 		
 							 <a class="property_popup btn btn-sm bg_green_light ___"
 							  data-title="See more information about the room."
@@ -93,7 +98,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							  data-image_id="${ property.room_style }"
 							  data-text="more..."
 							  
-							  href="#" >more...</a> <span class="___" data-text="translation"></span>`;
+							  href="#" ><i class="fas fa-external-link-square-alt"></i></a> `;
 
 //			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html AND OPEN POPUP WITH HIS NEWLY CREATED ROOM
 					
@@ -148,6 +153,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 $ ( function ()
     {
 	    create_map ();
+	  
     } );
 
 //WHEN USER CLICKS ON show_on_map BUTTON WHEN PREVIEWING THE ROOM WE WILL
@@ -171,3 +177,4 @@ $ ( document ).on ( 'click', '.show_on_map', function ()
 	
 	translate();
 } );
+

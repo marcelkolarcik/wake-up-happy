@@ -9,7 +9,7 @@ export function featured_rooms ()
 		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 		
 		$ ( '#form_search_results' ).append (
-			` <div class = "img-thumbnail mt-3 border_green pl-3" >Featured properties</div >` );
+			` <div class = "img-thumbnail mt-3 border_green pl-3 ___" data-text="Featured properties" ></div >` );
 		var e       = 0;
 		var randoms = [];
 		

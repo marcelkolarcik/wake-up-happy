@@ -8,7 +8,7 @@
   "Coordinates : "
   : "Współrzędne:" ,
   "get details"
-  : "uzyskać szczegółowe informacje" ,
+  : "szczegółowe informacje" ,
   "Property Name"
   : "Nazwa właściwości" ,
   "Click on any image to enlarge it !"
@@ -151,7 +151,7 @@
   : "Opis Twojego pokoju" ,
   "Describe your room, make it attractive (min 30 - max 300 characters)"                                                                          : "Opisz swój pokój, spraw, aby był atrakcyjny (min. 30 - maks. 300 znaków)" ,
   "location"                                                                                                                                      : "Lokalizacja" ,
-  "room"                                                                                                                                          : "Pokój" ,
+  "room"                                                                                                                                          : "pokój" ,
   "services"                                                                                                                                      : "usługi" ,
   "preview"                                                                                                                                       : "zapowiedź" ,
   "payment"                                                                                                                                       : "Zapłata" ,
@@ -161,7 +161,7 @@
   "Full Name"                                                                                                                                     : "Pełne imię i nazwisko" ,
   "Email"                                                                                                                                         : "E-mail" ,
   "Password"                                                                                                                                      : "Hasło" ,
-  "Card Holder Name:"                                                                                                                             : "Imię właściciela karty:" ,
+  "Card Holder Name"                                                                                                                             : "Imię właściciela karty" ,
   "Card Number"                                                                                                                                   : "Numer karty" ,
   "CVV"                                                                                                                                           : "CVV" ,
   "Pay"                                                                                                                                           : "Zapłacić" ,
@@ -335,5 +335,14 @@
   "Define your services"                                                                                                                          : "Zdefiniuj swoje usługi" ,
   "Preview your work of art!"                                                                                                                     : "Wyświetl podgląd swojego dzieła sztuki!" ,
   "Payment"                                                                                                                                       : "Zapłata" ,
-  "Save your changes !"                                                                                                                           : "Zapisz zmiany!"
+  "Save your changes !"                                                                                                                           : "Zapisz zmiany!",
+  "click to get location details"                                                                                                                 : "kliknij, aby uzyskać szczegółowe informacje o lokalizacji",
+  ":view_type view"                                                                                                                               : "widok - :view_type" ,
+  ":room_type bedroom image"                                                                                                                      : "sypialna - :room_type" ,
+  "Select image your room will be displayed as."                                                                                                  : "Wybierz obraz, który będzie wyświetlany jako Twój pokój.",
+  ":board_type image": ":board_type obraz",
+  "Featured properties": "Polecane nieruchomości",
+  "week |week - |year booked already !":"tydzień |week - |year już zarezerwowany!",
+  "week |week - |year available !": "tydzień |week - |year dostępny!"
+  
 }

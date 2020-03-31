@@ -145,57 +145,108 @@
   : "complementary smart phone" ,
   "complementary BMW SUV"
   : "complementary BMW SUV" ,
-  "Write description of your room, min 30 - max 300 characters."                                                                                  : "Write description of your room, min 30 - max 300 characters." ,
-  "Your room description"                                                                                                                         : "Your room description" ,
-  "Describe your room, make it attractive (min 30 - max 300 characters)"                                                                          : "Describe your room, make it attractive (min 30 - max 300 characters)" ,
-  "location"                                                                                                                                      : "location" ,
-  "room"                                                                                                                                          : "room" ,
-  "services"                                                                                                                                      : "services" ,
-  "preview"                                                                                                                                       : "preview" ,
-  "payment"                                                                                                                                       : "payment" ,
-  "Please review these fields:"                                                                                                                   : "Please review these fields:" ,
-  "Payment details : 99 EUR per year + 9 % of each booking."                                                                                      : "Payment details : 99 EUR per year + 9 % of each booking." ,
-  "Total price"                                                                                                                                   : "Total price" ,
-  "Full Name"                                                                                                                                     : "Full Name" ,
-  "Email"                                                                                                                                         : "Email" ,
-  "Password"                                                                                                                                      : "Password" ,
-  "Card Holder Name:"                                                                                                                             : "Card Holder Name:" ,
-  "Card Number"                                                                                                                                   : "Card Number" ,
-  "CVV"                                                                                                                                           : "CVV" ,
-  "Pay"                                                                                                                                           : "Pay" ,
-  "Owner login"                                                                                                                                   : "Owner login" ,
-  "Login"                                                                                                                                         : "Login" ,
-  "Not registered yet?"                                                                                                                           : "Not registered yet?" ,
-  "No Problem!"                                                                                                                                   : "No Problem!" ,
-  "Just take the first step...."                                                                                                                  : "Just take the first step...." ,
-  "Right on this site !"                                                                                                                          : "Right on this site !" ,
-  "Add your room now!"                                                                                                                            : "Add your room now!" ,
-  "Select location of your property first !"                                                                                                      : "Select location of your property first !" ,
-  "ok"                                                                                                                                            : "ok" ,
-  "If you are already registered, check your login credentials, or CAPS Lock...;-)"                                                               : "If you are already registered, check your login credentials, or CAPS Lock...;-)" ,
-  "Oops..."                                                                                                                                       : "Oops..." ,
-  "Please, select board!"                                                                                                                         : "Please, select board!" ,
-  "Please,select at least one week!"                                                                                                              : "Please,select at least one week!" ,
-  "Your dates were blocked !"                                                                                                                     : "Your dates were blocked !" ,
-  "Week(s):"                                                                                                                                      : "Week(s):" ,
-  "Thank you for booking with us !"                                                                                                               : "Thank you for booking with us !" ,
-  "Name:"                                                                                                                                         : "Name:" ,
-  "Email:"                                                                                                                                        : "Email:" ,
-  "Room:"                                                                                                                                         : "Room:" ,
-  "Week:"                                                                                                                                         : "Week:" ,
-  "Total price:"                                                                                                                                  : "Total price:" ,
-  "address:"                                                                                                                                      : "address:" ,
-  "Request:"                                                                                                                                      : "Request:" ,
-  "save as PDF"                                                                                                                                   : "save as PDF" ,
-  "Reservation ID:"                                                                                                                               : "Reservation ID:" ,
-  "Dismiss"                                                                                                                                       : "Dismiss" ,
-  "Your room is not booked !"                                                                                                                     : "Your room is not booked !" ,
-  "How to:"                                                                                                                                       : "How to:" ,
-  "you are in editing mode"                                                                                                                       : "you are in editing mode" ,
-  "you are in preview mode"                                                                                                                       : "you are in preview mode" ,
-  "you are in add mode"                                                                                                                           : "you are in add mode" ,
-  "you are in block mode"                                                                                                                         : "you are in block mode" ,
-  "Click on"                                                                                                                                      : "Click on" ,
+  "Write description of your room, min 30 - max 300 characters."
+  : "Write description of your room, min 30 - max 300 characters." ,
+  "Your room description"
+  : "Your room description" ,
+  "Describe your room, make it attractive (min 30 - max 300 characters)"
+  : "Describe your room, make it attractive (min 30 - max 300 characters)" ,
+  "location"
+  : "location" ,
+  "room"
+  : "room" ,
+  "services"
+  : "services" ,
+  "preview"
+  : "preview" ,
+  "payment"
+  : "payment" ,
+  "Please review these fields:"
+  : "Please review these fields:" ,
+  "Payment details : 99 EUR per year + 9 % of each booking."
+  : "Payment details : 99 EUR per year + 9 % of each booking." ,
+  "Total price"
+  : "Total price" ,
+  "Full Name"
+  : "Full Name" ,
+  "Email"
+  : "Email" ,
+  "Password"
+  : "Password" ,
+  "Card Holder Name"
+  : "Card Holder Name" ,
+  "Card Number"
+  : "Card Number" ,
+  "CVV"
+  : "CVV" ,
+  "Pay"
+  : "Pay" ,
+  "Owner login"
+  : "Owner login" ,
+  "Login"
+  : "Login" ,
+  "Not registered yet?"
+  : "Not registered yet?" ,
+  "No Problem!"
+  : "No Problem!" ,
+  "Just take the first step...."
+  : "Just take the first step...." ,
+  "Right on this site !"
+  : "Right on this site !" ,
+  "Add your room now!"
+  : "Add your room now!" ,
+  "Select location of your property first !"
+  : "Select location of your property first !" ,
+  "ok"
+  : "ok" ,
+  "If you are already registered, check your login credentials, or CAPS Lock...;-)"
+  : "If you are already registered, check your login credentials, or CAPS Lock...;-)" ,
+  "Oops..."
+  : "Oops..." ,
+  "Please, select board!"
+  : "Please, select board!" ,
+  "Please,select at least one week!"
+  : "Please,select at least one week!" ,
+  "Your dates were blocked !"
+  : "Your dates were blocked !" ,
+  "Week(s):"
+  : "Week(s):" ,
+  "Thank you for booking with us !"
+  : "Thank you for booking with us !" ,
+  "Name:"
+  : "Name:" ,
+  "Email:"
+  : "Email:" ,
+  "Room:"
+  : "Room:" ,
+  "Week:"
+  : "Week:" ,
+  "Total price:"
+  : "Total price:" ,
+  "address:"
+  : "address:" ,
+  "Request:"
+  : "Request:" ,
+  "save as PDF"
+  : "save as PDF" ,
+  "Reservation ID:"
+  : "Reservation ID:" ,
+  "Dismiss"
+  : "Dismiss" ,
+  "Your room is not booked !"
+  : "Your room is not booked !" ,
+  "How to:"
+  : "How to:" ,
+  "you are in editing mode"
+  : "you are in editing mode" ,
+  "you are in preview mode"
+  : "you are in preview mode" ,
+  "you are in add mode"
+  : "you are in add mode" ,
+  "you are in block mode"
+  : "you are in block mode" ,
+  "Click on"
+  : "Click on" ,
   "button, if you would like to edit your room."                                                                                                  : "button, if you would like to edit your room." ,
   "OK, got it !"                                                                                                                                  : "OK, got it !" ,
   "By clicking on"                                                                                                                                : "By clicking on" ,
@@ -333,5 +384,14 @@
   "Define your services"                                                                                                                          : "Define your services" ,
   "Preview your work of art!"                                                                                                                     : "Preview your work of art!" ,
   "Payment"                                                                                                                                       : "Payment" ,
-  "Save your changes !"                                                                                                                           : "Save your changes !"
+  "Save your changes !"                                                                                                                           : "Save your changes !" ,
+  "click to get location details"                                                                                                                 : "click to get location details" ,
+  ":view_type view"                                                                                                                               :  ":view_type view" ,
+  ":room_type bedroom image"                                                                                                                      : ":room_type bedroom image",
+  "Select image your room will be displayed as."                                                                                                  : "Select image your room will be displayed as.",
+  ":board_type image": ":board_type image",
+  "Featured properties": "Featured properties",
+  "week |week - |year booked already !": "week |week - |year booked already !",
+  "week |week - |year available !": "week |week - |year available !"
+  
 }

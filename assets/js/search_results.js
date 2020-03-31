@@ -131,7 +131,7 @@ import { featured_rooms }      from './featured_rooms.js';
 			else
 				{
 					form_search_results.prepend (
-						` <div class = "img-thumbnail mt-3 border_green pl-3" >Search results: ${ results }</div >` );
+						` <div class = "img-thumbnail mt-3 border_green pl-3" >á ${ results }</div >` );
 				}
 			
 		} );

@@ -70,14 +70,14 @@
 		        emailjs.init ( "user_u9DHLEY5pqVNI1dVmPDg6" );
 	        } ) ();
     </script >
-    <title >Wake up happy !</title >
+    <title data-text = "Wake up happy !"></title >
 </head >
 <body >
 <header >
 </header >
 
 <section
-		id = "navigation" class="nave"
+		class = "nave" id = "navigation"
 
 >
     <!--nav_background WITH BACKGROUND IMAGE IN CSS-->
@@ -114,17 +114,17 @@
                     <!--LOGO OF THE SITE DISPLAYING DOWN TO 768 PX-->
                     <img
 		                    alt = "logo image"
-		                    class = "d-none d-sm-block "
+		                    class = "d-none d-sm-block ___"
+		                    data-title = "wake up happy | rooms with the view"
 		                    src = "assets/images/logo_sm.png"
-		                    title = "wake up happy | rooms with the view"
                     >
 
                     <!--LOGO OF THE SITE FOR MOBILE DEVICES DISPLAYING FROM 768 PX DOWN-->
                     <img
 		                    alt = "logo image"
-		                    class = "d-sm-none"
+		                    class = "d-sm-none ___"
+		                    data-title = "wake up happy | rooms with the view"
 		                    src = "assets/images/logo_xs.png"
-		                    title = "wake up happy | rooms with the view"
                     >
                 </a >
                 <button
@@ -136,7 +136,7 @@
 		                data-toggle = "collapse"
 		                type = "button"
                 >
-                    <span class = "small_menu">Menu</span >
+                    <span class = "small_menu ___" data-text = "Menu"></span >
                     <br >
                     <span class = "navbar-toggler-icon"></span >
                 </button >
@@ -144,95 +144,22 @@
 		                class = "collapse navbar-collapse"
 		                id = "logo_cont"
                 >
-                    <ul class = "navbar-nav mr-auto ">
+                    <ul class = "navbar-nav mr-auto "  >
                     </ul >
-                    <ul class = "navbar-nav ">
+                    <ul class = "navbar-nav " id="dropdowns">
                         <!--ADD YOUR ROOM LINK-->
                         <li id = "add_room">
                             <a
-		                            class = "nav_link text-light mr-3 add_your_room"
+		                            class = "nav_link text-light mr-3 add_your_room ___"
+		                            data-text = "owner?"
+		                            data-title = "Add your room now!"
 		                            href = "owner.html"
-		                            title = "Add your room"
                             >
-                                owner?
+
                             </a >
                         </li >
-                        <!--DROPDOWN FOR LANGUAGES-->
-                         <li
-		                         class = "nav-item dropdown  mr-3"
-		                         id = "languages"
-                         >
-        <a
-		        aria-expanded = "false"
-		        aria-haspopup = "true"
-		        class = "nav-link dropdown-toggle ___"
-		        data-toggle = "dropdown"
-		        href = "#"
-		        id = "language_flag"
-        >
-              <img
-		              alt = " "
-		              class = "___"
-		              data-alt = "english flag image"
-		              src = "assets/images/flags/en_sm.png"
-              ></a >
-        <div
-		        aria-labelledby = "language_flag"
-		        class = "dropdown-menu"
-        >
-          <a
-		          class = "dropdown-item language ___"
-		          data-language = "en"
-		          data-title = "switch to english"
-		          href = "#"
-          >
-            <img
-		            alt = " "
-		            data-alt = "english flag image"
-		            src = "assets/images/flags/en_sm.png"
-            >
-            &nbsp;english</a >
-    <a
-		    class = "dropdown-item language ___"
-		    data-language = "sk"
-		    data-title = "switch to slovak"
-		    href = "#"
-    >
-        <img
-		        alt = " "
-		        data-alt = "slovak flag image"
-		        src = "assets/images/flags/sk_sm.png"
-        >
-       &nbsp;slovak</a >
-    <a
-		    class = "dropdown-item language ___"
-		    data-language = "es"
-		    data-title = "switch to spanish"
-		    href = "#"
-    >
-       <img
-		       alt = ""
-		       data-alt = "spanish flag image"
-		       src = "assets/images/flags/es_sm.png"
-       >
 
-       &nbsp;espanyol</a >
 
-             <a
-		             class = "dropdown-item language ___"
-		             data-language = "pl"
-		             data-title = "switch to polish"
-		             href = "#"
-             >
-       <img
-		       alt = ""
-		       data-alt = "polish flag image"
-		       src = "assets/images/flags/pl_sm.png"
-       >
-
-       &nbsp;polish</a >
-        </div >
-      </li >
 
                         <!--DROPDOWN FOR USER, DIFFERENT CONTENT FOR LOGGED IN AND NOT LOGGED IN USER
                         navigation.js-->
@@ -241,6 +168,16 @@
 		                        id = "user"
                         >
                         </li >
+
+
+                        <!--DROPDOWN FOR LANGUAGES RENDERED BY render_language_dropdown.js-->
+
+
+	                     <li
+			                     class = "nav-item dropdown  mr-3"
+			                     id = "languages"
+	                     >
+	                      </li >
                     </ul >
                 </div >
             </nav >
@@ -274,29 +211,34 @@
             
             <!--CLOSE INFO DIV PER VIEW-->
             <span
-		            class = "btn btn-sm text-danger float-right btn-warning mr-2 close_div"
+		            class = "btn btn-sm text-danger float-right btn-warning mr-2 close_div ___"
 		            data-div = "initial_locations"
 		            data-per = "view"
+		            data-text = "x"
+		            data-title = "Close it for now."
 		            id = "close"
-            >x
+            >
             </span >
 
             <!--CLOSE INFO DIV PER SESSION-->
             <span
-		            class = "close_div"
+		            class = "close_div ___"
 		            data-div = "initial_locations"
 		            data-per = "session"
+		            data-text = "Don't show again"
+		            data-title = "Don't show again"
 		            id = "dont_show_again"
-            >don't show again
+            >
             </span >
         </div >
         <p >
-            Initial locations are
+	        <span class = "___" data-text = "Initial locations are"></span >
+
             <span class = "nav_link_property">
                 Cork, Dublin, Limerick, Yaiza, Miami-dade county, West palm beach,
             </span >
-            they will update with new rooms added
-            in different locations
+	        <span class = "___" data-text = "they will update with new rooms added in different locations"></span >
+
         </p >
     </div >
 </div >
@@ -319,9 +261,10 @@
 		                                id = "city_div"
                                 >
                                     <label
-		                                    class = "sr-only"
+		                                    class = "sr-only ___"
+		                                    data-text = "Location"
 		                                    for = "location"
-                                    > Location</label >
+                                    > </label >
                                     <div class = "input-group mb-2">
                                         <div class = "input-group-prepend">
                                             <div class = "input-group-text bg-transparent border_bottom_only">
@@ -329,11 +272,11 @@
                                             </div >
                                         </div >
                                         <input
-		                                        class = "form-control form-control-lg border_bottom_only add_initial_locations"
+		                                        class = "form-control form-control-lg border_bottom_only add_initial_locations ___"
 		                                        data-add_in_lo = "true"
+		                                        data-placeholder = "Location"
 		                                        id = "location"
 		                                        name = "location"
-		                                        placeholder = "&nbsp;Location"
 		                                        required
 		                                        type = "text"
                                         >
@@ -351,19 +294,21 @@
                                     </div >
                                     <label for = "room_type"></label >
                                     <select
-		                                    class = "room_type form-control form-control-lg border_bottom_only add_initial_locations"
+		                                    class = "room_type form-control form-control-lg border_bottom_only add_initial_locations ___"
 		                                    data-add_in_lo = "false"
+		                                    data-title = "Room type"
 		                                    id = "room_type"
 		                                    name = "room_type"
 		                                    required
-		                                    title = "Room type"
                                     >
                                         <option
+		                                        class = "___"
+		                                        data-text = "Room type (any)"
 		                                        selected
 		                                        value = "any"
-                                        >Room type (any)</option >
-                                        <option value = "0">Single ( En Suite )</option >
-                                        <option value = "1">Double ( En Suite )</option >
+                                        ></option >
+                                        <option class = "___" data-text = "Single ( En Suite )" value = "0"></option >
+                                        <option class = "___" data-text = "Double ( En Suite )" value = "1"></option >
                                     </select >
                                 </div >
                             </div >
@@ -379,21 +324,23 @@
                                     </div >
                                     <label for = "board_type"></label >
                                     <select
-		                                    class = "board_type form-control form-control-lg border_bottom_only add_initial_locations"
+		                                    class = "board_type form-control form-control-lg border_bottom_only add_initial_locations ___"
 		                                    data-add_in_lo = "false"
+		                                    data-title = "Board type"
 		                                    id = "board_type"
 		                                    name = "board_type"
 		                                    required
-		                                    title = "Board type"
                                     >
                                         <option
+		                                        class = "___"
+		                                        data-text = "Board type (any)"
 		                                        selected
 		                                        value = "any"
-                                        >Board type (any)</option >
-                                        <option value = "0">Room only</option >
-                                        <option value = "1">Bed & Breakfast</option >
-                                        <option value = "2">Breakfast & Dinner</option >
-                                        <option value = "3">All inclusive</option >
+                                        ></option >
+                                        <option class = "___" data-text = "Room only" value = "0"></option >
+                                        <option class = "___" data-text = "Bed & Breakfast" value = "1"></option >
+                                        <option class = "___" data-text = "Breakfast & Dinner" value = "2"></option >
+                                        <option class = "___" data-text = "All inclusive" value = "3"></option >
                                     </select >
                                 </div >
                             </div >
@@ -401,12 +348,12 @@
 	                        <!--SEARCH BUTTON-->
                             <div class = "text-right">
                                 <button
-		                                class = "btn  btn-lg bg_green text-light add_initial_locations"
+		                                class = "btn  btn-lg bg_green text-light add_initial_locations ___"
 		                                data-add_in_lo = "false"
+		                                data-title = "Search for your property"
 		                                id = "search_btn"
-		                                title = "Search for your property"
                                 >
-                                    <span >Search</span >
+                                    <span class = "___" data-text = "Search"></span >
                                 </button >
                             </div >
                         </div >
@@ -470,7 +417,8 @@
         </a ></li >
     </ul >
     <div class = "text-center">
-        <p >&copy; Copyright <em >Marcel Kolarcik</em ></p >
+      <span>&copy;</span>  <span class="___" data-text="Copyright" >  </span >
+	    <em ><span>Marcel Kolarcik</span></em >
     </div >
 </footer >
 
@@ -513,7 +461,7 @@
 ></script >
 
 	<!--APP JS FILES => TO DO : USE WEBPACK TO COMPILE THEM INTO ONE FILE-->
-<script src = "assets/js/booking_helpers.js"></script >
+<script src = "assets/js/booking_helpers.js" ></script >
 <script src = "assets/js/getWeek.js"></script >
 <script
 		src = "assets/js/create_DB.js"
@@ -536,11 +484,12 @@
 		src = "assets/js/open_maps/create_map.js"
 		type = "module"
 ></script >
-<script src = "assets/js/authorizations.js"></script >
+<script src = "assets/js/authorizations.js" type = "module"></script >
 <script src = "assets/js/navigation.js"></script >
 <script src = "assets/js/room_actions.js" type = "module"></script >
 <script src = "assets/js/close_div.js"></script >
-
+<script src = "assets/js/render_language_dropdown.js"></script >
+<script src = "assets/js/translate.js" type = "module"></script >
 <script
 		src = "assets/js/translator/translator.js"
 		type = "module"

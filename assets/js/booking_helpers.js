@@ -48,6 +48,12 @@
  * BY CLICKING ON RADIO BUTTON ON AVAILABILITY TAB IN ROOM PREVIEW
  * WE WILL RECALCULATE TOTAL PRICE OF BOOKING BASED ON BOARD PRICE AND
  * NUMBER OF WEEKS SELECTED , */
+
+
+
+
+
+
 ( function ()
 	{
 		var to_be_booked_room_ids = [];
@@ -56,6 +62,11 @@
 		{
 			var p_id  = $ ( this ).data ( 'p_id' );
 			var index = $ ( this ).data ( 'index' );
+			
+			/*REMOVING CLASS .need_translation FROM WEEKS RENDERED FOR THIS PROPERTY
+			* IN BOOKING CALENDAR, BECAUSE, WE DON'T NEED TO TRANSLATE ALERT
+			* ABOUT SELECTING BOARD FIRST, BECAUSE USER JUST SELECTED THE BOARD*/
+			$("#bookings_" + p_id).children().removeClass('need_translation');
 			
 			/*COLLECTING to_be_booked_room_ids FOR CHECK*/
 			to_be_booked_room_ids.push ( p_id );
@@ -128,11 +139,12 @@
 						$ ( '#boards_' + p_id ).addClass ( 'border border-danger' );
 						swal.fire ( {
 							           
-							            html : `<h4>Oops...</h4>
+							            html : `<h4 class="___" data-text="Oops..."></h4>
 										<div class = "col-auto" >
 									   
 									    <hr class = "bg_green" >
-									    Please, select board! <br ><br >
+									    <span class="___" data-text="Please, select board!"></span>
+									     <br ><br >
 									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
 									       onclick = "swal.close()"
 									       > ok </a ></div>`,
@@ -140,6 +152,8 @@
 							            showConfirmButton : false
 							
 						            } );
+						
+						
 						return;
 					}
 				
@@ -159,7 +173,9 @@
 						
 						/*UPDATING num_of_selected_weeks*/
 						sessionStorage.num_of_selected_weeks++;
-
+						
+						
+						
 //					UPDATING COLOR OF SELECTED WEEK
 						$ ( this ).removeClass ( 'bg_green' ).addClass ( 'text-secondary selected' );
 
@@ -263,7 +279,8 @@ function check_current_room ( to_be_booked_room_ids )
  
  
  */
-function sendMail ( contactForm, p_id, room_style )
+
+ function process_booking ( contactForm, p_id, room_style )
 	{
 		confirm_payment ( "SUCCESS", p_id, contactForm, room_style );
 		
@@ -288,25 +305,29 @@ function sendMail ( contactForm, p_id, room_style )
 		return false;  // To block from loading a new page
 	}
 
-
+function parse_to_int ( num )
+	{
+		return parseInt ( num );
+	}
 /*PAYMENT CONFIRMATION  POPUP
  ONCE USER PAYS FOR THE BOOKING, WE WILL FIRE CONFIRMATION ALERT, WITH OPTION
  TO SAVE THIS CONFIRMATION LOCALLY*/
 function confirm_payment ( status, p_id, contactForm, room_style )
 	{
-		
-		
+
+		/*IF USER DIDN'T SELECT ANY WEEKS TO BOOK WE WILL ALERT HIM ABOUT IT*/
 		if ( contactForm.weeks.value === '' || contactForm.total_price.value === '' )
 			{
 			
 				
 				swal.fire ( {
 					
-					            html : `<h4>Oops...</h4>
+					            html : `<h4 class="___" data-text="Oops..."></h4>
 										<div class = "col-auto" >
 									   
 									    <hr class = "bg_green" >
-									    Please,select at least one week! <br ><br >
+									    <span class="___" data-text=" Please,select at least one week!"></span>
+									    <br ><br >
 									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
 									       onclick = "swal.close()"
 									       > ok </a ></div>`,
@@ -314,9 +335,12 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 					            showConfirmButton : false
 					
 				            } );
+				
 			}
 		else
 			{
+				/*IF USER SELECTED WEEKS AND BOARD WE WILL ALERT HIM WITH SUCCESS
+				* AND GIVE HIM OPTION TO SAVE RESERVATION TO HIS DEVICE*/
 				if ( status === 'SUCCESS' )
 					{
 						
@@ -329,10 +353,7 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 						var current_bookings   = current_bookings_s.map ( parse_to_int );
 						
 						
-						function parse_to_int ( num )
-							{
-								return parseInt ( num );
-							}
+					
 						
 						
 						var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
@@ -350,9 +371,10 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 							{
 								swal.fire ( {
 									            html              : ` <div >
-									 <p class="card-title nav_link_property">Your dates were blocked !</p>
+									 <p class="card-title nav_link_property ___" data-text="Your dates were blocked !"></p>
 									 <hr >
-									 <span class="nav_link_property">Week(s): ${ contactForm.weeks.value }</span>
+									 <span class="___" data-text="Week(s):"></span>
+									 <span class="nav_link_property"> ${ contactForm.weeks.value }</span>
 									  <hr >
 									<a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
 							 </div>`,
@@ -372,46 +394,47 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 							
 							 <img src="assets/images/bedrooms/b${ room_style }.jpg" class="card-img-top" alt="property image">
 							 <div class="card-body">
-									 <p class="card-title nav_link_property">Thank you for booking with us !</p>
+									 <p class="card-title nav_link_property ___" data-text="Thank you for booking with us !"></p>
 									 <table class="table table-sm">
 									
 									 	<tr>
-									 		<td> <span class="nav_link_property">Name:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Name:"></span></td>
 									 		<td><span>${ contactForm.name.value }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property">Email:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Email:"></span></td>
 									 		<td><span>${ contactForm.email_of_user.value }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property">Room:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Room:"></span></td>
 									 		<td><span>${ contactForm.room_details.value }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property">Week:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Week:"></span></td>
 									 		<td><span>${ contactForm.weeks.value }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property">Total price:</span></td>
-									 		<td><span>${ contactForm.total_price.value } EUR</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Total price:"></span></td>
+									 		<td><span>${ contactForm.total_price.value } </span> <span>EUR</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property">address:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="address:"></span></td>
 									 		<td><small>${ contactForm.form_address.value }</small></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property">Request:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Request:"></span></td>
 									 		<td><span>${ contactForm.request_of_property.value }</span></td>
 										</tr>
 									</table>
 									
 									
-									  <span class="btn btn-sm bg_green_light d-print-none " onclick="window.print()">save as PDF</span>
+									  <span class="btn btn-sm bg_green_light d-print-none ___" onclick="window.print()" data-text="save as PDF"></span>
 									  <div class="card-footer bg-transparent pb-0 mb-0">
-										    Reservation ID: ${ Math.random ().toString ( 36 ).substr ( 2, 10 ) }<br >
+									  <span class="___" data-text="Reservation ID:"></span>
+										     ${ Math.random ().toString ( 36 ).substr ( 2, 10 ) }<br >
 										  
 										    
-										      <a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
+										      <a class="btn btn-sm border_green d-print-none mb-3 ___" href=""  data-title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
 										     
 											
 										</div>
@@ -427,16 +450,18 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 						
 						
 					}
+					/*IF THERE IS AN ERROR */
 				else if ( status === 'FAILED' )
 					{
 						
 						
 						swal.fire ( {
 							            html              : ` <div >
-                                    <h4>Whoops !</h4>
-									 <p class="card-title nav_link_property">Your room is not booked !</p>
+                                    <h4 class="___" data-text="Whoops !"></h4>
+									 <p class="card-title nav_link_property ___" data-text="Your room is not booked !"></p>
 									 <hr class="bg-danger">
-									 <span class="nav_link_property">Week(s): ${ contactForm.weeks.value }</span>
+									 <span class="___" data-text="Week(s):"></span>
+									 <span class="nav_link_property"> ${ contactForm.weeks.value }</span>
 									   <hr class="bg-danger">
 									 <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
 									       onclick = "swal.close()"
@@ -447,4 +472,6 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 						
 					}
 			}
+		
+		
 	}
