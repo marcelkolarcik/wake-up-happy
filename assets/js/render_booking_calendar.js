@@ -113,10 +113,15 @@ export function render_booking_calendar ( property )
 			
 				 <input id = "${ index }" name = "board" type = "radio" value = "${ value }"  class="board_type"
 				  		data-p_id="${ property.p_id }" data-index="${ index }"	>
-                 <label for = "${ index }"  class="nav_link_property board p-2 ___" data-text="${ board_types[ index ] }"> :</label ><span class="nav_link_property"> ${ value } EUR</span>
+                 <label for = "${ index }"
+                 class="nav_link_property board p-2 ___"
+                 data-text="${ board_types[ index ] }"> :</label >
+                 <span class="nav_link_property"> ${ value } EUR</span>
 			
 	` );
 		} );
+		
+		boards.append ( `<span class="bg-danger text-light  float-right" id="preview_total_price_${ property.p_id }"></span>` );
 		
 	}
 

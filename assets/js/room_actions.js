@@ -68,17 +68,23 @@ $ ( function ()
 				var room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 				
 				
-				Swal.fire ( {
-					            title              : `Delete ${ room.p_address.property_name } ?`,
-					            text               : "You won't be able to revert this!",
-					            imageUrl           : `assets/images/bedrooms/b${ room.room_style }.jpg`,
-					            imageWidth         : 400,
-					            imageHeight        : 200,
-					            imageAlt           : 'Custom image',
+				Swal.fire ( {   html : ` <div class = "col-md-9 text-center" >
+				                            <h4 class="___" data-text="Delete |room_name ?"
+				                            data-room_name="${ room.p_address.property_name }">
+				                            
+											</h4>
+										    <img src="assets/images/bedrooms/b${ room.room_style }.jpg" class="card-img-top" alt="room image">
+										    <hr class="bg-danger">
+										    <p class="___" data-text="You won't be able to revert this!"></p>
+										    <hr class="bg-danger">
+						 	
+										</div>`,
+					           
 					            showCancelButton   : true,
-					            confirmButtonColor : '#3085d6',
+					            confirmButtonColor : '#0fbeba',
 					            cancelButtonColor  : '#dd3333',
-					            confirmButtonText  : `Yes, delete ${ room.p_address.property_name } !`
+					            confirmButtonText  : `<i class="fas fa-check-circle"></i>`,
+					            cancelButtonText  : `<i class="fas fa-times-circle"></i>`
 				            } ).then ( ( result ) =>
 				                       {
 					
@@ -290,27 +296,29 @@ function append_room_actions ()
                         
                           ${ JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_address.property_name }</button >
                           
-                      <button class = "  mb-1 no_padding ${ sessionStorage.getItem ( 'preview_mode' ) === null
+                      <button class = "___  mb-1 no_padding ${ sessionStorage.getItem ( 'preview_mode' ) === null
 		                                                    ? 'bg-secondary text-light' : 'bg_green text-light' }  " id="preview_mode"
                         
-                         title="Preview mode" ><i class="far fa-eye"></i> Preview</button >
+                         data-title="Preview mode" ><i class="far fa-eye"></i> <span class="___" data-text="Preview"></span> </button >
                          
                       <button class = " mb-1  no_padding ${ sessionStorage.getItem ( 'edit_mode' ) === null
 		                                                    ? 'bg-secondary text-light' : 'bg_green text-light' } " id="edit_mode"
                         
-                         title="Edit mode" ><i class="far fa-edit"></i> Edit</button >
+                         title="Edit mode" ><i class="far fa-edit"></i><span class="___" data-text="Edit"></span> </button >
                        
                          
-                          <button class = "  mb-1 no_padding ${ sessionStorage.getItem ( 'delete_mode' ) === null
+                          <button class = " need_translation mb-1 no_padding ${ sessionStorage.getItem ( 'delete_mode' ) === null
 		                                                        ? 'bg-secondary text-light' : 'bg_green text-light' } " id="delete_mode"
                         
                          title="Delete mode" data-room_id="${ JSON.parse (
-			               sessionStorage.getItem ( 'authorized_owner' ) ).room_id }"><i class="far fa-trash-alt"></i> Delete</button >
+			               sessionStorage.getItem ( 'authorized_owner' ) ).room_id }"><i class="far fa-trash-alt"></i><span class="___" data-text="Delete"></span> </button >
+                         
+                         
                          <button class = " mb-1 no_padding ${ sessionStorage.getItem ( 'block_mode' ) === null
 		                                                      ? 'bg-secondary text-light' : 'bg_green text-light' } "
                          id="block_mode" data-step="block_mode"
                         
-                         title="Block dates" ><i class="far fa-plus-square"></i> Block dates</button >
+                         title="Block dates" ><i class="far fa-plus-square"></i><span class="___" data-text="Block Dates"></span> </button >
 
 						` : `` }
  					
@@ -321,7 +329,7 @@ function append_room_actions ()
 		                                                                          : 'bg_green text-light' }"
                            id="add_mode"
                         
-                         title="Add new room" ><i class="far fa-plus-square"></i> Add new room</button >
+                         title="Add new room" ><i class="far fa-plus-square"></i> <span class="___" data-text="Add new room"></span></button >
                          
                         </div>
                         <div   >

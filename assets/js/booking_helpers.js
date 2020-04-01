@@ -50,8 +50,7 @@
  * NUMBER OF WEEKS SELECTED , */
 
 
-
-
+import { translate } from "./translator/translator.js";
 
 
 ( function ()
@@ -64,9 +63,9 @@
 			var index = $ ( this ).data ( 'index' );
 			
 			/*REMOVING CLASS .need_translation FROM WEEKS RENDERED FOR THIS PROPERTY
-			* IN BOOKING CALENDAR, BECAUSE, WE DON'T NEED TO TRANSLATE ALERT
-			* ABOUT SELECTING BOARD FIRST, BECAUSE USER JUST SELECTED THE BOARD*/
-			$("#bookings_" + p_id).children().removeClass('need_translation');
+			 * IN BOOKING CALENDAR, BECAUSE, WE DON'T NEED TO TRANSLATE ALERT
+			 * ABOUT SELECTING BOARD FIRST, BECAUSE USER JUST SELECTED THE BOARD*/
+			$ ( "#bookings_" + p_id ).children ().removeClass ( 'need_translation' );
 			
 			/*COLLECTING to_be_booked_room_ids FOR CHECK*/
 			to_be_booked_room_ids.push ( p_id );
@@ -138,12 +137,12 @@
 					{
 						$ ( '#boards_' + p_id ).addClass ( 'border border-danger' );
 						swal.fire ( {
-							           
-							            html : `<h4 class="___" data-text="Oops..."></h4>
+							
+							            html : `<h4 class="___" data-text="Oops...">Oops...</h4>
 										<div class = "col-auto" >
 									   
 									    <hr class = "bg_green" >
-									    <span class="___" data-text="Please, select board!"></span>
+									    <span class="___" data-text="Please, select board!">Please, select board!</span>
 									     <br ><br >
 									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
 									       onclick = "swal.close()"
@@ -153,15 +152,21 @@
 							
 						            } );
 						
+						translate();
 						
+						/*BECAUSE OTHERWISE, SCRIPT WOULD RUN AND
+						 * TOTAL PRICE WOULD BE => 1 * price_per_week
+						 * BUT USER DIDN'T SELECT THE BOARD YET,
+						 * SO TOTAL PRICE MUST BE 0 => return;*/
 						return;
 					}
 				
 				var selected_week  = $ ( this ).data ( 'week' ).toString ();
 				var price_per_week = $ ( this ).data ( 'price' ).toString ();
 				
-				var weeks       = $ ( "#weeks_" + p_id );
-				var total_price = $ ( "#total_price_" + p_id );
+				var weeks            = $ ( "#weeks_" + p_id );
+				var total_price      = $ ( "#total_price_" + p_id );
+				var total_price_show = $ ( "#preview_total_price_" + p_id );
 				
 				/*IF WEEK ON BOOKING CALENDAR IS NOT SELECTED YET, WE WILL ADD IT
 				 * TO BOOKING FORM , RECALCULATE TOTAL PRICE, CHANGE COLOR OF SELECTED WEEK*/
@@ -173,19 +178,20 @@
 						
 						/*UPDATING num_of_selected_weeks*/
 						sessionStorage.num_of_selected_weeks++;
-						
-						
-						
+
+
 //					UPDATING COLOR OF SELECTED WEEK
 						$ ( this ).removeClass ( 'bg_green' ).addClass ( 'text-secondary selected' );
 
 //						AND TOTAL PRICE FOR THE BOOKING
 						total_price.val ( ( sessionStorage.num_of_selected_weeks ) * price_per_week );
 						
-						
+						$ ( '#book_btn' + p_id ).addClass ( 'bg-danger text-light' );
 					}
 				else
 					{
+						
+						
 						/*BECAUSE IF USER CLICKS ON THE SAME WEEK AGAIN, WE NEED TO , DESELECT IT AND RECALCULATE TOTAL PRICE
 						 * AND REMOVE THIS WEEK FROM BOOKING FORM*/
 						
@@ -209,6 +215,15 @@
 						/*UPDATING num_of_selected_weeks*/
 						sessionStorage.num_of_selected_weeks--;
 						
+						/*NEED TO WRAP 0 IN  QUOTES '' BECAUSE,IT'S COMING FROM THE LOCAL STORAGE AS STRING
+						 *
+						 * REMOVING BACKGROUND COLOR OF BOOK BUTTON
+						 * WHEN USER DESELECTS ALL WEEKS*/
+						if ( sessionStorage.num_of_selected_weeks === '0' )
+							{
+								$ ( '#book_btn' + p_id ).removeClass ( 'bg-danger text-light' );
+								total_price_show.removeClass ( 'bg-danger text-light p-1' );
+							}
 						
 					}
 				
@@ -224,7 +239,7 @@
 				if ( weeks.val ().charAt ( 0 ) === '-' ) weeks.val ( weeks.val ().substring ( 1 ) );
 
 //			FEEDBACK TO USER ON BOOKING CALENDAR ABOUT THE TOTAL PRICE FOR THE BOOKING
-				$ ( "#preview_total_price_" + p_id ).html ( total_price.val () + " EUR" );
+				total_price_show.html ( total_price.val () + " EUR" ).addClass ( 'bg-danger text-light p-1' );
 				
 				
 			} );
@@ -253,10 +268,11 @@ function check_current_room ( to_be_booked_room_ids )
 				
 				week.removeClass ( 'text-secondary selected' ).addClass ( 'bg_green' );
 				
-				$ ( "#preview_total_price_" + previous_room_id ).html ( '' );
+				$ ( "#preview_total_price_" + previous_room_id ).html ( '' ).removeClass ( 'p-1' );
 				$ ( "#total_price_" + previous_room_id ).val ( '' );
 				$ ( "#weeks_" + previous_room_id ).val ( '' );
 				$ ( "#board" + previous_room_id ).val ( '' );
+				$ ( '#book_btn' + previous_room_id ).removeClass ( 'bg-danger text-light' );
 				sessionStorage.num_of_selected_weeks = 0;
 				
 				week.data ( 'board_selected_' + previous_room_id, false );
@@ -279,8 +295,50 @@ function check_current_room ( to_be_booked_room_ids )
  
  
  */
+$ ( document ).on ( 'click', '.pay_for_booking', function ()
+{
+	var room_id           = $ ( this ).data ( 'room_id' );
+	var contact_form      = $ ( '#bookings' + room_id ).serialize ();
+	var contactForm_array = contact_form.split ( '&' );
+	var contactForm       = {};
+	
+	/*INITIALLY WE SET status TO SUCCESS
+	* IF, WE HAVE EMPTY FIELDS => status = FAILED*/
+	var status            = 'SUCCESS';
+	var missing_fields    = [];
+	
+	/*CHECK FOR EMPTY FIELDS...*/
+	$.each ( contactForm_array, function ( index, value )
+	{
+		
+		var split_value                 = decodeURIComponent ( value ).split ( '=' );
+		
+		contactForm[ split_value[ 0 ] ] = split_value[ 1 ];
+		
+		if ( split_value[ 1 ] === '' )
+			{
+				/*IF WE HAVE AT LEAST ONE EMPTY
+				* REQUIRED FIELD, WE WILL FAIL BOOKING*/
+				status = 'FAILED';
+				
+				/*request_of_property IS NOT REQUIRED
+				 * OTHERWISE ALL OTHER FIELDS ARE REQUIRED
+				 * AND IF WE MISS ANY OF THE REQUIRED
+				 * FIELD, WE WILL COLLECT THEM AND
+				 * NOTIFY CUSTOMER, THAT HE NEEDS TO
+				 * COMPLETE BOOKING FORM*/
+				if ( split_value[ 0 ] !== "request_of_property" )
+					missing_fields.push ( split_value[ 0 ] );
+			}
+		
+	} );
+	
+	
+	confirm_payment ( status, room_id, contactForm, missing_fields );
+} );
 
- function process_booking ( contactForm, p_id, room_style )
+
+function process_booking ( contactForm, p_id, room_style )
 	{
 		confirm_payment ( "SUCCESS", p_id, contactForm, room_style );
 		
@@ -312,40 +370,17 @@ function parse_to_int ( num )
 /*PAYMENT CONFIRMATION  POPUP
  ONCE USER PAYS FOR THE BOOKING, WE WILL FIRE CONFIRMATION ALERT, WITH OPTION
  TO SAVE THIS CONFIRMATION LOCALLY*/
-function confirm_payment ( status, p_id, contactForm, room_style )
+function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 	{
-
-		/*IF USER DIDN'T SELECT ANY WEEKS TO BOOK WE WILL ALERT HIM ABOUT IT*/
-		if ( contactForm.weeks.value === '' || contactForm.total_price.value === '' )
-			{
-			
-				
-				swal.fire ( {
-					
-					            html : `<h4 class="___" data-text="Oops..."></h4>
-										<div class = "col-auto" >
-									   
-									    <hr class = "bg_green" >
-									    <span class="___" data-text=" Please,select at least one week!"></span>
-									    <br ><br >
-									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
-									       onclick = "swal.close()"
-									       > ok </a ></div>`,
-					
-					            showConfirmButton : false
-					
-				            } );
-				
-			}
-		else
-			{
+		
+		
 				/*IF USER SELECTED WEEKS AND BOARD WE WILL ALERT HIM WITH SUCCESS
-				* AND GIVE HIM OPTION TO SAVE RESERVATION TO HIS DEVICE*/
+				 * AND GIVE HIM OPTION TO SAVE RESERVATION TO HIS DEVICE*/
 				if ( status === 'SUCCESS' )
 					{
 						
 						
-						var booked_weeks = contactForm.weeks.value;
+						var booked_weeks = contactForm.weeks;
 						if ( booked_weeks.charAt ( 0 ) === '-' ) booked_weeks = booked_weeks.substr ( 1 );
 						
 						var current_bookings_s = booked_weeks.split ( '-' );
@@ -353,11 +388,20 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 						var current_bookings   = current_bookings_s.map ( parse_to_int );
 						
 						
-					
+						
 						
 						
 						var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 						var room  = ROOMS[ p_id ];
+						
+						/*ADDING ADDRESS OF THE ROOM TO CONFIRMATION ALERT*/
+						var address = '';
+						
+						$.each ( room.p_address, function ( key, value )
+						{
+							address += value + ', ';
+						} );
+
 
 //			ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
 						room.bookings = room.bookings.concat ( current_bookings );
@@ -374,7 +418,7 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 									 <p class="card-title nav_link_property ___" data-text="Your dates were blocked !"></p>
 									 <hr >
 									 <span class="___" data-text="Week(s):"></span>
-									 <span class="nav_link_property"> ${ contactForm.weeks.value }</span>
+									 <span class="nav_link_property"> ${ contactForm.weeks }</span>
 									  <hr >
 									<a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
 							 </div>`,
@@ -384,6 +428,7 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 //			IF USER BOOKED A ROOM WE WILL FIRE THIS ALERT
 						else
 							{
+								
 								swal.fire ( {
 									            html :
 										            `<div class="card horizontally_aligned" style="width: 100%;">
@@ -392,45 +437,45 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 						
 							</div>
 							
-							 <img src="assets/images/bedrooms/b${ room_style }.jpg" class="card-img-top" alt="property image">
+							 <img src="assets/images/bedrooms/b${ room.room_style }.jpg" class="card-img-top" alt="property image">
 							 <div class="card-body">
-									 <p class="card-title nav_link_property ___" data-text="Thank you for booking with us !"></p>
+									 <p class="card-title nav_link_property ___" data-text="Thank you for booking with us !">Thank you for booking with us !</p>
 									 <table class="table table-sm">
 									
 									 	<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Name:"></span></td>
-									 		<td><span>${ contactForm.name.value }</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Name:">Name:</span></td>
+									 		<td><span>${ contactForm.name }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Email:"></span></td>
-									 		<td><span>${ contactForm.email_of_user.value }</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Email:">Email:</span></td>
+									 		<td><span>${ contactForm.email_of_user }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Room:"></span></td>
-									 		<td><span>${ contactForm.room_details.value }</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Room:">Room:</span></td>
+									 		<td><span>${ contactForm.room_details }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Week:"></span></td>
-									 		<td><span>${ contactForm.weeks.value }</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Week:">Week:</span></td>
+									 		<td><span>${ contactForm.weeks }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Total price:"></span></td>
-									 		<td><span>${ contactForm.total_price.value } </span> <span>EUR</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Total price:">Total price:</span></td>
+									 		<td><span>${ contactForm.total_price } </span> <span>EUR</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="address:"></span></td>
-									 		<td><small>${ contactForm.form_address.value }</small></td>
+									 		<td> <span class="nav_link_property ___" data-text="address:">address:</span></td>
+									 		<td><small>${ address }</small></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Request:"></span></td>
-									 		<td><span>${ contactForm.request_of_property.value }</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Request:">Request:</span></td>
+									 		<td><span>${ contactForm.request_of_property }</span></td>
 										</tr>
 									</table>
 									
 									
-									  <span class="btn btn-sm bg_green_light d-print-none ___" onclick="window.print()" data-text="save as PDF"></span>
+									  <span class="btn btn-sm bg_green_light d-print-none ___" onclick="window.print()" data-text="save as PDF">save as PDF</span>
 									  <div class="card-footer bg-transparent pb-0 mb-0">
-									  <span class="___" data-text="Reservation ID:"></span>
+									  <span class="___" data-text="Reservation ID:">Reservation ID:</span>
 										     ${ Math.random ().toString ( 36 ).substr ( 2, 10 ) }<br >
 										  
 										    
@@ -448,30 +493,35 @@ function confirm_payment ( status, p_id, contactForm, room_style )
 							}
 //	END OF	ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
 						
-						
+						translate();
 					}
-					/*IF THERE IS AN ERROR */
+				/*IF THERE IS AN ERROR */
 				else if ( status === 'FAILED' )
 					{
-						
+						var missing = '';
+						$.each ( missing_fields, function ( key, value )
+						{
+							missing += `<span class="___" data-text="${ value }"></span> <br>`;
+						} );
 						
 						swal.fire ( {
-							            html              : ` <div >
-                                    <h4 class="___" data-text="Whoops !"></h4>
-									 <p class="card-title nav_link_property ___" data-text="Your room is not booked !"></p>
-									 <hr class="bg-danger">
-									 <span class="___" data-text="Week(s):"></span>
-									 <span class="nav_link_property"> ${ contactForm.weeks.value }</span>
-									   <hr class="bg-danger">
-									 <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
-									       onclick = "swal.close()"
-									       > ok </a >
-							 </div>`,
+							            html              : `<div >
+								                                    <h4 class="bg-danger text-warning" >Whoops !</h4>
+																	 <p class="card-title nav_link_property ___" data-text="Your room is not booked !"></p>
+																	 <hr class="bg-danger">
+																	  <h4 class="___ bg-danger text-warning" data-text="missing fields"></h4> <br>
+																	 ${ missing }
+																	
+																     <hr class="bg-danger">
+																	 <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
+																	       onclick = "swal.close()"
+																	       > ok </a >
+															 </div>`,
 							            showConfirmButton : false
 						            } );
-						
+						translate();
 					}
-			}
+			
 		
 		
 	}

@@ -245,6 +245,14 @@
   : "you are in add mode" ,
   "you are in block mode"
   : "you are in block mode" ,
+  "editing mode"
+  : "editing mode" ,
+  "preview mode"
+  : "preview mode" ,
+  "add mode"
+  : "add mode" ,
+  "block mode"
+  : "block mode" ,
   "Click on"
   : "Click on" ,
   "button, if you would like to edit your room."                                                                                                  : "button, if you would like to edit your room." ,
@@ -392,6 +400,17 @@
   ":board_type image": ":board_type image",
   "Featured properties": "Featured properties",
   "week |week - |year booked already !": "week |week - |year booked already !",
-  "week |week - |year available !": "week |week - |year available !"
+  "week |week - |year available !": "week |week - |year available !",
+  "missing fields": "missing fields",
+  "weeks": "Week(s) booked",
+  "board": "Board",
+  "total_price": "Total price",
+  "name": "Full name",
+  "email_of_user": "Email",
+  "card_holder_name": "Card Holder Name",
+  "card_number": "Card Number",
+  "cvv": "CVV",
+  "Delete |room_name ?": "Delete |room_name ?"
+  
   
 }

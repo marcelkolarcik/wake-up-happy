@@ -246,6 +246,14 @@
   : "ste v režime pridania" ,
   "you are in block mode"
   : "ste v blokovom režime" ,
+  "editing mode"
+  : "režim úprav" ,
+  "preview mode"
+  : "režim ukážky" ,
+  "add mode"
+  : "režim pridania" ,
+  "block mode"
+  : "blokovy režim" ,
   "Click on"
   : "Kliknite na" ,
   "button, if you would like to edit your room."
@@ -396,6 +404,16 @@
   ":board_type image": ":board_type obrazok",
   "Featured properties": "Odporúčané izby",
   "week |week - |year booked already !":"týždeň |week - |year už rezervovaný!",
-  "week |week - |year available !": "týždeň |week - |year k dispozícii!"
+  "week |week - |year available !": "týždeň |week - |year k dispozícii!",
+  "missing fields": "chýbajúce polia",
+  "weeks": "Rezervované týždne",
+  "board": "Stravovanie",
+  "total_price": "Celková cena",
+  "name": "Celé meno",
+  "email_of_user": "Email",
+  "card_holder_name": "Meno držiteľa karty",
+  "card_number": "Číslo karty",
+  "cvv": "CVV",
+  "Delete |room_name ?": "Vymazať |room_name ?"
   
 }

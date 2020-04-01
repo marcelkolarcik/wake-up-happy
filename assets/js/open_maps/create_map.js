@@ -92,13 +92,13 @@ export function create_map ( coordinates = null, show_p_id = null )
 							</span>
 							 <br><span class="___" data-text="view :"> </span> <span class="___" data-text="${ views[ property.p_view ] }"></span>
 		
-							 <a class="property_popup btn btn-sm bg_green_light ___"
+							 <a class="property_popup btn btn-sm bg_green_light ___ "
 							  data-title="See more information about the room."
 							  id="${ p_id }"
 							  data-image_id="${ property.room_style }"
 							  data-text="more..."
 							  
-							  href="#" ><i class="fas fa-external-link-square-alt"></i></a> `;
+							  href="#" ><i class="fas fa-external-link-square-alt "></i></a> `;
 
 //			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html AND OPEN POPUP WITH HIS NEWLY CREATED ROOM
 					

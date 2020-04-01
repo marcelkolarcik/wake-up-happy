@@ -71,13 +71,13 @@ import { translate } from "./translator/translator.js";
 		return `<div class="row">
 				
 				<div class = "col-md-3 description" >
-						 <h4><span class="___" data-text="How to:"></span> <span class="___" data-text="${ step.replace ( '_', ' ' ) }"></span>  </h4>
+						
 						
 						${ sessionStorage.getItem ( 'edit_mode' )
-		                   ? `<span class="___" data-text="you are in editing mode"></span> ` : sessionStorage.getItem ( 'preview_mode' )
-		                                                 ? ` <span class="___" data-text="you are in preview mode"></span>` : sessionStorage.getItem ( 'add_mode' )
-		                                                                               ? `  <span class="___" data-text="you are in add mode"></span>` : sessionStorage.getItem ( 'block_mode' )
-		                                                                                                         ? ` <span class="___" data-text="you are in block mode"></span>` : `` }
+		                   ? `<h4 class="___ " data-text="you are in editing mode"></h4> ` : sessionStorage.getItem ( 'preview_mode' )
+		                                                 ? ` <h4 class="___ " data-text="you are in preview mode"></h4>` : sessionStorage.getItem ( 'add_mode' )
+		                                                                               ? `  <h4 class="___ " data-text="you are in add mode"></h4>` : sessionStorage.getItem ( 'block_mode' )
+		                                                                                                         ? ` <h4 class="___" data-text="you are in block mode"></h4>` : `` }
 						 <br>
 						 <hr class="bg_green">
 						  ${ sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'add_mode' ) || sessionStorage.getItem ( 'block_mode' )
@@ -220,8 +220,8 @@ import { translate } from "./translator/translator.js";
 			block_mode   : `
 						<span class="___" data-text="Click on"></span>
 						
- 						 <span class = "no_padding bg-secondary text-light " ><i class="far fa-edit"></i> </span >
- 						 <span class="___" data-text="Edit"></span>
+ 						 <span class = "no_padding bg-secondary text-light " ><i class="far fa-edit"></i> <span class="___" data-text="Edit"></span></span >
+ 						 
  						 <span class="___" data-text="if you want to block some of the dates."></span>
  						 
  						  <hr class = "bg_green" >

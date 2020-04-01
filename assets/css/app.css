@@ -522,7 +522,14 @@ a.side_nav:hover{
 	text-decoration: none;
 	
 	}
-
+/*changing default blue active class color to match website colors*/
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+	z-index: 2;
+	color: #ffffff;
+	background-color: #0fbeba;
+	border-color: #0fbeba;
+	border-radius: 0;
+	}
 @media screen and ( max-width: 1200px ) {
 	
 	}

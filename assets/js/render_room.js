@@ -53,7 +53,7 @@ export function render_room ( room, where, preview = false )
         <div class = "col-md-4 vertically_aligned img-thumbnail" id="property_img">
        
             <img src = "assets/images/bedrooms/b${ room.room_style }.jpg" class = "card-img room_img" alt = "property image" >
-            <span class="___" data-text="translation"></span>
+          
             <h6 class = "bg_green text-light p-2 mt-2 text-center" >
 			<span class="___" data-text="from"></span>
 			${ room.price[ Object.keys ( room.price )[ 0 ] ] }&nbsp;EUR <!--getting first available price to display form-->
@@ -101,10 +101,12 @@ export function render_room ( room, where, preview = false )
                    data-text="Availability"></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
+                    id="book_btn${room.p_id}"
                    data-toggle = "list" href = "#book_${ room.p_id }" role = "tab"
                    data-title = "Book your room !"
                    data-text="Book">
-                   <div class="bg_green text-light p-1" id="preview_total_price_${ room.p_id }"></div></a >
+                   </a >
+                  
                    
             </div >
             <div class = "tab-content" >
@@ -162,11 +164,12 @@ export function render_room ( room, where, preview = false )
           
 							 	<div class="card-footer bg-transparent">
 							 	    <span class = "nav_link_property ___"
-							 	     data-text="Select board and the week(s) and  click on">
+							 	     data-text="Select board and the week(s) and click on">
 		                        </span >
 		                         <strong
-		                                    class = "bold" ><span class="___" data-text="BOOK"></span></strong >
+		                                    class = "bold" ><span class="___ nav_link_property img-thumbnail pl-2 pr-2 bg_green text-light" data-text="BOOK"></span></strong >
 		                        <span class="___" data-text="button"></span>
+		                        
 		                        </div>
 							</div>
 							

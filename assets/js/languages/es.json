@@ -153,144 +153,288 @@
   : "Describe tu habitación, hazla atractiva (mínimo 30 - máximo 300 caracteres)" ,
   "location"
   : "ubicación" ,
-  "room"                                                                                                                                          : "habitación" ,
-  "services"                                                                                                                                      : "servicios" ,
-  "preview"                                                                                                                                       : "avance" ,
-  "payment"                                                                                                                                       : "pago" ,
-  "Please review these fields:"                                                                                                                   : "Revise estos campos:" ,
-  "Payment details : 99 EUR per year + 9 % of each booking."                                                                                      : "Detalles del pago: 99 EUR por año + 9% de cada reserva" ,
-  "Total price"                                                                                                                                   : "Precio total" ,
-  "Full Name"                                                                                                                                     : "Nombre completo" ,
-  "Email"                                                                                                                                         : "Email" ,
-  "Password"                                                                                                                                      : "Contraseña" ,
-  "Card Holder Name"                                                                                                                             : "Nombre del titular de la tarjeta" ,
-  "Card Number"                                                                                                                                   : "Número de tarjeta" ,
-  "CVV"                                                                                                                                           : "CVV" ,
-  "Pay"                                                                                                                                           : "Pagar" ,
-  "Owner login"                                                                                                                                   : "Inicio de sesión del propietario" ,
-  "Login"                                                                                                                                         : "Iniciar sesión" ,
-  "Not registered yet?"                                                                                                                           : "¿Todavía no estas registrado?" ,
-  "No Problem!"                                                                                                                                   : "¡No hay problema!" ,
-  "Just take the first step...."                                                                                                                  : "Solo da el primer paso ..." ,
-  "Right on this site !"                                                                                                                          : "Justo en este sitio!" ,
-  "Add your room now!"                                                                                                                            : "¡Agrega tu habitación ahora!" ,
-  "Select location of your property first !"                                                                                                      : "¡Seleccione la ubicación de su propiedad primero!" ,
-  "ok"                                                                                                                                            : "Okay" ,
-  "If you are already registered, check your login credentials, or CAPS Lock...;-)"                                                               : "Si ya está registrado, verifique sus credenciales de inicio de sesión o Bloq Mayús ... ;-)" ,
-  "Oops..."                                                                                                                                       : "Vaya ..." ,
-  "Please, select board!"                                                                                                                         : "¡Por favor, seleccione tablero!" ,
-  "Please,select at least one week!"                                                                                                              : "¡Por favor, seleccione al menos una semana!" ,
-  "Your dates were blocked !"                                                                                                                     : "¡Tus fechas fueron bloqueadas!" ,
-  "Week(s):"                                                                                                                                      : "Semanas):" ,
-  "Thank you for booking with us !"                                                                                                               : "Gracias por reservar con nosotros !" ,
-  "Name:"                                                                                                                                         : "Nombre:" ,
-  "Email:"                                                                                                                                        : "Email:" ,
-  "Room:"                                                                                                                                         : "Habitación:" ,
-  "Week:"                                                                                                                                         : "Semana:" ,
-  "Total price:"                                                                                                                                  : "Precio total:" ,
-  "address:"                                                                                                                                      : "habla a:" ,
-  "Request:"                                                                                                                                      : "Solicitud:" ,
-  "save as PDF"                                                                                                                                   : "Guardar como pdf" ,
-  "Reservation ID:"                                                                                                                               : "ID de reserva:" ,
-  "Dismiss"                                                                                                                                       : "Descartar" ,
-  "Your room is not booked !"                                                                                                                     : "¡Tu habitación no está reservada!" ,
-  "How to:"                                                                                                                                       : "Cómo:" ,
-  "you are in editing mode"                                                                                                                       : "estás en modo de edición" ,
-  "you are in preview mode"                                                                                                                       : "estás en modo de vista previa" ,
-  "you are in add mode"                                                                                                                           : "estás en modo agregar" ,
-  "you are in block mode"                                                                                                                         : "estás en modo bloque" ,
-  "Click on"                                                                                                                                      : "Haga clic en" ,
-  "button, if you would like to edit your room."                                                                                                  : "botón, si desea editar su habitación" ,
-  "OK, got it !"                                                                                                                                  : "Ok lo tengo !" ,
-  "By clicking on"                                                                                                                                : "Al hacer clic en" ,
-  "you will get information that will assist on every step of your journey...;-)."                                                                : "obtendrá información que lo ayudará en cada paso de su viaje ... ;-)" ,
-  "Find location of your property on the map and then click the map to display coordinates."                                                      : "Encuentre la ubicación de su propiedad en el mapa y luego haga clic en el mapa para mostrar las coordenadas" ,
-  "Then click on"                                                                                                                                 : "Luego haga clic en" ,
-  "button, to display location details."                                                                                                          : "para mostrar los detalles de la ubicación" ,
-  "You can correct these details."                                                                                                                : "Puede corregir estos detalles" ,
-  "Once you're happy with the location details, click on"                                                                                         : "Una vez que esté satisfecho con los detalles de la ubicación, haga clic en" ,
-  "Remember to add your property name! (min 3 characters) to be able to continue to next step."                                                   : "Recuerde agregar el nombre de su propiedad (mínimo 3 caracteres) para poder continuar con el siguiente paso" ,
-  "Define your room by selecting appropriate radio buttons."                                                                                      : "Defina su habitación seleccionando los botones de radio apropiados" ,
-  "Once all options are selected"                                                                                                                 : "Una vez que todas las opciones están seleccionadas" ,
-  "Define your services by selecting appropriate check buttons."                                                                                  : "Defina sus servicios seleccionando los botones de verificación apropiados" ,
-  "You can select multiple options."                                                                                                              : "Puede seleccionar múltiples opciones" ,
-  "When at least one of each options are selected and description is entered"                                                                     : "Cuando se selecciona al menos una de cada una de las opciones y se ingresa la descripción" ,
-  "will appear and you can progress to next step."                                                                                                : "aparecerá y podrás avanzar al siguiente paso" ,
-  "Description of the room must be at least 30 characters!"                                                                                       : "¡La descripción de la sala debe tener al menos 30 caracteres!" ,
-  "When selecting board type, you must enter price for the board."                                                                                : "Al seleccionar el tipo de tablero, debe ingresar el precio del tablero" ,
-  "Preview your work of art, by clicking on the tabs"                                                                                             : "Obtenga una vista previa de su obra de arte haciendo clic en las pestañas" ,
-  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."                                                                                                : "SOBRE, GALERÍA, SERVICIOS, DISPONIBILIDAD, LIBRO" ,
-  "You can edit your work if needed!"                                                                                                             : "¡Puedes editar tu trabajo si es necesario!" ,
-  "Once you are happy with your work, preview it by clicking on"                                                                                  : "Una vez que esté satisfecho con su trabajo, haga una vista previa haciendo clic en" ,
-  "Update"                                                                                                                                        : "Actualizar" ,
-  "to proceed with payment."                                                                                                                      : "para proceder con el pago" ,
-  "Here you can proceed with payment. Thank you for choosing"                                                                                     : "Aquí puede continuar con el pago. Gracias por elegir" ,
-  "wake up happy!"                                                                                                                                : "despierta feliz!" ,
-  "Once you pay, you will be redirected to landing page to see your room live on the site."                                                       : "Una vez que pague, será redirigido a la página de destino para ver su habitación en vivo en el sitio" ,
+  "room"
+  : "habitación" ,
+  "services"
+  : "servicios" ,
+  "preview"
+  : "avance" ,
+  "payment"
+  : "pago" ,
+  "Please review these fields:"
+  : "Revise estos campos:" ,
+  "Payment details : 99 EUR per year + 9 % of each booking."
+  : "Detalles del pago: 99 EUR por año + 9% de cada reserva" ,
+  "Total price"
+  : "Precio total" ,
+  "Full Name"
+  : "Nombre completo" ,
+  "Email"
+  : "Email" ,
+  "Password"
+  : "Contraseña" ,
+  "Card Holder Name"
+  : "Nombre del titular de la tarjeta" ,
+  "Card Number"
+  : "Número de tarjeta" ,
+  "CVV"
+  : "CVV" ,
+  "Pay"
+  : "Pagar" ,
+  "Owner login"
+  : "Inicio de sesión del propietario" ,
+  "Login"
+  : "Iniciar sesión" ,
+  "Not registered yet?"
+  : "¿Todavía no estas registrado?" ,
+  "No Problem!"
+  : "¡No hay problema!" ,
+  "Just take the first step...."
+  : "Solo da el primer paso ..." ,
+  "Right on this site !"
+  : "Justo en este sitio!" ,
+  "Add your room now!"
+  : "¡Agrega tu habitación ahora!" ,
+  "Select location of your property first !"
+  : "¡Seleccione la ubicación de su propiedad primero!" ,
+  "ok"
+  : "Okay" ,
+  "If you are already registered, check your login credentials, or CAPS Lock...;-)"
+  : "Si ya está registrado, verifique sus credenciales de inicio de sesión o Bloq Mayús ... ;-)" ,
+  "Oops..."
+  : "Vaya ..." ,
+  "Please, select board!"
+  : "¡Por favor, seleccione tablero!" ,
+  "Please,select at least one week!"
+  : "¡Por favor, seleccione al menos una semana!" ,
+  "Your dates were blocked !"
+  : "¡Tus fechas fueron bloqueadas!" ,
+  "Week(s):"
+  : "Semanas):" ,
+  "Thank you for booking with us !"
+  : "Gracias por reservar con nosotros !" ,
+  "Name:"
+  : "Nombre:" ,
+  "Email:"
+  : "Email:" ,
+  "Room:"
+  : "Habitación:" ,
+  "Week:"
+  : "Semana:" ,
+  "Total price:"
+  : "Precio total:" ,
+  "address:"
+  : "habla a:" ,
+  "Request:"
+  : "Solicitud:" ,
+  "save as PDF"
+  : "Guardar como pdf" ,
+  "Reservation ID:"
+  : "ID de reserva:" ,
+  "Dismiss"
+  : "Descartar" ,
+  "Your room is not booked !"
+  : "¡Tu habitación no está reservada!" ,
+  "How to:"
+  : "Cómo:" ,
+  "you are in editing mode"
+  : "estás en modo de edición" ,
+  "you are in preview mode"
+  : "estás en modo de vista previa" ,
+  "you are in add mode"
+  : "estás en modo agregar" ,
+  "you are in block mode"
+  : "estás en modo bloque" ,
+  "editing mode"
+  : "modo de edición" ,
+  "preview mode"
+  : "modo de vista previa" ,
+  "add mode"
+  : "modo agregar" ,
+  "block mode"
+  : "modo bloque" ,
+  "Click on"
+  : "Haga clic en" ,
+  "button, if you would like to edit your room."
+  : "botón, si desea editar su habitación" ,
+  "OK, got it !"
+  : "Ok lo tengo !" ,
+  "By clicking on"
+  : "Al hacer clic en" ,
+  "you will get information that will assist on every step of your journey...;-)."
+  : "obtendrá información que lo ayudará en cada paso de su viaje ... ;-)" ,
+  "Find location of your property on the map and then click the map to display coordinates."
+  : "Encuentre la ubicación de su propiedad en el mapa y luego haga clic en el mapa para mostrar las coordenadas" ,
+  "Then click on"
+  : "Luego haga clic en" ,
+  "button, to display location details."
+  : "para mostrar los detalles de la ubicación" ,
+  "You can correct these details."
+  : "Puede corregir estos detalles" ,
+  "Once you're happy with the location details, click on"
+  : "Una vez que esté satisfecho con los detalles de la ubicación, haga clic en" ,
+  "Remember to add your property name! (min 3 characters) to be able to continue to next step."
+  : "Recuerde agregar el nombre de su propiedad (mínimo 3 caracteres) para poder continuar con el siguiente paso" ,
+  "Define your room by selecting appropriate radio buttons."
+  : "Defina su habitación seleccionando los botones de radio apropiados" ,
+  "Once all options are selected"
+  : "Una vez que todas las opciones están seleccionadas" ,
+  "Define your services by selecting appropriate check buttons."
+  : "Defina sus servicios seleccionando los botones de verificación apropiados" ,
+  "You can select multiple options."
+  : "Puede seleccionar múltiples opciones" ,
+  "When at least one of each options are selected and description is entered"
+  : "Cuando se selecciona al menos una de cada una de las opciones y se ingresa la descripción" ,
+  "will appear and you can progress to next step."
+  : "aparecerá y podrás avanzar al siguiente paso" ,
+  "Description of the room must be at least 30 characters!"
+  : "¡La descripción de la sala debe tener al menos 30 caracteres!" ,
+  "When selecting board type, you must enter price for the board."
+  : "Al seleccionar el tipo de tablero, debe ingresar el precio del tablero" ,
+  "Preview your work of art, by clicking on the tabs"
+  : "Obtenga una vista previa de su obra de arte haciendo clic en las pestañas" ,
+  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."
+  : "SOBRE, GALERÍA, SERVICIOS, DISPONIBILIDAD, LIBRO" ,
+  "You can edit your work if needed!"
+  : "¡Puedes editar tu trabajo si es necesario!" ,
+  "Once you are happy with your work, preview it by clicking on"
+  : "Una vez que esté satisfecho con su trabajo, haga una vista previa haciendo clic en" ,
+  "Update"
+  : "Actualizar" ,
+  "to proceed with payment."
+  : "para proceder con el pago" ,
+  "Here you can proceed with payment. Thank you for choosing"
+  : "Aquí puede continuar con el pago. Gracias por elegir" ,
+  "wake up happy!"
+  : "despierta feliz!" ,
+  "Once you pay, you will be redirected to landing page to see your room live on the site."
+  : "Una vez que pague, será redirigido a la página de destino para ver su habitación en vivo en el sitio" ,
   "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." : "Iniciará sesión en su cuenta y, en la esquina superior derecha, verá sus iniciales, con su habitación en el menú desplegable" ,
   "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!"               : "¡Puede hacer clic en el nombre de su habitación o sala para acceder al panel de control de su cuenta, donde puede editar aún más su sala o agregar una nueva!" ,
-  "if you want to block some of the dates."                                                                                                       : "si quieres bloquear algunas de las fechas" ,
-  "then click on"                                                                                                                                 : "luego haga clic en" ,
-  "AVAILABILITY"                                                                                                                                  : "DISPONIBILIDAD" ,
-  "tab."                                                                                                                                          : "lengüeta." ,
-  "For more details click on"                                                                                                                     : "Para más detalles, haga clic en" ,
-  "Edit your room to your liking."                                                                                                                : "Edita tu habitación a tu gusto" ,
-  "to save your changes."                                                                                                                         : "para guardar sus cambios" ,
-  "If you would like to edit room, click on"                                                                                                      : "Si desea editar la sala, haga clic en" ,
-  "My rooms"                                                                                                                                      : "Mis habitaciones" ,
-  "No rooms yet"                                                                                                                                  : "Aún no hay habitaciones" ,
-  "Logout"                                                                                                                                        : "Cerrar sesión" ,
-  "Dashboard"                                                                                                                                     : "Tablero" ,
-  "Room details"                                                                                                                                  : "Detalles de la habitación" ,
-  "Week(s) booked"                                                                                                                                : "Semana (s) reservada (s)" ,
-  "Board"                                                                                                                                         : "Tablero" ,
-  "Payment details"                                                                                                                               : "Detalles del pago" ,
-  "Property Request"                                                                                                                              : "Solicitud de propiedad" ,
-  "Any Requests..."                                                                                                                               : "Cualquier solicitud..." ,
-  "Your future customers will be able to book your room through this form."                                                                       : "Sus futuros clientes podrán reservar su habitación a través de este formulario" ,
-  "Previous"                                                                                                                                      : "Anterior" ,
-  "Next"                                                                                                                                          : "Próximo" ,
-  ":view view"                                                                                                                                    : ": ver vista" ,
-  "bedroom"                                                                                                                                       : "dormitorio" ,
-  "breakfast"                                                                                                                                     : "desayuno" ,
-  "lunch"                                                                                                                                         : "almuerzo" ,
-  "dinner"                                                                                                                                        : "cena" ,
-  "property image"                                                                                                                                : "imagen de propiedad" ,
-  "from"                                                                                                                                          : "desde" ,
-  "EUR"                                                                                                                                           : "EUR" ,
-  "per week"                                                                                                                                      : "por semana" ,
-  "more..."                                                                                                                                       : "más..." ,
-  "Information about room"                                                                                                                        : "Información sobre la habitación" ,
-  "About"                                                                                                                                         : "Acerca de" ,
-  "Preview images of the property"                                                                                                                : "Vista previa de imágenes de la propiedad" ,
-  "Gallery"                                                                                                                                       : "Galería" ,
-  "See the amenities"                                                                                                                             : "Ver las comodidades" ,
-  "Amenities"                                                                                                                                     : "Comodidades" ,
-  "Preview the availability"                                                                                                                      : "Vista previa de la disponibilidad" ,
-  "Availability"                                                                                                                                  : "Disponibilidad" ,
-  "Book your room !"                                                                                                                              : "Reserve su habitación!" ,
-  "Book"                                                                                                                                          : "Libro" ,
-  "show on map"                                                                                                                                   : "mostrar en el mapa" ,
-  "Boards"                                                                                                                                        : "Tablas" ,
-  "Block selected dates"                                                                                                                          : "Bloquear fechas seleccionadas" ,
-  "How to block weeks ?"                                                                                                                          : "¿Cómo bloquear semanas?" ,
-  "Select board and the week(s) and click on"                                                                                                     : "Seleccione el tablero y la (s) semana (s) y haga clic en" ,
-  "BOOK"                                                                                                                                          : "LIBRO" ,
-  "button"                                                                                                                                        : "botón" ,
-  "1) Select any board"                                                                                                                           : "1) Seleccione cualquier tablero" ,
-  "2) Select the weeks you want to block."                                                                                                        : "2) Seleccione las semanas que desea bloquear" ,
-  "3) Click on"                                                                                                                                   : "3) Haga clic en" ,
-  "less..."                                                                                                                                       : "Menos..." ,
-  "You won't be able to revert this!"                                                                                                             : "¡No podrás revertir esto!" ,
-  "Yes, delete"                                                                                                                                   : "Sí, eliminar" ,
-  "How to"                                                                                                                                        : "Cómo" ,
-  "Preview"                                                                                                                                       : "Avance" ,
-  "Edit"                                                                                                                                          : "Editar" ,
-  "Delete"                                                                                                                                        : "Eliminar" ,
-  "Block Dates"                                                                                                                                   : "Bloquear fechas" ,
-  "Add new room"                                                                                                                                  : "Agregar nueva habitación" ,
-  "select location"                                                                                                                               : "seleccionar ubicación" ,
-  "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."                                 : "Su búsqueda arrojó 0 resultados, pruebe diferentes parámetros de búsqueda o eche un vistazo a las propiedades destacadas a continuación" ,
+  "if you want to block some of the dates."
+  : "si quieres bloquear algunas de las fechas" ,
+  "then click on"
+  : "luego haga clic en" ,
+  "AVAILABILITY"
+  : "DISPONIBILIDAD" ,
+  "tab."
+  : "lengüeta." ,
+  "For more details click on"
+  : "Para más detalles, haga clic en" ,
+  "Edit your room to your liking."
+  : "Edita tu habitación a tu gusto" ,
+  "to save your changes."
+  : "para guardar sus cambios" ,
+  "If you would like to edit room, click on"
+  : "Si desea editar la sala, haga clic en" ,
+  "My rooms"
+  : "Mis habitaciones" ,
+  "No rooms yet"
+  : "Aún no hay habitaciones" ,
+  "Logout"
+  : "Cerrar sesión" ,
+  "Dashboard"
+  : "Tablero" ,
+  "Room details"
+  : "Detalles de la habitación" ,
+  "Week(s) booked"
+  : "Semana (s) reservada (s)" ,
+  "Board"
+  : "Tablero" ,
+  "Payment details"
+  : "Detalles del pago" ,
+  "Property Request"
+  : "Solicitud de propiedad" ,
+  "Any Requests..."
+  : "Cualquier solicitud..." ,
+  "Your future customers will be able to book your room through this form."
+  : "Sus futuros clientes podrán reservar su habitación a través de este formulario" ,
+  "Previous"
+  : "Anterior" ,
+  "Next"
+  : "Próximo" ,
+  ":view view"
+  : ": ver vista" ,
+  "bedroom"
+  : "dormitorio" ,
+  "breakfast"
+  : "desayuno" ,
+  "lunch"
+  : "almuerzo" ,
+  "dinner"
+  : "cena" ,
+  "property image"
+  : "imagen de propiedad" ,
+  "from"
+  : "desde" ,
+  "EUR"
+  : "EUR" ,
+  "per week"
+  : "por semana" ,
+  "more..."
+  : "más..." ,
+  "Information about room"
+  : "Información sobre la habitación" ,
+  "About"
+  : "Acerca de" ,
+  "Preview images of the property"
+  : "Vista previa de imágenes de la propiedad" ,
+  "Gallery"
+  : "Galería" ,
+  "See the amenities"
+  : "Ver las comodidades" ,
+  "Amenities"
+  : "Comodidades" ,
+  "Preview the availability"
+  : "Vista previa de la disponibilidad" ,
+  "Availability"
+  : "Disponibilidad" ,
+  "Book your room !"
+  : "Reserve su habitación!" ,
+  "Book"
+  : "Libro" ,
+  "show on map"
+  : "mostrar en el mapa" ,
+  "Boards"
+  : "Tablas" ,
+  "Block selected dates"
+  : "Bloquear fechas seleccionadas" ,
+  "How to block weeks ?"
+  : "¿Cómo bloquear semanas?" ,
+  "Select board and the week(s) and click on"
+  : "Seleccione el tablero y la (s) semana (s) y haga clic en" ,
+  "BOOK"
+  : "LIBRO" ,
+  "button"
+  : "botón" ,
+  "1) Select any board"
+  : "1) Seleccione cualquier tablero" ,
+  "2) Select the weeks you want to block."
+  : "2) Seleccione las semanas que desea bloquear" ,
+  "3) Click on"
+  : "3) Haga clic en" ,
+  "less..."
+  : "Menos..." ,
+  "You won't be able to revert this!"
+  : "¡No podrás revertir esto!" ,
+  "Yes, delete"
+  : "Sí, eliminar" ,
+  "How to"
+  : "Cómo" ,
+  "Preview"
+  : "Avance" ,
+  "Edit"
+  : "Editar" ,
+  "Delete"
+  : "Eliminar" ,
+  "Block Dates"
+  : "Bloquear fechas" ,
+  "Add new room"
+  : "Agregar nueva habitación" ,
+  "select location"
+  : "seleccionar ubicación" ,
+  "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."
+  : "Su búsqueda arrojó 0 resultados, pruebe diferentes parámetros de búsqueda o eche un vistazo a las propiedades destacadas a continuación" ,
   "Search results:"                                                                                                                               : "Resultados de la búsqueda:" ,
   "Wake up happy !"                                                                                                                               : "¡Despierta feliz!" ,
   "logo image"                                                                                                                                    : "Logotipo" ,
@@ -337,13 +481,23 @@
   "Define your services"                                                                                                                          : "Define tus servicios" ,
   "Preview your work of art!"                                                                                                                     : "Vista previa de tu obra de arte!" ,
   "Payment"                                                                                                                                       : "Pago" ,
-  "Save your changes !"                                                                                                                           : "¡Guarda tus cambios!",
-  "click to get location details"                                                                                                                 : "haga clic para obtener detalles de la ubicación",
+  "Save your changes !"                                                                                                                           : "¡Guarda tus cambios!" ,
+  "click to get location details"                                                                                                                 : "haga clic para obtener detalles de la ubicación" ,
   ":view_type view"                                                                                                                               : "ver - :view_type" ,
   ":room_type bedroom image"                                                                                                                      : "habitación - :room_type" ,
-  "Select image your room will be displayed as."                                                                                                  : "Seleccione la imagen de su habitación se mostrará como.",
-  ":board_type image": ":board_type imagen",
-  "Featured properties": "Propiedades Destacadas",
-  "week |week - |year booked already !":"semana |week - |year reservado!",
-  "week |week - |year available !": "semana |week - |year disponible!"
+  "Select image your room will be displayed as."                                                                                                  : "Seleccione la imagen de su habitación se mostrará como." ,
+  ":board_type image"                                                                                                                             : ":board_type imagen" ,
+  "Featured properties"                                                                                                                           : "Propiedades Destacadas" ,
+  "week |week - |year booked already !"                                                                                                           : "semana |week - |year reservado!" ,
+  "week |week - |year available !"                                                                                                                : "semana |week - |year disponible!" ,
+  "missing fields"                                                                                                                                : "campos faltantes" ,
+  "weeks"                                                                                                                                         : "Semana (s) reservada (s)" ,
+  "board"                                                                                                                                         : "Tablero" ,
+  "total_price"                                                                                                                                   : "Precio total" ,
+  "name"                                                                                                                                          : "Nombre completo" ,
+  "email_of_user"                                                                                                                                 : "Email" ,
+  "card_holder_name"                                                                                                                              : "Nombre del titular de la tarjeta" ,
+  "card_number"                                                                                                                                   : "Número de tarjeta" ,
+  "cvv"                                                                                                                                           : "CVV" ,
+  "Delete |room_name ?"                                                                                                                           : "Eliminar |room_name ?"
 }

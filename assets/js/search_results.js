@@ -121,9 +121,10 @@ import { featured_rooms }      from './featured_rooms.js';
 					
 					/*IF SEARCH RESULTS ARE EMPTY, WE WILL DISPLAY INFO TO THE USER ABOUT 0 RESULTS
 					 * AND DISPLAY featured_rooms INSTEAD*/
-					form_search_results.append ( ` <div class = "img-thumbnail mt-3 bg_orange " >
-					                             Your search returned 0 results, try different search parameters or have a look at featured properties bellow.
-					                            
+					form_search_results.append ( ` <div class = "img-thumbnail mt-3 bg_orange ___"
+                                                        data-text="Your search returned 0 results, try different search parameters or have a look at featured properties bellow."    >
+					                             
+					                           
 					                             </div >` );
 					featured_rooms ();
 					
@@ -131,7 +132,7 @@ import { featured_rooms }      from './featured_rooms.js';
 			else
 				{
 					form_search_results.prepend (
-						` <div class = "img-thumbnail mt-3 border_green pl-3" >á ${ results }</div >` );
+						` <div class = "img-thumbnail mt-3 border_green pl-3" ><span class="___" data-text="Search results:"></span> ${ results }</div >` );
 				}
 			
 		} );

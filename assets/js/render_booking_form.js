@@ -32,7 +32,7 @@ export function render_booking_form ( room )
 		
 		booking_form.append ( `
 			 <div class = "center-form" >
-                        <form onsubmit = "return process_booking(this,${ room.p_id },${ room.room_style })"  >
+                        <form   id="bookings${ room.p_id }">
                       
                             <div class="row">
 	                            <div class="col-md-6">
@@ -191,29 +191,23 @@ export function render_booking_form ( room )
                                               data-placeholder = "Any Requests..."  ></textarea >
                                 </div >
                             </div >
-                             <div class = "col-auto" >
-                                <label class = "sr-only ___" for = "address${ room.p_id }" data-text="address"></label >
-                                <div class = "input-group mb-2 d-none" >
-                                    <input name = "form_address"
-                                              class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2"
-                                              id = "form_address${ room.p_id }" value=""
-                                               >
-                                </div >
-                            </div >
+                            
                           
                             <div class = "col-auto text-center" >
                             <div id="loader_holder${ room.p_id }"></div>
     
                           
                              ${ window.location.pathname === '/index.html' ? `
-								<button type = "submit" class = "btn bg_green_light horizontally_aligned right-block need_translation ___"
+								<a  class = "btn bg_green_light horizontally_aligned right-block ___ pay_for_booking"
+								
+								data-room_id="${ room.p_id }"
 								 data-title="Submit & Pay"
 								 data-text="Payment">
                                 
-                                </button >` : '' }
+                                </a >` : '' }
                             
                             ${ sessionStorage.getItem ( 'edit_mode' ) ? `<button type = "submit" id="block_dates"
-								 class = "btn bg_green_light horizontally_aligned right-block mt-2 need_translation ___"
+								 class = "btn bg_green_light horizontally_aligned right-block mt-2  ___"
 								 data-title="Block selected dates"
 								 data-text="Block selected dates">
                                 

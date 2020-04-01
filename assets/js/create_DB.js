@@ -121,7 +121,8 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				             'p_id'          : index,
 				             'p_address'     : {
 					             'city'          : city_coordinates[ 2 ],
-					             'property_name' : 'property name ' + index
+					             'property_name' : 'property name ' + index,
+					            
 				             },
 				             'price'         : price,
 				             'p_description' : 'Beautiful room with ' + view_types[ index % 10 ]
