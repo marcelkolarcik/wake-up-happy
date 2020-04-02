@@ -197,7 +197,9 @@ export function render_booking_form ( room )
                             <div id="loader_holder${ room.p_id }"></div>
     
                           
-                             ${ window.location.pathname === '/index.html' ? `
+                             ${ window.location.pathname === '/index.html'
+		                        || window.location.pathname === '/wake-up-happy/'
+		                        || window.location.pathname === '/wake-up-happy/index.html'? `
 								<a  class = "btn bg_green_light horizontally_aligned right-block ___ pay_for_booking"
 								
 								data-room_id="${ room.p_id }"
@@ -206,7 +208,9 @@ export function render_booking_form ( room )
                                 
                                 </a >` : '' }
                             
-                            ${ sessionStorage.getItem ( 'edit_mode' )  && window.location.pathname !== '/index.html' ? `<a  id="block_dates"
+                            ${ sessionStorage.getItem ( 'edit_mode' )  &&
+		                       (window.location.pathname === '/owner.html' || window.location.pathname === '/wake-up-happy/owner.html' )
+		                       ? `<a  id="block_dates"
 								 class = "btn bg_green_light horizontally_aligned right-block mt-2  ___ pay_for_booking"
 								 data-room_id="${ room.p_id }"
 								 data-blocking_dates= 1
@@ -216,7 +220,7 @@ export function render_booking_form ( room )
                                 </a >` : '' }
                             
                               ${ ( sessionStorage.getItem ( 'preview_mode' ) || sessionStorage.getItem ( 'add_mode' ) )
-		                         && window.location.pathname !== '/index.html'
+		                         &&  (window.location.pathname === '/owner.html' || window.location.pathname === '/wake-up-happy/owner.html' )
 		                         ?
 		                         `	<div class="bg_green_light_g ___"
 										data-text="Your future customers will be able to book your room through this form.">
