@@ -348,4 +348,3 @@ function append_room_actions ()
 
 
 
-

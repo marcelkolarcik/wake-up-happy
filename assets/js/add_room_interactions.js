@@ -61,6 +61,9 @@ $ ( document ).on ( "click", ".show_content", function ()
 	 * WE KNOW WHICH DIV TO TOGGLE ON CLICK*/
 	
 	$ ( '.' + $ ( this ).data ( 'hidden_class' ) ).fadeToggle(700).toggleClass ( 'd-none' );
+	
+	/*SCROLLING TO CURRENT SELECTION*/
+	$($ ( this )).get(0).scrollIntoView();
 } );
 
 /*WHEN USER CLICKS ON ANY IMAGE ON ROOM SECTION
@@ -917,10 +920,9 @@ function store_room ( new_room, update = false )
 	}
 
 /*WHEN USER CLICKS ON FORM STEPS - TABS ( location, room, services, preview, payment )
- WE NEED TO TRANSLATE  TAB PANES ( DIV CONTENT )
+ WE NEED TO TRANSLATE  steps
  THAT IS BEING INTRODUCED TO THE VIEW,
- BECAUSE ON INITIAL LOAD OF owner.html TAB PANES THAT ARE
- NOT ACTIVE ARE NOT BEING TRANSLATED*/
+ */
 $(document).on('click', '.step', function (  )
 {
 	translate();

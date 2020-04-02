@@ -119,6 +119,10 @@ import { translate } from "./translator/translator.js";
 // WITH 	check_current_room ( to_be_booked_room_ids )
 // SO THAT IF USER CHANGES ROOM HE WANTS TO BOOK
 // WE WILL SET PREVIOUS ROOM TO DEFAULT STATE
+
+
+
+
 (
 	function ()
 		{
@@ -144,12 +148,10 @@ import { translate } from "./translator/translator.js";
 									    <hr class = "bg_green" >
 									    <span class="___" data-text="Please, select board!"></span>
 									     <br ><br >
-									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
-									       onclick = "swal.close()"
-									       > ok </a ></div>`,
+									   `,
 							
-							            showConfirmButton : false
-							
+							            showConfirmButton : true,
+							            confirmButtonColor : '#0fbeba',
 						            } );
 						
 						translate ();
@@ -158,6 +160,7 @@ import { translate } from "./translator/translator.js";
 						 * TOTAL PRICE WOULD BE => 1 * price_per_week
 						 * BUT USER DIDN'T SELECT THE BOARD YET,
 						 * SO TOTAL PRICE MUST BE 0 => return;*/
+						
 						return;
 					}
 				
