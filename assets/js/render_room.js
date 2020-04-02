@@ -65,20 +65,26 @@ export function render_room ( room, where, preview = false )
 			room.location ) } | ${ room_types[ room.room_type ] }
                     </h4>
              </span >
-             <span class="d-md-none ml-2">
+             <span class="d-md-none ml-2" id="mobile_${room.p_id}">
               ${ decodeURI ( room.p_description ).substring ( 0, 30 ) }...
               </span>
              
               <!--ON MOBILE DEVICES WE WILL DISPLAY SHORTER VERSION OF THE ROOM AND more... / less... BUTTON
               TO SHOW / HIDE FULL PREVIEW-->
-              <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___"
+              <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___ more_${ room.p_id}"
 			data-title="Display more info..."
 			data-text="more..."
 			 data-p_id="${ room.p_id }"
 			></span>
+			
+			 <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___ d-none less_${ room.p_id}"
+			data-title="Display less info..."
+			data-text="less..."
+			 data-p_id="${ room.p_id }"
+			></span>
         </div >
         <div class = "col-md-8 d-none d-md-block parent" id="tabs_${ room.p_id }" style = "position:relative" >
-            <div class = "list-group  list-group-horizontal-lg"  role = "tablist" >
+            <div class = "list-group  list-group-horizontal-lg tabs"  role = "tablist" >
             
                 <a class = "list-group-item list-group-item-action active nav_link_property ___"
                    data-toggle = "list" href = "#about_${ room.p_id }" role = "tab"
@@ -97,7 +103,8 @@ export function render_room ( room, where, preview = false )
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#availability_${ room.p_id }" role = "tab"
-                   data-title = "Preview the availability" id="availability"
+                   
+                   data-title = "Preview the availability" id="#availability_${ room.p_id }"
                    data-text="Availability"></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
@@ -191,6 +198,10 @@ export function render_room ( room, where, preview = false )
 	}
 
 
+$ ( document ).on ( 'click', '.tabs', function (){
+	/*SCROLLING TO THE TAB-PANE*/
+	$('.tabs').get(0).scrollIntoView();
+});
 // ALERT FOR USER TO SHOW, HOW TO BLOCK DATES
 $ ( document ).on ( 'click', '#how_to_block_dates', function ()
 {
@@ -237,13 +248,22 @@ $ ( document ).on ( 'click', '.show_tabs', function ()
 {
 	var p_id = $ ( this ).data ( 'p_id' );
 	
-	/*SWITCHING BUTTON'S html()   AND CHANGING COLOR OF THE BUTTON WHEN CLICKING ON more...*/
-	$ ( this ).html () ===  'more...' ?
-							$ ( this ).html ( 'less...' ).addClass ( 'bg-danger' )
-	                                  :
-							$ ( this ).html ( 'more...' ).removeClass ( 'bg-danger' );
+	
+	/*SWITCHING BUTTON'S  AND CHANGING COLOR OF THE BUTTON WHEN CLICKING ON more.../ less...*/
+	if($ ( this ).data ('text') ===  'more...')
+		{
+			$ ( '.less_'+p_id ).removeClass('d-none').addClass ( 'bg-danger' );
+			$ ( '.more_'+p_id ).addClass('d-none');
+		}
+	else
+		{
+			$ ( '.more_'+p_id ).removeClass('d-none');
+			$ ( '.less_'+p_id ).addClass('d-none').removeClass ( 'bg-danger' );
+		}
 	
 	$ ( '#tabs_' + p_id ).toggleClass ( 'd-none d-md-block' );
+	
+	$('#mobile_'+p_id).get(0).scrollIntoView();
 	
 } );
 

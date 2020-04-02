@@ -223,6 +223,8 @@ function render_location_details ( address_data, coordinates, owner = false )
         </div >
 					` );
 		translate();
+		$('#location_details').get(0).scrollIntoView();
+		
 		
 	}
 

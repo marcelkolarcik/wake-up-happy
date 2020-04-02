@@ -121,7 +121,7 @@ import { featured_rooms }      from './featured_rooms.js';
 					
 					/*IF SEARCH RESULTS ARE EMPTY, WE WILL DISPLAY INFO TO THE USER ABOUT 0 RESULTS
 					 * AND DISPLAY featured_rooms INSTEAD*/
-					form_search_results.append ( ` <div class = "img-thumbnail mt-3 bg_orange ___"
+					form_search_results.append ( ` <div class = "img-thumbnail mt-3 bg_orange ___ " id="results"
                                                         data-text="Your search returned 0 results, try different search parameters or have a look at featured properties bellow."    >
 					                             
 					                           
@@ -132,8 +132,14 @@ import { featured_rooms }      from './featured_rooms.js';
 			else
 				{
 					form_search_results.prepend (
-						` <div class = "img-thumbnail mt-3 border_green pl-3" ><span class="___" data-text="Search results:"></span> ${ results }</div >` );
+						` <div class = "img-thumbnail mt-3 border_green pl-3" id="results"><span class="___" data-text="Search results:"></span> ${ results }</div >` );
 				}
+			
+			
+			/*https://stackoverflow.com/questions/6677035/jquery-scroll-to-element*/
+			/*SCROLLING TO SEARCH RESULTS*/
+			$(form_search_results).get(0).scrollIntoView();
+
 			
 		} );
 		
@@ -143,7 +149,9 @@ import { featured_rooms }      from './featured_rooms.js';
 		{
 			var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 			$ ( '#form_search_results' ).html ( '' );
-			$ ( '#map_search_result' ).html ( '' );
+			
+			var map_search_result = $ ( '#map_search_result' );
+			map_search_result.html ( '' );
 			
 			var p_id     = $ ( this ).attr ( 'id' );
 			var property = ROOMS[ p_id ];
@@ -151,6 +159,8 @@ import { featured_rooms }      from './featured_rooms.js';
 			
 			render_room_preview ( property, 'map_search_result' );
 			
+			/*SCROLLING TO SEARCH RESULTS*/
+			$(map_search_result).get(0).scrollIntoView();
 		} );
 	})();
 
