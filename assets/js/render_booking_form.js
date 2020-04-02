@@ -29,7 +29,7 @@ export function render_booking_form ( room )
 		
 		var booking_form = $ ( '#book_' + room.p_id );
 		var room_types   = JSON.parse ( localStorage.getItem ( 'room_types' ) );
-		
+		console.log('pathname ',window.location.pathname);
 		booking_form.append ( `
 			 <div class = "center-form" >
                         <form   id="bookings${ room.p_id }">
