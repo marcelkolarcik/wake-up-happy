@@ -150,7 +150,7 @@ export function render_room ( room, where, preview = false )
 								
 								<!--IF OWNER IS LOGGED IN AND IN edit_mode WE WILL DISPLAY  How to block weeks ?
 								 THAT WILL FIRE POPUP WITH INFO HOW TO BLOCK WEEKS FOR HIMSELF...-->
-                                   ${ sessionStorage.getItem ( 'edit_mode' ) ? `
+                                   ${ sessionStorage.getItem ( 'edit_mode' )  && window.location.pathname !== '/index.html'? `
 
  									<button class = "btn btn-sm bg-danger text-light horizontally_aligned right-block float-right ___ "
  									id="how_to_block_dates"

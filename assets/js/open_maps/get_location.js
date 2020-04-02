@@ -152,7 +152,7 @@ function render_location_details ( address_data, coordinates, owner = false )
 		var location = $ ( '#location' );
 		
 		location.append ( `${ owner ? '' : `<div class = "col" >
-            <label class = "sr-only" for = "property_name" >Property Name</label >
+            <label class = "sr-only ___" for = "property_name" data-text="Property Name"></label >
             <div class = "input-group mb-2" >
                 <div class = "input-group-prepend" >
                     <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -160,8 +160,8 @@ function render_location_details ( address_data, coordinates, owner = false )
                     </div >
                 </div >
                 <input type = "text" name = "address__property_name"
-                       class = "form-control form-control-sm  border-danger"
-                       id = "property_name" placeholder = "Property Name"
+                       class = "form-control form-control-sm  border-danger ___"
+                       id = "property_name" data-placeholder = "Property Name"
                         value="${ typeof ( address_data.property_name ) !== "undefined" ? address_data.property_name
 		                                                                                : '' }" required >
             </div >` }
@@ -176,7 +176,7 @@ function render_location_details ( address_data, coordinates, owner = false )
                         <div class = "input-group-prepend" >
                             <div class = "input-group-text bg-transparent border_bottom_only" >
                             ${ key === 'property_name' ? ` <i class="fas fa-signature"></i>` :
-			                   ` <i class = "fas fa-map-marker-alt" >&nbsp;${ key.replace ( '_', ' ' ) }</i >` }
+			                   ` <i class = "fas fa-map-marker-alt ___" data-text="${ key.replace ( '_', ' ' ) }" ></i >` }
                             
                             </div >
                         </div >
@@ -222,7 +222,7 @@ function render_location_details ( address_data, coordinates, owner = false )
             
         </div >
 					` );
-		
+		translate();
 		
 	}
 

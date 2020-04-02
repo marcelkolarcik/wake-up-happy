@@ -255,61 +255,114 @@
   : "block mode" ,
   "Click on"
   : "Click on" ,
-  "button, if you would like to edit your room."                                                                                                  : "button, if you would like to edit your room." ,
-  "OK, got it !"                                                                                                                                  : "OK, got it !" ,
-  "By clicking on"                                                                                                                                : "By clicking on" ,
-  "you will get information that will assist on every step of your journey...;-)."                                                                : "you will get information that will assist on every step of your journey...;-)." ,
-  "Find location of your property on the map and then click the map to display coordinates."                                                      : "Find location of your property on the map and then click the map to display coordinates." ,
-  "Then click on"                                                                                                                                 : "Then click on" ,
-  "button, to display location details."                                                                                                          : "button, to display location details." ,
-  "You can correct these details."                                                                                                                : "You can correct these details." ,
-  "Once you're happy with the location details, click on"                                                                                         : "Once you're happy with the location details, click on" ,
-  "Remember to add your property name! (min 3 characters) to be able to continue to next step."                                                   : "Remember to add your property name! (min 3 characters) to be able to continue to next step." ,
-  "Define your room by selecting appropriate radio buttons."                                                                                      : "Define your room by selecting appropriate radio buttons." ,
-  "Once all options are selected"                                                                                                                 : "Once all options are selected" ,
-  "Define your services by selecting appropriate check buttons."                                                                                  : "Define your services by selecting appropriate check buttons." ,
-  "You can select multiple options."                                                                                                              : "You can select multiple options." ,
-  "When at least one of each options are selected and description is entered"                                                                     : "When at least one of each options are selected and description is entered" ,
-  "will appear and you can progress to next step."                                                                                                : "will appear and you can progress to next step." ,
-  "Description of the room must be at least 30 characters!"                                                                                       : "Description of the room must be at least 30 characters!" ,
-  "When selecting board type, you must enter price for the board."                                                                                : "When selecting board type, you must enter price for the board." ,
-  "Preview your work of art, by clicking on the tabs"                                                                                             : "Preview your work of art, by clicking on the tabs" ,
-  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."                                                                                                : "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK." ,
-  "You can edit your work if needed!"                                                                                                             : "You can edit your work if needed!" ,
-  "Once you are happy with your work, preview it by clicking on"                                                                                  : "Once you are happy with your work, preview it by clicking on" ,
-  "Update"                                                                                                                                        : "Update" ,
-  "to proceed with payment."                                                                                                                      : "to proceed with payment." ,
-  "Here you can proceed with payment. Thank you for choosing"                                                                                     : "Here you can proceed with payment. Thank you for choosing" ,
-  "wake up happy!"                                                                                                                                : "wake up happy!" ,
-  "Once you pay, you will be redirected to landing page to see your room live on the site."                                                       : "Once you pay, you will be redirected to landing page to see your room live on the site." ,
+  "button, if you would like to edit your room."
+  : "button, if you would like to edit your room." ,
+  "OK, got it !"
+  : "OK, got it !" ,
+  "By clicking on"
+  : "By clicking on" ,
+  "you will get information that will assist on every step of your journey...;-)."
+  : "you will get information that will assist on every step of your journey...;-)." ,
+  "Find location of your property on the map and then click the map to display coordinates."
+  : "Find location of your property on the map and then click the map to display coordinates." ,
+  "Then click on"
+  : "Then click on" ,
+  "button, to display location details."
+  : "button, to display location details." ,
+  "You can correct these details."
+  : "You can correct these details." ,
+  "Once you're happy with the location details, click on"
+  : "Once you're happy with the location details, click on" ,
+  "Remember to add your property name! (min 3 characters) to be able to continue to next step."
+  : "Remember to add your property name! (min 3 characters) to be able to continue to next step." ,
+  "Define your room by selecting appropriate radio buttons."
+  : "Define your room by selecting appropriate radio buttons." ,
+  "Once all options are selected"
+  : "Once all options are selected" ,
+  "Define your services by selecting appropriate check buttons."
+  : "Define your services by selecting appropriate check buttons." ,
+  "You can select multiple options."
+  : "You can select multiple options." ,
+  "When at least one of each options are selected and description is entered"
+  : "When at least one of each options are selected and description is entered" ,
+  "will appear and you can progress to next step."
+  : "will appear and you can progress to next step." ,
+  "Description of the room must be at least 30 characters!"
+  : "Description of the room must be at least 30 characters!" ,
+  "When selecting board type, you must enter price for the board."
+  : "When selecting board type, you must enter price for the board." ,
+  "Preview your work of art, by clicking on the tabs"
+  : "Preview your work of art, by clicking on the tabs" ,
+  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."
+  : "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK." ,
+  "You can edit your work if needed!"
+  : "You can edit your work if needed!" ,
+  "Once you are happy with your work, preview it by clicking on"
+  : "Once you are happy with your work, preview it by clicking on" ,
+  "Update"
+  : "Update" ,
+  "to proceed with payment."
+  : "to proceed with payment." ,
+  "Here you can proceed with payment. Thank you for choosing"
+  : "Here you can proceed with payment. Thank you for choosing" ,
+  "wake up happy!"
+  : "wake up happy!" ,
+  "Once you pay, you will be redirected to landing page to see your room live on the site."
+  : "Once you pay, you will be redirected to landing page to see your room live on the site." ,
   "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." : "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." ,
   "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!"               : "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!" ,
-  "if you want to block some of the dates."                                                                                                       : "if you want to block some of the dates." ,
-  "then click on"                                                                                                                                 : "then click on" ,
-  "AVAILABILITY"                                                                                                                                  : "AVAILABILITY" ,
-  "tab."                                                                                                                                          : "tab." ,
-  "For more details click on"                                                                                                                     : "For more details click on" ,
-  "Edit your room to your liking."                                                                                                                : "Edit your room to your liking." ,
-  "to save your changes."                                                                                                                         : "to save your changes." ,
-  "If you would like to edit room, click on"                                                                                                      : "If you would like to edit room, click on" ,
-  "My rooms"                                                                                                                                      : "My rooms" ,
-  "No rooms yet"                                                                                                                                  : "No rooms yet" ,
-  "Logout"                                                                                                                                        : "Logout" ,
-  "Dashboard"                                                                                                                                     : "Dashboard" ,
-  "Room details"                                                                                                                                  : "Room details" ,
-  "Week(s) booked"                                                                                                                                : "Week(s) booked" ,
-  "Board"                                                                                                                                         : "Board" ,
-  "Payment details"                                                                                                                               : "Payment details" ,
-  "Property Request"                                                                                                                              : "Property Request" ,
-  "Any Requests..."                                                                                                                               : "Any Requests..." ,
-  "Your future customers will be able to book your room through this form."                                                                       : "Your future customers will be able to book your room through this form." ,
-  "Previous"                                                                                                                                      : "Previous" ,
-  "Next"                                                                                                                                          : "Next" ,
-  ":view view"                                                                                                                                    : ":view view" ,
-  "bedroom"                                                                                                                                       : "bedroom" ,
-  "breakfast"                                                                                                                                     : "breakfast" ,
-  "lunch"                                                                                                                                         : "lunch" ,
-  "dinner"                                                                                                                                        : "dinner" ,
+  "if you want to block some of the dates."
+  : "if you want to block some of the dates." ,
+  "then click on"
+  : "then click on" ,
+  "AVAILABILITY"
+  : "AVAILABILITY" ,
+  "tab."
+  : "tab." ,
+  "For more details click on"
+  : "For more details click on" ,
+  "Edit your room to your liking."
+  : "Edit your room to your liking." ,
+  "to save your changes."
+  : "to save your changes." ,
+  "If you would like to edit room, click on"
+  : "If you would like to edit room, click on" ,
+  "My rooms"
+  : "My rooms" ,
+  "No rooms yet"
+  : "No rooms yet" ,
+  "Logout"
+  : "Logout" ,
+  "Dashboard"
+  : "Dashboard" ,
+  "Room details"
+  : "Room details" ,
+  "Week(s) booked"
+  : "Week(s) booked" ,
+  "Board"
+  : "Board" ,
+  "Payment details"
+  : "Payment details" ,
+  "Property Request"
+  : "Property Request" ,
+  "Any Requests..."
+  : "Any Requests..." ,
+  "Your future customers will be able to book your room through this form."
+  : "Your future customers will be able to book your room through this form." ,
+  "Previous"
+  : "Previous" ,
+  "Next"
+  : "Next" ,
+  ":view view"
+  : ":view view" ,
+  "bedroom"
+  : "bedroom" ,
+  "breakfast"
+  : "breakfast" ,
+  "lunch"
+  : "lunch" ,
+  "dinner"
+  : "dinner" ,
   "property image"                                                                                                                                : "property image" ,
   "from"                                                                                                                                          : "from" ,
   "EUR"                                                                                                                                           : "EUR" ,
@@ -394,23 +447,43 @@
   "Payment"                                                                                                                                       : "Payment" ,
   "Save your changes !"                                                                                                                           : "Save your changes !" ,
   "click to get location details"                                                                                                                 : "click to get location details" ,
-  ":view_type view"                                                                                                                               :  ":view_type view" ,
-  ":room_type bedroom image"                                                                                                                      : ":room_type bedroom image",
-  "Select image your room will be displayed as."                                                                                                  : "Select image your room will be displayed as.",
-  ":board_type image": ":board_type image",
-  "Featured properties": "Featured properties",
-  "week |week - |year booked already !": "week |week - |year booked already !",
-  "week |week - |year available !": "week |week - |year available !",
-  "missing fields": "missing fields",
-  "weeks": "Week(s) booked",
-  "board": "Board",
-  "total_price": "Total price",
-  "name": "Full name",
-  "email_of_user": "Email",
-  "card_holder_name": "Card Holder Name",
-  "card_number": "Card Number",
-  "cvv": "CVV",
-  "Delete |room_name ?": "Delete |room_name ?"
-  
+  ":view_type view"                                                                                                                               : ":view_type view" ,
+  ":room_type bedroom image"                                                                                                                      : ":room_type bedroom image" ,
+  "Select image your room will be displayed as."                                                                                                  : "Select image your room will be displayed as." ,
+  ":board_type image"                                                                                                                             : ":board_type image" ,
+  "Featured properties"                                                                                                                           : "Featured properties" ,
+  "week |week - |year booked already !"                                                                                                           : "week |week - |year booked already !" ,
+  "week |week - |year available !"                                                                                                                : "week |week - |year available !" ,
+  "missing fields"                                                                                                                                : "missing fields" ,
+  "weeks"                                                                                                                                         : "Week(s) booked" ,
+  "board"                                                                                                                                         : "Board" ,
+  "total_price"                                                                                                                                   : "Total price" ,
+  "name"                                                                                                                                          : "Full name" ,
+  "email_of_user"                                                                                                                                 : "Email" ,
+  "card_holder_name"                                                                                                                              : "Card Holder Name" ,
+  "card_number"                                                                                                                                   : "Card Number" ,
+  "cvv"                                                                                                                                           : "CVV" ,
+  "Delete |room_name ?"                                                                                                                           : "Delete |room_name ?" ,
+  "neighbourhood"                                                                                                                                  : "neighbourhood" ,
+  "suburbs"                                                                                                                                       : "suburbs" ,
+  "suburb"                                                                                                                                       : "suburb" ,
+  "city"                                                                                                                                          : "city" ,
+  "state"                                                                                                                                         : "state" ,
+  "country"                                                                                                                                       : "country" ,
+  "country code"                                                                                                                                  : "country code" ,
+  "state district"                                                                                                                                : "state district" ,
+  "village"                                                                                                                                       : "village" ,
+  "house number"                                                                                                                                  : "house number" ,
+  "road"                                                                                                                                          : "road" ,
+  "city district"                                                                                                                                 : "city district" ,
+  "postcode"                                                                                                                                     : "post code" ,
+  "college"                                                                                                                                       : "college" ,
+  "shop"                                                                                                                                          : "shop" ,
+  "region"                                                                                                                                        : "region" ,
+  "locality"                                                                                                                                      : "locality" ,
+  "hamlet"                                                                                                                                        : "hamlet" ,
+  "county"                                                                                                                                        : "county" ,
+  "town"                                                                                                                                          : "town" ,
+  "library"                                                                                                                                       : "library"
   
 }

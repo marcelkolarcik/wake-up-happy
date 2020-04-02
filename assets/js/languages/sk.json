@@ -262,57 +262,106 @@
   : "OK Mám to !" ,
   "By clicking on"
   : "Kliknutím na" ,
-  "you will get information that will assist on every step of your journey...;-)."                                                                : "získate informácie, ktoré vám pomôžu pri každom kroku vašej cesty ... ;-)." ,
-  "Find location of your property on the map and then click the map to display coordinates."                                                      : "Vyhľadajte polohu svojho majetku na mape a potom kliknutím na mapu zobrazte súradnice." ,
-  "Then click on"                                                                                                                                 : "Potom kliknite na" ,
-  "button, to display location details."                                                                                                          : ", ak chcete zobraziť podrobnosti o polohe." ,
-  "You can correct these details."                                                                                                                : "Tieto údaje môžete opraviť." ,
-  "Once you're happy with the location details, click on"                                                                                         : "Keď budete spokojní s podrobnosťami o polohe, kliknite na" ,
-  "Remember to add your property name! (min 3 characters) to be able to continue to next step."                                                   : "Nezabudnite pridať názov svojej nehnuteľnosti! (Min. 3 znaky), aby ste mohli pokračovať v ďalšom kroku." ,
-  "Define your room by selecting appropriate radio buttons."                                                                                      : "Definujte svoju izbu výberom vhodných prepínačov." ,
-  "Once all options are selected"                                                                                                                 : "Po výbere všetkých možností" ,
-  "Define your services by selecting appropriate check buttons."                                                                                  : "Definujte svoje služby výberom vhodných kontrolných tlačidiel." ,
-  "You can select multiple options."                                                                                                              : "Môžete vybrať viac možností." ,
-  "When at least one of each options are selected and description is entered"                                                                     : "Ak vyberiete aspoň jednu z možností a zadáte popis" ,
-  "will appear and you can progress to next step."                                                                                                : "sa zobrazí a môžete prejsť na ďalší krok." ,
-  "Description of the room must be at least 30 characters!"                                                                                       : "Opis miestnosti musí mať najmenej 30 znakov!" ,
-  "When selecting board type, you must enter price for the board."                                                                                : "Pri výbere typu dosky musíte zadať cenu dosky." ,
-  "Preview your work of art, by clicking on the tabs"                                                                                             : "Zobrazte ukážku svojho umeleckého diela kliknutím na karty" ,
-  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."                                                                                                : "O GALÉRII, ZARIADENÍ, DOSTUPNOSŤ, KNIHA" ,
-  "You can edit your work if needed!"                                                                                                             : "Svoju prácu môžete v prípade potreby upraviť!" ,
-  "Once you are happy with your work, preview it by clicking on"                                                                                  : "Až budete so svojou prácou spokojní, ukážte ju kliknutím na" ,
-  "Update"                                                                                                                                        : "Editovať" ,
-  "to proceed with payment."                                                                                                                      : "pokračovať v platbe." ,
-  "Here you can proceed with payment. Thank you for choosing"                                                                                     : "Tu môžete pokračovať v platbe. Ďakujeme, že ste si vybrali" ,
-  "wake up happy!"                                                                                                                                : "zobuď sa šťastný!" ,
-  "Once you pay, you will be redirected to landing page to see your room live on the site."                                                       : "Po zaplatení budete presmerovaní na vstupnú stránku, aby ste videli svoju izbu na webe." ,
+  "you will get information that will assist on every step of your journey...;-)."
+  : "získate informácie, ktoré vám pomôžu pri každom kroku vašej cesty ... ;-)." ,
+  "Find location of your property on the map and then click the map to display coordinates."
+  : "Vyhľadajte polohu svojho majetku na mape a potom kliknutím na mapu zobrazte súradnice." ,
+  "Then click on"
+  : "Potom kliknite na" ,
+  "button, to display location details."
+  : ", ak chcete zobraziť podrobnosti o polohe." ,
+  "You can correct these details."
+  : "Tieto údaje môžete opraviť." ,
+  "Once you're happy with the location details, click on"
+  : "Keď budete spokojní s podrobnosťami o polohe, kliknite na" ,
+  "Remember to add your property name! (min 3 characters) to be able to continue to next step."
+  : "Nezabudnite pridať názov svojej nehnuteľnosti! (Min. 3 znaky), aby ste mohli pokračovať v ďalšom kroku." ,
+  "Define your room by selecting appropriate radio buttons."
+  : "Definujte svoju izbu výberom vhodných prepínačov." ,
+  "Once all options are selected"
+  : "Po výbere všetkých možností" ,
+  "Define your services by selecting appropriate check buttons."
+  : "Definujte svoje služby výberom vhodných kontrolných tlačidiel." ,
+  "You can select multiple options."
+  : "Môžete vybrať viac možností." ,
+  "When at least one of each options are selected and description is entered"
+  : "Ak vyberiete aspoň jednu z možností a zadáte popis" ,
+  "will appear and you can progress to next step."
+  : "sa zobrazí a môžete prejsť na ďalší krok." ,
+  "Description of the room must be at least 30 characters!"
+  : "Opis miestnosti musí mať najmenej 30 znakov!" ,
+  "When selecting board type, you must enter price for the board."
+  : "Pri výbere typu dosky musíte zadať cenu dosky." ,
+  "Preview your work of art, by clicking on the tabs"
+  : "Zobrazte ukážku svojho umeleckého diela kliknutím na karty" ,
+  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."
+  : "O GALÉRII, ZARIADENÍ, DOSTUPNOSŤ, REZERVOVAŤ" ,
+  "You can edit your work if needed!"
+  : "Svoju prácu môžete v prípade potreby upraviť!" ,
+  "Once you are happy with your work, preview it by clicking on"
+  : "Až budete so svojou prácou spokojní, ukážte ju kliknutím na" ,
+  "Update"
+  : "Editovať" ,
+  "to proceed with payment."
+  : "pokračovať v platbe." ,
+  "Here you can proceed with payment. Thank you for choosing"
+  : "Tu môžete pokračovať v platbe. Ďakujeme, že ste si vybrali" ,
+  "wake up happy!"
+  : "zobuď sa šťastný!" ,
+  "Once you pay, you will be redirected to landing page to see your room live on the site."
+  : "Po zaplatení budete presmerovaní na vstupnú stránku, aby ste videli svoju izbu na webe." ,
   "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." : "Budete prihlásený / -á do svojho účtu a v pravom hornom rohu sa zobrazia vaše iniciály a vaša izba bude uvedená v rozbaľovacej ponuke." ,
   "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!"               : "Kliknutím na svoje meno alebo názov miestnosti sa dostanete na hlavný panel účtu, kde môžete svoju izbu ďalej upravovať alebo pridať novú!" ,
-  "if you want to block some of the dates."                                                                                                       : "ak chcete zablokovať niektoré z dátumov." ,
-  "then click on"                                                                                                                                 : "potom kliknite na" ,
-  "AVAILABILITY"                                                                                                                                  : "DOSTUPNOSŤ" ,
-  "tab."                                                                                                                                          : "Tab." ,
-  "For more details click on"                                                                                                                     : "Pre viac informácií kliknite na" ,
-  "Edit your room to your liking."                                                                                                                : "Upravte si izbu podľa svojich predstáv." ,
-  "to save your changes."                                                                                                                         : "uložte svoje zmeny." ,
-  "If you would like to edit room, click on"                                                                                                      : "Ak chcete upraviť miestnosť, kliknite na" ,
-  "My rooms"                                                                                                                                      : "Moje izby" ,
-  "No rooms yet"                                                                                                                                  : "Zatiaľ žiadne izby" ,
-  "Logout"                                                                                                                                        : "Odhlásiť sa" ,
-  "Dashboard"                                                                                                                                     : "Prístrojová doska" ,
-  "Room details"                                                                                                                                  : "Podrobnosti o izbe" ,
-  "Week(s) booked"                                                                                                                                : "Rezervované týždne" ,
-  "Board"                                                                                                                                         : "Stravovanie" ,
-  "Payment details"                                                                                                                               : "Platobné údaje" ,
-  "Property Request"                                                                                                                              : "Žiadosť o nehnuteľnosť" ,
-  "Any Requests..."                                                                                                                               : "Všetky žiadosti ..." ,
-  "Your future customers will be able to book your room through this form."                                                                       : "Vaši zákazníci si budú môcť prostredníctvom tohto formulára rezervovať izbu." ,
-  "Previous"                                                                                                                                      : "Predchádzajúci" ,
-  "Next"                                                                                                                                          : "Ďalšie" ,
-  ":view view"                                                                                                                                    : ":view view" ,
-  "bedroom"                                                                                                                                       : "Spálňa" ,
-  "breakfast"                                                                                                                                     : "Raňajky" ,
-  "lunch"                                                                                                                                         : "Obed" ,
+  "if you want to block some of the dates."
+  : "ak chcete zablokovať niektoré z dátumov." ,
+  "then click on"
+  : "potom kliknite na" ,
+  "AVAILABILITY"
+  : "DOSTUPNOSŤ" ,
+  "tab."
+  : "Tab." ,
+  "For more details click on"
+  : "Pre viac informácií kliknite na" ,
+  "Edit your room to your liking."
+  : "Upravte si izbu podľa svojich predstáv." ,
+  "to save your changes."
+  : "uložte svoje zmeny." ,
+  "If you would like to edit room, click on"
+  : "Ak chcete upraviť miestnosť, kliknite na" ,
+  "My rooms"
+  : "Moje izby" ,
+  "No rooms yet"
+  : "Zatiaľ žiadne izby" ,
+  "Logout"
+  : "Odhlásiť sa" ,
+  "Dashboard"
+  : "Prístrojová doska" ,
+  "Room details"
+  : "Podrobnosti o izbe" ,
+  "Week(s) booked"
+  : "Rezervované týždne" ,
+  "Board"
+  : "Stravovanie" ,
+  "Payment details"
+  : "Platobné údaje" ,
+  "Property Request"
+  : "Žiadosť o nehnuteľnosť" ,
+  "Any Requests..."
+  : "Všetky žiadosti ..." ,
+  "Your future customers will be able to book your room through this form."
+  : "Vaši zákazníci si budú môcť prostredníctvom tohto formulára rezervovať izbu." ,
+  "Previous"
+  : "Predchádzajúci" ,
+  "Next"
+  : "Ďalšie" ,
+  ":view view"
+  : ":view view" ,
+  "bedroom"
+  : "Spálňa" ,
+  "breakfast"
+  : "Raňajky" ,
+  "lunch"
+  : "Obed" ,
   "dinner"                                                                                                                                        : "Večera" ,
   "property image"                                                                                                                                : "obraz vlastníctva" ,
   "from"                                                                                                                                          : "Z" ,
@@ -400,20 +449,41 @@
   "click to get location details"                                                                                                                 : "kliknutím získate podrobnosti o polohe" ,
   ":view_type view"                                                                                                                               : "vyhliadka - :view_type" ,
   ":room_type bedroom image"                                                                                                                      : "spálňa - :room_type" ,
-  "Select image your room will be displayed as."                                                                                                  : "Vyberte obrázok, ako sa bude vaša izba zobrazovať.",
-  ":board_type image": ":board_type obrazok",
-  "Featured properties": "Odporúčané izby",
-  "week |week - |year booked already !":"týždeň |week - |year už rezervovaný!",
-  "week |week - |year available !": "týždeň |week - |year k dispozícii!",
-  "missing fields": "chýbajúce polia",
-  "weeks": "Rezervované týždne",
-  "board": "Stravovanie",
-  "total_price": "Celková cena",
-  "name": "Celé meno",
-  "email_of_user": "Email",
-  "card_holder_name": "Meno držiteľa karty",
-  "card_number": "Číslo karty",
-  "cvv": "CVV",
-  "Delete |room_name ?": "Vymazať |room_name ?"
+  "Select image your room will be displayed as."                                                                                                  : "Vyberte obrázok, ako sa bude vaša izba zobrazovať." ,
+  ":board_type image"                                                                                                                             : ":board_type obrazok" ,
+  "Featured properties"                                                                                                                           : "Odporúčané izby" ,
+  "week |week - |year booked already !"                                                                                                           : "týždeň |week - |year už rezervovaný!" ,
+  "week |week - |year available !"                                                                                                                : "týždeň |week - |year k dispozícii!" ,
+  "missing fields"                                                                                                                                : "chýbajúce polia" ,
+  "weeks"                                                                                                                                         : "Rezervované týždne" ,
+  "board"                                                                                                                                         : "Stravovanie" ,
+  "total_price"                                                                                                                                   : "Celková cena" ,
+  "name"                                                                                                                                          : "Celé meno" ,
+  "email_of_user"                                                                                                                                 : "Email" ,
+  "card_holder_name"                                                                                                                              : "Meno držiteľa karty" ,
+  "card_number"                                                                                                                                   : "Číslo karty" ,
+  "cvv"                                                                                                                                           : "CVV" ,
+  "Delete |room_name ?"                                                                                                                           : "Vymazať |room_name ?" ,
+  "neighbourhood"                                                                                                                                  : "Susedstvo" ,
+  "suburbs"                                                                                                                                       : "Predmestia" ,
+  "suburb"                                                                                                                                       : "Predmestie" ,
+  "city"                                                                                                                                          : "Mesto" ,
+  "state"                                                                                                                                         : "štát" ,
+  "country"                                                                                                                                       : "krajina" ,
+  "country code"                                                                                                                                  : "kód krajiny" ,
+  "state district"                                                                                                                                : "štátny okres" ,
+  "village"                                                                                                                                       : "Obec" ,
+  "house number"                                                                                                                                  : "číslo domu" ,
+  "road"                                                                                                                                          : "Cesta" ,
+  "city district"                                                                                                                                 : "mestská časť" ,
+  "postcode"                                                                                                                                     : "poštové smerovacie číslo" ,
+  "college"                                                                                                                                       : "College" ,
+  "shop"                                                                                                                                          : "Obchod" ,
+  "region"                                                                                                                                        : "Región" ,
+  "locality"                                                                                                                                      : "Lokalita" ,
+  "hamlet"                                                                                                                                        : "Osada" ,
+  "county"                                                                                                                                        : "Kraj" ,
+  "town"                                                                                                                                          : "mesto" ,
+  "library"                                                                                                                                       : "Knižnica"
   
 }

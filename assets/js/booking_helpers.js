@@ -138,11 +138,11 @@ import { translate } from "./translator/translator.js";
 						$ ( '#boards_' + p_id ).addClass ( 'border border-danger' );
 						swal.fire ( {
 							
-							            html : `<h4 class="___" data-text="Oops...">Oops...</h4>
+							            html : `<h4 class="___" data-text="Oops..."></h4>
 										<div class = "col-auto" >
 									   
 									    <hr class = "bg_green" >
-									    <span class="___" data-text="Please, select board!">Please, select board!</span>
+									    <span class="___" data-text="Please, select board!"></span>
 									     <br ><br >
 									    <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
 									       onclick = "swal.close()"
@@ -152,7 +152,7 @@ import { translate } from "./translator/translator.js";
 							
 						            } );
 						
-						translate();
+						translate ();
 						
 						/*BECAUSE OTHERWISE, SCRIPT WOULD RUN AND
 						 * TOTAL PRICE WOULD BE => 1 * price_per_week
@@ -297,28 +297,43 @@ function check_current_room ( to_be_booked_room_ids )
  */
 $ ( document ).on ( 'click', '.pay_for_booking', function ()
 {
+	
 	var room_id           = $ ( this ).data ( 'room_id' );
 	var contact_form      = $ ( '#bookings' + room_id ).serialize ();
 	var contactForm_array = contact_form.split ( '&' );
 	var contactForm       = {};
+	var blocking_dates    = $ ( this ).data ( 'blocking_dates' );
 	
 	/*INITIALLY WE SET status TO SUCCESS
-	* IF, WE HAVE EMPTY FIELDS => status = FAILED*/
-	var status            = 'SUCCESS';
-	var missing_fields    = [];
+	 * IF, WE HAVE EMPTY FIELDS => status = FAILED*/
+	var status         = 'SUCCESS';
+	var missing_fields = [];
+	
 	
 	/*CHECK FOR EMPTY FIELDS...*/
 	$.each ( contactForm_array, function ( index, value )
 	{
 		
-		var split_value                 = decodeURIComponent ( value ).split ( '=' );
+		var split_value = decodeURIComponent ( value ).split ( '=' );
 		
 		contactForm[ split_value[ 0 ] ] = split_value[ 1 ];
 		
-		if ( split_value[ 1 ] === '' )
+		/*IF OWNER IS BLOCKING DATES, WE ONLY NEED WEEKS,
+		* SO WHEN HE FORGETS TO SELECT WEEKS, WE WILL ALERT HIM*/
+		if (  sessionStorage.getItem ( 'edit_mode' ) && blocking_dates  )
+			{
+				if ( split_value[ 0 ] === "weeks" && split_value[ 1 ] === ''){
+					status = 'FAILED';
+					missing_fields.push ( split_value[ 0 ] );
+				}
+				
+				
+			}
+		
+		else if ( split_value[ 1 ] === '' )
 			{
 				/*IF WE HAVE AT LEAST ONE EMPTY
-				* REQUIRED FIELD, WE WILL FAIL BOOKING*/
+				 * REQUIRED FIELD, WE WILL FAIL BOOKING*/
 				status = 'FAILED';
 				
 				/*request_of_property IS NOT REQUIRED
@@ -330,7 +345,6 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 				if ( split_value[ 0 ] !== "request_of_property" )
 					missing_fields.push ( split_value[ 0 ] );
 			}
-		
 	} );
 	
 	
@@ -341,7 +355,6 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 function process_booking ( contactForm, p_id, room_style )
 	{
 		confirm_payment ( "SUCCESS", p_id, contactForm, room_style );
-		
 		/*emailjs.send( "gmail", "template_pDNgSwG0", {
 		 "from_name"          : contactForm.name.value,
 		 "from_email"         : contactForm.email_of_user.value,
@@ -363,10 +376,13 @@ function process_booking ( contactForm, p_id, room_style )
 		return false;  // To block from loading a new page
 	}
 
+
 function parse_to_int ( num )
 	{
 		return parseInt ( num );
 	}
+
+
 /*PAYMENT CONFIRMATION  POPUP
  ONCE USER PAYS FOR THE BOOKING, WE WILL FIRE CONFIRMATION ALERT, WITH OPTION
  TO SAVE THIS CONFIRMATION LOCALLY*/
@@ -374,47 +390,49 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 	{
 		
 		
-				/*IF USER SELECTED WEEKS AND BOARD WE WILL ALERT HIM WITH SUCCESS
-				 * AND GIVE HIM OPTION TO SAVE RESERVATION TO HIS DEVICE*/
-				if ( status === 'SUCCESS' )
-					{
-						
-						
-						var booked_weeks = contactForm.weeks;
-						if ( booked_weeks.charAt ( 0 ) === '-' ) booked_weeks = booked_weeks.substr ( 1 );
-						
-						var current_bookings_s = booked_weeks.split ( '-' );
-						//	PARSING weeks ( strings ) to integers
-						var current_bookings   = current_bookings_s.map ( parse_to_int );
-						
-						
-						
-						
-						
-						var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
-						var room  = ROOMS[ p_id ];
-						
-						/*ADDING ADDRESS OF THE ROOM TO CONFIRMATION ALERT*/
-						var address = '';
-						
-						$.each ( room.p_address, function ( key, value )
-						{
-							address += value + ', ';
-						} );
+		/*IF USER SELECTED WEEKS AND BOARD WE WILL ALERT HIM WITH SUCCESS
+		 * AND GIVE HIM OPTION TO SAVE RESERVATION TO HIS DEVICE*/
+		if ( status === 'SUCCESS' )
+			{
+				
+				
+				var booked_weeks = contactForm.weeks;
+				if ( booked_weeks.charAt ( 0 ) === '-' ) booked_weeks = booked_weeks.substr ( 1 );
+				
+				var current_bookings_s = booked_weeks.split ( '-' );
+				//	PARSING weeks ( strings ) to integers
+				var current_bookings   = current_bookings_s.map ( parse_to_int );
+				
+				
+				var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
+				var room  = ROOMS[ p_id ];
+				
+				/*ADDING ADDRESS OF THE ROOM TO CONFIRMATION ALERT*/
+				var address = '';
+				
+				$.each ( room.p_address, function ( key, value )
+				{
+					address += value + ', ';
+				} );
 
 
 //			ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
-						room.bookings = room.bookings.concat ( current_bookings );
-						ROOMS[ p_id ] = room;
-						localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
-						
-						sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
+				room.bookings = room.bookings.concat ( current_bookings );
+				ROOMS[ p_id ] = room;
+				localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 
+				
 //			IF OWNER BLOCKED SOME DATES WE WILL FIRE THIS ALERT
-						if ( sessionStorage.getItem ( 'edit_mode' ) )
-							{
-								swal.fire ( {
-									            html              : ` <div >
+				if ( sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname !== '/index.html')
+					{
+						/*UPDATING CURRENT ROOM'S BOOKED DAYS IN THE SESSION, OTHERWISE
+						* WE WOULD NOT SEE THE BLOCKED DATES IMMEDIATELY, ONLY AFTER
+						* LOGOUT AND LOGIN AGAIN.*/
+						sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
+						
+						
+						swal.fire ( {
+							            html              : ` <div >
 									 <p class="card-title nav_link_property ___" data-text="Your dates were blocked !"></p>
 									 <hr >
 									 <span class="___" data-text="Week(s):"></span>
@@ -422,16 +440,16 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 									  <hr >
 									<a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
 							 </div>`,
-									            showConfirmButton : false
-								            } );
-							}
+							            showConfirmButton : false
+						            } );
+					}
 //			IF USER BOOKED A ROOM WE WILL FIRE THIS ALERT
-						else
-							{
-								
-								swal.fire ( {
-									            html :
-										            `<div class="card horizontally_aligned" style="width: 100%;">
+				else
+					{
+						
+						swal.fire ( {
+							            html :
+								            `<div class="card horizontally_aligned" style="width: 100%;">
 							<div class=" bg_green">
 							 <img class="" src="assets/images/logo_sm.png"  alt="logo image">
 						
@@ -485,27 +503,27 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 										</div>
 							 </div>
 							 </div>`,
-									
-									            showConfirmButton : false
-									
-								            } );
-								
-							}
-//	END OF	ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
+							
+							            showConfirmButton : false
+							
+						            } );
 						
-						translate();
 					}
-				/*IF THERE IS AN ERROR */
-				else if ( status === 'FAILED' )
-					{
-						var missing = '';
-						$.each ( missing_fields, function ( key, value )
-						{
-							missing += `<span class="___" data-text="${ value }"></span> <br>`;
-						} );
-						
-						swal.fire ( {
-							            html              : `<div >
+//	END OF	ADDING CURRENT BOOKINGS TO ROOM'S BOOKINGS
+				
+				translate ();
+			}
+		/*IF THERE IS AN ERROR */
+		else if ( status === 'FAILED' )
+			{
+				var missing = '';
+				$.each ( missing_fields, function ( key, value )
+				{
+					missing += `<span class="___" data-text="${ value }"></span> <br>`;
+				} );
+				
+				swal.fire ( {
+					            html              : `<div >
 								                                    <h4 class="bg-danger text-warning" >Whoops !</h4>
 																	 <p class="card-title nav_link_property ___" data-text="Your room is not booked !"></p>
 																	 <hr class="bg-danger">
@@ -517,11 +535,10 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 																	       onclick = "swal.close()"
 																	       > ok </a >
 															 </div>`,
-							            showConfirmButton : false
-						            } );
-						translate();
-					}
-			
+					            showConfirmButton : false
+				            } );
+				translate ();
+			}
 		
 		
 	}

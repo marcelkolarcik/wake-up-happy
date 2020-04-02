@@ -23,8 +23,13 @@ $ ( document ).on ( 'input', '#property_name', function ()
 				{
 					
 					property_name.removeClass ( 'border-danger' );
-					step_2.removeClass ( 'd-none' );
-					step_2.html ( 'room&nbsp;>>>' ).addClass ( 'no_border green' );
+					step_2.removeClass ( 'd-none' ).addClass ( 'no_border green' );
+					if(property_name.val ().length === 3 && !step_2.html().includes('&nbsp;&gt;&gt;&gt;'))
+						{
+							
+							step_2.append(`&nbsp;>>>`);
+						}
+					
 				}
 			else
 				{
@@ -354,6 +359,8 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 				 *      */
 				if ( num_of_titles >= 3 ) $ ( '#step_3' ).removeClass ( 'd-none' );
 				
+				if(  num_of_titles === 3) $ ( '#step_3' ).append(`&nbsp;>>>`);
+				
 			} );
 			
 			////// THIS IS TO INCREMENT num_of_prices AND num_of_boards ONLY IF OWNER ADDS NEW BOARD
@@ -484,15 +491,21 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 /*ADDING STEP 4 BUTTON IF ALL CONDITIONS ARE MET, REMOVING STEP 4 & STEP 5 BUTTON OTHERWISE*/
 function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 	{
+		var step_4 = $ ( '#step_4' );
 		if ( num_of_prices > 0 && num_of_amenities > 0 && room_desc > 29 )
 			{
-				$ ( '#step_4' ).removeClass ( 'd-none' );
-				//sessionStorage.setItem ( 'ready_for_step_4', true );
+				step_4.removeClass ( 'd-none' ) ;
+				
+				if(!step_4.html().includes('&nbsp;&gt;&gt;&gt;'))
+					{
+						step_4.append(`&nbsp;>>>`);
+					}
+				
 				return true;
 			}
 		else
 			{
-				$ ( '#step_4' ).addClass ( 'd-none' );
+				step_4.addClass ( 'd-none' );
 				$ ( '#step_5' ).addClass ( 'd-none' );
 				return false;
 				//sessionStorage.setItem ( 'ready_for_step_4', false );
@@ -545,7 +558,7 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 // payment button
 				if ( step_id === 4 && sessionStorage.getItem ( 'add_mode' ) ) $ ( '#step_5' ).removeClass ( 'd-none' );
 
-//              WHEN OWNER IS IN  edit_mode AND WANTS TO BLOCK SOME WEEKS WE WILL DISPLAY pay_for_the_room button
+//              WHEN OWNER IS IN  edit_mode AND WANTS TO BLOCK SOME WEEKS WE WILL DISPLAY pay_for_the_room button ( text of the button will be update)
 				if ( step_id === 4 && sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname
 				     === '/owner.html' )
 					{
@@ -593,7 +606,8 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 
 //				CHANGING APPEARANCE OF THE location,room,services,preview,payment STEPS
 //				DEPENDING ON WHICH ONE WAS CURRENTLY CLICKED
-						next_step.html ( step_names[ step_id ] + '&nbsp;>>>' ).addClass ( 'no_border green' );
+						
+						next_step.html ( step_names[ step_id ] ).addClass ( 'no_border green' );
 						$ ( this ).html ( step_names[ step_id - 1 ] ).removeClass ( 'no_border green' );
 						
 						

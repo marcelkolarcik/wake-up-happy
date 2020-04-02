@@ -265,7 +265,28 @@
   "Save your changes !",
   "click to get location details",
   "Select image your room will be displayed as.",
-  "Featured properties"
+  "Featured properties",
+  
+  "neighborhood",
+  "suburbs",
+  "city",
+  "state",
+  "country",
+  "country code",
+  "state district",
+  "village",
+  "house number",
+  "road",
+  "city district",
+  "post code",
+  "college",
+  "shop",
+  "region",
+  "locality",
+  "hamlet",
+  "county",
+  "town",
+  "library"
   
 ]
 

@@ -301,18 +301,29 @@ import { path_to_language_files, default_language } from "../translator/settings
 						"Define your services" ,
 						"Preview your work of art!" ,
 						"Payment" ,
-						"Save your changes !"
+						"Save your changes !",
+						"neighborhood",
+						"suburbs",
+						"city",
+						"state",
+						"country",
+						"country code",
+						"state district",
+						"village",
+						"house number",
+						"road",
+						"city district",
+						"post code",
+						"college",
+						"shop",
+						"region",
+						"locality",
+						"hamlet",
+						"county",
+						"town",
+						"library"
 					
-					]
-					
-					
-					
-					
-					
-					
-					
-					
-					,
+					],
 					'es' : [
 						"habitación :",
 						"ver:",
@@ -576,7 +587,27 @@ import { path_to_language_files, default_language } from "../translator/settings
 						"Define tus servicios",
 						"Vista previa de tu obra de arte!" ,
 						"Pago",
-						"¡Guarda tus cambios!"
+						"¡Guarda tus cambios!",
+						"barrio",
+						"afueras",
+						"ciudad",
+						"estado",
+						"país",
+						"código de país",
+						"Estado / Distrito",
+						"pueblo",
+						"número de casa",
+						"la carretera",
+						"Distrito de la ciudad",
+						"código postal",
+						"Universidad",
+						"tienda",
+						"región",
+						"localidad",
+						"aldea",
+						"condado",
+						"pueblo",
+						"biblioteca"
 					],
 					'sk' :[
 						"Izba:" ,
@@ -841,7 +872,27 @@ import { path_to_language_files, default_language } from "../translator/settings
 						"Definujte svoje služby",
 						"Prezrite si svoje umelecké dielo!" ,
 						"Platba",
-						"Uložte svoje zmeny!"
+						"Uložte svoje zmeny!",
+						"Susedstvo",
+						"Predmestia",
+						"Mesto",
+						"štát",
+						"krajina",
+						"kód krajiny",
+						"štátny okres",
+						"Obec",
+						"číslo domu",
+						"Cesta",
+						"mestská časť",
+						"poštové smerovacie číslo",
+						"College",
+						"Obchod",
+						"Región",
+						"Lokalita",
+						"Osada",
+						"Kraj",
+						"mesto",
+						"Knižnica"
 					],
 					'pl' : [
 						"Pokój :",
@@ -1106,7 +1157,27 @@ import { path_to_language_files, default_language } from "../translator/settings
 						"Zdefiniuj swoje usługi",
 						"Wyświetl podgląd swojego dzieła sztuki!" ,
 						"Zapłata" ,
-						"Zapisz zmiany!"
+						"Zapisz zmiany!",
+						"sąsiedztwo",
+						"przedmieścia",
+						"Miasto",
+						"stan",
+						"kraj",
+						"kod pocztowy",
+						"dystrykt stanowy",
+						"wioska",
+						"numer domu",
+						"Droga",
+						"dzielnica miasta",
+						"kod pocztowy",
+						"Szkoła Wyższa",
+						"sklep",
+						"region",
+						"miejscowość",
+						"mała wioska",
+						"Hrabstwo",
+						"miasto",
+						"biblioteka"
 					]
 					
 				};
