@@ -188,7 +188,7 @@ $ ( function ()
 				
 				set_current_mode ( 'preview_mode' );
 				set_last_room_id ();
-				window.location.replace ( "/owner.html" );
+				window.location.replace ( "owner.html" );
 				
 			} );
 			
