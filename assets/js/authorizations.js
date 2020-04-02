@@ -162,7 +162,7 @@ function not_registered ()
 									    <span class="___" data-text="Just take the first step...."></span>
 									     <br >
 									    <a class = "add_your_room ___"
-									    href = "/owner.html"
+									    href = "owner.html"
 									    data-title = "Add your room now!" data-text="Right on this site !"></a >
 									</div >
 									<hr class = "bg_green" >
@@ -171,7 +171,7 @@ function not_registered ()
 									    
 									    <br >
 									    <br >
-									    <a href = "/owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room ___" id = "ok"
+									    <a href = "owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room ___" id = "ok"
 									       onclick = "swal.close()"
 									       data-title = "Add your room now!" >
 									        ok
@@ -231,7 +231,7 @@ function authorize_owner ( owner, hashed_login )
 
 //	PUTTING HASHED LOGIN TO SESSION, WILL NEED IT FOR UPDATE ....
 		sessionStorage.setItem ( 'hashed_login', hashed_login );
-		window.location.replace ( "/owner.html" );
+		window.location.replace ( "owner.html" );
 		
 		
 	}

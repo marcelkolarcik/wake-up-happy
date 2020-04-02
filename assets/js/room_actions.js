@@ -190,6 +190,7 @@ $ ( function ()
 				set_last_room_id ();
 				window.location.replace ( "owner.html" );
 				
+				
 			} );
 			
 			$ ( document ).on ( 'click', '.add_your_room', function ()
