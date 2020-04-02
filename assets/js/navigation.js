@@ -84,7 +84,7 @@ $ ( function ()
 			
 			
 			    $ ( '#owner_name' ).append (
-				    `<a href="/owner.html" class="nav_link_property dashboard_link ___" data-title="Dashboard">${ full_name }</a>` );
+				    `<a href="owner.html" class="nav_link_property dashboard_link ___" data-title="Dashboard">${ full_name }</a>` );
 			
 			    $ ( '#add_room' ).remove ();
 			    $ ( '#login_details' ).remove ();
