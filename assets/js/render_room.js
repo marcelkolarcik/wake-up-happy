@@ -65,25 +65,25 @@ export function render_room ( room, where, preview = false )
 			room.location ) } | ${ room_types[ room.room_type ] }
                     </h4>
              </span >
-             <span class="d-md-none ml-2" id="mobile_${room.p_id}">
+             <span class="d-md-none ml-2" id="mobile_${ room.p_id }">
               ${ decodeURI ( room.p_description ).substring ( 0, 30 ) }...
               </span>
              
               <!--ON MOBILE DEVICES WE WILL DISPLAY SHORTER VERSION OF THE ROOM AND more... / less... BUTTON
               TO SHOW / HIDE FULL PREVIEW-->
-              <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___ more_${ room.p_id}"
+              <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___ more_${ room.p_id }"
 			data-title="Display more info..."
 			data-text="more..."
 			 data-p_id="${ room.p_id }"
 			></span>
 			
-			 <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___ d-none less_${ room.p_id}"
+			 <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___ d-none less_${ room.p_id }"
 			data-title="Display less info..."
 			data-text="less..."
 			 data-p_id="${ room.p_id }"
 			></span>
         </div >
-        <div class = "col-md-8 d-none d-md-block parent" id="tabs_${ room.p_id }" style = "position:relative" >
+        <div class = "col-md-8 d-none d-md-block parent" id="tabs_${ room.p_id }"  >
             <div class = "list-group  list-group-horizontal-lg tabs"  role = "tablist" >
             
                 <a class = "list-group-item list-group-item-action active nav_link_property ___"
@@ -108,7 +108,7 @@ export function render_room ( room, where, preview = false )
                    data-text="Availability"></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
-                    id="book_btn${room.p_id}"
+                    id="book_btn${ room.p_id }"
                    data-toggle = "list" href = "#book_${ room.p_id }" role = "tab"
                    data-title = "Book your room !"
                    data-text="Book">
@@ -126,13 +126,13 @@ export function render_room ( room, where, preview = false )
 			room.location ) } | ${ room_types[ room.room_type ] }
                                              </h4>
              				</span >
-                        <p class = "card-text" >${ decodeURI ( room.p_description ) }</p >
+                        <p class = "card-text mb-5 pb-5" >${ decodeURI ( room.p_description ) }</p >
                     </div >
                   
                   <!--ONLY SHOWING SHOW ON THE MAP ON index.html AND NOT ON owner.html-->
                     <span class="btn btn-sm bg_green text-light float-right mr-3 show_on_map ___
                  
-						${ window.location.pathname === '/index.html' ? '' : 'd-none' }"
+						${ window.location.pathname.includes ( '/index.html' ) ? '' : 'd-none' }"
 						data-title="Show room on the map..."
 						data-lat="${ room.lat }"
 						data-lng="${ room.lng }"
@@ -152,41 +152,44 @@ export function render_room ( room, where, preview = false )
 		                   
 		                   
 							<div class="card col-md-12">
-								<div class="card-header p-0 bg-transparent">
-								<span class="___" data-text="Boards"></span>
+								<div class="card-header p-0 bg-transparent mb-1">
 								
-								<!--IF OWNER IS LOGGED IN AND IN edit_mode WE WILL DISPLAY  How to block weeks ?
-								 THAT WILL FIRE POPUP WITH INFO HOW TO BLOCK WEEKS FOR HIMSELF...-->
-                                   ${ sessionStorage.getItem ( 'edit_mode' )  && window.location.pathname !== '/index.html'? `
-
- 									<button class = "btn btn-sm bg-danger text-light horizontally_aligned right-block float-right ___ "
- 									id="how_to_block_dates"
- 									data-title="Block selected dates"
- 									data-text="How to block weeks ?">
-                                
-                                </button >` : '' }
+								 <span class = " ___"
+							 	     data-text="Select board and the week(s) and click on">
+		                        </span >
+		                        
+		                          <span class="___  img-thumbnail pl-2 pr-2 bg-danger text-light" data-text="BOOK"></span>
+		                       
+								
+								
 								</div>
 							 	<div id="boards_${ room.p_id }" class="col p-0"></div>
 							 	 <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${ room.p_id }" > </div >
           
 							 	<div class="card-footer bg-transparent">
-							 	    <span class = "nav_link_property ___"
-							 	     data-text="Select board and the week(s) and click on">
-		                        </span >
-		                         <strong
-		                                    class = "bold" ><span class="___ nav_link_property img-thumbnail pl-2 pr-2 bg_green text-light" data-text="BOOK"></span></strong >
-		                        <span class="___" data-text="button"></span>
-		                        
-		                        </div>
+							 	   <!--IF OWNER IS LOGGED IN AND IN edit_mode WE WILL DISPLAY  How to block weeks ?
+								 THAT WILL FIRE POPUP WITH INFO HOW TO BLOCK WEEKS FOR HIMSELF...-->
+                                   ${ sessionStorage.getItem ( 'edit_mode' ) && !window.location.pathname.includes (
+			'/index.html' ) ? `
+	
+	
+										 <button class = "btn btn-sm bg-danger text-light horizontally_aligned right-block float-right ___ "
+										 id="how_to_block_dates"
+										 data-title="Block selected dates"
+										 data-text="How to block weeks ?">
+									
+									</button >` : '' }
+									
+									</div>
+								</div>
+								
 							</div>
-							
-						</div>
-                    
-                    </div >
-                   
-                   
-                </div >
-                <div class = "tab-pane" id = "amenities_${ room.p_id }" role = "tabpanel" ></div >
+						
+						</div >
+					 
+					 
+					</div >
+					<div class = "tab-pane" id = "amenities_${ room.p_id }" role = "tabpanel" ></div >
                 <div class = "tab-pane" id = "book_${ room.p_id }" role = "tabpanel" ></div >
             </div >
         </div >
