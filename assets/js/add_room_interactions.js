@@ -562,8 +562,8 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 				if ( step_id === 4 && sessionStorage.getItem ( 'add_mode' ) ) $ ( '#step_5' ).removeClass ( 'd-none' );
 
 //              WHEN OWNER IS IN  edit_mode AND WANTS TO BLOCK SOME WEEKS WE WILL DISPLAY pay_for_the_room button ( text of the button will be update)
-				if ( step_id === 4 && sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname
-				     === '/owner.html' )
+				if ( step_id === 4 && sessionStorage.getItem ( 'edit_mode' ) &&
+				     (  window.location.pathname  === '/wake-up-happy/owner.html' || window.location.pathname  === '/owner.html')  )
 					{
 						$ ( '#pay_for_the_room' ).removeClass ( 'd-none' );
 						
