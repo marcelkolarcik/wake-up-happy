@@ -119,6 +119,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							sessionStorage.removeItem ( 'new_p_id' );
 							sessionStorage.removeItem ( 'lat' );
 							sessionStorage.removeItem ( 'lng' );
+							sessionStorage.setItem('new_room',true);
 							
 						}
 					
@@ -153,7 +154,10 @@ export function create_map ( coordinates = null, show_p_id = null )
 $ ( function ()
     {
 	    create_map ();
-	  
+	    sessionStorage.new_room ?  $($('#map_index')).get(0).scrollIntoView():"";
+	    
+	    sessionStorage.removeItem('new_room');
+	   
     } );
 
 //WHEN USER CLICKS ON show_on_map BUTTON WHEN PREVIEWING THE ROOM WE WILL

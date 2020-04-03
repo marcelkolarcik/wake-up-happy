@@ -909,8 +909,18 @@ function store_room ( new_room, update = false )
 //	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT owner.html,
 // OTHERWISE OWNER IS ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
 // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
-		sessionStorage.getItem ( 'edit_mode' ) ? location.replace ( `owner.html` ) : location.replace ( `index.html` );
+		//sessionStorage.getItem ( 'edit_mode' ) ? location.replace ( `owner.html` ) : location.replace ( `index.html` );
 		
+		if(sessionStorage.edit_mode)
+			{
+				location.replace ( `owner.html` );
+			}
+		else
+			{
+				location.replace ( `index.html` );
+				
+			}
+			
 		sessionStorage.removeItem ( 'edit_mode' );
 		sessionStorage.removeItem ( 'add_mode' );
 		
