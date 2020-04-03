@@ -13,7 +13,7 @@ $('#languages').append(`
 		                          class = "___"
 		                          data-alt = "english flag image"
 		                          src = "assets/images/flags/en_sm.png"
-                          ></a >Á
+                          ></a >
                     <div
 		                    aria-labelledby = "language_flag"
 		                    class = "dropdown-menu"
