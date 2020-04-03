@@ -426,7 +426,8 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 
 				
 //			IF OWNER BLOCKED SOME DATES WE WILL FIRE THIS ALERT
-				if ( sessionStorage.getItem ( 'edit_mode' ) && window.location.pathname !== '/index.html')
+				if ( sessionStorage.getItem ( 'edit_mode' ) &&
+				     (window.location.pathname === '/owner.html' ||window.location.pathname === '/wake-up-happy/owner.html') )
 					{
 						/*UPDATING CURRENT ROOM'S BOOKED DAYS IN THE SESSION, OTHERWISE
 						* WE WOULD NOT SEE THE BLOCKED DATES IMMEDIATELY, ONLY AFTER
