@@ -60,10 +60,10 @@ function render_room_types ()
 						    <div class = "p-0 card-footer text-center
 							${ owners_room_type && parseInt (owners_room_type ) === parseInt ( index )
 				               ? 'bg_green'
-				               : 'bg-secondary' } text-light d-flex justify-content-around align-items-center room_type"
+				               : 'bg-secondary' } text-light room_type"
 						         id = "room_type_${ room_type }" >
 						        <label for = "${ room_type }" class = "text-capitalize ___" data-text="${ room_type }"></label >
-						        
+						      <br>
 						        <!--IF WE HAVE ROOM  => SETTING ROOM'S OPTION TO checked-->
 						        <input id = "${ room_type }" name = "room_type" type = "radio" value = "${ index }"
 						               class = "collapse_parent check"
@@ -100,12 +100,12 @@ function render_view_types ()
 							           <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 							    <div class = "card-footer text-center  ${ owners_room_view && owners_room_view
 					                                                      === view_type
-					                                                      ? 'bg_green' : 'bg-secondary' }   text-light d-flex justify-content-around align-items-center view_type p-0"
+					                                                      ? 'bg_green' : 'bg-secondary' }   text-light  view_type p-0"
 							         id = "view_type_${ view_type }" >
 							        <label for = "${ view_types[ view_type ] }" class = "text-capitalize ___"
 							         data-text=":view_type view"
 							          data-view_type = "${ view_types[ view_type ] }"></label >
-							        
+							        <br>
 							         <!--IF WE HAVE ROOM => SETTING ROOM'S OPTION TO checked-->
 							        <input name = "view_type" type = "radio" value = "${ view_type }"
 							               class = "collapse_parent check"

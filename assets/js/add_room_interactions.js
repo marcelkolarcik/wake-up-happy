@@ -360,9 +360,11 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 				/*   IF LENGTH >= 3  => USER HAS SELECTED room_type, view_type, room_style
 				 *   =>  WE WILL DISPLAY NEXT STEP 3 => services >>> BUTTON
 				 *      */
-				if ( num_of_titles >= 3 ) $ ( '#step_3' ).removeClass ( 'd-none' );
+				var step_3 = $ ( '#step_3' );
 				
-				if(  num_of_titles === 3) $ ( '#step_3' ).append(`&nbsp;>>>`);
+				if ( num_of_titles >= 3 ) step_3.removeClass ( 'd-none' );
+				
+				if(  num_of_titles === 3 && !step_3.html().includes('&nbsp;&gt;&gt;&gt;')) step_3.append(`&nbsp;>>>`);
 				
 			} );
 			

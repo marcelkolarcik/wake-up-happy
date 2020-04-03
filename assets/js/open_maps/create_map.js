@@ -49,7 +49,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 		 * WITH OPEN POPUP
 		 * OTHERWISE DEFAULT COORDINATES AND ZOOM */
 		
-		var zoom = coordinates || ( sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' ) ) ? 12 : null;
+		var zoom = coordinates || ( sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' ) ) ? 11 : null;
 		
 		
 		var map = L.map ( 'map_index', {
