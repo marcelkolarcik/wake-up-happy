@@ -335,9 +335,7 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 		
 		else if ( split_value[ 1 ] === '' )
 			{
-				/*IF WE HAVE AT LEAST ONE EMPTY
-				 * REQUIRED FIELD, WE WILL FAIL BOOKING*/
-				status = 'FAILED';
+				
 				
 				/*request_of_property IS NOT REQUIRED
 				 * OTHERWISE ALL OTHER FIELDS ARE REQUIRED
@@ -346,7 +344,13 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 				 * NOTIFY CUSTOMER, THAT HE NEEDS TO
 				 * COMPLETE BOOKING FORM*/
 				if ( split_value[ 0 ] !== "request_of_property" )
-					missing_fields.push ( split_value[ 0 ] );
+					{
+						/*IF WE HAVE AT LEAST ONE EMPTY
+						 * REQUIRED FIELD, WE WILL FAIL BOOKING*/
+						status = 'FAILED';
+						missing_fields.push ( split_value[ 0 ] );
+					}
+					
 			}
 	} );
 	
