@@ -72,7 +72,11 @@ import { translate } from "../translator/translator.js";
 				{
 					
 					getAddress ( url, coordinates );
-
+					
+					/*ON MOBILE DEVICES USER WOULDN'T SEE ADDRESS DIV , WHERE HE NEEDS TO INPUT PROPERTY NAME
+					* SO TO MAKE IT EASIER WE WILL SCROLL TO THAT DIV*/
+					$('#location_details').get(0).scrollIntoView();
+					
 //				TO PREVENT PAGE FROM RELOADING AND CLEARING LOCATION DETAILS FROM THE FORM
 					
 					return false;
@@ -125,10 +129,9 @@ import { translate } from "../translator/translator.js";
 $ ( function ()
     {
 	    if (
-		    sessionStorage.getItem ( 'room_to_edit' ) !== 'undefined' &&
-		    sessionStorage.getItem ( 'room_to_edit' ) !== null &&
-		    !sessionStorage.getItem ( 'add_mode' ) &&
-		    sessionStorage.getItem ( 'authorized_owner' ) )
+		    sessionStorage.room_to_edit &&
+		    !sessionStorage.add_mode &&
+		    sessionStorage.authorized_owner )
 		    {
 			
 			    var coordinates = [];
@@ -223,7 +226,10 @@ function render_location_details ( address_data, coordinates, owner = false )
         </div >
 					` );
 		translate();
-		$('#location_details').get(0).scrollIntoView();
+		
+		/*IF WE AER REDIRECTING FROM index.html, WE DON'T NEED SCROLL TO #location_details DIV*/
+//		if(!document.referrer.includes('index.html'))
+//		$('#location_details').get(0).scrollIntoView();
 		
 		
 	}

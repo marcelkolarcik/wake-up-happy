@@ -445,5 +445,10 @@
   "hamlet"                                                                                                                                        : "aldea" ,
   "county"                                                                                                                                        : "condado" ,
   "town"                                                                                                                                          : "pueblo" ,
-  "library"                                                                                                                                       : "biblioteca"
+  "library"                                                                                                                                       : "biblioteca",
+  "|room_name has been deleted.": "|room_name ha sido eliminado.",
+  "Do you have a room with the view?": "¿Tiene una habitación con vista?",
+  "Add it to our site and start reaping benefits...!": "¡Agrégalo a nuestro sitio y comienza a cosechar beneficios ...!",
+  "Your room is ready!": "¡Tu habitación está lista!",
+  "Search or find it on the map!": "¡Búscalo o encuéntralo en el mapa!"
 }

@@ -484,6 +484,11 @@
   "hamlet"                                                                                                                                        : "hamlet" ,
   "county"                                                                                                                                        : "county" ,
   "town"                                                                                                                                          : "town" ,
-  "library"                                                                                                                                       : "library"
+  "library"                                                                                                                                       : "library",
+  "|room_name has been deleted.": "|room_name has been deleted.",
+  "Do you have a room with the view?": "Do you have a room with the view?",
+  "Add it to our site and start reaping benefits...!": "Add it to our site and start reaping benefits...!",
+  "Your room is ready!": "Your room is ready!",
+  "Search or find it on the map!": "Search or find it on the map!"
   
 }

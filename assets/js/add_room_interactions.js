@@ -511,7 +511,7 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 				step_4.addClass ( 'd-none' );
 				$ ( '#step_5' ).addClass ( 'd-none' );
 				return false;
-				//sessionStorage.setItem ( 'ready_for_step_4', false );
+				
 			}
 	}
 

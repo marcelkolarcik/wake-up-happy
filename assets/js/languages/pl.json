@@ -525,6 +525,11 @@
   "hamlet"                                                                                                                                        : "mała wioska" ,
   "county"                                                                                                                                        : "Hrabstwo" ,
   "town"                                                                                                                                          : "miasto" ,
-  "library"                                                                                                                                       : "biblioteka"
+  "library"                                                                                                                                       : "biblioteka",
+  "|room_name has been deleted.": "|room_name został usunięty.",
+  "Do you have a room with the view?": "Czy masz pokój z widokiem?",
+  "Add it to our site and start reaping benefits...!": "Dodaj go do naszej strony i zacznij czerpać korzyści ...!",
+  "Your room is ready!": "Twój pokój jest gotowy!",
+  "Search or find it on the map!": "Wyszukaj lub znajdź na mapie!"
   
 }

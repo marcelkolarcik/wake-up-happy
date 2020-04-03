@@ -539,11 +539,14 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 																	 ${ missing }
 																	
 																     <hr class="bg-danger">
-																	 <a href = "#" class = "btn btn-sm bg_green text-light pl-3 pr-3 " id = "ok"
-																	       onclick = "swal.close()"
-																	       > ok </a >
+																	 
 															 </div>`,
-					            showConfirmButton : false
+					            showConfirmButton : true,
+					            showCancelButton   : false,
+					            confirmButtonColor : '#0fbeba',
+					           
+					            confirmButtonText  : `<i class="fas fa-check-circle"></i>`,
+					           
 				            } );
 				translate ();
 			}

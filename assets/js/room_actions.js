@@ -142,10 +142,14 @@ $ ( function ()
 								                       'authorized_owner', JSON.stringify ( owner ) );
 
 //					CONFIRMATION OF DELETION
-							                       Swal.fire (
-								                       'Deleted!',
-								                       `${ room_name } has been deleted.`,
-								                       'success'
+							                       Swal.fire ({
+								                       html : `<div >
+								                                    <h4 class="bg-_green  text-light" ><i class="fas fa-check-circle"></i></h4>
+																	
+															 </div>`,
+								                       
+							                                  }
+							                                  
 							                       );
 							
 							
@@ -189,6 +193,7 @@ $ ( function ()
 				set_current_mode ( 'preview_mode' );
 				set_last_room_id ();
 				window.location.replace ( "owner.html" );
+				
 				
 				
 			} );
@@ -245,6 +250,7 @@ function set_description_id ( step )
 		if ( step !== 'block_mode' ) window.location.reload ();
 		
 		$ ( '#how_alert' ).data ( 'step', sessionStorage.getItem ( 'how_to' ) );
+		$ ( "html, body" ).animate ( { scrollTop : 0 }, "slow" );
 	}
 
 
