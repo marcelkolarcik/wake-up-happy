@@ -96,6 +96,8 @@ export function getRandom ( min, max, times = null )
 //TO CLEAR localStorage AND sessionStorage
 // AND REFRESH index.html
 
+//localStorage.clear();
+//sessionStorage.clear();
 
 //  IF WE ALREADY HAVE ROOMS IN LOCAL STORAGE WE WON'T RECREATE IT AGAIN,
 //  BECAUSE WE WOULD DELETE ANY ROOMS ALREADY CREATED BY OWNERS
@@ -157,6 +159,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				localStorage.setItem ( 'amenities_list', JSON.stringify ( amenities_list ) );
 				localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 				localStorage.setItem ( 'address_keys', JSON.stringify ( address_keys ) );
+				
 				
 			}
 		else

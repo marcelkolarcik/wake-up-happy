@@ -10,12 +10,13 @@ import { translate }           from "./translator/translator.js";
 
 $ ( document ).on ( 'click', '.preview_room', function ()
 {
-	
+	/*IF WE HAVE ROOM ALREADY, OWNER IS EDITING */
 	if ( sessionStorage.getItem ( 'room_to_edit' ) && !sessionStorage.getItem ( 'add_mode' ) )
 		{
 			var p_id = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_id;
 			
 		}
+	/*NEW ROOM IS BEING CREATED */
 	else
 		{
 			p_id = JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length;

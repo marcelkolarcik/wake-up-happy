@@ -38,6 +38,11 @@ Date.prototype.getWeekYear = function ()
 	};
 
 var current_date           = new Date ();
+var split_date = current_date.toString().split(' ');
+var display_date = split_date[1] +'-'+
+                   split_date[2]+'-'+
+                   split_date[3]+' '+
+                   split_date[4];
 var current_year           = current_date.getFullYear ();
 var next_year              = current_year + 1;
 var weeks_till_end_of_year = [];

@@ -650,17 +650,14 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 	
 	var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
 	
+	/*OWNER IS UPDATING EXISTING ROOM*/
 	if ( sessionStorage.getItem ( 'edit_mode' ) && sessionStorage.getItem ( 'authorized_owner' ) )
 		{
-			
-			
-			/*OWNER IS UPDATING EXISTING ROOM*/
 			update ();
 		}
+	/*OWNER IS ADDING NEW ROOM*/
 	else
 		{
-			
-			/*OWNER IS ADDING NEW ROOM*/
 			
 			/*OWNER DETAILS FROM PAYMENT FORM*/
 			var owner_details       = $ ( "#add_room_payment_form" ).serialize ();

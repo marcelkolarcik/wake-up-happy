@@ -121,8 +121,6 @@ import { translate } from "./translator/translator.js";
 // WE WILL SET PREVIOUS ROOM TO DEFAULT STATE
 
 
-
-
 (
 	function ()
 		{
@@ -150,8 +148,8 @@ import { translate } from "./translator/translator.js";
 									     <br ><br >
 									   `,
 							
-							            showConfirmButton : true,
-							            confirmButtonColor : '#0fbeba',
+							            showConfirmButton  : true,
+							            confirmButtonColor : '#0fbeba'
 						            } );
 						
 						translate ();
@@ -322,13 +320,14 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 		contactForm[ split_value[ 0 ] ] = split_value[ 1 ];
 		
 		/*IF OWNER IS BLOCKING DATES, WE ONLY NEED WEEKS,
-		* SO WHEN HE FORGETS TO SELECT WEEKS, WE WILL ALERT HIM*/
-		if (  sessionStorage.getItem ( 'edit_mode' ) && blocking_dates  )
+		 * SO WHEN HE FORGETS TO SELECT WEEKS, WE WILL ALERT HIM*/
+		if ( sessionStorage.getItem ( 'edit_mode' ) && blocking_dates )
 			{
-				if ( split_value[ 0 ] === "weeks" && split_value[ 1 ] === ''){
-					status = 'FAILED';
-					missing_fields.push ( split_value[ 0 ] );
-				}
+				if ( split_value[ 0 ] === "weeks" && split_value[ 1 ] === '' )
+					{
+						status = 'FAILED';
+						missing_fields.push ( split_value[ 0 ] );
+					}
 				
 				
 			}
@@ -350,7 +349,7 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 						status = 'FAILED';
 						missing_fields.push ( split_value[ 0 ] );
 					}
-					
+				
 			}
 	} );
 	
@@ -428,14 +427,14 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 				ROOMS[ p_id ] = room;
 				localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 
-				
+
 //			IF OWNER BLOCKED SOME DATES WE WILL FIRE THIS ALERT
 				if ( sessionStorage.getItem ( 'edit_mode' ) &&
-				     window.location.pathname.includes('owner.html')  )
+				     window.location.pathname.includes ( 'owner.html' ) )
 					{
 						/*UPDATING CURRENT ROOM'S BOOKED DAYS IN THE SESSION, OTHERWISE
-						* WE WOULD NOT SEE THE BLOCKED DATES IMMEDIATELY, ONLY AFTER
-						* LOGOUT AND LOGIN AGAIN.*/
+						 * WE WOULD NOT SEE THE BLOCKED DATES IMMEDIATELY, ONLY AFTER
+						 * LOGOUT AND LOGIN AGAIN.*/
 						sessionStorage.setItem ( 'room_to_edit', JSON.stringify ( room ) );
 						
 						
@@ -454,6 +453,56 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 //			IF USER BOOKED A ROOM WE WILL FIRE THIS ALERT
 				else
 					{
+						var r_id              = room.p_id;
+						var current_customers = JSON.parse ( localStorage.getItem ( 'CUSTOMERS' ) ) ?
+						                        JSON.parse ( localStorage.getItem ( 'CUSTOMERS' ) ) : [];
+						console.log ( 'current_customers before ', current_customers );
+						
+						var num_of_customers = current_customers.length;
+						
+						console.log ( ' length ', num_of_customers );
+						
+						
+						if ( !current_customers[ r_id ] )
+							{
+								//current_customers.push(r_id);
+								current_customers[ r_id ] = [
+									{
+										'p_id'        : room.p_id,
+										'name'        : contactForm.name,
+										'email'       : contactForm.email_of_user,
+										'weeks'       : contactForm.weeks,
+										'board'       : contactForm.board,
+										'total_price' : contactForm.total_price,
+										'request'     : contactForm.request_of_property,
+										'created_at'  : display_date
+										
+									}
+								];
+							}
+						else
+							{
+								current_customers[ r_id ].push ( {
+									                                 'p_id'        : room.p_id,
+									                                 'name'        : contactForm.name,
+									                                 'email'       : contactForm.email_of_user,
+									                                 'weeks'       : contactForm.weeks,
+									                                 'board'       : contactForm.board,
+									                                 'total_price' : contactForm.total_price,
+									                                 'request'     : contactForm.request_of_property,
+									                                 'created_at'  : display_date
+									
+								                                 } );
+							}
+						
+						console.log ( 'current_customers after ', current_customers );
+						
+						
+						localStorage.setItem ( 'CUSTOMERS', JSON.stringify ( current_customers ) );
+						
+						console.log (
+							'customers room_id 15 ', JSON.parse ( localStorage.getItem ( 'CUSTOMERS' ) )[ 15 ] );
+						
 						
 						swal.fire ( {
 							            html :
@@ -465,43 +514,47 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 							
 							 <img src="assets/images/bedrooms/b${ room.room_style }.jpg" class="card-img-top" alt="property image">
 							 <div class="card-body">
-									 <p class="card-title nav_link_property ___" data-text="Thank you for booking with us !">Thank you for booking with us !</p>
+									 <p class="card-title nav_link_property ___" data-text="Thank you for booking with us !"></p>
 									 <table class="table table-sm">
 									
 									 	<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Name:">Name:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Name:"></span></td>
 									 		<td><span>${ contactForm.name }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Email:">Email:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Email:"></span></td>
 									 		<td><span>${ contactForm.email_of_user }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Room:">Room:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Room:"></span></td>
 									 		<td><span>${ contactForm.room_details }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Week:">Week:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Board"></span></td>
+									 		<td><span>${ contactForm.board }</span></td>
+										</tr>
+										<tr>
+									 		<td> <span class="nav_link_property ___" data-text="Week:"></span></td>
 									 		<td><span>${ contactForm.weeks }</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Total price:">Total price:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Total price:"></span></td>
 									 		<td><span>${ contactForm.total_price } </span> <span>EUR</span></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="address:">address:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="address:"></span></td>
 									 		<td><small>${ address }</small></td>
 										</tr>
 										<tr>
-									 		<td> <span class="nav_link_property ___" data-text="Request:">Request:</span></td>
+									 		<td> <span class="nav_link_property ___" data-text="Request:"></span></td>
 									 		<td><span>${ contactForm.request_of_property }</span></td>
 										</tr>
 									</table>
 									
 									
-									  <span class="btn btn-sm bg_green_light d-print-none ___" onclick="window.print()" data-text="save as PDF">save as PDF</span>
+									  <span class="btn btn-sm bg_green_light d-print-none ___" onclick="window.print()" data-text="save as PDF"></span>
 									  <div class="card-footer bg-transparent pb-0 mb-0">
-									  <span class="___" data-text="Reservation ID:">Reservation ID:</span>
+									  <span class="___" data-text="Reservation ID:"></span>
 										     ${ Math.random ().toString ( 36 ).substr ( 2, 10 ) }<br >
 										  
 										    
@@ -531,7 +584,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 				} );
 				
 				swal.fire ( {
-					            html              : `<div >
+					            html               : `<div >
 								                                    <h4 class="bg-danger text-warning" >Whoops !</h4>
 																	 <p class="card-title nav_link_property ___" data-text="Your room is not booked !"></p>
 																	 <hr class="bg-danger">
@@ -541,12 +594,12 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 																     <hr class="bg-danger">
 																	 
 															 </div>`,
-					            showConfirmButton : true,
+					            showConfirmButton  : true,
 					            showCancelButton   : false,
 					            confirmButtonColor : '#0fbeba',
-					           
-					            confirmButtonText  : `<i class="fas fa-check-circle"></i>`,
-					           
+					
+					            confirmButtonText : `<i class="fas fa-check-circle"></i>`
+					
 				            } );
 				translate ();
 			}
