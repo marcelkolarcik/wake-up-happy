@@ -10,8 +10,16 @@ import { featured_rooms }      from './featured_rooms.js';
 
 (function (  )
 	{
+		
+		function booked_out ( bookings, weeks )
+			{
+				/* CHECK IF ROOM HAS THOSE WEEKS AVAILABLE*/
+				return weeks.some(v=>  bookings.indexOf(v) !== -1)
+				
+			}
+		
 		/* CHECKING AVAILABILITY OF THE ROOM */
-		function is_available ( property, location )
+		function is_available ( property, location, weeks = [] )
 			{
 				
 				var room_type  = $ ( "#room_type" ).val ();
@@ -19,8 +27,7 @@ import { featured_rooms }      from './featured_rooms.js';
 				
 				var property_searchables = property.searchables;
 				
-				
-				if ( room_type === 'any' && board_type === 'any' )
+				if ( room_type === 'any' && board_type === 'any' && !booked_out(property.bookings, weeks) )
 					{
 						
 						/*SEARCHING FOR location ONLY*/
@@ -30,7 +37,7 @@ import { featured_rooms }      from './featured_rooms.js';
 							}
 						
 					}
-				else if ( room_type === 'any' && board_type !== 'any' )
+				else if ( room_type === 'any' && board_type !== 'any' && !booked_out(property.bookings, weeks))
 					{
 						
 						/*SEARCHING FOR location AND board_type*/
@@ -41,7 +48,7 @@ import { featured_rooms }      from './featured_rooms.js';
 								return true;
 							}
 					}
-				else if ( room_type !== 'any' && board_type === 'any' )
+				else if ( room_type !== 'any' && board_type === 'any' && !booked_out(property.bookings, weeks))
 					{
 						
 						/*SEARCHING FOR location AND room_type*/
@@ -58,7 +65,8 @@ import { featured_rooms }      from './featured_rooms.js';
 						if (
 							property_searchables.indexOf ( location.toString () ) !== -1 &&
 							property.room_type.toString () === room_type.toString () &&
-							( board_type in property.price )
+							( board_type in property.price ) &&
+							!booked_out(property.bookings, weeks)
 						)
 							{
 								return true;
@@ -66,7 +74,10 @@ import { featured_rooms }      from './featured_rooms.js';
 					}
 			}
 		
-		
+		function parse_to_int ( num )
+			{
+				return parseInt ( num );
+			}
 		/* DISPLAYING AVAILABLE ROOMS IN form_search_results*/
 		$ ( document ).on ( "click", "#search_btn", function ( e )
 		{
@@ -85,11 +96,17 @@ import { featured_rooms }      from './featured_rooms.js';
 			
 			var location = $ ( '#location' ).val ();
 			
+			var weeks = searched_weeks.val().split(',');
+			weeks.pop();
 			
+			weeks   = weeks.map ( parse_to_int );
+			
+			searched_weeks.val('');
 			/*AT LEAST location MUST BE SELECTED*/
 			if ( location === '' )
 				{
 					swal.fire ( ( 'select location' ) );
+					return;
 				}
 			
 			var results = 0;
@@ -104,7 +121,7 @@ import { featured_rooms }      from './featured_rooms.js';
 					 * SO NEED TO FILTER OUT THOSE DELETED ROOMS*/
 						{
 							/*IF property IS AVAILABLE APPEND IT TO SEARCH RESULTS*/
-							if ( is_available ( property, location ) )
+							if ( is_available ( property, location , weeks ) )
 								{
 									
 									render_room_preview ( property, 'form_search_results' );
@@ -132,7 +149,9 @@ import { featured_rooms }      from './featured_rooms.js';
 			else
 				{
 					form_search_results.prepend (
-						` <div class = "img-thumbnail mt-3 border_green pl-3" id="results"><span class="___" data-text="Search results:"></span> ${ results }</div >` );
+						` <div class = "img-thumbnail mt-3 border_green pl-3" id="results">
+                                <span class="___" data-text="Search results:"></span> ${ results } -
+								<span class="___" data-text="weeks"></span>	 # ${weeks.join(',')}</div >` );
 				}
 			
 			
@@ -162,6 +181,82 @@ import { featured_rooms }      from './featured_rooms.js';
 			/*SCROLLING TO SEARCH RESULTS*/
 			$(map_search_result).get(0).scrollIntoView();
 		} );
+		
+		
+		var calendar = $('#calendar');
+		$ ( document ).on ( "click", "#searched_weeks", function (){
+			
+			
+			calendar.append(`${ current_year }<br>`);
+			for(var w=1; w<54;w++)
+				{
+					if(next_year_weeks.indexOf(w) === -1)
+						{
+							calendar.append(`<span class=" img-thumbnail s_week bg_green "
+				
+											title="${ w }  - ${ current_year }"
+											 data-week="${ w }"
+											>
+											 ${ w }
+											</span>`);
+							
+						}
+					
+					
+				}
+			calendar.append(`<br>${ next_year }<br>`);
+			for( w=1; w<54;w++)
+				{
+					if(next_year_weeks.indexOf(w) !== -1)
+						{
+							calendar.append(`<span class="img-thumbnail s_week bg_grey_light"
+				
+											title="${ w }  - ${ next_year }"
+											data-week="${ w }"
+											>
+											${ w }
+											</span>`);
+							
+						}
+				
+					
+				}
+			calendar.append(` <br>  <div class = "text-right"> <button
+		                                class = "btn  btn-sm bg_green  text-light   "
+		                               
+		                                id = "done"
+                                >
+                                    <span ><i class="fas fa-check-circle"></i></span >
+                                </button ></div> `)
+   
+		});
+		var searched_weeks = $("#searched_weeks");
+		$(document).on('click', '.s_week', function (  )
+		{
+			
+			/*IF WEEK IS SELECTED WE ADD IT TO searched_weeks*/
+			if(!$(this).hasClass('selected'))
+				{
+					searched_weeks.val( searched_weeks.val() +  $(this).data('week')+','   );
+					$(this).addClass('selected bg-danger');
+					
+				}
+			else if($(this).hasClass('selected'))
+				{
+					searched_weeks.val( searched_weeks.val().replace( $(this).data('week')+',' ,'' ) );
+					$(this).removeClass('selected bg-danger');
+				}
+			
+		});
+		
+		
+		
+		$(document).on('click', '#done', function (  )
+		{
+			
+			calendar.html('');
+		});
+		
 	})();
 
 

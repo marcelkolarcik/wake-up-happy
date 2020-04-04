@@ -207,12 +207,12 @@ input:hover, select:hover {
 	}
 
 /*WEEK IN THE BOOKING CALENDAR*/
-.week {
+.s_week,.week {
 	cursor: pointer;
 	color: #fafafa;
 	}
 
-.week:hover {
+.s_week:hover,.week:hover {
 	background-color: #adff02; /*light green*/
 	color: #777777;
 	}

@@ -201,10 +201,6 @@ export function render_room ( room, where, preview = false )
 	}
 
 
-$ ( document ).on ( 'click', '.tabs', function (){
-	/*SCROLLING TO THE TAB-PANE*/
-	$('.tabs').get(0).scrollIntoView();
-});
 // ALERT FOR USER TO SHOW, HOW TO BLOCK DATES
 $ ( document ).on ( 'click', '#how_to_block_dates', function ()
 {
