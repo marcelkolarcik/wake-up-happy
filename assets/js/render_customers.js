@@ -15,13 +15,15 @@ import { translate } from "./translator/translator.js";
 			     ( customers = JSON.parse ( localStorage.CUSTOMERS )[ JSON.parse (
 				sessionStorage.room_to_edit ).p_id ] ) )
 				{
+					
 					/*CREATING CUSTOMER TABLE TO DISPLAY*/
-					customers_table.append ( `<h4 class="___" data-text="Customers"></h4>
+					customers_table.append ( `<h4 class="___" data-text="Customers"></h4> <p class="bg_orange_light p-2">${JSON.parse (
+						sessionStorage.room_to_edit ).p_address.property_name}</p>
                 <div class="table-responsive">
 				           <table class="table table-sm table-bordered">
 							 <thead class="bg-secondary text-light">
 							    <tr>
-							      <th scope="col" >id</th>
+							     
 							      <th scope="col" class="___" data-text="name"></th>
 							      <th scope="col" class="___" data-text="Email"></th>
 							      <th scope="col" class="___" data-text="weeks"></th>
@@ -37,6 +39,7 @@ import { translate } from "./translator/translator.js";
 						
 						$.each ( customer, function ( index, value )
 						{
+							if(index !== 'p_id')
 							$ ( '#table_row_' + key ).append ( `<td >${ value }</td>` );
 						} );
 						
