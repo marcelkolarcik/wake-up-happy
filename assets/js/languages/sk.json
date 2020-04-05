@@ -395,7 +395,7 @@
   "Preview"                                                                                                                                       : "Náhľad" ,
   "Edit"                                                                                                                                          : "Editovať" ,
   "Delete"                                                                                                                                        : "Zrušiť" ,
-  "Block Dates"                                                                                                                                   : "Blokové dátumy" ,
+  "Block Dates"                                                                                                                                   : "Blokovať dátumy" ,
   "Add new room"                                                                                                                                  : "Pridať novú izbu" ,
   "select location"                                                                                                                               : "vyberte miesto" ,
   "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."                                 : "Vaše vyhľadávanie vrátilo 0 výsledkov, skúste iné parametre vyhľadávania alebo si pozrite nižšie uvedené vlastnosti." ,
@@ -489,6 +489,9 @@
   "Do you have a room with the view?": "Máte izbu s výhľadom?",
   "Add it to our site and start reaping benefits...!": "Pridajte ju na našu stránku a začnite využívať výhody ...!",
   "Your room is ready!": "Vaša izba je pripravená!",
-  "Search or find it on the map!": "Vyhľadajte alebo nájdite na mape!"
+  "Search or find it on the map!": "Vyhľadajte alebo nájdite na mape!",
+  "Customers": "Zákazníci",
+  "Request": "Žiadosti",
+  "Booked at": "Rezervované v"
   
 }
