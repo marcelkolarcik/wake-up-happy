@@ -358,29 +358,7 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 } );
 
 
-function process_booking ( contactForm, p_id, room_style )
-	{
-		confirm_payment ( "SUCCESS", p_id, contactForm, room_style );
-		/*emailjs.send( "gmail", "template_pDNgSwG0", {
-		 "from_name"          : contactForm.name.value,
-		 "from_email"         : contactForm.email_of_user.value,
-		 "room_details"       : contactForm.room_details.value,
-		 "weeks"              : contactForm.weeks.value,
-		 "total_price"        : contactForm.total_price.value,
-		 "request_of_property": contactForm.request_of_property.value
-		 } )
-		 .then(
-		 function ( response ) {
-		 console.log( "SUCCESS", response );
-		 confirm_payment("SUCCESS");
-		 },
-		 function ( error ) {
-		 console.log( "FAILED", error );
-		 confirm_payment("FAILED");
-		 }
-		 );*/
-		return false;  // To block from loading a new page
-	}
+
 
 
 function parse_to_int ( num )
