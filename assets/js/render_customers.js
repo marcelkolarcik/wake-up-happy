@@ -11,7 +11,8 @@ import { translate } from "./translator/translator.js";
 			var customers;
 			
 			/*IF ROOM HAS ANY CUSTOMERS => WE WILL DISPLAY CUSTOMERS TO OWNER*/
-			if ( sessionStorage.room_to_edit && localStorage.CUSTOMERS && ( customers = JSON.parse ( localStorage.CUSTOMERS )[ JSON.parse (
+			if ( sessionStorage.room_to_edit && localStorage.CUSTOMERS &&
+			     ( customers = JSON.parse ( localStorage.CUSTOMERS )[ JSON.parse (
 				sessionStorage.room_to_edit ).p_id ] ) )
 				{
 					/*CREATING CUSTOMER TABLE TO DISPLAY*/
