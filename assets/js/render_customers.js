@@ -10,6 +10,7 @@ import { translate } from "./translator/translator.js";
 			var customers_table = $ ( '#customers_table' );
 			var customers;
 			
+			
 			/*IF ROOM HAS ANY CUSTOMERS => WE WILL DISPLAY CUSTOMERS TO OWNER*/
 			if ( sessionStorage.room_to_edit && localStorage.CUSTOMERS &&
 			     ( customers = JSON.parse ( localStorage.CUSTOMERS )[ JSON.parse (
