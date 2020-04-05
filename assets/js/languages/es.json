@@ -454,5 +454,7 @@
   "Customers": "Clientes",
   "Request": "Solicitud",
   "Booked at": "Reservado en",
-  "Your room has no customers yet!": "Tu habitación aún no tiene clientes!"
+  "Total income": "Ingresos totales",
+  "Yearly occupancy": "Ocupación anual",
+  "Your room has no customers yet!": "¡Tu habitación aún no tiene clientes!"
 }
