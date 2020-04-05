@@ -908,21 +908,23 @@ function store_room ( new_room, update = false )
 		set_last_room_id ();
 
 //	SETTING NEW OWNER AS authorized_owner
-		
-		
 		var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 		var owner  = owners[ sessionStorage.hashed_login ];
+		sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
+		
+		//	AFTER STORING / UPDATING ROOM WE SET  preview_mode AS TRUE
+		sessionStorage.setItem ( 'preview_mode', true );
+		
+		/*REMOVING PREVIOUSLY SET MODES*/
+		sessionStorage.removeItem ( 'edit_mode' );
+		sessionStorage.removeItem ( 'add_mode' );
+		
 		
 		if ( !update )
 			{
-				
 				/*ADMIN WILL BE NOTIFIED, WHEN NEW ROOM IS ADDED TO THE SITE*/
 				send_email_to_admin ( new_room, owner );
 			}
-		
-		
-		
-		
 	}
 
 
@@ -966,14 +968,7 @@ function send_email_to_admin ( new_room, owner )
 						
 					       }
 				
-				       sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
-
-					//	AFTER STORING / UPDATING ROOM WE SET  preview_mode AS TRUE
-				       sessionStorage.setItem ( 'preview_mode', true );
-				
-				
-				       sessionStorage.removeItem ( 'edit_mode' );
-				       sessionStorage.removeItem ( 'add_mode' );
+				     
 				
 			       },
 			       function ( error )
