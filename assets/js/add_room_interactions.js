@@ -1,6 +1,6 @@
-import { translate } from './translator/translator.js';
-import { hash_login } from "./authorizations.js";
-import { set_last_room_id } from "./room_actions.js"
+import { translate }        from './translator/translator.js';
+import { hash_login }       from "./authorizations.js";
+import { set_last_room_id } from "./room_actions.js";
 
 /* INTERACTIVE FEEDBACK TO USER WHEN GOING THROUGH
  * ADD_YOUR_ROOM FORM AND VALIDATION
@@ -24,10 +24,10 @@ $ ( document ).on ( 'input', '#property_name', function ()
 					
 					property_name.removeClass ( 'border-danger' );
 					step_2.removeClass ( 'd-none' ).addClass ( 'no_border green' );
-					if(property_name.val ().length === 3 && !step_2.html().includes('&nbsp;&gt;&gt;&gt;'))
+					if ( property_name.val ().length === 3 && !step_2.html ().includes ( '&nbsp;&gt;&gt;&gt;' ) )
 						{
 							
-							step_2.append(`&nbsp;>>>`);
+							step_2.append ( `&nbsp;>>>` );
 						}
 					
 				}
@@ -60,10 +60,10 @@ $ ( document ).on ( "click", ".show_content", function ()
 	/*EVERY TAB HAS data-hidden_class ATTRIBUTE BY WHICH
 	 * WE KNOW WHICH DIV TO TOGGLE ON CLICK*/
 	
-	$ ( '.' + $ ( this ).data ( 'hidden_class' ) ).fadeToggle(700).toggleClass ( 'd-none' );
+	$ ( '.' + $ ( this ).data ( 'hidden_class' ) ).fadeToggle ( 700 ).toggleClass ( 'd-none' );
 	
 	/*SCROLLING TO CURRENT SELECTION*/
-	$($ ( this )).get(0).scrollIntoView();
+	$ ( $ ( this ) ).get ( 0 ).scrollIntoView ();
 } );
 
 /*WHEN USER CLICKS ON ANY IMAGE ON ROOM SECTION
@@ -130,8 +130,8 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 	var current_div = $ ( '.' + $ ( this ).data ( 'current_div' ) );
 	var next_div    = $ ( '.' + $ ( this ).data ( 'next_div' ) );
 	
-	current_div.fadeOut(1000).addClass ( 'd-none' );
-	next_div.fadeIn(1000).removeClass ( 'd-none' );
+	current_div.fadeOut ( 1000 ).addClass ( 'd-none' );
+	next_div.fadeIn ( 1000 ).removeClass ( 'd-none' );
 	
 } );
 
@@ -364,7 +364,8 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 				
 				if ( num_of_titles >= 3 ) step_3.removeClass ( 'd-none' );
 				
-				if(  num_of_titles === 3 && !step_3.html().includes('&nbsp;&gt;&gt;&gt;')) step_3.append(`&nbsp;>>>`);
+				if ( num_of_titles === 3 && !step_3.html ().includes ( '&nbsp;&gt;&gt;&gt;' ) ) step_3.append (
+					`&nbsp;>>>` );
 				
 			} );
 			
@@ -499,11 +500,11 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 		var step_4 = $ ( '#step_4' );
 		if ( num_of_prices > 0 && num_of_amenities > 0 && room_desc > 29 )
 			{
-				step_4.removeClass ( 'd-none' ) ;
+				step_4.removeClass ( 'd-none' );
 				
-				if(!step_4.html().includes('&nbsp;&gt;&gt;&gt;'))
+				if ( !step_4.html ().includes ( '&nbsp;&gt;&gt;&gt;' ) )
 					{
-						step_4.append(`&nbsp;>>>`);
+						step_4.append ( `&nbsp;>>>` );
 					}
 				
 				return true;
@@ -563,9 +564,10 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 // payment button
 				if ( step_id === 4 && sessionStorage.getItem ( 'add_mode' ) ) $ ( '#step_5' ).removeClass ( 'd-none' );
 
-//              WHEN OWNER IS IN  edit_mode AND WANTS TO BLOCK SOME WEEKS WE WILL DISPLAY pay_for_the_room button ( text of the button will be update)
+//              WHEN OWNER IS IN  edit_mode AND WANTS TO BLOCK SOME WEEKS WE WILL DISPLAY pay_for_the_room button (
+// text of the button will be update)
 				if ( step_id === 4 && sessionStorage.getItem ( 'edit_mode' ) &&
-				     window.location.pathname.includes('owner.html')    )
+				     window.location.pathname.includes ( 'owner.html' ) )
 					{
 						$ ( '#pay_for_the_room' ).removeClass ( 'd-none' );
 						
@@ -628,6 +630,11 @@ function update ()
 	{
 		
 		var new_room = JSON.parse ( sessionStorage.getItem ( 'new_room' ) );
+		
+		/*DATE OF UPDATE*/
+		new_room[ 'updated_at' ] = display_date;
+		
+		/*CHECK AUTOCOMPLETE ARRAY, ADD NEW LOCATIONS IF new_room HAS DIFFERENT LOCATIONS*/
 		check_autocomplete ( new_room );
 		
 		/*SETTING update TO true, SO THE store_room FUNCTION WILL UPDATE EXISTING ROOM*/
@@ -795,6 +802,7 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 					new_owner = {
 						[ hashed_login ] : {
 							'name'       : owner_details_array.name,
+							'email'      : owner_details_array.email_of_user,
 							'room_ids'   : room_ids,
 							'room_id'    : new_room.p_id,
 							'updated_at' : current_date,
@@ -871,6 +879,7 @@ function store_room ( new_room, update = false )
 		/*IF OWNER IS EDITING EXISTING ROOM WE WILL UPDATE HIS ROOM IN ROOMS OBJECT IN localStorage*/
 		if ( update )
 			{
+
 //// UPDATING EXISTING ROOM
 				ROOMS[ new_room.p_id ] = new_room;
 				
@@ -880,6 +889,7 @@ function store_room ( new_room, update = false )
 		else
 			{
 ////ADDING NEW ROOM
+				new_room.owner_id = sessionStorage.hashed_login;
 				ROOMS.push ( new_room );
 				
 			}
@@ -897,9 +907,10 @@ function store_room ( new_room, update = false )
 		set_last_room_id ();
 
 //	SETTING NEW OWNER AS authorized_owner
-		var hashed_login = sessionStorage.getItem ( 'hashed_login' );
-		var owners       = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
-		var owner        = owners[ hashed_login ];
+		
+		
+		var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
+		var owner  = owners[ sessionStorage.hashed_login ];
 		sessionStorage.setItem ( 'authorized_owner', JSON.stringify ( owner ) );
 
 //	AFTER STORING / UPDATING ROOM WE SET  preview_mode AS TRUE
@@ -908,9 +919,10 @@ function store_room ( new_room, update = false )
 //	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT owner.html,
 // OTHERWISE OWNER IS ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
 // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
-		//sessionStorage.getItem ( 'edit_mode' ) ? location.replace ( `owner.html` ) : location.replace ( `index.html` );
+		//sessionStorage.getItem ( 'edit_mode' ) ? location.replace ( `owner.html` ) : location.replace ( `index.html`
+		// );
 		
-		if(sessionStorage.edit_mode)
+		if ( sessionStorage.edit_mode )
 			{
 				location.replace ( `owner.html` );
 			}
@@ -919,21 +931,20 @@ function store_room ( new_room, update = false )
 				location.replace ( `index.html` );
 				
 			}
-			
+		
 		sessionStorage.removeItem ( 'edit_mode' );
 		sessionStorage.removeItem ( 'add_mode' );
 		
-	
-	
-	
+		
 	}
+
 
 /*WHEN USER CLICKS ON FORM STEPS - TABS ( location, room, services, preview, payment )
  WE NEED TO TRANSLATE  steps
  THAT IS BEING INTRODUCED TO THE VIEW,
  */
-$(document).on('click', '.step', function (  )
+$ ( document ).on ( 'click', '.step', function ()
 {
-	translate();
+	translate ();
 	
-});
+} );

@@ -495,6 +495,10 @@
   "Booked at": "Rezervované v",
   "Total income": "Celkový príjem",
   "Yearly occupancy": "Ročná obsadenosť",
-  "Your room has no customers yet!": "Vaša izba zatiaľ nemá zákazníkov!"
+  "Your room has no customers yet!": "Vaša izba zatiaľ nemá zákazníkov!",
+  "was disabled": "bola zablokovaná",
+  "was enabled": "bola odblokovaná",
+  "DISABLE": "ZABLOKUJ",
+  "ENABLE": "ODBLOKUJ"
   
 }

@@ -16,15 +16,15 @@ $ ( function ()
                                 <h6 class = "dropdown-header"  id = "owner_name">
                                  <i class="fa fa-user  text-secondary "></i> &nbsp;</h6 >
                                 <div class = "dropdown-divider" ></div >
-                                ${ !sessionStorage.getItem ( 'authorized_owner' ) ?
+                                ${ !sessionStorage.authorized_owner && !sessionStorage.admin ?
 	                               ` <a id = "login_details" class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login"></a >`
 	                                                                              :
 	                               `` }
                             </div >` );
 
 //  IF OWNER LOGS IN INTO HIS ACCOUNT WE WILL DISPLAY HIS INITIALS
-	
-	    if ( sessionStorage.getItem ( 'authorized_owner' ) )
+	    var user_drop_down = $ ( '#user_drop_down' );
+	    if ( sessionStorage.authorized_owner )
 		    {
 			
 			    var full_name    = JSON.parse ( sessionStorage.getItem ( 'authorized_owner' ) ).name;
@@ -40,7 +40,7 @@ $ ( function ()
 				    }
 			
 			
-			    var user_drop_down = $ ( '#user_drop_down' );
+			  
 			
 			    user_drop_down.append ( `
                                 
@@ -89,6 +89,15 @@ $ ( function ()
 			    $ ( '#add_room' ).remove ();
 			    $ ( '#login_details' ).remove ();
 			
+		    }
+	    if(sessionStorage.admin)
+		    {
+			    user_drop_down.append ( `
+                                 <div class = "dropdown-divider" ></div >
+                                <a id = "admin_logout" class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout"></a >` );
+			
+			    $ ( '#owner_name' ).append (
+				    `<a href="admin.html" class="nav_link_property dashboard_link ___" data-title="Dashboard">Admin</a>`);
 		    }
 	
     } );

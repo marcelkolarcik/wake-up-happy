@@ -32,7 +32,7 @@ $ ( document ).on ( 'click', '#login_details', function ()
 		            position : 'top-end',
 		
 		            html              : `
-			<h4 class="___" data-text="Owner login"></h4>
+			<h4 class="___" data-text="Login"></h4>
 			<form id="login_form">
 				<div class = "col-auto" >
 		            <label class = "sr-only ___" for = "email" data-text="Email"></label >
@@ -71,7 +71,7 @@ $ ( document ).on ( 'click', '#login_details', function ()
 		            showConfirmButton : false
 	            } );
 	
-	translate();
+	translate ();
 } );
 
 // WHEN USER CLICKS ON LOGIN BUTTON, WE'LL CHECK HIS CREDENTIALS
@@ -79,6 +79,20 @@ $ ( document ).on ( 'click', '#login_details', function ()
 // WITH NOTIFICATION THAT HE CAN REGISTER OR CHECK HIS INPUT
 $ ( document ).on ( 'click', '#login', function ()
 {
+	
+	var form_data = $ ( '#login_form' ).serialize ().split ( '&' );
+	var email     = form_data[ 0 ].split ( '=' )[ 1 ];
+	var password  = form_data[ 1 ].split ( '=' )[ 1 ];
+	
+	
+	if ( decodeURIComponent ( email ) === 'admin@wuh.com' && decodeURIComponent ( password ) === 'password' )
+		{
+			log_admin();
+			window.location.replace ( "admin.html" );
+			return;
+		}
+	
+	
 	var owners = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
 	
 	/*IF USER TRYING TO LOG IN AND THERE IS NO OWNERS OBJECT
@@ -92,9 +106,6 @@ $ ( document ).on ( 'click', '#login', function ()
 	/*AFTER CLICKING ON login BUTTON WE WILL CLOSE LOGIN FORM*/
 	swal.close ();
 	
-	var form_data = $ ( '#login_form' ).serialize ().split ( '&' );
-	var email     = form_data[ 0 ].split ( '=' )[ 1 ];
-	var password  = form_data[ 1 ].split ( '=' )[ 1 ];
 	
 	var login = decodeURIComponent ( email ) + decodeURIComponent ( password );
 	
@@ -130,6 +141,13 @@ $ ( document ).on ( 'click', '#logout', function ()
 	window.location.reload ();
 	
 } );
+$ ( document ).on ( 'click', '#admin_logout', function ()
+{
+	
+	sessionStorage.clear ();
+	window.location.reload ();
+	
+} );
 
 
 // FUNCTION TO HASH LOGIN DETAILS, EXAMPLE FROM stackoverflow.com
@@ -137,12 +155,12 @@ export function hash_login ( string )
 	{
 		//	https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
 		return string.split ( '' ).reduce ( ( a, b ) =>
-		                                             {
-			                                             a = (
-				                                                 (
-					                                                 a << 5 ) - a ) + b.charCodeAt ( 0 );
-			                                             return a & a;
-		                                             }, 0 );
+		                                    {
+			                                    a = (
+				                                        (
+					                                        a << 5 ) - a ) + b.charCodeAt ( 0 );
+			                                    return a & a;
+		                                    }, 0 );
 		
 		
 	}
@@ -184,7 +202,7 @@ function not_registered ()
 			
 		            } );
 		/*NEED TO TRANSLATE ALERT, BECAUSE ON INITIAL PAGE LOAD,ALERT IS NOT IN THE DOCUMENT */
-		translate();
+		translate ();
 	}
 
 
@@ -234,4 +252,8 @@ function authorize_owner ( owner, hashed_login )
 		window.location.replace ( "owner.html" );
 		
 		
+	}
+function log_admin()
+	{
+		sessionStorage.setItem('admin', true);
 	}

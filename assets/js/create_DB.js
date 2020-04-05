@@ -138,7 +138,8 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				             'location'      : city_coordinates[ 2 ],
 				             'searchables'   : [ city_coordinates[ 2 ] ],
 				             'bookings'      : getRandom ( 1, 53, num_of_booked_weeks ),
-				             'amenities'     : getRandom ( 1, amenities_list.length - 1, 15 )
+				             'amenities'     : getRandom ( 1, amenities_list.length - 1, 15 ),
+				             'created_at'  : display_date
 				
 			             } );
 			

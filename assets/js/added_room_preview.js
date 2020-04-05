@@ -112,13 +112,17 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 			 * AGAIN, BECAUSE IT COULD MESS THINGS UP, BY DISPLAYING DIFFERENT IMAGES EVERY
 			 * TIME USER PREVIEW ROOM*/
 			room[ 'food_id' ] = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).food_id;
+			
 		}
 	else
 		{
 			/*IF IT IS NEW ROOM, WE WILL CREATE RANDOM food_id FOR DISPLAYING
 			 * IMAGES FOR THE BOARDS, I HAVE 3 DIFFERENT IMAGES FOR EACH BOARD, SO JUST TO ADD
 			 * BIT OF VARIETY, EVERY ROOM SHOULD HAVE LITTLE BIT DIFFERENT IMAGES....*/
-			room[ 'food_id' ] = getRandom ( 1, 3 );
+			room[ 'food_id' ]    = getRandom ( 1, 3 );
+			room[ 'created_at' ] = display_date;
+			room[ 'updated_at' ] = display_date;
+			
 		}
 
 //	ARRAY OF SEARCHABLE ADDRESS STRINGS , BY WHICH ROOM CAN BE FOUND BY SEARCHING IN SEARCH FORM ON index.html
@@ -155,6 +159,7 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	
 	room[ 'searchables' ] = searchables;
 	
+	
 	// SETTING new_room TO SESSION, FOR WHEN OWNER DECIDES TO GO AHEAD AND PAY FOR THE ADDING THE ROOM TO THE SITE
 	sessionStorage.setItem ( 'new_room', JSON.stringify ( room ) );
 	
@@ -164,7 +169,7 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 
 //	RENDERING ROOM FOR PREVIEW
 	render_room_preview ( room, 'preview', true );
-	translate();
+	translate ();
 	
 } );
 

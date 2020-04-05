@@ -495,6 +495,10 @@
   "Booked at": "Booked at",
   "Total income": "Total income",
   "Yearly occupancy": "Yearly occupancy",
-  "Your room has no customers yet!": "Your room has no customers yet!"
+  "Your room has no customers yet!": "Your room has no customers yet!",
+  "was disabled": "was disabled",
+  "was enabled": "was enabled",
+  "DISABLE": "DISABLE",
+  "ENABLE": "ENABLE"
   
 }

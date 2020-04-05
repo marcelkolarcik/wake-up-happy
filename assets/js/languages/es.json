@@ -456,5 +456,9 @@
   "Booked at": "Reservado en",
   "Total income": "Ingresos totales",
   "Yearly occupancy": "Ocupación anual",
-  "Your room has no customers yet!": "¡Tu habitación aún no tiene clientes!"
+  "Your room has no customers yet!": "¡Tu habitación aún no tiene clientes!",
+  "was disabled": "fue bloqueado",
+  "was enabled": "estaba habilitado",
+  "DISABLE": "DESHABILITAR",
+  "ENABLE": "HABILITAR"
 }

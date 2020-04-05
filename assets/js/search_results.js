@@ -27,11 +27,12 @@ import { featured_rooms }      from './featured_rooms.js';
 				
 				var property_searchables = property.searchables;
 				
-				if ( room_type === 'any' && board_type === 'any' && !booked_out(property.bookings, weeks) )
+				if ( room_type === 'any' && board_type === 'any' && !booked_out(property.bookings, weeks) && !property.wuh_disabled)
 					{
 						
 						/*SEARCHING FOR location ONLY*/
-						if ( property_searchables.indexOf ( location.toString () ) !== -1 )
+						if ( property_searchables.indexOf ( location.toString () ) !== -1)
+						 
 							{
 								return true;
 							}
@@ -43,6 +44,7 @@ import { featured_rooms }      from './featured_rooms.js';
 						/*SEARCHING FOR location AND board_type*/
 						if ( property_searchables.indexOf ( location.toString () ) !== -1 &&
 						     ( board_type in property.price )
+						     && !property.wuh_disabled
 						)
 							{
 								return true;
@@ -53,7 +55,8 @@ import { featured_rooms }      from './featured_rooms.js';
 						
 						/*SEARCHING FOR location AND room_type*/
 						if ( property_searchables.indexOf ( location.toString () ) !== -1 &&
-						     property.room_type.toString () === room_type.toString () )
+						     property.room_type.toString () === room_type.toString ()
+						     && !property.wuh_disabled)
 							{
 								return true;
 							}
@@ -67,6 +70,7 @@ import { featured_rooms }      from './featured_rooms.js';
 							property.room_type.toString () === room_type.toString () &&
 							( board_type in property.price ) &&
 							!booked_out(property.bookings, weeks)
+							&& !property.wuh_disabled
 						)
 							{
 								return true;

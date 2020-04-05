@@ -69,6 +69,13 @@ $ ( document ).on ( 'click', '.close_div', function ()
 	var per = $ ( this ).data ( 'per' );
 	var div = $ ( this ).data ( 'div' );
 	
+	
+	/*IF USER CLICKS ON x BUTTON , CLEARING DIV FROM THE VIEW*/
+	if ( per === 'now' )
+		{
+			$ ( '#' + div ).html ( '' );
+		}
+	
 	/*IF USER CLICKS ON x BUTTON , REMOVING DIV FROM THE VIEW*/
 	if ( per === 'view' )
 		{
@@ -76,11 +83,11 @@ $ ( document ).on ( 'click', '.close_div', function ()
 		}
 	
 	/*IF USER CLICKS ON don't show again BUTTON , REMOVING DIV FROM THE VIEW
-	 * AND SETTING DIV NAME TO sessionStorage FOR LATER CHECK, WHETHER TO
+	 * AND SETTING DIV NAME TO localStorage FOR LATER CHECK, WHETHER TO
 	 * DISPLAY IT OR NOT*/
-	else if ( per === 'session' )
+	else if ( per === 'session' ) /*" session" might be misleading.....*/
 		{
-			sessionStorage.setItem ( div, true );
+			localStorage.setItem ( div, true );
 			$ ( '#' + div ).fadeOut ( 350 );
 		}
 	
@@ -96,10 +103,10 @@ $ ( document ).on ( 'click', '.close_div', function ()
 		
 		$.each ( divs_to_show, function ( key, div )
 		{
-			/*IF ANY OF THE DIVS ARE IN THE sessionStorage, WE WILL HIDE
+			/*IF ANY OF THE DIVS ARE IN THE localStorage, WE WILL HIDE
 			 * IT FROM THE VIEW*/
 			
-			if ( sessionStorage.getItem ( div ) )
+			if ( localStorage.getItem ( div ) )
 				{
 					$ ( '#' + div ).addClass ( 'd-none' );
 				}
