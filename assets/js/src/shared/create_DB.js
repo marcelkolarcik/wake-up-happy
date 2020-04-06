@@ -31,7 +31,7 @@ import { translate }    from "./translator/translator.js";
 							<h4 class="___" data-text="initial_thanks"></h4>
 							<p class="___" data-text="initial_experience"></p>
 							<div class="bg_green_light">
-							<img src="../../../assets/images/logo_sm.png" alt="logo">
+							<img src="assets/images/logo_sm.png" alt="logo">
 							</div>
 							`,
 					
