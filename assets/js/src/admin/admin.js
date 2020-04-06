@@ -42,7 +42,7 @@ import { translate }           from "../shared/translator/translator.js";
 						{
 							
 							
-							if ( room  )
+							if ( room !== null )
 								{
 									
 									var owner = OWNERS[ room.owner_id ];
