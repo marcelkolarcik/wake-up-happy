@@ -56,6 +56,7 @@ import { translate }    from "./translator/translator.js";
 			localStorage.removeItem ( 'autocomplete_searchables' );
 			localStorage.removeItem ( 'hello' );
 			localStorage.removeItem ( 'initial_locations' );
+			localStorage.removeItem ( 'language' );
 			sessionStorage.clear();
 			location.replace ( 'cleared.html' );
 		} );
