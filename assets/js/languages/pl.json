@@ -474,5 +474,6 @@
   "was disabled"                                                                                                                                  : "został zablokowany" ,
   "was enabled"                                                                                                                                   : "został odblokovany",
   "DISABLE": "ZABLOKUJ",
-  "ENABLE": "ODBLOKUJ"
+  "ENABLE": "ODBLOKUJ",
+  "There are no new rooms on the site yet...;-)": "Na stronie nie ma jeszcze nowych pokoi ... ;-)"
 }

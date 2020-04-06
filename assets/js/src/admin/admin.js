@@ -24,7 +24,7 @@ import { translate }           from "../shared/translator/translator.js";
 				
 				
 				var ROOMS  = JSON.parse ( localStorage.ROOMS );
-				var OWNERS = JSON.parse ( localStorage.OWNERS );
+				var OWNERS = localStorage.OWNERS ? JSON.parse ( localStorage.OWNERS ) : null;
 				
 				/*GETTING ROOMS ADDED BY OWNERS
 				 *
@@ -35,25 +35,18 @@ import { translate }           from "../shared/translator/translator.js";
 				
 				var rooms_div = $ ( '#rooms' );
 				
-			
 				
-				
-				
-				
-				$.each ( new_rooms, function ( key, room )
-				{
-					
-					if(room)
+				if ( OWNERS )
+					{
+						$.each ( new_rooms, function ( key, room )
 						{
 							
 							
-
-							
-							
-							
-							var owner = OWNERS[ room.owner_id ];
-							//console.log(owner,room)
-							rooms_div.append ( `<div class="row no-gutters">
+							if ( room  )
+								{
+									
+									var owner = OWNERS[ room.owner_id ];
+									rooms_div.append ( `<div class="row no-gutters">
 
 											<div class = "list-group  list-group-horizontal-md tabs col-md-12"   >
 								            
@@ -74,8 +67,8 @@ import { translate }           from "../shared/translator/translator.js";
 								                
 								                
 								                <a class="btn btn-sm bg-danger text-light nav_link_property ${ room.wuh_disabled
-							                                                                                   ? `d-none`
-							                                                                                   : `` } disable_${ room.p_id } room_action ___"
+									                                                                           ? `d-none`
+									                                                                           : `` } disable_${ room.p_id } room_action ___"
 										 data-text="DISABLE"
 										         data-room_id="${ room.p_id }"
 										         data-disabled="true"
@@ -84,8 +77,8 @@ import { translate }           from "../shared/translator/translator.js";
 										 ></a>
 										 
 										 <a class="btn btn-sm bg_orange text-primary nav_link_property ${ !room.wuh_disabled
-							                                                                              ? `d-none`
-							                                                                              : `` }    enable_${ room.p_id } room_action ___"
+									                                                                      ? `d-none`
+									                                                                      : `` }    enable_${ room.p_id } room_action ___"
 										  data-text="ENABLE"
 										         data-room_id="${ room.p_id }"
 										         data-disabled="false"
@@ -104,11 +97,17 @@ import { translate }           from "../shared/translator/translator.js";
 										 
 										
 										 <span class="p-1"></span> ` );
-						}
-					
-					
-					
-				} );
+								}
+							
+							
+						} );
+					}
+				else
+					{
+						rooms_div.append(`
+						
+						<p class="___ bg_orange text-primary" data-text="There are no new rooms on the site yet...;-)"></p>`);
+					}
 				
 				
 			}
