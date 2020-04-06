@@ -59,13 +59,13 @@ import { translate }           from "../shared/translator/translator.js";
 								            
 								                <a class = "list-group-item list-group-item-action nav_link_property"
 								                   
-								                    >${ room.p_address.property_name }</a >
+								                    >  <i class="fas fa-signature">&nbsp;</i> &nbsp;${ room.p_address.property_name }</a >
 								                   
 								                <a class = "list-group-item list-group-item-action nav_link_property "
-								                  >${ owner.name }</a >
+								                  ><i class="fas fa-user">&nbsp;</i> &nbsp;${ owner.name }</a >
 								                  
 								                <a class = "list-group-item list-group-item-action nav_link_property "
-								                  >${ owner.email }
+								                  ><i class="fas fa-at">&nbsp;</i> &nbsp;${ owner.email }
 								                   </a >
 								                    <a class="btn btn-sm bg_green text-light preview_room nav_link_property ___"
 										 data-text="preview"
