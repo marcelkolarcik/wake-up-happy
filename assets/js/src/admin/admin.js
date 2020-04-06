@@ -35,9 +35,9 @@ import { translate }           from "../shared/translator/translator.js";
 				
 				var rooms_div = $ ( '#rooms' );
 				
-				
+				console.log('we do not have owners')
 				if ( OWNERS )
-					{
+					{console.log('we  have owners')
 						$.each ( new_rooms, function ( key, room )
 						{
 							
