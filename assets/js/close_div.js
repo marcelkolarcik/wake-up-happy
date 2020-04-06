@@ -54,8 +54,14 @@ function initial_locations ( add = true )
 $ ( document ).on ( 'focusin', '.add_initial_locations', function ()
 {
 	var add = $ ( this ).data ( 'add_in_lo' );
-	
 	initial_locations ( add );
+	
+	/*IF USER DIDN'T SELECT LOCATION AND CLICKED ON
+	* SEARCH BUTTON, WE WOULD ADD bg-danger  CLASS TO
+	* location INPUT FIELD, SO WHEN HE IS TYPING IN
+	* LOCATION WE WILL REMOVE bg-warning FROM THE INPUT FIELD*/
+	$(this).attr('id') === 'location' ? $(this).removeClass('bg-warning'): '';
+	
 } );
 
 

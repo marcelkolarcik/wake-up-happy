@@ -39,9 +39,10 @@ import { translate } from "../translator/translator.js";
 //		    by clicking on map  59 characters are added to description text area, so this is to clear it
 //			NOT QUITE SURE WHY.... BUT I REALIZED, THAT THIS WAS CREATING THE ADDITIONAL CHARS,]
 //			SO I'M REMOVING IT HERE
-				$ ( '#room_description' ).html ( '' ).prop (
-					'placeholder', 'Write description of your room, min 30 -  max 300 characters.' );
+				$ ( '#room_description' ).html ( '' );
 				
+				/*IF USER IS RE-SELECTING LOCATION OF THE PROPERTY,
+				* WE WILL CLEAR PREVIOUSLY SELECTED LOCATION DETAILS*/
 				$ ( '#location_details' ).html ( '' );
 				
 				var coordinates = e.latlng.toString ()

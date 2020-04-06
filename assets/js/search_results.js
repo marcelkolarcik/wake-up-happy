@@ -8,6 +8,7 @@
 import { render_room_preview } from './render_room_preview.js';
 import { featured_rooms }      from './featured_rooms.js';
 
+
 (function (  )
 	{
 		
@@ -82,6 +83,7 @@ import { featured_rooms }      from './featured_rooms.js';
 			{
 				return parseInt ( num );
 			}
+		
 		/* DISPLAYING AVAILABLE ROOMS IN form_search_results*/
 		$ ( document ).on ( "click", "#search_btn", function ( e )
 		{
@@ -97,8 +99,8 @@ import { featured_rooms }      from './featured_rooms.js';
 			form_search_results.html ( '' );
 			$ ( '#map_search_result' ).html ( '' );
 			
-			
-			var location = $ ( '#location' ).val ();
+			var location_input = $('#location');
+			var location = location_input.val ();
 			
 			var weeks = searched_weeks.val().split(',');
 			weeks.pop();
@@ -106,10 +108,14 @@ import { featured_rooms }      from './featured_rooms.js';
 			weeks   = weeks.map ( parse_to_int );
 			
 			searched_weeks.val('');
+			
+			
 			/*AT LEAST location MUST BE SELECTED*/
 			if ( location === '' )
 				{
-					swal.fire ( ( 'select location' ) );
+					location_input.addClass('bg-warning');
+					
+					
 					return;
 				}
 			
@@ -235,6 +241,7 @@ import { featured_rooms }      from './featured_rooms.js';
    
 		});
 		var searched_weeks = $("#searched_weeks");
+		
 		$(document).on('click', '.s_week', function (  )
 		{
 			

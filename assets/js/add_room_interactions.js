@@ -920,9 +920,9 @@ function store_room ( new_room, update = false )
 		sessionStorage.removeItem ( 'add_mode' );
 		
 		
+		/*ADMIN WILL BE NOTIFIED, WHEN NEW ROOM IS ADDED TO THE SITE*/
 		if ( !update )
 			{
-				/*ADMIN WILL BE NOTIFIED, WHEN NEW ROOM IS ADDED TO THE SITE*/
 				send_email_to_admin ( new_room, owner );
 			}
 	}
@@ -956,19 +956,12 @@ function send_email_to_admin ( new_room, owner )
 				       console.log ( "SUCCESS", response );
 				
 				       //	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT owner.html,
-						// OTHERWISE OWNER IS ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
-						// TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
-				       if ( sessionStorage.edit_mode )
-					       {
-						       location.replace ( `owner.html` );
-					       }
-				       else
-					       {
-						       location.replace ( `index.html` );
-						
-					       }
+				       // OTHERWISE OWNER IS ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
+				       // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
+				       sessionStorage.edit_mode ?
+				       location.replace ( `owner.html` ) :
+				       location.replace ( `index.html` ) ;
 				
-				     
 				
 			       },
 			       function ( error )
