@@ -93,11 +93,11 @@ $ ( document ).on ( 'click', '.close_div', function ()
 	 * DISPLAY IT OR NOT*/
 	else if ( per === 'session' ) /*" session" might be misleading.....*/
 		{
-			localStorage.setItem ( div, true );
+			sessionStorage.setItem ( div, true );
 			$ ( '#' + div ).fadeOut ( 350 );
 		}
 	
-	
+	console.log(div)
 } );
 
 
@@ -112,7 +112,7 @@ $ ( document ).on ( 'click', '.close_div', function ()
 			/*IF ANY OF THE DIVS ARE IN THE localStorage, WE WILL HIDE
 			 * IT FROM THE VIEW*/
 			
-			if ( localStorage.getItem ( div ) )
+			if ( sessionStorage.getItem ( div ) )
 				{
 					$ ( '#' + div ).addClass ( 'd-none' );
 				}

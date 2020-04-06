@@ -7,6 +7,7 @@
 
 import { render_room_preview } from '../shared/render_room_preview.js';
 import { featured_rooms }      from './featured_rooms.js';
+import { current_year , next_year_weeks, next_year }        from "../shared/getWeek.js";
 
 
 (function (  )
@@ -196,7 +197,7 @@ import { featured_rooms }      from './featured_rooms.js';
 		var calendar = $('#calendar');
 		$ ( document ).on ( "click", "#searched_weeks", function (){
 			
-			
+			calendar.html('');
 			calendar.append(`${ current_year }<br>`);
 			for(var w=1; w<54;w++)
 				{

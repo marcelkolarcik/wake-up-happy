@@ -177,10 +177,6 @@ $ ( function ()
 				
 			} );
 			
-			$ ( document ).on ( 'click', '#block_mode', function ()
-			{
-				set_current_mode ( 'block_mode' );
-			} );
 			
 			$ ( document ).on ( 'click', '.room_switch', function ()
 			{
