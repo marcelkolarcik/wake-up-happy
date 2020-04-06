@@ -35,16 +35,27 @@ import { translate }           from "../shared/translator/translator.js";
 				
 				var rooms_div = $ ( '#rooms' );
 				
+			
+				
+				
+				
+				
 				$.each ( new_rooms, function ( key, room )
 				{
 					
 					if(room)
 						{
+							
+							
+
+							
+							
+							
 							var owner = OWNERS[ room.owner_id ];
 							//console.log(owner,room)
 							rooms_div.append ( `<div class="row no-gutters">
 
-											<div class = "list-group  list-group-horizontal-lg tabs"   >
+											<div class = "list-group  list-group-horizontal-md tabs col-md-12"   >
 								            
 								                <a class = "list-group-item list-group-item-action nav_link_property"
 								                   
@@ -92,7 +103,7 @@ import { translate }           from "../shared/translator/translator.js";
 										
 										 
 										
-										 <hr> ` );
+										 <span class="p-1"></span> ` );
 						}
 					
 					
@@ -121,7 +132,7 @@ import { translate }           from "../shared/translator/translator.js";
 		            data-title = "Close it for now."
 		            id = "close"
             >
-            </span >` );
+            </span > <br>` );
 			
 			/*TRANSLATING ROOM'S DETAILS*/
 			translate ();

@@ -131,39 +131,44 @@
 		                aria-controls = "logo_cont"
 		                aria-expanded = "false"
 		                aria-label = "Toggle navigation"
-		                class = "navbar-toggler "
+		                class = "navbar-toggler bg_orange_light"
 		                data-target = "#logo_cont"
 		                data-toggle = "collapse"
 		                type = "button"
                 >
-                    <span class = "small_menu ___" data-text = "Menu"></span >
-                    <br >
-                    <span class = "navbar-toggler-icon"></span >
+                    <span class = "small_menu ___ text-light nav_link_property" data-text = "Menu"></span >
+
                 </button >
+
                 <div
 		                class = "collapse navbar-collapse"
 		                id = "logo_cont"
                 >
                     <ul class = "navbar-nav mr-auto "  >
                     </ul >
-                    <ul class = "navbar-nav list-group d-flex justify-content-center align-items-center" id="dropdowns">
+                    <ul class = "navbar-nav  d-flex justify-content-end list-group list-group-horizontal" id="dropdowns">
+
                         <!--ADD YOUR ROOM LINK-->
                         <li id = "add_room">
+	                        <!--FOR DESKTOP -->
                             <a
 		                            class = "nav_link text-light mr-3 add_your_room ___  p-2 d-none d-md-block"
 		                            data-text = "owner?"
-		                            data-title = "Add your room now!"
+		                            data-title = "Do you have a room with the view?"
 		                            href = "owner.html"
                             >
 
                             </a >
-	                        <a
-			                        class = "nav_link text-light mr-3 add_your_room p-2 d-block d-md-none"
-			                        title = "Add your room now!"
-			                        href = "owner.html"
-	                        >
-								<i class="fas fa-search-dollar"></i>&nbsp;?
+
+	                        <!--FOR MOBILE DEVICES-->
+	              <a
+			              class = "text-light add_your_room mr-1 d-block d-md-none ___"
+			              data-title = "Do you have a room with the view?"
+			              href = "owner.html"
+	              >
+								<h5 class="text-light"><i class="fas fa-warehouse"><span>  &nbsp;?</span></i></h5>
                             </a >
+
 
 
 
@@ -192,6 +197,7 @@
 
                     </ul >
                 </div >
+
             </nav >
 
 

@@ -97,7 +97,7 @@ span.nav_link_property {
 	}
 
 .small_menu {
-	font-size: 0.6em;
+	font-size: 0.9em;
 	}
 
 /*SITE'S GREEN COLOR */
@@ -545,6 +545,14 @@ a.side_nav:hover{
 		height: 0;
 		padding: 0;
 		padding-bottom: 18.75%;
+		}
+	
+	.user_initials {
+		width: 1.8rem;
+		height: 1.8rem;
+		border-radius: 0.9rem;
+		
+		
 		}
 	}
 
