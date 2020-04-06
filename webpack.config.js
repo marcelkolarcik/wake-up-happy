@@ -8,7 +8,7 @@ var config = {
 var index = Object.assign ( {}, config, {
 	
 	entry  : [
-		
+		'./assets/js/src/shared/redirect_admin.js',
 		'./assets/js/src/shared/getWeek.js',
 		'./assets/js/src/shared/create_DB.js',
 		
@@ -39,6 +39,7 @@ var index = Object.assign ( {}, config, {
 var owner = Object.assign ( {}, config, {
 	
 	entry  : [
+		'./assets/js/src/shared/redirect_admin.js',
 		'./assets/js/src/shared/getWeek.js',
 		'./assets/js/src/owner/add_room_form_render.js',
 		'./assets/js/src/owner/add_room_interactions.js',

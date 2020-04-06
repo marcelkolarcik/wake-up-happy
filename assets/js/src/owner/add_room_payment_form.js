@@ -4,7 +4,7 @@
  NO NEED FOR EMAIL AND PASSWORD*/
 
 
-function add_room_payment_form ()
+export function add_payment_form ()
 	{
 		var payment = $ ( '#payment' );
 		var owner   = JSON.parse ( sessionStorage.getItem ( 'authorized_owner' ) );

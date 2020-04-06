@@ -51,7 +51,7 @@
 
 
 import { translate } from "./translator/translator.js";
-
+import { display_date }     from "../shared/getWeek.js";
 
 ( function ()
 	{
@@ -434,11 +434,9 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 						var r_id              = room.p_id;
 						var current_customers = JSON.parse ( localStorage.getItem ( 'CUSTOMERS' ) ) ?
 						                        JSON.parse ( localStorage.getItem ( 'CUSTOMERS' ) ) : [];
-						console.log ( 'current_customers before ', current_customers );
 						
-						var num_of_customers = current_customers.length;
 						
-						console.log ( ' length ', num_of_customers );
+						
 						
 						
 						if ( !current_customers[ r_id ] )
@@ -473,13 +471,12 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 								                                 } );
 							}
 						
-						console.log ( 'current_customers after ', current_customers );
+						
 						
 						
 						localStorage.setItem ( 'CUSTOMERS', JSON.stringify ( current_customers ) );
 						
-						console.log (
-							'customers room_id 15 ', JSON.parse ( localStorage.getItem ( 'CUSTOMERS' ) )[ 15 ] );
+						
 						
 						
 						swal.fire ( {

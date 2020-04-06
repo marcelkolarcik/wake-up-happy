@@ -6,7 +6,7 @@
 import { render_room_preview } from "../shared/render_room_preview.js";
 import { getRandom }           from "../shared/create_DB.js";
 import { translate }           from "../shared/translator/translator.js";
-
+import { display_date } from "../shared/getWeek.js";
 
 $ ( document ).on ( 'click', '.preview_room', function ()
 {

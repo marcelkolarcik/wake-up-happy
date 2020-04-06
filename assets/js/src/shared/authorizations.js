@@ -145,7 +145,7 @@ $ ( document ).on ( 'click', '#admin_logout', function ()
 {
 	
 	sessionStorage.clear ();
-	window.location.reload ();
+	window.location.replace ( "index.html" );
 	
 } );
 

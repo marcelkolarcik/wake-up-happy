@@ -1,7 +1,8 @@
 import { translate }        from '../shared/translator/translator.js';
 import { hash_login }       from "../shared/authorizations.js";
 import { set_last_room_id } from "../shared/room_actions.js";
-
+import { display_date }     from "../shared/getWeek.js";
+import { add_payment_form } from "./add_room_payment_form.js"
 /* INTERACTIVE FEEDBACK TO USER WHEN GOING THROUGH
  * ADD_YOUR_ROOM FORM AND VALIDATION
  * LOGIC FOR THE FORM*/
@@ -591,7 +592,7 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 //			RENDERING PAYMENT FORM WHEN OWNER CLICK ON PAYMENT BUTTON
 				if ( step_id === 5 )
 					{
-						add_room_payment_form ();
+						add_payment_form ();
 						
 					}
 
@@ -805,8 +806,8 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 							'email'      : owner_details_array.email_of_user,
 							'room_ids'   : room_ids,
 							'room_id'    : new_room.p_id,
-							'updated_at' : current_date,
-							'created_at' : current_date
+							'updated_at' : display_date,
+							'created_at' : display_date
 						}
 					};
 					sessionStorage.setItem ( 'hashed_login', hashed_login );
@@ -925,6 +926,11 @@ function store_room ( new_room, update = false )
 			{
 				send_email_to_admin ( new_room, owner );
 			}
+		else{
+			
+			//	IF OWNER IS  EDITING  ROOM WE WILL REDIRECT TO owner.html
+			location.replace ( `owner.html` );
+		}
 	}
 
 
@@ -955,12 +961,9 @@ function send_email_to_admin ( new_room, owner )
 			       {
 				       console.log ( "SUCCESS", response );
 				
-				       //	IF OWNER IS EDITING, WE WILL REDIRECT TO OWNER ACCOUNT owner.html,
-				       // OTHERWISE OWNER IS ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
+				       //	IF OWNER IS  ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
 				       // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
-				       sessionStorage.edit_mode ?
-				       location.replace ( `owner.html` ) :
-				       location.replace ( `index.html` ) ;
+				       location.replace ( `index.html` );
 				
 				
 			       },

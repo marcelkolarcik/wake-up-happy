@@ -38,15 +38,15 @@ Date.prototype.getWeek = function ()
 //	};
 
  var current_date           = new Date ();
-var split_date = current_date.toString().split(' ');
-export var display_date = split_date[1] +'-'+
-                   split_date[2]+'-'+
-                   split_date[3]+' '+
-                   split_date[4];
+var split_date                    = current_date.toString ().split ( ' ' );
+export var display_date           = split_date[ 1 ] + '-' +
+                                    split_date[ 2 ] + '-' +
+                                    split_date[ 3 ] + ' ' +
+                                    split_date[ 4 ];
 export var current_year           = current_date.getFullYear ();
 export var next_year              = current_year + 1;
-export  var weeks_till_end_of_year  = [];
-export  var next_year_weeks       = [] ;
+export var weeks_till_end_of_year = [];
+export var next_year_weeks        = [];
 
 var current_week   = current_date.getWeek ();
 var next_year_week = 0;

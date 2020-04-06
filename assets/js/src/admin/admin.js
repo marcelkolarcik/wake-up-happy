@@ -37,9 +37,12 @@ import { translate }           from "../shared/translator/translator.js";
 				
 				$.each ( new_rooms, function ( key, room )
 				{
-					var owner = OWNERS[ room.owner_id ];
-					//console.log(owner,room)
-					rooms_div.append ( `<div class="row no-gutters">
+					
+					if(room)
+						{
+							var owner = OWNERS[ room.owner_id ];
+							//console.log(owner,room)
+							rooms_div.append ( `<div class="row no-gutters">
 
 											<div class = "list-group  list-group-horizontal-lg tabs"   >
 								            
@@ -49,7 +52,7 @@ import { translate }           from "../shared/translator/translator.js";
 								                   
 								                <a class = "list-group-item list-group-item-action nav_link_property "
 								                  >${ owner.name }</a >
-								                   
+								                  
 								                <a class = "list-group-item list-group-item-action nav_link_property "
 								                  >${ owner.email }
 								                   </a >
@@ -58,10 +61,10 @@ import { translate }           from "../shared/translator/translator.js";
 										         data-room_id="${ room.p_id }"
 										 ></a>
 								                
-								                   
+								                
 								                <a class="btn btn-sm bg-danger text-light nav_link_property ${ room.wuh_disabled
-					                                                                                           ? `d-none`
-					                                                                                           : `` } disable_${ room.p_id } room_action ___"
+							                                                                                   ? `d-none`
+							                                                                                   : `` } disable_${ room.p_id } room_action ___"
 										 data-text="DISABLE"
 										         data-room_id="${ room.p_id }"
 										         data-disabled="true"
@@ -70,15 +73,15 @@ import { translate }           from "../shared/translator/translator.js";
 										 ></a>
 										 
 										 <a class="btn btn-sm bg_orange text-primary nav_link_property ${ !room.wuh_disabled
-					                                                                                      ? `d-none`
-					                                                                                      : `` }    enable_${ room.p_id } room_action ___"
+							                                                                              ? `d-none`
+							                                                                              : `` }    enable_${ room.p_id } room_action ___"
 										  data-text="ENABLE"
 										         data-room_id="${ room.p_id }"
 										         data-disabled="false"
 										         data-opposite="disable"
 										 ></a>
-								                  
-								                   
+								            
+								            
 								            </div >
 
 											
@@ -90,6 +93,8 @@ import { translate }           from "../shared/translator/translator.js";
 										 
 										
 										 <hr> ` );
+						}
+					
 					
 					
 				} );
