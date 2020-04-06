@@ -6,8 +6,8 @@
  *
  * ADMIN CAN SEE OWNERS DETAILS TO CONTACT THEM*/
 
-import { render_room_preview } from "./render_room_preview.js";
-import { translate }           from "./translator/translator.js";
+import { render_room_preview } from "../shared/render_room_preview.js";
+import { translate }           from "../shared/translator/translator.js";
 
 
 ( function ()

@@ -1,6 +1,6 @@
-import { translate }        from './translator/translator.js';
-import { hash_login }       from "./authorizations.js";
-import { set_last_room_id } from "./room_actions.js";
+import { translate }        from '../shared/translator/translator.js';
+import { hash_login }       from "../shared/authorizations.js";
+import { set_last_room_id } from "../shared/room_actions.js";
 
 /* INTERACTIVE FEEDBACK TO USER WHEN GOING THROUGH
  * ADD_YOUR_ROOM FORM AND VALIDATION

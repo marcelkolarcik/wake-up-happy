@@ -5,7 +5,7 @@
  TO DO SEARCH BY WEEKS AVAILABLE*/
 
 
-import { render_room_preview } from './render_room_preview.js';
+import { render_room_preview } from '../shared/render_room_preview.js';
 import { featured_rooms }      from './featured_rooms.js';
 
 

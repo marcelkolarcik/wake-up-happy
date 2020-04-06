@@ -1,4 +1,5 @@
 /*FUNCTION TO RENDER  BOOKING CALENDAR FOR EACH ROOM*/
+import { current_year, next_year, weeks_till_end_of_year, next_year_weeks} from "./getWeek.js";
 
 
 export function render_booking_calendar ( property )

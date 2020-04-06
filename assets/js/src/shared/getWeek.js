@@ -30,23 +30,23 @@ Date.prototype.getWeek = function ()
 	};
 
 // Returns the four-digit year corresponding to the ISO week of the date.
-Date.prototype.getWeekYear = function ()
-	{
-		var date = new Date ( this.getTime () );
-		date.setDate ( date.getDate () + 3 - ( date.getDay () + 6 ) % 7 );
-		return date.getFullYear ();
-	};
+//Date.prototype.getWeekYear = function ()
+//	{
+//		var date = new Date ( this.getTime () );
+//		date.setDate ( date.getDate () + 3 - ( date.getDay () + 6 ) % 7 );
+//		return date.getFullYear ();
+//	};
 
-var current_date           = new Date ();
+ var current_date           = new Date ();
 var split_date = current_date.toString().split(' ');
-var display_date = split_date[1] +'-'+
+export var display_date = split_date[1] +'-'+
                    split_date[2]+'-'+
                    split_date[3]+' '+
                    split_date[4];
-var current_year           = current_date.getFullYear ();
-var next_year              = current_year + 1;
-var weeks_till_end_of_year = [];
-var next_year_weeks        = [];
+export var current_year           = current_date.getFullYear ();
+export var next_year              = current_year + 1;
+export  var weeks_till_end_of_year  = [];
+export  var next_year_weeks       = [] ;
 
 var current_week   = current_date.getWeek ();
 var next_year_week = 0;

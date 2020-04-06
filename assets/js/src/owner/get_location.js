@@ -5,7 +5,7 @@
  *
  * */
 
-import { translate } from "../translator/translator.js";
+import { translate } from "../shared/translator/translator.js";
 
 
 ( function ()

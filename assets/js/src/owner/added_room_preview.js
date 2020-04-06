@@ -3,9 +3,9 @@
  * NEW room_id WILL BE JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length
  * OTHERWISE WE WILL RETRIEVE room_id FORM CURRENT ROOM*/
 
-import { render_room_preview } from "./render_room_preview.js";
-import { getRandom }           from "./create_DB.js";
-import { translate }           from "./translator/translator.js";
+import { render_room_preview } from "../shared/render_room_preview.js";
+import { getRandom }           from "../shared/create_DB.js";
+import { translate }           from "../shared/translator/translator.js";
 
 
 $ ( document ).on ( 'click', '.preview_room', function ()

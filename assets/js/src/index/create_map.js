@@ -13,11 +13,12 @@
  * AMENITIES, GALLERY, DESCRIPTION, AVAILABILITY AND HE CAN
  * BOOK THE ROOM AS WELL
  */
-import { translate } from "../translator/translator.js";
+import { translate } from "../shared/translator/translator.js";
 
 
 export function create_map ( coordinates = null, show_p_id = null )
 	{
+		
 		var tiles = L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom     : 18,
 			attribution : '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'

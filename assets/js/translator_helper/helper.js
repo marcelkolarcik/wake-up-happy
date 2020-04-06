@@ -1,4 +1,4 @@
-import { path_to_language_files, default_language } from "../translator/settings.js";
+import { path_to_language_files, default_language } from "../src/shared/translator/settings.js";
 
 
 ( function ()

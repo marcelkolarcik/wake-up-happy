@@ -1,7 +1,7 @@
 /*WHEN WE LOAD index.html FOR THE FIRST TIME, OR IF SEARCH RESULTS ARE null,
  * WE WILL DISPLAY 3 FEATURED  PROPERTIES TO HAVE SOME CONTENT ON
  * THE PAGE*/
-import { render_room_preview } from './render_room_preview.js';
+import { render_room_preview } from '../shared/render_room_preview.js';
 
 
 export function featured_rooms ()
