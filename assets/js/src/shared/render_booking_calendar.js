@@ -1,10 +1,10 @@
 /*FUNCTION TO RENDER  BOOKING CALENDAR FOR EACH ROOM*/
 import { current_year, next_year, weeks_till_end_of_year, next_year_weeks} from "./getWeek.js";
-
+import { board_types }        from './inventory.js';
 
 export function render_booking_calendar ( property )
 	{
-		var board_types = JSON.parse ( localStorage.getItem ( 'board_types' ) );
+		
 		
 		/*WHEN CREATING DEFAULT ROOMS IN create_DB.js , I OPTED FOR 10 BOOKED DAYS PER ROOM,
 		 WHICH ARE 10 RANDOM NUMBERS BETWEEN 1 - 53

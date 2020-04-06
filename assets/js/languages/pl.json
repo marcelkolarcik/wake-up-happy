@@ -475,5 +475,13 @@
   "was enabled"                                                                                                                                   : "został odblokovany",
   "DISABLE": "ZABLOKUJ",
   "ENABLE": "ODBLOKUJ",
-  "There are no new rooms on the site yet...;-)": "Na stronie nie ma jeszcze nowych pokoi ... ;-)"
+  "There are no new rooms on the site yet...;-)": "Na stronie nie ma jeszcze nowych pokoi ... ;-)",
+  
+  "Dear Visitor!": "Drogi gościu!",
+  "initial_welcome": "Ta strona używa localStorage i sessionStorage do przechowywania niektórych danych, aby mogła funkcjonować. Dane mają postać tekstu (JSON) i zawierają informacje o pokojach utworzonych początkowo i pokojach, które możesz utworzyć podczas testowania tej witryny. zawierają również dane o właścicielach, którzy tworzą te pokoje, oraz dane o potencjalnych klientach, którzy zarezerwują dowolny z pokoi, a także dane o twoich preferencjach na stronie.",
+  "initial_clear": "Będziesz mógł usunąć te informacje, klikając ikonę użytkownika w prawym górnym rogu nawigacji i klikając <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>.",
+  "initial_thanks": "Dziękujemy za odwiedzenie!",
+  "initial_experience": "Mam nadzieję, że będziesz mieć świetne doświadczenie w testowaniu.",
+  "end_experience": "Mam nadzieję, że miałeś świetne doświadczenie w testowaniu.",
+  "clear localStorage": "zresetować localStorage"
 }

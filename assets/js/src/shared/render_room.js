@@ -26,7 +26,7 @@
  *                   ROOM WOULDN'T BE IN IMMEDIATE VIEW, BUT UNDER MAP...
  * preview => IF OWNER IS LOGGED*/
 import { translate } from "./translator/translator.js";
-
+import {room_types,} from './inventory.js';
 
 export function render_room ( room, where, preview = false )
 	{
@@ -44,7 +44,7 @@ export function render_room ( room, where, preview = false )
 		if ( preview ) where_div.html ( '' );
 		
 		
-		var room_types = JSON.parse ( localStorage.getItem ( 'room_types' ) );
+		
 		
 		where_div.append ( `
 

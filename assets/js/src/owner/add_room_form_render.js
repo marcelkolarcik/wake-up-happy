@@ -9,14 +9,20 @@
  
  IF OWNER IS EDITING ALREADY EXISTING ROOM WE WILL POPULATE FIELDS WITH HIS room VALUES*/
 
-var room_types     = JSON.parse ( localStorage.getItem ( 'room_types' ) );
-var board_types    = JSON.parse ( localStorage.getItem ( 'board_types' ) );
-var view_types     = JSON.parse ( localStorage.getItem ( 'views' ) );
-var amenities_list = JSON.parse ( localStorage.getItem ( 'amenities_list' ) );
-var room_styles    = JSON.parse ( localStorage.getItem ( 'room_styles' ) );
 
-var room = sessionStorage.getItem ( 'room_to_edit' ) === 'undefined' ? null : JSON.parse (
-	sessionStorage.getItem ( 'room_to_edit' ) );
+import {
+	
+	amenities_list,
+	view_types,
+	board_types,
+	room_types,
+	room_styles
+	
+	
+} from './../shared/inventory.js';
+
+
+var room = sessionStorage.room_to_edit ? JSON.parse ( sessionStorage.room_to_edit ) : null;
 
 
 function render_room_types ()
@@ -58,7 +64,7 @@ function render_room_types ()
 						         <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 						        
 						    <div class = "p-0 card-footer text-center
-							${ owners_room_type && parseInt (owners_room_type ) === parseInt ( index )
+							${ owners_room_type && parseInt ( owners_room_type ) === parseInt ( index )
 				               ? 'bg_green'
 				               : 'bg-secondary' } text-light room_type"
 						         id = "room_type_${ room_type }" >
@@ -184,8 +190,8 @@ function render_room_styles ()
 							               data-footer = "room_style_${ room_style }"
 							               data-type = "room_style"
 							               ${ owners_room_style && parseInt ( owners_room_style - 1 )
-					                          === parseInt (room_style )
-						
+					                          === parseInt ( room_style )
+					
 					                          ? 'checked' : '' }
 							        >
 							    </div >

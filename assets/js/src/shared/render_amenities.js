@@ -1,13 +1,12 @@
 /*FUNCTION TO RENDER / APPEND AMENITIES THAT ROOM CAN PROVIDE TO ROOM PREVIEW*/
-
+import { amenities_list }        from './inventory.js';
 export function render_amenities ( property )
 	{
 		
 		/*AMENITIES DIV*/
 		var amenities_div = $ ( '#amenities_' + property.p_id );
 		
-		/*LIST OF AMENITIES FROM localStorage*/
-		var amenities_list = JSON.parse ( localStorage.getItem ( 'amenities_list' ) );
+		
 		
 		$.each ( property.amenities, function ( index, value )
 		{

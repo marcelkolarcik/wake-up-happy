@@ -21,14 +21,14 @@
  *   FOR EXAMPLE FOR PERSONAL REASONS...*/
 
 
-
+import { room_types }        from './inventory.js';
 
 
 export function render_booking_form ( room )
 	{
 		
 		var booking_form = $ ( '#book_' + room.p_id );
-		var room_types   = JSON.parse ( localStorage.getItem ( 'room_types' ) );
+		
 		
 		booking_form.append ( `
 			 <div class = "center-form" >

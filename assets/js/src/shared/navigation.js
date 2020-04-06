@@ -16,11 +16,17 @@ $ ( function ()
                                 <h6 class = "dropdown-header"  id = "owner_name">
                                  <i class="fa fa-user  text-secondary "></i> &nbsp;</h6 >
                                 <div class = "dropdown-divider" ></div >
+                                
+                               
                                 ${ !sessionStorage.authorized_owner && !sessionStorage.admin ?
-	                               ` <a id = "login_details" class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login"></a >`
-	                                                                              :
-	                               `` }
-                            </div >` );
+	                               ` <a id = "login_details" class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login">Login</a >`
+	                                                                              :`` }
+                                 
+                                 <a id = "clear_localStorage" class = "dropdown-item ___ text-danger" href = "#"
+                                 data-title = "clear localStorage"
+                                 ><i class="fas fa-trash-alt"></i> <code>localStorage</code></a >
+                                 </div >` );
+                            
 
 //  IF OWNER LOGS IN INTO HIS ACCOUNT WE WILL DISPLAY HIS INITIALS
 	    var user_drop_down = $ ( '#user_drop_down' );
@@ -80,7 +86,7 @@ $ ( function ()
 			
 			    user_drop_down.append ( `
                                  <div class = "dropdown-divider" ></div >
-                                <a id = "logout" class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout"></a >` );
+                                <a id = "logout" class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout">Logout</a >` );
 			
 			
 			    $ ( '#owner_name' ).append (

@@ -50,8 +50,10 @@
  * NUMBER OF WEEKS SELECTED , */
 
 
-import { translate } from "./translator/translator.js";
-import { display_date }     from "../shared/getWeek.js";
+import { translate }    from "./translator/translator.js";
+import { display_date } from "./getWeek.js";
+import { board_types }  from './inventory.js';
+
 
 ( function ()
 	{
@@ -75,7 +77,7 @@ import { display_date }     from "../shared/getWeek.js";
 			 * PREVIOUS ROOM TO DEFAULT STATE, AS IF IT WAS NEVER INTERACTED WITH*/
 			check_current_room ( to_be_booked_room_ids );
 			
-			var board_types = JSON.parse ( localStorage.getItem ( 'board_types' ) );
+			
 			
 			$ ( '#boards_' + p_id ).removeClass ( 'border border-danger' );
 
@@ -358,9 +360,6 @@ $ ( document ).on ( 'click', '.pay_for_booking', function ()
 } );
 
 
-
-
-
 function parse_to_int ( num )
 	{
 		return parseInt ( num );
@@ -436,9 +435,6 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 						                        JSON.parse ( localStorage.getItem ( 'CUSTOMERS' ) ) : [];
 						
 						
-						
-						
-						
 						if ( !current_customers[ r_id ] )
 							{
 								//current_customers.push(r_id);
@@ -472,11 +468,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 							}
 						
 						
-						
-						
 						localStorage.setItem ( 'CUSTOMERS', JSON.stringify ( current_customers ) );
-						
-						
 						
 						
 						swal.fire ( {

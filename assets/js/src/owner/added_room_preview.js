@@ -6,7 +6,9 @@
 import { render_room_preview } from "../shared/render_room_preview.js";
 import { getRandom }           from "../shared/create_DB.js";
 import { translate }           from "../shared/translator/translator.js";
-import { display_date } from "../shared/getWeek.js";
+import { display_date }        from "../shared/getWeek.js";
+import { address_keys }        from './../shared/inventory.js';
+
 
 $ ( document ).on ( 'click', '.preview_room', function ()
 {
@@ -129,16 +131,16 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	var searchables = [];
 	
 	
-	//	address_keys ( FILTER ) FOR CREATING SEARCHABLE ARRAY FOR THE ROOM ( EX. 'city','country','village','town')
-	// FROM THE ADDRESS DETAILS PROVIDED BY nominatim, WITHOUT KEYS LIKE (lat,lng, road....)
-	var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
+	
+	
 	
 	$.each ( address, function ( key, value )
 	{
 
 //		IF KEY IS IN address_keys ARRAY  ( EX. 'city','country','village','town')
 //       WE'LL GET IT AND STORE IT FOR THE ROOM
-		
+		//	address_keys ( FILTER ) FOR CREATING SEARCHABLE ARRAY FOR THE ROOM ( EX. 'city','country','village','town')
+		// FROM THE ADDRESS DETAILS PROVIDED BY nominatim, WITHOUT KEYS LIKE (lat,lng, road....)
 		if ( address_keys.indexOf ( key ) !== -1 )
 			{
 

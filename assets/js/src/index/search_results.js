@@ -197,48 +197,58 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 		var calendar = $('#calendar');
 		$ ( document ).on ( "click", "#searched_weeks", function (){
 			
-			calendar.html('');
-			calendar.append(`${ current_year }<br>`);
-			for(var w=1; w<54;w++)
+			/*ONLY APPENDING CALENDAR ONCE,
+			* BECAUSE IF USER CLICKS ON INPUT
+			* FIELD AGAIN, WE WOULD APPEND
+			* CALENDAR AGAIN AND WE WOULD RESET
+			* SELECTED WEEKS AND USER WOULD BE
+			* ABLE TO SELECT SAME WEEK AGAIN...*/
+			if(calendar.html() === '')
 				{
-					if(next_year_weeks.indexOf(w) === -1)
+					calendar.append(`${ current_year }<br>`);
+					for(var w=1; w<54;w++)
 						{
-							calendar.append(`<span class=" img-thumbnail s_week bg_green "
+							if(next_year_weeks.indexOf(w) === -1)
+								{
+									calendar.append(`<span class=" img-thumbnail s_week bg_green "
 				
 											title="${ w }  - ${ current_year }"
 											 data-week="${ w }"
 											>
 											 ${ w }
 											</span>`);
+									
+								}
+							
 							
 						}
-					
-					
-				}
-			calendar.append(`<br>${ next_year }<br>`);
-			for( w=1; w<54;w++)
-				{
-					if(next_year_weeks.indexOf(w) !== -1)
+					calendar.append(`<br>${ next_year }<br>`);
+					for( w=1; w<54;w++)
 						{
-							calendar.append(`<span class="img-thumbnail s_week bg_grey_light"
+							if(next_year_weeks.indexOf(w) !== -1)
+								{
+									calendar.append(`<span class="img-thumbnail s_week bg_grey_light"
 				
 											title="${ w }  - ${ next_year }"
 											data-week="${ w }"
 											>
 											${ w }
 											</span>`);
+									
+								}
+							
 							
 						}
-				
-					
-				}
-			calendar.append(` <br>  <div class = "text-right"> <button
+					calendar.append(` <br>  <div class = "text-right"> <button
 		                                class = "btn  btn-sm bg_green  text-light   "
 		                               
 		                                id = "done"
                                 >
                                     <span ><i class="fas fa-check-circle"></i></span >
                                 </button ></div> `)
+				}
+			
+			
    
 		});
 		var searched_weeks = $("#searched_weeks");

@@ -41,11 +41,12 @@ import { translate }           from "../shared/translator/translator.js";
 						$.each ( new_rooms, function ( key, room )
 						{
 							
-							
-							if ( room !== null )
+							/*IF WE HAVE room AND owner WE WILL DISPLAY IT*/
+							if ( room  && OWNERS[ room.owner_id ])
 								{
-									console.log('we have room',room)
+									
 									var owner = OWNERS[ room.owner_id ];
+									
 									rooms_div.append ( `<div class="row no-gutters">
 
 											<div class = "list-group  list-group-horizontal-md tabs col-md-12"   >
@@ -92,11 +93,7 @@ import { translate }           from "../shared/translator/translator.js";
 											
 											 <div class="room_preview" id="room_preview_${ room.p_id }"></div>
 										</div>
-										
-										
-										 
-										
-										 <span class="p-1"></span> ` );
+										<span class="p-1"></span> ` );
 								}
 							
 							

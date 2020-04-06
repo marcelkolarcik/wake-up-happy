@@ -500,6 +500,14 @@
   "was enabled": "was enabled",
   "DISABLE": "DISABLE",
   "ENABLE": "ENABLE",
-  "There are no new rooms on the site yet...;-)": "There are no new rooms on the site yet...;-)"
+  "There are no new rooms on the site yet...;-)": "There are no new rooms on the site yet...;-)",
+  
+  "Dear Visitor!": "Dear Visitor!",
+  "initial_welcome": "This site is using localStorage and sessionStorage to store some data for it to function.Data is in form of text ( JSON ), and it contains information about rooms created initially and rooms you might create, while testing this site. It will also contain data about owners that create those rooms and data about potential customers that will book any of the rooms.It will also contain data about your preferences on the site.",
+  "initial_clear": "You will be able to clear this information by clicking on user icon in the top right corner of the navigation and clicking on <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>.",
+  "initial_thanks": "Thank you for visiting!",
+  "initial_experience": "Hope you will have a great experience testing.",
+  "end_experience": "Hope you had a great experience testing.",
+  "clear localStorage": "clear localStorage"
   
 }

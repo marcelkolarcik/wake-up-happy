@@ -14,7 +14,7 @@
  * BOOK THE ROOM AS WELL
  */
 import { translate } from "../shared/translator/translator.js";
-
+import {view_types,room_types} from './../shared/inventory.js';
 
 export function create_map ( coordinates = null, show_p_id = null )
 	{
@@ -68,8 +68,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 		/*CREATING MARKERS ON THE MAP WITH ROOMS FROM LOCAL STORAGE, AS WELL AS
 		 * POPUP WITH ROOM IMAGE AND SHORT ROOM DETAILS*/
 		
-		var room_types = JSON.parse ( localStorage.getItem ( 'room_types' ) );
-		var views      = JSON.parse ( localStorage.getItem ( 'views' ) );
+		
 		var ROOMS      = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 		
 		$.each ( ROOMS, function ( p_id, property )
@@ -91,7 +90,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							>
 							 
 							</span>
-							 <br><span class="___" data-text="view :"> </span> <span class="___" data-text="${ views[ property.p_view ] }"></span>
+							 <br><span class="___" data-text="view :"> </span> <span class="___" data-text="${ view_types[ property.p_view ] }"></span>
 		
 							 <a class="property_popup btn btn-sm bg_green_light ___ "
 							  data-title="See more information about the room."

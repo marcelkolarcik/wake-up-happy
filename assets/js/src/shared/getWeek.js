@@ -37,7 +37,7 @@ Date.prototype.getWeek = function ()
 //		return date.getFullYear ();
 //	};
 
- var current_date           = new Date ();
+var current_date                  = new Date ();
 var split_date                    = current_date.toString ().split ( ' ' );
 export var display_date           = split_date[ 1 ] + '-' +
                                     split_date[ 2 ] + '-' +

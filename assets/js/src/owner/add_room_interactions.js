@@ -3,6 +3,11 @@ import { hash_login }       from "../shared/authorizations.js";
 import { set_last_room_id } from "../shared/room_actions.js";
 import { display_date }     from "../shared/getWeek.js";
 import { add_payment_form } from "./add_room_payment_form.js"
+
+import {
+	autocomplete_searchables,
+	address_keys
+} from './../shared/inventory.js';
 /* INTERACTIVE FEEDBACK TO USER WHEN GOING THROUGH
  * ADD_YOUR_ROOM FORM AND VALIDATION
  * LOGIC FOR THE FORM*/
@@ -831,11 +836,13 @@ function check_autocomplete ( new_room )
 
 //  ARRAY OF LOCATION NAMES, AUTO-UPDATING WITH EVERY NEW LOCATION, SO WHEN USER SEARCHES FOR LOCATION IN
 // SEARCH FORM ON index.html , IF THE LOCATION IS IN THIS ARRAY, IT WILL SHOW ON AUTO-COMPLETE
-		var autocomplete_searchables = JSON.parse ( localStorage.getItem ( 'autocomplete_searchables' ) );
+
+
 		
 		//// USING address_keys AS FILTER TO GET STRINGS  FOR AUTO-COMPLETE ( EX. 'city','country','village','town')
 		// FROM ADDRESS PROVIDED BY nominium, OMITTING KEYS LIKE (lat,lng, road....)
-		var address_keys = JSON.parse ( localStorage.getItem ( 'address_keys' ) );
+		
+
 		var new_auto_c   = false;
 		
 		$.each ( new_room.p_address, function ( key, value )
@@ -891,10 +898,12 @@ function store_room ( new_room, update = false )
 			{
 ////ADDING NEW ROOM
 				new_room.owner_id = sessionStorage.hashed_login;
+				
 				ROOMS.push ( new_room );
 				
 				
 			}
+		
 //	UPDATING ROOMS IN localStorage
 		localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 

@@ -1,4 +1,5 @@
 import { default_language, path_to_language_files, site_languages,highlight_class } from './settings.js';
+import { change_flag }                                                              from "./change_language.js";
 
 
 /*TRANSLATING ACCORDING TO BROWSER OR DEFAULT LANGUAGE*/
@@ -39,6 +40,8 @@ export function translate ()
 				 IT MIGHT BE CHANGED, WHEN USER SELECTS DIFFERENT LANGUAGE */
 				localStorage.setItem ( 'language', browser_language || default_language );
 				
+				
+				
 			}
 		
 		
@@ -57,6 +60,10 @@ export function translate ()
 		
 		$(document).ready(function (  )
 		                  {
+		                  	/*CHANGING DISPLAY FLAG TO SELECTED LANGUAGE, OTHERWISE ON
+		                  	* PAGE RELOAD, IT WOULD DEFAULT TO GB FLAG*/
+			                  change_flag(localStorage.getItem ( 'language' ));
+			                  
 			                  $.getJSON (
 				                  path_to_language_files + '/' + localStorage.getItem ( 'language' ) + ".json", function ( translation )
 				                  {

@@ -12,11 +12,11 @@
  *       d.  3 IMAGES => ALL INCLUSIVE
  * */
 
-
+import {view_types,} from './inventory.js';
 export function render_gallery ( room )
 	{
 		
-		var views   = JSON.parse ( localStorage.getItem ( 'views' ) );
+		
 		var gallery = $ ( '#gallery_' + room.p_id );
 		
 		var indicators = `<a class="carousel-control-prev" href="${ '#gallery_' + room.p_id }" role="button" data-slide="prev">
@@ -29,11 +29,11 @@ export function render_gallery ( room )
 			  </a>`;
 		
 		var room_view = `<div class="carousel-item active" >
-			      <img src="assets/images/views/${ views[ room.p_view ] }.jpg" class="d-block w-100" alt="room view image" >
+			      <img src="assets/images/views/${ view_types[ room.p_view ] }.jpg" class="d-block w-100" alt="room view image" >
 			      <div class="carousel-caption ">
 			        <h5 class="images caption ___"
 			        data-text=":view_type view"
-			        data-view_type="${ views[ room.p_view ] }"> </h5>
+			        data-view_type="${ view_types[ room.p_view ] }"> </h5>
 			      </div>
 			      
 		    </div>`;

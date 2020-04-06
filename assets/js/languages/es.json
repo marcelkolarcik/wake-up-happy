@@ -461,5 +461,13 @@
   "was enabled": "estaba habilitado",
   "DISABLE": "DESHABILITAR",
   "ENABLE": "HABILITAR",
-  "There are no new rooms on the site yet...;-)": "Todavía no hay nuevas habitaciones en el sitio ... ;-)"
+  "There are no new rooms on the site yet...;-)": "Todavía no hay nuevas habitaciones en el sitio ... ;-)",
+  
+  "Dear Visitor!": "¡Querido visitante!",
+  "initial_welcome": "Este sitio está usando localStorage y sessionStorage para almacenar algunos datos para que funcione. Los datos están en forma de texto (JSON) y contienen información sobre las salas creadas inicialmente y las salas que puede crear, mientras prueba este sitio. también contiene datos sobre los propietarios que crean esas salas y datos sobre clientes potenciales que reservarán cualquiera de las salas. También contendrá datos sobre sus preferencias en el sitio.",
+  "initial_clear": "Podrá borrar esta información haciendo clic en el icono del usuario en la esquina superior derecha de la navegación y haciendo clic en el <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>.",
+  "initial_thanks": "¡Gracias por visitarnos!",
+  "initial_experience": "Espero que tengas una gran experiencia probando.",
+  "end_experience": "Espero que hayas tenido una gran experiencia probando.",
+  "clear localStorage": "reajustar localStorage"
 }

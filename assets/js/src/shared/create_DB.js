@@ -9,12 +9,58 @@ import {
 	num_of_booked_weeks,
 	amenities_list,
 	view_types,
-	board_types,
-	room_types,
-	room_styles,
-	autocomplete_searchables,
-	address_keys
-} from './inventory.js';
+	autocomplete_searchables
+}                       from './inventory.js';
+import { display_date } from "./getWeek.js";
+import { translate }    from "./translator/translator.js";
+
+
+( function ()
+	{
+		
+		
+		if ( !sessionStorage.initial_welcome )
+			{
+				swal.fire ( {
+					            html : `<h4 class="___" data-text="Dear Visitor!"></h4>
+							<hr class="bg_green">
+							<p class="___" data-text="initial_welcome"></p>
+							<hr class="bg_green">
+							<p class="___" data-text="initial_clear"></p>
+							<hr class="bg_green">
+							<h4 class="___" data-text="initial_thanks"></h4>
+							<p class="___" data-text="initial_experience"></p>
+							<div class="bg_green_light">
+							<img src="../../../assets/images/logo_sm.png" alt="logo">
+							</div>
+							`,
+					
+					            confirmButtonColor : '#0fbeba',
+					            confirmButtonText  : `<i class="fas fa-check-circle"></i>`
+					
+				            } );
+				
+				sessionStorage.setItem ( 'initial_welcome', true );
+				translate ();
+				
+				
+			}
+		
+		/*CLEARING localStorage AND sessionStorage ON USER EXITING THE SITE*/
+		$ ( document ).on ( 'click', '#clear_localStorage', function ()
+		{
+			localStorage.removeItem ( 'ROOMS_created' );
+			localStorage.removeItem ( 'ROOMS' );
+			localStorage.removeItem ( 'OWNERS' );
+			localStorage.removeItem ( 'CUSTOMERS' );
+			localStorage.removeItem ( 'autocomplete_searchables' );
+			localStorage.removeItem ( 'hello' );
+			localStorage.removeItem ( 'initial_locations' );
+			sessionStorage.clear();
+			location.replace ( 'cleared.html' );
+		} );
+	} ) ();
+
 
 /*USING FUNCTION FROM*/
 /*https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API*/
@@ -123,8 +169,8 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				             'p_id'          : index,
 				             'p_address'     : {
 					             'city'          : city_coordinates[ 2 ],
-					             'property_name' : 'property name ' + index,
-					            
+					             'property_name' : 'property name ' + index
+					
 				             },
 				             'price'         : price,
 				             'p_description' : 'Beautiful room with ' + view_types[ index % 10 ]
@@ -139,7 +185,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				             'searchables'   : [ city_coordinates[ 2 ] ],
 				             'bookings'      : getRandom ( 1, 53, num_of_booked_weeks ),
 				             'amenities'     : getRandom ( 1, amenities_list.length - 1, 15 ),
-				             'created_at'  : display_date
+				             'created_at'    : display_date
 				
 			             } );
 			
@@ -153,14 +199,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				
 				localStorage.setItem ( 'ROOMS_created', true );
 				localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
-				localStorage.setItem ( 'board_types', JSON.stringify ( board_types ) );
-				localStorage.setItem ( 'views', JSON.stringify ( view_types ) );
-				localStorage.setItem ( 'room_types', JSON.stringify ( room_types ) );
-				localStorage.setItem ( 'room_styles', JSON.stringify ( room_styles ) );
-				localStorage.setItem ( 'amenities_list', JSON.stringify ( amenities_list ) );
 				localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
-				localStorage.setItem ( 'address_keys', JSON.stringify ( address_keys ) );
-				
 				
 			}
 		else
