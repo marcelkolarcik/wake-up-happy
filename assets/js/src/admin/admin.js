@@ -35,16 +35,16 @@ import { translate }           from "../shared/translator/translator.js";
 				
 				var rooms_div = $ ( '#rooms' );
 				
-				console.log('we do not have owners')
+				
 				if ( OWNERS )
-					{console.log('we  have owners')
+					{
 						$.each ( new_rooms, function ( key, room )
 						{
 							
-							console.log('we do not have room')
+							
 							if ( room !== null )
 								{
-									console.log('we have room')
+									console.log('we have room',room)
 									var owner = OWNERS[ room.owner_id ];
 									rooms_div.append ( `<div class="row no-gutters">
 
