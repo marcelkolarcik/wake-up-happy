@@ -100,8 +100,21 @@ var admin = Object.assign ( {}, config, {
 	watch: true
 } );
 
+var cleared = Object.assign ( {}, config, {
+	
+	entry  : [
+		'./assets/js/src/cleared.js',
+	
+	],
+	output : {
+		path     : path.resolve ( __dirname, 'assets/js/dist' ),
+		filename : "cleared.js"
+	},
+	watch: true
+} );
+
 // Return Array of Configurations
 module.exports = [
-	index, owner, admin
+	index, owner, admin, cleared
 	
 ];

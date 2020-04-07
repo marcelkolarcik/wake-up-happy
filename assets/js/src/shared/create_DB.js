@@ -46,7 +46,12 @@ import { translate }    from "./translator/translator.js";
 				
 			}
 		
-		
+		/*CLEARING localStorage AND sessionStorage ON USER EXITING THE SITE*/
+		$ ( document ).on ( 'click', '#clear_localStorage', function ()
+		{
+			
+			location.replace ( 'cleared.html' );
+		} );
 	} ) ();
 
 
