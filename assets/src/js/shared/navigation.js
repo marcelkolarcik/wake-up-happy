@@ -5,7 +5,7 @@ $ ( function ()
     {
 	
 	    /*INITIAL NAV WHEN OWNER IS NOT LOGGED IN*/
-	    $ ( '#user' ).append ( `<a class = " dropdown-toggle caret-off " href = "#" id = "initials"
+	    $ ( '#user' ).append ( `<a class = " dropdown-toggle caret-off " href = "#"
                                data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >
                                 <div id="initials" class="user_initials d-flex justify-content-center align-items-center">
                                 <i class="fa fa-user green"></i>

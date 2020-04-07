@@ -164,9 +164,9 @@ import { getRandom } from "./create_DB.js";
 									                <div class = "card-body" >
 									                
 									                <span class="float-right">
-									                <footer class = "blockquote-footer" >
+									                <span class = "blockquote-footer" >
 									                      ${names[c]}
-									                    </footer >
+									                    </span >
 									                   <hr class="bg_green">
 									                 </span>
 									               

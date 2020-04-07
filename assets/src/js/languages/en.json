@@ -1,537 +1,333 @@
 {
-  "room :"
-  : "room :" ,
-  "view :"
-  : "view :" ,
-  "See more information about the room."
-  : "See more information about the room." ,
-  "Coordinates : "
-  : "Coordinates : " ,
-  "get details"
-  : "get details" ,
-  "Property Name"
-  : "Property Name" ,
-  "Click on any image to enlarge it !"
-  : "Click on any image to enlarge it !" ,
-  "single"
-  : "single" ,
-  "double"
-  : "double" ,
-  "Room type selected."
-  : "Room type selected." ,
-  "Select your room type."
-  : "Select your room type." ,
-  "single bedroom image"
-  : "single bedroom image" ,
-  "double bedroom image"
-  : "double bedroom image" ,
-  "mountain view"
-  : "mountain view" ,
-  "sea view"
-  : "sea view" ,
-  "river view"
-  : "river view" ,
-  "pool view"
-  : "pool view" ,
-  "beach view"
-  : "beach view" ,
-  "forrest view"
-  : "forrest view" ,
-  "skyline view"
-  : "skyline view" ,
-  "fields view"
-  : "fields view" ,
-  "desert view"
-  : "desert view" ,
-  "mountain"
-  : "mountain" ,
-  "sea"
-  : "sea" ,
-  "lake"
-  : "lake" ,
-  "river"
-  : "river" ,
-  "pool"
-  : "pool" ,
-  "beach"
-  : "beach" ,
-  "forrest"
-  : "forrest" ,
-  "skyline"
-  : "skyline" ,
-  "fields"
-  : "fields" ,
-  "desert"
-  : "desert" ,
-  "View type selected."
-  : "View type selected." ,
-  "Select your view type."
-  : "Select your view type." ,
-  "Select the view type your room has."
-  : "Select the view type your room has." ,
-  "Room style selected."
-  : "Room style selected." ,
-  "Select your room style."
-  : "Select your room style." ,
-  "bedroom image"
-  : "bedroom image" ,
-  "Room only"
-  : "Room only" ,
-  "B & B"
-  : "B & B" ,
-  "B & D"
-  : "B & D" ,
-  "All Inclusive"
-  : "All Inclusive" ,
-  "Room only image"
-  : "Room only image" ,
-  "B & B image"
-  : "B & B image" ,
-  "B & D image"
-  : "B & D image" ,
-  "All Inclusive image"
-  : "All Inclusive image" ,
-  "price"
-  : "price" ,
-  "Board type(s) selected."
-  : "Board type(s) selected." ,
-  "Select your board type(s)."
-  : "Select your board type(s)." ,
-  "Add price for the board !"
-  : "Add price for the board !" ,
-  "Select the board basis you can provide for your guests."
-  : "Select the board basis you can provide for your guests." ,
-  "Amenity selected."
-  : "Amenity selected." ,
-  "Select amenities you provide!"
-  : "Select amenities you provide!" ,
-  "Select the amenities you can provide for your guests."
-  : "Select the amenities you can provide for your guests." ,
-  "fresh linens"
-  : "fresh linens" ,
-  "extra blankets"
-  : "extra blankets" ,
-  "puzzle turn down service"
-  : "puzzle turn down service" ,
-  "elevator bartender"
-  : "elevator bartender" ,
-  "celebrity wake up call"
-  : "celebrity wake up call" ,
-  "fast Wi-Fi"
-  : "fast Wi-Fi" ,
-  "in-room cocktail station"
-  : "in-room cocktail station" ,
-  "in-room workout and meditation"
-  : "in-room workout and meditation" ,
-  "USB charger ports"
-  : "USB charger ports" ,
-  "smart TV with Netflix"
-  : "smart TV with Netflix" ,
-  "in-room coffee machine"
-  : "in-room coffee machine" ,
-  "office corner"
-  : "office corner" ,
-  "welcome gift"
-  : "welcome gift" ,
-  "local flavor gifts"
-  : "local flavor gifts" ,
-  "in-room beer tap"
-  : "in-room beer tap" ,
-  "shower mini fridge"
-  : "shower mini fridge" ,
-  "pop corn delivery"
-  : "pop corn delivery" ,
-  "complementary smart phone"
-  : "complementary smart phone" ,
-  "complementary BMW SUV"
-  : "complementary BMW SUV" ,
-  "Write description of your room, min 30 - max 300 characters."
-  : "Write description of your room, min 30 - max 300 characters." ,
-  "Your room description"
-  : "Your room description" ,
-  "Describe your room, make it attractive (min 30 - max 300 characters)"
-  : "Describe your room, make it attractive (min 30 - max 300 characters)" ,
-  "location"
-  : "location" ,
-  "room"
-  : "room" ,
-  "services"
-  : "services" ,
-  "preview"
-  : "preview" ,
-  "payment"
-  : "payment" ,
-  "Please review these fields:"
-  : "Please review these fields:" ,
-  "Payment details : 99 EUR per year + 9 % of each booking."
-  : "Payment details : 99 EUR per year + 9 % of each booking." ,
-  "Total price"
-  : "Total price" ,
-  "Full Name"
-  : "Full Name" ,
-  "Email"
-  : "Email" ,
-  "Password"
-  : "Password" ,
-  "Card Holder Name"
-  : "Card Holder Name" ,
-  "Card Number"
-  : "Card Number" ,
-  "CVV"
-  : "CVV" ,
-  "Pay"
-  : "Pay" ,
-  "Owner login"
-  : "Owner login" ,
-  "Login"
-  : "Login" ,
-  "Not registered yet?"
-  : "Not registered yet?" ,
-  "No Problem!"
-  : "No Problem!" ,
-  "Just take the first step...."
-  : "Just take the first step...." ,
-  "Right on this site !"
-  : "Right on this site !" ,
-  "Add your room now!"
-  : "Add your room now!" ,
-  "Select location of your property first !"
-  : "Select location of your property first !" ,
-  "ok"
-  : "ok" ,
-  "If you are already registered, check your login credentials, or CAPS Lock...;-)"
-  : "If you are already registered, check your login credentials, or CAPS Lock...;-)" ,
-  "Oops..."
-  : "Oops..." ,
-  "Please, select board!"
-  : "Please, select board!" ,
-  "Please,select at least one week!"
-  : "Please,select at least one week!" ,
-  "Your dates were blocked !"
-  : "Your dates were blocked !" ,
-  "Week(s):"
-  : "Week(s):" ,
-  "Thank you for booking with us !"
-  : "Thank you for booking with us !" ,
-  "Name:"
-  : "Name:" ,
-  "Email:"
-  : "Email:" ,
-  "Room:"
-  : "Room:" ,
-  "Week:"
-  : "Week:" ,
-  "Total price:"
-  : "Total price:" ,
-  "address:"
-  : "address:" ,
-  "Request:"
-  : "Request:" ,
-  "save as PDF"
-  : "save as PDF" ,
-  "Reservation ID:"
-  : "Reservation ID:" ,
-  "Dismiss"
-  : "Dismiss" ,
-  "Your room is not booked !"
-  : "Your room is not booked !" ,
-  "How to:"
-  : "How to:" ,
-  "you are in editing mode"
-  : "you are in editing mode" ,
-  "you are in preview mode"
-  : "you are in preview mode" ,
-  "you are in add mode"
-  : "you are in add mode" ,
-  "you are in block mode"
-  : "you are in block mode" ,
-  "editing mode"
-  : "editing mode" ,
-  "preview mode"
-  : "preview mode" ,
-  "add mode"
-  : "add mode" ,
-  "block mode"
-  : "block mode" ,
-  "Click on"
-  : "Click on" ,
-  "button, if you would like to edit your room."
-  : "button, if you would like to edit your room." ,
-  "OK, got it !"
-  : "OK, got it !" ,
-  "By clicking on"
-  : "By clicking on" ,
-  "you will get information that will assist on every step of your journey...;-)."
-  : "you will get information that will assist on every step of your journey...;-)." ,
-  "Find location of your property on the map and then click the map to display coordinates."
-  : "Find location of your property on the map and then click the map to display coordinates." ,
-  "Then click on"
-  : "Then click on" ,
-  "button, to display location details."
-  : "button, to display location details." ,
-  "You can correct these details."
-  : "You can correct these details." ,
-  "Once you're happy with the location details, click on"
-  : "Once you're happy with the location details, click on" ,
-  "Remember to add your property name! (min 3 characters) to be able to continue to next step."
-  : "Remember to add your property name! (min 3 characters) to be able to continue to next step." ,
-  "Define your room by selecting appropriate radio buttons."
-  : "Define your room by selecting appropriate radio buttons." ,
-  "Once all options are selected"
-  : "Once all options are selected" ,
-  "Define your services by selecting appropriate check buttons."
-  : "Define your services by selecting appropriate check buttons." ,
-  "You can select multiple options."
-  : "You can select multiple options." ,
-  "When at least one of each options are selected and description is entered"
-  : "When at least one of each options are selected and description is entered" ,
-  "will appear and you can progress to next step."
-  : "will appear and you can progress to next step." ,
-  "Description of the room must be at least 30 characters!"
-  : "Description of the room must be at least 30 characters!" ,
-  "When selecting board type, you must enter price for the board."
-  : "When selecting board type, you must enter price for the board." ,
-  "Preview your work of art, by clicking on the tabs"
-  : "Preview your work of art, by clicking on the tabs" ,
-  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."
-  : "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK." ,
-  "You can edit your work if needed!"
-  : "You can edit your work if needed!" ,
-  "Once you are happy with your work, preview it by clicking on"
-  : "Once you are happy with your work, preview it by clicking on" ,
-  "Update"
-  : "Update" ,
-  "to proceed with payment."
-  : "to proceed with payment." ,
-  "Here you can proceed with payment. Thank you for choosing"
-  : "Here you can proceed with payment. Thank you for choosing" ,
-  "wake up happy!"
-  : "wake up happy!" ,
-  "Once you pay, you will be redirected to landing page to see your room live on the site."
-  : "Once you pay, you will be redirected to landing page to see your room live on the site." ,
-  "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." : "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." ,
-  "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!"               : "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!" ,
-  "if you want to block some of the dates."
-  : "if you want to block some of the dates." ,
-  "then click on"
-  : "then click on" ,
-  "AVAILABILITY"
-  : "AVAILABILITY" ,
-  "tab."
-  : "tab." ,
-  "For more details click on"
-  : "For more details click on" ,
-  "Edit your room to your liking."
-  : "Edit your room to your liking." ,
-  "to save your changes."
-  : "to save your changes." ,
-  "If you would like to edit room, click on"
-  : "If you would like to edit room, click on" ,
-  "My rooms"
-  : "My rooms" ,
-  "No rooms yet"
-  : "No rooms yet" ,
-  "Logout"
-  : "Logout" ,
-  "Dashboard"
-  : "Dashboard" ,
-  "Room details"
-  : "Room details" ,
-  "Week(s) booked"
-  : "Week(s) booked" ,
-  "Board"
-  : "Board" ,
-  "Payment details"
-  : "Payment details" ,
-  "Property Request"
-  : "Property Request" ,
-  "Any Requests..."
-  : "Any Requests..." ,
-  "Your future customers will be able to book your room through this form."
-  : "Your future customers will be able to book your room through this form." ,
-  "Previous"
-  : "Previous" ,
-  "Next"
-  : "Next" ,
-  ":view view"
-  : ":view view" ,
-  "bedroom"
-  : "bedroom" ,
-  "breakfast"
-  : "breakfast" ,
-  "lunch"
-  : "lunch" ,
-  "dinner"
-  : "dinner" ,
-  "property image"
-  : "property image" ,
-  "from"
-  : "from" ,
-  "EUR"
-  : "EUR" ,
-  "per week"
-  : "per week" ,
-  "more..."
-  : "more..." ,
-  "Information about room"
-  : "Information about room" ,
-  "About"
-  : "About" ,
-  "Preview images of the property"
-  : "Preview images of the property" ,
-  "Gallery"
-  : "Gallery" ,
-  "See the amenities"
-  : "See the amenities" ,
-  "Amenities"
-  : "Amenities" ,
-  "Preview the availability"
-  : "Preview the availability" ,
-  "Availability"
-  : "Availability" ,
-  "Book your room !"
-  : "Book your room !" ,
-  "Book"
-  : "Book" ,
-  "show on map"
-  : "show on map" ,
-  "Boards"
-  : "Boards" ,
-  "Block selected dates"
-  : "Block selected dates" ,
-  "How to block weeks ?"
-  : "How to block weeks ?" ,
-  "Select board and the week(s) and click on"
-  : "Select board and the week(s) and click on" ,
-  "BOOK"
-  : "BOOK" ,
-  "button"                                                                                                                                        : "button" ,
-  "1) Select any board"                                                                                                                           : "1) Select any board" ,
-  "2) Select the weeks you want to block."                                                                                                        : "2) Select the weeks you want to block." ,
-  "3) Click on"                                                                                                                                   : "3) Click on" ,
-  "less..."                                                                                                                                       : "less..." ,
-  "You won't be able to revert this!"                                                                                                             : "You won't be able to revert this!" ,
-  "Yes, delete"                                                                                                                                   : "Yes, delete" ,
-  "How to"                                                                                                                                        : "How to" ,
-  "Preview"                                                                                                                                       : "Preview" ,
-  "Edit"                                                                                                                                          : "Edit" ,
-  "Delete"                                                                                                                                        : "Delete" ,
-  "Block Dates"                                                                                                                                   : "Block Dates" ,
-  "Add new room"                                                                                                                                  : "Add new room" ,
-  "select location"                                                                                                                               : "select location" ,
-  "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."                                 : "Your search returned 0 results, try different search parameters or have a look at featured properties bellow." ,
-  "Search results:"                                                                                                                               : "Search results:" ,
-  "Wake up happy !"                                                                                                                               : "Wake up happy !" ,
-  "logo image"                                                                                                                                    : "logo image" ,
-  "wake up happy | rooms with the view"                                                                                                           : "wake up happy | rooms with the view" ,
-  "Menu"                                                                                                                                          : "Menu" ,
-  "owner?"                                                                                                                                        : "owner?" ,
-  "english"                                                                                                                                       : "english" ,
-  "english flag image"                                                                                                                            : "english flag image" ,
-  "switch to english"                                                                                                                             : "switch to english" ,
-  "slovak"                                                                                                                                        : "slovak" ,
-  "slovak flag image"                                                                                                                             : "slovak flag image" ,
-  "switch to slovak"                                                                                                                              : "switch to slovak" ,
-  "spanish"                                                                                                                                       : "spanish" ,
-  "switch to spanish"                                                                                                                             : "switch to spanish" ,
-  "spanish flag image"                                                                                                                            : "spanish flag image" ,
-  "polish"                                                                                                                                        : "polish" ,
-  "switch to polish"                                                                                                                              : "switch to polish" ,
-  "polish flag image"                                                                                                                             : "polish flag image" ,
-  "don't show again"                                                                                                                              : "don't show again" ,
-  "Initial locations are"                                                                                                                         : "Initial locations are" ,
-  "they will update with new rooms added in different locations"                                                                                  : "they will update with new rooms added in different locations" ,
-  "Room type"                                                                                                                                     : "Room type" ,
-  "Room type (any)"                                                                                                                               : "Room type (any)" ,
-  "Single ( En Suite )"                                                                                                                           : "Single ( En Suite )" ,
-  "Double ( En Suite )"                                                                                                                           : "Double ( En Suite )" ,
-  "Board type (any)"                                                                                                                              : "Board type (any)" ,
-  "Bed & Breakfast"                                                                                                                               : "Bed & Breakfast" ,
-  "Breakfast & Dinner"                                                                                                                            : "Breakfast & Dinner" ,
-  "All inclusive"                                                                                                                                 : "All inclusive" ,
-  "Search"                                                                                                                                        : "Search" ,
-  "Search for your property"                                                                                                                      : "Search for your property" ,
-  "Copyright"                                                                                                                                     : "Copyright" ,
-  "Close it for now."                                                                                                                             : "Close it for now." ,
-  "Don't show again"                                                                                                                              : "Don't show again" ,
-  "NEW"                                                                                                                                           : "NEW" ,
-  "Do you live in Ireland ?"                                                                                                                      : "Do you live in Ireland ?" ,
-  "If you have spare room and want to earn up to €14,000 tax free, come and join thousands of happy landlords !"                                  : "If you have spare room and want to earn up to €14,000 tax free, come and join thousands of happy landlords !" ,
-  "more info"                                                                                                                                     : "more info" ,
-  "Location"                                                                                                                                      : "Location" ,
-  "Room"                                                                                                                                          : "Room" ,
-  "Services"                                                                                                                                      : "Services" ,
-  "Choose your location"                                                                                                                          : "Choose your location" ,
-  "Define your room"                                                                                                                              : "Define your room" ,
-  "Define your services"                                                                                                                          : "Define your services" ,
-  "Preview your work of art!"                                                                                                                     : "Preview your work of art!" ,
-  "Payment"                                                                                                                                       : "Payment" ,
-  "Save your changes !"                                                                                                                           : "Save your changes !" ,
-  "click to get location details"                                                                                                                 : "click to get location details" ,
-  ":view_type view"                                                                                                                               : ":view_type view" ,
-  ":room_type bedroom image"                                                                                                                      : ":room_type bedroom image" ,
-  "Select image your room will be displayed as."                                                                                                  : "Select image your room will be displayed as." ,
-  ":board_type image"                                                                                                                             : ":board_type image" ,
-  "Featured properties"                                                                                                                           : "Featured properties" ,
-  "week |week - |year booked already !"                                                                                                           : "week |week - |year booked already !" ,
-  "week |week - |year available !"                                                                                                                : "week |week - |year available !" ,
-  "missing fields"                                                                                                                                : "missing fields" ,
-  "weeks"                                                                                                                                         : "Week(s) booked" ,
-  "board"                                                                                                                                         : "Board" ,
-  "total_price"                                                                                                                                   : "Total price" ,
-  "name"                                                                                                                                          : "Full name" ,
-  "email_of_user"                                                                                                                                 : "Email" ,
-  "card_holder_name"                                                                                                                              : "Card Holder Name" ,
-  "card_number"                                                                                                                                   : "Card Number" ,
-  "cvv"                                                                                                                                           : "CVV" ,
-  "Delete |room_name ?"                                                                                                                           : "Delete |room_name ?" ,
-  "neighbourhood"                                                                                                                                 : "neighbourhood" ,
-  "suburbs"                                                                                                                                       : "suburbs" ,
-  "suburb"                                                                                                                                        : "suburb" ,
-  "city"                                                                                                                                          : "city" ,
-  "state"                                                                                                                                         : "state" ,
-  "country"                                                                                                                                       : "country" ,
-  "country code"                                                                                                                                  : "country code" ,
-  "state district"                                                                                                                                : "state district" ,
-  "village"                                                                                                                                       : "village" ,
-  "house number"                                                                                                                                  : "house number" ,
-  "road"                                                                                                                                          : "road" ,
-  "city district"                                                                                                                                 : "city district" ,
-  "postcode"                                                                                                                                      : "post code" ,
-  "college"                                                                                                                                       : "college" ,
-  "shop"                                                                                                                                          : "shop" ,
-  "region"                                                                                                                                        : "region" ,
-  "locality"                                                                                                                                      : "locality" ,
-  "hamlet"                                                                                                                                        : "hamlet" ,
-  "county"                                                                                                                                        : "county" ,
-  "town"                                                                                                                                          : "town" ,
-  "library"                                                                                                                                       : "library" ,
-  "|room_name has been deleted."                                                                                                                  : "|room_name has been deleted." ,
-  "Do you have a room with the view?"                                                                                                             : "Do you have a room with the view?" ,
-  "Add it to our site and start reaping benefits...!"                                                                                             : "Add it to our site and start reaping benefits...!" ,
-  "Your room is ready!"                                                                                                                           : "Your room is ready!" ,
-  "Search or find it on the map!"                                                                                                                 : "Search or find it on the map!" ,
-  "Customers"                                                                                                                                     : "Customers" ,
-  "Request"                                                                                                                                       : "Request" ,
-  "Booked at"                                                                                                                                     : "Booked at" ,
-  "Total income"                                                                                                                                  : "Total income" ,
-  "Yearly occupancy"                                                                                                                              : "Yearly occupancy" ,
-  "Your room has no customers yet!"                                                                                                               : "Your room has no customers yet!" ,
-  "was disabled"                                                                                                                                  : "was disabled" ,
-  "was enabled"                                                                                                                                   : "was enabled" ,
-  "DISABLE"                                                                                                                                       : "DISABLE" ,
-  "ENABLE"                                                                                                                                        : "ENABLE" ,
-  "There are no new rooms on the site yet...;-)"                                                                                                  : "There are no new rooms on the site yet...;-)" ,
-  
-  "Dear Visitor!"                                                                                                                                 : "Dear Visitor!" ,
-  "initial_welcome"                                                                                                                               : "This site is using localStorage and sessionStorage to store some data for it to function in your browser.Data is in form of text ( JSON ), and it contains information about rooms created initially and rooms you might create, while testing this site. It will also contain data about owners that create those rooms and data about potential customers that will book any of the rooms.It will also contain data about your preferences on the site." ,
-  "initial_clear"                                                                                                                                 : "You will be able to clear this information by clicking on user icon in the top right corner of the navigation and clicking on <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>." ,
-  "initial_thanks"                                                                                                                                : "Thank you for visiting!" ,
-  "initial_experience"                                                                                                                            : "Hope you will have a great experience testing." ,
-  "end_experience"                                                                                                                                : "Hope you had a great experience testing." ,
-  "clear localStorage"                                                                                                                            : "clear localStorage" ,
-  "Landlord Testimonials"                                                                                                                         : "Landlord Testimonials" ,
-  "Customer Testimonials"                                                                                                                         : "Customer Testimonials" ,
-  "Find me on GitHub!"                                                                                                                            : "Find me on GitHub!"
-  
+  "room :": "room :",
+  "view :": "view :",
+  "See more information about the room.": "See more information about the room.",
+  "Coordinates : ": "Coordinates : ",
+  "get details": "get details",
+  "Property Name": "Property Name",
+  "Click on any image to enlarge it !": "Click on any image to enlarge it !",
+  "single": "single",
+  "double": "double",
+  "Room type selected.": "Room type selected.",
+  "Select your room type.": "Select your room type.",
+  "single bedroom image": "single bedroom image",
+  "double bedroom image": "double bedroom image",
+  "mountain view": "mountain view",
+  "sea view": "sea view",
+  "river view": "river view",
+  "pool view": "pool view",
+  "beach view": "beach view",
+  "forrest view": "forrest view",
+  "skyline view": "skyline view",
+  "fields view": "fields view",
+  "desert view": "desert view",
+  "mountain": "mountain",
+  "sea": "sea",
+  "lake": "lake",
+  "river": "river",
+  "pool": "pool",
+  "beach": "beach",
+  "forrest": "forrest",
+  "skyline": "skyline",
+  "fields": "fields",
+  "desert": "desert",
+  "View type selected.": "View type selected.",
+  "Select your view type.": "Select your view type.",
+  "Select the view type your room has.": "Select the view type your room has.",
+  "Room style selected.": "Room style selected.",
+  "Select your room style.": "Select your room style.",
+  "bedroom image": "bedroom image",
+  "Room only": "Room only",
+  "B & B": "B & B",
+  "B & D": "B & D",
+  "All Inclusive": "All Inclusive",
+  "Room only image": "Room only image",
+  "B & B image": "B & B image",
+  "B & D image": "B & D image",
+  "All Inclusive image": "All Inclusive image",
+  "price": "price",
+  "Board type(s) selected.": "Board type(s) selected.",
+  "Select your board type(s).": "Select your board type(s).",
+  "Add price for the board !": "Add price for the board !",
+  "Select the board basis you can provide for your guests.": "Select the board basis you can provide for your guests.",
+  "Amenity selected.": "Amenity selected.",
+  "Select amenities you provide!": "Select amenities you provide!",
+  "Select the amenities you can provide for your guests.": "Select the amenities you can provide for your guests.",
+  "fresh linens": "fresh linens",
+  "extra blankets": "extra blankets",
+  "puzzle turn down service": "puzzle turn down service",
+  "elevator bartender": "elevator bartender",
+  "celebrity wake up call": "celebrity wake up call",
+  "fast Wi-Fi": "fast Wi-Fi",
+  "in-room cocktail station": "in-room cocktail station",
+  "in-room workout and meditation": "in-room workout and meditation",
+  "USB charger ports": "USB charger ports",
+  "smart TV with Netflix": "smart TV with Netflix",
+  "in-room coffee machine": "in-room coffee machine",
+  "office corner": "office corner",
+  "welcome gift": "welcome gift",
+  "local flavor gifts": "local flavor gifts",
+  "in-room beer tap": "in-room beer tap",
+  "shower mini fridge": "shower mini fridge",
+  "pop corn delivery": "pop corn delivery",
+  "complementary smart phone": "complementary smart phone",
+  "complementary BMW SUV": "complementary BMW SUV",
+  "Write description of your room, min 30 - max 300 characters.": "Write description of your room, min 30 - max 300 characters.",
+  "Your room description": "Your room description",
+  "Describe your room, make it attractive (min 30 - max 300 characters)": "Describe your room, make it attractive (min 30 - max 300 characters)",
+  "location": "location",
+  "room": "room",
+  "services": "services",
+  "preview": "preview",
+  "payment": "payment",
+  "Please review these fields:": "Please review these fields:",
+  "Payment details : 99 EUR per year + 9 % of each booking.": "Payment details : 99 EUR per year + 9 % of each booking.",
+  "Total price": "Total price",
+  "Full Name": "Full Name",
+  "Email": "Email",
+  "Password": "Password",
+  "Card Holder Name": "Card Holder Name",
+  "Card Number": "Card Number",
+  "CVV": "CVV",
+  "Pay": "Pay",
+  "Owner login": "Owner login",
+  "Login": "Login",
+  "Not registered yet?": "Not registered yet?",
+  "No Problem!": "No Problem!",
+  "Just take the first step....": "Just take the first step....",
+  "Right on this site !": "Right on this site !",
+  "Add your room now!": "Add your room now!",
+  "Select location of your property first !": "Select location of your property first !",
+  "ok": "ok",
+  "If you are already registered, check your login credentials, or CAPS Lock...;-)": "If you are already registered, check your login credentials, or CAPS Lock...;-)",
+  "Oops...": "Oops...",
+  "Please, select board!": "Please, select board!",
+  "Please,select at least one week!": "Please,select at least one week!",
+  "Your dates were blocked !": "Your dates were blocked !",
+  "Week(s):": "Week(s):",
+  "Thank you for booking with us !": "Thank you for booking with us !",
+  "Name:": "Name:",
+  "Email:": "Email:",
+  "Room:": "Room:",
+  "Week:": "Week:",
+  "Total price:": "Total price:",
+  "address:": "address:",
+  "Request:": "Request:",
+  "save as PDF": "save as PDF",
+  "Reservation ID:": "Reservation ID:",
+  "Dismiss": "Dismiss",
+  "Your room is not booked !": "Your room is not booked !",
+  "How to:": "How to:",
+  "you are in editing mode": "you are in editing mode",
+  "you are in preview mode": "you are in preview mode",
+  "you are in add mode": "you are in add mode",
+  "you are in block mode": "you are in block mode",
+  "editing mode": "editing mode",
+  "preview mode": "preview mode",
+  "add mode": "add mode",
+  "block mode": "block mode",
+  "Click on": "Click on",
+  "button, if you would like to edit your room.": "button, if you would like to edit your room.",
+  "OK, got it !": "OK, got it !",
+  "By clicking on": "By clicking on",
+  "you will get information that will assist on every step of your journey...;-).": "you will get information that will assist on every step of your journey...;-).",
+  "Find location of your property on the map and then click the map to display coordinates.": "Find location of your property on the map and then click the map to display coordinates.",
+  "Then click on": "Then click on",
+  "button, to display location details.": "button, to display location details.",
+  "You can correct these details.": "You can correct these details.",
+  "Once you're happy with the location details, click on": "Once you're happy with the location details, click on",
+  "Remember to add your property name! (min 3 characters) to be able to continue to next step.": "Remember to add your property name! (min 3 characters) to be able to continue to next step.",
+  "Define your room by selecting appropriate radio buttons.": "Define your room by selecting appropriate radio buttons.",
+  "Once all options are selected": "Once all options are selected",
+  "Define your services by selecting appropriate check buttons.": "Define your services by selecting appropriate check buttons.",
+  "You can select multiple options.": "You can select multiple options.",
+  "When at least one of each options are selected and description is entered": "When at least one of each options are selected and description is entered",
+  "will appear and you can progress to next step.": "will appear and you can progress to next step.",
+  "Description of the room must be at least 30 characters!": "Description of the room must be at least 30 characters!",
+  "When selecting board type, you must enter price for the board.": "When selecting board type, you must enter price for the board.",
+  "Preview your work of art, by clicking on the tabs": "Preview your work of art, by clicking on the tabs",
+  "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK.": "ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK.",
+  "You can edit your work if needed!": "You can edit your work if needed!",
+  "Once you are happy with your work, preview it by clicking on": "Once you are happy with your work, preview it by clicking on",
+  "Update": "Update",
+  "to proceed with payment.": "to proceed with payment.",
+  "Here you can proceed with payment. Thank you for choosing": "Here you can proceed with payment. Thank you for choosing",
+  "wake up happy!": "wake up happy!",
+  "Once you pay, you will be redirected to landing page to see your room live on the site.": "Once you pay, you will be redirected to landing page to see your room live on the site.",
+  "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu.": "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu.",
+  "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!": "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!",
+  "if you want to block some of the dates.": "if you want to block some of the dates.",
+  "then click on": "then click on",
+  "AVAILABILITY": "AVAILABILITY",
+  "tab.": "tab.",
+  "For more details click on": "For more details click on",
+  "Edit your room to your liking.": "Edit your room to your liking.",
+  "to save your changes.": "to save your changes.",
+  "If you would like to edit room, click on": "If you would like to edit room, click on",
+  "My rooms": "My rooms",
+  "No rooms yet": "No rooms yet",
+  "Logout": "Logout",
+  "Dashboard": "Dashboard",
+  "Room details": "Room details",
+  "Week(s) booked": "Week(s) booked",
+  "Board": "Board",
+  "Payment details": "Payment details",
+  "Property Request": "Property Request",
+  "Any Requests...": "Any Requests...",
+  "Your future customers will be able to book your room through this form.": "Your future customers will be able to book your room through this form.",
+  "Previous": "Previous",
+  "Next": "Next",
+  ":view view": ":view view",
+  "bedroom": "bedroom",
+  "breakfast": "breakfast",
+  "lunch": "lunch",
+  "dinner": "dinner",
+  "property image": "property image",
+  "from": "from",
+  "EUR": "EUR",
+  "per week": "per week",
+  "more...": "more...",
+  "Information about room": "Information about room",
+  "About": "About",
+  "Preview images of the property": "Preview images of the property",
+  "Gallery": "Gallery",
+  "See the amenities": "See the amenities",
+  "Amenities": "Amenities",
+  "Preview the availability": "Preview the availability",
+  "Availability": "Availability",
+  "Book your room !": "Book your room !",
+  "Book": "Book",
+  "show on map": "show on map",
+  "Boards": "Boards",
+  "Block selected dates": "Block selected dates",
+  "How to block weeks ?": "How to block weeks ?",
+  "Select board and the week(s) and click on": "Select board and the week(s) and click on",
+  "BOOK": "BOOK",
+  "button": "button",
+  "1) Select any board": "1) Select any board",
+  "2) Select the weeks you want to block.": "2) Select the weeks you want to block.",
+  "3) Click on": "3) Click on",
+  "less...": "less...",
+  "You won't be able to revert this!": "You won't be able to revert this!",
+  "Yes, delete": "Yes, delete",
+  "How to": "How to",
+  "Preview": "Preview",
+  "Edit": "Edit",
+  "Delete": "Delete",
+  "Block Dates": "Block Dates",
+  "Add new room": "Add new room",
+  "select location": "select location",
+  "Your search returned 0 results, try different search parameters or have a look at featured properties bellow.": "Your search returned 0 results, try different search parameters or have a look at featured properties bellow.",
+  "Search results:": "Search results:",
+  "Wake up happy !": "Wake up happy !",
+  "logo image": "logo image",
+  "wake up happy | rooms with the view": "wake up happy | rooms with the view",
+  "Menu": "Menu",
+  "owner?": "owner?",
+  "english": "english",
+  "english flag image": "english flag image",
+  "switch to english": "switch to english",
+  "slovak": "slovak",
+  "slovak flag image": "slovak flag image",
+  "switch to slovak": "switch to slovak",
+  "spanish": "spanish",
+  "switch to spanish": "switch to spanish",
+  "spanish flag image": "spanish flag image",
+  "polish": "polish",
+  "switch to polish": "switch to polish",
+  "polish flag image": "polish flag image",
+  "don't show again": "don't show again",
+  "Initial locations are": "Initial locations are",
+  "they will update with new rooms added in different locations": "they will update with new rooms added in different locations",
+  "Room type": "Room type",
+  "Room type (any)": "Room type (any)",
+  "Single ( En Suite )": "Single ( En Suite )",
+  "Double ( En Suite )": "Double ( En Suite )",
+  "Board type (any)": "Board type (any)",
+  "Bed & Breakfast": "Bed & Breakfast",
+  "Breakfast & Dinner": "Breakfast & Dinner",
+  "All inclusive": "All inclusive",
+  "Search": "Search",
+  "Search for your property": "Search for your property",
+  "Copyright": "Copyright",
+  "Close it for now.": "Close it for now.",
+  "Don't show again": "Don't show again",
+  "NEW": "NEW",
+  "Do you live in Ireland ?": "Do you live in Ireland ?",
+  "If you have spare room and want to earn up to €14,000 tax free, come and join thousands of happy landlords !": "If you have spare room and want to earn up to €14,000 tax free, come and join thousands of happy landlords !",
+  "more info": "more info",
+  "Location": "Location",
+  "Room": "Room",
+  "Services": "Services",
+  "Choose your location": "Choose your location",
+  "Define your room": "Define your room",
+  "Define your services": "Define your services",
+  "Preview your work of art!": "Preview your work of art!",
+  "Payment": "Payment",
+  "Save your changes !": "Save your changes !",
+  "click to get location details": "click to get location details",
+  ":view_type view": ":view_type view",
+  ":room_type bedroom image": ":room_type bedroom image",
+  "Select image your room will be displayed as.": "Select image your room will be displayed as.",
+  ":board_type image": ":board_type image",
+  "Featured properties": "Featured properties",
+  "week |week - |year booked already !": "week |week - |year booked already !",
+  "week |week - |year available !": "week |week - |year available !",
+  "missing fields": "missing fields",
+  "weeks": "Week(s) booked",
+  "board": "Board",
+  "total_price": "Total price",
+  "name": "Full name",
+  "email_of_user": "Email",
+  "card_holder_name": "Card Holder Name",
+  "card_number": "Card Number",
+  "cvv": "CVV",
+  "Delete |room_name ?": "Delete |room_name ?",
+  "neighbourhood": "neighbourhood",
+  "suburbs": "suburbs",
+  "suburb": "suburb",
+  "city": "city",
+  "state": "state",
+  "country": "country",
+  "country code": "country code",
+  "state district": "state district",
+  "village": "village",
+  "house number": "house number",
+  "road": "road",
+  "city district": "city district",
+  "postcode": "post code",
+  "college": "college",
+  "shop": "shop",
+  "region": "region",
+  "locality": "locality",
+  "hamlet": "hamlet",
+  "county": "county",
+  "town": "town",
+  "library": "library",
+  "|room_name has been deleted.": "|room_name has been deleted.",
+  "Do you have a room with the view?": "Do you have a room with the view?",
+  "Add it to our site and start reaping benefits...!": "Add it to our site and start reaping benefits...!",
+  "Your room is ready!": "Your room is ready!",
+  "Search or find it on the map!": "Search or find it on the map!",
+  "Customers": "Customers",
+  "Request": "Request",
+  "Booked at": "Booked at",
+  "Total income": "Total income",
+  "Yearly occupancy": "Yearly occupancy",
+  "Your room has no customers yet!": "Your room has no customers yet!",
+  "was disabled": "was disabled",
+  "was enabled": "was enabled",
+  "DISABLE": "DISABLE",
+  "ENABLE": "ENABLE",
+  "There are no new rooms on the site yet...;-)": "There are no new rooms on the site yet...;-)",
+  "Dear Visitor!": "Dear Visitor!",
+  "initial_welcome": "This site is using localStorage and sessionStorage to store some data for it to function in your browser.Data is in form of text ( JSON ), and it contains information about rooms created initially and rooms you might create, while testing this site. It will also contain data about owners that create those rooms and data about potential customers that will book any of the rooms.It will also contain data about your preferences on the site.",
+  "initial_clear": "You will be able to clear this information by clicking on user icon in the top right corner of the navigation and clicking on <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>.",
+  "initial_thanks": "Thank you for visiting!",
+  "initial_experience": "Hope you will have a great experience testing.",
+  "end_experience": "Hope you had a great experience testing.",
+  "clear localStorage": "clear localStorage",
+  "Landlord Testimonials": "Landlord Testimonials",
+  "Customer Testimonials": "Customer Testimonials",
+  "Find me on GitHub!": "Find me on GitHub!"
 }

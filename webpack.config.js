@@ -1,4 +1,3 @@
-
 /*
  *
  * AS I NEEDED TO OUTPUT DIFFERENT JS FILES TO DIFFERENT HTML PAGES*
@@ -40,13 +39,13 @@ var index = Object.assign ( {}, config, {
 		'./assets/src/js/shared/translate.js',
 		'./assets/src/js/shared/room_actions.js',
 		'./assets/src/js/shared/render_language_dropdown.js',
-		'./assets/src/js/shared/translator/translator.js',
+		'./assets/src/js/shared/translator/translator.js'
 	],
 	output : {
 		path     : path.resolve ( __dirname, 'assets/dist/js' ),
 		filename : "index.js"
 	},
-	watch: true
+	watch  : true
 } );
 var owner = Object.assign ( {}, config, {
 	
@@ -75,13 +74,13 @@ var owner = Object.assign ( {}, config, {
 		'./assets/src/js/shared/booking_helpers.js',
 		'./assets/src/js/shared/render_testimonials.js',
 		'./assets/src/js/shared/render_footer.js',
-		'./assets/src/js/shared/translator/translator.js',
+		'./assets/src/js/shared/translator/translator.js'
 	],
 	output : {
 		path     : path.resolve ( __dirname, 'assets/dist/js' ),
 		filename : "owner.js"
 	},
-	watch: true
+	watch  : true
 } );
 
 var admin = Object.assign ( {}, config, {
@@ -98,36 +97,34 @@ var admin = Object.assign ( {}, config, {
 		'./assets/src/js/shared/getWeek.js',
 		'./assets/src/js/shared/close_div.js',
 		'./assets/src/js/shared/render_footer.js',
-		'./assets/src/js/shared/translator/translator.js',
-		
+		'./assets/src/js/shared/translator/translator.js'
+	
 	],
 	output : {
 		path     : path.resolve ( __dirname, 'assets/dist/js' ),
 		filename : "admin.js"
 	},
-	watch: true
+	watch  : true
 } );
 
 var cleared = Object.assign ( {}, config, {
 	
 	entry  : [
 		'./assets/src/js/shared/render_footer.js',
-		'./assets/src/js/cleared.js',
-		
+		'./assets/src/js/cleared.js'
+	
 	
 	],
 	output : {
 		path     : path.resolve ( __dirname, 'assets/dist/js' ),
 		filename : "cleared.js"
 	},
-	watch: true
+	watch  : true
 } );
-
-
 
 
 // Return Array of Configurations
 module.exports = [
 	index, owner, admin, cleared
-	
+
 ];
