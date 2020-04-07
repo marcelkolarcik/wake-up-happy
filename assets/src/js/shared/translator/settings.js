@@ -3,7 +3,7 @@ export var default_language = 'en';
 
 
 /*PATH TO LANGUAGE FILES, EDIT TO YOUR NEEDS*/
-export var path_to_language_files = 'assets/src/js/languages';
+export var path_to_language_files = 'assets/dist/languages';
 
 
 /*SITE LANGUAGES*/
