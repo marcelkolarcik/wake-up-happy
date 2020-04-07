@@ -26,7 +26,7 @@ var index = Object.assign ( {}, config, {
 		'./assets/src/js/index/location_autocomplete.js',
 		'./assets/src/js/index/search_results.js',
 		
-		'./assets/src/js/shared/translator/translator.js',
+		
 		'./assets/src/js/shared/translator/change_language.js',
 		'./assets/src/js/shared/authorizations.js',
 		'./assets/src/js/shared/booking_helpers.js',
@@ -39,7 +39,8 @@ var index = Object.assign ( {}, config, {
 		'./assets/src/js/shared/render_room_preview.js',
 		'./assets/src/js/shared/translate.js',
 		'./assets/src/js/shared/room_actions.js',
-		'./assets/src/js/shared/render_language_dropdown.js'
+		'./assets/src/js/shared/render_language_dropdown.js',
+		'./assets/src/js/shared/translator/translator.js',
 	],
 	output : {
 		path     : path.resolve ( __dirname, 'assets/dist/js' ),
@@ -60,7 +61,7 @@ var owner = Object.assign ( {}, config, {
 		'./assets/src/js/owner/how_to_alert.js',
 		'./assets/src/js/owner/render_customers.js',
 		
-		'./assets/src/js/shared/translator/translator.js',
+		
 		'./assets/src/js/shared/translator/change_language.js',
 		
 		'./assets/src/js/shared/render_room_preview.js',
@@ -74,6 +75,7 @@ var owner = Object.assign ( {}, config, {
 		'./assets/src/js/shared/booking_helpers.js',
 		'./assets/src/js/shared/render_testimonials.js',
 		'./assets/src/js/shared/render_footer.js',
+		'./assets/src/js/shared/translator/translator.js',
 	],
 	output : {
 		path     : path.resolve ( __dirname, 'assets/dist/js' ),
@@ -87,7 +89,7 @@ var admin = Object.assign ( {}, config, {
 	entry  : [
 		'./assets/src/js/admin/admin.js',
 		
-		'./assets/src/js/shared/translator/translator.js',
+		
 		'./assets/src/js/shared/translator/change_language.js',
 		'./assets/src/js/shared/render_language_dropdown.js',
 		
@@ -96,6 +98,7 @@ var admin = Object.assign ( {}, config, {
 		'./assets/src/js/shared/getWeek.js',
 		'./assets/src/js/shared/close_div.js',
 		'./assets/src/js/shared/render_footer.js',
+		'./assets/src/js/shared/translator/translator.js',
 		
 	],
 	output : {
@@ -108,8 +111,9 @@ var admin = Object.assign ( {}, config, {
 var cleared = Object.assign ( {}, config, {
 	
 	entry  : [
-		'./assets/src/js/cleared.js',
 		'./assets/src/js/shared/render_footer.js',
+		'./assets/src/js/cleared.js',
+		
 	
 	],
 	output : {
@@ -118,6 +122,7 @@ var cleared = Object.assign ( {}, config, {
 	},
 	watch: true
 } );
+
 
 
 

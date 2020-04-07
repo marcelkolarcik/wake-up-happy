@@ -132,7 +132,7 @@ import { getRandom } from "./create_DB.js";
 					{
 						
 						
-						testi_div.append(`<div class="carousel-item ${ a === 0 ? 'active': ''}" data-interval="15000">
+						testi_div.append(`<div class="carousel-item ${ a === 0 ? 'active': ''}" data-interval="10000">
 	                                            <div class = "row d-flex justify-content-center" id="slide_${a}">
 												</div>
 											</div>`);

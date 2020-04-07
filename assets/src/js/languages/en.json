@@ -363,27 +363,48 @@
   : "lunch" ,
   "dinner"
   : "dinner" ,
-  "property image"                                                                                                                                : "property image" ,
-  "from"                                                                                                                                          : "from" ,
-  "EUR"                                                                                                                                           : "EUR" ,
-  "per week"                                                                                                                                      : "per week" ,
-  "more..."                                                                                                                                       : "more..." ,
-  "Information about room"                                                                                                                        : "Information about room" ,
-  "About"                                                                                                                                         : "About" ,
-  "Preview images of the property"                                                                                                                : "Preview images of the property" ,
-  "Gallery"                                                                                                                                       : "Gallery" ,
-  "See the amenities"                                                                                                                             : "See the amenities" ,
-  "Amenities"                                                                                                                                     : "Amenities" ,
-  "Preview the availability"                                                                                                                      : "Preview the availability" ,
-  "Availability"                                                                                                                                  : "Availability" ,
-  "Book your room !"                                                                                                                              : "Book your room !" ,
-  "Book"                                                                                                                                          : "Book" ,
-  "show on map"                                                                                                                                   : "show on map" ,
-  "Boards"                                                                                                                                        : "Boards" ,
-  "Block selected dates"                                                                                                                          : "Block selected dates" ,
-  "How to block weeks ?"                                                                                                                          : "How to block weeks ?" ,
-  "Select board and the week(s) and click on"                                                                                                     : "Select board and the week(s) and click on" ,
-  "BOOK"                                                                                                                                          : "BOOK" ,
+  "property image"
+  : "property image" ,
+  "from"
+  : "from" ,
+  "EUR"
+  : "EUR" ,
+  "per week"
+  : "per week" ,
+  "more..."
+  : "more..." ,
+  "Information about room"
+  : "Information about room" ,
+  "About"
+  : "About" ,
+  "Preview images of the property"
+  : "Preview images of the property" ,
+  "Gallery"
+  : "Gallery" ,
+  "See the amenities"
+  : "See the amenities" ,
+  "Amenities"
+  : "Amenities" ,
+  "Preview the availability"
+  : "Preview the availability" ,
+  "Availability"
+  : "Availability" ,
+  "Book your room !"
+  : "Book your room !" ,
+  "Book"
+  : "Book" ,
+  "show on map"
+  : "show on map" ,
+  "Boards"
+  : "Boards" ,
+  "Block selected dates"
+  : "Block selected dates" ,
+  "How to block weeks ?"
+  : "How to block weeks ?" ,
+  "Select board and the week(s) and click on"
+  : "Select board and the week(s) and click on" ,
+  "BOOK"
+  : "BOOK" ,
   "button"                                                                                                                                        : "button" ,
   "1) Select any board"                                                                                                                           : "1) Select any board" ,
   "2) Select the weeks you want to block."                                                                                                        : "2) Select the weeks you want to block." ,
@@ -464,9 +485,9 @@
   "card_number"                                                                                                                                   : "Card Number" ,
   "cvv"                                                                                                                                           : "CVV" ,
   "Delete |room_name ?"                                                                                                                           : "Delete |room_name ?" ,
-  "neighbourhood"                                                                                                                                  : "neighbourhood" ,
+  "neighbourhood"                                                                                                                                 : "neighbourhood" ,
   "suburbs"                                                                                                                                       : "suburbs" ,
-  "suburb"                                                                                                                                       : "suburb" ,
+  "suburb"                                                                                                                                        : "suburb" ,
   "city"                                                                                                                                          : "city" ,
   "state"                                                                                                                                         : "state" ,
   "country"                                                                                                                                       : "country" ,
@@ -476,7 +497,7 @@
   "house number"                                                                                                                                  : "house number" ,
   "road"                                                                                                                                          : "road" ,
   "city district"                                                                                                                                 : "city district" ,
-  "postcode"                                                                                                                                     : "post code" ,
+  "postcode"                                                                                                                                      : "post code" ,
   "college"                                                                                                                                       : "college" ,
   "shop"                                                                                                                                          : "shop" ,
   "region"                                                                                                                                        : "region" ,
@@ -484,30 +505,33 @@
   "hamlet"                                                                                                                                        : "hamlet" ,
   "county"                                                                                                                                        : "county" ,
   "town"                                                                                                                                          : "town" ,
-  "library"                                                                                                                                       : "library",
-  "|room_name has been deleted.": "|room_name has been deleted.",
-  "Do you have a room with the view?": "Do you have a room with the view?",
-  "Add it to our site and start reaping benefits...!": "Add it to our site and start reaping benefits...!",
-  "Your room is ready!": "Your room is ready!",
-  "Search or find it on the map!": "Search or find it on the map!",
-  "Customers": "Customers",
-  "Request": "Request",
-  "Booked at": "Booked at",
-  "Total income": "Total income",
-  "Yearly occupancy": "Yearly occupancy",
-  "Your room has no customers yet!": "Your room has no customers yet!",
-  "was disabled": "was disabled",
-  "was enabled": "was enabled",
-  "DISABLE": "DISABLE",
-  "ENABLE": "ENABLE",
-  "There are no new rooms on the site yet...;-)": "There are no new rooms on the site yet...;-)",
+  "library"                                                                                                                                       : "library" ,
+  "|room_name has been deleted."                                                                                                                  : "|room_name has been deleted." ,
+  "Do you have a room with the view?"                                                                                                             : "Do you have a room with the view?" ,
+  "Add it to our site and start reaping benefits...!"                                                                                             : "Add it to our site and start reaping benefits...!" ,
+  "Your room is ready!"                                                                                                                           : "Your room is ready!" ,
+  "Search or find it on the map!"                                                                                                                 : "Search or find it on the map!" ,
+  "Customers"                                                                                                                                     : "Customers" ,
+  "Request"                                                                                                                                       : "Request" ,
+  "Booked at"                                                                                                                                     : "Booked at" ,
+  "Total income"                                                                                                                                  : "Total income" ,
+  "Yearly occupancy"                                                                                                                              : "Yearly occupancy" ,
+  "Your room has no customers yet!"                                                                                                               : "Your room has no customers yet!" ,
+  "was disabled"                                                                                                                                  : "was disabled" ,
+  "was enabled"                                                                                                                                   : "was enabled" ,
+  "DISABLE"                                                                                                                                       : "DISABLE" ,
+  "ENABLE"                                                                                                                                        : "ENABLE" ,
+  "There are no new rooms on the site yet...;-)"                                                                                                  : "There are no new rooms on the site yet...;-)" ,
   
-  "Dear Visitor!": "Dear Visitor!",
-  "initial_welcome": "This site is using localStorage and sessionStorage to store some data for it to function.Data is in form of text ( JSON ), and it contains information about rooms created initially and rooms you might create, while testing this site. It will also contain data about owners that create those rooms and data about potential customers that will book any of the rooms.It will also contain data about your preferences on the site.",
-  "initial_clear": "You will be able to clear this information by clicking on user icon in the top right corner of the navigation and clicking on <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>.",
-  "initial_thanks": "Thank you for visiting!",
-  "initial_experience": "Hope you will have a great experience testing.",
-  "end_experience": "Hope you had a great experience testing.",
-  "clear localStorage": "clear localStorage"
+  "Dear Visitor!"                                                                                                                                 : "Dear Visitor!" ,
+  "initial_welcome"                                                                                                                               : "This site is using localStorage and sessionStorage to store some data for it to function in your browser.Data is in form of text ( JSON ), and it contains information about rooms created initially and rooms you might create, while testing this site. It will also contain data about owners that create those rooms and data about potential customers that will book any of the rooms.It will also contain data about your preferences on the site." ,
+  "initial_clear"                                                                                                                                 : "You will be able to clear this information by clicking on user icon in the top right corner of the navigation and clicking on <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>." ,
+  "initial_thanks"                                                                                                                                : "Thank you for visiting!" ,
+  "initial_experience"                                                                                                                            : "Hope you will have a great experience testing." ,
+  "end_experience"                                                                                                                                : "Hope you had a great experience testing." ,
+  "clear localStorage"                                                                                                                            : "clear localStorage" ,
+  "Landlord Testimonials"                                                                                                                         : "Landlord Testimonials" ,
+  "Customer Testimonials"                                                                                                                         : "Customer Testimonials" ,
+  "Find me on GitHub!"                                                                                                                            : "Find me on GitHub!"
   
 }

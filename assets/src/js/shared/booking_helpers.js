@@ -479,7 +479,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 						
 							</div>
 							
-							 <img src="assets/images/bedrooms/b${ room.room_style }.jpg" class="card-img-top" alt="property image">
+							 <img src="assets/src/images/bedrooms/b${ room.room_style }.jpg" class="card-img-top" alt="property image">
 							 <div class="card-body">
 									 <p class="card-title nav_link_property ___" data-text="Thank you for booking with us !"></p>
 									 <table class="table table-sm">

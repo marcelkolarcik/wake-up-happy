@@ -312,68 +312,130 @@
   : "Po zapłaceniu nastąpi przekierowanie do strony docelowej, aby zobaczyć swój pokój na żywo w witrynie." ,
   "You will be logged in into your account, and in the top right corner, you will see your initials, with your room listed in the dropdown menu." : "Zostaniesz zalogowany na swoje konto, aw prawym górnym rogu zobaczysz swoje inicjały, z pokojem wymienionym w menu rozwijanym." ,
   "You can click on your name or room name, to get to your account dashboard,where you can further edit your room, or add new one!"               : "Możesz kliknąć swoje imię lub nazwę pokoju, aby przejść do pulpitu nawigacyjnego konta, gdzie możesz dalej edytować swój pokój lub dodać nowy!" ,
-  "if you want to block some of the dates."                                                                                                       : "jeśli chcesz zablokować niektóre daty." ,
-  "then click on"                                                                                                                                 : "następnie kliknij" ,
-  "AVAILABILITY"                                                                                                                                  : "DOSTĘPNOŚĆ" ,
-  "tab."                                                                                                                                          : "patka." ,
-  "For more details click on"                                                                                                                     : "Aby uzyskać więcej informacji, kliknij" ,
-  "Edit your room to your liking."                                                                                                                : "Edytuj swój pokój według własnych upodobań." ,
-  "to save your changes."                                                                                                                         : "aby zapisać zmiany." ,
-  "If you would like to edit room, click on"                                                                                                      : "Jeśli chcesz edytować pokój, kliknij" ,
-  "My rooms"                                                                                                                                      : "Moje pokoje" ,
-  "No rooms yet"                                                                                                                                  : "Nie ma jeszcze pokoi" ,
-  "Logout"                                                                                                                                        : "Wyloguj" ,
-  "Dashboard"                                                                                                                                     : "Deska rozdzielcza" ,
-  "Room details"                                                                                                                                  : "Szczegóły pokoju" ,
-  "Week(s) booked"                                                                                                                                : "Zarezerwowane tygodnie" ,
-  "Board"                                                                                                                                         : "żywnośc" ,
-  "Payment details"                                                                                                                               : "Szczegóły płatności" ,
-  "Property Request"                                                                                                                              : "Zapytanie o nieruchomość" ,
-  "Any Requests..."                                                                                                                               : "Jakieś wymagania..." ,
-  "Your future customers will be able to book your room through this form."                                                                       : "Twoi przyszli klienci będą mogli zarezerwować pokój za pomocą tego formularza." ,
-  "Previous"                                                                                                                                      : "Poprzedni" ,
-  "Next"                                                                                                                                          : "Kolejny" ,
-  ":view view"                                                                                                                                    : ": widok widoku" ,
-  "bedroom"                                                                                                                                       : "sypialnia" ,
-  "breakfast"                                                                                                                                     : "śniadanie" ,
-  "lunch"                                                                                                                                         : "lunch" ,
-  "dinner"                                                                                                                                        : "obiad" ,
-  "property image"                                                                                                                                : "obraz nieruchomości" ,
-  "from"                                                                                                                                          : "od" ,
-  "EUR"                                                                                                                                           : "EUR" ,
-  "per week"                                                                                                                                      : "na tydzień" ,
-  "more..."                                                                                                                                       : "więcej..." ,
-  "Information about room"                                                                                                                        : "Informacje o pokoju" ,
-  "About"                                                                                                                                         : "Opis" ,
-  "Preview images of the property"                                                                                                                : "Podgląd zdjęć nieruchomości" ,
-  "Gallery"                                                                                                                                       : "Galeria" ,
-  "See the amenities"                                                                                                                             : "Zobacz udogodnienia" ,
-  "Amenities"                                                                                                                                     : "Udogodnienia" ,
-  "Preview the availability"                                                                                                                      : "Podgląd dostępności" ,
-  "Availability"                                                                                                                                  : "Dostępność" ,
-  "Book your room !"                                                                                                                              : "Zarezerwuj pokój!" ,
-  "Book"                                                                                                                                          : "Rezerwacja" ,
-  "show on map"                                                                                                                                   : "Pokaż na mapie" ,
-  "Boards"                                                                                                                                        : "Posiłki" ,
-  "Block selected dates"                                                                                                                          : "Blokuj wybrane daty" ,
-  "How to block weeks ?"                                                                                                                          : "Jak blokować tygodnie?" ,
-  "Select board and the week(s) and click on"                                                                                                     : "Wybierz wyżywienie i tygodnie (tygodnie) i kliknij" ,
-  "BOOK"                                                                                                                                          : "REZERWACJA" ,
-  "button"                                                                                                                                        : "przycisk" ,
-  "1) Select any board"                                                                                                                           : "1) Wybierz rodzaj wyżywienia" ,
-  "2) Select the weeks you want to block."                                                                                                        : "2) Wybierz tygodnie, które chcesz zablokować." ,
-  "3) Click on"                                                                                                                                   : "3) Kliknij" ,
-  "less..."                                                                                                                                       : "mniej..." ,
-  "You won't be able to revert this!"                                                                                                             : "Nie będzie można tego cofnąć!" ,
-  "Yes, delete"                                                                                                                                   : "Tak, usuń" ,
-  "How to"                                                                                                                                        : "Jak" ,
-  "Preview"                                                                                                                                       : "Podgląd" ,
-  "Edit"                                                                                                                                          : "Edytować" ,
-  "Delete"                                                                                                                                        : "Usunąć" ,
-  "Block Dates"                                                                                                                                   : "Blokuj daty" ,
-  "Add new room"                                                                                                                                  : "Dodaj nowy pokój" ,
-  "select location"                                                                                                                               : "Wybierz lokalizację" ,
-  "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."                                 : "Twoje wyszukiwanie zwróciło 0 wyników, wypróbuj inne parametry wyszukiwania lub spójrz na wyróżnione właściwości poniżej." ,
+  "if you want to block some of the dates."
+  : "jeśli chcesz zablokować niektóre daty." ,
+  "then click on"
+  : "następnie kliknij" ,
+  "AVAILABILITY"
+  : "DOSTĘPNOŚĆ" ,
+  "tab."
+  : "patka." ,
+  "For more details click on"
+  : "Aby uzyskać więcej informacji, kliknij" ,
+  "Edit your room to your liking."
+  : "Edytuj swój pokój według własnych upodobań." ,
+  "to save your changes."
+  : "aby zapisać zmiany." ,
+  "If you would like to edit room, click on"
+  : "Jeśli chcesz edytować pokój, kliknij" ,
+  "My rooms"
+  : "Moje pokoje" ,
+  "No rooms yet"
+  : "Nie ma jeszcze pokoi" ,
+  "Logout"
+  : "Wyloguj" ,
+  "Dashboard"
+  : "Deska rozdzielcza" ,
+  "Room details"
+  : "Szczegóły pokoju" ,
+  "Week(s) booked"
+  : "Zarezerwowane tygodnie" ,
+  "Board"
+  : "żywnośc" ,
+  "Payment details"
+  : "Szczegóły płatności" ,
+  "Property Request"
+  : "Zapytanie o nieruchomość" ,
+  "Any Requests..."
+  : "Jakieś wymagania..." ,
+  "Your future customers will be able to book your room through this form."
+  : "Twoi przyszli klienci będą mogli zarezerwować pokój za pomocą tego formularza." ,
+  "Previous"
+  : "Poprzedni" ,
+  "Next"
+  : "Kolejny" ,
+  ":view view"
+  : ": widok widoku" ,
+  "bedroom"
+  : "sypialnia" ,
+  "breakfast"
+  : "śniadanie" ,
+  "lunch"
+  : "lunch" ,
+  "dinner"
+  : "obiad" ,
+  "property image"
+  : "obraz nieruchomości" ,
+  "from"
+  : "od" ,
+  "EUR"
+  : "EUR" ,
+  "per week"
+  : "na tydzień" ,
+  "more..."
+  : "więcej..." ,
+  "Information about room"
+  : "Informacje o pokoju" ,
+  "About"
+  : "Opis" ,
+  "Preview images of the property"
+  : "Podgląd zdjęć nieruchomości" ,
+  "Gallery"
+  : "Galeria" ,
+  "See the amenities"
+  : "Zobacz udogodnienia" ,
+  "Amenities"
+  : "Udogodnienia" ,
+  "Preview the availability"
+  : "Podgląd dostępności" ,
+  "Availability"
+  : "Dostępność" ,
+  "Book your room !"
+  : "Zarezerwuj pokój!" ,
+  "Book"
+  : "Rezerwacja" ,
+  "show on map"
+  : "Pokaż na mapie" ,
+  "Boards"
+  : "Posiłki" ,
+  "Block selected dates"
+  : "Blokuj wybrane daty" ,
+  "How to block weeks ?"
+  : "Jak blokować tygodnie?" ,
+  "Select board and the week(s) and click on"
+  : "Wybierz wyżywienie i tygodnie (tygodnie) i kliknij" ,
+  "BOOK"
+  : "REZERWACJA" ,
+  "button"
+  : "przycisk" ,
+  "1) Select any board"
+  : "1) Wybierz rodzaj wyżywienia" ,
+  "2) Select the weeks you want to block."
+  : "2) Wybierz tygodnie, które chcesz zablokować." ,
+  "3) Click on"
+  : "3) Kliknij" ,
+  "less..."
+  : "mniej..." ,
+  "You won't be able to revert this!"
+  : "Nie będzie można tego cofnąć!" ,
+  "Yes, delete"
+  : "Tak, usuń" ,
+  "How to"
+  : "Jak" ,
+  "Preview"
+  : "Podgląd" ,
+  "Edit"
+  : "Edytować" ,
+  "Delete"
+  : "Usunąć" ,
+  "Block Dates"
+  : "Blokuj daty" ,
+  "Add new room"
+  : "Dodaj nowy pokój" ,
+  "select location"
+  : "Wybierz lokalizację" ,
+  "Your search returned 0 results, try different search parameters or have a look at featured properties bellow."
+  : "Twoje wyszukiwanie zwróciło 0 wyników, wypróbuj inne parametry wyszukiwania lub spójrz na wyróżnione właściwości poniżej." ,
   "Search results:"                                                                                                                               : "Wyniki wyszukiwania:" ,
   "Wake up happy !"                                                                                                                               : "Obudź się szczęśliwy!" ,
   "logo image"                                                                                                                                    : "obraz logo" ,
@@ -472,16 +534,19 @@
   "Yearly occupancy"                                                                                                                              : "Obłożenie roczne" ,
   "Your room has no customers yet!"                                                                                                               : "Twój pokój nie ma jeszcze klientów!" ,
   "was disabled"                                                                                                                                  : "został zablokowany" ,
-  "was enabled"                                                                                                                                   : "został odblokovany",
-  "DISABLE": "ZABLOKUJ",
-  "ENABLE": "ODBLOKUJ",
-  "There are no new rooms on the site yet...;-)": "Na stronie nie ma jeszcze nowych pokoi ... ;-)",
+  "was enabled"                                                                                                                                   : "został odblokovany" ,
+  "DISABLE"                                                                                                                                       : "ZABLOKUJ" ,
+  "ENABLE"                                                                                                                                        : "ODBLOKUJ" ,
+  "There are no new rooms on the site yet...;-)"                                                                                                  : "Na stronie nie ma jeszcze nowych pokoi ... ;-)" ,
   
-  "Dear Visitor!": "Drogi gościu!",
-  "initial_welcome": "Ta strona używa localStorage i sessionStorage do przechowywania niektórych danych, aby mogła funkcjonować. Dane mają postać tekstu (JSON) i zawierają informacje o pokojach utworzonych początkowo i pokojach, które możesz utworzyć podczas testowania tej witryny. zawierają również dane o właścicielach, którzy tworzą te pokoje, oraz dane o potencjalnych klientach, którzy zarezerwują dowolny z pokoi, a także dane o twoich preferencjach na stronie.",
-  "initial_clear": "Będziesz mógł usunąć te informacje, klikając ikonę użytkownika w prawym górnym rogu nawigacji i klikając <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>.",
-  "initial_thanks": "Dziękujemy za odwiedzenie!",
-  "initial_experience": "Mam nadzieję, że będziesz mieć świetne doświadczenie w testowaniu.",
-  "end_experience": "Mam nadzieję, że miałeś świetne doświadczenie w testowaniu.",
-  "clear localStorage": "zresetować localStorage"
+  "Dear Visitor!"                                                                                                                                 : "Drogi gościu!" ,
+  "initial_welcome"                                                                                                                               : "Ta strona używa localStorage i sessionStorage do przechowywania niektórych danych w twojej przeglądarce, aby mogła funkcjonować. Dane mają postać tekstu (JSON) i zawierają informacje o pokojach utworzonych początkowo i pokojach, które możesz utworzyć podczas testowania tej witryny. zawierają również dane o właścicielach, którzy tworzą te pokoje, oraz dane o potencjalnych klientach, którzy zarezerwują dowolny z pokoi, a także dane o twoich preferencjach na stronie." ,
+  "initial_clear"                                                                                                                                 : "Będziesz mógł usunąć te informacje, klikając ikonę użytkownika w prawym górnym rogu nawigacji i klikając <br><i class='fas fa-trash-alt text-danger'></i> <code>localStorage</code>." ,
+  "initial_thanks"                                                                                                                                : "Dziękujemy za odwiedzenie!" ,
+  "initial_experience"                                                                                                                            : "Mam nadzieję, że będziesz mieć świetne doświadczenie w testowaniu." ,
+  "end_experience"                                                                                                                                : "Mam nadzieję, że miałeś świetne doświadczenie w testowaniu." ,
+  "clear localStorage"                                                                                                                            : "zresetować localStorage" ,
+  "Landlord Testimonials"                                                                                                                         : "Referencje właścicieli" ,
+  "Customer Testimonials"                                                                                                                         : "Referencje klientów" ,
+  "Find me on GitHub!"                                                                                                                             : "Znajdź mnie na GitHub!"
 }

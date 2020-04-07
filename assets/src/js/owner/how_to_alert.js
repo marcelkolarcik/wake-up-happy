@@ -101,7 +101,7 @@ import { translate } from "../shared/translator/translator.js";
 						 </a > <br>
 				 </div >
 				 <div class = "col-md-9 text-center" >
-						 	<img src="assets/images/screenshots/${ gif }.gif" class="card-img-top" alt="${ gif } gif image">
+						 	<img src="assets/src/images/screenshots/${ gif }.gif" class="card-img-top" alt="${ gif } gif image">
 						 	<div class="">
 						 	<span class="___" data-text="By clicking on"></span>
 						  <span  class = " btn btn-sm bg-danger  text-light no_padding" >

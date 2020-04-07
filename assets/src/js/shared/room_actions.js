@@ -73,7 +73,7 @@ $ ( function ()
 				                            data-room_name="${ room.p_address.property_name }">
 				                            
 											</h4>
-										    <img src="assets/images/bedrooms/b${ room.room_style }.jpg" class="card-img-top" alt="room image">
+										    <img src="assets/src/images/bedrooms/b${ room.room_style }.jpg" class="card-img-top" alt="room image">
 										    <hr class="bg-danger">
 										    <p class="___" data-text="You won't be able to revert this!"></p>
 										    <hr class="bg-danger">
