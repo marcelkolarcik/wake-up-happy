@@ -45,7 +45,7 @@
 
 	<!--APP CSS FILE-->
     <link
-		    href = "assets/css/app.css"
+		    href = "assets/src/css/app.css"
 		    rel = "stylesheet"
     >
 
@@ -95,7 +95,7 @@
             
                 1.  CLICK ON ADD YOUR ROOM => REDIRECT TO owner.html
                 2.  ATTEMPT TO LOGIN INTO OWNERS ACCOUNT, IF HE HAS ACCOUNT ALREADY
-                3.  CHANGE LANGUAGE => TO DO
+                3.  CHANGE LANGUAGE
                 -->
             <!--ONCE OWNER IS SUCCESSFULLY LOGGED IN INTO ACCOUNT
                 WE WILL CHANGE WHITE CIRCLE CONTENT, => WE WILL REMOVE USER ICON AND
@@ -105,7 +105,7 @@
                     2.  OPTION TO SWITCH TO PARTICULAR ROOM
                     3.  OPTION TO LOGOUT
                 -->
-            <nav class = "navbar navbar-expand-sm navbar-dark bg_green_light pb-0 nave">
+            <nav class = "navbar navbar-expand-sm bg_green_light pb-0 nave">
                 <a
 		                class = "navbar-brand"
 		                href = "index.html"
@@ -116,7 +116,7 @@
 		                    alt = "logo image"
 		                    class = "d-none d-sm-block ___ "
 		                    data-title = "wake up happy | rooms with the view"
-		                    src = "assets/images/logo_sm.png"
+		                    src = "assets/src/images/logo_sm.png"
                     >
 
                     <!--LOGO OF THE SITE FOR MOBILE DEVICES DISPLAYING FROM 768 PX DOWN-->
@@ -124,7 +124,7 @@
 		                    alt = "logo image"
 		                    class = "d-sm-none ___"
 		                    data-title = "wake up happy | rooms with the view"
-		                    src = "assets/images/logo_xs.png"
+		                    src = "assets/src/images/logo_xs.png"
                     >
                 </a >
                 <button
@@ -159,28 +159,9 @@
                             >
 
                             </a >
-
-	                        <!--FOR MOBILE DEVICES-->
-	              <!--<a-->
-			              <!--class = "text-light add_your_room mr-1 d-block d-md-none ___"-->
-			              <!--data-title = "Do you have a room with the view?"-->
-			              <!--href = "owner.html"-->
-	              <!--&gt;-->
-								<!--<h5 class="text-light"><i class="fas fa-warehouse"><span>  &nbsp;?</span></i></h5>-->
-                            <!--</a >-->
-
-
-
-
                         </li >
 
-
-
-
-
                         <!--DROPDOWN FOR LANGUAGES RENDERED BY render_language_dropdown.js-->
-
-
 	                     <li
 			                     class = "nav-item dropdown  mr-3"
 			                     id = "languages"
@@ -222,7 +203,7 @@
     <!--LITTLE INFO TO USERS ABOUT INITIAL LOCATIONS OF THE ROOMS,
     WITH 2 OPTIONS OF CLOSING IT:
     
-        1.  x BUTTON => REMOVE DIV FROM THE VIEW -> WILL REAPEAR AFTER PAGE RELOAD
+        1.  x BUTTON => REMOVE DIV FROM THE VIEW -> WILL REAPPEAR AFTER PAGE RELOAD
         2.  don't show again BUTTON => REMOVE DIV FROM THE VIEW
             AND FOR THE DURATION OF THE SESSION ( WHILE THE BROWSER IS OPEN )
             WHEN THE BROWSER WILL CLOSE AND REOPEN AGAIN, WE WILL DISPLAY DIV AGAIN
@@ -272,7 +253,7 @@
         <div class = "row">
             <div class = "container">
                 <div class = "row">
-                    <div class = "col-md-4">
+                    <div class = " col-sm-4 ">
                         
                         <!--SEARCH FORM FOR THE ROOMS-->
                         <!--LOCATION FIELD ( REQUIRED ) WITH AUTOCOMPLETE FUNCTIONALITY locations_autocomplete.js-->
@@ -438,37 +419,21 @@
     </div >
 	<div id="test"></div>
 </section >
-<footer >
-    <ul class = "social-networks">
-        <li ><a
-		        href = "https://facebook.com"
-		        target = "_blank"
-        >
-            <i class = "fab fa-facebook"></i >
-        </a ></li >
-        <li ><a
-		        href = "https://twitter.com"
-		        target = "_blank"
-        >
-            <i class = "fab fa-twitter"></i >
-        </a ></li >
-        <li ><a
-		        href = "https://instagram.com"
-		        target = "_blank"
-        >
-            <i class = "fab fa-instagram"></i >
-        </a ></li >
-        <li ><a
-		        href = "https://youtube.com"
-		        target = "_blank"
-        >
-            <i class = "fab fa-youtube"></i >
-        </a ></li >
-    </ul >
-    <div class = "text-center">
-      <span>&copy;</span>  <span class="___" data-text="Copyright" >  </span >
-	    <em ><span>Marcel Kolarcik</span></em >
-    </div >
+<section id="testimonials" class="mt-5">
+	<div class="container">
+		<h4 class="text-center">Testimonials</h4>
+<div id="testimonials_div" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner" id="testi_holder">
+
+
+  </div>
+
+</div>
+	</div>
+
+</section>
+<footer  id="footer">
+
 </footer >
 
 	<!--LEAFLET MAPS JS -->
@@ -510,7 +475,7 @@
 ></script >
 
 	<!--APP JS FILES =>  USE WEBPACK TO COMPILE THEM INTO ONE FILE-->
-<script src = "assets/js/dist/index.js" ></script >
+<script src = "assets/dist/js/index.js" ></script >
 
 
 

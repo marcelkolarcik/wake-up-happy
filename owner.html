@@ -36,39 +36,63 @@
 		    rel = "stylesheet"
     />
     <link
-		    href = "assets/css/app.css"
+		    href = "assets/src/css/app.css"
 		    rel = "stylesheet"
     >
 	<!--emailjs FILE TO SEND EMAIL WHEN NEW BOOKING IS MADE-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-	   emailjs.init("user_u9DHLEY5pqVNI1dVmPDg6");
-   })();
-</script>
+    <script src = "https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js" type = "text/javascript"></script >
+<script type = "text/javascript">
+   ( function ()
+	   {
+		   emailjs.init ( "user_u9DHLEY5pqVNI1dVmPDg6" );
+	   } ) ();
+</script >
 </head >
 <body >
 <section id = "navigation">
     <div class = "nav_background">
         <div class = "navigation container">
-            <nav class = "navbar navbar-expand-sm navbar-dark bg_green_light pb-0 nave ">
+
+	        <!--PUBLIC NAVIGATION TO NAVIGATE THROUGH THE SITE
+            CONTAINS :
+
+                1.  LOGO OF THE SITE WITH href="index.html"
+                2.  FLAG OF THE LANGUAGE SELECTED
+                3.  WHITE CIRCLE WITH USER ICON WHICH ACTS AS DROPDOWN MENU WITH
+                    OPTION OF LOGGING IN-->
+	        <!--PUBLIC CAN:
+
+				1, IF HE HAS ACCOUNT ALREADY
+				2.  CHANGE LANGUAGE
+				-->
+	        <!--ONCE OWNER IS SUCCESSFULLY LOGGED IN INTO ACCOUNT
+				WE WILL CHANGE WHITE CIRCLE CONTENT, => WE WILL REMOVE USER ICON AND
+				REPLACE IT INITIALS OF OWNER AND APPEND TO DROPDOWN MENU OPTIONS FOLLOWING:
+
+					1.  OPTION TO REDIRECT FROM index.html TO owner.html BY CLICKING ON OWNERS NAME
+					2.  OPTION TO SWITCH TO PARTICULAR ROOM
+					3.  OPTION TO LOGOUT
+				-->
+            <nav class = "navbar navbar-expand-sm bg_green_light pb-0 nave">
                 <a
 		                class = "navbar-brand"
 		                href = "index.html"
                 >
+
+                    <!--LOGO OF THE SITE DISPLAYING DOWN TO 768 PX-->
                     <img
-		                    alt = " "
-		                    class = "d-none d-sm-block ___"
-		                    data-alt = "logo image"
+		                    alt = "logo image"
+		                    class = "d-none d-sm-block ___ "
 		                    data-title = "wake up happy | rooms with the view"
-		                    src = "assets/images/logo_sm.png"
+		                    src = "assets/src/images/logo_sm.png"
                     >
+
+                    <!--LOGO OF THE SITE FOR MOBILE DEVICES DISPLAYING FROM 768 PX DOWN-->
                     <img
-		                    alt = " "
+		                    alt = "logo image"
 		                    class = "d-sm-none ___"
-		                    data-alt = "logo image"
 		                    data-title = "wake up happy | rooms with the view"
-		                    src = "assets/images/logo_xs.png"
+		                    src = "assets/src/images/logo_xs.png"
                     >
                 </a >
                 <button
@@ -83,33 +107,35 @@
                     <span class = "small_menu ___ text-light nav_link_property" data-text = "Menu"></span >
 
                 </button >
+
                 <div
 		                class = "collapse navbar-collapse"
 		                id = "logo_cont"
                 >
                     <ul class = "navbar-nav mr-auto ">
                     </ul >
-                    <ul class = "navbar-nav vertically_aligned list-group d-flex justify-content-center align-items-center" id = "dropdowns">
+                    <ul class = "navbar-nav  d-flex justify-content-end list-group list-group-horizontal" id = "dropdowns">
 
 
 
                         <!--DROPDOWN FOR LANGUAGES RENDERED BY render_language_dropdown.js-->
-
 	                     <li
-			                     class = "nav-item dropdown mr-3"
+			                     class = "nav-item dropdown  mr-3"
 			                     id = "languages"
 	                     >
 	                      </li >
 
                         <!--DROPDOWN FOR USER, DIFFERENT CONTENT FOR LOGGED IN AND NOT LOGGED IN USER
-						navigation.js-->
+					   navigation.js-->
                         <li
-		                        class = "nav-item dropdown mr-3 "
+		                        class = "nav-item dropdown mr-3"
 		                        id = "user"
                         >
                         </li >
+
                     </ul >
                 </div >
+
             </nav >
         </div >
     </div >
@@ -533,13 +559,23 @@
             </div >
         </form >
     </section >
+<section class = "mt-5" id = "testimonials">
+	<div class = "">
+		<h4 class = "text-center">Testimonials</h4 >
+<div class = "carousel slide carousel-fade" data-ride = "carousel" id = "testimonials_div">
+  <div class = "carousel-inner" id = "testi_holder">
 
-    <section
-		    id = "footer"
-		    style = "height: 500px;"
-    >
-    
-    </section >
+
+  </div >
+
+</div >
+	</div >
+
+</section >
+   <footer  id="footer">
+
+</footer >
+
 </div >
 	<!--LEAFLET JS-->
 <script
@@ -564,7 +600,7 @@
 
 	<!--APP JS FILES =>  WEBPACK TO COMPILE THEM INTO ONE FILE-->
 
-<script src = "assets/js/dist/owner.js" ></script >
+<script src = "assets/dist/js/owner.js"></script >
 
 
 
