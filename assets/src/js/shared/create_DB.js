@@ -33,11 +33,10 @@ import { translate }    from "./translator/translator.js";
 							<div class="bg_green_light">
 							<img src="assets/src/images/logo_sm.png" alt="logo">
 							</div>
+							<hr class="bg_green">
+							<button id="close_initial_alert" data-cy="dismiss_alert" class="bg_green_dark text-light p-2" >OK</button>
 							`,
-					
-					            confirmButtonColor : '#0fbeba',
-					            confirmButtonText  : `<i class="fas fa-check-circle" data-cy="dismiss_alert"></i>`
-					
+							showConfirmButton:false
 				            } );
 				
 				localStorage.setItem ( 'initial_welcome', true );
@@ -45,6 +44,11 @@ import { translate }    from "./translator/translator.js";
 				
 				
 			}
+		
+		$ ( document ).on ( 'click', '#close_initial_alert', function (){
+			console.log('closing alert');
+			swal.close();
+		});
 		
 		/*CLEARING localStorage AND sessionStorage ON USER EXITING THE SITE*/
 		$ ( document ).on ( 'click', '#clear_localStorage', function ()
