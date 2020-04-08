@@ -191,7 +191,7 @@ function render_location_details ( address_data, coordinates, owner = false )
                     </div >
                 </div >
                 <input type = "text" name = "address__property_name"
-                       class = "form-control form-control-sm  border-danger ___"
+                       class = "form-control form-control-sm  border-danger ___ green_dark"
                        id = "property_name" data-placeholder = "Property Name"
                         value="${ typeof ( address_data.property_name ) !== "undefined" ? address_data.property_name
 		                                                                                : '' }" required >
@@ -203,17 +203,17 @@ function render_location_details ( address_data, coordinates, owner = false )
 			location.append ( `
 					 <div class = "col-auto " >
                     <label class = "sr-only" for = "${ key }" >${ key }</label >
-                    <div class = "input-group mb-2" >
+                    <div class = "input-group mb-2 d-flex align-items-center" >
                         <div class = "input-group-prepend" >
-                            <div class = "input-group-text bg-transparent border_bottom_only" >
+                            <div class = "input-group-text bg-transparent no_border green_dark" >
                             ${ key === 'property_name' ? ` <i class="fas fa-signature"></i>` :
-			                   ` <i class = "fas fa-map-marker-alt ___" data-text="${ key.replace (
-				                   '_', ' ' ) }" ></i >` }
+			                   ` <strong class = " ___" data-text="${ key.replace (
+				                   '_', ' ' ) }" ></strong >` }
                             
                             </div >
                         </div >
                         <input type = "text" name = "address__${ key }"
-                               class = "form-control form-control-sm border_bottom_only "
+                               class = "form-control form-control-sm border_bottom_only green_dark"
                                id = "	${ key }" value="${ value }" required
 										${ key !== 'country' ? '' : 'readonly' }
 										${ key !== 'country_code' ? '' : 'readonly' }  >
@@ -227,11 +227,11 @@ function render_location_details ( address_data, coordinates, owner = false )
                     <div class = "input-group mb-2" >
                         <div class = "input-group-prepend" >
                             <div class = "input-group-text bg-transparent border_bottom_only" >
-                                <i class = "fas fa-map-marker-alt" >&nbsp;lat</i >
+                                <i class = "fas fa-map-marker-alt green_dark" >&nbsp;lat</i >
                             </div >
                         </div >
                         <input type = "text" name = "lat"
-                               class = "form-control form-control-sm border_bottom_only "
+                               class = "form-control form-control-sm border_bottom_only green_dark"
                                id = "lat" value="${ coordinates[ 0 ] }" required  readonly>
                     </div >
                 </div >
@@ -242,11 +242,11 @@ function render_location_details ( address_data, coordinates, owner = false )
                     <div class = "input-group mb-2" >
                         <div class = "input-group-prepend" >
                             <div class = "input-group-text bg-transparent border_bottom_only" >
-                                <i class = "fas fa-map-marker-alt" >&nbsp;lng</i >
+                                <i class = "fas fa-map-marker-alt green_dark" >&nbsp;lng</i >
                             </div >
                         </div >
                         <input type = "text" name = "lng"
-                               class = "form-control form-control-sm border_bottom_only "
+                               class = "form-control form-control-sm border_bottom_only green_dark"
                                id = "lng" value="${ coordinates[ 1 ] }" required readonly >
                     </div >
                 </div >

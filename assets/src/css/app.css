@@ -41,11 +41,12 @@ h2, h3, h4, .nav_link {
 	font-family: Oswald, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 4px;
-	color: #635b4e;
+	color: #005a5b;
 	font-size: 0.8em;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-radius: 0;
+	
 	}
 
 .nav_link_property.board {
@@ -103,6 +104,8 @@ span.nav_link_property {
 	background-color: #0fbeba;
 	}
 
+.bg_green_dark {background-color: #005a5b}
+.green_dark{color:#005a5b}
 .green {
 	color: rgba(0, 195, 209, 1);
 	font-weight: bold;
@@ -192,7 +195,7 @@ input:hover, select:hover {
 
 .social-networks i {
 	font-size: 160%;
-	color: #777777;
+	color: #005a5b;
 	margin: 1%;
 	padding: 5%;
 	}
@@ -213,7 +216,7 @@ input:hover, select:hover {
 	/*light green*/
 	color: #777777;
 	}
-
+.popup_class_index{padding: 20px;}
 /*CUSTOMIZING LEAFLET'S CSS FOR STYLING POPUPS*/
 .popup_class .leaflet-popup-tip, .popup_class .leaflet-popup-content-wrapper {
 	background-color: rgba(0, 195, 209, 0.8);
@@ -510,6 +513,7 @@ a.side_nav:hover {
 .name {
 	font-size: 1.3em;
 	font-weight: bolder;
+	
 	}
 
 @media screen and ( max-width: 1200px ) {

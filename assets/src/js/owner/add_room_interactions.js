@@ -263,7 +263,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 						 .bg_orange , AND WHEN USER DESELECTS BOARD, IT WILL BE CHANGED TO ORIGINAL .bg-secondary*/
 						if ( type === 'board' )
 							{
-								footer.removeClass ( 'bg-secondary' ).addClass ( 'bg_orange' );
+								footer.removeClass ( 'bg_green_dark' ).addClass ( 'bg_orange' );
 								
 								
 								/*WHEN USER SELECTS BOARD FOR THE FIRST TIME WE WILL SET
@@ -290,10 +290,10 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 //					WE REMOVE bg_green text-light CLASS FROM PREVIOUSLY  SELECTED OPTION
 //                  AND REPLACE IT WITH ORIGINAL bg-secondary text-light CLASS
 								$ ( "." + type ).removeClass ( "bg_green text-light" ).addClass (
-									'bg-secondary text-light' );
+									'bg_green_dark text-light' );
 
 //					AND CURRENTLY SELECTED OPTION WILL GET bg_green text-light CLASS
-								footer.removeClass ( 'bg-secondary' ).addClass ( 'bg_green text-light' );
+								footer.removeClass ( 'bg_green_dark' ).addClass ( 'bg_green text-light' );
 							}
 						
 						
@@ -334,7 +334,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 						//	IF ANY OF THE SERVICES CHECKBOXES WERE SELECTED (board_type, amenity),
 						//	IMAGE CARD FOOTER WOULD HAVE
 						// bg_green text-light_light CLASS APPLIED, SO THIS IS JUST TO CHANGE IT TO ORIGINAL STATE
-						footer.removeClass ( 'bg_green text-light' ).addClass ( 'bg-secondary text-light' );
+						footer.removeClass ( 'bg_green text-light' ).addClass ( 'bg_green_dark text-light' );
 						
 						//	IF USER HAS DESELECTED ALL OF PREVIOUSLY SELECTED CHECKBOXES ( board_types and amenities)
 						// , THIS IS TO REMOVE green INDICATOR AND TO REMOVE THIS TYPE FROM
@@ -422,7 +422,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 						              success.removeClass ( 'd-none' );
 						
 						              /*CHANGING COLOR OF FOOTER TO bg_green*/
-						              $ ( '#board_type_' + check_box_id ).removeClass ( 'bg_orange bg-secondary' )
+						              $ ( '#board_type_' + check_box_id ).removeClass ( 'bg_orange bg_green_dark' )
 						                                                 .addClass ( 'bg_green' );
 						
 						
@@ -439,7 +439,7 @@ $ ( document ).on ( "click", ".collapse_parent", function ()
 							              }
 //				PRICE DESELECTED =>   FOOTER GETS .bg-secondary CLASS APPLIED
 						              $ ( '#board_type_' + check_box_id ).removeClass ( 'bg_green' ).addClass (
-							              'bg-secondary' );
+							              'bg_green_dark' );
 						              $ ( '#board_' + check_box_id ).prop ( 'checked', false );
 						              $ ( '#board_price_' + check_box_id ).remove ();
 						
@@ -961,31 +961,31 @@ $ ( document ).on ( 'click', '.step', function ()
 /*ADMIN WILL BE NOTIFIED BY EMAIL, WHEN NEW ROOM IS ADDED TO THE SITE*/
 function send_email_to_admin ( new_room, owner )
 	{
-		
-		emailjs.send ( "gmail", "template_pDNgSwG0", {
-			       "name"      : owner.name,
-			       "email"     : owner.email,
-			       "room_name" : new_room.p_address.property_name,
-			       "location"  : new_room.location,
-			       "added_at"  : new_room.created_at
-			
-		       } )
-		       .then (
-			       function ( response )
-			       {
-				       console.log ( "SUCCESS", response );
-				
-				       //	IF OWNER IS  ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
-				       // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
-				       location.replace ( `index.html` );
-				
-				
-			       },
-			       function ( error )
-			       {
-				       console.log ( "FAILED", error );
-				
-			       }
-		       );
-		return false;  // To block from loading a new page
+		location.replace ( `index.html` );
+//		emailjs.send ( "gmail", "template_pDNgSwG0", {
+//			       "name"      : owner.name,
+//			       "email"     : owner.email,
+//			       "room_name" : new_room.p_address.property_name,
+//			       "location"  : new_room.location,
+//			       "added_at"  : new_room.created_at
+//
+//		       } )
+//		       .then (
+//			       function ( response )
+//			       {
+//				       console.log ( "SUCCESS", response );
+//
+//				       //	IF OWNER IS  ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
+//				       // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
+//				       location.replace ( `index.html` );
+//
+//
+//			       },
+//			       function ( error )
+//			       {
+//				       console.log ( "FAILED", error );
+//
+//			       }
+//		       );
+//		return false;  // To block from loading a new page
 	}

@@ -519,10 +519,10 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 									</table>
 									
 									
-									  <span class="btn btn-sm bg_green_light d-print-none ___" onclick="window.print()" data-text="save as PDF"></span>
+									  <span class="btn btn-sm bg_green_dark text-light d-print-none ___" onclick="window.print()" data-text="save as PDF"></span>
 									  <div class="card-footer bg-transparent pb-0 mb-0">
 									  <span class="___" data-text="Reservation ID:"></span>
-										     ${ Math.random ().toString ( 36 ).substr ( 2, 10 ) }<br >
+										     ${ Math.random ().toString ( 36 ).substr ( 2, 10 ) }<br ><br >
 										  
 										    
 										      <a class="btn btn-sm border_green d-print-none mb-3 ___" href=""  data-title="Dismiss"><i class="fas fa-thumbs-up"></i></a>

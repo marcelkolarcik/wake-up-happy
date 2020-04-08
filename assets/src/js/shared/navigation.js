@@ -50,7 +50,7 @@ $ ( function ()
 			
 			    user_drop_down.append ( `
                                 
-                                <span  class = "dropdown-header bg-secondary text-light ___" data-text="My rooms" ></span >` );
+                                <span  class = "dropdown-header bg_green_dark text-light ___" data-text="My rooms" ></span >` );
 			
 			
 			    var ROOMS    = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );

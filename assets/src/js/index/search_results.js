@@ -12,6 +12,33 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 
 (function (  )
 	{
+		/*FUNCTION TO DETERMINE WHETHER TO SHOW OR CLOSE initial_locations DIV ON focusin
+		 *
+		 * EVERY INPUT FIELD IN SEARCH FORM ON index.html HAS DATA ATTRIBUTE data-add_in_lo
+		 *                                                                   ( in_lo => short for initial_locations)
+		 * AND IT CAN BE true or false :
+		 *
+		 *  1.  locations INPUT HAS data-add_in_lo = true
+		 *  2.  board_type, room_type, search_btn INPUTS
+		 *      ALL HAVE data-add_in_lo = false
+		 *
+		 *      SO IF USER FOCUSES INTO location FIELD WE WILL DISPLAY LITTLE INFO
+		 *      ABOUT INITIAL autocomplete_locations IF IT'S NOT SET AS don't display again
+		 *
+		 *      AND IF USER FOCUSES INTO, board_type, room_type, search_btn
+		 *      WE WILL REMOVE INFO DIV*/
+		function initial_locations ( add = true )
+			{
+				if ( !localStorage.initial_locations )
+					{
+						var initial = $ ( '#initial_locations' );
+						add ? initial.fadeIn ( 1000 ).removeClass ( 'd-none' ) : initial.fadeOut ( 350 );
+					}
+				
+				
+			}
+		
+		
 		
 		function booked_out ( bookings, weeks )
 			{
@@ -111,6 +138,7 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 			searched_weeks.val('');
 			
 			
+			
 			/*AT LEAST location MUST BE SELECTED*/
 			if ( location === '' )
 				{
@@ -195,8 +223,10 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 		
 		
 		var calendar = $('#calendar');
+		
 		$ ( document ).on ( "click", "#searched_weeks", function (){
 			
+			console.log('calendar.html()',calendar.html())
 			/*ONLY APPENDING CALENDAR ONCE,
 			* BECAUSE IF USER CLICKS ON INPUT
 			* FIELD AGAIN, WE WOULD APPEND
@@ -251,6 +281,23 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 			
    
 		});
+		
+		/*  ON FOCUSING INTO SEARCH INPUT FIELDS,
+		 *  DEPENDING ON DATA ATTRIBUTE add_in_lo
+		 *  SHOWING OF HIDING INFO DIV*/
+		$ ( document ).on ( 'focusin', '.add_initial_locations', function ()
+		{
+			var add = $ ( this ).data ( 'add_in_lo' );
+			if($(this).attr('id') === 'location')
+			initial_locations ( add );
+			
+			/*IF USER DIDN'T SELECT LOCATION AND CLICKED ON
+			 * SEARCH BUTTON, WE WOULD ADD bg-danger  CLASS TO
+			 * location INPUT FIELD, SO WHEN HE IS TYPING IN
+			 * LOCATION WE WILL REMOVE bg-warning FROM THE INPUT FIELD*/
+			$(this).attr('id') === 'location' ? $(this).removeClass('bg-warning'): '';
+			
+		} );
 		var searched_weeks = $("#searched_weeks");
 		
 		$(document).on('click', '.s_week', function (  )

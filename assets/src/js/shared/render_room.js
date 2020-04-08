@@ -54,11 +54,22 @@ export function render_room ( room, where, preview = false )
        
             <img src = "assets/src/images/bedrooms/b${ room.room_style }.jpg" class = "card-img room_img" alt = "property image" >
           
-            <h6 class = "bg_green text-light p-2 mt-2 text-center" >
+            <h6 class = "bg_green_dark text-light p-2 mt-2 text-center" >
 			<span class="___" data-text="from"></span>
 			${ room.price[ Object.keys ( room.price )[ 0 ] ] }&nbsp;EUR <!--getting first available price to display form-->
                 <small class="___" data-text="per week"></small >
+                <!--ONLY SHOWING SHOW ON THE MAP ON index.html AND NOT ON owner.html-->
+                    <span class="btn btn-sm bg_orange green_dark float-right show_on_map ___ pb-0
+                 
+						${ window.location.pathname.includes ( '/index.html' ) ? '' : 'd-none' }"
+						data-title="Show room on the map..."
+						data-lat="${ room.lat }"
+						data-lng="${ room.lng }"
+						data-p_id="${ room.p_id }"
+						
+						><i class="fas fa-map-marker-alt"></i></span>
             </h6 >
+             
              <span class=" d-md-none  text-capitalize"  >
 					<h4 class="ml-2 nav_link_property">
 			${ decodeURI ( room.p_address.property_name ) } | ${ decodeURI (
@@ -129,16 +140,7 @@ export function render_room ( room, where, preview = false )
                         <p class = "card-text mb-5 pb-5" >${ decodeURI ( room.p_description ) }</p >
                     </div >
                   
-                  <!--ONLY SHOWING SHOW ON THE MAP ON index.html AND NOT ON owner.html-->
-                    <span class="btn btn-sm bg_green text-light float-right mr-3 show_on_map ___
                  
-						${ window.location.pathname.includes ( '/index.html' ) ? '' : 'd-none' }"
-						data-title="Show room on the map..."
-						data-lat="${ room.lat }"
-						data-lng="${ room.lng }"
-						data-p_id="${ room.p_id }"
-						data-text="show on map"
-						></span>
 						
 				
 					<div class="child_at_bottom d-flex justify-content-center" id="address${ room.p_id }"></div>

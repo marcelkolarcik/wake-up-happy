@@ -50,7 +50,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 		 * WITH OPEN POPUP
 		 * OTHERWISE DEFAULT COORDINATES AND ZOOM */
 		
-		var zoom = coordinates || ( sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' ) ) ? 11 : null;
+		var zoom = coordinates || ( sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' ) ) ? 12 : null;
 		
 		
 		var map = L.map ( 'map_index', {
@@ -65,22 +65,29 @@ export function create_map ( coordinates = null, show_p_id = null )
 		                                 } );
 		
 		
+		
 		/*CREATING MARKERS ON THE MAP WITH ROOMS FROM LOCAL STORAGE, AS WELL AS
 		 * POPUP WITH ROOM IMAGE AND SHORT ROOM DETAILS*/
 		
-		
 		var ROOMS      = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 		
-		$.each ( ROOMS, function ( p_id, property )
+			    $.each ( ROOMS, function ( p_id, property )
 		{
 			
 			if ( property )
 				{
 					var marker = L.marker (
 						new L.LatLng ( property.lat, property.lng ), { title : property.city } );
-					
-					var popup =
-						    `<img src="assets/src/images/bedrooms/b${ property.room_style }_s.jpg" class="___" data-alt="property image" alt = " "
+					var popup = L.popup ( {
+						                      
+						                    
+						                     className: sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' )
+						                                ?'popup_class_index': '',
+											keepInView:!!coordinates
+						
+					                      } )
+						.setContent(
+							`<img src="assets/src/images/bedrooms/b${ property.room_style }_s.jpg" class="___" data-alt="property image" alt = " "
 							 style="width:140px;height:70px;">
 							 <br><b><span class="text-capitalize">  ${ decodeURI ( property.location ) }</span></b>
 							
@@ -88,17 +95,18 @@ export function create_map ( coordinates = null, show_p_id = null )
 							 <span class="___"
 							 data-text   = "${ room_types[ property.room_type ] }"
 							>
-							 
+							
 							</span>
 							 <br><span class="___" data-text="view :"> </span> <span class="___" data-text="${ view_types[ property.p_view ] }"></span>
 		
-							 <a class="property_popup btn btn-sm bg_green_light ___ "
+							 <a class="property_popup btn btn-sm bg_orange ___ "
 							  data-title="See more information about the room."
 							  id="${ p_id }"
 							  data-image_id="${ property.room_style }"
 							  data-text="more..."
 							  
-							  href="#" ><i class="fas fa-external-link-square-alt "></i></a> `;
+							  href="#" ><i class="fas fa-external-link-square-alt "></i></a> `);
+
 
 //			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html AND OPEN POPUP WITH HIS NEWLY CREATED ROOM
 					
@@ -106,10 +114,9 @@ export function create_map ( coordinates = null, show_p_id = null )
 					     && sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' ) )
 						{
 							
-							
 							L.marker ( [ sessionStorage.getItem ( 'lat' ), sessionStorage.getItem ( 'lng' ) ] )
 							 .addTo ( map )
-							 .bindPopup ( popup )
+							 .bindPopup (popup )
 							 .openPopup ();
 
 //							BECAUSE WE ALREADY OPENED POPUP FOR NEWLY CREATED ROOM, WE ARE
@@ -127,16 +134,19 @@ export function create_map ( coordinates = null, show_p_id = null )
 					
 					else if ( coordinates && p_id === show_p_id )
 						{
-							
+						
 							
 							L.marker ( coordinates )
 							 .addTo ( map )
-							 .bindPopup ( popup )
+							 .bindPopup (  popup )
 							 .openPopup ();
+							
+							
 						}
 					/*ALL OTHER ROOMS */
 					else
 						{
+							
 							marker.bindPopup ( popup );
 						}
 					
@@ -174,9 +184,9 @@ $ ( document ).on ( 'click', '.show_on_map', function ()
 //	SCROLLING TO THE TOP OF THE PAGE => USER CAN SEE MAP
 //	BECAUSE IF USER IS PREVIEWING ROOM FROM SEARCH RESULTS
 //AND HE SCROLLED DOWN AND MAP IS NOT IN HIS CURRENT VIEW
-// HE WOULDN'T SEE MAP OTHERWISE
+// HE WOULDN'T SEE MAP AND THE ROOM WITH OPEN POPUP OTHERWISE
 	$ ( 'html, body' ).animate ( {
-		                             scrollTop : $ ( "#content" ).offset ().top
+		                             scrollTop : $ ( "#map_index" ).offset ().top
 	                             }, 11 );
 	
 	translate();

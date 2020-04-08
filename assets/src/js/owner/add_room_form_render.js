@@ -66,7 +66,7 @@ function render_room_types ()
 						    <div class = "p-0 card-footer text-center
 							${ owners_room_type && parseInt ( owners_room_type ) === parseInt ( index )
 				               ? 'bg_green'
-				               : 'bg-secondary' } text-light room_type"
+				               : 'bg_green_dark' } text-light room_type"
 						         id = "room_type_${ room_type }" >
 						        <label for = "${ room_type }" class = "text-capitalize ___" data-text="${ room_type }"></label >
 						      <br>
@@ -106,7 +106,7 @@ function render_view_types ()
 							           <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 							    <div class = "card-footer text-center  ${ owners_room_view && owners_room_view
 					                                                      === view_type
-					                                                      ? 'bg_green' : 'bg-secondary' }   text-light  view_type p-0"
+					                                                      ? 'bg_green' : 'bg_green_dark' }   text-light  view_type p-0"
 							         id = "view_type_${ view_type }" >
 							        <label for = "${ view_types[ view_type ] }" class = "text-capitalize ___"
 							         data-text=":view_type view"
@@ -175,7 +175,7 @@ function render_room_styles ()
 							    <div class = "p-0 card-footer text-center
 									${ owners_room_style && parseInt ( owners_room_style - 1 ) === parseInt (
 						room_style ) ? 'bg_green'
-					                 : 'bg-secondary' }
+					                 : 'bg_green_dark' }
 									text-light d-flex justify-content-around align-items-center room_style"
 							         id = "room_style_${ room_style }" >
 							         
@@ -223,7 +223,7 @@ function render_board_types ()
 						          
 						    <div class = "card-footer text-center    ${ owners_boards && board_type in owners_boards
 					                                                    ? 'bg_green'
-					                                                    : 'bg-secondary' } text-light board_type_${ board_type }"
+					                                                    : 'bg_green_dark' } text-light board_type_${ board_type }"
 						         id = "board_type_${ board_type }" >
 						        <div class = "input-group mb-2 text-center" >
 						            <div class = "input-group-prepend" >
@@ -298,7 +298,7 @@ function render_amenities ()
 		  
 		    <div class = "card-footer text-center
 		${ owners_amenities && owners_amenities.indexOf ( index ) !== -1 ? 'bg_green'
-			                                                             : 'bg-secondary' } text-light  p-0 amenity${ index }"
+			                                                             : 'bg_green_dark' } text-light  p-0 amenity${ index }"
 		    id = "amenity${ index }" >
 		        <div class = "input-group mb-2" >
 		            <div class = "input-group-prepend" >
