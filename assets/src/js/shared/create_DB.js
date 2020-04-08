@@ -36,7 +36,7 @@ import { translate }    from "./translator/translator.js";
 							`,
 					
 					            confirmButtonColor : '#0fbeba',
-					            confirmButtonText  : `<i class="fas fa-check-circle"></i>`
+					            confirmButtonText  : `<i class="fas fa-check-circle" data-cy="dismiss_alert"></i>`
 					
 				            } );
 				
