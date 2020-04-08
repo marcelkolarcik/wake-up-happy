@@ -475,7 +475,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 							            html :
 								            `<div class="card horizontally_aligned" style="width: 100%;">
 							<div class=" bg_green">
-							 <img class="" src="assets/images/logo_sm.png"  alt="logo image">
+							 <img class="" src="assets/src/images/logo_sm.png"  alt="logo image">
 						
 							</div>
 							
