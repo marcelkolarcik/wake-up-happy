@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,800|Oswald&display=swap');
-
 /*INITIAL VALUES SET TO 0 TO AVOID ANY SURPRISES FROM THE DIFFERENT BROWSER RENDERING*/
 * {
 	margin: 0;
@@ -13,11 +12,10 @@ body {
 	}
 
 .nav_background {
-	
 	height: 0;
 	padding: 0;
-	padding-bottom: 18.75%; /* aspect ratio of the image 300/1600*/
-	
+	padding-bottom: 18.75%;
+	/* aspect ratio of the image 300/1600*/
 	/*https://stackoverflow.com/questions/11099930/100-width-background-image-with-an-auto-height*/
 	background-position: center center;
 	background-size: 100%;
@@ -108,7 +106,6 @@ span.nav_link_property {
 .green {
 	color: rgba(0, 195, 209, 1);
 	font-weight: bold;
-	
 	}
 
 .green:hover {
@@ -145,7 +142,6 @@ hr.green {
 .bg_orange_light {
 	background-color: rgba(255, 221, 0, 0.3);
 	}
-
 
 .bg_grey_light {
 	background-color: rgba(118, 136, 148, 0.5);
@@ -207,20 +203,19 @@ input:hover, select:hover {
 	}
 
 /*WEEK IN THE BOOKING CALENDAR*/
-.s_week,.week {
+.s_week, .week {
 	cursor: pointer;
 	color: #fafafa;
 	}
 
-.s_week:hover,.week:hover {
-	background-color: #adff02; /*light green*/
+.s_week:hover, .week:hover {
+	background-color: #adff02;
+	/*light green*/
 	color: #777777;
 	}
 
-
 /*CUSTOMIZING LEAFLET'S CSS FOR STYLING POPUPS*/
-.popup_class .leaflet-popup-tip,
-.popup_class .leaflet-popup-content-wrapper {
+.popup_class .leaflet-popup-tip, .popup_class .leaflet-popup-content-wrapper {
 	background-color: rgba(0, 195, 209, 0.8);
 	color: #fafafa;
 	font-size: 1.2em;
@@ -271,7 +266,8 @@ input:hover, select:hover {
 	z-index: 99;
 	/*position the autocomplete items to be the same width as the container:*/
 	top: 100%;
-	left: 13%; /* was 0 changed to 8% to allow for the icon*/
+	left: 13%;
+	/* was 0 changed to 8% to allow for the icon*/
 	right: 0;
 	width: 100%
 	}
@@ -295,7 +291,7 @@ input:hover, select:hover {
 	color: #ffffff;
 	}
 
-#login, #logout, #pay_for_the_room, .show_content,#ok {
+#login, #logout, #pay_for_the_room, .show_content, #ok {
 	cursor: pointer;
 	}
 
@@ -304,20 +300,14 @@ input:hover, select:hover {
 	color: #fafafa;
 	}
 
-
-/*CAROUSEL FOR PREVIEWING GALLERY IN ROOM PREVIEW
-TO BE HALF WIDTH NOT TO OVER STRETCH*/
+/*CAROUSEL FOR PREVIEWING GALLERY IN ROOM PREVIEW TO BE HALF WIDTH NOT TO OVER STRETCH*/
 .images.carousel-inner {
 	width: 50%;
 	left: 25%;
 	margin-top: 1%;
 	}
 
-/*ADDING BACKGROUND COLOR WITH OPACITY
- AND WHITISH FONT COLOR TO CAPTIONS
- ( NAME OF THE IMAGE : ( breakfast, view....))
- IN ROOM PREVIEW => GALLERY
- TO HAVE GOOD CONTRAST AGAINST UNDERLYING IMAGES*/
+/*ADDING BACKGROUND COLOR WITH OPACITY AND WHITISH FONT COLOR TO CAPTIONS ( NAME OF THE IMAGE : ( breakfast, view....)) IN ROOM PREVIEW => GALLERY TO HAVE GOOD CONTRAST AGAINST UNDERLYING IMAGES*/
 .images.caption {
 	background-color: rgba(118, 136, 148, 0.7);
 	color: #fafafa;
@@ -332,9 +322,7 @@ TO BE HALF WIDTH NOT TO OVER STRETCH*/
 	background-color: rgba(0, 195, 209, 0.5);
 	}
 
-
 /*FORM PROGRESS DISPLAY ITEMS*/
-
 /*LINE BETWEEN CIRCLES*/
 .step_divider {
 	width: 40px;
@@ -386,15 +374,9 @@ TO BE HALF WIDTH NOT TO OVER STRETCH*/
 	height: 40px;
 	}
 
-
-/*to remove arrows from input number
-REMOVING ARROWS FROM NUMBER INPUT
-FOR THE PRICE OF THE BOARD*/
-/* Chrome, Safari, Edge, Opera
-
-https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp*/
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+/*to remove arrows from input number REMOVING ARROWS FROM NUMBER INPUT FOR THE PRICE OF THE BOARD*/
+/* Chrome, Safari, Edge, Opera https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp*/
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 	}
@@ -404,12 +386,7 @@ input[type=number] {
 	-moz-appearance: textfield;
 	}
 
-
-/*REMOVING ARROW FROM SELECT INPUT
-FOR room_type, board_type
-IN THE SEARCH FORM IN index.html
-
-https://stackoverflow.com/questions/16603979/how-to-remove-the-default-arrow-icon-from-a-dropdown-list-select-element*/
+/*REMOVING ARROW FROM SELECT INPUT FOR room_type, board_type IN THE SEARCH FORM IN index.html https://stackoverflow.com/questions/16603979/how-to-remove-the-default-arrow-icon-from-a-dropdown-list-select-element*/
 select {
 	/* for Firefox */
 	-moz-appearance: none;
@@ -422,19 +399,18 @@ select::-ms-expand {
 	display: none;
 	}
 
-/*REMOVING CARET FROM DROPDOWN UNDER USER ICON
-IN THE TOP RIGHT CORNER OF NAVIGATION*/
+/*REMOVING CARET FROM DROPDOWN UNDER USER ICON IN THE TOP RIGHT CORNER OF NAVIGATION*/
 .caret-off::before {
 	display: none;
 	}
+
 .caret-off::after {
 	display: none;
 	}
-/* COUPLE OF DIVS TO ALIGN CHILD DIV
-TO THE BOTTOM OF A PARENT DIV*/
+
+/* COUPLE OF DIVS TO ALIGN CHILD DIV TO THE BOTTOM OF A PARENT DIV*/
 .parent {
 	position: relative;
-	
 	}
 
 .child_at_bottom {
@@ -442,22 +418,17 @@ TO THE BOTTOM OF A PARENT DIV*/
 	position: absolute;
 	bottom: 0;
 	margin: 10px 0 0 10px;
-	
-	
 	}
 
-/*CIRCLE IN THE NAVIGATION IN THE TOP RIGHT CORNER
-TO DISPLAY
-USER INITIALS WHEN LOGGED IN OR USER ICON
-WHEN NOT LOGGED IN*/
+/*CIRCLE IN THE NAVIGATION IN THE TOP RIGHT CORNER TO DISPLAY USER INITIALS WHEN LOGGED IN OR USER ICON WHEN NOT LOGGED IN*/
 .user_initials {
 	width: 2.8rem;
 	height: 2.8rem;
 	border-radius: 1.4rem;
 	background-color: #fafafa;
 	background-image: url("../images/user_logo.png");
-	
 	}
+
 /*REMOVING UNDERLINE FROM USER INITIALS*/
 #initials:hover {
 	text-decoration: none;
@@ -468,17 +439,13 @@ WHEN NOT LOGGED IN*/
 	text-decoration: none;
 	}
 
-
-
-
-/*INDICATORS TO USER GOING THROUGH
-THE ADD_YOUR_ROOM FORM AT owner.html
-CHANGING COLORS AT add_room_interactions.js*/
+/*INDICATORS TO USER GOING THROUGH THE ADD_YOUR_ROOM FORM AT owner.html CHANGING COLORS AT add_room_interactions.js*/
 .tr_light {
 	height: 30px;
 	width: 30px;
 	border-radius: 50%;
 	}
+
 /*SPANS HOLDING FONTAWESOME ICONS */
 i.green, i.red, i.orange {
 	font-size: 1.3rem;
@@ -490,17 +457,13 @@ i.green:hover {
 
 i.red {
 	color: red;
-	
 	}
 
 i.orange {
 	color: lightsalmon;
 	}
 
-
-/*  SETTING z-index OF NAVIGATION DROPDOWN TO 1001 TO SHOW ABOVE LEAFLET MAPS,
-    BECAUSE LEAFLET MAP AND MAP CONTROLS
-	HAVE Z-INDEX OF 1000*/
+/* SETTING z-index OF NAVIGATION DROPDOWN TO 1001 TO SHOW ABOVE LEAFLET MAPS, BECAUSE LEAFLET MAP AND MAP CONTROLS HAVE Z-INDEX OF 1000*/
 .nave {
 	z-index: 1001;
 	}
@@ -512,17 +475,18 @@ i.orange {
 	padding: 3px;
 	}
 
-
-.bg_light_grey{
+.bg_light_grey {
 	background-color: #d4d4d4;
 	}
-.bold{
+
+.bold {
 	font-weight: bold;
 	}
-a.side_nav:hover{
+
+a.side_nav:hover {
 	text-decoration: none;
-	
 	}
+
 /*changing default blue active class color to match website colors*/
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
 	z-index: 2;
@@ -531,6 +495,7 @@ a.side_nav:hover{
 	border-color: #0fbeba;
 	border-radius: 0;
 	}
+
 .avatar {
 	width: 150px;
 	height: 150px;
@@ -541,20 +506,19 @@ a.side_nav:hover{
 	border-bottom: 1px solid #99969f;
 	padding: 10px;
 	}
-.name{
-	font-size:1.3em;
+
+.name {
+	font-size: 1.3em;
 	font-weight: bolder;
 	}
+
 @media screen and ( max-width: 1200px ) {
-	
 	}
 
 @media screen and ( max-width: 990px ) {
-	
 	}
 
 @media screen and ( max-width: 767px ) {
-	
 	.navigation {
 		height: 0;
 		padding: 0;
@@ -565,8 +529,6 @@ a.side_nav:hover{
 		width: 1.8rem;
 		height: 1.8rem;
 		border-radius: 0.9rem;
-		
-		
 		}
 	}
 
@@ -589,5 +551,4 @@ a.side_nav:hover{
 	.step_holder {
 		height: 30px;
 		}
-		
 	}
