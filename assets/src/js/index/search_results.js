@@ -244,6 +244,7 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 				
 											title="${ w }  - ${ current_year }"
 											 data-week="${ w }"
+											 data-cy_week="${w}"
 											>
 											 ${ w }
 											</span>`);

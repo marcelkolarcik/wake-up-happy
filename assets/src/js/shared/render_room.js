@@ -99,27 +99,30 @@ export function render_room ( room, where, preview = false )
             
                 <a class = "list-group-item list-group-item-action active nav_link_property ___"
                    data-toggle = "list" href = "#about_${ room.p_id }" role = "tab"
-                   data-title = "Information about room" id="about" data-text="About" ></a >
+                   data-title = "Information about room" data-cy_room_tab_id="about_${ room.p_id }" data-text="About" ></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#gallery_${ room.p_id }" role = "tab"
                    data-title = "Preview images of the property"
+                   data-cy_room_tab_id="gallery_${ room.p_id }"
                    data-text="Gallery"></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#amenities_${ room.p_id }" role = "tab"
                    data-title = "See the amenities"
+                    data-cy_room_tab_id="amenities_${ room.p_id }"
                    data-text="Amenities">
                    </a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#availability_${ room.p_id }" role = "tab"
-                   
+                   data-cy_room_tab_id="availability_${ room.p_id }"
                    data-title = "Preview the availability" id="#availability_${ room.p_id }"
                    data-text="Availability"></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                     id="book_btn${ room.p_id }"
+                    data-cy_room_tab_id="book_${ room.p_id }"
                    data-toggle = "list" href = "#book_${ room.p_id }" role = "tab"
                    data-title = "Book your room !"
                    data-text="Book">
@@ -129,10 +132,11 @@ export function render_room ( room, where, preview = false )
             </div >
             <div class = "tab-content" >
                 <div class = "tab-pane active " id = "about_${ room.p_id }" role = "tabpanel" >
-                 <div id="save_changes" class="float-right"></div>
+                 <!--<div id="save_changes" class="float-right"></div>-->
                     <div class = "card-body " >
                         	<span class="pl-2 d-none d-md-block text-capitalize" >
-											<h4 class="nav_link_property">
+											<h4 class="nav_link_property"
+											data-cy_tab_pane="about_${room.p_id}">
 						${ decodeURI ( room.p_address.property_name ) } | ${ decodeURI (
 			room.location ) } | ${ room_types[ room.room_type ] }
                                              </h4>
@@ -147,8 +151,15 @@ export function render_room ( room, where, preview = false )
 					
 					
                 </div >
-                <div class = "tab-pane images carousel slide text-center" id = "gallery_${ room.p_id }" role = "tabpanel" data-ride="carousel"></div>
-                <div class = "tab-pane" id = "availability_${ room.p_id }" role = "tabpanel" >
+                <div class = "tab-pane images carousel slide text-center"
+                id = "gallery_${ room.p_id }"
+                role = "tabpanel"
+                data-ride="carousel"
+                data-cy_tab_pane="gallery_${room.p_id}"
+                ></div>
+                
+                
+                <div class = "tab-pane" id = "availability_${ room.p_id }" data-cy_tab_pane="availability_${room.p_id}" role = "tabpanel" >
                  <div class = "col-md-12" >
 	                    <div class="row">
 		                   
@@ -191,8 +202,8 @@ export function render_room ( room, where, preview = false )
 					 
 					 
 					</div >
-					<div class = "tab-pane" id = "amenities_${ room.p_id }" role = "tabpanel" ></div >
-                <div class = "tab-pane" id = "book_${ room.p_id }" role = "tabpanel" ></div >
+					<div class = "tab-pane" id = "amenities_${ room.p_id }" role = "tabpanel" data-cy_tab_pane="amenities_${room.p_id}"></div >
+                <div class = "tab-pane" id = "book_${ room.p_id }" role = "tabpanel"  data-cy_tab_pane="book_${room.p_id}"></div >
             </div >
         </div >
     </div >
