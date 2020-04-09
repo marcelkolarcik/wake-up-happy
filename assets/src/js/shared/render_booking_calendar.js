@@ -40,6 +40,7 @@ export function render_booking_calendar ( property )
 				<div class="col img-thumbnail  bg_orange ___"
 				data-title="week |week - |year booked already !"
 				data-week="${ week }"
+				 data-cy_week="${week}_${property.p_id}"
 				data-year="${ current_year }">
 				<span class="no_padding"> ${ week }</span>
 				</div>
@@ -53,6 +54,7 @@ export function render_booking_calendar ( property )
 				<div class="col img-thumbnail week bg_green need_translation ___"
 					data-title="week |week - |year available !"
 					data-week="${ week }"
+					 data-cy_week="${week}_${property.p_id}"
 					data-year="${ current_year }"
 					data-p_id="${ property.p_id }"
 					data-price="${ property.price[ Object.keys ( property.price )[ 0 ] ] }"
@@ -80,6 +82,7 @@ export function render_booking_calendar ( property )
 				
 				data-title="week |week - |year booked already !"
 				data-week="${ week }"
+				 data-cy_week="${week}_${property.p_id}"
 				data-year="${ next_year }">
 				 <span class="no_padding"> ${ week }</span>
 				</div>
@@ -94,6 +97,7 @@ export function render_booking_calendar ( property )
 				 data-title="week |week - |year available !"
 				 data-year="${ next_year }"
 				 data-week="${ week }"
+				 data-cy_week="${week}_${property.p_id}"
 				 data-p_id="${ property.p_id }"
 				 data-price="${ property.price[ Object.keys ( property.price )[ 0 ] ] }"
 				 data-board_selected_${ property.p_id } = "false"
@@ -112,8 +116,13 @@ export function render_booking_calendar ( property )
 		{
 			boards.append ( `
 			
-				 <input id = "${ index }" name = "board" type = "radio" value = "${ value }"  class="board_type"
-				  		data-p_id="${ property.p_id }" data-index="${ index }"	>
+				 <input id = "${ index }" name = "board"
+				 type = "radio"
+				 value = "${ value }"
+				 class="board_type"
+				  data-p_id="${ property.p_id }"
+				  data-index="${ index }"
+				  data-cy_board="${index}_${property.p_id}"	>
                  <label for = "${ index }"
                  class="nav_link_property board p-2 ___"
                  data-text="${ board_types[ index ] }"> :</label >

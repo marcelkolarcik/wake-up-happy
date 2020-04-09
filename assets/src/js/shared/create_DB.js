@@ -22,7 +22,9 @@ import { translate }    from "./translator/translator.js";
 		if ( !localStorage.initial_welcome )
 			{
 				swal.fire ( {
-					            html : `<h4 class="___" data-text="Dear Visitor!"></h4>
+					            html : `
+							<div data-cy_initial_alert="open">
+							<h4 class="___" data-text="Dear Visitor!"></h4>
 							<hr class="bg_green">
 							<p class="___" data-text="initial_welcome"></p>
 							<hr class="bg_green">
@@ -34,7 +36,8 @@ import { translate }    from "./translator/translator.js";
 							<img src="assets/src/images/logo_sm.png" alt="logo">
 							</div>
 							<hr class="bg_green">
-							<button id="close_initial_alert" data-cy="dismiss_alert" class="bg_green_dark text-light p-2" >OK</button>
+							<button id="close_alert" data-cy="dismiss_alert" class="bg_green_dark text-light p-2" >OK</button>
+							</div>
 							`,
 							showConfirmButton:false
 				            } );
@@ -45,8 +48,8 @@ import { translate }    from "./translator/translator.js";
 				
 			}
 		
-		$ ( document ).on ( 'click', '#close_initial_alert', function (){
-			console.log('closing alert');
+		$ ( document ).on ( 'click', '#close_alert', function (){
+			
 			swal.close();
 		});
 		
@@ -180,7 +183,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				             'room_style'    : getRandom ( 1, 16 ),
 				             'location'      : city_coordinates[ 2 ],
 				             'searchables'   : [ city_coordinates[ 2 ] ],
-				             'bookings'      : getRandom ( 1, 53, num_of_booked_weeks ),
+				             'bookings'      : getRandom ( 2, 53, num_of_booked_weeks ),
 				             'amenities'     : getRandom ( 1, amenities_list.length - 1, 15 ),
 				             'created_at'    : display_date
 				

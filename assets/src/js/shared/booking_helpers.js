@@ -133,7 +133,7 @@ import { board_types }  from './inventory.js';
 			{
 				
 				var p_id = $ ( this ).data ( 'p_id' );
-
+				
 
 //			IF USER FORGETS TO SELECT THE BOARD FOR THE ROOM,
 //			BEFORE SELECTING WEEKS, WE'LL FIRE ALERT
@@ -142,16 +142,21 @@ import { board_types }  from './inventory.js';
 						$ ( '#boards_' + p_id ).addClass ( 'border border-danger' );
 						swal.fire ( {
 							
-							            html : `<h4 class="___" data-text="Oops..."></h4>
+							            html : `
+										<div data-cy="dismiss_alert">
+										<h4 class="___" data-text="Oops..."></h4>
 										<div class = "col-auto" >
 									   
 									    <hr class = "bg_green" >
 									    <span class="___" data-text="Please, select board!"></span>
-									     <br ><br >
+									    <hr class="bg_green">
+										<button id="close_alert"
+										data-cy="dismiss_alert"
+										class="bg_green_dark text-light p-2" >OK</button>
+									     </div>
 									   `,
-							
-							            showConfirmButton  : true,
-							            confirmButtonColor : '#0fbeba'
+										showConfirmButton:false
+							           
 						            } );
 						
 						translate ();
@@ -473,7 +478,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 						
 						swal.fire ( {
 							            html :
-								            `<div class="card horizontally_aligned" style="width: 100%;">
+								            `<div data-cy="booking_confirmation_${room.p_id}" class="card horizontally_aligned" style="width: 100%;">
 							<div class=" bg_green">
 							 <img class="" src="assets/src/images/logo_sm.png"  alt="logo image">
 						
@@ -525,7 +530,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 										     ${ Math.random ().toString ( 36 ).substr ( 2, 10 ) }<br ><br >
 										  
 										    
-										      <a class="btn btn-sm border_green d-print-none mb-3 ___" href=""  data-title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
+										      <a data-cy="dismiss_alert" class="btn btn-sm border_green d-print-none mb-3 ___" href=""  data-title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
 										     
 											
 										</div>
@@ -551,7 +556,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 				} );
 				
 				swal.fire ( {
-					            html               : `<div >
+					            html               : `<div data-cy="required_fields_missing">
 								                                    <h4 class="bg-danger text-warning" >Whoops !</h4>
 																	 <p class="card-title nav_link_property ___" data-text="Your room is not booked !"></p>
 																	 <hr class="bg-danger">
@@ -559,13 +564,13 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 																	 ${ missing }
 																	
 																     <hr class="bg-danger">
-																	 
-															 </div>`,
-					            showConfirmButton  : true,
-					            showCancelButton   : false,
-					            confirmButtonColor : '#0fbeba',
-					
-					            confirmButtonText : `<i class="fas fa-check-circle"></i>`
+																    <button id="close_alert"
+																	data-cy="dismiss_alert"
+																	class="bg_green_dark text-light p-2" >OK</button>
+												     </div>
+												   `,
+					            showConfirmButton  : false,
+					           
 					
 				            } );
 				translate ();

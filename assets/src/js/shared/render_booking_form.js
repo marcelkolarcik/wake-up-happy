@@ -53,9 +53,9 @@ export function render_booking_form ( room )
                                     <input type = "text" name = "room_details"
                                            class = "form-control form-control-sm  border_bottom_only  ___ bg-transparent green_dark"
                                            id = "room_details${ room.p_id }" data-placeholder = "Room"
-                                           value = "${ decodeURI (room.p_address.property_name ) }
-												${ room.p_address.property_name ? '|' : '' }
-												${ room_types[ room.room_type ] }"
+                                           data-cy="room_name_${room.p_id}"
+                                           value = "${ room.p_address.property_name }"
+												
                                            required readonly >
                                 </div >
                             </div >
@@ -72,6 +72,7 @@ export function render_booking_form ( room )
                                     <input type = "text" name = "weeks"
                                            class = "form-control form-control-sm  border_bottom_only bg-transparent"
                                            id = "weeks_${ room.p_id }" placeholder = ""
+                                            data-cy="weeks_booked_${room.p_id}"
                                            value = ""
                                            required readonly >
                                 </div >
@@ -87,9 +88,9 @@ export function render_booking_form ( room )
                                         </div >
                                     </div >
                                     <input type = "text" name = "board"
-                                           class = "form-control form-control-sm  border_bottom_only bg-transparent
-													"
+                                           class = "form-control form-control-sm  border_bottom_only bg-transparent"
                                            id = "board${ room.p_id }" placeholder = ""
+                                           data-cy="selected_board_${room.p_id}"
                                            value = ""
                                            ${ sessionStorage.getItem ( 'edit_mode' ) && !window.location.pathname.includes('/index.html') ? '' : 'required' } readonly >
                                 </div >
@@ -107,6 +108,7 @@ export function render_booking_form ( room )
                                     <input type = "text" name = "total_price"
                                            class = "form-control form-control-sm  border_bottom_only bg-transparent"
                                            id = "total_price_${ room.p_id }" placeholder = ""
+                                          data-cy="total_price_${room.p_id}"
                                            value = ""
                                            ${ sessionStorage.getItem ( 'edit_mode' ) && !window.location.pathname.includes('/index.html') ? '' : 'required' } readonly >
                                            <span>EUR</span>
@@ -125,6 +127,7 @@ export function render_booking_form ( room )
                                     <input type = "text" name = "name"
                                            class = "form-control form-control-sm border_bottom_only ___ green_dark"
                                            id = "fullname${ room.p_id }" data-placeholder = "Full Name"
+                                            data-cy="customer_name_${room.p_id}"
 										${ sessionStorage.getItem ('edit_mode' ) && !window.location.pathname.includes('/index.html')? '' : 'required' } >
                                 </div >
                             </div >
@@ -140,6 +143,7 @@ export function render_booking_form ( room )
                                     </div >
                                     <input type = "text" name = "email_of_user"
                                            class = "form-control form-control-sm  border_bottom_only green_dark ___"
+                                           data-cy="customer_email_${room.p_id}"
                                            id = "email_of_user${ room.p_id }" data-placeholder = "Email"
 											${ sessionStorage.getItem ('edit_mode' ) && !window.location.pathname.includes('/index.html') ? '' : 'required' } >
                                 </div >
@@ -162,7 +166,9 @@ export function render_booking_form ( room )
                                 </div >
                             </div >
                             <input type = "text" class = "form-control form-control-sm ___ green_dark
-							        			border_bottom_only" id = "card_holder_name${ room.p_id }" name = "card_holder_name"
+							        			border_bottom_only" id = "card_holder_name${ room.p_id }"
+							        			name = "card_holder_name"
+							        			data-cy="card_holder_name_${room.p_id}"
                                    data-placeholder = "Card Holder Name" ${ sessionStorage.getItem ( 'edit_mode' ) && !window.location.pathname.includes('/index.html') ? ''
 		                                                                                                      : 'required' } >
                         </div >
@@ -178,7 +184,10 @@ export function render_booking_form ( room )
                                 </div >
                             </div >
                             <input type = "text" class = "form-control form-control-sm  border_bottom_only ___ green_dark"
-                                   id = "card_numder${ room.p_id }" data-placeholder = "Card Number" name = "card_number" ${ sessionStorage.getItem (
+                                   id = "card_numder${ room.p_id }"
+                                   data-placeholder = "Card Number"
+                                   data-cy="card_number_${room.p_id}"
+                                   name = "card_number" ${ sessionStorage.getItem (
 			'edit_mode' )  && !window.location.pathname.includes('/index.html') ? '' : 'required' } >
                         </div >
                     </div >
@@ -193,7 +202,9 @@ export function render_booking_form ( room )
                                 </div >
                             </div >
                             <input type = "text" class = "form-control form-control-sm  border_bottom_only ___ green_dark"
-                                   id = "cvv${ room.p_id }" data-placeholder = "CVV"
+                                   id = "cvv${ room.p_id }"
+                                   data-placeholder = "CVV"
+                                   data-cy="card_cvv_${room.p_id}"
 									${ sessionStorage.getItem ('edit_mode' )  && !window.location.pathname.includes('/index.html')? '' : 'required' }  name = "cvv" >
                         </div >
                     </div >
@@ -205,6 +216,7 @@ export function render_booking_form ( room )
                                     <textarea rows = "2" name = "request_of_property"
                                               class = "form-control form-control-sm form-control form-control-sm-lg border_bottom_only mb-2 ___ green_dark"
                                               id = "request_of_property${ room.p_id }"
+                                              data-cy="request_${room.p_id}"
                                               data-placeholder = "Any Requests..."  ></textarea >
                                 </div >
                             </div >
@@ -219,7 +231,8 @@ export function render_booking_form ( room )
 								
 								data-room_id="${ room.p_id }"
 								 data-title="Submit & Pay"
-								 data-text="Payment">
+								 data-text="Payment"
+								 data-cy="pay_for_booking_${room.p_id}">
                                 
                                 </a >` : '' }
                             
@@ -230,7 +243,8 @@ export function render_booking_form ( room )
 								 data-room_id="${ room.p_id }"
 								 data-blocking_dates= 1
 								 data-title="Block selected dates"
-								 data-text="Block selected dates">
+								 data-text="Block selected dates"
+								data-cy="block_dates_${room.p_id}">
                                 
                                 </a >` : '' }
                             

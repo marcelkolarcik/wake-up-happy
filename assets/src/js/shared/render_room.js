@@ -99,30 +99,31 @@ export function render_room ( room, where, preview = false )
             
                 <a class = "list-group-item list-group-item-action active nav_link_property ___"
                    data-toggle = "list" href = "#about_${ room.p_id }" role = "tab"
-                   data-title = "Information about room" data-cy_room_tab_id="about_${ room.p_id }" data-text="About" ></a >
+                   data-title = "Information about room"
+                   data-cy="about_${ room.p_id }" data-text="About" ></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#gallery_${ room.p_id }" role = "tab"
                    data-title = "Preview images of the property"
-                   data-cy_room_tab_id="gallery_${ room.p_id }"
+                   data-cy="gallery_${ room.p_id }"
                    data-text="Gallery"></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#amenities_${ room.p_id }" role = "tab"
                    data-title = "See the amenities"
-                    data-cy_room_tab_id="amenities_${ room.p_id }"
+                    data-cy="amenities_${ room.p_id }"
                    data-text="Amenities">
                    </a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                    data-toggle = "list" href = "#availability_${ room.p_id }" role = "tab"
-                   data-cy_room_tab_id="availability_${ room.p_id }"
+                   data-cy="availability_${ room.p_id }"
                    data-title = "Preview the availability" id="#availability_${ room.p_id }"
                    data-text="Availability"></a >
                    
                 <a class = "list-group-item list-group-item-action nav_link_property ___"
                     id="book_btn${ room.p_id }"
-                    data-cy_room_tab_id="book_${ room.p_id }"
+                    data-cy="book_${ room.p_id }"
                    data-toggle = "list" href = "#book_${ room.p_id }" role = "tab"
                    data-title = "Book your room !"
                    data-text="Book">
@@ -177,7 +178,7 @@ export function render_room ( room, where, preview = false )
 								
 								</div>
 							 	<div id="boards_${ room.p_id }" class="col p-0"></div>
-							 	 <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${ room.p_id }" > </div >
+							 	 <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${ room.p_id }" data-cy="room_availability_${room.p_id}"> </div >
           
 							 	<div class="card-footer bg-transparent">
 							 	   <!--IF OWNER IS LOGGED IN AND IN edit_mode WE WILL DISPLAY  How to block weeks ?
