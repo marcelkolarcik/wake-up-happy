@@ -5,12 +5,14 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^4.3.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   }
