@@ -177,7 +177,7 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 					
 					/*IF SEARCH RESULTS ARE EMPTY, WE WILL DISPLAY INFO TO THE USER ABOUT 0 RESULTS
 					 * AND DISPLAY featured_rooms INSTEAD*/
-					form_search_results.append ( ` <div class = "img-thumbnail mt-3 bg_orange ___ " id="results"
+					$('#featured_search_results').append ( ` <div class = "img-thumbnail mt-3 bg_orange ___ " id="results"
                                                         data-text="Your search returned 0 results, try different search parameters or have a look at featured properties bellow."    >
 					                             
 					                           

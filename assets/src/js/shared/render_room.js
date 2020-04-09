@@ -66,6 +66,7 @@ export function render_room ( room, where, preview = false )
 						data-lat="${ room.lat }"
 						data-lng="${ room.lng }"
 						data-p_id="${ room.p_id }"
+						data-cy="room_on_map_${room.p_id}"
 						
 						><i class="fas fa-map-marker-alt"></i></span>
             </h6 >
