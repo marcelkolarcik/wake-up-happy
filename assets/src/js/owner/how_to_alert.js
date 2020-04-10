@@ -96,7 +96,8 @@ import { translate } from "../shared/translator/translator.js";
 						  
 						  <a class = " bg_orange text-primary pl-3 pr-3 pt-1 pb-1 img-thumbnail ___" id = "ok" onclick = "swal.close()"
 					   		data-title = "OK, got it !"
-					   		 data-text="OK, got it !">
+					   		 data-text="OK, got it !"
+					   		 data-cy="close_how_to">
 					    		
 						 </a > <br>
 				 </div >

@@ -1,11 +1,26 @@
- function close_alert()
+
+/*CLOSING INITIAL ALERT*/
+function close_alert()
 	{
 		cy.visit ( 'http://127.0.0.1:8000/index.html' );
 		cy.wait ( 500 );
-		cy.get ( '#close_initial_alert' ).click ();
+		cy.get ( '#close_alert' ).click ();
 	}
-
-
+/*CLOSING DIV ABOUT INITIAL LOCATIONS*/
+function close_initial_locations()
+	{
+		
+		
+		cy.get('[data-cy=initial_locations]')
+		  .should('be.visible')
+		  .then(()=>{
+			  cy.get('[data-cy=dont_show_again]')
+			    .should('be.visible')
+			    .click()
+			
+		  });
+	}
+ 
 describe ( 'Didn\'t select location when searching for the room', () =>
 {
 	it ( 'we get bg-warning class on location field', () =>
@@ -52,6 +67,8 @@ describe ( 'Selected location with no rooms', () =>
 			            .type ( 'Tokyo' )
 			            .should ( 'have.value', 'Tokyo' );
 			
+			
+			          close_initial_locations();
 			          // SUBMIT A SEARCH QUERY
 			          cy.get ( '#search_btn' ).click ();
 			         
@@ -87,6 +104,9 @@ describe ( 'Selected location with rooms', () =>
 //			TYPE IN LOCATION THAT HAVE ROOMS
 			          cy.get ( '#location' ).type ( 'Cork' )
 			            .should ( 'have.value', 'Cork' );
+			
+			
+			          close_initial_locations();
 			          
 			          // STORE INITIAL SEARCH RESULTS BEFORE SEARCH
 			          const empty = $empty.text ();
@@ -133,8 +153,10 @@ describe ( 'Selected location with rooms,weeks,board type, room type', () =>
 			          cy.get ( '#location' ).type ( 'Cork' )
 			            .should ( 'have.value', 'Cork' );
 			          cy.wait ( 500 );
-
-
+			
+			
+			
+			          close_initial_locations();
 //			FIND ROOM TYPE
 			          cy.get ( '#room_type' )
 			            .should ( 'have.value', 'any' );
@@ -147,9 +169,9 @@ describe ( 'Selected location with rooms,weeks,board type, room type', () =>
 						                  .should('have.value', '0'))
 					           
 				          });
-			          
 			
-			          cy.wait ( 500 );
+			
+			          cy.wait ( 2500 );
 			
 			          cy.get ( '#searched_weeks' ).click ();
 			
@@ -178,7 +200,7 @@ describe ( 'Selected location with rooms,weeks,board type, room type', () =>
 			          cy.wait ( 500 );
 			
 			
-			         
+			          cy.wait ( 2500 );
 			          
 						/* SEARCHED WEEKS SHOULD BE 37,38,*/
 			          cy.get ( '#searched_weeks' )
@@ -190,7 +212,7 @@ describe ( 'Selected location with rooms,weeks,board type, room type', () =>
 					                      '37,38,' );
 			                      } );
 			
-			
+			          cy.wait ( 2500 );
 			        
 			          //			FIND BOARD TYPE
 			          cy.get ( '#board_type' )
@@ -203,7 +225,7 @@ describe ( 'Selected location with rooms,weeks,board type, room type', () =>
 				                     .should('have.value', '0'))
 				
 			            });
-
+			          cy.wait ( 2500 );
 //			SEARCH FOR THE ROOM
 			
 			          cy.get ( '#search_btn' ).click ();

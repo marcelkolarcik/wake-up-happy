@@ -1,6 +1,6 @@
 describe ( 'Book a room', () =>
 {
-	it ( 'it will try to book a room without selecting board first, and then it will book a room', () =>
+	it ( 'it will try to book a room without selecting board first, and then it will try to book a room without inputing customer details and then it will book the room', () =>
 	{
 		cy.visit ( 'http://127.0.0.1:8000/index.html' );
 		cy.wait ( 500 );

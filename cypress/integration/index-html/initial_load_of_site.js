@@ -20,7 +20,7 @@ describe ( 'Initial load of the site', () =>
 				                      .not.to.be.eq('null');
 			                      
 			                      /*USER SHOULD DISMISS ALERT*/
-			                      cy.get ( '#close_initial_alert' ).click ();
+			                      cy.get ( '#close_alert' ).click ();
 			                      cy.wait ( 500 );
 			                      
 		                      })

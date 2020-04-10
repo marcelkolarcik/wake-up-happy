@@ -57,7 +57,8 @@ import { translate } from "../shared/translator/translator.js";
 					              <br><button type="submit" id="get_address"
 										class="bg_orange  btn btn-sm p-0 float-right ___"
 										data-title="click to get location details"
-										data-text="get details"></button>` )
+										data-text="get details"
+										data-cy="get_details"></button>` )
 					.openOn ( mymap );
 				
 				translate ();
@@ -193,6 +194,7 @@ function render_location_details ( address_data, coordinates, owner = false )
                 <input type = "text" name = "address__property_name"
                        class = "form-control form-control-sm  border-danger ___ green_dark"
                        id = "property_name" data-placeholder = "Property Name"
+                       data-cy="property_name"
                         value="${ typeof ( address_data.property_name ) !== "undefined" ? address_data.property_name
 		                                                                                : '' }" required >
             </div >` }

@@ -18,7 +18,16 @@ import {view_types,room_types} from './../shared/inventory.js';
 
 export function create_map ( coordinates = null, show_p_id = null )
 	{
-		
+//		jQuery(document).ready(function(){
+//			$("#map_index").click(function(e){
+//				var parentOffset = $(this).parent().offset();
+//				//or $(this).offset(); if you really just want the current element's offset
+//				var relX = e.pageX - parentOffset.left;
+//				var relY = e.pageY - parentOffset.top;
+//				console.log((relX) + ' , ' + (relY));
+//
+//			});
+//		})
 		var tiles = L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom     : 18,
 			attribution : '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'

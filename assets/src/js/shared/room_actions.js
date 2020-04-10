@@ -280,6 +280,7 @@ function append_room_actions ()
 		$ ( '#room_actions' ).append ( `<div class="d-flex justify-content-between">
 					<div class = "  mb-2"  >
 					<button id = "how_alert" class = "bg-danger text-light  no_padding mb-1 "
+					data-cy="how_to"
                         data-step="${ sessionStorage.getItem ( 'how_to' ) ? sessionStorage.getItem ( 'how_to' )
 		                                                                  : "location" }"   style="cursor:pointer">
                       <i class="far fa-question-circle"></i>

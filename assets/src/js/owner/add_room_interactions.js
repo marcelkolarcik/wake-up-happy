@@ -106,7 +106,8 @@ $ ( document ).on ( "click", ".board_type", function ()
 											id="board_price_${ board_type }"
 											class="board_price col-md-9 ml-1 form-control"
 											data-c_box_id="${ board_type }"
-		                                    placeholder = "EUR">
+		                                    placeholder = "EUR"
+		                                    data-cy="board_price_${board_type}">
                            
 
 									` );
