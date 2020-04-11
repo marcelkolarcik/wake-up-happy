@@ -258,9 +258,7 @@ function render_location_details ( address_data, coordinates, owner = false )
 					` );
 		translate ();
 		
-		/*IF WE AER REDIRECTING FROM index.html, WE DON'T NEED SCROLL TO #location_details DIV*/
-//		if(!document.referrer.includes('index.html'))
-//		$('#location_details').get(0).scrollIntoView();
+		
 		
 		
 	}

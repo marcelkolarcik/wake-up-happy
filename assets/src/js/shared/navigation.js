@@ -7,7 +7,10 @@ $ ( function ()
 	    /*INITIAL NAV WHEN OWNER IS NOT LOGGED IN*/
 	    $ ( '#user' ).append ( `<a class = " dropdown-toggle caret-off " href = "#"
                                data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >
-                                <div id="initials" class="user_initials d-flex justify-content-center align-items-center">
+                                <div id="initials"
+                                data-cy="user_nav"
+                                class="user_initials d-flex justify-content-center align-items-center"
+                               >
                                 <i class="fa fa-user green"></i>
                                 </div>
                             </a >
@@ -19,11 +22,12 @@ $ ( function ()
                                 
                                
                                 ${ !sessionStorage.authorized_owner && !sessionStorage.admin ?
-	                               ` <a id = "login_details" class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login">Login</a >`
+	                               ` <a id = "login_details" data-cy="login"
+                                        class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login">Login</a >`
 	                                                                              :`` }
                                  
                                  <a id = "clear_localStorage" class = "dropdown-item ___ text-danger" href = "#"
-                                 data-title = "clear localStorage"
+                                 data-title = "clear localStorage"  data-cy="clear_localStorage"
                                  ><i class="fas fa-trash-alt"></i> <code>localStorage</code></a >
                                  </div >` );
                             
@@ -75,6 +79,7 @@ $ ( function ()
 						    user_drop_down.append ( `
                                 
                                 <a id = "${ room.p_id }" class = "dropdown-item room_switch" href = "#"
+                                data-cy="owners_room_${room.p_id}"
                                 title = "${ room.p_address.property_name }" >${ room.p_address.property_name }</a >` );
 					    }
 				
@@ -86,7 +91,10 @@ $ ( function ()
 			
 			    user_drop_down.append ( `
                                  <div class = "dropdown-divider" ></div >
-                                <a id = "logout" class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout">Logout</a >` );
+                                <a id = "logout" class = "dropdown-item bg_orange_light ___"
+                                href = "#" data-title = "Logout"
+                                data-text="Logout"
+                                data-cy="logout">Logout</a >` );
 			
 			
 			    $ ( '#owner_name' ).append (
@@ -100,7 +108,9 @@ $ ( function ()
 		    {
 			    user_drop_down.append ( `
                                  <div class = "dropdown-divider" ></div >
-                                <a id = "admin_logout" class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout"></a >` );
+                                <a id = "admin_logout"
+                                 data-cy="admin_logout"
+                                class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout"></a >` );
 			
 			    $ ( '#owner_name' ).append (
 				    `<a href="admin.html" class="nav_link_property dashboard_link ___" data-title="Dashboard">Admin</a>`);

@@ -291,7 +291,7 @@ function append_room_actions ()
 								${ sessionStorage.getItem ( 'add_mode' ) === null ? 'bg_green_dark text-light'
 		                                                                          : 'bg_green text-light' }"
                            id="add_mode"
-                        
+                        data-cy="add_mode"
                          title="Add new room" ><i class="far fa-plus-square">&nbsp;</i> <span class="___" data-text="Add new room"></span></button >
 					
 					<!--IF WE HAVE ROOM TO EDIT WE WILL DISPLAY CONTROLS TO INTERACT WITH THE ROOM :
@@ -308,19 +308,20 @@ function append_room_actions ()
                           ${ JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_address.property_name }</button >
                           
                       <button class = "___  mb-1 no_padding ${ sessionStorage.getItem ( 'preview_mode' ) === null
-		                                                    ? 'bg_green_dark text-light' : 'bg_green text-light' }  " id="preview_mode"
+		                                                    ? 'bg_green_dark text-light' : 'bg_green text-light' }  "
+                      id="preview_mode"  data-cy="preview_mode"
                         
                          data-title="Preview mode" ><i class="far fa-eye">&nbsp;</i> <span class="___" data-text="Preview"></span> </button >
                          
                       <button class = " mb-1  no_padding ${ sessionStorage.getItem ( 'edit_mode' ) === null
 		                                                    ? 'bg_green_dark text-light' : 'bg_green text-light' } " id="edit_mode"
-                        
+                        data-cy="edit_mode"
                          title="Edit mode" ><i class="far fa-edit">&nbsp;</i><span class="___" data-text="Edit"></span> </button >
                        
                          
                           <button class = " need_translation mb-1 no_padding ${ sessionStorage.getItem ( 'delete_mode' ) === null
 		                                                        ? 'bg_green_dark text-light' : 'bg_green text-light' } " id="delete_mode"
-                        
+                         data-cy="delete_mode"
                          title="Delete mode" data-room_id="${ JSON.parse (
 			               sessionStorage.getItem ( 'authorized_owner' ) ).room_id }"><i class="far fa-trash-alt">&nbsp;</i><span class="___" data-text="Delete"></span> </button >
                          
@@ -328,13 +329,13 @@ function append_room_actions ()
                          <button class = " mb-1 no_padding ${ sessionStorage.getItem ( 'block_mode' ) === null
 		                                                      ? 'bg_green_dark text-light' : 'bg_green text-light' } "
                          id="block_mode" data-step="block_mode"
-                        
+                         data-cy="block_mode"
                          title="Block dates" ><i class="far fa-stop-circle">&nbsp;</i><span class="___" data-text="Block Dates"></span> </button >
                          
                          
                            <button class = " mb-1 no_padding bg_orange text-primary "
                          id="customers"
-                        
+                         data-cy="customers"
                          title="Customers" ><i class="far fa-address-book">&nbsp;</i><span class="___" data-text="Customers"></span> </button >
                          <div id="customers_table"></div>
 

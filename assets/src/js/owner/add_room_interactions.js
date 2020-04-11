@@ -552,7 +552,7 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 			/*BY CLICKING ON location,room,services,preview,payment steps*/
 			$ ( document ).on ( 'click', '.step', function ()
 			{
-				
+			
 				$ ( "html, body" ).animate ( { scrollTop : 0 }, "slow" );
 
 //			SETTING CURRENT PROGRESS STEP ON HOW-TO BUTTON =>
@@ -562,6 +562,9 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 				$ ( '#how_alert' ).data ( 'step', $ ( this ).data ( 'step' ) );
 				
 				var step_id = $ ( this ).data ( 'step_id' );
+				
+				
+				translate ();
 
 //			PROGRESS STEP BAR ON THE TOP OF THE PAGE, CIRCLES WITH NUMBERS 1->5
 //			AS USER PROGRESSES THROUGH THE FORM , CIRCLES WILL CHANGE COLOR FORM WHITE BG TO GREEN BG
@@ -708,7 +711,23 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 			if ( missing_values.length > 0 )
 				{
 					swal.fire ( {
-						            html : `<h3>Please review these fields:</h3>` + missing_values
+						            html               : `<div data-cy="required_fields_missing">
+								                                    <h4 class="bg-danger text-warning" >Whoops !</h4>
+																	 <hr class="bg-danger">
+																	 <h4 class="___ " data-text="missing fields"></h4> <br>
+																	 <hr class="bg-danger">
+																	 
+																	 ${ missing_values }
+																	
+																     <hr class="bg-danger">
+																    <button id="close_alert"
+																	data-cy="dismiss_alert"
+																	class="bg_green_dark text-light p-2" >OK</button>
+												     </div>
+												   `,
+						            showConfirmButton  : false,
+						
+						
 					            } );
 					return false;
 				}
@@ -953,11 +972,11 @@ function store_room ( new_room, update = false )
  WE NEED TO TRANSLATE  steps
  THAT IS BEING INTRODUCED TO THE VIEW,
  */
-$ ( document ).on ( 'click', '.step', function ()
-{
-	translate ();
-	
-} );
+//$ ( document ).on ( 'click', '.step', function ()
+//{
+//	translate ();
+//
+//} );
 
 /*ADMIN WILL BE NOTIFIED BY EMAIL, WHEN NEW ROOM IS ADDED TO THE SITE*/
 function send_email_to_admin ( new_room, owner )

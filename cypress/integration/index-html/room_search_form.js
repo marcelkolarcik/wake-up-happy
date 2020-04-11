@@ -150,7 +150,9 @@ describe ( 'Selected location with rooms,weeks,board type, room type', () =>
 			          const empty = $empty.text ();
 
 //			TYPE IN LOCATION THAT HAVE ROOMS
-			          cy.get ( '#location' ).type ( 'Cork' )
+			          cy.get ( '#location' )
+			            .should('be.visible')
+			            .type ( 'Cork' )
 			            .should ( 'have.value', 'Cork' );
 			          cy.wait ( 500 );
 			
@@ -228,7 +230,9 @@ describe ( 'Selected location with rooms,weeks,board type, room type', () =>
 			          cy.wait ( 2500 );
 //			SEARCH FOR THE ROOM
 			
-			          cy.get ( '#search_btn' ).click ();
+			          cy.get ( '#search_btn' )
+			            .shoul('be.visible')
+			            .click ();
 			
 			
 			          // GET SEARCH RESULTS AFTER SEARCH

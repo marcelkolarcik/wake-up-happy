@@ -427,7 +427,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 									 <span class="___" data-text="Week(s):"></span>
 									 <span class="nav_link_property"> ${ contactForm.weeks }</span>
 									  <hr >
-									<a class="btn btn-sm border_green d-print-none mb-3" href=""  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
+									<a class="btn btn-sm border_green d-print-none mb-3" href="" data-cy="dismiss_alert"  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
 							 </div>`,
 							            showConfirmButton : false
 						            } );

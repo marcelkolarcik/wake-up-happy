@@ -19,7 +19,7 @@ import { translate } from "../shared/translator/translator.js";
 					customers_table.append ( `<h4 class="___" data-text="Customers"></h4>
 						<p id="room_name" class="bg_orange_light">${JSON.parse (
 						sessionStorage.room_to_edit ).p_address.property_name}</p>
-                <div class="table-responsive">
+                <div class="table-responsive" data-cy="customers_table">
 				           <table class="table table-sm table-bordered">
 							 <thead class="bg-secondary text-light">
 							    <tr>
@@ -73,6 +73,10 @@ import { translate } from "../shared/translator/translator.js";
 				
 							</p>` );
 					
+					customers_table.append ( ` <button id="close_alert"
+																	data-cy="dismiss_alert"
+																	class="bg_green_dark text-light p-2" >OK</button>` );
+					
 					
 					
 				}
@@ -84,8 +88,7 @@ import { translate } from "../shared/translator/translator.js";
 			swal.fire ( {
 				            width : $ ( window ).width (),
 				            html  : customers_table,
-				            confirmButtonColor : '#ffdd00',
-				            confirmButtonText  : `<i class="fas fa-check-circle text-primary"></i>`,
+				            showConfirmButton:false
 			            } );
 			translate();
 			/*CLEARING customers_table , BECAUSE IF OWNER WOULD CLICK MULTIPLE TIMES

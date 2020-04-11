@@ -5,13 +5,13 @@
 
 import { render_room_preview } from "../shared/render_room_preview.js";
 import { getRandom }           from "../shared/create_DB.js";
-import { translate }           from "../shared/translator/translator.js";
 import { display_date }        from "../shared/getWeek.js";
 import { address_keys }        from './../shared/inventory.js';
 
 
 $ ( document ).on ( 'click', '.preview_room', function ()
 {
+	console.log('preview_room click')
 	/*IF WE HAVE ROOM ALREADY, OWNER IS EDITING */
 	if ( sessionStorage.getItem ( 'room_to_edit' ) && !sessionStorage.getItem ( 'add_mode' ) )
 		{
@@ -21,15 +21,19 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	/*NEW ROOM IS BEING CREATED */
 	else
 		{
+			console.log('preview_room looking for localStorage')
+			console.log(JSON.parse ( localStorage.getItem ( 'ROOMS' ) ))
 			p_id = JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length;
+			console.log('preview_room found localStorage')
+		
 		}
-
+	console.log('preview_room after session check')
 
 //	GETTING FORM DATA WITH serialize()
 	var your_room       = $ ( "#add_your_room" ).serialize ();
 	var your_room_array = your_room.split ( '&' );
 	
-	
+	console.log('preview_room after serializing')
 	var address   = {};
 	var amenities = [];
 	var room      = { 'price' : {} };
@@ -167,11 +171,11 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	
 	//LATER AFTER PAYMENT WE'LL RETRIEVE new_room FROM THE sessionStorage AND STORE IT
 	// IN localStorage IN add_room_interactions.js  LINE NUMBER ~ 423
-
-
+	
+	console.log(room)
 //	RENDERING ROOM FOR PREVIEW
 	render_room_preview ( room, 'preview', true );
-	translate ();
+	
 	
 } );
 

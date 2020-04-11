@@ -11,7 +11,7 @@ export function add_payment_form ()
 		
 		payment.html ( '' ).append ( `
 			<form id="add_room_payment_form">
-   <div class = "bg_green_dark text-light text-center mt-1 mb-3" >
+   <div class = "bg_green_dark text-light text-center mt-1 mb-3" data-cy="payment_form">
     
     <span class="___ " data-text="Payment details : 99 EUR per year + 9 % of each booking."></span>
 	</div >
@@ -41,7 +41,7 @@ export function add_payment_form ()
                         <i class = "fas fa-user green_dark" ></i >
                     </div >
                 </div >
-                <input type = "text" name = "name"
+                <input type = "text" name = "name" data-cy="name"
                        class = "form-control form-control-sm border_bottom_only ___ green_dark bg-transparent"
                        id = "fullname" data-placeholder = "Full Name" value="${ owner ? owner.name : '' }" required
                         ${ owner ? 'readonly' : '' }>
@@ -58,7 +58,7 @@ export function add_payment_form ()
                 </div >
                 <input type = "text" name = "email_of_user"
                        class = "form-control form-control-sm  border_bottom_only ___ green_dark"
-                       id = "email_of_user" data-placeholder = "Email" required
+                       id = "email_of_user" data-placeholder = "Email" required data-cy="email"
                        >
             </div >
         </div >` }
@@ -73,7 +73,7 @@ export function add_payment_form ()
                 </div >
                 <input type = "password" name = "password"
                        class = "form-control form-control-sm  border_bottom_only ___ green_dark"
-                       id = "password" data-placeholder = "Password" >
+                       id = "password" data-placeholder = "Password" data-cy="password">
             </div >
         </div >` }
         
@@ -90,7 +90,7 @@ export function add_payment_form ()
                 <input type = "text" class = "form-control form-control-sm
 							        			border_bottom_only ___ green_dark"
 							        			id = "card_holder_name" name = "card_holder_name"
-                       data-placeholder = "Card Holder Name" required >
+                       data-placeholder = "Card Holder Name" required data-cy="card_holder_name">
             </div >
         </div >
         <div class = "col-auto" >
@@ -102,7 +102,7 @@ export function add_payment_form ()
                     </div >
                 </div >
                 <input type = "text" class = "form-control form-control-sm  border_bottom_only ___ green_dark"
-                       id = "card_number" data-placeholder = "Card Number" name = "card_number" required >
+                       id = "card_number" data-placeholder = "Card Number" name = "card_number" data-cy="card_number" required >
             </div >
         </div >
         <div class = "col-auto" >
@@ -114,13 +114,16 @@ export function add_payment_form ()
                     </div >
                 </div >
                 <input type = "text" class = "form-control form-control-sm  border_bottom_only ___ green_dark"
-                       id = "cvv" data-placeholder = "CVV" required name = "cvv" >
+                       id = "cvv" data-placeholder = "CVV" required name = "cvv" data-cy="cvv" >
             </div >
         </div >
         <div class = "col-auto text-center" >
             <div id = "loader_holder" ></div >
-            <a  class = "btn bg_green_dark text-light horizontally_aligned right-block ___" id="pay_for_the_room"
-                    data-title = "Payment" data-text="Payment" >
+            <a  class = "btn bg_green_dark text-light horizontally_aligned right-block ___"
+                    id="pay_for_the_room"
+                    data-title = "Payment"
+                    data-text="Payment"
+                    data-cy="pay_for_the_room">
                
             </a >
         </div >

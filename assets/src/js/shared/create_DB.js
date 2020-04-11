@@ -199,6 +199,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				
 				localStorage.setItem ( 'ROOMS_created', true );
 				localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
+			
 				localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 				
 			}

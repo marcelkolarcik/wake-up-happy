@@ -70,7 +70,7 @@ import { translate } from "../shared/translator/translator.js";
 		
 		return `<div class="row">
 				
-				<div class = "col-md-3 description" >
+				<div class = "col-md-3 description" data-cy="instruction_${gif}">
 						
 						
 						${ sessionStorage.getItem ( 'edit_mode' )

@@ -44,7 +44,8 @@ $ ( document ).on ( 'click', '#login_details', function ()
 		                </div >
 		                <input type = "text" name = "email"
 		                       class = "form-control form-control-sm  border_bottom_only ___"
-		                       id = "email_of_user" data-placeholder = "Email" required >
+		                       id = "email_of_user" data-placeholder = "Email" required
+		                       data-cy="email_of_user">
 		            </div >
 		        </div >
 		         <div class = "col-auto" >
@@ -57,13 +58,15 @@ $ ( document ).on ( 'click', '#login_details', function ()
 		                </div >
 		                <input type = "password" name = "password"
 		                       class = "form-control form-control-sm  border_bottom_only ___"
-		                       id = "password" data-placeholder = "Password" required >
+		                       id = "password" data-placeholder = "Password" required
+		                       data-cy="password">
 		            </div >
 		        </div >
 		         <div class = "col-auto text-center" >
            
 		            <a  class = "btn btn-sm bg_green text-light ___" id="login"
-		                    data-title = "Login" data-text="Login">
+		                    data-title = "Login" data-text="Login"
+		                    data-cy="log_user">
 		                
 		            </a >
         		</div >
@@ -85,9 +88,12 @@ $ ( document ).on ( 'click', '#login', function ()
 	var password  = form_data[ 1 ].split ( '=' )[ 1 ];
 	
 	
+	
 	if ( decodeURIComponent ( email ) === 'admin@wuh.com' && decodeURIComponent ( password ) === 'password' )
 		{
-			log_admin();
+			localStorage.setItem('admin', true);
+			
+			
 			window.location.replace ( "admin.html" );
 			return;
 		}
@@ -145,6 +151,7 @@ $ ( document ).on ( 'click', '#admin_logout', function ()
 {
 	
 	sessionStorage.clear ();
+	localStorage.removeItem('admin');
 	window.location.replace ( "index.html" );
 	
 } );
@@ -191,6 +198,7 @@ function not_registered ()
 									    <br >
 									    <a href = "owner.html" class = "btn btn-sm bg_green text-light pl-3 pr-3 add_your_room ___" id = "ok"
 									       onclick = "swal.close()"
+									       data-cy="dismiss_alert"
 									       data-title = "Add your room now!" >
 									        ok
 									    </a >
@@ -253,7 +261,4 @@ function authorize_owner ( owner, hashed_login )
 		
 		
 	}
-function log_admin()
-	{
-		sessionStorage.setItem('admin', true);
-	}
+
