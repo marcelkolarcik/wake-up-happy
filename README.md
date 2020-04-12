@@ -37,9 +37,10 @@ A booking site, where customers can find rooms with the view...
 - [Features](#Features)	
 - [How it works](#How-it-works)		
 - [Testing](#testing)
+- [Version Control](#Version-Control)
 - [Deployment](#deployment)
-- [Acknowledgements](#acknowledgements)
 - [Future Features](#future-features)
+- [Browser support](#Browser-support)
 
 ## Inspiration 
 
@@ -360,6 +361,42 @@ I am using sweetalert2, because it allows me to customize my alerts to my users 
     And they are associated with meaning of refreshment, sophistication and energy.
     
     These are the feelings I would like my users to feel when they arrive at landing page of wake-up-happy. 
+    
+    ```css
+   .bg_green {
+   	background-color: #0fbeba;
+   	}
+   
+   .bg_green_dark {
+   	background-color: #005a5b}
+   
+   .green_dark {color: #005a5b}
+   
+   .border_green_dark {border: 1px solid #005a5b;}
+   
+   .green {
+   	color: rgba(0, 195, 209, 1);
+   	font-weight: bold;
+   	}
+   
+   .green:hover {
+   	background-color: rgba(0, 195, 209, 0.5);
+   	}
+   
+   hr.green {
+   	width: 450px;
+   	margin: -25px 50% 50px 25%;
+   	border: 1px solid rgba(0, 195, 209, 1);
+   	}
+   
+   .bg_green_light {
+   	background-color: rgba(0, 195, 209, 0.85);
+   	}
+   
+   .border_green {
+   	border: 1px solid #0fbeba;
+   	}
+    ```
 	 
  ## Features
  
@@ -605,8 +642,72 @@ When admin tries to login with these credentials :
  
  I decided to learn about cypress.io for testing and writing test for the appliations.
  
- I wrote tests for the most of the features of the app and they can be watched 
-  [Testing](TESTING.md)
+ I wrote tests for the most of the features of the app and they can be watched here
+  [TESTING.md](TESTING.md)
+  
+  I recommend using one of these modern browsers : Google Chrome, Mozilla Firefox or Opera.
+  
+   Internet Explorer is not displaying animation of the hero image. ( i am currently investigating this behavior )
+   
+   Apple Safari responds with Error:  Can't Establish a Secure Connection to the Server github.com .
+   
+  I tested my website on 5in and 6in phones, 10in tablet 18in laptop and 22in desktop with good response from
+  all of the devices.
+  
+   ## Version Control
+   
+   During development, I was creating new branch for every new feature I wanted to create, or update existing feature.
+   At the moment I left them in the repository. The branches at the moment are :
+   
+  - ROOM-SEARCH
+  - ADD-YOUR-ROOM
+  - TRANSLATOR
+  - ROOM-SEARCH-2.0
+  - ADMIN
+  - MOBILE-DEVICES
+  - TRANSLATOR
+  - TESTING 
+  
+  ## Deployment
+  
+  I deployed wake-up-happy application by going to my github repository and then clicking on setting button,
+  scrolling down until I reached Github Pages section and then selecting master branch as source.
+  
+  Deploying to Github Pages allows me to see changes to the code, right after I merge current branch with master branch.
+  
+  It also allows me to test my application on multiple devices.
+  
+  For anyone wanting to test or preview the applications locally, I would recommend following steps :
+  
+   1. Sign in to your Github account 
+   2. navigate to https://github.com/marcelkolarcik/wake-up-happy
+   3. click on fork button in the top right corner of the screen
+   4. that's it, now you should have copy of wake-up-happy in your github 
+   
+   OR
+   
+   1. navigate to https://github.com/marcelkolarcik/wake-up-happy
+   2. click on green button reading Clone or download and download
+   zip file to your computer
+   3. unzip downloaded file to your working directory
+   4. that's it, now you should have copy of wake-up-happy 
+   
+   
+   Once you have your copy of wake-up-happy,if developing locally, 
+   you will need to run HTTP server. One of them can be found at
+   
+   <a href = "https://github.com/lwsjs/local-web-server">local web server</a >.
+   
+  
+   # Browser support
+   
+   Currently supporting
+   
+   - Firefox
+   - Chrome
+   - Opera 
+   - Edge and UC Browser might behave strangely :  jQuery's $.getJSON() is not loading language files, sometimes...
+      ( looking for fix )
  
 
 
