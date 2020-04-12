@@ -984,30 +984,30 @@ function store_room ( new_room, update = false )
 function send_email_to_admin ( new_room, owner )
 	{
 		location.replace ( `index.html` );
-//		emailjs.send ( "gmail", "template_pDNgSwG0", {
-//			       "name"      : owner.name,
-//			       "email"     : owner.email,
-//			       "room_name" : new_room.p_address.property_name,
-//			       "location"  : new_room.location,
-//			       "added_at"  : new_room.created_at
-//
-//		       } )
-//		       .then (
-//			       function ( response )
-//			       {
-//				       console.log ( "SUCCESS", response );
-//
-//				       //	IF OWNER IS  ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
-//				       // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
-//				       location.replace ( `index.html` );
-//
-//
-//			       },
-//			       function ( error )
-//			       {
-//				       console.log ( "FAILED", error );
-//
-//			       }
-//		       );
-//		return false;  // To block from loading a new page
+		emailjs.send ( "gmail", "template_pDNgSwG0", {
+			       "name"      : owner.name,
+			       "email"     : owner.email,
+			       "room_name" : new_room.p_address.property_name,
+			       "location"  : new_room.location,
+			       "added_at"  : new_room.created_at
+
+		       } )
+		       .then (
+			       function ( response )
+			       {
+				       console.log ( "SUCCESS", response );
+
+				       //	IF OWNER IS  ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
+				       // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
+				       location.replace ( `index.html` );
+
+
+			       },
+			       function ( error )
+			       {
+				       console.log ( "FAILED", error );
+
+			       }
+		       );
+		return false;  // To block from loading a new page
 	}
