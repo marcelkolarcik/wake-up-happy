@@ -1,11 +1,12 @@
 import "cypress-localstorage-commands";
-import { preview_room, book_room, select_board, preview_how_to } from "../functions.js";
+import { preview_room, book_room, select_board, preview_how_to ,search_for_room_in} from "../functions.js";
+
 
 
 const url = 'http://127.0.0.1:8000/owner.html';
 
 
-describe ( 'Adding new room to the site', () =>
+describe ( 'Adding new room to the site, booking room, checking customers, editing room, blocking dates for owner, logging out, logging in', () =>
 {
 	beforeEach ( () =>
 	             {
@@ -878,26 +879,28 @@ describe ( 'Adding new room to the site', () =>
 			  .scrollIntoView ()
 			  .click ();
 			
-			cy.get ( '#location' )
-			  .should ( 'be.visible' )
-			  .type ( 'Carrownagappul' )
-			  .should ( 'have.value', 'Carrownagappul' );
-			cy.wait ( 500 );
+			search_for_room_in('Carrownagappul');
 			
-			cy.get ( '#search_btn' )
-			  .should ( 'be.visible' )
-			  .click ();
-			
-			
-			cy.get ( '#form_search_results' )
-			  .should ( ( $not_empty ) =>
-			            {
-				            expect (
-					            $not_empty.html () )
-					            .not.to.eq (
-					            '' );
-			            } );
-			
+//			cy.get ( '#location' )
+//			  .should ( 'be.visible' )
+//			  .type ( 'Carrownagappul' )
+//			  .should ( 'have.value', 'Carrownagappul' );
+//			cy.wait ( 500 );
+//
+//			cy.get ( '#search_btn' )
+//			  .should ( 'be.visible' )
+//			  .click ();
+//
+//
+//			cy.get ( '#form_search_results' )
+//			  .should ( ( $not_empty ) =>
+//			            {
+//				            expect (
+//					            $not_empty.html () )
+//					            .not.to.eq (
+//					            '' );
+//			            } );
+//
 			cy.wait ( 5000 );
 			
 			

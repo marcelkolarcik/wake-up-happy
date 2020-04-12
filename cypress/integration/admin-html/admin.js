@@ -5,7 +5,7 @@ import { search_for_room_in, preview_room, room } from "../functions.js";
 const url = 'http://127.0.0.1:8000/index.html';
 
 
-describe ( 'Adding new room to the site', () =>
+describe ( 'Admin disabling and re-enabling room', () =>
 {
 	
 	beforeEach ( () =>

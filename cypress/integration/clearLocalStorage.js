@@ -6,7 +6,7 @@ import "cypress-localstorage-commands";
 
 const url = 'http://127.0.0.1:8000/index.html';
 
-describe ( 'Preview a room', () =>
+describe ( 'Clear localStorage', () =>
 {
 	
 	
@@ -56,10 +56,13 @@ describe ( 'Preview a room', () =>
 			  .scrollIntoView ()
 			  .click ();
 			
+			cy.wait(2000);
+			
 			cy.get ( '[data-cy=clear_localStorage]' )
 			  .should ( 'be.visible' )
 			  .click ();
 			
+			cy.wait(1000);
 			
 			
 			/*localStorage SHOULD NOT HAVE THIS DATA IN*/

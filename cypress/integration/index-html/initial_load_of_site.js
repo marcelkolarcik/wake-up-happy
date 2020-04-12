@@ -27,7 +27,7 @@ describe ( 'Initial load of the site', () =>
 				
 			                        } );
 			
-			
+			cy.wait ( 1500 );
 		}
 	);
 } );

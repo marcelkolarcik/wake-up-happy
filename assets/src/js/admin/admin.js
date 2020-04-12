@@ -27,7 +27,7 @@ import { translate }           from "../shared/translator/translator.js";
 				var ROOMS  = JSON.parse ( localStorage.ROOMS );
 				var OWNERS = localStorage.OWNERS ? JSON.parse ( localStorage.OWNERS ) : null;
 				
-				console.log ( 'ROOMS AND OWNERS', ROOMS, OWNERS );
+			
 				/*GETTING ROOMS ADDED BY OWNERS
 				 *
 				 * WE HAVE 96 DEFAULT ROOMS CREATED
