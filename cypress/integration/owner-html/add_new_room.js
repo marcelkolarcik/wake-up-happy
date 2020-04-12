@@ -881,26 +881,7 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 			
 			search_for_room_in('Carrownagappul');
 			
-//			cy.get ( '#location' )
-//			  .should ( 'be.visible' )
-//			  .type ( 'Carrownagappul' )
-//			  .should ( 'have.value', 'Carrownagappul' );
-//			cy.wait ( 500 );
-//
-//			cy.get ( '#search_btn' )
-//			  .should ( 'be.visible' )
-//			  .click ();
-//
-//
-//			cy.get ( '#form_search_results' )
-//			  .should ( ( $not_empty ) =>
-//			            {
-//				            expect (
-//					            $not_empty.html () )
-//					            .not.to.eq (
-//					            '' );
-//			            } );
-//
+
 			cy.wait ( 5000 );
 			
 			
