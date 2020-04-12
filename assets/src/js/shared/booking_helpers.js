@@ -144,15 +144,16 @@ import { board_types }  from './inventory.js';
 							
 							            html : `
 										<div data-cy="dismiss_alert">
-										<h4 class="___" data-text="Oops..."></h4>
+										<h4 class="text-danger"><i class="fas fa-exclamation"></i></h4>
 										<div class = "col-auto" >
 									   
-									    <hr class = "bg_green" >
-									    <span class="___" data-text="Please, select board!"></span>
-									    <hr class="bg_green">
-										<button id="close_alert"
-										data-cy="dismiss_alert"
-										class="bg_green_dark text-light p-2" >OK</button>
+									  
+									    <p class="___ card-title nav_link_property text-danger" data-text="Please, select board!"></p>
+									    
+										 <hr>
+																    <button id="close_alert"
+																	data-cy="dismiss_alert"
+																	class="bg_green_dark text-light pl-3 pr-3 pt-2 pb-2" >OK</button>
 									     </div>
 									   `,
 										showConfirmButton:false
@@ -421,14 +422,19 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 						
 						
 						swal.fire ( {
-							            html              : ` <div >
-									 <p class="card-title nav_link_property ___" data-text="Your dates were blocked !"></p>
-									 <hr >
-									 <span class="___" data-text="Week(s):"></span>
-									 <span class="nav_link_property"> ${ contactForm.weeks }</span>
-									  <hr >
-									<a class="btn btn-sm border_green d-print-none mb-3" href="" data-cy="dismiss_alert"  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
-							 </div>`,
+							            html              :
+								            ` <div >
+					                            <div class=" bg_green">
+												 <img class="" src="assets/src/images/logo_sm.png"  alt="logo image">
+											
+												</div>
+												 <p class="card-title nav_link_property ___" data-text="Your dates were blocked !"></p>
+												 <hr class="bg_green">
+												 <span class="___" data-text="Week(s):"></span>
+												 <span class="nav_link_property"> ${ contactForm.weeks }</span>
+												  <hr class="bg_green">
+												<a class="btn btn-sm border_green d-print-none mb-3" href="" data-cy="dismiss_alert"  title="Dismiss"><i class="fas fa-thumbs-up"></i></a>
+										        </div>`,
 							            showConfirmButton : false
 						            } );
 					}
@@ -557,16 +563,16 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 				
 				swal.fire ( {
 					            html               : `<div data-cy="required_fields_missing">
-								                                    <h4 class="bg-danger text-warning" >Whoops !</h4>
-																	 <p class="card-title nav_link_property ___" data-text="Your room is not booked !"></p>
+								                                    <h4 class="text-danger"><i class="fas fa-exclamation"></i></h4>
+																	 <p class="card-title nav_link_property text-danger ___" data-text="missing fields"></p>
 																	 <hr class="bg-danger">
-																	  <h4 class="___ bg-danger text-warning" data-text="missing fields"></h4> <br>
+																	
 																	 ${ missing }
 																	
-																     <hr class="bg-danger">
+																    <hr>
 																    <button id="close_alert"
 																	data-cy="dismiss_alert"
-																	class="bg_green_dark text-light p-2" >OK</button>
+																	class="bg_green_dark text-light pl-3 pr-3 pt-2 pb-2" >OK</button>
 												     </div>
 												   `,
 					            showConfirmButton  : false,

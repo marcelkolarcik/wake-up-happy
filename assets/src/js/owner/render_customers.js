@@ -16,12 +16,12 @@ import { translate } from "../shared/translator/translator.js";
 				sessionStorage.room_to_edit ).p_id ] ) )
 				{
 					/*CREATING CUSTOMER TABLE TO DISPLAY*/
-					customers_table.append ( `<h4 class="___" data-text="Customers"></h4>
-						<p id="room_name" class="bg_orange_light">${JSON.parse (
-						sessionStorage.room_to_edit ).p_address.property_name}</p>
+					customers_table.append ( `
+						
                 <div class="table-responsive" data-cy="customers_table">
 				           <table class="table table-sm table-bordered">
-							 <thead class="bg-secondary text-light">
+							 <thead class="bg_green text-light">
+							     <tr><th scope="col" class="___ nav_link_property" data-text="Customers"></th></tr>
 							    <tr>
 							     
 							      <th scope="col" class="___" data-text="name"></th>
@@ -32,6 +32,7 @@ import { translate } from "../shared/translator/translator.js";
 							      <th scope="col" class="___" data-text="Request"></th>
 							      <th scope="col" class="___" data-text="Booked at"></th>
 							    </tr>
+							   
 							  </thead> <tbody id="table_body">` );
 					$.each ( customers, function ( key, customer )
 					{
@@ -65,13 +66,28 @@ import { translate } from "../shared/translator/translator.js";
 					customers_table.append ( ` </tbody></table>
 			                </div>` );
 					
-					customers_table.prepend( `<p >
-								<h4 class="___ " data-text="Total income"></h4>
-								<span class="bg_green_light text-light p-2">${total_income} &euro;</span> <br><br>
-								<h4 class="___ " data-text="Yearly occupancy"></h4>
-								<span class="bg_green_light text-light p-2">${( (parseInt(weeks_booked.length)  / 53) * 100).toFixed(2) } &nbsp; &percnt;</span><br>
-				
-							</p>` );
+					customers_table.prepend( `
+								<div class = "list-group  list-group-horizontal-md tabs col-md-12 mb-2"    >
+								 <a class = "list-group-item list-group-item-action nav_link_property bg_green_dark text-light">
+								    ${JSON.parse (sessionStorage.room_to_edit ).p_address.property_name}
+								  </a >
+								   <a class = "list-group-item list-group-item-action nav_link_property ___ border_green_dark" data-text="Total income">
+								   
+								  </a >
+								  
+								   <a class = "list-group-item list-group-item-action nav_link_property border_green_dark" >
+								    ${total_income} &euro;
+								  </a >
+								  
+								   <a class = "list-group-item list-group-item-action nav_link_property ___ border_green_dark" data-text="Yearly occupancy">
+								   
+								  </a >
+								  <a class = "list-group-item list-group-item-action nav_link_property border_green_dark" >
+								    ${( (parseInt(weeks_booked.length)  / 53) * 100).toFixed(2) }&percnt;
+								  </a >
+								</div>
+		
+							` );
 					
 					customers_table.append ( ` <button id="close_alert"
 																	data-cy="dismiss_alert"

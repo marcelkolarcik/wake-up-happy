@@ -106,6 +106,7 @@ span.nav_link_property {
 
 .bg_green_dark {background-color: #005a5b}
 .green_dark{color:#005a5b}
+.border_green_dark {border: 1px solid #005a5b;}
 .green {
 	color: rgba(0, 195, 209, 1);
 	font-weight: bold;

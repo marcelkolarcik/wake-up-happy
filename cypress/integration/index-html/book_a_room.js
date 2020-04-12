@@ -1,5 +1,5 @@
 import "cypress-localstorage-commands";
-import { book_room } from "../functions.js";
+import { book_room, search_for_room_in } from "../functions.js";
 
 
 describe ( 'Book a room', () =>
@@ -25,41 +25,11 @@ describe ( 'Book a room', () =>
 		cy.get ( '#close_alert' ).click ();
 	} );
 	
-	it ( 'will type Cork in location field as Cork has rooms to rent...;-)', () =>
+	it ( 'will search rooms in Cork as Cork has rooms to rent...;-)', () =>
 	{
-		/*AT THIS POINT THERE ARE NO SEARCH RESULTS*/
-		cy.get ( '#form_search_results' )
-		  .then ( ( $empty ) =>
-		          {
-			
-			          const empty = $empty.text ();
-
-//			TYPE IN LOCATION THAT HAVE ROOMS
-			          cy.get ( '#location' ).type ( 'Cork' )
-			            .should ( 'have.value', 'Cork' );
-
-
-//			SEARCH FOR THE ROOM
-			          cy.get ( '#search_btn' ).click ();
-			
-			          // GET SEARCH RESULTS AFTER SEARCH
-			          // COMPARE AND MAKE SURE SEARCH RESULTS
-			          // ARE NOT EMPTY
-			          /*CHOOSING Cork WILL YIELD RESULTS*/
-			          cy.get ( '#form_search_results' )
-			            .should ( ( $not_empty ) =>
-			                      {
-				                      expect (
-					                      $not_empty.text () )
-					                      .not.to.eq (
-					                      empty );
-			                      } );
-			
-		          } );
-		
-	
+		search_for_room_in ( 'Cork' );
 		
 	} );
 	
-	book_room ( 14 , 'property name 14' );
+	book_room ( 14, 'property name 14' );
 } );

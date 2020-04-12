@@ -48,7 +48,7 @@ export function render_room ( room, where, preview = false )
 		
 		where_div.append ( `
 
-<div class = "card mb-3 mt-3" >
+<div class = "card mb-3 mt-3" data-cy="room_id_${room.p_id}">
     <div class = "row no-gutters" >
         <div class = "col-md-4 vertically_aligned img-thumbnail" id="property_img">
        

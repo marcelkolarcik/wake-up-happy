@@ -27,7 +27,7 @@ import { translate }           from "../shared/translator/translator.js";
 				var ROOMS  = JSON.parse ( localStorage.ROOMS );
 				var OWNERS = localStorage.OWNERS ? JSON.parse ( localStorage.OWNERS ) : null;
 				
-				console.log('ROOMS AND OWNERS', ROOMS, OWNERS);
+				console.log ( 'ROOMS AND OWNERS', ROOMS, OWNERS );
 				/*GETTING ROOMS ADDED BY OWNERS
 				 *
 				 * WE HAVE 96 DEFAULT ROOMS CREATED
@@ -42,29 +42,33 @@ import { translate }           from "../shared/translator/translator.js";
 				{
 					
 					/*IF WE HAVE room AND owner WE WILL DISPLAY IT*/
-					if ( room  )
+					if ( room )
 						{
 							/*IF WE DON'T HAVE ANY OWNERS ON THE SITE YET, WE WILL
-							* DISPLAY name and email AS DEFAULT NAME AND DEFAULT EMAIL + ROOM id*/
-							var owner = !OWNERS ?  null :  OWNERS[ room.owner_id ];
+							 * DISPLAY name and email AS DEFAULT NAME AND DEFAULT EMAIL + ROOM id*/
+							var owner = !OWNERS ? null : OWNERS[ room.owner_id ];
 							
 							rooms_div.append ( `<div class="row no-gutters" data-cy="added_rooms">
 
-											<div class = "list-group  list-group-horizontal-md tabs col-md-12"   >
+											<div class = "list-group  list-group-horizontal-md tabs col-md-12"   data-cy="admin_room_${ room.p_id }" >
 								            
 								                <a class = "list-group-item list-group-item-action nav_link_property"
 								                   
 								                    >  <i class="fas fa-signature">&nbsp;</i> &nbsp;${ room.p_address.property_name }</a >
 								                   
 								                <a class = "list-group-item list-group-item-action nav_link_property "
-								                  ><i class="fas fa-user">&nbsp;</i> &nbsp;${ owner ? owner.name : 'Default Owner '+room.p_id}</a >
+								                  ><i class="fas fa-user">&nbsp;</i> &nbsp;${ owner ? owner.name
+							                                                                        : 'Default Owner '
+							                                                                          + room.p_id }</a >
 								                  
 								                <a class = "list-group-item list-group-item-action nav_link_property "
-								                  ><i class="fas fa-at">&nbsp;</i> &nbsp;${ owner ? owner.email:   'default@email.'+room.p_id }
+								                  ><i class="fas fa-at">&nbsp;</i> &nbsp;${ owner ? owner.email
+							                                                                      : 'default@email.'
+							                                                                        + room.p_id }
 								                   </a >
 								                    <a class="btn btn-sm bg_green text-light preview_room nav_link_property ___"
 										            data-text="preview"
-										            data-cy="preview_added_room_${room.p_id}"
+										            data-cy="preview_added_room_${ room.p_id }"
 										         data-room_id="${ room.p_id }"
 										 ></a>
 								                
@@ -76,7 +80,7 @@ import { translate }           from "../shared/translator/translator.js";
 										         data-room_id="${ room.p_id }"
 										         data-disabled="true"
 										          data-opposite="enable"
-										           data-cy="disable_room_${room.p_id}"
+										           data-cy="disable_room_${ room.p_id }"
 										         
 										 ></a>
 										 
@@ -87,7 +91,7 @@ import { translate }           from "../shared/translator/translator.js";
 										         data-room_id="${ room.p_id }"
 										         data-disabled="false"
 										         data-opposite="disable"
-										         data-cy="enable_room_${room.p_id}"
+										         data-cy="enable_room_${ room.p_id }"
 										 ></a>
 								            
 								            
@@ -122,6 +126,7 @@ import { translate }           from "../shared/translator/translator.js";
 		            data-div = "${ 'room_preview_' + room_id }"
 		            data-per = "now"
 		            data-text = "x"
+		            data-cy="close_preview"
 		            data-title = "Close it for now."
 		            id = "close"
             >
@@ -154,9 +159,27 @@ import { translate }           from "../shared/translator/translator.js";
 			
 			/*CONFIRMING ACTION TO ADMIB*/
 			swal.fire ( {
-				            html : `${ room.p_address.property_name } <span class="___" data-text="${ disabled
-				                                                                                      ? `was disabled`
-				                                                                                      : `was enabled` }"></span>`
+				            html : `
+										<span class="nav_link_property">
+										<i class="fas fa-signature"></i>  &nbsp;
+													${ room.p_address.property_name }
+										</span>
+				                          <hr class="${ disabled ? `bg-danger` : `bg_green` }">
+										<span class="___ ${ disabled ? `bg-danger text-light` : `bg_green text-light` } p-2"
+																data-text="${ disabled ? `was disabled` : `was enabled` }">
+										</span>
+											<hr class="${ disabled ? `bg-danger` : `bg_green` }">
+										<a class="btn btn-sm bg_green_dark text-light pl-3 pr-3"
+													onclick="swal.close();"
+													data-cy="dismiss_alert"
+													title="Dismiss">
+													OK
+										</a>`,
+				
+							showConfirmButton:false
+									
+												
+		
 			            } );
 			translate ();
 			

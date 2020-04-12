@@ -114,7 +114,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							  data-image_id="${ property.room_style }"
 							  data-text="more..."
 							  data-cy="room_map_popup_${property.p_id}"
-							  
+							  data-cy_="room_popup"
 							  href="#" ><i class="fas fa-external-link-square-alt "></i></a> `);
 
 

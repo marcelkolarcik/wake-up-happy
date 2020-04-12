@@ -21,7 +21,7 @@ $ ( function ()
                                 <div class = "dropdown-divider" ></div >
                                 
                                
-                                ${ !sessionStorage.authorized_owner && !sessionStorage.admin ?
+                                ${ !sessionStorage.authorized_owner && !localStorage.admin ?
 	                               ` <a id = "login_details" data-cy="login"
                                         class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login">Login</a >`
 	                                                                              :`` }
@@ -104,7 +104,7 @@ $ ( function ()
 			    $ ( '#login_details' ).remove ();
 			
 		    }
-	    if(sessionStorage.admin)
+	    if(localStorage.admin)
 		    {
 			    user_drop_down.append ( `
                                  <div class = "dropdown-divider" ></div >
@@ -113,7 +113,7 @@ $ ( function ()
                                 class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout"></a >` );
 			
 			    $ ( '#owner_name' ).append (
-				    `<a href="admin.html" class="nav_link_property dashboard_link ___" data-title="Dashboard">Admin</a>`);
+				    `<a href="admin.html" class="nav_link_property dashboard_link ___" data-cy="admin" data-title="Dashboard">Admin</a>`);
 		    }
 	
     } );

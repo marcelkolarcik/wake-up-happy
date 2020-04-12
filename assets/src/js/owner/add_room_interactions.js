@@ -712,23 +712,25 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 				{
 					swal.fire ( {
 						            html               : `<div data-cy="required_fields_missing">
-								                                    <h4 class="bg-danger text-warning" >Whoops !</h4>
-																	 <hr class="bg-danger">
-																	 <h4 class="___ " data-text="missing fields"></h4> <br>
+								                                   <h4 class="text-danger"><i class="fas fa-exclamation"></i></h4>
+																	
+																	 <p class="___ card-title nav_link_property text-danger" data-text="missing fields"></p>
 																	 <hr class="bg-danger">
 																	 
 																	 ${ missing_values }
 																	
-																     <hr class="bg-danger">
+																     <hr>
 																    <button id="close_alert"
 																	data-cy="dismiss_alert"
-																	class="bg_green_dark text-light p-2" >OK</button>
+																	class="bg_green_dark text-light pl-3 pr-3 pt-2 pb-2" >OK</button>
 												     </div>
 												   `,
 						            showConfirmButton  : false,
 						
 						
 					            } );
+					
+					translate();
 					return false;
 				}
 			
