@@ -1,3 +1,6 @@
+/*AS CYPRESS CLEARING LOCAL STORAGE AFTER
+ * EACH TEST, THIS PACKAGE WILL PERSIST localStorage
+ * BETWEEN THE TESTS*/
 import "cypress-localstorage-commands";
 import { book_room, search_for_room_in } from "../functions.js";
 

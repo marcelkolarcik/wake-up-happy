@@ -97,6 +97,7 @@ export function preview_room ( id, admin = false )
 				  .click ()
 				  .then ( () =>
 				          {
+					          cy.wait(3000);
 					          /*ROOM'S POPUP SHOULD OPEN
 					           * AND more... BUTTON SHOULD BE
 					           * VISIBLE*/
@@ -123,6 +124,7 @@ export function preview_room ( id, admin = false )
 							                                .click ()
 							                                .then ( () =>
 							                                        {
+								                                        cy.wait(3000);
 								                                        /*DIV HOLDING THE ROOM PREVIEW
 								                                         * SHOULD NOT BE EMPTY*/
 								                                        cy.get (
