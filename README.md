@@ -150,7 +150,9 @@ out a room in their home.
         
         7. To see your room, click on your initials in the top right corner of the navigation and select the room, or you can also click on your name.
         You will be redirected to owner.html and you should be able to see your room. 
+        
         <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/room_interaction.png" title="room_interaction" alt="room_interaction image">
+        
         8. To see your customers, click on yellow customers button, and popup should appear to show you your customers.
         9. You can click on edit button to edit your room
         10. You block off some dates for yourself
@@ -161,7 +163,7 @@ out a room in their home.
     
      
         
-    >REMEMBER: You can always click on red how-to button to get assistance with every step !
+> REMEMBER: You can always click on red how-to button to get assistance with every step !
    
        
  - #### Admin  

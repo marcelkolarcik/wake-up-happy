@@ -182,4 +182,4 @@ When admin tries to login with these credentials :
  Each testimonial has bootstrap classes applied in a way, that on every break point we will loose 1, 
  so on mobile devices we will end up with 1 testimonial per carousel-item. 
  
-  <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/testimonials.png" title="add your room" alt="add_your_room image">
+  <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/testimonials.png" title="testimonials" alt="testimonials image">
