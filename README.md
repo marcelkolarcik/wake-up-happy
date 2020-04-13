@@ -6,6 +6,19 @@
 
 A booking site, where customers can find rooms with the view...
 
+and room owners can :
+   -  add their rooms onto the site, using our 5 step method, with visual and written guides for every step of the journey.
+   -  log in anytime to see total income and occupancy for the room, and any bookings with customer details.
+   -  edit room details or add another room
+   - ...
+
+## Inspiration 
+
+I was inspired to create this application to help thousands of families to create additional income for themselves, by renting 
+out a room in their home. 
+
+
+
 
 ## Table of Contents
 
@@ -18,8 +31,14 @@ A booking site, where customers can find rooms with the view...
 		- [Admin](#Admin)
 		- [Person testing](#Person-testing)
 		
-	- [Wireframes](#Wireframes)
+	- [Step by step guides](#Step-by-step-guides)
+	
+		- [Add your room](#Add-your-room)
+		- [Admin](#Admin)	
+		
+	- [Wireframes](#Wireframe)
 	- [Colors](#Colors)
+	
 - [Technologies](#technologies)
 
 	- [cypress.io](#cypressio)
@@ -42,10 +61,7 @@ A booking site, where customers can find rooms with the view...
 - [Future Features](#future-features)
 - [Browser support](#Browser-support)
 
-## Inspiration 
 
-I was inspired to create this application to help thousands of families to create additional income for themselves, by renting 
-out a room in their home.
 
 ## User Experience
 
@@ -105,7 +121,65 @@ out a room in their home.
             -  clear data from wake-up-happy  in localStorage in my browser after 
 	            visiting the site.
             -  have great experience using this application on any device from mobile to desktop
-            
+ 
+  - ### Step by step guides
+  
+  Here are 2 guides for interactions with the application.
+
+   - #### Add your room
+        
+        To add your room to our site, please follow these steps : ( You can always click on red how-to button to get assistance with every step !)
+        <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/add_your_room.png" title="add your room" alt="add_your_room image">
+        1. click on OWNER? link in the top of the page to navigate to owner.html
+        2. find location of your property on the map and click it, 
+        then yellow button will appear with text get details, so click that button to get your location details and type in your property name
+        that is at least 3 characters long. Step 2 button with text room >>> will appear, and you can progress to step 2.
+        Remember location details of your property!!! You will be able to search for your newly created room, using your new location, once the room is added to the site.
+        3. Define your room by selecting appropriate radio buttons on Room Type, Room View, Room Style parts of the form.  
+        Once all three are selected, Step 3 button with text services >>> will appear, and you can progress to step 3.
+        4.Define your services like Board Type and Amenities you can provide for your guests, and describe your room. When selecting board type, you must type in the price, when 
+        describing your room, description must be at least 30 characters long.Once all three are selected, Step 4 button with text preview >>> will appear, and you can progress to step 4.
+        5. Preview your room as Customer would preview it, and make any changes necessary, progress to step 5 payment >>>.
+        6. Fill in your details, any details will do, when filling email, email must contain "@". When you click on pay, you will be logged in, you will see your initials
+        instead of user icon in the top right corner of the navigation, and you will be redirected to index.html to preview your room live on the site.
+        At this point you can pretend that you are a Customer and book your own room. 
+        The purpose of it is, to see your future customers in your room's dashboard.
+        
+        So go ahead and book your room. Select board first, and then few weeks and then click on the red BOOK button to fill in your customer details,
+        any details will do, and click on payment. You should see conformation popup, that you can save to your device.
+        
+        7. To see your room, click on your initials in the top right corner of the navigation and select the room, or you can also click on your name.
+        You will be redirected to owner.html and you should be able to see your room. 
+        8. To see your customers, click on yellow customers button, and popup should appear to show you your customers.
+        9. You can click on edit button to edit your room
+        10. You block off some dates for yourself
+        11. You can delete room
+        11. You can add new room
+        12. You can logout by clicking on your initials in the top right corner of the navigation and select logout.
+        13. You can log in again with your email and password used when paying for the services.
+        
+        >REMEMBER: You can always click on red how-to button to get assistance with every step !
+        
+ - #### Admin  
+    
+    To log in as admin to be able to see all rooms added to the site, and have option to disable or re-enable the room, for purpose of taking the room off live site and search results,
+    please follow these steps:
+    1. If you are logged in, click on your initials in the top right corner of the navigation and log out.
+  
+           
+   2. Click on login and log in with these credentials:
+        - email : admin@wuh.com
+        - password:password 
+   <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/navigation.png" title="navigation" alt="navigation image">
+    3. You will be logged in and you should see list of all rooms on the site.
+    4. If you have created your room, your room should be at the top of the list. If not pick any room and remember the name of the room. You can try and disable it by clicking on red disable button next to your room's name.  
+    5. Navigate to  index.html by clicking on the sites logo on the top left side of the navigation.
+    6. Try to search for your room in the search form, it shouldn't be in search results.
+    7. Go back to admin dashboard by clicking on the user icon in the top right corner of the navigation and click on admin, and re-enable the room by clicking on yellow enable button.
+    8. Navigate to  index.html by clicking on the sites logo on the top left side of the navigation. 
+    9. Try to search for your room in the search form, it should be in search results now.
+    10. To logout, click on user icon in the top right corner of the navigation and logout.
+    
  - ### Wireframes  
    
 	 I used pencil and paper to draw initial wireframe design ...
@@ -121,29 +195,30 @@ out a room in their home.
     These are the feelings I would like my users to feel when they arrive at landing page of wake-up-happy. 
     
     ```css
-   .bg_green {
-   	background-color: #0fbeba;
-   	}
-   
-   .bg_green_dark {
-   	background-color: #005a5b}
-   
-   .green_dark {color: #005a5b}
-   
-   .border_green_dark {border: 1px solid #005a5b;}
-   
-   .green {
-   	color: rgba(0, 195, 209, 1);
-   	font-weight: bold;
-   	}
-   
-   .bg_green_light {
-   	background-color: rgba(0, 195, 209, 0.85);
-   	}
-   
-   .border_green {
-   	border: 1px solid #0fbeba;
-   	}
+	  .bg_green {
+	    background-color: #0fbeba;
+	    }
+	  
+	  .bg_green_dark {
+	    background-color: #005a5b
+	    }
+	  
+	  .green_dark {
+	    color: #005a5b
+	    }
+	  
+	  .border_green_dark {
+	    border: 1px solid #005a5b;
+	    }
+	  
+	  .green {
+	    color: rgba(0, 195, 209, 1);
+	    font-weight: bold;
+	    }
+	  
+	  .green:hover {
+	    background-color: rgba(0, 195, 209, 0.5);
+	    }
     ``` 
  
 ## Technologies 
@@ -475,8 +550,15 @@ Detailed description of how the application works can be found here
  ## Testing
  
  I decided to learn about cypress.io for testing and writing test for the application.
+ The majority of testing was done in cypress.io, it allowed me to test my application automatically, and 
+ it allowed me to record my tests using this command. 
  
- I wrote tests for the most of the features of the app and they can be watched here
+ ```
+ $  node_modules/.bin/cypress run --record --key { my_record_key } --spec "cypress/integration/path/to/file.js"
+
+ ``` 
+ 
+ I wrote tests for the most of the features of the app and they can be watched here.
  
   [TESTING.md](TESTING.md)
    
@@ -542,7 +624,7 @@ To merge branch with master:
    4. that's it, now you should have copy of wake-up-happy 
    
    
-   Once you have your copy of wake-up-happy,if developing locally, 
+   Once you have your copy of wake-up-happy, if developing locally, 
    you will need to run HTTP server. One of them can be found at
    
    <a href = "https://github.com/lwsjs/local-web-server">local web server</a >.

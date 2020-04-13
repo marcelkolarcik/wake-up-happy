@@ -1,18 +1,23 @@
 
 ## Testing recordings Cypress.io
 
+Bellow is the list of test I wrote for the application.
+On the left side is the link to the source code of the test and on the right side are the links to preview tests on  mobile and desktop devices.
+
 > Clicking on preview link will take you to the recordings, which I made public, and you can preview video by clicking on little triangle on the far right side of the spec.
 If you click on Test Results on the top of the screen, then you will be able to see more details about the spec :
 -  Test case
 - Artifacts
 - Test definition
 
-	To open link in a new tab CTRL +  click it!
+> Clicking on name of the file will take you to source code of the test.
+
+> To open link in a new tab CTRL +  click it!
 
 | Test js | Mobile   |  Desktop   |
 | :---            |                  ---: |         ---: |
 |                               |          |
-| [add_new_room.js](cypress/integration/owner-html/add_new_room.js)      |   <a  href="https://dashboard.cypress.io/projects/sna5pk/runs/9" target="_blank">preview</a>   |<a  href="https://dashboard.cypress.io/projects/sna5pk/runs/18" target="_blank">preview</a>|
+| [add_new_room.js](https://github.com/marcelkolarcik/wake-up-happy/blob/master/cypress/integration/owner-html/add_new_room.js)      |   <a  href="https://dashboard.cypress.io/projects/sna5pk/runs/9" target="_blank">preview</a>   |<a  href="https://dashboard.cypress.io/projects/sna5pk/runs/18" target="_blank">preview</a>|
 |            |                   |         |
 |         |           |   
 | [admin.js](https://github.com/marcelkolarcik/wake-up-happy/blob/master/cypress/integration/admin-html/admin.js)    |     <a  href="https://dashboard.cypress.io/projects/sna5pk/runs/3" target="_blank">preview</a>  |<a  href="https://dashboard.cypress.io/projects/sna5pk/runs/17" target="_blank">preview</a>|
@@ -35,9 +40,7 @@ If you click on Test Results on the top of the screen, then you will be able to 
 |            |                   |         |
 |            |                  |       |
 | Mobile device preview      |      ![mobile_device_preview](https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/screenshots/mobile.gif)    |
-|                  
-
-
+|               
 
 
 
