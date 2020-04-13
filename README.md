@@ -154,15 +154,15 @@ out a room in their home.
         <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/room_interaction.png" title="room_interaction" alt="room_interaction image">
         
         8. To see your customers, click on yellow customers button, and popup should appear to show you your customers.
-        9. You can click on edit button to edit your room
-        10. You block off some dates for yourself
-        11. You can delete room
-        11. You can add new room
+        9. You can click on edit button to edit your room.
+        10. You block off some dates for yourself.
+        11. You can delete room.
+        11. You can add new room.
         12. You can logout by clicking on your initials in the top right corner of the navigation and select logout.
         13. You can log in again with your email and password used when paying for the services.
     
      
-        
+       
 > REMEMBER: You can always click on red how-to button to get assistance with every step !
    
        
