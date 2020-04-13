@@ -150,6 +150,7 @@ out a room in their home.
         
         7. To see your room, click on your initials in the top right corner of the navigation and select the room, or you can also click on your name.
         You will be redirected to owner.html and you should be able to see your room. 
+        <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/room_interaction.png" title="room_interaction" alt="room_interaction image">
         8. To see your customers, click on yellow customers button, and popup should appear to show you your customers.
         9. You can click on edit button to edit your room
         10. You block off some dates for yourself
@@ -157,9 +158,12 @@ out a room in their home.
         11. You can add new room
         12. You can logout by clicking on your initials in the top right corner of the navigation and select logout.
         13. You can log in again with your email and password used when paying for the services.
+    
+     
         
-        >REMEMBER: You can always click on red how-to button to get assistance with every step !
-        
+    >REMEMBER: You can always click on red how-to button to get assistance with every step !
+   
+       
  - #### Admin  
     
     To log in as admin to be able to see all rooms added to the site, and have option to disable or re-enable the room, for purpose of taking the room off live site and search results,
@@ -171,14 +175,14 @@ out a room in their home.
         - email : admin@wuh.com
         - password:password 
    <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/navigation.png" title="navigation" alt="navigation image">
-    3. You will be logged in and you should see list of all rooms on the site.
-    4. If you have created your room, your room should be at the top of the list. If not pick any room and remember the name of the room. You can try and disable it by clicking on red disable button next to your room's name.  
-    5. Navigate to  index.html by clicking on the sites logo on the top left side of the navigation.
-    6. Try to search for your room in the search form, it shouldn't be in search results.
-    7. Go back to admin dashboard by clicking on the user icon in the top right corner of the navigation and click on admin, and re-enable the room by clicking on yellow enable button.
-    8. Navigate to  index.html by clicking on the sites logo on the top left side of the navigation. 
-    9. Try to search for your room in the search form, it should be in search results now.
-    10. To logout, click on user icon in the top right corner of the navigation and logout.
+  3. You will be logged in and you should see list of all rooms on the site.
+  4. If you have created your room, your room should be at the top of the list. If not pick any room and remember the name of the room. You can try and disable it by clicking on red disable button next to your room's name.  
+  5. Navigate to  index.html by clicking on the sites logo on the top left side of the navigation.
+  6. Try to search for your room in the search form, it shouldn't be in search results.
+  7. Go back to admin dashboard by clicking on the user icon in the top right corner of the navigation and click on admin, and re-enable the room by clicking on yellow enable button.
+  8. Navigate to  index.html by clicking on the sites logo on the top left side of the navigation. 
+  9. Try to search for your room in the search form, it should be in search results now.
+  10. To logout, click on user icon in the top right corner of the navigation and logout.
     
  - ### Wireframes  
    
@@ -258,7 +262,7 @@ of development, which will save me time on manual testing and make sure,
 ```cl 
     npm i --save-dev cypress-localstorage-commands
 ```
-  [TESTING.md](TESTING.md)
+ 
  ### webpack
  
  > A bundler for javascript and friends. Packs many modules into a few bundled assets.
