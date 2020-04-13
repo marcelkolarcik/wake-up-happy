@@ -532,6 +532,11 @@ To merge branch with master:
    
    <a href = "https://github.com/lwsjs/local-web-server">local web server</a >.
    
+   To launch the application locally, navigate your browser to 
+   
+   ```
+   http://127.0.0.1:8000/index.html or http://127.0.0.1:8000/owner.html
+````  
   
    # Browser support
    
