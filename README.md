@@ -379,16 +379,6 @@ I am using sweetalert2, because it allows me to customize my alerts to my users 
    	font-weight: bold;
    	}
    
-   .green:hover {
-   	background-color: rgba(0, 195, 209, 0.5);
-   	}
-   
-   hr.green {
-   	width: 450px;
-   	margin: -25px 50% 50px 25%;
-   	border: 1px solid rgba(0, 195, 209, 1);
-   	}
-   
    .bg_green_light {
    	background-color: rgba(0, 195, 209, 0.85);
    	}
@@ -469,9 +459,10 @@ Detailed description of how the application works can be found here
  
  ## Testing
  
- I decided to learn about cypress.io for testing and writing test for the appliations.
+ I decided to learn about cypress.io for testing and writing test for the application.
  
  I wrote tests for the most of the features of the app and they can be watched here
+ 
   [TESTING.md](TESTING.md)
   
   I recommend using one of these modern browsers : Google Chrome, Mozilla Firefox or Opera.
