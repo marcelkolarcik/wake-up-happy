@@ -464,12 +464,6 @@ Detailed description of how the application works can be found here
  I wrote tests for the most of the features of the app and they can be watched here
  
   [TESTING.md](TESTING.md)
-  
-  I recommend using one of these modern browsers : Google Chrome, Mozilla Firefox or Opera.
-  
-   Internet Explorer is not displaying animation of the hero image. ( i am currently investigating this behavior )
-   
-   Apple Safari responds with Error:  Can't Establish a Secure Connection to the Server github.com .
    
   I tested my website on 5in and 6in phones, 10in tablet 18in laptop and 22in desktop with good response from
   all of the devices.
@@ -548,6 +542,8 @@ To merge branch with master:
    - Opera 
    - Edge and UC Browser might behave strangely :  jQuery's $.getJSON() is not loading language files, sometimes...
       ( looking for fix )
+      
+   - Apple Safari responds with Error:  Can't Establish a Secure Connection to the Server github.com .
  
 
 
