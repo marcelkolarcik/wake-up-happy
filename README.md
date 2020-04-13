@@ -1,5 +1,5 @@
 <a href="https://marcelkolarcik.github.io/wake-up-happy/index.html">
-<img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src//images/wake-up-happy.png" title="https://marcelkolarcik.github.io/wake-up-happy/" alt="https://marcelkolarcik.github.io/wake-up-happy/"></a>
+<img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/wake-up-happy.png" title="https://marcelkolarcik.github.io/wake-up-happy/" alt="https://marcelkolarcik.github.io/wake-up-happy/"></a>
 
 
 ## wake-up-happy
