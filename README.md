@@ -83,7 +83,7 @@ of development, which will save me time on manual testing and make sure,
 ```cl 
     npm i --save-dev cypress-localstorage-commands
 ```
- 
+  [TESTING.md](TESTING.md)
  ### webpack
  
  > A bundler for javascript and friends. Packs many modules into a few bundled assets.

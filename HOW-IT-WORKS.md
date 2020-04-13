@@ -158,7 +158,7 @@ where he can interact with his room:
 
 1. He can read or preview how to instructions assist him with anything he is currently working on. 
 2. He can preview it
-3. He ca edit it
+3. He can edit it
 4. He can delete it
 5. He can block off some dates for himself
 6. He can check customers, total income and occupancy per room
