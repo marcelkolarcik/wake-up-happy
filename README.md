@@ -44,7 +44,8 @@ A booking site, where customers can find rooms with the view...
 
 ## Inspiration 
 
-I was inspired to create this application to help thousands of families to create additional income for themselves.
+I was inspired to create this application to help thousands of families to create additional income for themselves, by renting 
+out a room in their home.
  
 ## Technologies 
 ### cypress.io
@@ -109,6 +110,10 @@ of development, which will save me time on manual testing and make sure,
  <a href="https://webpack.js.org/guides/getting-started/#basic-setup" target="_blank">
  webpack
  </a>
+ 
+ In the webpack.config.js file I decide how to bundle my <code>src</code> files and where to output them.
+ 
+ [webpack.config.js](https://github.com/marcelkolarcik/wake-up-happy/blob/master/webpack.config.js) 
  
 ### emailjs
 
