@@ -656,7 +656,27 @@ When admin tries to login with these credentials :
   
    ## Version Control
    
-   During development, I was creating new branch for every new feature I wanted to create, or update existing feature.
+   During development, I was creating new branch for every new feature I wanted to create, or update existing feature,
+   then I would merge it with master branch and then create new branch again to create new feature again.
+   
+   To create new branch: 
+   
+   ```
+   git checkout master
+   git branch new-branch
+   git checkout new-branch
+   ```
+   
+> develop some code, add, commit, push, repeat...;-)
+
+To merge branch with master:
+ ```
+   git checkout master
+   git merge new-branch
+   git push origin master
+   ```
+
+   
    At the moment I left them in the repository. The branches at the moment are :
    
   - ROOM-SEARCH
