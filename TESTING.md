@@ -1,12 +1,13 @@
 
 ## Testing recordings Cypress.io
 
-> Clicking on preview link will take you to my recordings, which are public, and you can preview video by clicking on little triangle on the far right side of the spec.
+> Clicking on preview link will take you to the recordings, which I made public, and you can preview video by clicking on little triangle on the far right side of the spec.
 If you click on Test Results on the top of the screen, then you will be able to see more details about the spec :
 -  Test case
 - Artifacts
 - Test definition
 
+	To open link in a new tab CTRL +  click it!
 
 | Test js | Mobile   |  Desktop   |
 | :---            |                  ---: |         ---: |
