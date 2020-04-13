@@ -99,11 +99,11 @@ of development, which will save me time on manual testing and make sure,
  I installed it via npm:
  
  ```cl 
- cd /your/project/path
+ $ cd /your/project/path
  ```
  
  ```cl 
- npm install webpack webpack-cli --save-dev
+ $ npm install webpack webpack-cli --save-dev
  ```
  
  And followed documentation here
@@ -115,6 +115,14 @@ of development, which will save me time on manual testing and make sure,
  
  [webpack.config.js](https://github.com/marcelkolarcik/wake-up-happy/blob/master/webpack.config.js) 
  
+ At the start of the development I run 
+ ```cl
+ $ cd /my/project/path
+ $ npm run build
+ 
+``` 
+
+So that webpack will compile and will start to watch my code for changes and will update files in <code>dist</code> as I code.
 ### emailjs
 
 > Send email directly from your client-side Javascript code – no server side code required.
@@ -173,7 +181,7 @@ and also I got token to use on my site for emailjs to function properly.
        nominatim.openstreetmap.org
        </a>
        
-  I use Nominatim to get room's location details, when adding new room to the site.
+  I use Nominatim API to get room's location details, when adding new room to the site.
   
 ### sweetalert
 
