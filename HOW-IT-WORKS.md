@@ -181,3 +181,5 @@ When admin tries to login with these credentials :
  I am using bootstrap's carousel with 3 carousel-items, where each item is holding 4 testimonials initially.
  Each testimonial has bootstrap classes applied in a way, that on every break point we will loose 1, 
  so on mobile devices we will end up with 1 testimonial per carousel-item. 
+ 
+  <img src="https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/readme/testimonials.png" title="add your room" alt="add_your_room image">
