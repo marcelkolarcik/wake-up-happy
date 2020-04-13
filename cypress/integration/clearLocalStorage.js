@@ -2,6 +2,7 @@
  * EACH TEST, THIS PACKAGE WILL PERSIST localStorage
  * BETWEEN THE TESTS*/
 import "cypress-localstorage-commands";
+import { check_mobile } from "../fixtures/functions";
 
 
 const url = 'http://127.0.0.1:8000/index.html';
@@ -50,7 +51,7 @@ describe ( 'Clear localStorage', () =>
 		{
 			
 			cy.restoreLocalStorage ();
-			
+			check_mobile('mobile_nav_toggler');
 			cy.get ( '[data-cy=user_nav]' )
 			  .should ( 'be.visible' )
 			  .scrollIntoView ()

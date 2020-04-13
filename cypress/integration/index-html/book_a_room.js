@@ -2,7 +2,9 @@
  * EACH TEST, THIS PACKAGE WILL PERSIST localStorage
  * BETWEEN THE TESTS*/
 import "cypress-localstorage-commands";
-import { book_room, search_for_room_in } from "../functions.js";
+import { book_room, search_for_room_in ,check_mobile} from "../../fixtures/functions.js";
+
+
 
 
 describe ( 'Book a room', () =>
@@ -31,7 +33,7 @@ describe ( 'Book a room', () =>
 	it ( 'will search rooms in Cork as Cork has rooms to rent...;-)', () =>
 	{
 		search_for_room_in ( 'Cork' );
-		
+		check_mobile('mobile_more_14');
 	} );
 	
 	book_room ( 14, 'property name 14' );

@@ -2,7 +2,7 @@
 * EACH TEST, THIS PACKAGE WILL PERSIST localStorage
 * BETWEEN THE TESTS*/
 import "cypress-localstorage-commands";
-import { preview_room, search_for_room_in } from "../functions";
+import { preview_room, search_for_room_in } from "../../fixtures/functions";
 
 const url = 'http://127.0.0.1:8000/index.html';
 

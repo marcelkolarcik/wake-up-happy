@@ -1,5 +1,6 @@
 import "cypress-localstorage-commands";
-import { search_for_room_in, preview_room, room } from "../functions.js";
+import { search_for_room_in, preview_room, room , check_mobile} from "../../fixtures/functions.js";
+
 
 
 const url = 'http://127.0.0.1:8000/index.html';
@@ -29,6 +30,10 @@ describe ( 'Admin disabling and re-enabling room', () =>
 			cy.visit ( url )
 			  .then ( () =>
 			          {
+			          	
+			          
+			          	
+			          
 				          /*INITIAL ALERT SHOULD BE VISIBLE*/
 				          cy.get ( '[data-cy_initial_alert=open]' )
 				            .should ( 'be.visible' );
@@ -69,7 +74,11 @@ describe ( 'Admin disabling and re-enabling room', () =>
 			cy.visit ( url ).then ( () =>
 			                        {
 				
+				                        
 				
+				                        check_mobile('mobile_nav_toggler');
+				                        
+				                        
 				                        cy.get ( '[data-cy=user_nav]' )
 				                          .should ( 'be.visible' )
 				                          .scrollIntoView ()
@@ -113,14 +122,17 @@ describe ( 'Admin disabling and re-enabling room', () =>
 		() =>
 		{
 			
+			
 			cy.get ( '[ data-cy=preview_added_room_14]' )
 			  .should ( 'be.visible' )
 			  .scrollIntoView ()
 			  .click ()
 			  .then ( () =>
 			          {
-				
+				        
 				          preview_room ( 14, true );
+				          
+				         
 				
 			          } )
 			  .then ( () =>
@@ -158,7 +170,9 @@ describe ( 'Admin disabling and re-enabling room', () =>
 				
 				
 				          search_for_room_in ( 'Cork' );
-				
+				          
+				         
+				          
 				          cy.get ( '[data-cy=room_id_14]' )
 				            .should ( 'not.be.visible' );
 				

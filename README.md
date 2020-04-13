@@ -480,19 +480,19 @@ Detailed description of how the application works can be found here
    
    To create new branch: 
    
-   ```
-   git checkout master
-   git branch new-branch
-   git checkout new-branch
+   ```cl
+   $ git checkout master
+   $ git branch new-branch
+   $ git checkout new-branch
    ```
    
 > develop some code, add, commit, push, repeat...;-)
 
 To merge branch with master:
- ```
-   git checkout master
-   git merge new-branch
-   git push origin master
+ ```cl
+   $ git checkout master
+   $ git merge new-branch
+   $ git push origin master
    ```
 
    
@@ -537,9 +537,27 @@ To merge branch with master:
    
    <a href = "https://github.com/lwsjs/local-web-server">local web server</a >.
    
-   To launch the application locally, navigate your browser to 
-   
+   To install server
+     
+  ```cl 
+     $ cd /your/project/path
+     $ npm install -g local-web-server
    ```
+  
+  To start server 
+  
+ ```cl 
+    $ cd /your/project/path
+    $ ws
+          Listening on http://mbp.local:8000, http://127.0.0.1:8000, http://192.168.0.100:8000
+ ```
+  
+    
+ 
+   
+ To launch the application locally, navigate your browser to 
+   
+ ```
    http://127.0.0.1:8000/index.html or http://127.0.0.1:8000/owner.html
 ````  
   

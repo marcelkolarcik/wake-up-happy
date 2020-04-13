@@ -1,4 +1,4 @@
-import { search_for_room_in } from "../functions.js";
+import { search_for_room_in } from "../../fixtures/functions.js";
 
 
 describe ( 'Searching for the room - several scenarios', () =>

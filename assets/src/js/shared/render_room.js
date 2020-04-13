@@ -87,12 +87,14 @@ export function render_room ( room, where, preview = false )
 			data-title="Display more info..."
 			data-text="more..."
 			 data-p_id="${ room.p_id }"
+			 data-cy="mobile_more_${ room.p_id }"
 			></span>
 			
 			 <span class=" btn btn-sm bg_green text-light d-md-none float-right mr-3 show_tabs ___ d-none less_${ room.p_id }"
 			data-title="Display less info..."
 			data-text="less..."
 			 data-p_id="${ room.p_id }"
+			  data-cy="mobile_less_${ room.p_id }"
 			></span>
         </div >
         <div class = "col-md-8 d-none d-md-block parent" id="tabs_${ room.p_id }"  >

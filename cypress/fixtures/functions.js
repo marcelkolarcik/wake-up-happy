@@ -7,6 +7,10 @@
 export function preview_room ( id, admin = false )
 	{
 		
+		cy.wait(1500);
+		
+		check_mobile(`mobile_more_${id}`);
+		
 		/*CHECKOUT GALLERY*/
 		cy.get ( `[data-cy=gallery_${ id }]` )
 		  .should ( 'be.visible' )
@@ -158,6 +162,7 @@ export function book_room ( id, room )
 		it ( 'it will try to book the room without selecting board', () =>
 		{
 			
+			cy.wait(1500);
 			/*CLICK ON AVAILABILITY TAB*/
 			cy.get ( `[data-cy=availability_${ id }]` )
 			  .should ( 'be.visible' )
@@ -680,3 +685,25 @@ export function room ( id, action )
 			
 		          } );
 	}
+
+/*CHECK SCREEN WIDTH
+*
+* WHILE TESTING ON MOBILE DEVICES
+*
+* NAV TOGGLER SHOULD BE VISIBLE
+*
+* AND MORE BUTTON UNDER ROOM IMAGE SHOULD BE VISIBLE
+* AND THEY NEED TO BE CLICKED BEFORE  SEEING NAVIGATION
+* OR ROOM PREVIEW
+*
+* button STRING data-cy attribute*/
+
+export function check_mobile( button ){
+	
+	
+	if(Cypress.config().viewportWidth === 414)
+		{
+			cy.get ( `[data-cy=${button}]` )
+			  .should ( 'be.visible' ).click();
+		}
+}

@@ -1,5 +1,6 @@
 import "cypress-localstorage-commands";
-import { preview_room, book_room, select_board, preview_how_to ,search_for_room_in} from "../functions.js";
+import { preview_room, book_room, select_board, preview_how_to ,search_for_room_in,check_mobile} from "../../fixtures/functions.js";
+
 
 
 
@@ -601,6 +602,8 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 		'it will check top right corner navigation, to see user\'s initials in white circle and click on it to see options',
 		() =>
 		{
+			check_mobile('mobile_nav_toggler');
+			
 			cy.get ( '[data-cy=user_nav]' )
 			  .should ( 'be.visible' )
 			  .scrollIntoView ()
@@ -776,6 +779,10 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 			
 			cy.wait ( 500 );
 			
+			check_mobile('mobile_more_96');
+			
+			cy.wait(1500);
+			
 			cy.get ( '[data-cy=availability_96]' )
 			  .should ( 'be.visible' )
 			  .click ();
@@ -839,6 +846,8 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 			  .click ()
 			  .then ( () =>
 			          {
+				          check_mobile('mobile_more_96');
+				          cy.wait ( 2000 );
 				          cy.get ( '[data-cy=availability_96]' )
 				            .should ( 'be.visible' )
 				
@@ -855,6 +864,8 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 		'it will log owner out',
 		() =>
 		{
+			check_mobile('mobile_nav_toggler');
+			
 			cy.get ( '[data-cy=user_nav]' )
 			  .should ( 'be.visible' )
 			  .scrollIntoView ()
@@ -893,11 +904,15 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 		'it will try to login with wrong credentials',
 		() =>
 		{
+//			check_mobile('mobile_nav_toggler');
+//
+//			cy.get ( '[data-cy=owner]' )
+//			  .should ( 'be.visible' )
+//			  .scrollIntoView ()
+//			  .click ();
 			
-			cy.get ( '[data-cy=owner]' )
-			  .should ( 'be.visible' )
-			  .scrollIntoView ()
-			  .click ();
+			check_mobile('mobile_nav_toggler');
+		    cy.wait(2000);
 			
 			cy.get ( '[data-cy=user_nav]' )
 			  .should ( 'be.visible' )
@@ -943,6 +958,8 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 		'it will try to login with right credentials',
 		() =>
 		{
+			check_mobile('mobile_nav_toggler');
+			
 			cy.get ( '[data-cy=user_nav]' )
 			  .should ( 'be.visible' )
 			  .scrollIntoView ()
@@ -981,6 +998,8 @@ describe ( 'Adding new room to the site, booking room, checking customers, editi
 		'it will log owner out',
 		() =>
 		{
+			check_mobile('mobile_nav_toggler');
+			
 			cy.get ( '[data-cy=user_nav]' )
 			  .should ( 'be.visible' )
 			  .scrollIntoView ()
