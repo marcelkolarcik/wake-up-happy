@@ -10,7 +10,16 @@ A booking site, where customers can find rooms with the view...
 ## Table of Contents
 
 - [Inspiration](#inspiration)
-
+- [User Experience](#User-Experience)
+	- [User story](#User-story)
+	
+		- [Customer](#Customer)
+		- [Room owner](#Room-owner)
+		- [Admin](#Admin)
+		- [Person testing](#Person-testing)
+		
+	- [Wireframes](#Wireframes)
+	- [Colors](#Colors)
 - [Technologies](#technologies)
 
 	- [cypress.io](#cypressio)
@@ -24,16 +33,7 @@ A booking site, where customers can find rooms with the view...
 	- [simple-jQuery-translator](#simple-jQuery-translator)
 	- [javascript,HTML,CSS](#javascriptHTMLCSS)
 	
-- [User Experience](#User-Experience)
-	- [User story](#User-story)
-	
-		- [Customer](#Customer)
-		- [Room owner](#Room-owner)
-		- [Admin](#Admin)
-		- [Person testing](#Person-testing)
-		
-	- [Wireframes](#Wireframes)
-	- [Colors](#Colors)
+
 - [Features](#Features)	
 - [How it works](#How-it-works)		
 - [Testing](#testing)
@@ -46,6 +46,105 @@ A booking site, where customers can find rooms with the view...
 
 I was inspired to create this application to help thousands of families to create additional income for themselves, by renting 
 out a room in their home.
+
+## User Experience
+
+ - ### User story
+ 
+    - #### Customer
+     
+    
+   As a customer I would like to be able to:
+  
+        -  select from several languages to use the site
+        -  find room with the view
+        -  find the room on the map to see exact location of the property
+        -  search for the room based on my preferred location, dates, board type or room type using search form
+        -  in a room preview, to click on a button to see room's location on the map
+        -  preview the room's images, amenities, availability,description
+        -  book the room with ease
+        -  see and download confirmation of my booking to my device
+        -  have great experience using this application on any device from mobile to desktop
+        -  see testimonials from other customers
+     
+   - #### Room owner
+          
+         
+   As a Room owner I would like to be able to:
+        
+          -  select from several languages to use the site
+          -  have account on the site
+          -  add multiple rooms to the site
+          -  have my room's location appear in autocomplete option in location field, if it's not included yet
+          -  get exact location of my room using site's map service
+          -  delete any of my rooms from the site
+          -  have a clear written and visual instruction how to add and interact with my room
+          -  edit my room's details
+          -  block off some of the dates for myself
+          -  see my customers details, board they booked, and date they booked
+          -  see total earnings and occupancy for each room
+          -  have great experience using this application on any device from mobile to desktop
+          -  see testimonials from other owners
+          
+   - #### Admin
+                    
+                   
+   As a Admin of the site I would like to be able to:
+                 
+          -  have account on the site
+          -  get notified whenever there is new room added to the site
+          -  disable or re-enable any room if management deemed it appropriate
+             or owner of the room violates our T&C 
+          -  have great experience using this application on any device from mobile to desktop
+             
+   - #### Person testing
+  
+   As a Person testing or previewing the site I would like to be able to:
+   
+            -  select from several languages to use the site    
+            -  clear data from wake-up-happy  in localStorage in my browser after 
+	            visiting the site.
+            -  have great experience using this application on any device from mobile to desktop
+            
+ - ### Wireframes  
+   
+	 I used pencil and paper to draw initial wireframe design ...
+	 The initial drawings can be found here
+	 [Wireframes](WIREFRAMES.md)
+	 
+ - ### Colors 
+ 
+ 	I decided on color scheme of shades of turquoise for the website and created few classes to easily
+    apply color styles as needed. I chose these colors as they are not intrusive and are easy to look at.
+    And they are associated with meaning of refreshment, sophistication and energy.
+    
+    These are the feelings I would like my users to feel when they arrive at landing page of wake-up-happy. 
+    
+    ```css
+   .bg_green {
+   	background-color: #0fbeba;
+   	}
+   
+   .bg_green_dark {
+   	background-color: #005a5b}
+   
+   .green_dark {color: #005a5b}
+   
+   .border_green_dark {border: 1px solid #005a5b;}
+   
+   .green {
+   	color: rgba(0, 195, 209, 1);
+   	font-weight: bold;
+   	}
+   
+   .bg_green_light {
+   	background-color: rgba(0, 195, 209, 0.85);
+   	}
+   
+   .border_green {
+   	border: 1px solid #0fbeba;
+   	}
+    ``` 
  
 ## Technologies 
 ### cypress.io
@@ -302,104 +401,7 @@ I am using sweetalert2, because it allows me to customize my alerts to my users 
    > CSS is is a style sheet language used for describing the presentation of a document written in 
     a markup language like HTML.CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
     
-## User Experience
 
- - ### User story
- 
-    - #### Customer
-     
-    
-   As a customer I would like to be able to:
-  
-        -  select from several languages to use the site
-        -  find room with the view
-        -  find the room on the map to see exact location of the property
-        -  search for the room based on my preferred location, dates, board type or room type using search form
-        -  in a room preview, to click on a button to see room's location on the map
-        -  preview the room's images, amenities, availability,description
-        -  book the room with ease
-        -  see and download confirmation of my booking to my device
-        -  have great experience using this application on any device from mobile to desktop
-        -  see testimonials from other customers
-     
-   - #### Room owner
-          
-         
-   As a Room owner I would like to be able to:
-        
-          -  select from several languages to use the site
-          -  have account on the site
-          -  add multiple rooms to the site
-          -  have my room's location appear in autocomplete option in location field, if it's not included yet
-          -  get exact location of my room using site's map service
-          -  delete any of my rooms from the site
-          -  have a clear written and visual instruction how to add and interact with my room
-          -  edit my room's details
-          -  block off some of the dates for myself
-          -  see my customers details, board they booked, and date they booked
-          -  see total earnings and occupancy for each room
-          -  have great experience using this application on any device from mobile to desktop
-          -  see testimonials from other owners
-          
-   - #### Admin
-                    
-                   
-   As a Admin of the site I would like to be able to:
-                 
-          -  have account on the site
-          -  get notified whenever there is new room added to the site
-          -  disable or re-enable any room if management deemed it appropriate
-             or owner of the room violates our T&C 
-          -  have great experience using this application on any device from mobile to desktop
-             
-   - #### Person testing
-  
-   As a Person testing or previewing the site I would like to be able to:
-   
-            -  select from several languages to use the site    
-            -  clear data from wake-up-happy  in localStorage in my browser after 
-	            visiting the site.
-            -  have great experience using this application on any device from mobile to desktop
-            
- - ### Wireframes  
-   
-	 I used pencil and paper to draw initial wireframe design ...
-	 The initial drawings can be found here
-	 [Wireframes](WIREFRAMES.md)
-	 
- - ### Colors 
- 
- 	I decided on color scheme of shades of turquoise for the website and created few classes to easily
-    apply color styles as needed. I chose these colors as they are not intrusive and are easy to look at.
-    And they are associated with meaning of refreshment, sophistication and energy.
-    
-    These are the feelings I would like my users to feel when they arrive at landing page of wake-up-happy. 
-    
-    ```css
-   .bg_green {
-   	background-color: #0fbeba;
-   	}
-   
-   .bg_green_dark {
-   	background-color: #005a5b}
-   
-   .green_dark {color: #005a5b}
-   
-   .border_green_dark {border: 1px solid #005a5b;}
-   
-   .green {
-   	color: rgba(0, 195, 209, 1);
-   	font-weight: bold;
-   	}
-   
-   .bg_green_light {
-   	background-color: rgba(0, 195, 209, 0.85);
-   	}
-   
-   .border_green {
-   	border: 1px solid #0fbeba;
-   	}
-    ```
 	 
  ## Features
  

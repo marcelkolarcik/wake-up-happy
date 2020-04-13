@@ -32,7 +32,7 @@ import { translate }           from "../shared/translator/translator.js";
 				 *
 				 * WE HAVE 96 DEFAULT ROOMS CREATED
 				 * INITIALLY, SO WE ARE OMITTING THOSE*/
-				var new_rooms = ROOMS;
+				var new_rooms = ROOMS.reverse();;
 				
 				
 				var rooms_div = $ ( '#rooms' );

@@ -178,5 +178,6 @@ When admin tries to login with these credentials :
  Anyone using this application can see testimonials, that are created dynamically, depending on <code>window.location.pathName</code>.
  On every reload op the page the arrays with details are shuffled, so the visitor will have impression of different testimonials.
  
- I am using bootstrap's carousel with 3 carousel-items, where each item is holding 4 testimonials initially, and on every break point
- loosing 1, so on mobile devices we will end up with 1 testimonial per carousel-item. 
+ I am using bootstrap's carousel with 3 carousel-items, where each item is holding 4 testimonials initially.
+ Each testimonial has bootstrap classes applied in a way, that on every break point we will loose 1, 
+ so on mobile devices we will end up with 1 testimonial per carousel-item. 
