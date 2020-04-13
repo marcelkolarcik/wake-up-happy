@@ -28,6 +28,10 @@
 |                  |      click to enlarge    |
 
 
+| Mobile device preview      |      ![mobile_device_preview](https://raw.githubusercontent.com/marcelkolarcik/wake-up-happy/master/assets/src/images/cypress-testing-gifs/mobile.gif)    |
+|                  |      click to enlarge    |
+
+
 
 
 
