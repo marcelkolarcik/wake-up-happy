@@ -10,17 +10,17 @@ export var path_to_language_files = 'assets/dist/languages';
 export var site_languages = [ 'en', 'sk', 'pl', 'es' ];
 
 /*FOR DEVELOPMENT ONLY
-*
-* IF YOU WANT TO HIGHLIGHT TEXT THAT
-* IS NOT TRANSLATED TO ANY PARTICULAR
-* LANGUAGE YET,
+ *
+ * IF YOU WANT TO HIGHLIGHT TEXT THAT
+ * IS NOT TRANSLATED TO ANY PARTICULAR
+ * LANGUAGE YET,
  * SET CLASS THAT WILL BE
-* APPLIED TO ELEMENT TO HIGHLIGHT IT
-*
-* RECOMMENDED : IN PRODUCTION
-* export  var highlight_class =  ''  ;
-*
-*
-*  */
+ * APPLIED TO ELEMENT TO HIGHLIGHT IT
+ *
+ * RECOMMENDED : IN PRODUCTION
+ * export  var highlight_class =  ''  ;
+ *
+ *
+ *  */
 
 export var highlight_class = 'text-danger bg-warning p-1';

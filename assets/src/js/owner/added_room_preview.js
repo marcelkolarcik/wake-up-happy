@@ -21,12 +21,12 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	/*NEW ROOM IS BEING CREATED */
 	else
 		{
-		
+			
 			p_id = JSON.parse ( localStorage.getItem ( 'ROOMS' ) ).length;
 			
-		
+			
 		}
-	
+
 
 //	GETTING FORM DATA WITH serialize()
 	var your_room       = $ ( "#add_your_room" ).serialize ();
@@ -134,16 +134,14 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	var searchables = [];
 	
 	
-	
-	
-	
 	$.each ( address, function ( key, value )
 	{
 
 //		IF KEY IS IN address_keys ARRAY  ( EX. 'city','country','village','town')
 //       WE'LL GET IT AND STORE IT FOR THE ROOM
-		//	address_keys ( FILTER ) FOR CREATING SEARCHABLE ARRAY FOR THE ROOM ( EX. 'city','country','village','town')
-		// FROM THE ADDRESS DETAILS PROVIDED BY nominatim, WITHOUT KEYS LIKE (lat,lng, road....)
+		//	address_keys ( FILTER ) FOR CREATING SEARCHABLE ARRAY FOR THE ROOM ( EX.
+		// 'city','country','village','town') FROM THE ADDRESS DETAILS PROVIDED BY nominatim, WITHOUT KEYS LIKE
+		// (lat,lng, road....)
 		if ( address_keys.indexOf ( key ) !== -1 )
 			{
 
@@ -170,8 +168,8 @@ $ ( document ).on ( 'click', '.preview_room', function ()
 	
 	//LATER AFTER PAYMENT WE'LL RETRIEVE new_room FROM THE sessionStorage AND STORE IT
 	// IN localStorage IN add_room_interactions.js  LINE NUMBER ~ 423
-	
-	
+
+
 //	RENDERING ROOM FOR PREVIEW
 	render_room_preview ( room, 'preview', true );
 	

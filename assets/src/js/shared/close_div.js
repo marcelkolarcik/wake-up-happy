@@ -21,10 +21,6 @@
  */
 
 
-
-
-
-
 /*  WHEN USER CLICKS ON BUTTON WITH .close_div CLASS
  *  WE WILL DATA ATTRIBUTES :
  *   1.  data-div => WHICH DIV TO CLOSE
@@ -57,7 +53,7 @@ $ ( document ).on ( 'click', '.close_div', function ()
 			$ ( '#' + div ).fadeOut ( 350 );
 		}
 	
-	console.log(div)
+	
 } );
 
 

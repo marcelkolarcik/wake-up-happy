@@ -12,7 +12,9 @@
  *       d.  3 IMAGES => ALL INCLUSIVE
  * */
 
-import {view_types,} from './inventory.js';
+import { view_types } from './inventory.js';
+
+
 export function render_gallery ( room )
 	{
 		

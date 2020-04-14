@@ -9,10 +9,11 @@ import { translate } from "../shared/translator/translator.js";
 			
 			var customers_table = $ ( '#customers_table' );
 			var customers;
-			var total_income = 0;
-			var weeks_booked = [];
+			var total_income    = 0;
+			var weeks_booked    = [];
 			/*IF ROOM HAS ANY CUSTOMERS => WE WILL DISPLAY CUSTOMERS TO OWNER*/
-			if ( sessionStorage.room_to_edit && localStorage.CUSTOMERS && ( customers = JSON.parse ( localStorage.CUSTOMERS )[ JSON.parse (
+			if ( sessionStorage.room_to_edit && localStorage.CUSTOMERS && ( customers = JSON.parse (
+				localStorage.CUSTOMERS )[ JSON.parse (
 				sessionStorage.room_to_edit ).p_id ] ) )
 				{
 					/*CREATING CUSTOMER TABLE TO DISPLAY*/
@@ -40,21 +41,21 @@ import { translate } from "../shared/translator/translator.js";
 						
 						$.each ( customer, function ( index, value )
 						{
-							if(index !== 'p_id')
+							if ( index !== 'p_id' )
 								$ ( '#table_row_' + key ).append ( `<td >${ value }</td>` );
 							
-							if(index === 'weeks')
+							if ( index === 'weeks' )
 								{
-									$.each(value.split('-'), function ( key, week )
+									$.each ( value.split ( '-' ), function ( key, week )
 									{
-										weeks_booked.push(week);
-									})
+										weeks_booked.push ( week );
+									} );
 									
 								}
 							
-							if(index === 'total_price')
+							if ( index === 'total_price' )
 								{
-									total_income = parseFloat(total_income)  + parseFloat(value) ;
+									total_income = parseFloat ( total_income ) + parseFloat ( value );
 								}
 						} );
 						
@@ -66,24 +67,24 @@ import { translate } from "../shared/translator/translator.js";
 					customers_table.append ( ` </tbody></table>
 			                </div>` );
 					
-					customers_table.prepend( `
+					customers_table.prepend ( `
 								<div class = "list-group  list-group-horizontal-md tabs col-md-12 mb-2"    >
 								 <a class = "list-group-item list-group-item-action nav_link_property bg_green_dark text-light">
-								    ${JSON.parse (sessionStorage.room_to_edit ).p_address.property_name}
+								    ${ JSON.parse ( sessionStorage.room_to_edit ).p_address.property_name }
 								  </a >
 								   <a class = "list-group-item list-group-item-action nav_link_property ___ border_green_dark" data-text="Total income">
 								   
 								  </a >
 								  
 								   <a class = "list-group-item list-group-item-action nav_link_property border_green_dark" >
-								    ${total_income} &euro;
+								    ${ total_income } &euro;
 								  </a >
 								  
 								   <a class = "list-group-item list-group-item-action nav_link_property ___ border_green_dark" data-text="Yearly occupancy">
 								   
 								  </a >
 								  <a class = "list-group-item list-group-item-action nav_link_property border_green_dark" >
-								    ${( (parseInt(weeks_booked.length)  / 53) * 100).toFixed(2) }&percnt;
+								    ${ ( ( parseInt ( weeks_booked.length ) / 53 ) * 100 ).toFixed ( 2 ) }&percnt;
 								  </a >
 								</div>
 		
@@ -94,22 +95,24 @@ import { translate } from "../shared/translator/translator.js";
 																	class="bg_green_dark text-light p-2" >OK</button>` );
 					
 					
-					
 				}
 			else
 				{
-					customers_table.append ( ` <h4 class="___" data-text="Your room has no customers yet!"></h4>` );
+					customers_table.append ( ` <h4 class="___" data-text="Your room has no customers yet!"></h4>
+                                    <button id="close_alert"
+																	data-cy="dismiss_alert"
+																	class="bg_green_dark text-light p-2" >OK</button>` );
 				}
 			/*POPUP TO OWNER WITH OR WITHOUT CUSTOMERS*/
 			swal.fire ( {
-				            width : $ ( window ).width (),
-				            html  : customers_table,
-				            showConfirmButton:false
+				            width             : $ ( window ).width (),
+				            html              : customers_table,
+				            showConfirmButton : false
 			            } );
-			translate();
+			translate ();
 			/*CLEARING customers_table , BECAUSE IF OWNER WOULD CLICK MULTIPLE TIMES
 			 * ON customers BUTTON, HE WOULD SEE MULTIPLE TABLES....*/
-			customers_table.html('');
+			customers_table.html ( '' );
 			
 		} );
 		

@@ -29,12 +29,10 @@
  * */
 
 
-
-
 $ ( function ()
     {
 	    append_room_actions ();
-	  
+	
     } );
 
 (
@@ -68,7 +66,8 @@ $ ( function ()
 				var room = JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) );
 				
 				
-				Swal.fire ( {   html : ` <div class = "col-md-9 text-center" >
+				Swal.fire ( {
+					            html : ` <div class = "col-md-9 text-center" >
 				                            <h4 class="___" data-text="Delete |room_name ?"
 				                            data-room_name="${ room.p_address.property_name }">
 				                            
@@ -79,12 +78,12 @@ $ ( function ()
 										    <hr class="bg-danger">
 						 	
 										</div>`,
-					           
+					
 					            showCancelButton   : true,
 					            confirmButtonColor : '#0fbeba',
 					            cancelButtonColor  : '#dd3333',
 					            confirmButtonText  : `<i class="fas fa-check-circle"></i>`,
-					            cancelButtonText  : `<i class="fas fa-times-circle"></i>`
+					            cancelButtonText   : `<i class="fas fa-times-circle"></i>`
 				            } ).then ( ( result ) =>
 				                       {
 					
@@ -142,14 +141,13 @@ $ ( function ()
 								                       'authorized_owner', JSON.stringify ( owner ) );
 
 //					CONFIRMATION OF DELETION
-							                       Swal.fire ({
-								                       html : `<div >
+							                       Swal.fire ( {
+								                                   html : `<div >
 								                                    <h4 class="bg-_green  text-light" ><i class="fas fa-check-circle"></i></h4>
 																	
-															 </div>`,
-								                       
-							                                  }
-							                                  
+															 </div>`
+								
+							                                   }
 							                       );
 							
 							
@@ -191,12 +189,11 @@ $ ( function ()
 				window.location.replace ( "owner.html" );
 				
 				
-				
 			} );
 			
 			$ ( document ).on ( 'click', '.add_your_room', function ()
 			{
-
+				
 				sessionStorage.setItem ( 'add_mode', true );
 				set_current_mode ( 'add_mode' );
 			} );
@@ -256,10 +253,10 @@ function set_description_id ( step )
  * LATER WHEN HE LOGS IN, HE WILL SEE THIS ROOM AS CURRENT ROOM*/
 export function set_last_room_id ()
 	{
-		var OWNERS                                          = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
-		var owner                                           = OWNERS[ sessionStorage.getItem ( 'hashed_login' ) ];
+		var OWNERS = JSON.parse ( localStorage.getItem ( 'OWNERS' ) );
+		var owner  = OWNERS[ sessionStorage.getItem ( 'hashed_login' ) ];
 		
-		owner.room_id                                       = JSON.parse (
+		owner.room_id = JSON.parse (
 			sessionStorage.getItem ( 'room_to_edit' ) ).p_id;
 		
 		OWNERS[ sessionStorage.getItem ( 'hashed_login' ) ] = owner;
@@ -271,10 +268,10 @@ export function set_last_room_id ()
 function append_room_actions ()
 	{
 		/*INITIALLY, WHEN USER LANDS ON owner.html, WE WILL SET add_mode TO
-		* TRUE, SO HE CAN SEE HOW-TO ALERT FOR THAT MODE*/
-		if(!sessionStorage.room_to_edit)
+		 * TRUE, SO HE CAN SEE HOW-TO ALERT FOR THAT MODE*/
+		if ( !sessionStorage.room_to_edit )
 			{
-				sessionStorage.setItem('add_mode',true);
+				sessionStorage.setItem ( 'add_mode', true );
 			}
 		
 		$ ( '#room_actions' ).append ( `<div class="d-flex justify-content-between">
@@ -296,7 +293,7 @@ function append_room_actions ()
 					
 					<!--IF WE HAVE ROOM TO EDIT WE WILL DISPLAY CONTROLS TO INTERACT WITH THE ROOM :
 					Preview, Edit, Delete, Block Dates-->
-					${ ( sessionStorage.room_to_edit && sessionStorage.authorized_owner  )
+					${ ( sessionStorage.room_to_edit && sessionStorage.authorized_owner )
 		               ?
 		               `
 						
@@ -308,7 +305,7 @@ function append_room_actions ()
                           ${ JSON.parse ( sessionStorage.getItem ( 'room_to_edit' ) ).p_address.property_name }</button >
                           
                       <button class = "___  mb-1 no_padding ${ sessionStorage.getItem ( 'preview_mode' ) === null
-		                                                    ? 'bg_green_dark text-light' : 'bg_green text-light' }  "
+		                                                       ? 'bg_green_dark text-light' : 'bg_green text-light' }  "
                       id="preview_mode"  data-cy="preview_mode"
                         
                          data-title="Preview mode" ><i class="far fa-eye">&nbsp;</i> <span class="___" data-text="Preview"></span> </button >
@@ -319,8 +316,10 @@ function append_room_actions ()
                          title="Edit mode" ><i class="far fa-edit">&nbsp;</i><span class="___" data-text="Edit"></span> </button >
                        
                          
-                          <button class = " need_translation mb-1 no_padding ${ sessionStorage.getItem ( 'delete_mode' ) === null
-		                                                        ? 'bg_green_dark text-light' : 'bg_green text-light' } " id="delete_mode"
+                          <button class = " need_translation mb-1 no_padding ${ sessionStorage.getItem ( 'delete_mode' )
+		                                                                        === null
+		                                                                        ? 'bg_green_dark text-light'
+		                                                                        : 'bg_green text-light' } " id="delete_mode"
                          data-cy="delete_mode"
                          title="Delete mode" data-room_id="${ JSON.parse (
 			               sessionStorage.getItem ( 'authorized_owner' ) ).room_id }"><i class="far fa-trash-alt">&nbsp;</i><span class="___" data-text="Delete"></span> </button >

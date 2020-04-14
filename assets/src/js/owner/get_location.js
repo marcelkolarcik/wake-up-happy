@@ -123,7 +123,7 @@ import { translate } from "../shared/translator/translator.js";
 								render_location_details ( address_data, coordinates );
 								
 								/*CLOSING LOADER GIF ALERT*/
-								swal.close();
+								swal.close ();
 							}
 						
 					};
@@ -257,8 +257,6 @@ function render_location_details ( address_data, coordinates, owner = false )
         </div >
 					` );
 		translate ();
-		
-		
 		
 		
 	}

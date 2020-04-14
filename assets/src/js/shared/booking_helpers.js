@@ -78,7 +78,6 @@ import { board_types }  from './inventory.js';
 			check_current_room ( to_be_booked_room_ids );
 			
 			
-			
 			$ ( '#boards_' + p_id ).removeClass ( 'border border-danger' );
 
 
@@ -133,7 +132,7 @@ import { board_types }  from './inventory.js';
 			{
 				
 				var p_id = $ ( this ).data ( 'p_id' );
-				
+
 
 //			IF USER FORGETS TO SELECT THE BOARD FOR THE ROOM,
 //			BEFORE SELECTING WEEKS, WE'LL FIRE ALERT
@@ -142,7 +141,7 @@ import { board_types }  from './inventory.js';
 						$ ( '#boards_' + p_id ).addClass ( 'border border-danger' );
 						swal.fire ( {
 							
-							            html : `
+							            html              : `
 										<div data-cy="dismiss_alert">
 										<h4 class="text-danger"><i class="fas fa-exclamation"></i></h4>
 										<div class = "col-auto" >
@@ -156,8 +155,8 @@ import { board_types }  from './inventory.js';
 																	class="bg_green_dark text-light pl-3 pr-3 pt-2 pb-2" >OK</button>
 									     </div>
 									   `,
-										showConfirmButton:false
-							           
+							            showConfirmButton : false
+							
 						            } );
 						
 						translate ();
@@ -484,7 +483,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 						
 						swal.fire ( {
 							            html :
-								            `<div data-cy="booking_confirmation_${room.p_id}" class="card horizontally_aligned" style="width: 100%;">
+								            `<div data-cy="booking_confirmation_${ room.p_id }" class="card horizontally_aligned" style="width: 100%;">
 							<div class=" bg_green">
 							 <img class="" src="assets/src/images/logo_sm.png"  alt="logo image">
 						
@@ -562,7 +561,7 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 				} );
 				
 				swal.fire ( {
-					            html               : `<div data-cy="required_fields_missing">
+					            html              : `<div data-cy="required_fields_missing">
 								                                    <h4 class="text-danger"><i class="fas fa-exclamation"></i></h4>
 																	 <p class="card-title nav_link_property text-danger ___" data-text="missing fields"></p>
 																	 <hr class="bg-danger">
@@ -575,8 +574,8 @@ function confirm_payment ( status, p_id, contactForm, missing_fields = null )
 																	class="bg_green_dark text-light pl-3 pr-3 pt-2 pb-2" >OK</button>
 												     </div>
 												   `,
-					            showConfirmButton  : false,
-					           
+					            showConfirmButton : false
+					
 					
 				            } );
 				translate ();

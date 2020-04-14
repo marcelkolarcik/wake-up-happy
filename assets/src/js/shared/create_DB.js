@@ -22,7 +22,7 @@ import { translate }    from "./translator/translator.js";
 		if ( !localStorage.initial_welcome )
 			{
 				swal.fire ( {
-					            html : `
+					            html              : `
 							<div data-cy_initial_alert="open">
 							<h4 class="___" data-text="Dear Visitor!"></h4>
 							<hr class="bg_green">
@@ -39,7 +39,7 @@ import { translate }    from "./translator/translator.js";
 							<button id="close_alert" data-cy="dismiss_alert" class="bg_green_dark text-light p-2" >OK</button>
 							</div>
 							`,
-							showConfirmButton:false
+					            showConfirmButton : false
 				            } );
 				
 				localStorage.setItem ( 'initial_welcome', true );
@@ -48,17 +48,13 @@ import { translate }    from "./translator/translator.js";
 				
 			}
 		
-		$ ( document ).on ( 'click', '#close_alert', function (){
-			
-			swal.close();
-		});
-		
-		/*CLEARING localStorage AND sessionStorage ON USER EXITING THE SITE*/
-		$ ( document ).on ( 'click', '#clear_localStorage', function ()
+		$ ( document ).on ( 'click', '#close_alert', function ()
 		{
 			
-			location.replace ( 'cleared.html' );
+			swal.close ();
 		} );
+		
+		
 	} ) ();
 
 
@@ -199,7 +195,7 @@ if ( !localStorage.getItem ( 'ROOMS_created' ) )
 				
 				localStorage.setItem ( 'ROOMS_created', true );
 				localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
-			
+				
 				localStorage.setItem ( 'autocomplete_searchables', JSON.stringify ( autocomplete_searchables ) );
 				
 			}

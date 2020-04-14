@@ -27,12 +27,12 @@ import { translate }           from "../shared/translator/translator.js";
 				var ROOMS  = JSON.parse ( localStorage.ROOMS );
 				var OWNERS = localStorage.OWNERS ? JSON.parse ( localStorage.OWNERS ) : null;
 				
-			
+				
 				/*GETTING ROOMS ADDED BY OWNERS
 				 *
 				 * WE HAVE 96 DEFAULT ROOMS CREATED
 				 * INITIALLY, SO WE ARE OMITTING THOSE*/
-				var new_rooms = ROOMS.reverse();;
+				var new_rooms = ROOMS;
 				
 				
 				var rooms_div = $ ( '#rooms' );
@@ -166,7 +166,8 @@ import { translate }           from "../shared/translator/translator.js";
 										</span>
 				                          <hr class="${ disabled ? `bg-danger` : `bg_green` }">
 										<span class="___ ${ disabled ? `bg-danger text-light` : `bg_green text-light` } p-2"
-																data-text="${ disabled ? `was disabled` : `was enabled` }">
+																data-text="${ disabled ? `was disabled`
+				                                                                       : `was enabled` }">
 										</span>
 											<hr class="${ disabled ? `bg-danger` : `bg_green` }">
 										<a class="btn btn-sm bg_green_dark text-light pl-3 pr-3"
@@ -176,10 +177,9 @@ import { translate }           from "../shared/translator/translator.js";
 													OK
 										</a>`,
 				
-							showConfirmButton:false
-									
-												
-		
+				            showConfirmButton : false
+				
+				
 			            } );
 			translate ();
 			

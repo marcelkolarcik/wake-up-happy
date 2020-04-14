@@ -1,24 +1,26 @@
 import { translate } from "./shared/translator/translator.js";
 
 
-(function (  )
+( function ()
 	{
 		/*https://stackoverflow.com/questions/758688/sleep-in-javascript-delay-between-actions*/
+		
+		
 		/*I HAD TO CLEAR JUST AFTER TRANSLATION HAPPENED, OTHERWISE
-		* IT WAS NOT DISPLAYING ANY TEXT*/
-		function sleep(ms, f)
+		 * IT WAS NOT DISPLAYING ANY TEXT*/
+		function sleep ( ms, f )
 			{
-				return(
-					setTimeout(f, ms)
-				)
+				return (
+					setTimeout ( f, ms )
+				);
 			}
 		
 		
-		sleep(0, function()
+		sleep ( 0, function ()
 		{
-			translate();
+			translate ();
 			
-			sleep(500, function()
+			sleep ( 500, function ()
 			{
 				/*CLEARING localStorage AND sessionStorage ON USER EXITING THE SITE*/
 				localStorage.removeItem ( 'ROOMS_created' );
@@ -30,15 +32,9 @@ import { translate } from "./shared/translator/translator.js";
 				localStorage.removeItem ( 'initial_locations' );
 				localStorage.removeItem ( 'initial_welcome' );
 				localStorage.removeItem ( 'language' );
-				sessionStorage.clear();
-			})
-		});
+				sessionStorage.clear ();
+			} );
+		} );
 		
 		
-		
-		
-		
-		
-
-		
-	})();
+	} ) ();

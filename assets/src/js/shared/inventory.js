@@ -169,6 +169,7 @@ export let autocomplete_searchables = [ 'Cork', 'Dublin', 'Limerick', 'Yaiza', '
 // STRING THAT USER TYPES => THIS ROOM WILL APPEAR IN SEARCH RESULTS, IF OF COURSE OTHER CONDITIONS ARE MET LIKE
 // room_type, board_type, free weeks
 export let address_keys = [
-	'city', 'country', 'county', 'village', 'town', 'state', 'state district', 'suburbs','suburb', 'city district', 'region',
+	'city', 'country', 'county', 'village', 'town', 'state', 'state district', 'suburbs', 'suburb', 'city district',
+	'region',
 	'locality', 'hamlet'
 ];

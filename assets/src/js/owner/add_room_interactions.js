@@ -2,7 +2,7 @@ import { translate }        from '../shared/translator/translator.js';
 import { hash_login }       from "../shared/authorizations.js";
 import { set_last_room_id } from "../shared/room_actions.js";
 import { display_date }     from "../shared/getWeek.js";
-import { add_payment_form } from "./add_room_payment_form.js"
+import { add_payment_form } from "./add_room_payment_form.js";
 
 import {
 	autocomplete_searchables,
@@ -107,7 +107,7 @@ $ ( document ).on ( "click", ".board_type", function ()
 											class="board_price col-md-9 ml-1 form-control"
 											data-c_box_id="${ board_type }"
 		                                    placeholder = "EUR"
-		                                    data-cy="board_price_${board_type}">
+		                                    data-cy="board_price_${ board_type }">
                            
 
 									` );
@@ -552,7 +552,7 @@ function is_ready_for_step_4 ( num_of_prices, num_of_amenities, room_desc )
 			/*BY CLICKING ON location,room,services,preview,payment steps*/
 			$ ( document ).on ( 'click', '.step', function ()
 			{
-			
+				
 				$ ( "html, body" ).animate ( { scrollTop : 0 }, "slow" );
 
 //			SETTING CURRENT PROGRESS STEP ON HOW-TO BUTTON =>
@@ -676,10 +676,10 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 	else
 		{
 			
-			swal.fire({
-				html:`<img src="assets/src/images/loader.gif" alt="loader">`,
-				showConfirmButton:false
-			          });
+			swal.fire ( {
+				            html              : `<img src="assets/src/images/loader.gif" alt="loader">`,
+				            showConfirmButton : false
+			            } );
 			
 			/*OWNER DETAILS FROM PAYMENT FORM*/
 			var owner_details       = $ ( "#add_room_payment_form" ).serialize ();
@@ -711,7 +711,7 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 			if ( missing_values.length > 0 )
 				{
 					swal.fire ( {
-						            html               : `<div data-cy="required_fields_missing">
+						            html              : `<div data-cy="required_fields_missing">
 								                                   <h4 class="text-danger"><i class="fas fa-exclamation"></i></h4>
 																	
 																	 <p class="___ card-title nav_link_property text-danger" data-text="missing fields"></p>
@@ -725,12 +725,12 @@ $ ( document ).on ( 'click', '#pay_for_the_room', function ()
 																	class="bg_green_dark text-light pl-3 pr-3 pt-2 pb-2" >OK</button>
 												     </div>
 												   `,
-						            showConfirmButton  : false,
+						            showConfirmButton : false
 						
 						
 					            } );
 					
-					translate();
+					translate ();
 					return false;
 				}
 			
@@ -863,14 +863,13 @@ function check_autocomplete ( new_room )
 
 //  ARRAY OF LOCATION NAMES, AUTO-UPDATING WITH EVERY NEW LOCATION, SO WHEN USER SEARCHES FOR LOCATION IN
 // SEARCH FORM ON index.html , IF THE LOCATION IS IN THIS ARRAY, IT WILL SHOW ON AUTO-COMPLETE
-
-
+		
 		
 		//// USING address_keys AS FILTER TO GET STRINGS  FOR AUTO-COMPLETE ( EX. 'city','country','village','town')
 		// FROM ADDRESS PROVIDED BY nominium, OMITTING KEYS LIKE (lat,lng, road....)
 		
-
-		var new_locations   = false;
+		
+		var new_locations = false;
 		
 		$.each ( new_room.p_address, function ( key, value )
 		{
@@ -930,7 +929,7 @@ function store_room ( new_room, update = false )
 				
 				
 			}
-		
+
 //	UPDATING ROOMS IN localStorage
 		localStorage.setItem ( 'ROOMS', JSON.stringify ( ROOMS ) );
 
@@ -962,11 +961,12 @@ function store_room ( new_room, update = false )
 			{
 				send_email_to_admin ( new_room, owner );
 			}
-		else{
-			
-			//	IF OWNER IS  EDITING  ROOM WE WILL REDIRECT TO owner.html
-			location.replace ( `owner.html` );
-		}
+		else
+			{
+				
+				//	IF OWNER IS  EDITING  ROOM WE WILL REDIRECT TO owner.html
+				location.replace ( `owner.html` );
+			}
 	}
 
 
@@ -990,23 +990,23 @@ function send_email_to_admin ( new_room, owner )
 			       "room_name" : new_room.p_address.property_name,
 			       "location"  : new_room.location,
 			       "added_at"  : new_room.created_at
-
+			
 		       } )
 		       .then (
 			       function ( response )
 			       {
 				       console.log ( "SUCCESS", response );
-
+				
 				       //	IF OWNER IS  ADDING NEW ROOM SO WE WILL REDIRECT TO index.html
 				       // TO SHOW ROOM ON THE MAP WITH MARKER AND POPUP
 				       location.replace ( `index.html` );
-
-
+				
+				
 			       },
 			       function ( error )
 			       {
 				       console.log ( "FAILED", error );
-
+				
 			       }
 		       );
 		return false;  // To block from loading a new page

@@ -24,13 +24,13 @@ $ ( function ()
                                 ${ !sessionStorage.authorized_owner && !localStorage.admin ?
 	                               ` <a id = "login_details" data-cy="login"
                                         class = "dropdown-item ___" href = "#" data-title = "Login form" data-text="Login">Login</a >`
-	                                                                              :`` }
+	                                                                                       : `` }
                                  
-                                 <a id = "clear_localStorage" class = "dropdown-item ___ text-danger" href = "#"
+                                 <a id = "clear_localStorage" class = "dropdown-item ___ text-danger" href = "cleared.html"
                                  data-title = "clear localStorage"  data-cy="clear_localStorage"
                                  ><i class="fas fa-trash-alt"></i> <code>localStorage</code></a >
                                  </div >` );
-                            
+
 
 //  IF OWNER LOGS IN INTO HIS ACCOUNT WE WILL DISPLAY HIS INITIALS
 	    var user_drop_down = $ ( '#user_drop_down' );
@@ -49,8 +49,6 @@ $ ( function ()
 					    return str.charAt ( 0 ).toUpperCase ();
 				    }
 			
-			
-			  
 			
 			    user_drop_down.append ( `
                                 
@@ -79,7 +77,7 @@ $ ( function ()
 						    user_drop_down.append ( `
                                 
                                 <a id = "${ room.p_id }" class = "dropdown-item room_switch" href = "#"
-                                data-cy="owners_room_${room.p_id}"
+                                data-cy="owners_room_${ room.p_id }"
                                 title = "${ room.p_address.property_name }" >${ room.p_address.property_name }</a >` );
 					    }
 				
@@ -104,7 +102,7 @@ $ ( function ()
 			    $ ( '#login_details' ).remove ();
 			
 		    }
-	    if(localStorage.admin)
+	    if ( localStorage.admin )
 		    {
 			    user_drop_down.append ( `
                                  <div class = "dropdown-divider" ></div >
@@ -113,7 +111,7 @@ $ ( function ()
                                 class = "dropdown-item bg_orange_light ___" href = "#" data-title = "Logout" data-text="Logout"></a >` );
 			
 			    $ ( '#owner_name' ).append (
-				    `<a href="admin.html" class="nav_link_property dashboard_link ___" data-cy="admin" data-title="Dashboard">Admin</a>`);
+				    `<a href="admin.html" class="nav_link_property dashboard_link ___" data-cy="admin" data-title="Dashboard">Admin</a>` );
 		    }
 	
     } );
@@ -123,7 +121,7 @@ $ ( document ).on ( 'click', '#make_money', function ()
 {
 	
 	swal.fire ( {
-
+		
 		            html              : `
 			<div id = "revenue" >
     <span class = "btn btn-sm text-danger float-right btn-warning" onclick = "swal.close()" >x</span >

@@ -70,7 +70,7 @@ function render_room_types ()
 				               ? 'bg_green'
 				               : 'bg_green_dark' } text-light room_type"
 						         id = "room_type_${ room_type }"
-						         data-cy="room_type_footer_${index}">
+						         data-cy="room_type_footer_${ index }">
 						        <label for = "${ room_type }" class = "text-capitalize ___" data-text="${ room_type }"></label >
 						      <br>
 						        <!--IF WE HAVE ROOM  => SETTING ROOM'S OPTION TO checked-->
@@ -81,7 +81,7 @@ function render_room_types ()
 						               data-next_div = "view_type_images"
 						               data-footer = "room_type_${ room_type }"
 						               data-type = "room_type"
-						               data-cy="room_type_${index}"
+						               data-cy="room_type_${ index }"
 						             ${ owners_room_type && parseInt ( owners_room_type ) === parseInt ( index )
 				                        ? 'checked' : '' }
 						        >
@@ -112,7 +112,7 @@ function render_view_types ()
 					                                                      === view_type
 					                                                      ? 'bg_green' : 'bg_green_dark' }   text-light  view_type p-0"
 							         id = "view_type_${ view_type }"
-							          data-cy="view_type_footer_${view_type}">
+							          data-cy="view_type_footer_${ view_type }">
 							          
 							        <label for = "${ view_types[ view_type ] }" class = "text-capitalize ___"
 							         data-text=":view_type view"
@@ -128,7 +128,7 @@ function render_view_types ()
 							               data-next_div = "room_style_images"
 							               data-footer = "view_type_${ view_type }"
 							               data-type = "view_type"
-							                data-cy="view_type_${view_type}"
+							                data-cy="view_type_${ view_type }"
 							               ${ owners_room_view && owners_room_view === view_type ? 'checked' : '' }
 							        >
 							    </div >
@@ -181,7 +181,7 @@ function render_room_styles ()
 							<div class = "card col-lg-2 col-md-3  col-sm-4 col-4 text-center room_style_images d-none" >
 							    <img src = "assets/src/images/bedrooms/b${ room_styles[ room_style ] }.jpg" class = "form_image img-thumbnail"
 							         alt = "bedroom image"
-							          data-cy="room_style_image_${room_style}">
+							          data-cy="room_style_image_${ room_style }">
 							         
 							         <!--IF WE HAVE OWNERS ROOM , SETTING FOOTER TO bg_green AS SELECTED-->
 							    <div class = "p-0 card-footer text-center
@@ -190,7 +190,7 @@ function render_room_styles ()
 					                 : 'bg_green_dark' }
 									text-light d-flex justify-content-around align-items-center room_style"
 							         id = "room_style_${ room_style }"
-							         data-cy="room_style_footer_${room_style}">
+							         data-cy="room_style_footer_${ room_style }">
 							         
 							        <label for = "${ room_styles[ room_style ] }" class = "text-capitalize" >#${ room_styles[ room_style ] }</label >
 							        
@@ -202,7 +202,7 @@ function render_room_styles ()
 							               data-next_div = "board_type_images"
 							               data-footer = "room_style_${ room_style }"
 							               data-type = "room_style"
-							               data-cy="room_style_${room_style}"
+							               data-cy="room_style_${ room_style }"
 							               ${ owners_room_style && parseInt ( owners_room_style - 1 )
 					                          === parseInt ( room_style )
 					
@@ -239,7 +239,7 @@ function render_board_types ()
 					                                                    ? 'bg_green'
 					                                                    : 'bg_green_dark' } text-light board_type_${ board_type }"
 						         id = "board_type_${ board_type }"
-						         data-cy="board_type_footer_${board_type}">
+						         data-cy="board_type_footer_${ board_type }">
 						         
 						        <div class = "input-group mb-2 text-center" >
 						            <div class = "input-group-prepend" >
@@ -252,7 +252,7 @@ function render_board_types ()
 						                           data-board_type = "${ board_type }"
 						                           data-parent_title = "board_types_title"
 						                           data-footer = "board_type_${ board_type }"
-						                           data-cy="board_type_${board_type}"
+						                           data-cy="board_type_${ board_type }"
 						                           ${ owners_boards && board_type in owners_boards ? 'checked' : '' } >
 						                           
 						                   
@@ -320,7 +320,7 @@ function render_amenities ()
 		${ owners_amenities && owners_amenities.indexOf ( index ) !== -1 ? 'bg_green'
 			                                                             : 'bg_green_dark' } text-light  p-0 amenity${ index }"
 		    id = "amenity${ index }"
-		     data-cy="amenity_footer_${index}">
+		     data-cy="amenity_footer_${ index }">
 		        <div class = "input-group mb-2" >
 		            <div class = "input-group-prepend" >
 		                <div class = "input-group-text bg-transparent border_bottom_only" >
@@ -331,7 +331,7 @@ function render_amenities ()
 		                           data-type = "amenity"
 		                           data-parent_title = "amenities_title"
 		                           data-footer = "amenity${ index }"
-		                           data-cy="amenity_${index}"
+		                           data-cy="amenity_${ index }"
 		                           ${ owners_amenities && owners_amenities.indexOf ( index ) !== -1 ? 'checked' : '' }
 		                    >
 		                </div >

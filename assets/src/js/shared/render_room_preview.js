@@ -20,7 +20,6 @@ import { render_booking_form }     from './render_booking_form.js';
 import { translate }               from "./translator/translator.js";
 
 
-
 export function render_room_preview ( property, where, preview = false )
 	{
 		
@@ -32,11 +31,11 @@ export function render_room_preview ( property, where, preview = false )
 		render_address ( property );
 		
 		/*IF USER CLICKS ON THE MARKER ON THE MAP TO
-		* DISPLAY ROOM INFO, WE NEED TO TRANSLATE THAT INFO
-		*TO CURRENT LANGUAGE, BECAUSE ON INITIAL translate()
-		* THAT ROOM WASN'T IN THE DOCUMENT*/
-		where === 'map_search_result' ? translate() : '';
-	
+		 * DISPLAY ROOM INFO, WE NEED TO TRANSLATE THAT INFO
+		 *TO CURRENT LANGUAGE, BECAUSE ON INITIAL translate()
+		 * THAT ROOM WASN'T IN THE DOCUMENT*/
+		where === 'map_search_result' ? translate () : '';
+		
 	}
 
 

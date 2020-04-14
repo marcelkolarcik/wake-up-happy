@@ -1,88 +1,101 @@
 /*WHEN USER CLICK ON '#how_alert,#block_mode' BUTTON, WE WILL DISPLAY APPROPRIATE HOW TO DESCRIPTION
-* DEPENDING ON WHICH PART (step) OF THE FORM USER CLICKED,
-*
-* I'M STORING DESCRIPTION'S TEXTUAL CONTENT IN  description_content ( step ) FUNCTION
-* step          =>      WHICH PART (step) OF THE FORM USER CLICKED
-*
-* I'VE CREATED COMPONENT FUNCTION description_component ( description, step, gif )
-* WHICH TAKES 3 PARAMETERS description, step, gif
-* WHERE
-*
-* description   =>      TEXTUAL DESCRIPTION
-* step          =>      WHICH PART (step) OF THE FORM USER CLICKED
-* gif           =>      WHICH GIF TO INCLUDE AS DEMONSTRATION VIDEO
-*
-* gifs ARE NAMED SAME AS steps FOR EASE OF USE
-*
-* SO WHEN USER CLICKS ON '#how_alert,#block_mode'
-* render_description ( step ) FUNCTION WILL FIRE
-* step          =>      WHICH PART (step) OF THE FORM USER CLICKED
-* WHERE step IS DECIDING FACTOR AS TO WHAT DESCRIPTION WILL BE DISPLAYED*/
+ * DEPENDING ON WHICH PART (step) OF THE FORM USER CLICKED,
+ *
+ * I'M STORING DESCRIPTION'S TEXTUAL CONTENT IN  description_content ( step ) FUNCTION
+ * step          =>      WHICH PART (step) OF THE FORM USER CLICKED
+ *
+ * I'VE CREATED COMPONENT FUNCTION description_component ( description, step, gif )
+ * WHICH TAKES 3 PARAMETERS description, step, gif
+ * WHERE
+ *
+ * description   =>      TEXTUAL DESCRIPTION
+ * step          =>      WHICH PART (step) OF THE FORM USER CLICKED
+ * gif           =>      WHICH GIF TO INCLUDE AS DEMONSTRATION VIDEO
+ *
+ * gifs ARE NAMED SAME AS steps FOR EASE OF USE
+ *
+ * SO WHEN USER CLICKS ON '#how_alert,#block_mode'
+ * render_description ( step ) FUNCTION WILL FIRE
+ * step          =>      WHICH PART (step) OF THE FORM USER CLICKED
+ * WHERE step IS DECIDING FACTOR AS TO WHAT DESCRIPTION WILL BE DISPLAYED*/
 
 
 import { translate } from "../shared/translator/translator.js";
 
 
-( function () {
-	
-	/*WHEN USER CLICKS ON HOW-TO BUTTON, WE WILL FIRE POPUP WITH APPROPRIATE DESCRIPTION
-	* DEPENDING ON THE STEP OF THE FORM*/
-	$ ( document ).on ( 'click', '#how_alert,#block_mode', function () {
+( function ()
+	{
 		
-		var step = $ ( this ).data ( 'step' );
-
-		swal.fire ( {
-			            width             : $ ( window ).width (),
-			            position          : 'top-end',
-			            html              : `${ render_description ( step ) }`,
-			            showConfirmButton : false
-		            }
-		);
+		/*WHEN USER CLICKS ON HOW-TO BUTTON, WE WILL FIRE POPUP WITH APPROPRIATE DESCRIPTION
+		 * DEPENDING ON THE STEP OF THE FORM*/
+		$ ( document ).on ( 'click', '#how_alert,#block_mode', function ()
+		{
+			
+			var step = $ ( this ).data ( 'step' );
+			
+			swal.fire ( {
+				            width             : $ ( window ).width (),
+				            position          : 'top-end',
+				            html              : `${ render_description ( step ) }`,
+				            showConfirmButton : false
+			            }
+			);
+			
+			translate ();
+		} );
 		
-		translate();
-	} );
-	
-	/*RENDERING OF ALERT AFTER USER CLICKS ON HOW TO BUTTON*/
-	function render_description ( step ) {
 		
-		var descriptions = {
-			
-			preview_mode : description_component ( description_content ( 'preview_mode' ), step, 'edit_mode' ),
-			edit_mode    : description_component ( description_content ( 'edit_mode' ), step, 'edit_mode' ),
-			block_mode   : description_component ( description_content ( 'block_mode' ), step, 'block_mode' ),
-			
-			add_mode : description_component ( description_content ( 'location' ), step, 'location' ),
-			
-			location : description_component ( description_content ( 'location' ), step, 'location' ),
-			
-			room     : description_component ( description_content ( 'room' ), step, 'room' ),
-			services : description_component ( description_content ( 'services' ), step, 'services' ),
-			preview  : description_component ( description_content ( 'preview' ), step, 'edit_mode' ),
-			payment  : description_component ( description_content ( 'payment' ), step, 'payment' )
-			
-		};
-		
-		return descriptions[ step ];
-	}
-	
-	/*HTML "COMPONENT" IN WHICH TO DISPLAY ALERT*/
-	function description_component ( description, step, gif ) {
-		
-		return `<div class="row">
+		/*RENDERING OF ALERT AFTER USER CLICKS ON HOW TO BUTTON*/
+		function render_description ( step )
+			{
 				
-				<div class = "col-md-3 description" data-cy="instruction_${gif}">
+				var descriptions = {
+					
+					preview_mode : description_component ( description_content ( 'preview_mode' ), step, 'edit_mode' ),
+					edit_mode    : description_component ( description_content ( 'edit_mode' ), step, 'edit_mode' ),
+					block_mode   : description_component ( description_content ( 'block_mode' ), step, 'block_mode' ),
+					
+					add_mode : description_component ( description_content ( 'location' ), step, 'location' ),
+					
+					location : description_component ( description_content ( 'location' ), step, 'location' ),
+					
+					room     : description_component ( description_content ( 'room' ), step, 'room' ),
+					services : description_component ( description_content ( 'services' ), step, 'services' ),
+					preview  : description_component ( description_content ( 'preview' ), step, 'edit_mode' ),
+					payment  : description_component ( description_content ( 'payment' ), step, 'payment' )
+					
+				};
+				
+				return descriptions[ step ];
+			}
+		
+		
+		/*HTML "COMPONENT" IN WHICH TO DISPLAY ALERT*/
+		function description_component ( description, step, gif )
+			{
+				
+				return `<div class="row">
+				
+				<div class = "col-md-3 description" data-cy="instruction_${ gif }">
 						
 						
 						${ sessionStorage.getItem ( 'edit_mode' )
-		                   ? `<h4 class="___ " data-text="you are in editing mode"></h4> ` : sessionStorage.getItem ( 'preview_mode' )
-		                                                 ? ` <h4 class="___ " data-text="you are in preview mode"></h4>` : sessionStorage.getItem ( 'add_mode' )
-		                                                                               ? `  <h4 class="___ " data-text="you are in add mode"></h4>` : sessionStorage.getItem ( 'block_mode' )
-		                                                                                                         ? ` <h4 class="___" data-text="you are in block mode"></h4>` : `` }
+				           ? `<h4 class="___ " data-text="you are in editing mode"></h4> ` : sessionStorage.getItem (
+						'preview_mode' )
+				                                                                             ? ` <h4 class="___ " data-text="you are in preview mode"></h4>`
+				                                                                             : sessionStorage.getItem (
+							'add_mode' )
+				                                                                               ? `  <h4 class="___ " data-text="you are in add mode"></h4>`
+				                                                                               : sessionStorage.getItem (
+								'block_mode' )
+				                                                                                 ? ` <h4 class="___" data-text="you are in block mode"></h4>`
+				                                                                                 : `` }
 						 <br>
 						 <hr class="bg_green">
-						  ${ sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'add_mode' ) || sessionStorage.getItem ( 'block_mode' )
-		                     ? description :
-		                     `${ sessionStorage.getItem ( 'preview_mode' ) ? `
+						  ${ sessionStorage.getItem ( 'edit_mode' ) || sessionStorage.getItem ( 'add_mode' )
+				             || sessionStorage.getItem ( 'block_mode' )
+				             ? description :
+				             `${ sessionStorage.getItem ( 'preview_mode' ) ? `
 												<span class="___" data-text="Click on"></span>
 										        <span class = " no_padding bg-secondary text-light " >
 										            <i class = "far fa-edit" ></i >
@@ -91,7 +104,7 @@ import { translate } from "../shared/translator/translator.js";
 										        
 										        <span class="___" data-text="button, if you would like to edit your room."></span>
 										         <hr class="bg_green">`
-		                                                                   : `` }
+				                                                           : `` }
 							` }
 						  
 						  <a class = " bg_orange text-primary pl-3 pr-3 pt-1 pb-1 img-thumbnail ___" id = "ok" onclick = "swal.close()"
@@ -119,13 +132,15 @@ import { translate } from "../shared/translator/translator.js";
        
 						 
 		  	</div>`;
+				
+			}
 		
-	}
-	
-	/*DESCRIPTION OF HOW TO STEP DEPENDING ON THE STEP*/
-	function description_content ( step ) {
-		var description_content = {
-			location : `
+		
+		/*DESCRIPTION OF HOW TO STEP DEPENDING ON THE STEP*/
+		function description_content ( step )
+			{
+				var description_content = {
+					location : `
 					<span class="___" data-text="Find location of your property on the map and then click the map to display coordinates."></span>
 					<span class="___" data-text="Then click on"></span>
 					<button class = "bg_orange ___" data-text="get details" ></button >
@@ -144,15 +159,15 @@ import { translate } from "../shared/translator/translator.js";
 					</p >
 					<hr class = "bg-danger" >
 					`,
-			
-			room         : `<span class="___" data-text="Define your room by selecting appropriate radio buttons."></span>
+					
+					room         : `<span class="___" data-text="Define your room by selecting appropriate radio buttons."></span>
 							<span class="___" data-text="Once all options are selected"></span>
 					 <span class="green ___" data-text="services"></span>
 					  <span class="green">&nbsp;>>></span>
 					  <span class="___" data-text="will appear and you can progress to next step."></span>
 					  
  					<hr class="bg_green">`,
-			services     : `<span class="___" data-text="Define your services by selecting appropriate check buttons."></span>
+					services     : `<span class="___" data-text="Define your services by selecting appropriate check buttons."></span>
 							<span class="___" data-text="You can select multiple options."></span>
 							<span class="___" data-text="When at least one of each options are selected and description is entered"></span>
 							<span class="green ___" data-text="preview"></span>
@@ -166,7 +181,7 @@ import { translate } from "../shared/translator/translator.js";
 						<p class = " text-danger ___" data-text="Description of the room must be at least 30 characters!" ></p>
 						<p class = " text-danger ___" data-text="When selecting board type, you must enter price for the board." > </p>
 						<hr class="bg-danger">`,
-			preview      : `
+					preview      : `
 						<span class="___"  data-text="Preview your work of art, by clicking on the tabs"></span>
   						<span class="nav_link_property ___" data-text="ABOUT, GALLERY, AMENITIES, AVAILABILITY, BOOK."> </span>
   						
@@ -202,7 +217,7 @@ import { translate } from "../shared/translator/translator.js";
 						 
 						` : `` }
 						<hr class="bg_green">`,
-			payment      : `
+					payment      : `
 						<span class="___" data-text="Here you can proceed with payment. Thank you for choosing"></span>
 						
 						 <b><span >wake up happy!</span></b>
@@ -218,7 +233,7 @@ import { translate } from "../shared/translator/translator.js";
   						<br><br>
 						
 						<hr class="bg_green">`,
-			block_mode   : `
+					block_mode   : `
 						<span class="___" data-text="Click on"></span>
 						
  						 <span class = "no_padding bg-secondary text-light " ><i class="far fa-edit"></i> <span class="___" data-text="Edit"></span></span >
@@ -242,7 +257,7 @@ import { translate } from "../shared/translator/translator.js";
                                 
                                 </span >
 						<hr class = "bg_green" >`,
-			edit_mode    : `
+					edit_mode    : `
                             <span class="___" data-text="Edit your room to your liking."></span>
                             
 								<hr class = "bg_green" >
@@ -260,7 +275,7 @@ import { translate } from "../shared/translator/translator.js";
 								<span class="___" data-text="to save your changes."></span>
 								
 								<hr class="bg_green">`,
-			preview_mode : `
+					preview_mode : `
                                 <span class="___" data-text=" If you would like to edit room, click on"></span>
                                
 						        <span class = " no_padding bg-secondary text-light " >
@@ -270,9 +285,9 @@ import { translate } from "../shared/translator/translator.js";
 						        <span class="___" data-text="Edit"></span>
 						       <span class="___" data-text="button"></span>
 								`
-			
-		};
-		
-		return description_content[ step ];
-	}
-} ) ();
+					
+				};
+				
+				return description_content[ step ];
+			}
+	} ) ();

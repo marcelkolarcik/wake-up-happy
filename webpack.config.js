@@ -111,7 +111,8 @@ var cleared = Object.assign ( {}, config, {
 	
 	entry  : [
 		'./assets/src/js/shared/render_footer.js',
-		'./assets/src/js/cleared.js'
+		'./assets/src/js/cleared.js',
+		'./assets/src/js/shared/create_DB.js',
 	
 	
 	],

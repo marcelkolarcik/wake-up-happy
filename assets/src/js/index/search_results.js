@@ -5,12 +5,12 @@
  TO DO SEARCH BY WEEKS AVAILABLE*/
 
 
-import { render_room_preview } from '../shared/render_room_preview.js';
-import { featured_rooms }      from './featured_rooms.js';
-import { current_year , next_year_weeks, next_year }        from "../shared/getWeek.js";
+import { render_room_preview }                      from '../shared/render_room_preview.js';
+import { featured_rooms }                           from './featured_rooms.js';
+import { current_year, next_year_weeks, next_year } from "../shared/getWeek.js";
 
 
-(function (  )
+( function ()
 	{
 		/*FUNCTION TO DETERMINE WHETHER TO SHOW OR CLOSE initial_locations DIV ON focusin
 		 *
@@ -39,13 +39,13 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 			}
 		
 		
-		
 		function booked_out ( bookings, weeks )
 			{
 				/* CHECK IF ROOM HAS THOSE WEEKS AVAILABLE*/
-				return weeks.some(v=>  bookings.indexOf(v) !== -1)
+				return weeks.some ( v => bookings.indexOf ( v ) !== -1 );
 				
 			}
+		
 		
 		/* CHECKING AVAILABILITY OF THE ROOM */
 		function is_available ( property, location, weeks = [] )
@@ -56,18 +56,18 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 				
 				var property_searchables = property.searchables;
 				
-				if ( room_type === 'any' && board_type === 'any' && !booked_out(property.bookings, weeks) && !property.wuh_disabled)
+				if ( room_type === 'any' && board_type === 'any' && !booked_out ( property.bookings, weeks )
+				     && !property.wuh_disabled )
 					{
 						
 						/*SEARCHING FOR location ONLY*/
-						if ( property_searchables.indexOf ( location.toString () ) !== -1)
-						 
+						if ( property_searchables.indexOf ( location.toString () ) !== -1 )
 							{
 								return true;
 							}
 						
 					}
-				else if ( room_type === 'any' && board_type !== 'any' && !booked_out(property.bookings, weeks))
+				else if ( room_type === 'any' && board_type !== 'any' && !booked_out ( property.bookings, weeks ) )
 					{
 						
 						/*SEARCHING FOR location AND board_type*/
@@ -79,13 +79,13 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 								return true;
 							}
 					}
-				else if ( room_type !== 'any' && board_type === 'any' && !booked_out(property.bookings, weeks))
+				else if ( room_type !== 'any' && board_type === 'any' && !booked_out ( property.bookings, weeks ) )
 					{
 						
 						/*SEARCHING FOR location AND room_type*/
 						if ( property_searchables.indexOf ( location.toString () ) !== -1 &&
 						     property.room_type.toString () === room_type.toString ()
-						     && !property.wuh_disabled)
+						     && !property.wuh_disabled )
 							{
 								return true;
 							}
@@ -98,7 +98,7 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 							property_searchables.indexOf ( location.toString () ) !== -1 &&
 							property.room_type.toString () === room_type.toString () &&
 							( board_type in property.price ) &&
-							!booked_out(property.bookings, weeks)
+							!booked_out ( property.bookings, weeks )
 							&& !property.wuh_disabled
 						)
 							{
@@ -107,10 +107,12 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 					}
 			}
 		
+		
 		function parse_to_int ( num )
 			{
 				return parseInt ( num );
 			}
+		
 		
 		/* DISPLAYING AVAILABLE ROOMS IN form_search_results*/
 		$ ( document ).on ( "click", "#search_btn", function ( e )
@@ -127,22 +129,21 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 			form_search_results.html ( '' );
 			$ ( '#map_search_result' ).html ( '' );
 			
-			var location_input = $('#location');
-			var location = location_input.val ();
+			var location_input = $ ( '#location' );
+			var location       = location_input.val ();
 			
-			var weeks = searched_weeks.val().split(',');
-			weeks.pop();
+			var weeks = searched_weeks.val ().split ( ',' );
+			weeks.pop ();
 			
-			weeks   = weeks.map ( parse_to_int );
+			weeks = weeks.map ( parse_to_int );
 			
-			searched_weeks.val('');
-			
+			searched_weeks.val ( '' );
 			
 			
 			/*AT LEAST location MUST BE SELECTED*/
 			if ( location === '' )
 				{
-					location_input.addClass('bg-warning');
+					location_input.addClass ( 'bg-warning' );
 					
 					
 					return;
@@ -160,7 +161,7 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 					 * SO NEED TO FILTER OUT THOSE DELETED ROOMS*/
 						{
 							/*IF property IS AVAILABLE APPEND IT TO SEARCH RESULTS*/
-							if ( is_available ( property, location , weeks ) )
+							if ( is_available ( property, location, weeks ) )
 								{
 									
 									render_room_preview ( property, 'form_search_results' );
@@ -177,7 +178,7 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 					
 					/*IF SEARCH RESULTS ARE EMPTY, WE WILL DISPLAY INFO TO THE USER ABOUT 0 RESULTS
 					 * AND DISPLAY featured_rooms INSTEAD*/
-					$('#featured_search_results').html('').append ( ` <div class = "img-thumbnail mt-3 bg_orange ___ " id="results"
+					$ ( '#featured_search_results' ).html ( '' ).append ( ` <div class = "img-thumbnail mt-3 bg_orange ___ " id="results"
                                                         data-text="Your search returned 0 results, try different search parameters or have a look at featured properties bellow."    >
 					                             
 					                           
@@ -190,14 +191,14 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 					form_search_results.prepend (
 						` <div class = "img-thumbnail mt-3 border_green pl-3" id="results">
                                 <span class="___" data-text="Search results:"></span> ${ results } -
-								<span class="___" data-text="weeks"></span>	 # ${weeks.join(',')}</div >` );
+								<span class="___" data-text="weeks"></span>	 # ${ weeks.join ( ',' ) }</div >` );
 				}
 			
 			
 			/*https://stackoverflow.com/questions/6677035/jquery-scroll-to-element*/
 			/*SCROLLING TO SEARCH RESULTS*/
-			$(form_search_results).get(0).scrollIntoView();
-
+			$ ( form_search_results ).get ( 0 ).scrollIntoView ();
+			
 			
 		} );
 		
@@ -218,70 +219,70 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 			render_room_preview ( property, 'map_search_result' );
 			
 			/*SCROLLING TO SEARCH RESULTS*/
-			$(map_search_result).get(0).scrollIntoView();
+			$ ( map_search_result ).get ( 0 ).scrollIntoView ();
 		} );
 		
 		
-		var calendar = $('#calendar');
+		var calendar = $ ( '#calendar' );
 		
-		$ ( document ).on ( "click", "#searched_weeks", function (){
+		$ ( document ).on ( "click", "#searched_weeks", function ()
+		{
 			
-			console.log('calendar.html()',calendar.html())
+			
 			/*ONLY APPENDING CALENDAR ONCE,
-			* BECAUSE IF USER CLICKS ON INPUT
-			* FIELD AGAIN, WE WOULD APPEND
-			* CALENDAR AGAIN AND WE WOULD RESET
-			* SELECTED WEEKS AND USER WOULD BE
-			* ABLE TO SELECT SAME WEEK AGAIN...*/
-			if(calendar.html() === '')
+			 * BECAUSE IF USER CLICKS ON INPUT
+			 * FIELD AGAIN, WE WOULD APPEND
+			 * CALENDAR AGAIN AND WE WOULD RESET
+			 * SELECTED WEEKS AND USER WOULD BE
+			 * ABLE TO SELECT SAME WEEK AGAIN...*/
+			if ( calendar.html () === '' )
 				{
-					calendar.append(`${ current_year }<br>`);
-					for(var w=1; w<54;w++)
+					calendar.append ( `${ current_year }<br>` );
+					for ( var w = 1 ; w < 54 ; w++ )
 						{
-							if(next_year_weeks.indexOf(w) === -1)
+							if ( next_year_weeks.indexOf ( w ) === -1 )
 								{
-									calendar.append(`<span class=" img-thumbnail s_week bg_green "
+									calendar.append ( `<span class=" img-thumbnail s_week bg_green "
 				
 											title="${ w }  - ${ current_year }"
 											 data-week="${ w }"
-											 data-cy_week="${w}"
+											 data-cy_week="${ w }"
 											>
 											 ${ w }
-											</span>`);
+											</span>` );
 									
 								}
 							
 							
 						}
-					calendar.append(`<br>${ next_year }<br>`);
-					for( w=1; w<54;w++)
+					calendar.append ( `<br>${ next_year }<br>` );
+					for ( w = 1 ; w < 54 ; w++ )
 						{
-							if(next_year_weeks.indexOf(w) !== -1)
+							if ( next_year_weeks.indexOf ( w ) !== -1 )
 								{
-									calendar.append(`<span class="img-thumbnail s_week bg_grey_light"
+									calendar.append ( `<span class="img-thumbnail s_week bg_grey_light"
 				
 											title="${ w }  - ${ next_year }"
 											data-week="${ w }"
 											>
 											${ w }
-											</span>`);
+											</span>` );
 									
 								}
 							
 							
 						}
-					calendar.append(` <br>  <div class = "text-right"> <button
+					calendar.append ( ` <br>  <div class = "text-right"> <button
 		                                class = "btn  btn-sm bg_green  text-light   "
 		                               
 		                                id = "done"
                                 >
                                     <span ><i class="fas fa-check-circle"></i></span >
-                                </button ></div> `)
+                                </button ></div> ` );
 				}
 			
 			
-   
-		});
+		} );
 		
 		/*  ON FOCUSING INTO SEARCH INPUT FIELDS,
 		 *  DEPENDING ON DATA ATTRIBUTE add_in_lo
@@ -289,45 +290,44 @@ import { current_year , next_year_weeks, next_year }        from "../shared/getW
 		$ ( document ).on ( 'focusin', '.add_initial_locations', function ()
 		{
 			var add = $ ( this ).data ( 'add_in_lo' );
-			if($(this).attr('id') === 'location')
-			initial_locations ( add );
+			if ( $ ( this ).attr ( 'id' ) === 'location' )
+				initial_locations ( add );
 			
 			/*IF USER DIDN'T SELECT LOCATION AND CLICKED ON
 			 * SEARCH BUTTON, WE WOULD ADD bg-danger  CLASS TO
 			 * location INPUT FIELD, SO WHEN HE IS TYPING IN
 			 * LOCATION WE WILL REMOVE bg-warning FROM THE INPUT FIELD*/
-			$(this).attr('id') === 'location' ? $(this).removeClass('bg-warning'): '';
+			$ ( this ).attr ( 'id' ) === 'location' ? $ ( this ).removeClass ( 'bg-warning' ) : '';
 			
 		} );
-		var searched_weeks = $("#searched_weeks");
+		var searched_weeks = $ ( "#searched_weeks" );
 		
-		$(document).on('click', '.s_week', function (  )
+		$ ( document ).on ( 'click', '.s_week', function ()
 		{
 			
 			/*IF WEEK IS SELECTED WE ADD IT TO searched_weeks*/
-			if(!$(this).hasClass('selected'))
+			if ( !$ ( this ).hasClass ( 'selected' ) )
 				{
-					searched_weeks.val( searched_weeks.val() +  $(this).data('week')+','   );
-					$(this).addClass('selected bg-danger');
+					searched_weeks.val ( searched_weeks.val () + $ ( this ).data ( 'week' ) + ',' );
+					$ ( this ).addClass ( 'selected bg-danger' );
 					
 				}
-			else if($(this).hasClass('selected'))
+			else if ( $ ( this ).hasClass ( 'selected' ) )
 				{
-					searched_weeks.val( searched_weeks.val().replace( $(this).data('week')+',' ,'' ) );
-					$(this).removeClass('selected bg-danger');
+					searched_weeks.val ( searched_weeks.val ().replace ( $ ( this ).data ( 'week' ) + ',', '' ) );
+					$ ( this ).removeClass ( 'selected bg-danger' );
 				}
 			
-		});
+		} );
 		
 		
-		
-		$(document).on('click', '#done', function (  )
+		$ ( document ).on ( 'click', '#done', function ()
 		{
 			
-			calendar.html('');
-		});
+			calendar.html ( '' );
+		} );
 		
-	})();
+	} ) ();
 
 
 

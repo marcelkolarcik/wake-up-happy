@@ -1,6 +1,6 @@
-(function (  )
+( function ()
 	{
-		$('#footer').append(`<ul class = "social-networks">
+		$ ( '#footer' ).append ( `<ul class = "social-networks">
         <li ><a
 		        href = "https://facebook.com"
 		        target = "_blank"
@@ -32,5 +32,5 @@
 	    <a href="https://github.com/marcelkolarcik/wake-up-happy" target="_blank" class="name ___"  data-title="Find me on GitHub!">
 	   <i class="fab fa-github name text-secondary " ></i>
 	    </a>
-    </div >`).addClass('mb-5')
-	})();
+    </div >` ).addClass ( 'mb-5' );
+	} ) ();

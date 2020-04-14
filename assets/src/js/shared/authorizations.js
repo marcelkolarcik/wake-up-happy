@@ -88,10 +88,9 @@ $ ( document ).on ( 'click', '#login', function ()
 	var password  = form_data[ 1 ].split ( '=' )[ 1 ];
 	
 	
-	
 	if ( decodeURIComponent ( email ) === 'admin@wuh.com' && decodeURIComponent ( password ) === 'password' )
 		{
-			localStorage.setItem('admin', true);
+			localStorage.setItem ( 'admin', true );
 			
 			
 			window.location.replace ( "admin.html" );
@@ -146,12 +145,13 @@ $ ( document ).on ( 'click', '#logout', function ()
 	sessionStorage.setItem ( 'add_mode', true );
 	window.location.reload ();
 	
+	
 } );
 $ ( document ).on ( 'click', '#admin_logout', function ()
 {
 	
 	sessionStorage.clear ();
-	localStorage.removeItem('admin');
+	localStorage.removeItem ( 'admin' );
 	window.location.replace ( "index.html" );
 	
 } );

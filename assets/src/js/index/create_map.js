@@ -13,21 +13,13 @@
  * AMENITIES, GALLERY, DESCRIPTION, AVAILABILITY AND HE CAN
  * BOOK THE ROOM AS WELL
  */
-import { translate } from "../shared/translator/translator.js";
-import {view_types,room_types} from './../shared/inventory.js';
+import { translate }              from "../shared/translator/translator.js";
+import { view_types, room_types } from './../shared/inventory.js';
+
 
 export function create_map ( coordinates = null, show_p_id = null )
 	{
-//		jQuery(document).ready(function(){
-//			$("#map_index").click(function(e){
-//				var parentOffset = $(this).parent().offset();
-//				//or $(this).offset(); if you really just want the current element's offset
-//				var relX = e.pageX - parentOffset.left;
-//				var relY = e.pageY - parentOffset.top;
-//				console.log((relX) + ' , ' + (relY));
-//
-//			});
-//		})
+
 		var tiles = L.tileLayer ( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom     : 18,
 			attribution : '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'
@@ -74,29 +66,29 @@ export function create_map ( coordinates = null, show_p_id = null )
 		                                 } );
 		
 		
-		
 		/*CREATING MARKERS ON THE MAP WITH ROOMS FROM LOCAL STORAGE, AS WELL AS
 		 * POPUP WITH ROOM IMAGE AND SHORT ROOM DETAILS*/
 		
-		var ROOMS      = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
+		var ROOMS = JSON.parse ( localStorage.getItem ( 'ROOMS' ) );
 		
-			    $.each ( ROOMS, function ( p_id, property )
+		$.each ( ROOMS, function ( p_id, property )
 		{
 			
 			if ( property )
 				{
 					var marker = L.marker (
 						new L.LatLng ( property.lat, property.lng ), { title : property.city } );
-					var popup = L.popup ( {
-						                      
-						                    
-						                     className: sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem ( 'lng' )
-						                                ?'popup_class_index': '',
-											keepInView:!!coordinates
+					var popup  = L.popup ( {
 						
-					                      } )
-						.setContent(
-							`<img src="assets/src/images/bedrooms/b${ property.room_style }_s.jpg" class="___" data-alt="property image" alt = " "
+						
+						                       className  : sessionStorage.getItem ( 'lat' ) && sessionStorage.getItem (
+							                       'lng' )
+						                                    ? 'popup_class_index' : '',
+						                       keepInView : !!coordinates
+						
+					                       } )
+					              .setContent (
+						              `<img src="assets/src/images/bedrooms/b${ property.room_style }_s.jpg" class="___" data-alt="property image" alt = " "
 							 style="width:140px;height:70px;">
 							 <br><b><span class="text-capitalize">  ${ decodeURI ( property.location ) }</span></b>
 							
@@ -113,9 +105,9 @@ export function create_map ( coordinates = null, show_p_id = null )
 							  id="${ p_id }"
 							  data-image_id="${ property.room_style }"
 							  data-text="more..."
-							  data-cy="room_map_popup_${property.p_id}"
+							  data-cy="room_map_popup_${ property.p_id }"
 							  data-cy_="room_popup"
-							  href="#" ><i class="fas fa-external-link-square-alt "></i></a> `);
+							  href="#" ><i class="fas fa-external-link-square-alt "></i></a> ` );
 
 
 //			IF OWNER ADDED NEW ROOM, WE WILL REDIRECT TO index.html AND OPEN POPUP WITH HIS NEWLY CREATED ROOM
@@ -126,7 +118,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							
 							L.marker ( [ sessionStorage.getItem ( 'lat' ), sessionStorage.getItem ( 'lng' ) ] )
 							 .addTo ( map )
-							 .bindPopup (popup )
+							 .bindPopup ( popup )
 							 .openPopup ();
 
 //							BECAUSE WE ALREADY OPENED POPUP FOR NEWLY CREATED ROOM, WE ARE
@@ -136,7 +128,7 @@ export function create_map ( coordinates = null, show_p_id = null )
 							sessionStorage.removeItem ( 'new_p_id' );
 							sessionStorage.removeItem ( 'lat' );
 							sessionStorage.removeItem ( 'lng' );
-							sessionStorage.setItem('new_room',true);
+							sessionStorage.setItem ( 'new_room', true );
 							
 						}
 					
@@ -144,11 +136,11 @@ export function create_map ( coordinates = null, show_p_id = null )
 					
 					else if ( coordinates && p_id === show_p_id )
 						{
-						
+							
 							
 							L.marker ( coordinates )
 							 .addTo ( map )
-							 .bindPopup (  popup )
+							 .bindPopup ( popup )
 							 .openPopup ();
 							
 							
@@ -174,10 +166,10 @@ export function create_map ( coordinates = null, show_p_id = null )
 $ ( function ()
     {
 	    create_map ();
-	    sessionStorage.new_room ?  $($('#map_index')).get(0).scrollIntoView():"";
-	    
-	    sessionStorage.removeItem('new_room');
-	   
+	    sessionStorage.new_room ? $ ( $ ( '#map_index' ) ).get ( 0 ).scrollIntoView () : "";
+	
+	    sessionStorage.removeItem ( 'new_room' );
+	
     } );
 
 //WHEN USER CLICKS ON show_on_map BUTTON WHEN PREVIEWING THE ROOM WE WILL
@@ -199,6 +191,6 @@ $ ( document ).on ( 'click', '.show_on_map', function ()
 		                             scrollTop : $ ( "#map_index" ).offset ().top
 	                             }, 11 );
 	
-	translate();
+	translate ();
 } );
 

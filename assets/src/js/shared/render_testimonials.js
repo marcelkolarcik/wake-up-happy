@@ -1,7 +1,7 @@
 import { getRandom } from "./create_DB.js";
 
 
-(function (  )
+( function ()
 	{
 		
 		var classes = [
@@ -30,7 +30,7 @@ import { getRandom } from "./create_DB.js";
 						<span class="green"><i class="fas fa-star"></i></span>`
 		];
 		
-		var page = window.location.pathname.includes('index') ? 'index' : 'owner' ;
+		var page         = window.location.pathname.includes ( 'index' ) ? 'index' : 'owner';
 		var testimonials = {
 			index : [
 				'This was our 2nd stay at The Edison and we will be sure to have a 3rd. '
@@ -94,7 +94,7 @@ import { getRandom } from "./create_DB.js";
 				,
 				'If you\'re wanting additional income, tax free, look no further!'
 			]
-		
+			
 		};
 		
 		var names = [
@@ -111,52 +111,56 @@ import { getRandom } from "./create_DB.js";
 			'A. Forrest',
 			'E. O\'Sullivan'
 		];
-		function shuffle(array) {
-			array.sort(() => Math.random() - 0.5);
-		}
 		
-		shuffle(names);
 		
-		var page_testimonials =testimonials[page];
-		shuffle(page_testimonials);
+		function shuffle ( array )
+			{
+				array.sort ( () => Math.random () - 0.5 );
+			}
 		
-		var img_id = [1,2,3,4,5,6,7,8,9,10,11,12];
-		shuffle(img_id);
-		var testi_div = $('#testi_holder');
-		var c = -1;
-		var b=0;
-		for(var a=0;a<12;a++)
+		
+		shuffle ( names );
+		
+		var page_testimonials = testimonials[ page ];
+		shuffle ( page_testimonials );
+		
+		var img_id = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+		shuffle ( img_id );
+		var testi_div = $ ( '#testi_holder' );
+		var c         = -1;
+		var b         = 0;
+		for ( var a = 0 ; a < 12 ; a++ )
 			{
 				
-				if(a%4 === 0)
+				if ( a % 4 === 0 )
 					{
 						
 						
-						testi_div.append(`<div class="carousel-item ${ a === 0 ? 'active': ''}" data-interval="10000">
-	                                            <div class = "row d-flex justify-content-center" id="slide_${a}">
+						testi_div.append ( `<div class="carousel-item ${ a === 0 ? 'active' : '' }" data-interval="10000">
+	                                            <div class = "row d-flex justify-content-center" id="slide_${ a }">
 												</div>
-											</div>`);
+											</div>` );
 						
 						
-						for( b=0;b<4;b++)
+						for ( b = 0 ; b < 4 ; b++ )
 							{
 								c++;
 								
-								$('#slide_'+a).append(`
-								 <div class="${classes[b]}">
+								$ ( '#slide_' + a ).append ( `
+								 <div class="${ classes[ b ] }">
 									     <!-- testimonial long -->
 							            <div class = "card" >
 								            <div class="row no-gutters">
 							
 									                <div class = "d-flex justify-content-around align-items-end" >
 									               
-									                ${page === 'index' ?
-								                      `<img src="assets/src/images/avatars/${ img_id[c]  }.png" class="avatar" alt="avatar image">`
-								                                       :
-								                      `<img src="assets/src/images/bedrooms/b${img_id[c]}_s.jpg" class="avatar" alt="bedroom image">`}
+									                ${ page === 'index' ?
+								                       `<img src="assets/src/images/avatars/${ img_id[ c ] }.png" class="avatar" alt="avatar image">`
+								                                        :
+								                       `<img src="assets/src/images/bedrooms/b${ img_id[ c ] }_s.jpg" class="avatar" alt="bedroom image">` }
 									                  
 										                <div>
-											               ${stars[getRandom(0,2)]}
+											               ${ stars[ getRandom ( 0, 2 ) ] }
 										                </div>
 										                
 									                </div >
@@ -165,17 +169,18 @@ import { getRandom } from "./create_DB.js";
 									                
 									                <span class="float-right">
 									                <span class = "blockquote-footer" >
-									                      ${names[c]}
+									                      ${ names[ c ] }
 									                    </span >
-									                   <hr class="bg_green">
+									                   
 									                 </span>
+									               <hr class="bg_green">
 									               
-									               
-									                    <h3 class = "nav_link_property" >${ page_testimonials[c].substring(0, 20)} ...</h3 >
+									                    <h3 class = "nav_link_property" >${ page_testimonials[ c ].substring (
+									0, 20 ) } ...</h3 >
 									                   
 									                    <p class = "card-text quote_text" >
 									                        <span class = "quote_mark" >“</span >
-									                   <cite>${page_testimonials[c]}</cite>
+									                   <cite>${ page_testimonials[ c ] }</cite>
 									                        <span class = "quote_mark" >“</span >
 									                    </p >
 									                   
@@ -185,12 +190,11 @@ import { getRandom } from "./create_DB.js";
 							            </div >
 									     <!--end of testimonial long -->
 								  </div>
-								`)
+								` );
 							}
 					}
 				
 				
-				
 			}
 		
-	})();
+	} ) ();

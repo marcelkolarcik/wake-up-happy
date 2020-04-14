@@ -25,8 +25,9 @@
  *                   ROOM ABOVE SEARCH FORM AND MAP, BECAUSE ON MOBILE DEVICES
  *                   ROOM WOULDN'T BE IN IMMEDIATE VIEW, BUT UNDER MAP...
  * preview => IF OWNER IS LOGGED*/
-import { translate } from "./translator/translator.js";
-import {room_types,} from './inventory.js';
+import { translate }   from "./translator/translator.js";
+import { room_types } from './inventory.js';
+
 
 export function render_room ( room, where, preview = false )
 	{
@@ -44,11 +45,9 @@ export function render_room ( room, where, preview = false )
 		if ( preview ) where_div.html ( '' );
 		
 		
-		
-		
 		where_div.append ( `
 
-<div class = "card mb-3 mt-3" data-cy="room_id_${room.p_id}">
+<div class = "card mb-3 mt-3" data-cy="room_id_${ room.p_id }">
     <div class = "row no-gutters" >
         <div class = "col-md-4 vertically_aligned img-thumbnail" id="property_img">
        
@@ -66,17 +65,18 @@ export function render_room ( room, where, preview = false )
 						data-lat="${ room.lat }"
 						data-lng="${ room.lng }"
 						data-p_id="${ room.p_id }"
-						data-cy="room_on_map_${room.p_id}"
+						data-cy="room_on_map_${ room.p_id }"
 						
 						><i class="fas fa-map-marker-alt"></i></span>
             </h6 >
              
-             <span class=" d-md-none  text-capitalize"  >
-					<h4 class="ml-2 nav_link_property">
+            
+					<h4 class="ml-2 nav_link_property"><span class=" d-md-none  text-capitalize"  >
 			${ decodeURI ( room.p_address.property_name ) } | ${ decodeURI (
 			room.location ) } | ${ room_types[ room.room_type ] }
+					</span >
                     </h4>
-             </span >
+             
              <span class="d-md-none ml-2" id="mobile_${ room.p_id }">
               ${ decodeURI ( room.p_description ).substring ( 0, 30 ) }...
               </span>
@@ -138,13 +138,15 @@ export function render_room ( room, where, preview = false )
                 <div class = "tab-pane active " id = "about_${ room.p_id }" role = "tabpanel" >
                  <!--<div id="save_changes" class="float-right"></div>-->
                     <div class = "card-body " >
-                        	<span class="pl-2 d-none d-md-block text-capitalize" >
+                    
 											<h4 class="nav_link_property"
-											data-cy_tab_pane="about_${room.p_id}">
+											data-cy_tab_pane="about_${ room.p_id }">
+											<span class="pl-2 d-none d-md-block text-capitalize" >
 						${ decodeURI ( room.p_address.property_name ) } | ${ decodeURI (
 			room.location ) } | ${ room_types[ room.room_type ] }
+						</span >
                                              </h4>
-             				</span >
+             				
                         <p class = "card-text mb-5 pb-5" >${ decodeURI ( room.p_description ) }</p >
                     </div >
                   
@@ -159,11 +161,11 @@ export function render_room ( room, where, preview = false )
                 id = "gallery_${ room.p_id }"
                 role = "tabpanel"
                 data-ride="carousel"
-                data-cy_tab_pane="gallery_${room.p_id}"
+                data-cy_tab_pane="gallery_${ room.p_id }"
                 ></div>
                 
                 
-                <div class = "tab-pane" id = "availability_${ room.p_id }" data-cy_tab_pane="availability_${room.p_id}" role = "tabpanel" >
+                <div class = "tab-pane" id = "availability_${ room.p_id }" data-cy_tab_pane="availability_${ room.p_id }" role = "tabpanel" >
                  <div class = "col-md-12" >
 	                    <div class="row">
 		                   
@@ -181,7 +183,7 @@ export function render_room ( room, where, preview = false )
 								
 								</div>
 							 	<div id="boards_${ room.p_id }" class="col p-0"></div>
-							 	 <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${ room.p_id }" data-cy="room_availability_${room.p_id}"> </div >
+							 	 <div class = "row pl-3 pr-3 pt-1 pb-1 " id = "bookings_${ room.p_id }" data-cy="room_availability_${ room.p_id }"> </div >
           
 							 	<div class="card-footer bg-transparent">
 							 	   <!--IF OWNER IS LOGGED IN AND IN edit_mode WE WILL DISPLAY  How to block weeks ?
@@ -206,8 +208,8 @@ export function render_room ( room, where, preview = false )
 					 
 					 
 					</div >
-					<div class = "tab-pane" id = "amenities_${ room.p_id }" role = "tabpanel" data-cy_tab_pane="amenities_${room.p_id}"></div >
-                <div class = "tab-pane" id = "book_${ room.p_id }" role = "tabpanel"  data-cy_tab_pane="book_${room.p_id}"></div >
+					<div class = "tab-pane" id = "amenities_${ room.p_id }" role = "tabpanel" data-cy_tab_pane="amenities_${ room.p_id }"></div >
+                <div class = "tab-pane" id = "book_${ room.p_id }" role = "tabpanel"  data-cy_tab_pane="book_${ room.p_id }"></div >
             </div >
         </div >
     </div >
@@ -222,7 +224,7 @@ export function render_room ( room, where, preview = false )
 $ ( document ).on ( 'click', '#how_to_block_dates', function ()
 {
 	swal.fire ( {
-		           
+		
 		
 		            html              : `
 				<h4 class="___" data-text="How to block weeks ?"></h4>
@@ -256,7 +258,7 @@ $ ( document ).on ( 'click', '#how_to_block_dates', function ()
 		`,
 		            showConfirmButton : false
 	            } );
-	translate();
+	translate ();
 	return false;
 } );
 //ON MOBILE DEVICES, more..., less... BUTTON TO SHOW / HIDE TABS TO PREVIEW ROOM
@@ -266,20 +268,20 @@ $ ( document ).on ( 'click', '.show_tabs', function ()
 	
 	
 	/*SWITCHING BUTTON'S  AND CHANGING COLOR OF THE BUTTON WHEN CLICKING ON more.../ less...*/
-	if($ ( this ).data ('text') ===  'more...')
+	if ( $ ( this ).data ( 'text' ) === 'more...' )
 		{
-			$ ( '.less_'+p_id ).removeClass('d-none').addClass ( 'bg-danger' );
-			$ ( '.more_'+p_id ).addClass('d-none');
+			$ ( '.less_' + p_id ).removeClass ( 'd-none' ).addClass ( 'bg-danger' );
+			$ ( '.more_' + p_id ).addClass ( 'd-none' );
 		}
 	else
 		{
-			$ ( '.more_'+p_id ).removeClass('d-none');
-			$ ( '.less_'+p_id ).addClass('d-none').removeClass ( 'bg-danger' );
+			$ ( '.more_' + p_id ).removeClass ( 'd-none' );
+			$ ( '.less_' + p_id ).addClass ( 'd-none' ).removeClass ( 'bg-danger' );
 		}
 	
 	$ ( '#tabs_' + p_id ).toggleClass ( 'd-none d-md-block' );
 	
-	$('#mobile_'+p_id).get(0).scrollIntoView();
+	$ ( '#mobile_' + p_id ).get ( 0 ).scrollIntoView ();
 	
 } );
 

@@ -60,6 +60,7 @@ out a room in their home.
 - [Deployment](#deployment)
 - [Future Features](#future-features)
 - [Browser support](#Browser-support)
+- [Acknowledgements](#Acknowledgements)
 
 
 
@@ -672,7 +673,20 @@ To merge branch with master:
    - Apple Safari responds with Error:  Can't Establish a Secure Connection to the Server github.com .
  
 
+# Acknowledgements
 
+Images used on the site were from 
+<a href="https://www.freepik.com/free-photos-vectors/background"> www.freepik.com</a>
+
+I would like to thank my mentor Aaron Sinnott for suggesting usage of webpack.
+
+I have used 
+<a href="https://stackoverflow.com" title="https://stackoverflow.com">https://stackoverflow.com</a>
+,<a href="https://stackoverflow.com" title="developer.mozilla.org">https://developer.mozilla.org</a> 
+<a href="https://w3.org" title="w3.org">https://w3.org</a> 
+ for learning new things and I have used some of the code suggestions form the sites in my project.
+ All of which is commented in comments, in JS files, where I am using it.
+ I used random customer testimonials from tripadvisor.com
 
  
  

@@ -1,4 +1,4 @@
-$('#languages').append(`
+$ ( '#languages' ).append ( `
  
                     <a
 		                    aria-expanded = "false"
@@ -89,4 +89,4 @@ $('#languages').append(`
 		    </div >
         </div >
      
-`);
+` );
